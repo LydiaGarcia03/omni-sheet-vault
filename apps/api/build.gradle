@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'jacoco'
     id 'org.springframework.boot' version '4.1.0'
     id 'io.spring.dependency-management' version '1.1.7'
 }
@@ -43,6 +44,7 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
 
     // --- Tests ---
+    testImplementation platform('org.testcontainers:testcontainers-bom:1.21.3')
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.security:spring-security-test'
     testImplementation 'org.springframework.boot:spring-boot-testcontainers'
@@ -58,4 +60,22 @@ tasks.withType(JavaCompile).configureEach {
 
 tasks.named('test') {
     useJUnitPlatform()
+    finalizedBy tasks.named('jacocoTestReport')
+}
+
+tasks.named('jacocoTestReport') {
+    dependsOn tasks.named('test')
+    reports {
+        xml.required = true
+        html.required = true
+    }
+}
+
+sonar {
+    properties {
+        property 'sonar.coverage.jacoco.xmlReportPaths',
+                layout.buildDirectory.file('reports/jacoco/test/jacocoTestReport.xml').get().asFile.absolutePath
+        property 'sonar.junit.reportPaths',
+                layout.buildDirectory.dir('test-results/test').get().asFile.absolutePath
+    }
 }
