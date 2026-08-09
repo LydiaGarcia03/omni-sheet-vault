@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: omni-sheet-vault-api
+
+  docker:
+    compose:
+      file: ../../docker-compose.yml
+      lifecycle-management: start-only
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/omni_sheet_vault
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8081/realms/omni-sheet-vault
+
+storage:
+  endpoint: http://localhost:9000
+  bucket: character-portraits
+  access-key: ${MINIO_ROOT_USER}
+  secret-key: ${MINIO_ROOT_PASSWORD}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+server:
+  port: 8090
+
+logging:
+  level:
+    org.springframework.security: INFO
