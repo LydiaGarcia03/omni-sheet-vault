@@ -30,25 +30,37 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Build and test
+      - name: Build, test and coverage report
         run: ./gradlew :apps:api:build
 
       - name: SonarQube analysis
-        if: ${{ env.SONAR_TOKEN != '' }}
+        if: ${{ github.event_name == 'pull_request' || github.ref == 'refs/heads/main' }}
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: ./gradlew :apps:api:sonar --info
+        run: ./gradlew sonar --info
 
   frontend:
     name: Frontend build
     runs-on: ubuntu-latest
-    if: ${{ hashFiles('apps/web/package.json') != '' }}
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      # apps/web does not exist yet. Until it does, the remaining steps are skipped
+      # instead of failing the job.
+      - name: Detect frontend
+        id: detect
+        run: |
+          if [ -f apps/web/package.json ]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "No frontend yet — skipping."
+          fi
+
       - name: Set up Node
+        if: steps.detect.outputs.present == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -56,9 +68,11 @@ jobs:
           cache-dependency-path: apps/web/package-lock.json
 
       - name: Install dependencies
+        if: steps.detect.outputs.present == 'true'
         working-directory: apps/web
         run: npm ci
 
       - name: Build
+        if: steps.detect.outputs.present == 'true'
         working-directory: apps/web
         run: npm run build
