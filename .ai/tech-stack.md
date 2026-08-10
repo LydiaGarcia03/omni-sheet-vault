@@ -23,6 +23,29 @@ Boot 4 documentation before copying a snippet.
 Deliberately absent: Lombok (records cover the need), Hypersistence Utils (Hibernate
 maps JSONB natively via `@JdbcTypeCode(SqlTypes.JSON)`).
 
+### Code quality and CI
+
+| Item | Version | Notes |
+| --- | --- | --- |
+| SonarQube Cloud | — | Free for public projects; analysis runs from CI, not automatic |
+| SonarScanner for Gradle (`org.sonarqube`) | 7.x | **Minimum 7.0.0.6105** — see constraint below |
+| JaCoCo | Managed by Gradle | XML report must stay enabled; Sonar reads only the XML |
+
+#### Constraint: Sonar plugin must be 7.x
+
+Gradle 9 removed the `Convention` API. Scanner versions below 7.0.0.6105 still call
+it, so the build fails at the `sonar` task with:
+
+    'org.gradle.api.plugins.Convention org.gradle.api.internal.plugins.DslObject.getConvention()'
+
+The message names no plugin, so it reads like a Gradle problem. It is a version
+mismatch. **Never downgrade the Sonar plugin below 7.0.0.6105 while the build runs on
+Gradle 9.**
+
+The plugin is applied to the **root** project, not to `:apps:api` — the scanner
+analyses a project hierarchy from its root. JaCoCo stays in `:apps:api`, where the
+tests are.
+
 ## Frontend
 
 | Item | Notes |
