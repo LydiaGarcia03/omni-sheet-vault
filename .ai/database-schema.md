@@ -102,7 +102,7 @@ choice: PostgreSQL gains no performance from a length limit.
 
 Values above roughly 2 KB are TOASTed — compressed and moved to a side table, leaving a
 pointer in the row. A query selecting `id, name, system_id` therefore does not pay for
-anyone's backstory. The database already performs the normalisation one might be
+anyone's backstory. The database already performs the normalization one might be
 tempted to do by hand, so **do not move `backstory` to its own table**.
 
 Consequences worth knowing:
@@ -120,7 +120,7 @@ Consequences worth knowing:
 ### Soft delete
 
 Deleting a character sets `deleted_at`; the roll history survives. **Every query
-against `characters` must filter `deleted_at IS NULL`.** Centralise that filter in one
+against `characters` must filter `deleted_at IS NULL`.** Centralize that filter in one
 place rather than repeating it — a forgotten filter silently resurrects deleted
 characters.
 

@@ -43,7 +43,7 @@ mismatch. **Never downgrade the Sonar plugin below 7.0.0.6105 while the build ru
 Gradle 9.**
 
 The plugin is applied to the **root** project, not to `:apps:api` — the scanner
-analyses a project hierarchy from its root. JaCoCo stays in `:apps:api`, where the
+analyzes a project hierarchy from its root. JaCoCo stays in `:apps:api`, where the
 tests are.
 
 ## Frontend
@@ -73,6 +73,29 @@ first-boot script in `infra/postgres/init/`.
 The public instance targets a free-tier ARM VM. **Every image must have an `arm64`
 build, including the API image.** Build with buildx or on the target architecture.
 Discovering this on deployment day is avoidable — treat it as a hard requirement.
+
+## Before exposing anything publicly
+
+None of the items below apply to local development. They become mandatory the moment
+a service is reachable from outside the development machine.
+
+### Keycloak
+
+The admin created from `KC_BOOTSTRAP_ADMIN_USERNAME` and `KC_BOOTSTRAP_ADMIN_PASSWORD`
+is a **temporary bootstrap account**. Keycloak flags it on every login. It is fine
+locally — the credentials live in `.env` and the service only listens on localhost.
+
+Before the first public deployment:
+
+- Create a permanent admin account with a password that does not come from an
+  environment variable, and delete the bootstrap admin.
+- Do not expose the admin console publicly unless there is a reason to.
+- Serve Keycloak over HTTPS. The realm currently has `sslRequired: external`, which
+  only holds if a TLS terminator is actually in front of it.
+
+Note: accounts in the `master` realm are not part of the exported realm file. A
+permanent admin created locally would be lost on `docker compose down -v`, which is
+why this step is deliberately deferred to deployment rather than done now.
 
 ## Toolchain and JAVA_HOME
 
