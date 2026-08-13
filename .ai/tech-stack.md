@@ -23,8 +23,6 @@ Boot 4 documentation before copying a snippet.
 Deliberately absent: Lombok (records cover the need), Hypersistence Utils (Hibernate
 maps JSONB natively via `@JdbcTypeCode(SqlTypes.JSON)`).
 
-<<<<<<< Updated upstream
-=======
 ### Code quality and CI
 
 | Item | Version | Notes |
@@ -48,7 +46,6 @@ The plugin is applied to the **root** project, not to `:apps:api` — the scanne
 analyzes a project hierarchy from its root. JaCoCo stays in `:apps:api`, where the
 tests are.
 
->>>>>>> Stashed changes
 ## Frontend
 
 | Item | Notes |

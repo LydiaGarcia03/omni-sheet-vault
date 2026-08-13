@@ -1,0 +1,13 @@
+plugins {
+    id 'org.sonarqube' version '7.4.0.8496'
+}
+
+sonar {
+    properties {
+        property 'sonar.host.url', 'https://sonarcloud.io'
+        property 'sonar.organization', 'lydiagarcia03'
+        property 'sonar.projectKey', 'lydiagarcia03_omni-sheet-vault'
+        property 'sonar.projectName', 'omni-sheet-vault'
+        property 'sonar.exclusions', '**/build/**,**/node_modules/**'
+    }
+}
