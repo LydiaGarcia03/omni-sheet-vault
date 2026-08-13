@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Frame kit — masked ornamental frames</title>
+    <style>
+        /* ================================================================
+           FRAME KIT
+
+           Six ornamental frames, each used as a CSS mask rather than an
+           image. The mask reads only the alpha channel, so one black asset
+           serves every colour, state and theme.
+
+           Every component follows the same shape:
+             .frame-box            positioning context, sets width/height
+               .frame-box__paper   solid fill, clipped to the frame
+               .frame-box__ink     the outline, clipped to the frame
+               (content)           positioned with per-component knobs
+
+           Put the PNGs in frames/ beside this file.
+           ================================================================ */
+
+        :root {
+            /* --- Type ---------------------------------------------------- */
+            --font-body: Roboto, Helvetica, sans-serif;
+            --line-height-ratio: 1.4;
+
+            --font-size-label: 10px;
+            --font-size-score: 16px;
+            --font-size-modifier: 26px;
+            --font-size-panel-title: 11px;
+
+            --weight-label: 700;
+            --weight-score: 700;
+            --weight-modifier: 500;
+
+            /* --- Colour -------------------------------------------------- */
+            --text-primary: #242528;
+            --text-on-control: #394B59;
+            --text-muted: #6B7A85;
+            --border-control: #BFCCD6;
+            --surface-page: #F9F9F9;
+
+            /* --- Theme (recolours every frame at once) ------------------- */
+            --frame-ink: #4A5D6B;
+            --frame-paper: #FFFFFF;
+
+            /* --- Shape --------------------------------------------------- */
+            --radius-control: 4px;
+
+            /* --- Interaction --------------------------------------------- */
+            --roll-bg-default: transparent;
+            --roll-bg-hover: rgba(57, 75, 89, 0.10);
+
+            /* --- Frame assets -------------------------------------------- */
+            --f-ability:     url("../public/frames/dnd_frame.png");
+            --f-armor:       url("../public/frames/dnd_frame_armor.png");
+            --f-saving:      url("../public/frames/dnd_frame_modifier.png");
+            --f-initiative:  url("../public/frames/dnd_frame_initiative.png");
+            --f-panel:       url("../public/frames/dnd_frame_features.png");
+            --f-panel-plain: url("../public/frames/dnd_frame_proficiencies.png");
+            --f-badge:       url("../public/frames/dnd_frame_box.png");
+        }
+
+
+        /* ================================================================
+           TUNING PANEL — drag to align, then copy the values out.
+           Delete this whole block, and the markup at the end of <body>,
+           once the numbers are settled.
+           ================================================================ */
+        #tuner {
+            position: fixed; top: 0; right: 0; bottom: 0; width: 300px;
+            background: #fff; border-left: 1px solid #d5dbdf;
+            padding: 16px 18px; overflow-y: auto; z-index: 50;
+            font-size: 12px; box-shadow: -4px 0 16px rgba(0,0,0,.06);
+        }
+        #tuner.hidden { transform: translateX(100%); }
+        #tuner h3 {
+            font-size: 10px; text-transform: uppercase; letter-spacing: .1em;
+            color: #6B7A85; margin: 18px 0 8px; border-top: 1px solid #eceff1; padding-top: 12px;
+        }
+        #tuner h3:first-of-type { border-top: 0; margin-top: 4px; }
+        #tuner label { display: block; margin-bottom: 9px; }
+        #tuner .lab { display: flex; justify-content: space-between; margin-bottom: 3px; }
+        #tuner .lab code { background: #f0f3f5; padding: 0 4px; border-radius: 3px; font-size: 10px; }
+        #tuner .val { font-variant-numeric: tabular-nums; color: #394B59; font-weight: 600; }
+        #tuner input[type=range] { width: 100%; }
+        #tuner button {
+            width: 100%; padding: 9px; margin-top: 14px; cursor: pointer;
+            background: #394B59; color: #fff; border: 0; border-radius: 4px;
+            font-family: inherit; font-size: 12px; font-weight: 600;
+        }
+        #tuner pre {
+            background: #f5f7f8; padding: 10px; border-radius: 4px; margin-top: 10px;
+            font-size: 10px; line-height: 1.5; white-space: pre-wrap; word-break: break-all;
+        }
+        #tuner-toggle {
+            position: fixed; top: 12px; right: 12px; z-index: 51;
+            padding: 7px 12px; cursor: pointer; background: #394B59; color: #fff;
+            border: 0; border-radius: 4px; font-family: inherit; font-size: 11px; font-weight: 600;
+        }
+        body.tuning { padding-right: 340px; }
+
+        /* ================================================================
+           HARNESS
+           ================================================================ */
+        body {
+            margin: 0; padding: 40px;
+            background: var(--surface-page);
+            font-family: var(--font-body);
+            color: var(--text-primary);
+        }
+        h1 { font-size: 15px; text-transform: uppercase; letter-spacing: .1em; font-weight: 700; }
+        h2 {
+            font-size: 11px; text-transform: uppercase; letter-spacing: .1em;
+            color: var(--text-muted); margin: 40px 0 14px; font-weight: 700;
+        }
+        .strip { display: flex; gap: 14px; align-items: flex-start; flex-wrap: wrap; }
+        .spec { font-size: 11px; color: var(--text-muted); margin-top: 6px; text-align: center; }
+        .notes { max-width: 680px; font-size: 13px; line-height: 1.65; }
+        .notes code { background: #ebeef0; padding: 1px 5px; border-radius: 3px; }
+
+        /* ================================================================
+           SHARED FRAME MECHANICS
+           ================================================================ */
+        .frame-box { position: relative; }
+
+        .frame-box__paper,
+        .frame-box__ink {
+            position: absolute; inset: 0; pointer-events: none;
+            -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+            -webkit-mask-position: center;  mask-position: center;
+            -webkit-mask-size: 100% 100%;   mask-size: 100% 100%;
+        }
+        .frame-box__paper { background-color: var(--frame-paper); }
+        .frame-box__ink   { background-color: var(--frame-ink); }
+
+        /* mask-size 100% 100% stretches the art to the box. Use contain
+           instead if a frame must keep its own aspect ratio. */
+
+        /* Roll targets: the only elements that change background on hover. */
+        .roll {
+            font-family: inherit;
+            background: var(--roll-bg-default);
+            border: 0;
+            cursor: pointer;
+            color: var(--text-on-control);
+            transition: background-color 120ms ease;
+        }
+        .roll:hover, .roll:focus-visible { background: var(--roll-bg-hover); }
+        .roll:focus-visible { outline: 2px solid var(--text-on-control); outline-offset: 2px; }
+        .roll:active { transform: translateY(1px); }
+
+        /* Non-roll targets open the sidebar. Cursor and focus ring only. */
+        .reveal {
+            font-family: inherit; background: none; border: 0; cursor: pointer;
+            color: var(--text-primary);
+        }
+        .reveal:focus-visible { outline: 2px solid var(--text-on-control); outline-offset: 2px; }
+
+        /* ================================================================
+           1 — ABILITY BOX          frames/dnd_frame.png
+           ================================================================ */
+        .ability {
+            width: 81px; height: 95px;
+            --content-top: 8%;
+            --modifier-top: 29%;
+            --chin-x: 50%; --chin-y: 80%; --chin-size: 42%;
+            --label-size: 7.5px;
+        }
+        .ability > .frame-box__paper,
+        .ability > .frame-box__ink {
+            -webkit-mask-image: var(--f-ability); mask-image: var(--f-ability);
+        }
+        .ability__label {
+            position: absolute; top: var(--content-top); left: 6%; right: 6%;
+            text-align: center; white-space: nowrap;
+            /* 8px so CONSTITUTION and INTELLIGENCE fit inside the frame shoulders */
+            font-size: var(--label-size); font-weight: var(--weight-label);
+            letter-spacing: .01em; text-transform: uppercase;
+        }
+        .ability__modifier {
+            position: absolute; top: var(--modifier-top); left: 0; right: 0;
+            display: flex; justify-content: center;
+        }
+        .ability__roll {
+            width: 56px; height: 32px;
+            display: inline-flex; align-items: center; justify-content: center;
+            font-size: var(--font-size-modifier); font-weight: var(--weight-modifier);
+            border: 1px solid var(--border-control); border-radius: var(--radius-control);
+            padding-right: 3px;   /* optical: the plus sign pulls the glyph left */
+        }
+        .ability__score {
+            position: absolute; left: var(--chin-x); top: var(--chin-y);
+            transform: translate(-50%, -50%);
+            width: var(--chin-size); aspect-ratio: 1;
+            display: flex; align-items: center; justify-content: center;
+            font-size: var(--font-size-score); font-weight: var(--weight-score);
+        }
+
+        /* ================================================================
+           2 — ARMOUR CLASS         frames/dnd_frame_armor.png
+           ================================================================ */
+        .armor {
+            width: 74px; height: 84px;
+            --heading-y: 22%;
+            --value-y: 46%;
+            --caption-y: 68%;
+        }
+        .armor > .frame-box__paper,
+        .armor > .frame-box__ink {
+            -webkit-mask-image: var(--f-armor); mask-image: var(--f-armor);
+        }
+        .armor__heading {
+            position: absolute; top: var(--heading-y); left: 0; right: 0;
+            text-align: center; font-size: 8px; font-weight: 700;
+            letter-spacing: .09em; text-transform: uppercase; color: var(--text-muted);
+        }
+        .armor__value {
+            position: absolute; top: var(--value-y); left: 0; right: 0;
+            transform: translateY(-50%);
+            text-align: center; font-size: 24px; font-weight: 700;
+        }
+        .armor__caption {
+            position: absolute; top: var(--caption-y); left: 0; right: 0;
+            text-align: center; font-size: 8px; font-weight: 700;
+            letter-spacing: .09em; text-transform: uppercase; color: var(--text-muted);
+        }
+
+        /* ================================================================
+           3 — SAVING THROW ROW     frames/dnd_frame_modifier.png
+           The dotted circle on the left is the proficiency marker; the
+           solid circle on the right holds the modifier and rolls.
+           ================================================================ */
+        .saving {
+            width: 132px; height: 34px;
+            --prof-x: 12%;         /* centre of the dotted circle in the artwork */
+            --prof-y: 50%;
+            --prof-size: 10px;
+            --abbr-x: 46%;
+            --mod-x: 83%;          /* centre of the solid end circle */
+            --mod-w: 34%;          /* fills the end circle — not a smaller pill inside it */
+            --mod-h: 100%;
+        }
+        .saving > .frame-box__paper,
+        .saving > .frame-box__ink {
+            -webkit-mask-image: var(--f-saving); mask-image: var(--f-saving);
+        }
+        .saving__prof {
+            position: absolute; left: var(--prof-x); top: var(--prof-y);
+            transform: translate(-50%, -50%);
+            width: var(--prof-size); height: var(--prof-size); border-radius: 50%;
+            border: 1.5px solid var(--frame-ink); background: transparent;
+            box-sizing: border-box;
+        }
+        .saving__prof--on { background: var(--frame-ink); }
+        .saving__abbr {
+            position: absolute; left: var(--abbr-x); top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 11px; font-weight: 700; letter-spacing: .06em;
+        }
+        .saving__mod {
+            position: absolute; left: var(--mod-x); top: 50%;
+            transform: translate(-50%, -50%);
+            width: var(--mod-w); height: var(--mod-h);
+            border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center;
+            font-size: 13px; font-weight: 600;
+        }
+
+        /* ================================================================
+           4 — INITIATIVE           frames/dnd_frame_initiative.png
+           ================================================================ */
+        .initiative {
+            width: 78px; height: 52px;
+            --inner-inset-y: 30%;
+            --inner-inset-x: 28%;
+        }
+        .initiative > .frame-box__paper,
+        .initiative > .frame-box__ink {
+            -webkit-mask-image: var(--f-initiative); mask-image: var(--f-initiative);
+        }
+        .initiative__value {
+            /* must match the inner rounded rectangle drawn in the frame */
+            position: absolute; inset: var(--inner-inset-y) var(--inner-inset-x);
+            display: inline-flex; align-items: center; justify-content: center;
+            font-size: 18px; font-weight: 600; border-radius: 5px;
+        }
+
+        /* ================================================================
+           5 — STAT BADGE           frames/dnd_frame_box.png
+           Used for proficiency bonus AND speed — one component, two uses.
+           ================================================================ */
+        .badge {
+            width: 74px; height: 74px;
+            --heading-y: 20%;
+            --value-y: 50%;
+            --caption-y: 74%;
+        }
+        .badge > .frame-box__paper,
+        .badge > .frame-box__ink {
+            -webkit-mask-image: var(--f-badge); mask-image: var(--f-badge);
+        }
+        .badge__heading {
+            position: absolute; top: var(--heading-y); left: 6%; right: 6%;
+            text-align: center; font-size: 7.5px; font-weight: 700;
+            letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted);
+            line-height: 1.25;
+        }
+        .badge__value {
+            position: absolute; top: var(--value-y); left: 0; right: 0;
+            transform: translateY(-50%);
+            text-align: center; font-size: 22px; font-weight: 600;
+        }
+        .badge__caption {
+            position: absolute; top: var(--caption-y); left: 0; right: 0;
+            text-align: center; font-size: 8px; font-weight: 700;
+            letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted);
+        }
+        /* Value variant that rolls, for proficiency-style badges */
+        .badge__value.roll {
+            width: 46px; margin: 0 auto; left: 0; right: 0; border-radius: var(--radius-control);
+        }
+
+        /* ================================================================
+           6 — PANEL                frames/dnd_frame_features.png
+           ================================================================ */
+        .panel {
+            width: 278px;
+            /*min-height: 150px; */
+            --panel-pad-x: 9%;
+            --panel-pad-y: 9%;
+            --panel-title-gap: 34px;   /* pushes the title down toward the frame edge */
+        }
+        .panel > .frame-box__paper,
+        .panel > .frame-box__ink {
+            -webkit-mask-image: var(--f-panel); mask-image: var(--f-panel);
+        }
+        /* Variant: the plain rule-line frame used by Proficiencies & Training.
+           Thinner border, so the content can sit closer to the edge. */
+        .panel--plain {
+            --panel-pad-x: 7%;
+            --panel-pad-y: 5%;
+            --panel-title-gap: 20px;
+        }
+        .panel--plain > .frame-box__paper,
+        .panel--plain > .frame-box__ink {
+            -webkit-mask-image: var(--f-panel-plain); mask-image: var(--f-panel-plain);
+        }
+
+        .panel__content {
+            position: relative;
+            padding: var(--panel-pad-y) var(--panel-pad-x);
+        }
+        .panel__rows { display: flex; flex-direction: column; gap: 6px; }
+        .panel__title {
+            text-align: center; font-size: var(--font-size-panel-title);
+            font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+            color: var(--text-muted); margin-top: var(--panel-title-gap);
+        }
+        /* Category labels read larger than the entries beneath them. Note that the
+           reference does the opposite — this is a deliberate departure. */
+        .panel__list { line-height: 1.6; }
+        .panel__list dt {
+            font-size: 10px; font-weight: 700; letter-spacing: .07em;
+            text-transform: uppercase; color: var(--text-muted); margin-top: 8px;
+        }
+        .panel__list dd { margin: 0; font-size: 9px; }
+
+        /* ================================================================
+           THEMES — one variable pair restyles every frame above
+           ================================================================ */
+        .theme-dark      { --frame-ink: #8A1F24; --frame-paper: #1A1113;
+            --text-primary: #E8DCDC; --text-on-control: #D9AEB0;
+            --text-muted: #9A6F72; --border-control: #5A2A2E;
+            --roll-bg-hover: rgba(217,174,176,.14); }
+        .theme-warm      { --frame-ink: #7A5C34; --frame-paper: #F5EBD8;
+            --text-primary: #3B2E1C; --text-on-control: #6B5230;
+            --text-muted: #927A55; --border-control: #C9B394;
+            --roll-bg-hover: rgba(107,82,48,.12); }
+        .theme-night     { --frame-ink: #C8A24A; --frame-paper: #171A2E;
+            --text-primary: #EDE6D2; --text-on-control: #E0C778;
+            --text-muted: #8E86A8; --border-control: #3D3A5C;
+            --roll-bg-hover: rgba(224,199,120,.14); }
+
+        .theme-strip { display: flex; gap: 24px; flex-wrap: wrap; }
+        .theme-cell { padding: 16px; border-radius: 8px; background: var(--frame-paper); }
+
+        /* ================================================================
+           SHEET SIMULATION
+           ================================================================ */
+        .sheet-sim { display: flex; gap: 18px; align-items: flex-start; flex-wrap: wrap; }
+        .sheet-sim__abilities { display: flex; gap: 5px; }
+        .sheet-sim__combat { display: flex; gap: 10px; align-items: flex-start; }
+
+
+
+        /*
+        AFTER COPY CSS
+        */
+        .ability {
+            --content-top: 10.5%;
+            --modifier-top: 27.5%;
+            --chin-x: 49%;
+            --chin-y: 81.5%;
+            --chin-size: 25%;
+            --label-size: 7.5px;
+        }
+
+        .armor {
+            --heading-y: 19%;
+            --value-y: 47%;
+        }
+
+        .saving {
+            --prof-x: 5%;
+            --prof-y: 49%;
+            --prof-size: 11px;
+            --abbr-x: 30%;
+            --mod-x: 82.5%;
+            --mod-w: 32%;
+            --mod-h: 98%;
+        }
+
+        .initiative {
+            --inner-inset-y: 24%;
+            --inner-inset-x: 24%;
+        }
+
+        .badge {
+            --heading-y: 15%;
+            --value-y: 48%;
+            --caption-y: 74%;
+        }
+
+        .panel {
+            --panel-pad-x: 13%;
+            --panel-pad-y: 4.5%;
+            --panel-title-gap: 16px;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>Frame kit</h1>
+<p class="notes">
+    Every frame below is the same PNG asset used as a mask. Color comes from
+    <code>--frame-ink</code> and <code>--frame-paper</code>, never from the file.
+</p>
+
+<h2>1 · Ability box</h2>
+<div class="strip">
+    <div>
+        <div class="frame-box ability">
+            <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+            <div class="ability__label">Dexterity</div>
+            <div class="ability__modifier">
+                <button class="roll ability__roll" aria-label="Roll Dexterity check, plus one">+1</button>
+            </div>
+            <button class="reveal ability__score" aria-label="Dexterity score 12, open details">12</button>
+        </div>
+        <div class="spec">81 × 95</div>
+    </div>
+    <div>
+        <div class="sheet-sim__abilities">
+            <div class="frame-box ability">
+                <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+                <div class="ability__label">Strength</div>
+                <div class="ability__modifier"><button class="roll ability__roll">+1</button></div>
+                <button class="reveal ability__score">13</button>
+            </div>
+            <div class="frame-box ability">
+                <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+                <div class="ability__label">Dexterity</div>
+                <div class="ability__modifier"><button class="roll ability__roll">+1</button></div>
+                <button class="reveal ability__score">12</button>
+            </div>
+            <div class="frame-box ability">
+                <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+                <div class="ability__label">Constitution</div>
+                <div class="ability__modifier"><button class="roll ability__roll">+2</button></div>
+                <button class="reveal ability__score">14</button>
+            </div>
+            <div class="frame-box ability">
+                <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+                <div class="ability__label">Intelligence</div>
+                <div class="ability__modifier"><button class="roll ability__roll">&minus;1</button></div>
+                <button class="reveal ability__score">8</button>
+            </div>
+            <div class="frame-box ability">
+                <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+                <div class="ability__label">Wisdom</div>
+                <div class="ability__modifier"><button class="roll ability__roll">+4</button></div>
+                <button class="reveal ability__score">18</button>
+            </div>
+            <div class="frame-box ability">
+                <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+                <div class="ability__label">Charisma</div>
+                <div class="ability__modifier"><button class="roll ability__roll">+1</button></div>
+                <button class="reveal ability__score">13</button>
+            </div>
+        </div>
+        <div class="spec">the full row — check the gap between boxes</div>
+    </div>
+</div>
+
+<h2>2 · Armor class</h2>
+<div class="strip">
+    <div>
+        <div class="frame-box armor">
+            <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+            <div class="armor__heading">Armor</div>
+            <div class="armor__value">18</div>
+            <div class="armor__caption">Class</div>
+        </div>
+        <div class="spec">74 × 84 · opens the sidebar, does not roll</div>
+    </div>
+</div>
+
+<h2>3 · Saving throws</h2>
+<div class="strip">
+    <div>
+        <div class="panel__rows">
+            <div class="frame-box saving">
+                <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+                <span class="saving__prof" aria-hidden="true"></span>
+                <span class="saving__abbr">STR</span>
+                <button class="roll saving__mod" aria-label="Roll Strength saving throw, plus one">+1</button>
+            </div>
+            <div class="frame-box saving">
+                <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+                <span class="saving__prof saving__prof--on" aria-hidden="true"></span>
+                <span class="saving__abbr">WIS</span>
+                <button class="roll saving__mod">+7</button>
+            </div>
+            <div class="frame-box saving">
+                <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+                <span class="saving__prof saving__prof--on" aria-hidden="true"></span>
+                <span class="saving__abbr">CHA</span>
+                <button class="roll saving__mod">+4</button>
+            </div>
+        </div>
+        <div class="spec">132 × 34 · filled dot means proficient</div>
+    </div>
+</div>
+
+<h2>4 · Initiative</h2>
+<div class="strip">
+    <div>
+        <div class="frame-box initiative">
+            <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+            <button class="roll initiative__value" aria-label="Roll initiative, plus one">+1</button>
+        </div>
+        <div class="spec">78 × 52 · the inner shape is the roll target</div>
+    </div>
+</div>
+
+<h2>5 · Stat badge — one frame, two uses</h2>
+<div class="strip">
+    <div>
+        <div class="frame-box badge">
+            <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+            <div class="badge__heading">Proficiency</div>
+            <div class="badge__value">+3</div>
+            <div class="badge__caption">Bonus</div>
+        </div>
+        <div class="spec">proficiency bonus</div>
+    </div>
+    <div>
+        <div class="frame-box badge">
+            <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+            <div class="badge__heading">Walking</div>
+            <div class="badge__value">25<span style="font-size:10px"> ft.</span></div>
+            <div class="badge__caption">Speed</div>
+        </div>
+        <div class="spec">speed — same component</div>
+    </div>
+</div>
+
+<h2>6 · Panel</h2>
+<div class="strip">
+    <div>
+        <div class="frame-box panel panel--plain">
+            <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+            <div class="panel__content">
+                <dl class="panel__list">
+                    <dt>Armor</dt><dd>Heavy, Light, Medium, Shields</dd>
+                    <dt>Weapons</dt><dd>Martial, Simple</dd>
+                    <dt>Tools</dt><dd>Brewer's Supplies, Smith's Tools</dd>
+                    <dt>Languages</dt><dd>Common, Dwarvish, Undercommon</dd>
+                </dl>
+                <div class="panel__title">Proficiencies &amp; Training</div>
+            </div>
+        </div>
+        <div class="spec">278 wide · height grows with content</div>
+    </div>
+    <div>
+        <div class="frame-box panel" style="width:278px">
+            <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+            <div class="panel__content">
+                <div class="panel__rows">
+                    <div class="frame-box saving">
+                        <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+                        <span class="saving__prof" aria-hidden="true"></span>
+                        <span class="saving__abbr">STR</span>
+                        <button class="roll saving__mod">+1</button>
+                    </div>
+                    <div class="frame-box saving">
+                        <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+                        <span class="saving__prof saving__prof--on" aria-hidden="true"></span>
+                        <span class="saving__abbr">WIS</span>
+                        <button class="roll saving__mod">+7</button>
+                    </div>
+                </div>
+                <div class="panel__title">Saving Throws</div>
+            </div>
+        </div>
+        <div class="spec">panel containing saving throw rows</div>
+    </div>
+</div>
+
+<h2>7 · Sheet fragment</h2>
+<div class="sheet-sim">
+    <div class="sheet-sim__abilities">
+        <div class="frame-box ability">
+            <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+            <div class="ability__label">Wisdom</div>
+            <div class="ability__modifier"><button class="roll ability__roll">+4</button></div>
+            <button class="reveal ability__score">18</button>
+        </div>
+        <div class="frame-box ability">
+            <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+            <div class="ability__label">Charisma</div>
+            <div class="ability__modifier"><button class="roll ability__roll">+1</button></div>
+            <button class="reveal ability__score">13</button>
+        </div>
+    </div>
+    <div class="frame-box badge">
+        <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+        <div class="badge__heading">Proficiency</div>
+        <div class="badge__value">+3</div>
+        <div class="badge__caption">Bonus</div>
+    </div>
+    <div class="sheet-sim__combat">
+        <div class="frame-box initiative">
+            <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+            <button class="roll initiative__value">+1</button>
+        </div>
+        <div class="frame-box armor">
+            <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+            <div class="armor__heading">Armor</div>
+            <div class="armor__value">18</div>
+            <div class="armor__caption">Class</div>
+        </div>
+    </div>
+</div>
+
+<h2>8 · Recoloring — identical markup, identical assets</h2>
+<p class="notes" style="margin-bottom:16px">
+    These frames belong to the <strong>D&amp;D 5e theme only</strong>. Other systems get
+    their own artwork. What this section demonstrates is the mechanism: color is two
+    variables, so a frame can be restyled per state, per mode, or per theme without a
+    second asset.
+</p>
+<div class="theme-strip">
+    <div class="theme-cell">
+        <div class="frame-box ability">
+            <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+            <div class="ability__label">Dexterity</div>
+            <div class="ability__modifier"><button class="roll ability__roll">+1</button></div>
+            <button class="reveal ability__score">12</button>
+        </div>
+        <div class="spec">default</div>
+    </div>
+
+    <div class="theme-cell theme-dark">
+        <div class="frame-box ability">
+            <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+            <div class="ability__label">Dexterity</div>
+            <div class="ability__modifier"><button class="roll ability__roll">+1</button></div>
+            <button class="reveal ability__score">12</button>
+        </div>
+        <div class="spec">dark variant</div>
+    </div>
+
+    <div class="theme-cell theme-warm">
+        <div class="frame-box ability">
+            <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+            <div class="ability__label">Dexterity</div>
+            <div class="ability__modifier"><button class="roll ability__roll">+1</button></div>
+            <button class="reveal ability__score">12</button>
+        </div>
+        <div class="spec">warm variant</div>
+    </div>
+
+    <div class="theme-cell theme-night">
+        <div class="frame-box ability">
+            <div class="frame-box__paper"></div><div class="frame-box__ink"></div>
+            <div class="ability__label">Dexterity</div>
+            <div class="ability__modifier"><button class="roll ability__roll">+1</button></div>
+            <button class="reveal ability__score">12</button>
+        </div>
+        <div class="spec">night variant</div>
+    </div>
+</div>
+
+<h2>Notes</h2>
+<div class="notes">
+    <p><strong>Tuning.</strong> Each component block starts with its own
+        <code>--</code> variables for content placement. Adjust those; do not touch the
+        layout rules. If a frame's art differs from what these values assume, the numbers
+        move — the structure does not.</p>
+
+    <p><strong><code>mask-size</code>.</strong> Everything here uses
+        <code>100% 100%</code>, which stretches the art to the box. That is right for the
+        panel, whose height grows with content, but it distorts a frame whose proportions
+        matter. Switch that frame to <code>contain</code> and give the box the asset's own
+        aspect ratio.</p>
+
+    <p><strong>Color is two variables.</strong> Section 8 is the same markup and the
+        same PNGs four times over; only <code>--frame-ink</code> and
+        <code>--frame-paper</code> change. These frames are D&amp;D 5e's own artwork — other
+        systems supply theirs — but the mechanism is what makes per-system theming cheap.</p>
+
+    <p><strong>Nesting needs the child combinator.</strong> Frame layers are selected
+        with <code>&gt;</code>, not a descendant space. Without it, a framed component placed
+        inside another framed component inherits the outer mask — which is exactly what broke
+        the saving-throw rows inside the panel.</p>
+
+    <p><strong>The badge is one component.</strong> Proficiency bonus and speed share a
+        frame, a layout and a type scale. Record that in the coincidences table: two entries
+        on the build list collapse into one.</p>
+
+    <p><strong>Roll targets are buttons; reveal targets are buttons too.</strong> Both
+        need keyboard access. They differ in treatment, not in semantics — only roll targets
+        change background on hover.</p>
+
+    <p><strong>Still estimated:</strong> every size here, the gap between ability boxes,
+        the hover delta, and the label typography. Replace them from
+        <code>computed-styles.md</code> as measurements land.</p>
+</div>
+
+</body>
+</html>

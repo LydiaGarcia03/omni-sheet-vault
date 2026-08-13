@@ -7,12 +7,6 @@ build/
 !**/src/test/**/build/
 !**/src/main/**/build/
 
-### VS Code ###
-.vscode/
-
-### Mac OS ###
-.DS_Store
-
 # Environment
 .env
 
@@ -28,3 +22,6 @@ apps/api/.idea/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+
+#Other
+design-reference/

@@ -28,13 +28,13 @@ Core capabilities:
 
 ## 2. Language policy (non-negotiable)
 
-| Context | Language |
-| --- | --- |
-| Conversation with the user | Brazilian Portuguese |
-| Code, identifiers, comments | English |
-| Documentation content and file names | English |
-| Commit messages, branch names | English |
-| End-user UI copy | English (i18n-ready from day one) |
+| Context | Language                                   |
+| --- |--------------------------------------------|
+| Conversation with the user | Brazilian Portuguese                       |
+| Code, identifiers, comments | American English                           |
+| Documentation content and file names | American English                           |
+| Commit messages, branch names | American English                           |
+| End-user UI copy | American English (i18n-ready from day one) |
 
 Never write documentation or code in Portuguese, even when the request that triggered
 it was written in Portuguese.
@@ -60,6 +60,7 @@ for every task.
 | `ui-design-system.md` | Building or restyling any UI | Design tokens or component patterns change |
 | `glossary.md` | You hit an unfamiliar RPG or project term | A new term enters the codebase |
 | `changelog.md` | Rarely — for recent history | **After every completed change** |
+| `roadmap.md` | **When asked to plan work or start a phase** | A phase is finished, or the plan changes |
 
 ### Fixed reading order for a coding task
 
@@ -173,6 +174,7 @@ projects. That is intentional and must not be changed: the `toolchain` block in
 - Handle passwords in application code — Keycloak owns credentials, the API only
   validates tokens.
 - Ship UI assets copied from another product; visual references guide our own assets.
+- Run commits or any Git command. Instead, let the user know what should be done.
 
 ---
 
