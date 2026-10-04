@@ -62,7 +62,7 @@ final class ItemConverter implements FiveEToolsConverter {
     private static final Map<String, String> DAMAGE_TYPE_NAMES =
             Map.of("B", "bludgeoning", "P", "piercing", "S", "slashing");
 
-    private static final Pattern DICE = Pattern.compile("(\\d++)d(\\d++)");
+    private static final Pattern DICE = Pattern.compile("(?<!\\d)(\\d++)d(\\d++)");
     /** A charge-cast item's own flat save DC, e.g. Wand of Fireballs' "cast the fireball spell (save {@dc 15})" — a fact of the item, not the wielder's own spellcasting ability. */
     private static final Pattern FIXED_SAVE_DC = Pattern.compile("\\{@dc\\s+(\\d+)");
 

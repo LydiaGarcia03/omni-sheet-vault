@@ -33,6 +33,25 @@ deliberately left out.
 - **To check before a public push:** where `old-paper.jpg` came from and its
   licence (it was saved from the web).
 
+## 2026-10-04 — PR #8 checks, second round
+
+- CI failed on `:apps:desktop:test`: `AppFoldersTest` used Windows paths
+  (`C:/Games/...`), which `toAbsolutePath()` turns into a relative path on
+  the Linux runner. The test now builds its paths under a `@TempDir`.
+- The PR's Sonar result comes from SonarQube Cloud's **Automatic Analysis**,
+  which ignores `build.gradle`'s `sonar {}` block. New `.sonarcloud.properties`
+  at the root carries the same settings: PL/SQL rules off for
+  `db/migration/**`, and `java:S2092` off for `application-desktop.yml` (the
+  desktop edition serves plain HTTP on 127.0.0.1, so its cookie can't be
+  Secure). `build.gradle` got the same `desktopCookie` rule for CI analysis.
+- The two dice regexes still flagged (`ItemConverter.DICE`,
+  `Dnd5eBuildPlanner.GOLD_DICE`) can't start inside a number anymore
+  (`(?<!\d)`), which removes the quadratic scan.
+- **Watch:** with Automatic Analysis on, the CI step `./gradlew sonar` will
+  conflict with it once the build passes. One of the two has to go; the owner
+  decides (recommended: turn Automatic Analysis off, keeping CI analysis with
+  JaCoCo coverage).
+
 ## 2026-10-04 — PR #8 checks: MinIO test image and Sonar quality gate
 
 - **CI test failures** (`CharacterPortraitServiceTest`, `S3PortraitStorageTest`,

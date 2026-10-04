@@ -10,8 +10,11 @@ sonar {
         property 'sonar.projectName', 'omni-sheet-vault'
         property 'sonar.exclusions', '**/build/**,**/node_modules/**'
         // Flyway migrations are PostgreSQL; the PL/SQL (Oracle) rules don't apply to them
-        property 'sonar.issue.ignore.multicriteria', 'plsqlMigrations'
+        property 'sonar.issue.ignore.multicriteria', 'plsqlMigrations,desktopCookie'
         property 'sonar.issue.ignore.multicriteria.plsqlMigrations.ruleKey', 'plsql:*'
         property 'sonar.issue.ignore.multicriteria.plsqlMigrations.resourceKey', '**/db/migration/**'
+        // The desktop edition serves plain HTTP on 127.0.0.1, so its session cookie can't be Secure
+        property 'sonar.issue.ignore.multicriteria.desktopCookie.ruleKey', 'java:S2092'
+        property 'sonar.issue.ignore.multicriteria.desktopCookie.resourceKey', '**/application-desktop.yml'
     }
 }

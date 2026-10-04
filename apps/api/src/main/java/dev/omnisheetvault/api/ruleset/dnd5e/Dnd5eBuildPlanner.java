@@ -43,7 +43,7 @@ final class Dnd5eBuildPlanner {
     private static final int ABILITY_ROLL_DICE = 4;
     private static final int ABILITY_ROLL_SIDES = 6;
     private static final int ABILITY_ROLL_KEPT = 3;
-    private static final Pattern GOLD_DICE = Pattern.compile("(\\d++)d(\\d++)(?:\\s*+[×x*]\\s*+(\\d++))?");
+    private static final Pattern GOLD_DICE = Pattern.compile("(?<!\\d)(\\d++)d(\\d++)(?:\\s*+[×x*]\\s*+(\\d++))?");
     private static final List<String> ABILITIES =
             List.of("strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma");
     private static final Set<String> SPECIES_SCALARS = Set.of("size", "speed");
