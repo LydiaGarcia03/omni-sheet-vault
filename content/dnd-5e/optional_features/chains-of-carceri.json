@@ -1,0 +1,42 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "chains-of-carceri",
+  "name" : "Chains of Carceri",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 110,
+  "tags" : [ ],
+  "description" : "Prerequisite: 15th level, Pact of the Chain\n\nYou can cast hold monster at will—targeting a celestial, fiend, or elemental—without expending a spell slot or material components. You must finish a long rest before you can use this invocation on the same creature again.",
+  "data" : {
+    "featureTypes" : [ "EI" ],
+    "optional" : false,
+    "prerequisiteText" : "15th level, Pact of the Chain",
+    "prerequisites" : [ {
+      "pact" : "Chain",
+      "level" : {
+        "level" : 15,
+        "class" : {
+          "name" : "Warlock"
+        }
+      }
+    } ],
+    "consumes" : null,
+    "additionalSpells" : [ {
+      "innate" : {
+        "_" : {
+          "daily" : {
+            "1e" : [ "hold monster" ]
+          }
+        }
+      }
+    } ],
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

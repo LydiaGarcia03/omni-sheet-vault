@@ -1,0 +1,56 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "ITEM",
+  "slug" : "khrusor-spear-of-heliod",
+  "name" : "Khrusor, Spear of Heliod",
+  "sourceBook" : "Mythic Odysseys of Theros",
+  "sourceCode" : "MOT",
+  "sourcePage" : 200,
+  "tags" : [ ],
+  "description" : "Heliod wields Khrusor, a spear blessed with the power of the sun. In his hands, it can be pitched from Nyx to any point on Theros. When Heliod lends his weapon to a mortal, it's typically so they can perform some great work in his name or as a test of their worthiness.",
+  "data" : {
+    "itemKind" : "GEAR",
+    "typeLabel" : "Melee Weapon",
+    "rarity" : "artifact",
+    "focusType" : null,
+    "requiresAttunement" : true,
+    "attunementRequirement" : null,
+    "weightLb" : 3.0,
+    "costGp" : null,
+    "weaponCategory" : null,
+    "attackType" : null,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "versatileDamageDiceCount" : null,
+    "versatileDamageDiceSides" : null,
+    "properties" : [ ],
+    "finesse" : false,
+    "normalRange" : null,
+    "longRange" : null,
+    "armorCategory" : null,
+    "baseArmorClass" : null,
+    "stealthDisadvantage" : false,
+    "strengthRequirement" : null,
+    "weaponAttackBonus" : 3,
+    "weaponDamageBonus" : 3,
+    "armorClassBonus" : null,
+    "charges" : 10,
+    "rechargeTrigger" : "Dawn",
+    "rechargeFormula" : "1d6 + 4",
+    "grantedSpells" : [ {
+      "spellSlug" : "guiding-bolt",
+      "chargeCost" : 1,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "daylight",
+      "chargeCost" : 3,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "sunbeam",
+      "chargeCost" : 6,
+      "fixedSaveDc" : null
+    } ],
+    "mechanics" : null
+  }
+}

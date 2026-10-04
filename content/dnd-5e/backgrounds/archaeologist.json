@@ -1,0 +1,132 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "archaeologist",
+  "name" : "Archaeologist",
+  "sourceBook" : "Tomb of Annihilation",
+  "sourceCode" : "ToA",
+  "sourcePage" : 192,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. History, Survival Tool Proficiencies:. Cartographer's tools or navigator's tools Languages:. One of your choice Equipment:. A wooden case containing a map to a ruin or dungeon, a bullseye lantern, a miner's pick, a set of traveler's clothes, a shovel, a two-person tent, a trinket recovered from a dig site, and a pouch containing 25 gp Dust Digger. Prior to becoming an adventurer, you spent most of your young life crawling around in the dust, pilfering relics of questionable value from crypts and ruins. Though you managed to sell a few of your discoveries and earn enough coin to buy proper adventuring gear, you have held onto an item that has great emotional value to you. Roll on the Signature Item table to see what you have, or choose an item from the table. Feature: Historical Knowledge. When you enter a ruin or dungeon, you can correctly ascertain its original purpose and determine its builders, whether those were dwarves, elves, humans, yuan-ti, or some other known race. In addition, you can determine the monetary value of art objects more than a century old. Suggested Characteristics. Few archaeologists can resist the lure of an unexplored ruin or dungeon, particularly if such a site is the source of legends or is rumored to contain the treasures and relics of wizards, warlords, or royalty. Some archaeologists plunder for wealth or fame, while others consider it their calling to illuminate the past or keep the world's greatest treasures from falling into the wrong hands. Whatever their motivations, archaeologists combine the qualities of a scrappy historian with the self-made heroism of a treasure-hunting scoundrel.",
+  "data" : {
+    "personalityTraits" : [ "I love a good puzzle or mystery", "I'm a pack rat who never throws anything away.", "Fame is more important to me than money.", "I have no qualms about stealing from the dead.", "I'm happier in a dusty old tomb than I am in the centers of civilization.", "Traps don't make me nervous. Idiots who trigger traps make me nervous.", "I might fail, but I will never give up.", "You might think I'm a scholar, but I love a good brawl. These fists were made for punching." ],
+    "ideals" : [ "Preservation. That artifact belongs in a museum. (Good)", "Greed. I won't risk my life for nothing. I expect some kind of payment. (Any)", "Death Wish. Nothing is more exhilarating than a narrow escape from the jaws of death. (Chaotic)", "Dignity. The dead and their belongings deserve to be treated with respect. (Lawful)", "Immortality. All of my exploring is part of a plan to find the secret of everlasting life. (Any)", "Danger. With every great discovery comes grave danger. The two walk hand in hand. (Any)" ],
+    "bonds" : [ "Ever since I was a child, I've heard stories about a lost city. I aim to find it, learn its secrets, and earn my place in the history books.", "I want to find my mentor, who disappeared on an expedition some time ago.", "I have a friendly rival. Only one of us can be the best, and I aim to prove it's me.", "I won't sell an art object or other treasure that has historical significance or is one of a kind.", "I'm secretly in love with the wealthy patron who sponsors my archaeological exploits.", "I hope to bring prestige to a library, a museum, or a university." ],
+    "flaws" : [ "I have a secret fear of some common wild animal - and in my work, I see them everywhere.", "I can't leave a room without searching it for secret doors.", "When I'm not exploring dungeons or ruins, I get jittery and impatient.", "I have no time for friends or family. I spend every waking moment thinking about and preparing for my next expedition.", "When given the choice of going left or right, I always go left.", "I can't sleep except in total darkness." ],
+    "otherTables" : [ {
+      "caption" : "Signature Item",
+      "colLabels" : [ "d8", "Item" ],
+      "rows" : [ [ "1", "10-foot pole" ], [ "2", "Crowbar" ], [ "3", "Hat" ], [ "4", "Hooded lantern" ], [ "5", "Medallion" ], [ "6", "Shovel" ], [ "7", "Sledgehammer" ], [ "8", "Whip" ] ]
+    } ],
+    "features" : [ {
+      "name" : "Historical Knowledge",
+      "description" : "When you enter a ruin or dungeon, you can correctly ascertain its original purpose and determine its builders, whether those were dwarves, elves, humans, yuan-ti, or some other known race. In addition, you can determine the monetary value of art objects more than a century old."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "history", "survival" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : [ "navigators-tools", "cartographers-tools" ],
+        "category" : null,
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "languageAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : "map-or-scroll-case",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : "wooden case containing a map to a ruin or dungeon",
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "bullseye-lantern",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "miners-pick",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "travelers-clothes",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "shovel",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "two-person-tent",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "trinket",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : "trinket recovered from a dig site",
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 2500,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : null,
+    "prerequisites" : null
+  }
+}

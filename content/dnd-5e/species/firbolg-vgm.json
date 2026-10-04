@@ -1,0 +1,98 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "firbolg-vgm",
+  "name" : "Firbolg",
+  "sourceBook" : "Volo's Guide to Monsters",
+  "sourceCode" : "VGM",
+  "sourcePage" : 107,
+  "tags" : [ ],
+  "description" : "Age. As humanoids related to the fey, firbolg have long lifespans. A firbolg reaches adulthood around 30, and the oldest of them can live for 500 years. Size. Firbolg are between 7 and 8 feet tall and weigh between 240 and 300 pounds. Your size is Medium. Firbolg Magic. You can cast detect magic and disguise self with this trait, using Wisdom as your spellcasting ability for them. Once you cast either spell, you can't cast it again with this trait until you finish a short or long rest. When you use this version of disguise self, you can seem up to 3 feet shorter than normal, allowing you to more easily blend in with humans and elves. Hidden Step. As a bonus action, you can magically turn invisible until the start of your next turn or until you attack, make a damage roll, or force someone to make a saving throw. Once you use this trait, you can't use it again until you finish a short or long rest. Powerful Build. You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift. Speech of Beast and Leaf. You have the ability to communicate in a limited manner with beasts and plants. They can understand the meaning of your words, though you have no special ability to understand them in return. You have advantage on all Charisma checks you make to influence them. Languages. You can speak, read, and write Common, Elvish, and Giant.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 30
+    },
+    "senses" : [ ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "wisdom" : 2,
+        "strength" : 1
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "elvish", "giant" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : [ {
+      "ability" : "wis",
+      "known" : {
+        "1" : {
+          "rest" : {
+            "1" : [ "detect magic", "disguise self" ]
+          }
+        }
+      }
+    } ],
+    "age" : {
+      "mature" : 30,
+      "max" : 500
+    },
+    "heightAndWeight" : {
+      "baseHeight" : 74,
+      "heightMod" : "2d12",
+      "baseWeight" : 175,
+      "weightMod" : "2d6"
+    },
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Age",
+      "description" : "As humanoids related to the fey, firbolg have long lifespans. A firbolg reaches adulthood around 30, and the oldest of them can live for 500 years."
+    }, {
+      "name" : "Size",
+      "description" : "Firbolg are between 7 and 8 feet tall and weigh between 240 and 300 pounds. Your size is Medium."
+    }, {
+      "name" : "Firbolg Magic",
+      "description" : "You can cast detect magic and disguise self with this trait, using Wisdom as your spellcasting ability for them. Once you cast either spell, you can't cast it again with this trait until you finish a short or long rest. When you use this version of disguise self, you can seem up to 3 feet shorter than normal, allowing you to more easily blend in with humans and elves."
+    }, {
+      "name" : "Hidden Step",
+      "description" : "As a bonus action, you can magically turn invisible until the start of your next turn or until you attack, make a damage roll, or force someone to make a saving throw. Once you use this trait, you can't use it again until you finish a short or long rest."
+    }, {
+      "name" : "Powerful Build",
+      "description" : "You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift."
+    }, {
+      "name" : "Speech of Beast and Leaf",
+      "description" : "You have the ability to communicate in a limited manner with beasts and plants. They can understand the meaning of your words, though you have no special ability to understand them in return. You have advantage on all Charisma checks you make to influence them."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common, Elvish, and Giant."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

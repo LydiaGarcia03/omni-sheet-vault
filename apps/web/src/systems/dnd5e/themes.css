@@ -1,0 +1,23 @@
+/* D&D 5e theme accent: sheet, builder and dice tray. DDB Red is the system default. */
+:root {
+    --theme-accent: #C53131;
+    --theme-accent-dark: color-mix(in srgb, var(--theme-accent) 79%, #000000);
+    --theme-accent-darker: color-mix(in srgb, var(--theme-accent) 58.5%, #000000);
+    /* Solid fills (Roll, remaining slots) */
+    --theme-accent-strong: var(--theme-accent);
+}
+
+/* A character's own sheet theme, set on the root element while its sheet is open */
+:root[data-sheet-theme='barbarian-fire'] { --theme-accent: #E5623E; }
+:root[data-sheet-theme='bard-rouge'] { --theme-accent: #AA6DAB; }
+:root[data-sheet-theme='cleric-silver'] { --theme-accent: #92A2B3; --theme-accent-strong: #2B69AB; }
+:root[data-sheet-theme='druid-moss'] { --theme-accent: #79853C; }
+:root[data-sheet-theme='fighter-rust'] { --theme-accent: #7E4F3D; }
+:root[data-sheet-theme='monk-sky'] { --theme-accent: #53A5C5; }
+:root[data-sheet-theme='paladin-gold'] { --theme-accent: #B59E54; }
+:root[data-sheet-theme='ranger-emerald'] { --theme-accent: #4F7E61; }
+:root[data-sheet-theme='rogue-ash'] { --theme-accent: #555752; }
+:root[data-sheet-theme='sorcerer-blood'] { --theme-accent: #972E2E; }
+:root[data-sheet-theme='warlock-iris'] { --theme-accent: #8137AF; }
+:root[data-sheet-theme='wizard-cobalt'] { --theme-accent: #0045B7; }
+:root[data-sheet-theme='artificer-copper'] { --theme-accent: #D59139; }

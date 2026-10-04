@@ -1,0 +1,90 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "kobold-vgm",
+  "name" : "Kobold",
+  "sourceBook" : "Volo's Guide to Monsters",
+  "sourceCode" : "VGM",
+  "sourcePage" : 119,
+  "tags" : [ ],
+  "description" : "Age. Kobolds reach adulthood at age 6 and can live up to 120 years but rarely do so. Size. Kobolds are between 2 and 3 feet tall and weigh between 25 and 35 pounds. Your size is Small. Darkvision. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Grovel, Cower, and Beg. As an action on your turn, you can cower pathetically to distract nearby foes. Until the end of your next turn, your allies gain advantage on attack rolls against enemies within 10 feet of you that you can see. Once you use this trait, you can't use it again until you finish a short or long rest. Pack Tactics. You have advantage on an attack roll against a creature if at least one of your allies is within 5 feet of the creature and the ally isn't incapacitated. Sunlight Sensitivity. You have disadvantage on attack rolls and on Wisdom (Perception) checks that rely on sight when you, the target of your attack, or whatever you are trying to perceive is in direct sunlight. Languages. You can speak, read, and write Common and Draconic.",
+  "data" : {
+    "size" : [ "small" ],
+    "speed" : {
+      "walk" : 30
+    },
+    "senses" : [ {
+      "type" : "darkvision",
+      "range" : 60
+    } ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "dexterity" : 2
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "draconic" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : {
+      "mature" : 6,
+      "max" : 120
+    },
+    "heightAndWeight" : {
+      "baseHeight" : 25,
+      "heightMod" : "2d4",
+      "baseWeight" : 25
+    },
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Age",
+      "description" : "Kobolds reach adulthood at age 6 and can live up to 120 years but rarely do so."
+    }, {
+      "name" : "Size",
+      "description" : "Kobolds are between 2 and 3 feet tall and weigh between 25 and 35 pounds. Your size is Small."
+    }, {
+      "name" : "Darkvision",
+      "description" : "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+    }, {
+      "name" : "Grovel, Cower, and Beg",
+      "description" : "As an action on your turn, you can cower pathetically to distract nearby foes. Until the end of your next turn, your allies gain advantage on attack rolls against enemies within 10 feet of you that you can see. Once you use this trait, you can't use it again until you finish a short or long rest."
+    }, {
+      "name" : "Pack Tactics",
+      "description" : "You have advantage on an attack roll against a creature if at least one of your allies is within 5 feet of the creature and the ally isn't incapacitated."
+    }, {
+      "name" : "Sunlight Sensitivity",
+      "description" : "You have disadvantage on attack rolls and on Wisdom (Perception) checks that rely on sight when you, the target of your attack, or whatever you are trying to perceive is in direct sunlight."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and Draconic."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "boros-legionnaire",
+  "name" : "Boros Legionnaire",
+  "sourceBook" : "Guildmasters' Guide to Ravnica",
+  "sourceCode" : "GGR",
+  "sourcePage" : 40,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. Athletics, Intimidation Tool Proficiencies:. One type of gaming set Languages:. Choose one of Celestial, Draconic, Goblin, or Minotaur Equipment:. A Boros insignia, a feather from an angel's wing, a tattered piece of a Boros banner (a souvenir from a famous battle), a set of common clothes, and a belt pouch containing 2 gp (Boros-minted 1-zino coins) Feature: Legion Station. You have an established place in the hierarchy of the Boros Legion. You can requisition simple equipment for temporary use, and you can gain access to any Boros garrison in Ravnica, where you can rest in safety and receive the attention of medics. You are also paid a salary of 1 gp (a Boros-minted 1-zino coin) per week, which (combined with free lodging in your garrison) enables you to maintain a poor lifestyle between adventures. Boros Guild Spells. Prerequisite: Spellcasting or Pact Magic class feature For you, the spells on the Boros Guild Spells table are added to the spell list of your spellcasting class. (If you are a multiclass character with multiple spell lists, these spells are added to all of them.) Your magic often features dramatic bursts of flame or radiance. When you cast beneficial spells on your allies, they appear momentarily surrounded with halos of bright fire. Suggested Characteristics. The Boros Legion is a zealous army, full of righteous energy tempered with military discipline. Its members share its leadership's devotion to the ideals of justice, or they find satisfaction in the more warfare-oriented aspects of the legion's work. Contacts. The ordered structure of the Boros Legion offers abundant opportunities to make friends—and rivals—in higher places. You might have close friends in other guilds that share the Boros emphasis on order and community, or bitter enemies among the guilds that represent chaos and destruction. Roll twice on the Boros Contacts table (for an ally and a rival) and once on the Non-Boros Contacts table. How Do I Fit In?. As a member of the Boros Legion, you are subject to the orders of your superior officers. You go where the angels tell you to go, and you do what they command you to do, to the best of your ability. If you enjoy some measure of independence, it's either because you have proven yourself capable of working without close supervision or because you're a rebellious sort who is willing to disobey orders now and face the consequences later. As a soldier on the street, you are tasked with bringing dangerous threats like the Rakdos and the Gruul in line. You might contend with Rakdos performances gone horribly out of control, Gruul raids on outlying neighborhoods, shipments of rot-infested vegetation from the Golgari undercity, and violent uprisings among the guildless. At the same time, you might have to worry about Dimir spies infiltrating your leadership, overzealous or corrupt Azorius senators abusing the law at the expense of justice, Izzet experiments leveling city blocks, and Simic creations that break out of laboratories and wreak havoc through the Tenth District. Tajic, Blade of the Legion. Tajic is a firefist who carries the exalted title of Blade of the Legion, putting him just below the angels in rank. He maintains close communication with Aurelia, though recent events in the city have set them at odds. Tajic believes that the Boros can trust only the Boros. He is convinced that any effort at peace among the guilds is doomed to failure without the Guildpact. The Boros, he argues, would be better off spending their energy to make themselves stronger so they can uphold the fragile balance that exists now—and protect the innocent when the balance tilts. Aurelia feels that his negative attitude runs the risk of poisoning the hearts of the other Boros and undermining any peace efforts. For the most part, in deference to the angel, Tajic keeps his views to himself.",
+  "data" : {
+    "personalityTraits" : [ "I approach every task with the same high degree of military precision.", "I am always the first into the fray.", "I bear any injury or indignity with stoic discipline.", "My righteous wrath is easily inflamed by the slightest iniquity.", "My honor is more important to me than my life.", "Dangerous work is best accomplished by an orderly group working with common purpose.", "I treat my weapons, uniform, and insignia with reverence, for they are gifts of the angels.", "I pace when standing and fidget incessantly when forced to sit." ],
+    "ideals" : [ "Guild. My guild is all that really matters. (Any)", "Justice. Achieving justice requires establishing fair, equitable, and compassionate relationships within a community. (Good)", "Protection. It isn't right for innocents to suffer because of the arrogance of the powerful. (Good)", "Solidarity. It is most crucial to act with a single will, marching side by side in perfect accord. (Lawful)", "Order. Society functions only if people do their duty and respect the chain of command. (Lawful)", "Conviction. Anything worth doing is worth doing with your whole heart. (Lawful)" ],
+    "bonds" : [ "I would lay down my life for Aurelia and the angels.", "I owe my life to the Boros captain who took me in when I was living on the streets.", "My fellow legionnaires are my family.", "I wield the same Boros weapon my grandparent did, for the honor of our family.", "I ran with the Rakdos in my youth, and I'm striving to atone for my past misdeeds.", "I do what I can to help out the spouse of a comrade who died in battle." ],
+    "flaws" : [ "I act bravely when I'm in a group, but I'm a coward when I'm alone.", "I see everything in clear-cut black and white.", "I'm just a little fascinated by the ways of the Gruul.", "I trust the chain of command more than anything—more even than my closest friends.", "I'm slow to trust members of other guilds.", "I've been known to turn a blind eye to injustice, with the help of a modest bribe." ],
+    "otherTables" : [ {
+      "caption" : "Boros Guild Spells",
+      "colLabels" : [ "Spell Level", "Spells" ],
+      "rows" : [ [ "Cantrip", "fire bolt, sacred flame" ], [ "1st", "guiding bolt, heroism" ], [ "2nd", "aid, scorching ray" ], [ "3rd", "beacon of hope, blinding smite" ], [ "4th", "death ward, wall of fire" ], [ "5th", "flame strike" ] ]
+    }, {
+      "caption" : "Boros Contacts",
+      "colLabels" : [ "d8", "Contact" ],
+      "rows" : [ [ "1", "A former comrade in arms was promoted into the prestigious Sunhome Guard." ], [ "2", "One of my parents is a ranking Boros officer." ], [ "3", "A close friend serves aboard the Parhelion II, a flying fortress." ], [ "4", "I had a tangled affair with a Boros garrison captain." ], [ "5", "I have maintained a relationship with one of my instructors at Horizon Military Academy." ], [ "6", "I competed with a fellow student for the attention of a mentor at Horizon Military Academy." ], [ "7", "The person who recruited me into the legion changed the course of my life." ], [ "8", "A Boros angel knows my name." ] ]
+    }, {
+      "caption" : "Non-Boros Contacts",
+      "colLabels" : [ "d10", "Contact" ],
+      "rows" : [ [ "1", "One of my siblings is an Azorius arrester." ], [ "2", "Roll an additional Boros contact; you can decide if the contact is an ally or a rival." ], [ "3", "I showed mercy to an injured, now-grateful Dimir spy." ], [ "4", "I suspect someone I know is a Golgari assassin, but I can't prove it." ], [ "5", "An adolescent relative ran off to join the Gruul in an act of rebellion and has not yet returned." ], [ "6", "I once befriended an Izzet scientist, and we're still cordial though the relationship ended messily." ], [ "7", "I owe a monetary debt to an Orzhov syndic." ], [ "8", "A Rakdos blood witch seems to enjoy harassing me." ], [ "9", "I tried to recruit a friend who ended up joining the Selesnya." ], [ "10", "I keep running into a particular Simic biomancer, and I enjoy the arguments that inevitably result." ] ]
+    } ],
+    "features" : [ {
+      "name" : "Legion Station",
+      "description" : "You have an established place in the hierarchy of the Boros Legion. You can requisition simple equipment for temporary use, and you can gain access to any Boros garrison in Ravnica, where you can rest in safety and receive the attention of medics. You are also paid a salary of 1 gp (a Boros-minted 1-zino coin) per week, which (combined with free lodging in your garrison) enables you to maintain a poor lifestyle between adventures."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "athletics", "intimidation" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "gamingSet",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "languageAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : [ "celestial", "draconic", "goblin", "other" ],
+        "category" : null,
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "Boros insignia",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "feather from an angel's wing",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "tattered piece of a Boros banner (a souvenir from a famous battle)",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "common-clothes",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 200,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : [ {
+      "expanded" : {
+        "s0" : [ "fire bolt#c", "sacred flame#c" ],
+        "s1" : [ "guiding bolt", "heroism" ],
+        "s2" : [ "aid", "scorching ray" ],
+        "s3" : [ "beacon of hope", "blinding smite" ],
+        "s4" : [ "death ward", "wall of fire" ],
+        "s5" : [ "flame strike" ]
+      }
+    } ],
+    "prerequisites" : null
+  }
+}

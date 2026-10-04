@@ -1,0 +1,297 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SUBCLASS",
+  "slug" : "fighter-battle-master",
+  "name" : "Battle Master",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 73,
+  "tags" : [ ],
+  "description" : "Those who emulate the archetypal Battle Master employ martial techniques passed down through generations. To a Battle Master, combat is an academic field, sometimes including subjects beyond battle such as weaponsmithing and calligraphy. Not every fighter absorbs the lessons of history, theory, and artistry that are reflected in the Battle Master archetype, but those who do are well-rounded fighters of great skill and knowledge.",
+  "data" : {
+    "classSlug" : "fighter",
+    "shortName" : "Battle Master",
+    "additionalSpells" : null,
+    "spellcasting" : null,
+    "tableColumns" : [ ],
+    "optionalFeatureProgressions" : [ {
+      "name" : "Maneuvers",
+      "featureTypes" : [ "MV:B" ],
+      "countByLevel" : [ 0, 0, 3, 3, 3, 3, 5, 5, 5, 7, 7, 7, 7, 7, 9, 9, 9, 9, 9, 9 ]
+    } ],
+    "features" : [ {
+      "name" : "Student of War",
+      "level" : 3,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 73,
+      "description" : "At 3rd level, you gain proficiency with one type of artisan's tools of your choice.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ {
+        "type" : "PROFICIENCY",
+        "grant" : "tool",
+        "count" : 1,
+        "category" : "artisansTool"
+      } ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Combat Superiority",
+      "level" : 3,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 73,
+      "description" : "When you choose this archetype at 3rd level, you learn maneuvers that are fueled by special dice called superiority dice. Maneuvers. You learn three maneuvers of your choice, which are listed under \"Maneuvers\" below. Many maneuvers enhance an attack in some way. You can use only one maneuver per attack. You learn two additional maneuvers of your choice at 7th, 10th, and 15th level. Each time you learn new maneuvers, you can also replace one maneuver you know with a different one. Superiority Dice. You have four superiority dice, which are d8s. A superiority die is expended when you use it. You regain all of your expended superiority dice when you finish a short or long rest. You gain another superiority die at 7th level and one more at 15th level. Saving Throws. Some of your maneuvers require your target to make a saving throw to resist the maneuver's effects. The saving throw DC is calculated as follows: Maneuver save DC = 8 + your proficiency bonus + your Strength or Dexterity modifier",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : {
+        "resource" : "superiority-dice",
+        "count" : 4,
+        "die" : 8,
+        "recharge" : "SHORT_OR_LONG_REST"
+      },
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Maneuvers",
+      "level" : 3,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 73,
+      "description" : "The maneuvers are presented in alphabetical order.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ {
+        "name" : "Commander's Strike",
+        "source" : "PHB"
+      }, {
+        "name" : "Disarming Attack",
+        "source" : "PHB"
+      }, {
+        "name" : "Distracting Strike",
+        "source" : "PHB"
+      }, {
+        "name" : "Evasive Footwork",
+        "source" : "PHB"
+      }, {
+        "name" : "Feinting Attack",
+        "source" : "PHB"
+      }, {
+        "name" : "Goading Attack",
+        "source" : "PHB"
+      }, {
+        "name" : "Lunging Attack",
+        "source" : "PHB"
+      }, {
+        "name" : "Maneuvering Attack",
+        "source" : "PHB"
+      }, {
+        "name" : "Menacing Attack",
+        "source" : "PHB"
+      }, {
+        "name" : "Parry",
+        "source" : "PHB"
+      }, {
+        "name" : "Precision Attack",
+        "source" : "PHB"
+      }, {
+        "name" : "Pushing Attack",
+        "source" : "PHB"
+      }, {
+        "name" : "Rally",
+        "source" : "PHB"
+      }, {
+        "name" : "Riposte",
+        "source" : "PHB"
+      }, {
+        "name" : "Sweeping Attack",
+        "source" : "PHB"
+      }, {
+        "name" : "Trip Attack",
+        "source" : "PHB"
+      } ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Maneuver Options",
+      "level" : 3,
+      "sourceBook" : "Tasha's Cauldron of Everything",
+      "sourcePage" : 41,
+      "description" : "3rd-level fighter optional feature If you have access to maneuvers, the following maneuvers are added to the list of options available to you. Maneuvers are available to Battle Masters but also to characters who have a special feature like the Superior Technique fighting style or the Martial Adept feat.",
+      "optional" : true,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ {
+        "name" : "Ambush",
+        "source" : "TCE"
+      }, {
+        "name" : "Bait and Switch",
+        "source" : "TCE"
+      }, {
+        "name" : "Brace",
+        "source" : "TCE"
+      }, {
+        "name" : "Commanding Presence",
+        "source" : "TCE"
+      }, {
+        "name" : "Grappling Strike",
+        "source" : "TCE"
+      }, {
+        "name" : "Quick Toss",
+        "source" : "TCE"
+      }, {
+        "name" : "Tactical Assessment",
+        "source" : "TCE"
+      } ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Additional Maneuvers",
+      "level" : 7,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 73,
+      "description" : "At 7th level, you learn two additional maneuvers of your choice.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Additional Superiority Die",
+      "level" : 7,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 73,
+      "description" : "You gain another superiority die at 7th level.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : {
+        "resource" : "superiority-dice",
+        "add" : 1
+      },
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Know Your Enemy",
+      "level" : 7,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 73,
+      "description" : "If you spend at least 1 minute observing or interacting with another creature outside combat, you can learn certain information about its capabilities compared to your own. The DM tells you if the creature is your equal, superior, or inferior in regard to two of the following characteristics of your choice: Strength score Dexterity score Constitution score Armor Class Current hit points Total class levels (if any) Fighter class levels (if any)",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Additional Maneuvers",
+      "level" : 10,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 73,
+      "description" : "At 10th level, you learn two additional maneuvers of your choice.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Improved Combat Superiority (d10)",
+      "level" : 10,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 73,
+      "description" : "At 10th level, your superiority dice turn into d10s.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : {
+        "resource" : "superiority-dice",
+        "die" : 10
+      },
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Additional Maneuvers",
+      "level" : 15,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 73,
+      "description" : "At 15th level, you learn two additional maneuvers of your choice.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Additional Superiority Die",
+      "level" : 15,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 73,
+      "description" : "You gain another superiority die at 15th level.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : {
+        "resource" : "superiority-dice",
+        "add" : 1
+      },
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Relentless",
+      "level" : 15,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 73,
+      "description" : "Starting at 15th level, when you roll initiative and have no superiority dice remaining, you regain 1 superiority die.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Improved Combat Superiority (d12)",
+      "level" : 18,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 73,
+      "description" : "At 18th level, your superiority dice turn into d12s.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : {
+        "resource" : "superiority-dice",
+        "die" : 12
+      },
+      "action" : null,
+      "grants" : null
+    } ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "shroud-of-shadow",
+  "name" : "Shroud of Shadow",
+  "sourceBook" : "Xanathar's Guide to Everything",
+  "sourceCode" : "XGE",
+  "sourcePage" : 57,
+  "tags" : [ ],
+  "description" : "Prerequisite: 15th level\n\nYou can cast invisibility at will, without expending a spell slot.",
+  "data" : {
+    "featureTypes" : [ "EI" ],
+    "optional" : false,
+    "prerequisiteText" : "15th level",
+    "prerequisites" : [ {
+      "level" : {
+        "level" : 15,
+        "class" : {
+          "name" : "Warlock"
+        }
+      }
+    } ],
+    "consumes" : null,
+    "additionalSpells" : [ {
+      "innate" : {
+        "_" : [ "invisibility" ]
+      }
+    } ],
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

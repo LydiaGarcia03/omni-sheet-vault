@@ -1,0 +1,7 @@
+{
+  "target": { "classSlug": "rogue", "feature": "Cunning Action" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 94 },
+  "modifiers": [],
+  "action": { "type": "BONUS_ACTION" },
+  "choices": []
+}

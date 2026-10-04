@@ -1,0 +1,28 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "armor-of-magical-strength",
+  "name" : "Armor of Magical Strength",
+  "sourceBook" : "Tasha's Cauldron of Everything",
+  "sourceCode" : "TCE",
+  "sourcePage" : 20,
+  "tags" : [ ],
+  "description" : "Prerequisite: A suit of armor (requires attunement)\n\nThis armor has 6 charges. The wearer can expend the armor's charges in the following ways: When the wearer makes a Strength check or a Strength saving throw, it can expend 1 charge to add a bonus to the roll equal to its Intelligence modifier. If the creature would be knocked prone, it can use its reaction to expend 1 charge to avoid being knocked prone. The armor regains 1d6 expended charges daily at dawn.",
+  "data" : {
+    "featureTypes" : [ "AI" ],
+    "optional" : false,
+    "prerequisiteText" : "A suit of armor (requires attunement)",
+    "prerequisites" : [ {
+      "item" : [ "A suit of armor (requires attunement)" ]
+    } ],
+    "consumes" : null,
+    "additionalSpells" : null,
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

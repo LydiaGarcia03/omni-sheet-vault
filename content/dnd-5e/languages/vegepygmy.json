@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "LANGUAGE",
+  "slug" : "vegepygmy",
+  "name" : "Vegepygmy",
+  "sourceBook" : "Volo's Guide to Monsters",
+  "sourceCode" : "VGM",
+  "sourcePage" : 196,
+  "tags" : [ ],
+  "description" : "",
+  "data" : {
+    "type" : null,
+    "script" : null
+  }
+}

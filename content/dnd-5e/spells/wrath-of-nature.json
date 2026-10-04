@@ -1,0 +1,43 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "wrath-of-nature",
+  "name" : "Wrath of Nature",
+  "sourceBook" : "Xanathar's Guide to Everything",
+  "sourceCode" : "XGE",
+  "sourcePage" : 171,
+  "tags" : [ "Prone", "Restrained" ],
+  "description" : "You call out to the spirits of nature to rouse them against your enemies. Choose a point you can see within range. The spirits cause trees, rocks, and grasses in a 60-foot cube centered on that point to become animated until the spell ends.",
+  "data" : {
+    "level" : 5,
+    "school" : "evocation",
+    "castingTime" : "1 Action",
+    "range" : "120 ft.",
+    "concentration" : true,
+    "ritual" : false,
+    "attackRoll" : true,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : "bludgeoning",
+    "notes" : "Concentration, 1 minute, V, S",
+    "effectSummary" : "Damage",
+    "saveAbility" : "dexterity",
+    "components" : "V, S",
+    "materialComponent" : null,
+    "duration" : "Concentration, 1 minute",
+    "higherLevelsDescription" : null,
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "XGE",
+    "classes" : [ {
+      "name" : "Druid",
+      "source" : "PHB"
+    }, {
+      "name" : "Ranger",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ ],
+    "effect" : null
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "LANGUAGE",
+  "slug" : "aven",
+  "name" : "Aven",
+  "sourceBook" : "Plane Shift: Dominaria",
+  "sourceCode" : "PSD",
+  "sourcePage" : 6,
+  "tags" : [ ],
+  "description" : "",
+  "data" : {
+    "type" : null,
+    "script" : null
+  }
+}

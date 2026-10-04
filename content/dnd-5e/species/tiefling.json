@@ -1,0 +1,980 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "tiefling",
+  "name" : "Tiefling",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 42,
+  "tags" : [ ],
+  "description" : "Age. Tieflings mature at the same rate as humans but live a few years longer. Size. Tieflings are about the same size and build as humans. Your size is Medium. Darkvision. Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Hellish Resistance. You have resistance to fire damage. Infernal Legacy. You know the thaumaturgy cantrip. Once you reach 3rd level, you can cast the hellish rebuke spell as a 2nd-level spell with this trait; you regain the ability to cast it when you finish a long rest. Once you reach 5th level, you can also cast the darkness spell once per day with this trait; you regain the ability to cast it when you finish a long rest. Charisma is your spellcasting ability for these spells. Languages. You can speak, read, and write Common and Infernal.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 30
+    },
+    "senses" : [ {
+      "type" : "darkvision",
+      "range" : 60
+    } ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "charisma" : 2,
+        "intelligence" : 1
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "infernal" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ "fire" ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : [ {
+      "innate" : {
+        "3" : {
+          "daily" : {
+            "1" : [ "hellish rebuke#2" ]
+          }
+        },
+        "5" : {
+          "daily" : {
+            "1" : [ "darkness" ]
+          }
+        }
+      },
+      "ability" : "cha",
+      "known" : {
+        "1" : [ "thaumaturgy#c" ]
+      }
+    } ],
+    "age" : {
+      "mature" : 20,
+      "max" : 100
+    },
+    "heightAndWeight" : {
+      "baseHeight" : 57,
+      "heightMod" : "2d8",
+      "baseWeight" : 110,
+      "weightMod" : "2d4"
+    },
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Age",
+      "description" : "Tieflings mature at the same rate as humans but live a few years longer."
+    }, {
+      "name" : "Size",
+      "description" : "Tieflings are about the same size and build as humans. Your size is Medium."
+    }, {
+      "name" : "Darkvision",
+      "description" : "Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+    }, {
+      "name" : "Hellish Resistance",
+      "description" : "You have resistance to fire damage."
+    }, {
+      "name" : "Infernal Legacy",
+      "description" : "You know the thaumaturgy cantrip. Once you reach 3rd level, you can cast the hellish rebuke spell as a 2nd-level spell with this trait; you regain the ability to cast it when you finish a long rest. Once you reach 5th level, you can also cast the darkness spell once per day with this trait; you regain the ability to cast it when you finish a long rest. Charisma is your spellcasting ability for these spells."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and Infernal."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ {
+      "name" : null,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 42,
+      "overwrite" : [ ],
+      "description" : "",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : null,
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ ],
+      "variants" : [ ]
+    }, {
+      "name" : "Asmodeus",
+      "sourceBook" : "Mordenkainen's Tome of Foes",
+      "sourcePage" : 21,
+      "overwrite" : [ ],
+      "description" : "",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : null,
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ ],
+      "variants" : [ ]
+    }, {
+      "name" : "Baalzebul",
+      "sourceBook" : "Mordenkainen's Tome of Foes",
+      "sourcePage" : 21,
+      "overwrite" : [ ],
+      "description" : "Legacy of Maladomini. You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the ray of sickness spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the crown of madness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "innate" : {
+          "3" : {
+            "daily" : {
+              "1" : [ "ray of sickness#2" ]
+            }
+          },
+          "5" : {
+            "daily" : {
+              "1" : [ "crown of madness" ]
+            }
+          }
+        },
+        "ability" : "cha",
+        "known" : {
+          "1" : [ "thaumaturgy#c" ]
+        }
+      } ],
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Legacy of Maladomini",
+        "description" : "You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the ray of sickness spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the crown of madness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells."
+      } ],
+      "variants" : [ ]
+    }, {
+      "name" : "Dispater",
+      "sourceBook" : "Mordenkainen's Tome of Foes",
+      "sourcePage" : 21,
+      "overwrite" : [ "abilityAlternatives" ],
+      "description" : "Legacy of Dis. You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the disguise self spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the detect thoughts spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "charisma" : 2,
+          "dexterity" : 1
+        },
+        "choices" : [ ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "innate" : {
+          "3" : {
+            "daily" : {
+              "1" : [ "disguise self" ]
+            }
+          },
+          "5" : {
+            "daily" : {
+              "1" : [ "detect thoughts" ]
+            }
+          }
+        },
+        "ability" : "cha",
+        "known" : {
+          "1" : [ "thaumaturgy#c" ]
+        }
+      } ],
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Legacy of Dis",
+        "description" : "You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the disguise self spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the detect thoughts spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells."
+      } ],
+      "variants" : [ ]
+    }, {
+      "name" : "Fierna",
+      "sourceBook" : "Mordenkainen's Tome of Foes",
+      "sourcePage" : 21,
+      "overwrite" : [ "abilityAlternatives" ],
+      "description" : "Legacy of Phlegethos. You know the friends cantrip. When you reach 3rd level, you can cast the charm person spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the suggestion spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "charisma" : 2,
+          "wisdom" : 1
+        },
+        "choices" : [ ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "innate" : {
+          "3" : {
+            "daily" : {
+              "1" : [ "charm person#2" ]
+            }
+          },
+          "5" : {
+            "daily" : {
+              "1" : [ "suggestion" ]
+            }
+          }
+        },
+        "ability" : "cha",
+        "known" : {
+          "1" : [ "friends#c" ]
+        }
+      } ],
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Legacy of Phlegethos",
+        "description" : "You know the friends cantrip. When you reach 3rd level, you can cast the charm person spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the suggestion spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells."
+      } ],
+      "variants" : [ ]
+    }, {
+      "name" : "Glasya",
+      "sourceBook" : "Mordenkainen's Tome of Foes",
+      "sourcePage" : 22,
+      "overwrite" : [ "abilityAlternatives" ],
+      "description" : "Legacy of Malbolge. You know the minor illusion cantrip. When you reach 3rd level, you can cast the disguise self spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the invisibility spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "charisma" : 2,
+          "dexterity" : 1
+        },
+        "choices" : [ ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "innate" : {
+          "3" : {
+            "daily" : {
+              "1" : [ "disguise self" ]
+            }
+          },
+          "5" : {
+            "daily" : {
+              "1" : [ "invisibility" ]
+            }
+          }
+        },
+        "ability" : "cha",
+        "known" : {
+          "1" : [ "minor illusion#c" ]
+        }
+      } ],
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Legacy of Malbolge",
+        "description" : "You know the minor illusion cantrip. When you reach 3rd level, you can cast the disguise self spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the invisibility spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells."
+      } ],
+      "variants" : [ ]
+    }, {
+      "name" : "Levistus",
+      "sourceBook" : "Mordenkainen's Tome of Foes",
+      "sourcePage" : 22,
+      "overwrite" : [ "abilityAlternatives" ],
+      "description" : "Legacy of Stygia. You know the ray of frost cantrip. When you reach 3rd level, you can cast the armor of Agathys spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the darkness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "charisma" : 2,
+          "constitution" : 1
+        },
+        "choices" : [ ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "innate" : {
+          "3" : {
+            "daily" : {
+              "1" : [ "armor of agathys#2" ]
+            }
+          },
+          "5" : {
+            "daily" : {
+              "1" : [ "darkness" ]
+            }
+          }
+        },
+        "ability" : "cha",
+        "known" : {
+          "1" : [ "ray of frost#c" ]
+        }
+      } ],
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Legacy of Stygia",
+        "description" : "You know the ray of frost cantrip. When you reach 3rd level, you can cast the armor of Agathys spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the darkness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells."
+      } ],
+      "variants" : [ ]
+    }, {
+      "name" : "Mammon",
+      "sourceBook" : "Mordenkainen's Tome of Foes",
+      "sourcePage" : 22,
+      "overwrite" : [ ],
+      "description" : "Legacy of Minauros. You know the mage hand cantrip. When you reach 3rd level, you can cast the Tenser's floating disk spell once with this trait and regain the ability to do so when you finish a short or long rest. When you reach 5th level, you can cast the arcane lock spell once with this trait, requiring no material component, and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "innate" : {
+          "3" : {
+            "daily" : {
+              "1" : [ "tenser's floating disk" ]
+            }
+          },
+          "5" : {
+            "daily" : {
+              "1" : [ "arcane lock" ]
+            }
+          }
+        },
+        "ability" : "cha",
+        "known" : {
+          "1" : [ "mage hand#c" ]
+        }
+      } ],
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Legacy of Minauros",
+        "description" : "You know the mage hand cantrip. When you reach 3rd level, you can cast the Tenser's floating disk spell once with this trait and regain the ability to do so when you finish a short or long rest. When you reach 5th level, you can cast the arcane lock spell once with this trait, requiring no material component, and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells."
+      } ],
+      "variants" : [ ]
+    }, {
+      "name" : "Mephistopheles",
+      "sourceBook" : "Mordenkainen's Tome of Foes",
+      "sourcePage" : 23,
+      "overwrite" : [ ],
+      "description" : "Legacy of Cania. You know the mage hand cantrip. When you reach 3rd level, you can cast the burning hands spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the flame blade spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "innate" : {
+          "3" : {
+            "daily" : {
+              "1" : [ "burning hands#2" ]
+            }
+          },
+          "5" : {
+            "daily" : {
+              "1" : [ "flame blade" ]
+            }
+          }
+        },
+        "ability" : "cha",
+        "known" : {
+          "1" : [ "mage hand#c" ]
+        }
+      } ],
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Legacy of Cania",
+        "description" : "You know the mage hand cantrip. When you reach 3rd level, you can cast the burning hands spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the flame blade spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells."
+      } ],
+      "variants" : [ ]
+    }, {
+      "name" : "Variant; Devil's Tongue",
+      "sourceBook" : "Sword Coast Adventurer's Guide",
+      "sourcePage" : 118,
+      "overwrite" : [ "abilityAlternatives" ],
+      "description" : "Appearance. Your tiefling might not look like other tieflings. Rather than having the physical characteristics described in the Player's Handbook, choose 1d4+1 of the following features: small horns; fangs or sharp teeth; a forked tongue; catlike eyes; six fingers on each hand; goatlike legs; cloven hoofs; a forked tail; leathery or scaly skin; red or dark blue skin; cast no shadow or reflection; exude a smell of brimstone. Devil's Tongue. You know the vicious mockery cantrip. When you reach 3rd level, you can cast the charm person spell as a 2nd-level spell once with this trait. When you reach 5th level, you can cast the enthrall spell once with this trait. You must finish a long rest to cast these spells once again with this trait. Charisma is your spellcasting ability for them. This trait replaces the Infernal Legacy trait.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "intelligence" : 1
+        },
+        "choices" : [ {
+          "from" : [ "dexterity", "charisma" ],
+          "weights" : null,
+          "count" : 1,
+          "amount" : 2
+        } ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "innate" : {
+          "3" : {
+            "daily" : {
+              "1" : [ "charm person#2" ]
+            }
+          },
+          "5" : {
+            "daily" : {
+              "1" : [ "enthrall" ]
+            }
+          }
+        },
+        "ability" : "cha",
+        "known" : {
+          "1" : [ "vicious mockery#c" ]
+        }
+      } ],
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Appearance",
+        "description" : "Your tiefling might not look like other tieflings. Rather than having the physical characteristics described in the Player's Handbook, choose 1d4+1 of the following features: small horns; fangs or sharp teeth; a forked tongue; catlike eyes; six fingers on each hand; goatlike legs; cloven hoofs; a forked tail; leathery or scaly skin; red or dark blue skin; cast no shadow or reflection; exude a smell of brimstone."
+      }, {
+        "name" : "Devil's Tongue",
+        "description" : "You know the vicious mockery cantrip. When you reach 3rd level, you can cast the charm person spell as a 2nd-level spell once with this trait. When you reach 5th level, you can cast the enthrall spell once with this trait. You must finish a long rest to cast these spells once again with this trait. Charisma is your spellcasting ability for them. This trait replaces the Infernal Legacy trait."
+      } ],
+      "variants" : [ ]
+    }, {
+      "name" : "Variant; Hellfire",
+      "sourceBook" : "Sword Coast Adventurer's Guide",
+      "sourcePage" : 118,
+      "overwrite" : [ "abilityAlternatives" ],
+      "description" : "Appearance. Your tiefling might not look like other tieflings. Rather than having the physical characteristics described in the Player's Handbook, choose 1d4+1 of the following features: small horns; fangs or sharp teeth; a forked tongue; catlike eyes; six fingers on each hand; goatlike legs; cloven hoofs; a forked tail; leathery or scaly skin; red or dark blue skin; cast no shadow or reflection; exude a smell of brimstone. Hellfire. You know the thaumaturgy cantrip. Once you reach 3rd level, you can cast the burning hands spell once per day as a 2nd-level spell; you must finish a long rest in order to cast the spell again using this trait. Once you reach 5th level, you can also cast the darkness spell; you must finish a long rest in order to cast the spell again using this trait. Charisma is your spellcasting ability for these spells.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "intelligence" : 1
+        },
+        "choices" : [ {
+          "from" : [ "dexterity", "charisma" ],
+          "weights" : null,
+          "count" : 1,
+          "amount" : 2
+        } ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "innate" : {
+          "3" : {
+            "daily" : {
+              "1" : [ "burning hands#2" ]
+            }
+          },
+          "5" : {
+            "daily" : {
+              "1" : [ "darkness" ]
+            }
+          }
+        },
+        "ability" : "cha",
+        "known" : {
+          "1" : [ "thaumaturgy#c" ]
+        }
+      } ],
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Appearance",
+        "description" : "Your tiefling might not look like other tieflings. Rather than having the physical characteristics described in the Player's Handbook, choose 1d4+1 of the following features: small horns; fangs or sharp teeth; a forked tongue; catlike eyes; six fingers on each hand; goatlike legs; cloven hoofs; a forked tail; leathery or scaly skin; red or dark blue skin; cast no shadow or reflection; exude a smell of brimstone."
+      }, {
+        "name" : "Hellfire",
+        "description" : "You know the thaumaturgy cantrip. Once you reach 3rd level, you can cast the burning hands spell once per day as a 2nd-level spell; you must finish a long rest in order to cast the spell again using this trait. Once you reach 5th level, you can also cast the darkness spell; you must finish a long rest in order to cast the spell again using this trait. Charisma is your spellcasting ability for these spells."
+      } ],
+      "variants" : [ ]
+    }, {
+      "name" : "Variant; Infernal Legacy",
+      "sourceBook" : "Sword Coast Adventurer's Guide",
+      "sourcePage" : 118,
+      "overwrite" : [ "abilityAlternatives" ],
+      "description" : "Appearance. Your tiefling might not look like other tieflings. Rather than having the physical characteristics described in the Player's Handbook, choose 1d4+1 of the following features: small horns; fangs or sharp teeth; a forked tongue; catlike eyes; six fingers on each hand; goatlike legs; cloven hoofs; a forked tail; leathery or scaly skin; red or dark blue skin; cast no shadow or reflection; exude a smell of brimstone.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "intelligence" : 1
+        },
+        "choices" : [ {
+          "from" : [ "dexterity", "charisma" ],
+          "weights" : null,
+          "count" : 1,
+          "amount" : 2
+        } ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "innate" : {
+          "3" : {
+            "daily" : {
+              "1" : [ "hellish rebuke" ]
+            }
+          },
+          "5" : {
+            "daily" : {
+              "1" : [ "darkness" ]
+            }
+          }
+        },
+        "ability" : "cha",
+        "known" : {
+          "1" : [ "thaumaturgy#c" ]
+        }
+      } ],
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Appearance",
+        "description" : "Your tiefling might not look like other tieflings. Rather than having the physical characteristics described in the Player's Handbook, choose 1d4+1 of the following features: small horns; fangs or sharp teeth; a forked tongue; catlike eyes; six fingers on each hand; goatlike legs; cloven hoofs; a forked tail; leathery or scaly skin; red or dark blue skin; cast no shadow or reflection; exude a smell of brimstone."
+      } ],
+      "variants" : [ ]
+    }, {
+      "name" : "Variant; Winged",
+      "sourceBook" : "Sword Coast Adventurer's Guide",
+      "sourcePage" : 118,
+      "overwrite" : [ "abilityAlternatives" ],
+      "description" : "Appearance. Your tiefling might not look like other tieflings. Rather than having the physical characteristics described in the Player's Handbook, choose 1d4+1 of the following features: small horns; fangs or sharp teeth; a forked tongue; catlike eyes; six fingers on each hand; goatlike legs; cloven hoofs; a forked tail; leathery or scaly skin; red or dark blue skin; cast no shadow or reflection; exude a smell of brimstone. Winged. You have bat-like wings sprouting from your shoulder blades. You have a flying speed of 30 feet while you aren't wearing heavy armor.",
+      "size" : null,
+      "speed" : {
+        "walk" : 30,
+        "fly" : 30
+      },
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "intelligence" : 1
+        },
+        "choices" : [ {
+          "from" : [ "dexterity", "charisma" ],
+          "weights" : null,
+          "count" : 1,
+          "amount" : 2
+        } ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : null,
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Appearance",
+        "description" : "Your tiefling might not look like other tieflings. Rather than having the physical characteristics described in the Player's Handbook, choose 1d4+1 of the following features: small horns; fangs or sharp teeth; a forked tongue; catlike eyes; six fingers on each hand; goatlike legs; cloven hoofs; a forked tail; leathery or scaly skin; red or dark blue skin; cast no shadow or reflection; exude a smell of brimstone."
+      }, {
+        "name" : "Winged",
+        "description" : "You have bat-like wings sprouting from your shoulder blades. You have a flying speed of 30 feet while you aren't wearing heavy armor."
+      } ],
+      "variants" : [ ]
+    }, {
+      "name" : "Zariel",
+      "sourceBook" : "Mordenkainen's Tome of Foes",
+      "sourcePage" : 23,
+      "overwrite" : [ "abilityAlternatives" ],
+      "description" : "Legacy of Avernus. You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the searing smite spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the branding smite spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "charisma" : 2,
+          "strength" : 1
+        },
+        "choices" : [ ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "innate" : {
+          "3" : {
+            "daily" : {
+              "1" : [ "searing smite#2" ]
+            }
+          },
+          "5" : {
+            "daily" : {
+              "1" : [ "branding smite" ]
+            }
+          }
+        },
+        "ability" : "cha",
+        "known" : {
+          "1" : [ "thaumaturgy#c" ]
+        }
+      } ],
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Legacy of Avernus",
+        "description" : "You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the searing smite spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the branding smite spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells."
+      } ],
+      "variants" : [ ]
+    } ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "fizbans-platinum-shield",
+  "name" : "Fizban's Platinum Shield",
+  "sourceBook" : "Fizban's Treasury of Dragons",
+  "sourceCode" : "FTD",
+  "sourcePage" : 20,
+  "tags" : [ ],
+  "description" : "You create a field of silvery light that surrounds a creature of your choice within range (you can choose yourself). The field sheds dim light out to 5 feet. While surrounded by the field, a creature gains the following benefits: As a bonus action on subsequent turns, you can move the field to another creature within 60 feet of the field.",
+  "data" : {
+    "level" : 6,
+    "school" : "abjuration",
+    "castingTime" : "1 Bonus Action",
+    "range" : "60 ft.",
+    "concentration" : true,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "notes" : "Concentration, 1 minute, V, S, M (a platinum-plated dragon scale, worth at least 500 gp)",
+    "effectSummary" : "Buff",
+    "saveAbility" : null,
+    "components" : "V, S, M",
+    "materialComponent" : "a platinum-plated dragon scale, worth at least 500 gp",
+    "duration" : "Concentration, 1 minute",
+    "higherLevelsDescription" : null,
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "FTD",
+    "classes" : [ {
+      "name" : "Sorcerer",
+      "source" : "PHB"
+    }, {
+      "name" : "Wizard",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Arcana",
+      "subclassSource" : "SCAG"
+    } ],
+    "effect" : null
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "thirsting-blade",
+  "name" : "Thirsting Blade",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 111,
+  "tags" : [ ],
+  "description" : "Prerequisite: 5th level, Pact of the Blade\n\nYou can attack with your pact weapon twice, instead of once, whenever you take the Attack action on your turn.",
+  "data" : {
+    "featureTypes" : [ "EI" ],
+    "optional" : false,
+    "prerequisiteText" : "5th level, Pact of the Blade",
+    "prerequisites" : [ {
+      "pact" : "Blade",
+      "level" : {
+        "level" : 5,
+        "class" : {
+          "name" : "Warlock"
+        }
+      }
+    } ],
+    "consumes" : null,
+    "additionalSpells" : null,
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

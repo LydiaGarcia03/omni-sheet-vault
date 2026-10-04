@@ -1,0 +1,74 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "ITEM",
+  "slug" : "voyager-staff",
+  "name" : "Voyager Staff",
+  "sourceBook" : "Guildmasters' Guide to Ravnica",
+  "sourceCode" : "GGR",
+  "sourcePage" : 181,
+  "tags" : [ ],
+  "description" : "You gain a +1 bonus to attack and damage rolls made with this magic quarterstaff. While you hold it, you gain a +1 bonus to spell attack rolls. This staff has 10 charges. While holding it, you can use an action to expend 1 or more of the staff's charges to cast one of the following spells from it, using your spell save DC: banishment (4 charges), blink (3 charges), misty step (2 charges), passwall (5 charges), or teleport (7 charges). The staff regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff vanishes forever.",
+  "data" : {
+    "itemKind" : "GEAR",
+    "typeLabel" : "Adventuring Gear",
+    "rarity" : "very rare",
+    "focusType" : null,
+    "requiresAttunement" : true,
+    "attunementRequirement" : "by a spellcaster",
+    "weightLb" : 4.0,
+    "costGp" : null,
+    "weaponCategory" : null,
+    "attackType" : null,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "versatileDamageDiceCount" : null,
+    "versatileDamageDiceSides" : null,
+    "properties" : [ ],
+    "finesse" : false,
+    "normalRange" : null,
+    "longRange" : null,
+    "armorCategory" : null,
+    "baseArmorClass" : null,
+    "stealthDisadvantage" : false,
+    "strengthRequirement" : null,
+    "weaponAttackBonus" : 1,
+    "weaponDamageBonus" : 1,
+    "armorClassBonus" : null,
+    "charges" : 10,
+    "rechargeTrigger" : "Dawn",
+    "rechargeFormula" : "1d6 + 4",
+    "grantedSpells" : [ {
+      "spellSlug" : "misty-step",
+      "chargeCost" : 2,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "blink",
+      "chargeCost" : 3,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "banishment",
+      "chargeCost" : 4,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "passwall",
+      "chargeCost" : 5,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "teleport",
+      "chargeCost" : 7,
+      "fixedSaveDc" : null
+    } ],
+    "mechanics" : {
+      "modifiers" : [ {
+        "type" : "BONUS",
+        "target" : "SPELL_ATTACKS",
+        "value" : 1
+      } ],
+      "damageResistances" : [ ],
+      "damageImmunities" : [ ],
+      "damageVulnerabilities" : [ ],
+      "conditionImmunities" : [ ]
+    }
+  }
+}

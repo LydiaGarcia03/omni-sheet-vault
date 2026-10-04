@@ -1,0 +1,109 @@
+plugins {
+    id 'java'
+}
+
+description = 'omni-sheet-vault desktop edition: the launcher window and the Windows package (see .ai/features/desktop-edition.md)'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+def appName = 'OmniSheetVault'
+def appVersion = '0.2.0'
+def mainClassName = 'dev.omnisheetvault.desktop.DesktopLauncher'
+def isWindows = System.getProperty('os.name').toLowerCase().contains('windows')
+
+dependencies {
+    // The API project declares its dependencies without versions; its Boot BOM supplies them here too.
+    implementation platform('org.springframework.boot:spring-boot-dependencies:4.1.0')
+    implementation project(':apps:api')
+    implementation 'org.springframework.boot:spring-boot'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.assertj:assertj-core'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+// The Windows package only needs the Windows PostgreSQL binaries.
+configurations.runtimeClasspath {
+    exclude group: 'io.zonky.test.postgres', module: 'embedded-postgres-binaries-darwin-amd64'
+    exclude group: 'io.zonky.test.postgres', module: 'embedded-postgres-binaries-linux-amd64'
+    exclude group: 'io.zonky.test.postgres', module: 'embedded-postgres-binaries-linux-amd64-alpine'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs << '-parameters'
+    options.encoding = 'UTF-8'
+}
+
+tasks.named('jar') {
+    archiveFileName = 'omni-sheet-vault-desktop.jar'
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+    systemProperty 'java.io.tmpdir', temporaryDir.absolutePath
+}
+
+def webApp = rootProject.file('apps/web')
+def stagingDirectory = layout.buildDirectory.dir('jpackage/input')
+def imageDirectory = layout.buildDirectory.dir('jpackage/image')
+
+tasks.register('buildDesktopWebApp', Exec) {
+    group = 'desktop'
+    description = 'Builds the web app in desktop mode (apps/web/dist-desktop).'
+    workingDir webApp
+    commandLine isWindows ? ['cmd', '/c', 'npm', 'run', 'build:desktop'] : ['npm', 'run', 'build:desktop']
+}
+
+tasks.register('stageDesktopApp', Sync) {
+    group = 'desktop'
+    description = 'Gathers the jars, the web app and the catalogue content that jpackage bundles.'
+    dependsOn tasks.named('jar'), tasks.named('buildDesktopWebApp')
+    into stagingDirectory
+    from tasks.named('jar')
+    from configurations.runtimeClasspath
+    into('web') { from new File(webApp, 'dist-desktop') }
+    into('content') { from rootProject.file('content') }
+}
+
+tasks.register('desktopAppImage', Exec) {
+    group = 'desktop'
+    description = 'Builds the Windows app image: OmniSheetVault.exe with its own Java runtime.'
+    dependsOn tasks.named('stageDesktopApp')
+    def jpackage = javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(25) }
+            .map { it.metadata.installationPath.file(isWindows ? 'bin/jpackage.exe' : 'bin/jpackage').asFile.absolutePath }
+    doFirst {
+        delete imageDirectory
+    }
+    executable = jpackage.get()
+    args '--type', 'app-image',
+            '--name', appName,
+            '--app-version', appVersion,
+            '--vendor', 'Omni Sheet Vault',
+            '--description', 'Omni Sheet Vault, desktop edition',
+            '--input', stagingDirectory.get().asFile.absolutePath,
+            '--main-jar', 'omni-sheet-vault-desktop.jar',
+            '--main-class', mainClassName,
+            '--java-options', '-Xmx768m',
+            '--jlink-options', '--strip-debug --no-man-pages --no-header-files',
+            '--dest', imageDirectory.get().asFile.absolutePath
+}
+
+tasks.register('packageDesktop', Zip) {
+    group = 'desktop'
+    description = 'Zips the app image into the file friends receive: build/distributions/OmniSheetVault-<version>-windows.zip.'
+    dependsOn tasks.named('desktopAppImage')
+    from imageDirectory
+    archiveFileName = "${appName}-${appVersion}-windows.zip"
+    destinationDirectory = layout.buildDirectory.dir('distributions')
+}

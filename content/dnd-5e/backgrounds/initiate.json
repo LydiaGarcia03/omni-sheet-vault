@@ -1,0 +1,101 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "initiate",
+  "name" : "Initiate",
+  "sourceBook" : "Plane Shift: Amonkhet",
+  "sourceCode" : "PSA",
+  "sourcePage" : 8,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. Athletics, Intimidation Tool Proficiencies:. One type of gaming set, vehicles (land) Equipment:. A simple puzzle box, a scroll containing the basic teachings of the five gods, a gaming set, a set of common clothes, and a belt pouch containing 15 gp. If you have completed any trials before the start of the campaign, you also have any cartouches you have earned Feature: Trials of the Five Gods. Your life is oriented around your participation in the five trials that will determine your worthiness in the afterlife. While you prepare for and undergo those trials, you have constant access to training. A comfortable place to live and regular meals are provided to you by servitor mummies (the anointed) under the supervision of viziers. You can enjoy these benefits only as long as you obey the societal norms of Naktamun—training for the trials (with or without your crop), obeying the orders of the gods, and following the instructions of their viziers. If you violate these norms, you risk being treated as a dissenter. See \"Trials of the Five Gods\" for more information about undertaking the trials and their rewards. Suggested Characteristics. An initiate's life is focused on the trials, but it doesn't need to be all about the trials. Though some initiates are highly focused on their training, most undergo that training while also experiencing joy, sorrow, love, loss, anger, jealousy, hope, faith, delight—the whole range of mortal emotions and experience. The afterlife might be a constant presence in every initiate's mind, but it is the culmination of a life well-lived—not a replacement for it.",
+  "data" : {
+    "personalityTraits" : [ "I always have a joke on hand when the mood gets too serious.", "I use sarcasm and insults to keep a distance between myself and my crop-mates, because I don't want to get attached to them.", "I'll settle for nothing less than perfection—in myself, in my cropmates, in everything.", "I'm so focused on the glorious afterlife that nothing in this life can shake my calm resolve.", "I enjoy using my skills to help those who lack those same skills.", "I train hard so that I can play hard at the end of the day. I fully expect to play even harder in the glorious afterlife, but I'm not in a hurry to get there.", "I'm perfectly happy letting others pick up the slack for me while I take it easy.", "I'm constantly sizing up everyone around me, thinking about what kind of opponent they'll be in the final trial." ],
+    "ideals" : [ "Solidarity. The thing that matters most of all is that we're there for each other. (Lawful)", "Knowledge. The world is a puzzle—a mystery waiting to be solved. (Neutral)", "Strength. All that matters to me is my own perfection. Let everyone else seek that perfection in their own way. (Any)", "Ambition. I'm going to prove that I deserve only the best—of everything. (Evil)", "Zeal. Anything worth doing is worth throwing my whole self into. (Any)", "Redemption. I will train all the harder to make up for the doubt I entertained when I was younger. (Any)" ],
+    "bonds" : [ "One of my crop-mates is my dearest friend, and I hope we will face each other in the final trial.", "I am in love with a vizier.", "I am particularly drawn to one of the five gods, and I want nothing more than to win that god's particular favor.", "I am more devoted to Naktamun and its people than I am to any of the ideals of the gods.", "My weapon was a gift from a beloved trainer who died in an accident.", "I carry a memento of my time as an acolyte, and I treasure it above all other things." ],
+    "flaws" : [ "I'm easily distracted by an attractive person, which could be the death of me in the trials.", "I really wanted to be a vizier, and I'm angry at the god who didn't choose me.", "Training for a lifetime to die in the end seems like a big waste of energy.", "I'm not at all sure I'll be able to grant a glorified death to any of my crop-mates.", "I have a lasting grudge against one of my crop-mates, and each of us wants to see the other fail.", "I think I've figured out that this world is not what it seems. Something dark is going on here." ],
+    "otherTables" : [ ],
+    "features" : [ {
+      "name" : "Trials of the Five Gods",
+      "description" : "Your life is oriented around your participation in the five trials that will determine your worthiness in the afterlife. While you prepare for and undergo those trials, you have constant access to training. A comfortable place to live and regular meals are provided to you by servitor mummies (the anointed) under the supervision of viziers. You can enjoy these benefits only as long as you obey the societal norms of Naktamun—training for the trials (with or without your crop), obeying the orders of the gods, and following the instructions of their viziers. If you violate these norms, you risk being treated as a dissenter. See \"Trials of the Five Gods\" for more information about undertaking the trials and their rewards."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "athletics", "intimidation" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ {
+      "fixed" : [ "vehicles-land" ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "gamingSet",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "languageAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "simple puzzle box",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "scroll containing the basic teachings of the five gods",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : "setGaming",
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "common-clothes",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 1500,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "any cartouches you have earned",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : null,
+    "prerequisites" : null
+  }
+}

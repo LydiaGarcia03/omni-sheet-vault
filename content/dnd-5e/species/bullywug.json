@@ -1,0 +1,76 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "bullywug",
+  "name" : "Bullywug",
+  "sourceBook" : "Dungeon Master's Guide",
+  "sourceCode" : "DMG",
+  "sourcePage" : 282,
+  "tags" : [ ],
+  "description" : "Amphibious. You can breathe air and water. Speak with Frogs and Toads. You can communicate simple concepts to frogs and toads when you speak in Bullywug. Swamp Camouflage. You have advantage on Dexterity (Stealth) checks made to hide in swampy terrain. Standing Leap. Your long jump is up to 20 feet and your high jump is up to 10 feet, with or without a running start. Languages. You can speak, read, and write Bullywug.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 20,
+      "swim" : 40
+    },
+    "senses" : [ ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "intelligence" : -2,
+        "charisma" : -2
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "other" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : null,
+    "heightAndWeight" : null,
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Amphibious",
+      "description" : "You can breathe air and water."
+    }, {
+      "name" : "Speak with Frogs and Toads",
+      "description" : "You can communicate simple concepts to frogs and toads when you speak in Bullywug."
+    }, {
+      "name" : "Swamp Camouflage",
+      "description" : "You have advantage on Dexterity (Stealth) checks made to hide in swampy terrain."
+    }, {
+      "name" : "Standing Leap",
+      "description" : "Your long jump is up to 20 feet and your high jump is up to 10 feet, with or without a running start."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Bullywug."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

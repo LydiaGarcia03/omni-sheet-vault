@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "LANGUAGE",
+  "slug" : "draconic-phb",
+  "name" : "Draconic",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 123,
+  "tags" : [ ],
+  "description" : "Draconic is thought to be one of the oldest languages and is often used in the study of magic. The language sounds harsh to most other creatures and includes numerous hard consonants and sibilants.",
+  "data" : {
+    "type" : "exotic",
+    "script" : "Draconic"
+  }
+}

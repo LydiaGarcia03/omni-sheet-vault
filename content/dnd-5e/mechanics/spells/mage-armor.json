@@ -1,0 +1,11 @@
+{
+  "target": { "spell": "Mage Armor", "source": "PHB" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 256 },
+  "effect": {
+    "modifiers": [
+      { "type": "SET_BASE", "target": "UNARMORED_ARMOR_CLASS", "value": 13 }
+    ],
+    "endsOnRests": [],
+    "durationText": "8 hours"
+  }
+}

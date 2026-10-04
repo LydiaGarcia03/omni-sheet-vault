@@ -1,0 +1,27 @@
+# The desktop edition (features/desktop-edition.md): one player, this machine only, everything in the user's data folder.
+spring:
+  docker:
+    compose:
+      enabled: false
+
+logging:
+  file:
+    # What support asks for when the vault misbehaves on a friend's machine.
+    name: ${app.desktop.data-directory}/logs/omni-sheet-vault.log
+
+server:
+  address: 127.0.0.1
+  port: ${OSV_PORT:8095}
+  servlet:
+    session:
+      cookie:
+        secure: false
+
+app:
+  catalogue:
+    # The catalogue's full text, on the player's own machine only.
+    redaction-enabled: false
+  desktop:
+    data-directory: ${LOCALAPPDATA:${user.home}}/OmniSheetVault
+    content-directory: content
+    web-directory: web

@@ -1,0 +1,498 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "dragonborn-gem",
+  "name" : "Dragonborn (Gem)",
+  "sourceBook" : "Fizban's Treasury of Dragons",
+  "sourceCode" : "FTD",
+  "sourcePage" : 11,
+  "tags" : [ ],
+  "description" : "Gem Ancestry. You have a gem dragon ancestor, granting you a special magical affinity. Choose one kind of dragon from the Gem Ancestry table. This determines the damage type for your other traits, as shown in the table. Breath Weapon. When you take the Attack action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 15-foot cone. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes 1d10 damage of the type associated with your Gem Ancestry. On a successful save, it takes half as much damage. This damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10). You can use your Breath Weapon a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest. Draconic Resistance. You have resistance to the damage type associated with your Gem Ancestry. Psionic Mind. You can send telepathic messages to any creature you can see within 30 feet of you. You don't need to share a language with the creature for it to understand these messages, but it must be able to understand at least one language to comprehend them. Gem Flight. Starting at 5th level, you can use a bonus action to manifest spectral wings on your body. These wings last for 1 minute. For the duration, you gain a flying speed equal to your walking speed and can hover. Once you use this trait, you can't do so again until you finish a long rest. Languages. You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 30
+    },
+    "senses" : [ ],
+    "abilityAlternatives" : [ {
+      "fixed" : { },
+      "choices" : [ {
+        "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+        "weights" : [ 2, 1 ],
+        "count" : 2,
+        "amount" : null
+      } ],
+      "maximum" : null
+    }, {
+      "fixed" : { },
+      "choices" : [ {
+        "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+        "weights" : [ 1, 1, 1 ],
+        "count" : 3,
+        "amount" : null
+      } ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common" ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : [ "force", "radiant", "psychic", "thunder", "necrotic" ],
+        "count" : 1
+      } ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : null,
+    "heightAndWeight" : null,
+    "lineage" : "VRGR",
+    "traits" : [ {
+      "name" : "Gem Ancestry",
+      "description" : "You have a gem dragon ancestor, granting you a special magical affinity. Choose one kind of dragon from the Gem Ancestry table. This determines the damage type for your other traits, as shown in the table."
+    }, {
+      "name" : "Breath Weapon",
+      "description" : "When you take the Attack action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 15-foot cone. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes 1d10 damage of the type associated with your Gem Ancestry. On a successful save, it takes half as much damage. This damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10). You can use your Breath Weapon a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+    }, {
+      "name" : "Draconic Resistance",
+      "description" : "You have resistance to the damage type associated with your Gem Ancestry."
+    }, {
+      "name" : "Psionic Mind",
+      "description" : "You can send telepathic messages to any creature you can see within 30 feet of you. You don't need to share a language with the creature for it to understand these messages, but it must be able to understand at least one language to comprehend them."
+    }, {
+      "name" : "Gem Flight",
+      "description" : "Starting at 5th level, you can use a bonus action to manifest spectral wings on your body. These wings last for 1 minute. For the duration, you gain a flying speed equal to your walking speed and can hover. Once you use this trait, you can't do so again until you finish a long rest."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character."
+    } ],
+    "variants" : [ {
+      "name" : "Dragonborn (Gem; Amethyst)",
+      "description" : "Breath Weapon. When you take the Attack action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 15-foot cone. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes 1d10 force damage. On a successful save, it takes half as much damage. This damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10). You can use your Breath Weapon a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest. Draconic Resistance. You have resistance to force damage. Psionic Mind. You can send telepathic messages to any creature you can see within 30 feet of you. You don't need to share a language with the creature for it to understand these messages, but it must be able to understand at least one language to comprehend them. Gem Flight. Starting at 5th level, you can use a bonus action to manifest spectral wings on your body. These wings last for 1 minute. For the duration, you gain a flying speed equal to your walking speed and can hover. Once you use this trait, you can't do so again until you finish a long rest. Languages. You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character.",
+      "size" : [ "medium" ],
+      "speed" : {
+        "walk" : 30
+      },
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : { },
+        "choices" : [ {
+          "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+          "weights" : [ 2, 1 ],
+          "count" : 2,
+          "amount" : null
+        } ],
+        "maximum" : null
+      }, {
+        "fixed" : { },
+        "choices" : [ {
+          "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+          "weights" : [ 1, 1, 1 ],
+          "count" : 3,
+          "amount" : null
+        } ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ {
+        "fixed" : [ "common" ],
+        "choices" : [ {
+          "from" : null,
+          "category" : "standard",
+          "fromFilter" : null,
+          "count" : 1,
+          "amount" : null
+        } ]
+      } ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ "force" ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : null,
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : "VRGR",
+      "traits" : [ {
+        "name" : "Breath Weapon",
+        "description" : "When you take the Attack action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 15-foot cone. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes 1d10 force damage. On a successful save, it takes half as much damage. This damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10). You can use your Breath Weapon a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+      }, {
+        "name" : "Draconic Resistance",
+        "description" : "You have resistance to force damage."
+      }, {
+        "name" : "Psionic Mind",
+        "description" : "You can send telepathic messages to any creature you can see within 30 feet of you. You don't need to share a language with the creature for it to understand these messages, but it must be able to understand at least one language to comprehend them."
+      }, {
+        "name" : "Gem Flight",
+        "description" : "Starting at 5th level, you can use a bonus action to manifest spectral wings on your body. These wings last for 1 minute. For the duration, you gain a flying speed equal to your walking speed and can hover. Once you use this trait, you can't do so again until you finish a long rest."
+      }, {
+        "name" : "Languages",
+        "description" : "You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character."
+      } ]
+    }, {
+      "name" : "Dragonborn (Gem; Crystal)",
+      "description" : "Breath Weapon. When you take the Attack action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 15-foot cone. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes 1d10 radiant damage. On a successful save, it takes half as much damage. This damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10). You can use your Breath Weapon a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest. Draconic Resistance. You have resistance to radiant damage. Psionic Mind. You can send telepathic messages to any creature you can see within 30 feet of you. You don't need to share a language with the creature for it to understand these messages, but it must be able to understand at least one language to comprehend them. Gem Flight. Starting at 5th level, you can use a bonus action to manifest spectral wings on your body. These wings last for 1 minute. For the duration, you gain a flying speed equal to your walking speed and can hover. Once you use this trait, you can't do so again until you finish a long rest. Languages. You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character.",
+      "size" : [ "medium" ],
+      "speed" : {
+        "walk" : 30
+      },
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : { },
+        "choices" : [ {
+          "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+          "weights" : [ 2, 1 ],
+          "count" : 2,
+          "amount" : null
+        } ],
+        "maximum" : null
+      }, {
+        "fixed" : { },
+        "choices" : [ {
+          "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+          "weights" : [ 1, 1, 1 ],
+          "count" : 3,
+          "amount" : null
+        } ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ {
+        "fixed" : [ "common" ],
+        "choices" : [ {
+          "from" : null,
+          "category" : "standard",
+          "fromFilter" : null,
+          "count" : 1,
+          "amount" : null
+        } ]
+      } ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ "radiant" ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : null,
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : "VRGR",
+      "traits" : [ {
+        "name" : "Breath Weapon",
+        "description" : "When you take the Attack action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 15-foot cone. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes 1d10 radiant damage. On a successful save, it takes half as much damage. This damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10). You can use your Breath Weapon a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+      }, {
+        "name" : "Draconic Resistance",
+        "description" : "You have resistance to radiant damage."
+      }, {
+        "name" : "Psionic Mind",
+        "description" : "You can send telepathic messages to any creature you can see within 30 feet of you. You don't need to share a language with the creature for it to understand these messages, but it must be able to understand at least one language to comprehend them."
+      }, {
+        "name" : "Gem Flight",
+        "description" : "Starting at 5th level, you can use a bonus action to manifest spectral wings on your body. These wings last for 1 minute. For the duration, you gain a flying speed equal to your walking speed and can hover. Once you use this trait, you can't do so again until you finish a long rest."
+      }, {
+        "name" : "Languages",
+        "description" : "You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character."
+      } ]
+    }, {
+      "name" : "Dragonborn (Gem; Emerald)",
+      "description" : "Breath Weapon. When you take the Attack action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 15-foot cone. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes 1d10 psychic damage. On a successful save, it takes half as much damage. This damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10). You can use your Breath Weapon a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest. Draconic Resistance. You have resistance to psychic damage. Psionic Mind. You can send telepathic messages to any creature you can see within 30 feet of you. You don't need to share a language with the creature for it to understand these messages, but it must be able to understand at least one language to comprehend them. Gem Flight. Starting at 5th level, you can use a bonus action to manifest spectral wings on your body. These wings last for 1 minute. For the duration, you gain a flying speed equal to your walking speed and can hover. Once you use this trait, you can't do so again until you finish a long rest. Languages. You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character.",
+      "size" : [ "medium" ],
+      "speed" : {
+        "walk" : 30
+      },
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : { },
+        "choices" : [ {
+          "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+          "weights" : [ 2, 1 ],
+          "count" : 2,
+          "amount" : null
+        } ],
+        "maximum" : null
+      }, {
+        "fixed" : { },
+        "choices" : [ {
+          "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+          "weights" : [ 1, 1, 1 ],
+          "count" : 3,
+          "amount" : null
+        } ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ {
+        "fixed" : [ "common" ],
+        "choices" : [ {
+          "from" : null,
+          "category" : "standard",
+          "fromFilter" : null,
+          "count" : 1,
+          "amount" : null
+        } ]
+      } ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ "psychic" ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : null,
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : "VRGR",
+      "traits" : [ {
+        "name" : "Breath Weapon",
+        "description" : "When you take the Attack action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 15-foot cone. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes 1d10 psychic damage. On a successful save, it takes half as much damage. This damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10). You can use your Breath Weapon a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+      }, {
+        "name" : "Draconic Resistance",
+        "description" : "You have resistance to psychic damage."
+      }, {
+        "name" : "Psionic Mind",
+        "description" : "You can send telepathic messages to any creature you can see within 30 feet of you. You don't need to share a language with the creature for it to understand these messages, but it must be able to understand at least one language to comprehend them."
+      }, {
+        "name" : "Gem Flight",
+        "description" : "Starting at 5th level, you can use a bonus action to manifest spectral wings on your body. These wings last for 1 minute. For the duration, you gain a flying speed equal to your walking speed and can hover. Once you use this trait, you can't do so again until you finish a long rest."
+      }, {
+        "name" : "Languages",
+        "description" : "You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character."
+      } ]
+    }, {
+      "name" : "Dragonborn (Gem; Sapphire)",
+      "description" : "Breath Weapon. When you take the Attack action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 15-foot cone. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes 1d10 thunder damage. On a successful save, it takes half as much damage. This damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10). You can use your Breath Weapon a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest. Draconic Resistance. You have resistance to thunder damage. Psionic Mind. You can send telepathic messages to any creature you can see within 30 feet of you. You don't need to share a language with the creature for it to understand these messages, but it must be able to understand at least one language to comprehend them. Gem Flight. Starting at 5th level, you can use a bonus action to manifest spectral wings on your body. These wings last for 1 minute. For the duration, you gain a flying speed equal to your walking speed and can hover. Once you use this trait, you can't do so again until you finish a long rest. Languages. You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character.",
+      "size" : [ "medium" ],
+      "speed" : {
+        "walk" : 30
+      },
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : { },
+        "choices" : [ {
+          "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+          "weights" : [ 2, 1 ],
+          "count" : 2,
+          "amount" : null
+        } ],
+        "maximum" : null
+      }, {
+        "fixed" : { },
+        "choices" : [ {
+          "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+          "weights" : [ 1, 1, 1 ],
+          "count" : 3,
+          "amount" : null
+        } ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ {
+        "fixed" : [ "common" ],
+        "choices" : [ {
+          "from" : null,
+          "category" : "standard",
+          "fromFilter" : null,
+          "count" : 1,
+          "amount" : null
+        } ]
+      } ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ "thunder" ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : null,
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : "VRGR",
+      "traits" : [ {
+        "name" : "Breath Weapon",
+        "description" : "When you take the Attack action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 15-foot cone. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes 1d10 thunder damage. On a successful save, it takes half as much damage. This damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10). You can use your Breath Weapon a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+      }, {
+        "name" : "Draconic Resistance",
+        "description" : "You have resistance to thunder damage."
+      }, {
+        "name" : "Psionic Mind",
+        "description" : "You can send telepathic messages to any creature you can see within 30 feet of you. You don't need to share a language with the creature for it to understand these messages, but it must be able to understand at least one language to comprehend them."
+      }, {
+        "name" : "Gem Flight",
+        "description" : "Starting at 5th level, you can use a bonus action to manifest spectral wings on your body. These wings last for 1 minute. For the duration, you gain a flying speed equal to your walking speed and can hover. Once you use this trait, you can't do so again until you finish a long rest."
+      }, {
+        "name" : "Languages",
+        "description" : "You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character."
+      } ]
+    }, {
+      "name" : "Dragonborn (Gem; Topaz)",
+      "description" : "Breath Weapon. When you take the Attack action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 15-foot cone. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes 1d10 necrotic damage. On a successful save, it takes half as much damage. This damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10). You can use your Breath Weapon a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest. Draconic Resistance. You have resistance to necrotic damage. Psionic Mind. You can send telepathic messages to any creature you can see within 30 feet of you. You don't need to share a language with the creature for it to understand these messages, but it must be able to understand at least one language to comprehend them. Gem Flight. Starting at 5th level, you can use a bonus action to manifest spectral wings on your body. These wings last for 1 minute. For the duration, you gain a flying speed equal to your walking speed and can hover. Once you use this trait, you can't do so again until you finish a long rest. Languages. You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character.",
+      "size" : [ "medium" ],
+      "speed" : {
+        "walk" : 30
+      },
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : { },
+        "choices" : [ {
+          "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+          "weights" : [ 2, 1 ],
+          "count" : 2,
+          "amount" : null
+        } ],
+        "maximum" : null
+      }, {
+        "fixed" : { },
+        "choices" : [ {
+          "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+          "weights" : [ 1, 1, 1 ],
+          "count" : 3,
+          "amount" : null
+        } ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ {
+        "fixed" : [ "common" ],
+        "choices" : [ {
+          "from" : null,
+          "category" : "standard",
+          "fromFilter" : null,
+          "count" : 1,
+          "amount" : null
+        } ]
+      } ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ "necrotic" ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : null,
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : "VRGR",
+      "traits" : [ {
+        "name" : "Breath Weapon",
+        "description" : "When you take the Attack action on your turn, you can replace one of your attacks with an exhalation of magical energy in a 15-foot cone. Each creature in that area must make a Dexterity saving throw (DC = 8 + your Constitution modifier + your proficiency bonus). On a failed save, the creature takes 1d10 necrotic damage. On a successful save, it takes half as much damage. This damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10). You can use your Breath Weapon a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+      }, {
+        "name" : "Draconic Resistance",
+        "description" : "You have resistance to necrotic damage."
+      }, {
+        "name" : "Psionic Mind",
+        "description" : "You can send telepathic messages to any creature you can see within 30 feet of you. You don't need to share a language with the creature for it to understand these messages, but it must be able to understand at least one language to comprehend them."
+      }, {
+        "name" : "Gem Flight",
+        "description" : "Starting at 5th level, you can use a bonus action to manifest spectral wings on your body. These wings last for 1 minute. For the duration, you gain a flying speed equal to your walking speed and can hover. Once you use this trait, you can't do so again until you finish a long rest."
+      }, {
+        "name" : "Languages",
+        "description" : "You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character."
+      } ]
+    } ],
+    "subspecies" : [ ]
+  }
+}

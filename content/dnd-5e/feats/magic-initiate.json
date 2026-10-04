@@ -1,0 +1,138 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "FEAT",
+  "slug" : "magic-initiate",
+  "name" : "Magic Initiate",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 168,
+  "tags" : [ ],
+  "description" : "Choose a class: bard, cleric, druid, sorcerer, warlock, or wizard. You learn two cantrips of your choice from that class's spell list. In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again. Your spellcasting ability for these spells depends on the class you chose: Charisma for bard, sorcerer, or warlock; Wisdom for cleric or druid; or Intelligence for wizard.",
+  "data" : {
+    "abilityAlternatives" : [ ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "savingThrowAlternatives" : [ ],
+    "expertiseAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "optionalFeatureProgressions" : [ ],
+    "additionalSpells" : [ {
+      "name" : "Bard Spells",
+      "ability" : "cha",
+      "innate" : {
+        "_" : {
+          "daily" : {
+            "1" : [ {
+              "choose" : "level=1|class=Bard"
+            } ]
+          }
+        }
+      },
+      "known" : {
+        "_" : [ {
+          "choose" : "level=0|class=Bard",
+          "count" : 2
+        } ]
+      }
+    }, {
+      "name" : "Cleric Spells",
+      "ability" : "wis",
+      "innate" : {
+        "_" : {
+          "daily" : {
+            "1" : [ {
+              "choose" : "level=1|class=Cleric"
+            } ]
+          }
+        }
+      },
+      "known" : {
+        "_" : [ {
+          "choose" : "level=0|class=Cleric",
+          "count" : 2
+        } ]
+      }
+    }, {
+      "name" : "Druid Spells",
+      "ability" : "wis",
+      "innate" : {
+        "_" : {
+          "daily" : {
+            "1" : [ {
+              "choose" : "level=1|class=Druid"
+            } ]
+          }
+        }
+      },
+      "known" : {
+        "_" : [ {
+          "choose" : "level=0|class=Druid",
+          "count" : 2
+        } ]
+      }
+    }, {
+      "name" : "Sorcerer Spells",
+      "ability" : "cha",
+      "innate" : {
+        "_" : {
+          "daily" : {
+            "1" : [ {
+              "choose" : "level=1|class=Sorcerer"
+            } ]
+          }
+        }
+      },
+      "known" : {
+        "_" : [ {
+          "choose" : "level=0|class=Sorcerer",
+          "count" : 2
+        } ]
+      }
+    }, {
+      "name" : "Warlock Spells",
+      "ability" : "cha",
+      "innate" : {
+        "_" : {
+          "daily" : {
+            "1" : [ {
+              "choose" : "level=1|class=Warlock"
+            } ]
+          }
+        }
+      },
+      "known" : {
+        "_" : [ {
+          "choose" : "level=0|class=Warlock",
+          "count" : 2
+        } ]
+      }
+    }, {
+      "name" : "Wizard Spells",
+      "ability" : "int",
+      "innate" : {
+        "_" : {
+          "daily" : {
+            "1" : [ {
+              "choose" : "level=1|class=Wizard"
+            } ]
+          }
+        }
+      },
+      "known" : {
+        "_" : [ {
+          "choose" : "level=0|class=Wizard",
+          "count" : 2
+        } ]
+      }
+    } ],
+    "prerequisites" : null,
+    "repeatable" : false,
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

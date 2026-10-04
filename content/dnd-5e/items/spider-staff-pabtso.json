@@ -1,0 +1,52 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "ITEM",
+  "slug" : "spider-staff-pabtso",
+  "name" : "Spider Staff",
+  "sourceBook" : "Phandelver and Below: The Shattered Obelisk",
+  "sourceCode" : "PaBTSO",
+  "sourcePage" : 220,
+  "tags" : [ ],
+  "description" : "The top of this magic quarterstaff is shaped like a spider. It deals an extra 1d6 poison damage on a hit when used to make a weapon attack.",
+  "data" : {
+    "itemKind" : "GEAR",
+    "typeLabel" : "Melee Weapon",
+    "rarity" : "rare",
+    "focusType" : null,
+    "requiresAttunement" : true,
+    "attunementRequirement" : "by a bard, sorcerer, warlock, or wizard",
+    "weightLb" : 4.0,
+    "costGp" : null,
+    "weaponCategory" : null,
+    "attackType" : null,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "versatileDamageDiceCount" : null,
+    "versatileDamageDiceSides" : null,
+    "properties" : [ ],
+    "finesse" : false,
+    "normalRange" : null,
+    "longRange" : null,
+    "armorCategory" : null,
+    "baseArmorClass" : null,
+    "stealthDisadvantage" : false,
+    "strengthRequirement" : null,
+    "weaponAttackBonus" : null,
+    "weaponDamageBonus" : null,
+    "armorClassBonus" : null,
+    "charges" : 10,
+    "rechargeTrigger" : "Dusk",
+    "rechargeFormula" : "1d6 + 4",
+    "grantedSpells" : [ {
+      "spellSlug" : "spider-climb",
+      "chargeCost" : 1,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "web",
+      "chargeCost" : 2,
+      "fixedSaveDc" : null
+    } ],
+    "mechanics" : null
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "FEAT",
+  "slug" : "infernal-constitution",
+  "name" : "Infernal Constitution",
+  "sourceBook" : "Xanathar's Guide to Everything",
+  "sourceCode" : "XGE",
+  "sourcePage" : 75,
+  "tags" : [ ],
+  "description" : "Prerequisite: Tiefling\n\nFiendish blood runs strong in you, unlocking a resilience akin to that possessed by some fiends. You gain the following benefits: You have resistance to cold and poison damage. You have advantage on saving throws against being poisoned.",
+  "data" : {
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "constitution" : 1
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "savingThrowAlternatives" : [ ],
+    "expertiseAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "optionalFeatureProgressions" : [ ],
+    "additionalSpells" : null,
+    "prerequisites" : [ {
+      "race" : [ {
+        "name" : "tiefling"
+      } ]
+    } ],
+    "repeatable" : false,
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

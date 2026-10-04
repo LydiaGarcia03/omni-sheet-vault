@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "LANGUAGE",
+  "slug" : "ice-toad",
+  "name" : "Ice Toad",
+  "sourceBook" : "Rise of Tiamat",
+  "sourceCode" : "RoT",
+  "sourcePage" : 90,
+  "tags" : [ ],
+  "description" : "",
+  "data" : {
+    "type" : null,
+    "script" : null
+  }
+}

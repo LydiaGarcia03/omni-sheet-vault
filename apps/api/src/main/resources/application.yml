@@ -21,17 +21,56 @@ spring:
     enabled: true
     locations: classpath:db/migration
 
+  servlet:
+    multipart:
+      # Portrait uploads: 3 MB per file, a little more per request.
+      max-file-size: 3MB
+      max-request-size: 4MB
+
   security:
     oauth2:
       resourceserver:
         jwt:
+          # Builds the JwtDecoder that validates each session's access token; no Bearer header is accepted.
           issuer-uri: http://localhost:8081/realms/omni-sheet-vault
+      client:
+        # The browser's login, run by the API (adr-0008). Endpoints are spelled out rather than discovered from the
+        # issuer, so the API starts without Keycloak being up.
+        registration:
+          keycloak:
+            client-id: omni-sheet-vault-bff
+            client-secret: ${KEYCLOAK_BFF_CLIENT_SECRET:}
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope: openid,profile,email
+        provider:
+          keycloak:
+            authorization-uri: http://localhost:8081/realms/omni-sheet-vault/protocol/openid-connect/auth
+            token-uri: http://localhost:8081/realms/omni-sheet-vault/protocol/openid-connect/token
+            jwk-set-uri: http://localhost:8081/realms/omni-sheet-vault/protocol/openid-connect/certs
+            user-info-uri: http://localhost:8081/realms/omni-sheet-vault/protocol/openid-connect/userinfo
+            user-name-attribute: sub
+
+  session:
+    jdbc:
+      # The tables come from Flyway (V7), never from Spring Session itself.
+      initialize-schema: never
+
+app:
+  auth:
+    # Keycloak's RP-initiated logout; the API sends the browser here after ending its own session.
+    end-session-uri: http://localhost:8081/realms/omni-sheet-vault/protocol/openid-connect/logout
+  catalogue:
+    # On (public deployment default) unless the dev profile overrides it — see
+    # application-dev.yml and adr-0005.
+    redaction-enabled: true
 
 storage:
   endpoint: http://localhost:9000
   bucket: character-portraits
-  access-key: ${MINIO_ROOT_USER}
-  secret-key: ${MINIO_ROOT_PASSWORD}
+  access-key: ${MINIO_ROOT_USER:}
+  secret-key: ${MINIO_ROOT_PASSWORD:}
+  url-ttl: PT1H
 
 management:
   endpoints:
@@ -41,6 +80,14 @@ management:
 
 server:
   port: 8090
+  servlet:
+    session:
+      # Matches Keycloak's SSO idle timeout: past it the refresh token is gone anyway.
+      timeout: 30m
+      cookie:
+        http-only: true
+        secure: true
+        same-site: lax
 
 logging:
   level:

@@ -1,0 +1,8 @@
+{
+  "target": { "classSlug": "fighter", "feature": "Indomitable" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 72 },
+  "modifiers": [],
+  "uses": { "resource": "indomitable", "count": 1, "recharge": "LONG_REST" },
+  "action": { "type": "OTHER" },
+  "choices": []
+}

@@ -1,0 +1,36 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "fist-of-four-thunders",
+  "name" : "Fist of Four Thunders",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 81,
+  "tags" : [ ],
+  "description" : "You can spend 2 ki points to cast thunderwave.",
+  "data" : {
+    "featureTypes" : [ "ED" ],
+    "optional" : false,
+    "prerequisiteText" : null,
+    "prerequisites" : null,
+    "consumes" : null,
+    "additionalSpells" : [ {
+      "innate" : {
+        "_" : {
+          "resource" : {
+            "2" : [ "thunderwave" ]
+          }
+        }
+      },
+      "resourceName" : "Ki",
+      "ability" : "wis"
+    } ],
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

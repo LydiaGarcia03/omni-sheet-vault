@@ -1,0 +1,8 @@
+{
+  "target": { "condition": "Poisoned", "source": "PHB" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 292 },
+  "modifiers": [
+    { "type": "DISADVANTAGE", "target": "ATTACK_ROLLS", "value": 0 },
+    { "type": "DISADVANTAGE", "target": "ABILITY_CHECKS", "value": 0 }
+  ]
+}

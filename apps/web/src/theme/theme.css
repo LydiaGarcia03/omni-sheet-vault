@@ -1,0 +1,141 @@
+/* App theme: the landing page, the home and the shell (not the sheet, not the builder). */
+:root {
+  --app-bg: #F3F3F1;
+  --app-surface: #FFFFFF;
+  --app-surface-2: #F6F7F8;
+  --app-ink: #242528;
+  --app-muted: #6B7A85;
+  --app-line: #E2E5E8;
+  --app-accent: #D9A441;
+  --app-accent-ink: #1F2327;
+  --app-accent-strong: #7A5510;
+  --app-accent-soft: #FBF3E2;
+  --app-danger: #B3261E;
+  --app-header-bg: #1F2327;
+  --app-header-ink: #FFFFFF;
+  --app-hero-bg: linear-gradient(180deg, #E8ECEF 0%, #F3F3F1 100%);
+  --app-heading-font: 'Roboto Condensed', Roboto, Helvetica, sans-serif;
+  --app-body-font: Roboto, Helvetica, sans-serif;
+  --app-radius: 4px;
+  --app-shadow: 0 8px 22px rgba(31, 35, 39, .12);
+  --app-danger-soft: #F8E3E1;
+  --app-placeholder-bg: #6B7A85;
+  --app-placeholder-ink: #C9D1D6;
+}
+
+/* Dark theme (direction A, "Arcane Vault"): set by data-app-theme on a page's root */
+[data-app-theme='dark'] {
+  color-scheme: dark;
+  --app-bg: #15191C;
+  --app-surface: #1F2529;
+  --app-surface-2: #273036;
+  --app-ink: #E8ECEF;
+  --app-muted: #9AA7B0;
+  --app-line: #34404A;
+  --app-accent-ink: #15191C;
+  --app-accent-strong: #D9A441;
+  --app-accent-soft: rgba(217, 164, 65, .14);
+  --app-danger: #F2877D;
+  --app-danger-soft: rgba(242, 135, 125, .14);
+  --app-header-bg: #0E1113;
+  --app-hero-bg: radial-gradient(1200px 400px at 70% 0%, #2B3A45 0%, #15191C 60%);
+  --app-shadow: 0 8px 22px rgba(0, 0, 0, .45);
+  --app-placeholder-bg: #34404A;
+  --app-placeholder-ink: #6B7A85;
+}
+
+/* App header: logo and name, optional back link and page status, the player's menu */
+.app-header { background: var(--app-header-bg); color: var(--app-header-ink); font-family: var(--app-body-font); }
+.app-header .app-wrap { position: relative; display: flex; align-items: center; gap: 16px; min-height: 96px; max-width: none; padding: 0 24px; }
+.app-header.is-compact .app-wrap { min-height: 58px; }
+.app-header.is-compact .app-brand { gap: 10px; font-size: 17px; }
+.app-header.is-compact .app-brand img { width: 32px; height: 32px; }
+/* The page's centred column, drawn over the bar; kept 200 px clear of each edge so it never meets the corners. */
+.app-header__column {
+  position: absolute; inset: 0; margin: 0 auto; width: min(var(--app-header-column), 100% - 400px);
+  display: flex; align-items: center; justify-content: flex-end; pointer-events: none;
+}
+.app-header__column > * { pointer-events: auto; }
+.app-brand { display: flex; align-items: center; gap: 12px; color: inherit; text-decoration: none; font: 700 20px var(--app-heading-font); letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+.app-brand img { width: 48px; height: 48px; display: block; }
+.app-header__back {
+  color: rgba(255, 255, 255, .78); text-decoration: none; font: 700 12px var(--app-heading-font); letter-spacing: .08em; text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, .22); border-radius: var(--app-radius); padding: 5px 10px; white-space: nowrap;
+}
+.app-header__back:hover, .app-header__back:focus-visible { color: #fff; border-color: rgba(255, 255, 255, .5); }
+/* The page's game system after the app's name; each system styles its own mark */
+.app-system { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.app-system::before { content: ''; width: 1px; height: 26px; background: rgba(255, 255, 255, .22); }
+@media (max-width: 1280px) {
+  .app-system__secondary { display: none; }
+}
+.app-header__extra { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.app-header__right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+.app-user { position: relative; }
+.app-user__button {
+  display: flex; align-items: center; gap: 8px; cursor: pointer; background: transparent; color: inherit;
+  border: 1px solid rgba(255, 255, 255, .18); border-radius: 999px; padding: 4px 10px 4px 4px; font: 500 14px var(--app-body-font);
+}
+.app-user__avatar { width: 28px; height: 28px; border-radius: 50%; background: var(--app-accent); color: var(--app-accent-ink); display: grid; place-items: center; font-weight: 700; font-size: 13px; }
+.app-user__menu {
+  position: absolute; right: 0; top: calc(100% + 6px); z-index: 30; min-width: 190px; padding: 6px 0;
+  background: var(--app-surface); color: var(--app-ink); border: 1px solid var(--app-line); border-radius: var(--app-radius); box-shadow: var(--app-shadow);
+}
+.app-user__menu a, .app-user__menu button { display: block; width: 100%; text-align: left; padding: 8px 14px; color: inherit; text-decoration: none; font: 14px var(--app-body-font); background: none; border: 0; cursor: pointer; }
+.app-user__menu a:hover, .app-user__menu button:hover { background: var(--app-surface-2); }
+.app-user__menu hr { border: 0; border-top: 1px solid var(--app-line); margin: 6px 0; }
+.app-user__menu .app-user__toggle { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.app-user__switch { position: relative; flex: none; width: 30px; height: 16px; border-radius: 999px; background: var(--app-line); transition: background-color 120ms ease; }
+.app-user__switch::after { content: ''; position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; border-radius: 50%; background: var(--app-surface); transition: transform 120ms ease; }
+.app-user__toggle[aria-checked='true'] .app-user__switch { background: var(--app-accent); }
+.app-user__toggle[aria-checked='true'] .app-user__switch::after { transform: translateX(14px); }
+@media (max-width: 640px) {
+  .app-brand span { display: none; }
+  .app-system { display: none; }
+}
+
+/* Shared primitives */
+/* A column at least as tall as the window, so the footer rests at the bottom of short pages */
+.app-page { min-height: 100vh; display: flex; flex-direction: column; background: var(--app-bg); color: var(--app-ink); font-family: var(--app-body-font); }
+.app-page > .app-wrap { width: 100%; box-sizing: border-box; }
+.app-page > .app-footer { margin-top: auto; }
+.app-wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+.app-heading { font-family: var(--app-heading-font); text-transform: uppercase; letter-spacing: .05em; margin: 0; }
+.app-muted { color: var(--app-muted); }
+
+/* Footer on every page: the fan content notice and the credits link */
+.app-footer { border-top: 1px solid var(--app-line); background: var(--app-bg); padding: 18px 0; font: 12px/1.5 var(--app-body-font); color: var(--app-muted); }
+.app-footer p { margin: 0; }
+.app-footer p + p { margin-top: 6px; }
+.app-footer a { color: var(--app-accent-strong); }
+
+/* Credits page */
+.credits-page h1 { font-size: 30px; margin: 32px 0 8px; }
+.credits-page h2 { font-size: 18px; margin: 28px 0 10px; }
+.credits-page p, .credits-page li { line-height: 1.55; font-size: 15px; }
+.credits-page ul { padding-left: 20px; margin: 0; }
+.credits-page table { border-collapse: collapse; font-size: 14px; }
+.credits-page th, .credits-page td { text-align: left; padding: 6px 16px 6px 0; border-bottom: 1px solid var(--app-line); }
+.credits-page main { padding-bottom: 40px; max-width: 820px; }
+.credits-page[data-app-theme='dark'] main a { color: var(--app-accent); }
+
+.app-btn {
+  display: inline-flex; align-items: center; gap: 6px; cursor: pointer; text-decoration: none;
+  font: 600 14px var(--app-body-font); border-radius: var(--app-radius); padding: 9px 16px;
+  border: 1px solid var(--app-line); background: var(--app-surface); color: var(--app-ink);
+}
+.app-btn:hover { border-color: var(--app-muted); }
+.app-btn:focus-visible { outline: 2px solid var(--app-accent); outline-offset: 2px; }
+.app-btn:disabled { cursor: not-allowed; opacity: .6; }
+.app-btn--primary { background: var(--app-accent); color: var(--app-accent-ink); border-color: var(--app-accent); }
+.app-btn--primary:hover { filter: brightness(1.05); border-color: var(--app-accent); }
+.app-btn--ghost { background: transparent; color: inherit; border-color: currentColor; }
+.app-btn--danger { background: var(--app-danger); color: #fff; border-color: var(--app-danger); }
+.app-btn--small { padding: 6px 12px; font-size: 13px; }
+
+.app-chip {
+  font: 600 13px var(--app-body-font); border: 1px solid var(--app-line); background: var(--app-surface); color: var(--app-ink);
+  border-radius: 999px; padding: 6px 14px; cursor: pointer;
+}
+.app-chip[aria-pressed='true'] { background: var(--app-ink); color: var(--app-bg); border-color: var(--app-ink); }
+.app-chip small { opacity: .7; margin-left: 4px; }

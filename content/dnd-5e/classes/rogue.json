@@ -1,0 +1,553 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CLASS",
+  "slug" : "rogue",
+  "name" : "Rogue",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 94,
+  "tags" : [ ],
+  "description" : "",
+  "data" : {
+    "hitDie" : 8,
+    "savingThrows" : [ "dexterity", "intelligence" ],
+    "proficiencies" : {
+      "armor" : [ "light" ],
+      "weaponCategories" : [ "simple" ],
+      "weaponItems" : [ "hand-crossbow", "longsword", "rapier", "shortsword" ],
+      "optionalWeaponCategories" : [ ],
+      "notes" : [ ],
+      "toolAlternatives" : [ {
+        "fixed" : [ "thieves-tools" ],
+        "choices" : [ ]
+      } ],
+      "skillAlternatives" : [ {
+        "fixed" : [ ],
+        "choices" : [ {
+          "from" : [ "acrobatics", "athletics", "deception", "insight", "intimidation", "investigation", "perception", "performance", "persuasion", "sleightOfHand", "stealth" ],
+          "category" : null,
+          "fromFilter" : null,
+          "count" : 4,
+          "amount" : null
+        } ]
+      } ]
+    },
+    "startingEquipment" : {
+      "additionalFromBackground" : true,
+      "goldAlternative" : "4d4 × 10",
+      "text" : [ "(a) a rapier or (b) a shortsword", "(a) a shortbow and quiver of 20 arrows or (b) a shortsword", "(a) a burglar's pack, (b) a dungeoneer's pack, or (c) an explorer's pack", "Leather armor, two daggers, and thieves' tools" ],
+      "groups" : [ {
+        "options" : [ {
+          "label" : "a",
+          "grants" : [ {
+            "itemSlug" : "rapier",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        }, {
+          "label" : "b",
+          "grants" : [ {
+            "itemSlug" : "shortsword",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        } ]
+      }, {
+        "options" : [ {
+          "label" : "a",
+          "grants" : [ {
+            "itemSlug" : "shortbow",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          }, {
+            "itemSlug" : "arrows-20",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        }, {
+          "label" : "b",
+          "grants" : [ {
+            "itemSlug" : "shortsword",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        } ]
+      }, {
+        "options" : [ {
+          "label" : "a",
+          "grants" : [ {
+            "itemSlug" : "burglars-pack",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        }, {
+          "label" : "b",
+          "grants" : [ {
+            "itemSlug" : "dungeoneers-pack",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        }, {
+          "label" : "c",
+          "grants" : [ {
+            "itemSlug" : "explorers-pack",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        } ]
+      }, {
+        "options" : [ {
+          "label" : null,
+          "grants" : [ {
+            "itemSlug" : "leather-armor",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          }, {
+            "itemSlug" : "dagger",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 2,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          }, {
+            "itemSlug" : "thieves-tools",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        } ]
+      } ]
+    },
+    "multiclassing" : {
+      "allOf" : {
+        "dexterity" : 13
+      },
+      "anyOf" : { },
+      "proficienciesGained" : {
+        "armor" : [ "light" ],
+        "weaponCategories" : [ ],
+        "weaponItems" : [ ],
+        "optionalWeaponCategories" : [ ],
+        "notes" : [ ],
+        "toolAlternatives" : [ {
+          "fixed" : [ "thieves-tools" ],
+          "choices" : [ ]
+        } ],
+        "skillAlternatives" : [ {
+          "fixed" : [ ],
+          "choices" : [ {
+            "from" : [ "acrobatics", "athletics", "deception", "insight", "intimidation", "investigation", "perception", "performance", "persuasion", "sleightOfHand", "stealth" ],
+            "category" : null,
+            "fromFilter" : null,
+            "count" : 1,
+            "amount" : null
+          } ]
+        } ]
+      }
+    },
+    "spellcasting" : {
+      "ability" : null,
+      "casterProgression" : null,
+      "preparedSpellsFormula" : null,
+      "cantripsKnownByLevel" : null,
+      "spellsKnownByLevel" : null,
+      "spellbookSpellsAddedByLevel" : null,
+      "spellSlotsByLevel" : null,
+      "pactSlotsByLevel" : null
+    },
+    "tableColumns" : [ {
+      "label" : "Sneak Attack",
+      "valuesByLevel" : [ "1d6", "1d6", "2d6", "2d6", "3d6", "3d6", "4d6", "4d6", "5d6", "5d6", "6d6", "6d6", "7d6", "7d6", "8d6", "8d6", "9d6", "9d6", "10d6", "10d6" ]
+    } ],
+    "optionalFeatureProgressions" : [ ],
+    "subclassTitle" : "Roguish Archetype",
+    "subclassLevel" : 3,
+    "abilityScoreImprovementLevels" : [ 4, 8, 10, 12, 16, 19 ],
+    "features" : [ {
+      "name" : "Expertise",
+      "level" : 1,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 94,
+      "description" : "At 1st level, choose two of your skill proficiencies, or one of your skill proficiencies and your proficiency with thieves' tools. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies. At 6th level, you can choose two more of your proficiencies (in skills or with thieves' tools) to gain this benefit.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ {
+        "type" : "EXPERTISE",
+        "count" : 2,
+        "from" : [ "proficientSkills", "thieves-tools" ]
+      } ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Sneak Attack",
+      "level" : 1,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 94,
+      "description" : "Beginning at 1st level, you know how to strike subtly and exploit a foe's distraction. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll. The attack must use a finesse or a ranged weapon. You don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll. The amount of the extra damage increases as you gain levels in this class, as shown in the Sneak Attack column of the Rogue table.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Thieves' Cant",
+      "level" : 1,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 94,
+      "description" : "During your rogue training you learned thieves' cant, a secret mix of dialect, jargon, and code that allows you to hide messages in seemingly normal conversation. Only another creature that knows thieves' cant understands such messages. It takes four times longer to convey such a message than it does to speak the same idea plainly. In addition, you understand a set of secret signs and symbols used to convey short, simple messages, such as whether an area is dangerous or the territory of a thieves' guild, whether loot is nearby, or whether the people in an area are easy marks or will provide a safe house for thieves on the run.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : {
+        "languages" : [ "thieves-cant" ]
+      }
+    }, {
+      "name" : "Cunning Action",
+      "level" : 2,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 94,
+      "description" : "Starting at 2nd level, your quick thinking and agility allow you to move and act quickly. You can take a bonus action on each of your turns in combat. This action can be used only to take the Dash, Disengage, or Hide action.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : {
+        "type" : "BONUS_ACTION"
+      },
+      "grants" : null
+    }, {
+      "name" : "Roguish Archetype",
+      "level" : 3,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 94,
+      "description" : "At 3rd level, you choose an archetype that you emulate in the exercise of your rogue abilities from the list of available archetypes. Your archetype choice grants you features at 3rd level and then again at 9th, 13th, and 17th level.",
+      "optional" : false,
+      "grantsSubclassFeature" : true,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Steady Aim",
+      "level" : 3,
+      "sourceBook" : "Tasha's Cauldron of Everything",
+      "sourcePage" : 62,
+      "description" : "3rd-level rogue optional feature As a bonus action, you give yourself advantage on your next attack roll on the current turn. You can use this bonus action only if you haven't moved during this turn, and after you use the bonus action, your speed is 0 until the end of the current turn.",
+      "optional" : true,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 4,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 94,
+      "description" : "When you reach 4th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Uncanny Dodge",
+      "level" : 5,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 94,
+      "description" : "Starting at 5th level, when an attacker that you can see hits you with an attack, you can use your reaction to halve the attack's damage against you.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Expertise",
+      "level" : 6,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 94,
+      "description" : "At 6th level, you can choose two more of your proficiencies (in skills or with thieves' tools) to gain the benefit of Expertise.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ {
+        "type" : "EXPERTISE",
+        "count" : 2,
+        "from" : [ "proficientSkills", "thieves-tools" ]
+      } ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Evasion",
+      "level" : 7,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 94,
+      "description" : "Beginning at 7th level, you can nimbly dodge out of the way of certain area effects, such as a red dragon's fiery breath or an ice storm spell. When you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 8,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 94,
+      "description" : "When you reach 8th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Roguish Archetype feature",
+      "level" : 9,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 94,
+      "description" : "At 9th level, you gain a feature granted by your Roguish Archetype.",
+      "optional" : false,
+      "grantsSubclassFeature" : true,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 10,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 94,
+      "description" : "When you reach 10th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Reliable Talent",
+      "level" : 11,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 94,
+      "description" : "By 11th level, you have refined your chosen skills until they approach perfection. Whenever you make an ability check that lets you add your proficiency bonus, you can treat a d20 roll of 9 or lower as a 10.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 12,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 94,
+      "description" : "When you reach 12th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Roguish Archetype feature",
+      "level" : 13,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 94,
+      "description" : "At 13th level, you gain a feature granted by your Roguish Archetype.",
+      "optional" : false,
+      "grantsSubclassFeature" : true,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Blindsense",
+      "level" : 14,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 94,
+      "description" : "Starting at 14th level, if you are able to hear, you are aware of the location of any hidden or invisible creature within 10 feet of you.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Slippery Mind",
+      "level" : 15,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 94,
+      "description" : "By 15th level, you have acquired greater mental strength. You gain proficiency in Wisdom saving throws.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 16,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 94,
+      "description" : "When you reach 16th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Roguish Archetype feature",
+      "level" : 17,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 94,
+      "description" : "At 17th level, you gain a feature granted by your Roguish Archetype.",
+      "optional" : false,
+      "grantsSubclassFeature" : true,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Elusive",
+      "level" : 18,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 94,
+      "description" : "Beginning at 18th level, you are so evasive that attackers rarely gain the upper hand against you. No attack roll has advantage against you while you aren't incapacitated.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 19,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 94,
+      "description" : "When you reach 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Stroke of Luck",
+      "level" : 20,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 94,
+      "description" : "At 20th level, you have an uncanny knack for succeeding when you need to. If your attack misses a target within range, you can turn the miss into a hit. Alternatively, if you fail an ability check, you can treat the d20 roll as a 20. Once you use this feature, you can't use it again until you finish a short or long rest.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    } ]
+  }
+}

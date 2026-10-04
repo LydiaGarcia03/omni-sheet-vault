@@ -1,0 +1,72 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "FEAT",
+  "slug" : "scion-of-the-outer-planes",
+  "name" : "Scion of the Outer Planes",
+  "sourceBook" : "Sigil and the Outlands",
+  "sourceCode" : "SatO",
+  "sourcePage" : 12,
+  "tags" : [ ],
+  "description" : "Your connection to an Outer Plane infuses you with the energy there. Choose a type of plane listed in the Planar Infusion table. Your choice gives you resistance to a damage type and the ability to cast a cantrip, as specified in the table. You can cast this cantrip without material components, and your spellcasting ability for it is Intelligence, Wisdom, or Charisma (choose when you select this feat).",
+  "data" : {
+    "abilityAlternatives" : [ ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "savingThrowAlternatives" : [ ],
+    "expertiseAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "optionalFeatureProgressions" : [ ],
+    "additionalSpells" : [ {
+      "name" : "Chaotic Outer Plane",
+      "ability" : {
+        "choose" : [ "int", "wis", "cha" ]
+      },
+      "known" : {
+        "_" : [ "minor illusion#c" ]
+      }
+    }, {
+      "name" : "Evil Outer Plane",
+      "ability" : {
+        "choose" : [ "int", "wis", "cha" ]
+      },
+      "known" : {
+        "_" : [ "chill touch#c" ]
+      }
+    }, {
+      "name" : "Good Outer Plane",
+      "ability" : {
+        "choose" : [ "int", "wis", "cha" ]
+      },
+      "known" : {
+        "_" : [ "sacred flame#c" ]
+      }
+    }, {
+      "name" : "Lawful Outer Plane",
+      "ability" : {
+        "choose" : [ "int", "wis", "cha" ]
+      },
+      "known" : {
+        "_" : [ "guidance#c" ]
+      }
+    }, {
+      "name" : "The Outlands",
+      "ability" : {
+        "choose" : [ "int", "wis", "cha" ]
+      },
+      "known" : {
+        "_" : [ "mage hand#c" ]
+      }
+    } ],
+    "prerequisites" : [ {
+      "campaign" : [ "Planescape" ]
+    } ],
+    "repeatable" : false,
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

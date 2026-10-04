@@ -7,18 +7,27 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Exposes the identity carried by the access token. This is a read of the token
- * itself, not a database lookup — mapping a subject to a local {@code players} row is
- * a separate concern once that table exists.
+ * Exposes the authenticated player. Identity and display name come from the local
+ * {@code players} row (created on first sight of the subject, see
+ * {@link PlayerService}); email and roles are read live from the token — Keycloak
+ * owns them, so they are never duplicated into the database.
  */
 @RestController
 class CurrentUserController {
 
+    private final PlayerService playerService;
+
+    CurrentUserController(PlayerService playerService) {
+        this.playerService = playerService;
+    }
+
     @GetMapping("/api/me")
     CurrentUserResponse currentUser(@AuthenticationPrincipal Jwt jwt) {
+        Player player = playerService.currentPlayer(jwt);
         return new CurrentUserResponse(
-                jwt.getSubject(),
-                jwt.getClaimAsString("preferred_username"),
+                player.id(),
+                player.subject(),
+                player.displayName(),
                 jwt.getClaimAsString("email"),
                 KeycloakRealmRoles.from(jwt));
     }

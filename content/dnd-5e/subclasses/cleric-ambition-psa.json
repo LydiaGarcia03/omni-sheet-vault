@@ -1,0 +1,112 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SUBCLASS",
+  "slug" : "cleric-ambition-psa",
+  "name" : "Ambition Domain (PSA)",
+  "sourceBook" : "Plane Shift: Amonkhet",
+  "sourceCode" : "PSA",
+  "sourcePage" : 27,
+  "tags" : [ ],
+  "description" : "The worthy shall strive for greatness—supremacy in life leads to supremacy in the afterlife. Bontu has fully embraced this dictum, and though she expends little effort in teaching it, she surely leads by example. Her viziers subtly plant the seeds that flower into the ambition the God-Pharaoh desires. Through insinuation, they remind acolytes and initiates alike that achieving one's place in the afterlife at the expense of others is not shameful, but is proof of the initiate's determination and drive. Nothing is more important than that drive, they suggest—not the bonds of a crop, not friendship or love. Not even devotion to a deity. At each indicated cleric level, add the listed spells to your spells prepared.",
+  "data" : {
+    "classSlug" : "cleric",
+    "shortName" : "Ambition (PSA)",
+    "additionalSpells" : [ {
+      "prepared" : {
+        "1" : [ "bane", "disguise self" ],
+        "3" : [ "mirror image", "ray of enfeeblement" ],
+        "5" : [ "bestow curse", "vampiric touch" ],
+        "7" : [ "death ward", "dimension door" ],
+        "9" : [ "dominate person", "modify memory" ]
+      }
+    } ],
+    "spellcasting" : null,
+    "tableColumns" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "features" : [ {
+      "name" : "Warding Flare",
+      "level" : 1,
+      "sourceBook" : "Plane Shift: Amonkhet",
+      "sourcePage" : 27,
+      "description" : "When you choose this domain at 1st level, you can interpose divine light between yourself and an attacking enemy. When you are attacked by a creature within 30 feet of you that you can see, you can use your reaction to impose disadvantage on the attack roll, causing light to flare before the attacker before it hits or misses. An attacker that can't be blinded is immune to this feature. You can use this feature a number of times equal to your Wisdom modifier (a minimum of once). You regain all expended uses when you finish a long rest.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Channel Divinity: Invoke Duplicity",
+      "level" : 2,
+      "sourceBook" : "Plane Shift: Amonkhet",
+      "sourcePage" : 27,
+      "description" : "Starting at 2nd level, you can use your Channel Divinity to create an illusory duplicate of yourself. As an action, you create a perfect illusion of yourself that lasts for 1 minute, or until you lose your concentration (as if you were concentrating on a spell). The illusion appears in an unoccupied space that you can see within 30 feet of you. As a bonus action on your turn, you can move the illusion up to 30 feet to a space you can see, but it must remain within 120 feet of you. For the duration, you can cast spells as though you were in the illusion's space, but you must use your own senses. Additionally, when both you and your illusion are within 5 feet of a creature that can see the illusion, you have advantage on attack rolls against that creature, given how distracting the illusion is to the target.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Channel Divinity: Cloak of Shadows",
+      "level" : 6,
+      "sourceBook" : "Plane Shift: Amonkhet",
+      "sourcePage" : 27,
+      "description" : "Starting at 6th level, you can use your Channel Divinity to vanish. As an action, you become invisible until the end of your next turn. You become visible if you attack or cast a spell.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Potent Spellcasting",
+      "level" : 8,
+      "sourceBook" : "Plane Shift: Amonkhet",
+      "sourcePage" : 27,
+      "description" : "Starting at 8th level, you add your Wisdom modifier to the damage you deal with any cleric cantrip.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Blessed Strikes",
+      "level" : 8,
+      "sourceBook" : "Tasha's Cauldron of Everything",
+      "sourcePage" : 30,
+      "description" : "8th-level cleric optional feature, which replaces the Potent Spellcasting feature You are blessed with divine might in battle. When a creature takes damage from one of your cantrips or weapon attacks, you can also deal 1d8 radiant damage to that creature. Once you deal this damage, you can't use this feature again until the start of your next turn.",
+      "optional" : true,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Improved Duplicity",
+      "level" : 17,
+      "sourceBook" : "Plane Shift: Amonkhet",
+      "sourcePage" : 27,
+      "description" : "At 17th level, you can create up to four duplicates of yourself, instead of one, when you use Invoke Duplicity. As a bonus action on your turn, you can move any number of them up to 30 feet, to a maximum range of 120 feet.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    } ]
+  }
+}

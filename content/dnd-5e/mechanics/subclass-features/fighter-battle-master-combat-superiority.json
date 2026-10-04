@@ -1,0 +1,7 @@
+{
+  "target": { "subclassSlug": "fighter-battle-master", "feature": "Combat Superiority" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 73 },
+  "modifiers": [],
+  "uses": { "resource": "superiority-dice", "count": 4, "die": 8, "recharge": "SHORT_OR_LONG_REST" },
+  "choices": []
+}

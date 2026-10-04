@@ -1,0 +1,34 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "protection-of-the-talisman",
+  "name" : "Protection of the Talisman",
+  "sourceBook" : "Tasha's Cauldron of Everything",
+  "sourceCode" : "TCE",
+  "sourcePage" : 71,
+  "tags" : [ ],
+  "description" : "Prerequisite: 7th level, Pact of the Talisman\n\nWhen the wearer of your talisman fails a saving throw, they can add a d4 to the roll, potentially turning the save into a success. This benefit can be used a number of times equal to your proficiency bonus, and all expended uses are restored when you finish a long rest.",
+  "data" : {
+    "featureTypes" : [ "EI" ],
+    "optional" : true,
+    "prerequisiteText" : "7th level, Pact of the Talisman",
+    "prerequisites" : [ {
+      "level" : {
+        "level" : 7,
+        "class" : {
+          "name" : "Warlock"
+        }
+      },
+      "pact" : "Talisman"
+    } ],
+    "consumes" : null,
+    "additionalSpells" : null,
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

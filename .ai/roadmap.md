@@ -23,17 +23,18 @@ plus the documents it lists before writing code.
 | Phase | Name | State |
 | --- | --- | --- |
 | 0 | Foundations | Done |
-| 1 | Identity | Not started |
-| 2 | Character vault | Not started |
-| 3 | Ruleset seam | Not started |
-| 4 | Sheet — vitals zone | Not started |
-| 5 | Dice engine | Not started |
-| 6 | Session state | Not started |
-| 7 | Content catalogue | Not started |
-| 8 | Sheet — tabs and sidebar | Not started |
-| 9 | Rests and mechanics | Not started |
-| 10 | Character creation | Not started |
-| 11 | Second game system | Not started |
+| 1 | Identity | Done |
+| 2 | Character vault | Done |
+| 3 | Ruleset seam | Done |
+| 4 | Sheet — vitals zone | Done |
+| 5 | Dice engine | Done |
+| 6 | Session state | Done |
+| 7 | Content catalogue | Done |
+| 8 | Sheet — tabs and sidebar | Done |
+| 9 | Rests and mechanics | Done |
+| 10 | Sheet fidelity to D&D Beyond | Done |
+| 11 | Character creation | Not started |
+| 12 | Second game system | Not started |
 
 ---
 
@@ -122,8 +123,8 @@ contributions that produced it, and the calculator is unit-tested against the ru
 
 **Goal:** the top of the sheet renders real data.
 
-Read: `rulesets/dnd-5e-sheet-build.md` first, then `ui-design-system.md`,
-`ui-design-tokens.md`, `rulesets/dnd-5e-sheet-ui.md`.
+Read: `systems/dnd-5e/sheet-build.md` first, then `ui-design-system.md`,
+`ui-design-tokens.md`, `systems/dnd-5e/sheet-ui.md`.
 
 **Open `apps/web/reference/frame-kit.html` before writing any component.** Port its
 patterns; do not reinvent them.
@@ -156,7 +157,10 @@ In scope:
 - The game log panel
 - Roll targets in the vitals zone wired up, with the hover affordance
 
-Out of scope: 3D dice, advantage and disadvantage, rolls from tabs.
+Out of scope at the time: 3D dice, advantage and disadvantage (built in phase 10,
+see `changelog.md`'s 2026-09-14 entry), rolls from tabs, manual/custom rolls typed
+into the dice tray (see `systems/dnd-5e/sheet-ui.md`'s "Deferred to later
+versions" for what's still deferred).
 
 **Done when** an ability modifier click produces a server-resolved result that appears
 in the tray and the game log, and a failed request produces no fabricated local result.
@@ -198,7 +202,7 @@ returns markers instead of prose while names, numbers and tags still arrive.
 
 ---
 
-## Phase 8 — Sheet, tabs and sidebar
+## Phase 8 — Sheet, tabs and sidebar · done
 
 **Goal:** the rest of the sheet.
 
@@ -209,7 +213,8 @@ Build the tab bar and one tab first, then the sidebar shell with the explainer m
 then the rest. Do not build all six tabs before the first one is reviewed.
 
 **Done when** every tab renders, the sidebar replaces its content rather than stacking,
-and every list supports search and filtering.
+and every list supports search and filtering. Inventory was the last list missing
+search; closed 2026-08-15 (see `systems/dnd-5e/sheet-build.md`'s component inventory).
 
 ---
 
@@ -226,19 +231,92 @@ server operation, and its dice appear in the log.
 
 ---
 
-## Phase 10 — Character creation
+## Phase 10 — Sheet fidelity to D&D Beyond · done
+
+**Goal:** close the gap between this application's D&D 5e sheet and D&D Beyond's own
+— visually and functionally, not just approximately.
+
+Read: `systems/dnd-5e/references/sheet-fidelity-audit.md` first — the audit pass is already
+done, this phase is the fixing. Then `systems/dnd-5e/sheet-ui.md` (especially
+"Visual target" and "Verifying fidelity against D&D Beyond"), `ui-design-system.md`,
+`ui-design-tokens.md`, `systems/dnd-5e/sheet-build.md`.
+
+By the end of phase 8, every tab and mold exists, but several were built against
+screenshots, estimated measurements, or a best guess where no clearer spec existed
+— not against the live reference, side by side, control by control. This phase is
+that audit-and-fix pass: go through the vitals zone, all six tabs and every sidebar
+mold against **https://www.dndbeyond.com/characters/50149479**, and correct
+whatever doesn't match — layout, spacing, hover states, button behavior, panel
+contents, everything — except what "Deviations from D&D Beyond" already lists as
+deliberate.
+
+`systems/dnd-5e/references/sheet-fidelity-audit.md` is that plan: a tab-by-tab comparison
+against the live reference, findings classified as a straightforward fix or a
+scope decision needing the owner's input, plus a suggested slice order. Its "Open
+questions for the owner" must be answered — at least the ones blocking the first
+few slices — before fixing starts; the suggested order itself is a starting point,
+not fixed, and may reorder as slices reveal more.
+
+Every mismatch found that isn't an oversight — i.e., looks like it might be a
+deliberate choice already made and simply undocumented — gets confirmed with the
+owner and, if confirmed, added to "Deviations from D&D Beyond" rather than silently
+changed either way.
+
+**Done when** every screen, tab and mold has been compared live against the
+reference character sheet and matches it, or the mismatch is a confirmed,
+documented entry in "Deviations from D&D Beyond."
+
+---
+
+## Phase 11 — Character creation
 
 **Goal:** characters are built in the application rather than seeded.
 
 In scope: the guided flow, showing the consequences of each choice before it is
 committed; levelling up; portrait upload to storage.
 
-This phase needs its own specification first. Write
-`features/character-creation.md` before planning it.
+**Was blocked on phase 10 (visual fidelity), unblocked 2026-09-20 — now blocked
+again on a stricter condition, direct owner decision 2026-09-22: the guided flow
+does not start until the sheet it would build is verified 100% correct against
+*two* standards at once — D&D Beyond's own live sheet (visual/behavioral
+fidelity, phase 10's own standard) *and* real 5etools data (mechanical
+correctness — no hand-typed or mocked fact anywhere the sheet currently shows a
+value).** This phase's own specification, `systems/dnd-5e/features/character-creation.md`,
+sequences that prerequisite work (its own Stages A and C) ahead of the creation
+flow itself (Stage D2) rather than treating them as already covered by phase 10's
+"done" status — phase 10 checked layout and behavior against D&D Beyond, never
+whether the underlying values came from real game data.
+
+This phase's specification is written: `systems/dnd-5e/features/character-creation.md`. Read it
+before planning further — it also carries the still-open
+`decisions/adr-0006-5etools-as-content-source.md` question (excluding non-core/
+collab sources at character-creation time) forward into its own Stage D2, where
+that toggle now belongs.
+
+**Target outcome, owner statement 2026-09-23:** a conversational rebuild in which
+the owner names class, level, species and background, and the assistant asks each
+implied choice from real 5etools data. The resulting sheet is living: equipment,
+active spells and conditions change AC, speed and roll modes. That rebuild is
+Stage D1, and it is not gated, because it produces the characters the Stage C
+audit checks.
+
+**Stage C gate passed (2026-09-24).** The data-fidelity audit
+(`systems/dnd-5e/references/data-fidelity-audit.md`) closed on Aria, Liriel and Vex:
+every finding is fixed or accepted by the owner, and the visible changes were
+checked live against D&D Beyond. Stage D2 (the in-app creation flow) is
+unblocked.
+
+**Next up in D2 (approved 2026-09-25):** `systems/dnd-5e/features/builder-refinements.md`,
+in four slices (all done 2026-09-26):
+1. dropups, book order, collapsible spell filters, and the playtest limiter;
+2. virtual 4d6-drop-lowest ability rolls and the rolled hit points UI;
+3. technical summaries on options, where the effect replaces the book name;
+4. a collapsed class-progression preview (the book's class table) on the
+   Classes step.
 
 ---
 
-## Phase 11 — Second game system
+## Phase 12 — Second game system
 
 **Goal:** prove the architecture.
 
@@ -247,6 +325,10 @@ shell, the character list, the sidebar, the dice engine, or D&D's own code. If i
 the seam is in the wrong place — stop and discuss rather than working around it.
 
 Extract shared abstractions here, from two real implementations. Not before.
+
+**Candidate system: Vampire: The Masquerade 5e** (2026-10-03). The plan,
+the Demiplane walkthrough and the seams it breaks are in
+`systems/vtm-v5/features/implementation-plan.md`; it waits on the owner's answers there.
 
 ---
 

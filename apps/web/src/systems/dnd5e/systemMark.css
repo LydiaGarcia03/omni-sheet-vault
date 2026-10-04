@@ -1,0 +1,10 @@
+/* D&D 5e system mark in the app header */
+.dnd5e-system-mark { --dnd5e-brand-red: #EC2127; display: flex; align-items: center; gap: 9px; white-space: nowrap; }
+/* The logo PNG is used as a mask so its colour comes from the brand token */
+.dnd5e-system-mark__logo {
+  width: 22px; height: 22px; flex: none; background: var(--dnd5e-brand-red);
+  -webkit-mask: url('./brand/dnd-ampersand.png') center / contain no-repeat; mask: url('./brand/dnd-ampersand.png') center / contain no-repeat;
+}
+/* Modesto is commercial and not bundled: it renders where installed, else the app's condensed heading font */
+.dnd5e-system-mark__name { font: 700 15px 'Modesto Bold Condensed', 'Modesto Condensed', 'Modesto', var(--app-heading-font); font-stretch: condensed; letter-spacing: .05em; text-transform: uppercase; color: var(--dnd5e-brand-red); }
+.dnd5e-system-mark__edition { font: 400 10px var(--app-heading-font); letter-spacing: .12em; text-transform: uppercase; color: rgba(255, 255, 255, .55); }

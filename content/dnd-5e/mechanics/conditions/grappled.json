@@ -1,0 +1,7 @@
+{
+  "target": { "condition": "Grappled", "source": "PHB" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 290 },
+  "modifiers": [
+    { "type": "SET", "target": "SPEED", "value": 0 }
+  ]
+}

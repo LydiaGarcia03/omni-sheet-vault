@@ -1,0 +1,13 @@
+{
+  "target": { "condition": "Exhaustion", "source": "PHB" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 291 },
+  "modifiers": [],
+  "levels": {
+    "1": [{ "type": "DISADVANTAGE", "target": "ABILITY_CHECKS", "value": 0 }],
+    "2": [{ "type": "HALVE", "target": "SPEED", "value": 0 }],
+    "3": [{ "type": "DISADVANTAGE", "target": "ATTACK_ROLLS", "value": 0 }, { "type": "DISADVANTAGE", "target": "SAVING_THROWS", "value": 0 }],
+    "4": [{ "type": "HALVE", "target": "HIT_POINT_MAXIMUM", "value": 0 }],
+    "5": [{ "type": "SET", "target": "SPEED", "value": 0 }],
+    "6": []
+  }
+}

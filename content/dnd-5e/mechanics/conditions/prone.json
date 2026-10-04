@@ -1,0 +1,7 @@
+{
+  "target": { "condition": "Prone", "source": "PHB" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 292 },
+  "modifiers": [
+    { "type": "DISADVANTAGE", "target": "ATTACK_ROLLS", "value": 0 }
+  ]
+}

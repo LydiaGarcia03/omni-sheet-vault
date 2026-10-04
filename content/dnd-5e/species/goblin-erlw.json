@@ -1,0 +1,91 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "goblin-erlw",
+  "name" : "Goblin",
+  "sourceBook" : "Eberron: Rising from the Last War",
+  "sourceCode" : "ERLW",
+  "sourcePage" : 26,
+  "tags" : [ ],
+  "description" : "Age. Goblins reach adulthood at age 8 and live up to 60 years. Size. Your size is Small. Darkvision. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Fury of the Small. When you damage a creature with an attack or a spell and the creature's size is larger than yours, you can cause the attack or spell to deal extra damage to the creature. The extra damage equals your level. Once you use this trait, you can't use it again until you finish a short or long rest. Nimble Escape. You can take the Disengage or Hide action as a bonus action on each of your turns. Languages. You can speak, read, and write Common and Goblin. Alignment. In Eberron, goblins are usually neutral. They tend to look out for themselves, preferably without drawing unwanted attention from any larger, more powerful people.",
+  "data" : {
+    "size" : [ "small" ],
+    "speed" : {
+      "walk" : 30
+    },
+    "senses" : [ {
+      "type" : "darkvision",
+      "range" : 60
+    } ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "dexterity" : 2,
+        "constitution" : 1
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "goblin" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : {
+      "mature" : 8,
+      "max" : 60
+    },
+    "heightAndWeight" : {
+      "baseHeight" : 41,
+      "heightMod" : "2d4",
+      "baseWeight" : 35
+    },
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Age",
+      "description" : "Goblins reach adulthood at age 8 and live up to 60 years."
+    }, {
+      "name" : "Size",
+      "description" : "Your size is Small."
+    }, {
+      "name" : "Darkvision",
+      "description" : "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+    }, {
+      "name" : "Fury of the Small",
+      "description" : "When you damage a creature with an attack or a spell and the creature's size is larger than yours, you can cause the attack or spell to deal extra damage to the creature. The extra damage equals your level. Once you use this trait, you can't use it again until you finish a short or long rest."
+    }, {
+      "name" : "Nimble Escape",
+      "description" : "You can take the Disengage or Hide action as a bonus action on each of your turns."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and Goblin."
+    }, {
+      "name" : "Alignment",
+      "description" : "In Eberron, goblins are usually neutral. They tend to look out for themselves, preferably without drawing unwanted attention from any larger, more powerful people."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

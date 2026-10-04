@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "LANGUAGE",
+  "slug" : "bothii",
+  "name" : "Bothii",
+  "sourceBook" : "Storm King's Thunder",
+  "sourceCode" : "SKT",
+  "sourcePage" : 86,
+  "tags" : [ ],
+  "description" : "",
+  "data" : {
+    "type" : null,
+    "script" : null
+  }
+}

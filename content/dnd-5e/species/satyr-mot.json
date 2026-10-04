@@ -1,0 +1,107 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "satyr-mot",
+  "name" : "Satyr",
+  "sourceBook" : "Mythic Odysseys of Theros",
+  "sourceCode" : "MOT",
+  "sourcePage" : 24,
+  "tags" : [ ],
+  "description" : "Age. Satyrs mature and age at about the same rate as humans. Alignment. Satyrs delight in living a life free of the mantle of law. They gravitate toward being good, but some have devious streaks and enjoy causing dismay. Size. Satyrs range from just under 5 feet to about 6 feet in height, with generally slender builds. Your size is Medium. Fey. Your creature type is fey, rather than humanoid. Ram. You can use your head and horns to make unarmed strikes. If you hit with them, you deal bludgeoning damage equal to 1d4 + your Strength modifier. Magic Resistance. You have advantage on saving throws against spells and other magical effects. Mirthful Leaps. Whenever you make a long or high jump, you can roll a d8 and add the number rolled to the number of feet you cover, even when making a standing jump. This extra distance costs movement as normal. Reveler. You have proficiency in the Performance and Persuasion skills, and you have proficiency with one musical instrument of your choice. Languages. You can speak, read, and write Common and Sylvan.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 35
+    },
+    "senses" : [ ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "charisma" : 2,
+        "dexterity" : 1
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "performance", "persuasion" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "musicalInstrument",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "sylvan" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : [ "fey" ],
+    "additionalSpells" : null,
+    "age" : {
+      "mature" : 20,
+      "max" : 100
+    },
+    "heightAndWeight" : {
+      "baseHeight" : 56,
+      "heightMod" : "2d8",
+      "baseWeight" : 100,
+      "weightMod" : "2d4"
+    },
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Age",
+      "description" : "Satyrs mature and age at about the same rate as humans."
+    }, {
+      "name" : "Alignment",
+      "description" : "Satyrs delight in living a life free of the mantle of law. They gravitate toward being good, but some have devious streaks and enjoy causing dismay."
+    }, {
+      "name" : "Size",
+      "description" : "Satyrs range from just under 5 feet to about 6 feet in height, with generally slender builds. Your size is Medium."
+    }, {
+      "name" : "Fey",
+      "description" : "Your creature type is fey, rather than humanoid."
+    }, {
+      "name" : "Ram",
+      "description" : "You can use your head and horns to make unarmed strikes. If you hit with them, you deal bludgeoning damage equal to 1d4 + your Strength modifier."
+    }, {
+      "name" : "Magic Resistance",
+      "description" : "You have advantage on saving throws against spells and other magical effects."
+    }, {
+      "name" : "Mirthful Leaps",
+      "description" : "Whenever you make a long or high jump, you can roll a d8 and add the number rolled to the number of feet you cover, even when making a standing jump. This extra distance costs movement as normal."
+    }, {
+      "name" : "Reveler",
+      "description" : "You have proficiency in the Performance and Persuasion skills, and you have proficiency with one musical instrument of your choice."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and Sylvan."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

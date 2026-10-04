@@ -1,0 +1,92 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "rival-intern",
+  "name" : "Rival Intern",
+  "sourceBook" : "Acquisitions Incorporated",
+  "sourceCode" : "AI",
+  "sourcePage" : 51,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. History, Investigation Tool Proficiencies:. One type of artisan's tools Languages:. Any one of your choice Equipment:. One set of artisan's tools, a ledger from your previous employer containing a small piece of useful information, a set of fine clothes, and a belt pouch containing 10 gp Feature: Inside Informant. You have connections to your previous employer or other groups you dealt with during your previous employment. You can communicate with your contacts, gaining information at the DM's discretion. Suggested Characteristics. If you were happy with your previous internship, the parting of ways might have been amicable. If not, it might have involved armed guards removing you from the premises. If you were passed over at your previous position, it might have left you a blend of seething rage, practiced nonchalance, and keen knowledge of where the bodies are buried (perhaps literally).",
+  "data" : {
+    "personalityTraits" : [ "My previous employer didn't respect me, and now I'll do whatever I can to gain respect.", "The job is important, but the relationships I forge with my coworkers are even more so.", "The job is everything to me. Who needs relaxation, hobbies, and a social life?", "I know I'm not the best and brightest, but if I put my best self forward, I can overcome anything.", "My former boss was an idiot. So was my boss before that. And before that. I'm sure those were all coincidences.", "This company is so much better than my previous one. It will always be the best until they stop paying me.", "I know this dagger belongs to the company, but I'm sure they won't miss it. Or this flask. Or this armor.", "It's only a matter of time before I'll be upper management. I just have to kiss up to my superiors and kick down those beneath me." ],
+    "ideals" : [ "Advancement. Money and power can be gained more easily within an organization. I plan to gain as much as possible. (Evil)", "Structure. Life goes much more smoothly when you follow the rules and work within a system. (Lawful)", "Uncertainty. The more chaos that swirls around me, the more opportunities I can find to profit. (Chaotic)", "Justice. I can't stand people being treated unjustly. I do whatever it takes to stop injustice and those who flout the law. (Lawful)", "Pleasure. What's the use of working hard and making money if you can't enjoy the finer things in life? (Any)", "Power. Money is fine, but real power means never having to say you're sorry. (Evil)" ],
+    "bonds" : [ "I have a family member in need. I consider them in everything I do.", "My peers keep me grounded.", "My past mistakes cost someone else dearly. I have to rectify that.", "A childhood mentor put me on my current path. If I succeed, I want to repay that mentor in some way.", "I value an oath of loyalty I took to a group of friends over everything else in my life.", "Although I don't get along well with people, my pet means the world to me." ],
+    "flaws" : [ "I know what's best. Trust me.", "Flaw? I have no flaws. I'm perfect.", "My loyalties are... fluid.", "If anything goes wrong, it must be someone else's fault. Let me explain that in detail.", "There's right and there's wrong, and there's no gray area in between.", "Our superiors might not like what you're doing. I'm going to have to put that in my report." ],
+    "otherTables" : [ ],
+    "features" : [ {
+      "name" : "Inside Informant",
+      "description" : "You have connections to your previous employer or other groups you dealt with during your previous employment. You can communicate with your contacts, gaining information at the DM's discretion."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "history", "investigation" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "artisansTool",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "languageAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : null,
+          "equipmentType" : "toolArtisan",
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "ledger from your previous employer containing a small piece of useful information",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "fine-clothes",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 1000,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : null,
+    "prerequisites" : null
+  }
+}

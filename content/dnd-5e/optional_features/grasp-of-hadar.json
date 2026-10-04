@@ -1,0 +1,28 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "grasp-of-hadar",
+  "name" : "Grasp of Hadar",
+  "sourceBook" : "Xanathar's Guide to Everything",
+  "sourceCode" : "XGE",
+  "sourcePage" : 57,
+  "tags" : [ ],
+  "description" : "Prerequisite: eldritch blast cantrip\n\nOnce on each of your turns when you hit a creature with your eldritch blast, you can move that creature in a straight line 10 feet closer to you.",
+  "data" : {
+    "featureTypes" : [ "EI" ],
+    "optional" : false,
+    "prerequisiteText" : "eldritch blast cantrip",
+    "prerequisites" : [ {
+      "spell" : [ "eldritch blast#c" ]
+    } ],
+    "consumes" : null,
+    "additionalSpells" : null,
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

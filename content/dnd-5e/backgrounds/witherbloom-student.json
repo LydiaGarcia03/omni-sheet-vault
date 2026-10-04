@@ -1,0 +1,128 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "witherbloom-student",
+  "name" : "Witherbloom Student",
+  "sourceBook" : "Strixhaven: A Curriculum of Chaos",
+  "sourceCode" : "SCC",
+  "sourcePage" : 36,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. Nature, Survival Tool Proficiencies:. Herbalism kit Languages:. One of your choice Equipment:. A bottle of black ink, an ink pen, a book about plant identification, an iron pot, an herbalism kit, a school uniform, and a pouch containing 15 gp Feature: Witherbloom Initiate. You gain the Strixhaven Initiate feat and must choose Witherbloom within it. In addition, if you have the Spellcasting or Pact Magic feature, the spells on the Witherbloom Spells table are added to the spell list of your spellcasting class. (If you are a multiclass character with multiple spell lists, these spells are added to all of them.) Consider customizing how your spells look when you cast them. Your Witherbloom spells might rely on material components or a spellcasting focus drawn from the swamp environment of Witherbloom, and your spells might take on an appearance suggesting those natural elements. Spectral shapes of swamp animals or plants might form amid your spell effects. Building a Witherbloom Character. Druids and warlocks make up most of Witherbloom's student body. A few wizards (mostly those who study the School of Necromancy) and clerics (including those with the Divine Domains of Life or Nature) also find their home in Witherbloom. A number of rangers and barbarians study at Witherbloom as well, and some rogues learn how to create and use poisons during their studies at this college. Suggested Characteristics. Students of Witherbloom College are equally likely to be found picking herbs for a healing tincture or riding zombified swamp beasts through the bayou. The Witherbloom Personality Traits table suggests a variety of traits you might adopt for your character. Witherbloom Trinkets. When you make your character, you may roll once on the Witherbloom Trinkets table, instead of on the Trinkets table in the Player's Handbook, for your starting trinket.",
+  "data" : {
+    "personalityTraits" : [ "I love brewing up a new recipe, even if some might be repulsed by my choice of ingredients. Or the final product. Or both.", "My fashion sense is like my garden: withered, black, and weird.", "I'm going to befriend every single monster in this swamp if it's the last thing I do.", "Everything in this world dies eventually. The question is, what will you do with the time you have left?", "I know we just met, but when you die, may I have your bones? For research.", "Don't interrupt me; I'm brooding." ],
+    "ideals" : [ ],
+    "bonds" : [ ],
+    "flaws" : [ ],
+    "otherTables" : [ {
+      "caption" : "Witherbloom Spells",
+      "colLabels" : [ "Spell Level", "Spells" ],
+      "rows" : [ [ "1st", "Cure Wounds, Inflict Wounds" ], [ "2nd", "Lesser Restoration, Wither and Bloom" ], [ "3rd", "Revivify, Vampiric Touch" ], [ "4th", "Blight, Death Ward" ], [ "5th", "Antilife Shell, Greater Restoration" ] ]
+    } ],
+    "features" : [ {
+      "name" : "Witherbloom Initiate",
+      "description" : "You gain the Strixhaven Initiate feat and must choose Witherbloom within it. In addition, if you have the Spellcasting or Pact Magic feature, the spells on the Witherbloom Spells table are added to the spell list of your spellcasting class. (If you are a multiclass character with multiple spell lists, these spells are added to all of them.) Consider customizing how your spells look when you cast them. Your Witherbloom spells might rely on material components or a spellcasting focus drawn from the swamp environment of Witherbloom, and your spells might take on an appearance suggesting those natural elements. Spectral shapes of swamp animals or plants might form amid your spell effects."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "nature", "survival" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ {
+      "fixed" : [ "herbalism-kit" ],
+      "choices" : [ ]
+    } ],
+    "languageAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "featAlternatives" : [ {
+      "fixed" : [ "strixhaven-initiate" ],
+      "choices" : [ ]
+    } ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : "ink-1-ounce-bottle",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "ink-pen",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "book about plant identification",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "iron-pot",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "herbalism-kit",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "school uniform",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 1500,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : [ {
+      "expanded" : {
+        "s1" : [ "cure wounds", "inflict wounds" ],
+        "s2" : [ "lesser restoration", "wither and bloom|scc" ],
+        "s3" : [ "revivify", "vampiric touch" ],
+        "s4" : [ "blight", "death ward" ],
+        "s5" : [ "antilife shell", "greater restoration" ]
+      }
+    } ],
+    "prerequisites" : null
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "kor",
+  "name" : "Kor",
+  "sourceBook" : "Plane Shift: Zendikar",
+  "sourceCode" : "PSZ",
+  "sourcePage" : 10,
+  "tags" : [ ],
+  "description" : "Age. Kor mature at the same rate as humans and live about as long. Alignment. Most kor are lawful good, with a strong dedication to community and the traditions of their ancestors. Size. Kor average nearly 6 feet tall, but are much lighter and more slender than humans. Your size is Medium. Brave. You have advantage on saving throws against being frightened. Climbing. You also have a climbing speed of 30 feet as long as you are not encumbered or wearing heavy armor. Kor Climbing. You have proficiency in the Athletics and Acrobatics skills. Languages. You can speak, read, and write Common, and communicate in the silent speech of the Kor. Lucky. When you roll a 1 on the d20 for an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 30,
+      "climb" : 30
+    },
+    "senses" : [ ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "dexterity" : 2,
+        "wisdom" : 1
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "athletics", "acrobatics" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "other" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : {
+      "mature" : 20,
+      "max" : 100
+    },
+    "heightAndWeight" : null,
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Age",
+      "description" : "Kor mature at the same rate as humans and live about as long."
+    }, {
+      "name" : "Alignment",
+      "description" : "Most kor are lawful good, with a strong dedication to community and the traditions of their ancestors."
+    }, {
+      "name" : "Size",
+      "description" : "Kor average nearly 6 feet tall, but are much lighter and more slender than humans. Your size is Medium."
+    }, {
+      "name" : "Brave",
+      "description" : "You have advantage on saving throws against being frightened."
+    }, {
+      "name" : "Climbing",
+      "description" : "You also have a climbing speed of 30 feet as long as you are not encumbered or wearing heavy armor."
+    }, {
+      "name" : "Kor Climbing",
+      "description" : "You have proficiency in the Athletics and Acrobatics skills."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common, and communicate in the silent speech of the Kor."
+    }, {
+      "name" : "Lucky",
+      "description" : "When you roll a 1 on the d20 for an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

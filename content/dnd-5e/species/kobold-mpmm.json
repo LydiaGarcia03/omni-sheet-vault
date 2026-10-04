@@ -1,0 +1,408 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "kobold-mpmm",
+  "name" : "Kobold",
+  "sourceBook" : "Mordenkainen Presents: Monsters of the Multiverse",
+  "sourceCode" : "MPMM",
+  "sourcePage" : 25,
+  "tags" : [ ],
+  "description" : "Darkvision. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were in dim light. You discern colors in that darkness only as shades of gray. Draconic Cry. As a bonus action, you let out a cry at your enemies within 10 feet of you. Until the start of your next turn, you and your allies have advantage on attack rolls against any of those enemies who could hear you. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest. Kobold Legacy. Kobold's connections to dragons can manifest in unpredictable ways in an individual kobold. Choose one of the following legacy options for your kobold. Craftiness. You have proficiency in one of the following skills of your choice: Arcana, Investigation, Medicine, Sleight of Hand, or Survival. Defiance. You have advantage on saving throws to avoid or end the frightened condition on yourself. Draconic Sorcery. You know one cantrip of your choice from the sorcerer spell list. Intelligence, Wisdom, or Charisma is your spellcasting ability for that cantrip (choose when you select this race). Languages. You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character.",
+  "data" : {
+    "size" : [ "small" ],
+    "speed" : {
+      "walk" : 30
+    },
+    "senses" : [ {
+      "type" : "darkvision",
+      "range" : 60
+    } ],
+    "abilityAlternatives" : [ {
+      "fixed" : { },
+      "choices" : [ {
+        "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+        "weights" : [ 2, 1 ],
+        "count" : 2,
+        "amount" : null
+      } ],
+      "maximum" : null
+    }, {
+      "fixed" : { },
+      "choices" : [ {
+        "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+        "weights" : [ 1, 1, 1 ],
+        "count" : 3,
+        "amount" : null
+      } ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : [ "arcana", "investigation", "medicine", "sleightOfHand", "survival" ],
+        "category" : null,
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common" ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : [ {
+      "ability" : {
+        "choose" : [ "int", "wis", "cha" ]
+      },
+      "known" : {
+        "_" : [ {
+          "choose" : "level=0|class=Sorcerer",
+          "count" : 1
+        } ]
+      }
+    } ],
+    "age" : null,
+    "heightAndWeight" : null,
+    "lineage" : "VRGR",
+    "traits" : [ {
+      "name" : "Darkvision",
+      "description" : "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were in dim light. You discern colors in that darkness only as shades of gray."
+    }, {
+      "name" : "Draconic Cry",
+      "description" : "As a bonus action, you let out a cry at your enemies within 10 feet of you. Until the start of your next turn, you and your allies have advantage on attack rolls against any of those enemies who could hear you. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+    }, {
+      "name" : "Kobold Legacy",
+      "description" : "Kobold's connections to dragons can manifest in unpredictable ways in an individual kobold. Choose one of the following legacy options for your kobold. Craftiness. You have proficiency in one of the following skills of your choice: Arcana, Investigation, Medicine, Sleight of Hand, or Survival. Defiance. You have advantage on saving throws to avoid or end the frightened condition on yourself. Draconic Sorcery. You know one cantrip of your choice from the sorcerer spell list. Intelligence, Wisdom, or Charisma is your spellcasting ability for that cantrip (choose when you select this race)."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character."
+    } ],
+    "variants" : [ {
+      "name" : "Kobold; Craftiness",
+      "description" : "Darkvision. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were in dim light. You discern colors in that darkness only as shades of gray. Draconic Cry. As a bonus action, you let out a cry at your enemies within 10 feet of you. Until the start of your next turn, you and your allies have advantage on attack rolls against any of those enemies who could hear you. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest. Kobold Legacy (Craftiness). You have proficiency in one of the following skills of your choice: Arcana, Investigation, Medicine, Sleight of Hand, or Survival. Languages. You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character.",
+      "size" : [ "small" ],
+      "speed" : {
+        "walk" : 30
+      },
+      "senses" : [ {
+        "type" : "darkvision",
+        "range" : 60
+      } ],
+      "abilityAlternatives" : [ {
+        "fixed" : { },
+        "choices" : [ {
+          "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+          "weights" : [ 2, 1 ],
+          "count" : 2,
+          "amount" : null
+        } ],
+        "maximum" : null
+      }, {
+        "fixed" : { },
+        "choices" : [ {
+          "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+          "weights" : [ 1, 1, 1 ],
+          "count" : 3,
+          "amount" : null
+        } ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ {
+        "fixed" : [ ],
+        "choices" : [ {
+          "from" : [ "arcana", "investigation", "medicine", "sleightOfHand", "survival" ],
+          "category" : null,
+          "fromFilter" : null,
+          "count" : 1,
+          "amount" : null
+        } ]
+      } ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ {
+        "fixed" : [ "common" ],
+        "choices" : [ {
+          "from" : null,
+          "category" : "standard",
+          "fromFilter" : null,
+          "count" : 1,
+          "amount" : null
+        } ]
+      } ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "ability" : {
+          "choose" : [ "int", "wis", "cha" ]
+        },
+        "known" : {
+          "_" : [ {
+            "choose" : "level=0|class=Sorcerer",
+            "count" : 1
+          } ]
+        }
+      } ],
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : "VRGR",
+      "traits" : [ {
+        "name" : "Darkvision",
+        "description" : "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were in dim light. You discern colors in that darkness only as shades of gray."
+      }, {
+        "name" : "Draconic Cry",
+        "description" : "As a bonus action, you let out a cry at your enemies within 10 feet of you. Until the start of your next turn, you and your allies have advantage on attack rolls against any of those enemies who could hear you. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+      }, {
+        "name" : "Kobold Legacy (Craftiness)",
+        "description" : "You have proficiency in one of the following skills of your choice: Arcana, Investigation, Medicine, Sleight of Hand, or Survival."
+      }, {
+        "name" : "Languages",
+        "description" : "You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character."
+      } ]
+    }, {
+      "name" : "Kobold; Defiance",
+      "description" : "Darkvision. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were in dim light. You discern colors in that darkness only as shades of gray. Draconic Cry. As a bonus action, you let out a cry at your enemies within 10 feet of you. Until the start of your next turn, you and your allies have advantage on attack rolls against any of those enemies who could hear you. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest. Kobold Legacy (Defiance). You have advantage on saving throws to avoid or end the frightened condition on yourself. Languages. You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character.",
+      "size" : [ "small" ],
+      "speed" : {
+        "walk" : 30
+      },
+      "senses" : [ {
+        "type" : "darkvision",
+        "range" : 60
+      } ],
+      "abilityAlternatives" : [ {
+        "fixed" : { },
+        "choices" : [ {
+          "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+          "weights" : [ 2, 1 ],
+          "count" : 2,
+          "amount" : null
+        } ],
+        "maximum" : null
+      }, {
+        "fixed" : { },
+        "choices" : [ {
+          "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+          "weights" : [ 1, 1, 1 ],
+          "count" : 3,
+          "amount" : null
+        } ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ {
+        "fixed" : [ ],
+        "choices" : [ {
+          "from" : [ "arcana", "investigation", "medicine", "sleightOfHand", "survival" ],
+          "category" : null,
+          "fromFilter" : null,
+          "count" : 1,
+          "amount" : null
+        } ]
+      } ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ {
+        "fixed" : [ "common" ],
+        "choices" : [ {
+          "from" : null,
+          "category" : "standard",
+          "fromFilter" : null,
+          "count" : 1,
+          "amount" : null
+        } ]
+      } ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "ability" : {
+          "choose" : [ "int", "wis", "cha" ]
+        },
+        "known" : {
+          "_" : [ {
+            "choose" : "level=0|class=Sorcerer",
+            "count" : 1
+          } ]
+        }
+      } ],
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : "VRGR",
+      "traits" : [ {
+        "name" : "Darkvision",
+        "description" : "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were in dim light. You discern colors in that darkness only as shades of gray."
+      }, {
+        "name" : "Draconic Cry",
+        "description" : "As a bonus action, you let out a cry at your enemies within 10 feet of you. Until the start of your next turn, you and your allies have advantage on attack rolls against any of those enemies who could hear you. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+      }, {
+        "name" : "Kobold Legacy (Defiance)",
+        "description" : "You have advantage on saving throws to avoid or end the frightened condition on yourself."
+      }, {
+        "name" : "Languages",
+        "description" : "You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character."
+      } ]
+    }, {
+      "name" : "Kobold; Draconic Sorcery",
+      "description" : "Darkvision. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were in dim light. You discern colors in that darkness only as shades of gray. Draconic Cry. As a bonus action, you let out a cry at your enemies within 10 feet of you. Until the start of your next turn, you and your allies have advantage on attack rolls against any of those enemies who could hear you. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest. Kobold Legacy (Draconic Sorcery). You know one cantrip of your choice from the sorcerer spell list. Intelligence, Wisdom, or Charisma is your spellcasting ability for that cantrip (choose when you select this race). Languages. You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character.",
+      "size" : [ "small" ],
+      "speed" : {
+        "walk" : 30
+      },
+      "senses" : [ {
+        "type" : "darkvision",
+        "range" : 60
+      } ],
+      "abilityAlternatives" : [ {
+        "fixed" : { },
+        "choices" : [ {
+          "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+          "weights" : [ 2, 1 ],
+          "count" : 2,
+          "amount" : null
+        } ],
+        "maximum" : null
+      }, {
+        "fixed" : { },
+        "choices" : [ {
+          "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+          "weights" : [ 1, 1, 1 ],
+          "count" : 3,
+          "amount" : null
+        } ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ {
+        "fixed" : [ ],
+        "choices" : [ {
+          "from" : [ "arcana", "investigation", "medicine", "sleightOfHand", "survival" ],
+          "category" : null,
+          "fromFilter" : null,
+          "count" : 1,
+          "amount" : null
+        } ]
+      } ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ {
+        "fixed" : [ "common" ],
+        "choices" : [ {
+          "from" : null,
+          "category" : "standard",
+          "fromFilter" : null,
+          "count" : 1,
+          "amount" : null
+        } ]
+      } ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "ability" : {
+          "choose" : [ "int", "wis", "cha" ]
+        },
+        "known" : {
+          "_" : [ {
+            "choose" : "level=0|class=Sorcerer",
+            "count" : 1
+          } ]
+        }
+      } ],
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : "VRGR",
+      "traits" : [ {
+        "name" : "Darkvision",
+        "description" : "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were in dim light. You discern colors in that darkness only as shades of gray."
+      }, {
+        "name" : "Draconic Cry",
+        "description" : "As a bonus action, you let out a cry at your enemies within 10 feet of you. Until the start of your next turn, you and your allies have advantage on attack rolls against any of those enemies who could hear you. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+      }, {
+        "name" : "Kobold Legacy (Draconic Sorcery)",
+        "description" : "You know one cantrip of your choice from the sorcerer spell list. Intelligence, Wisdom, or Charisma is your spellcasting ability for that cantrip (choose when you select this race)."
+      }, {
+        "name" : "Languages",
+        "description" : "You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character."
+      } ]
+    } ],
+    "subspecies" : [ ]
+  }
+}

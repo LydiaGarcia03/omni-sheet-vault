@@ -1,0 +1,104 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "orc-erlw",
+  "name" : "Orc",
+  "sourceBook" : "Eberron: Rising from the Last War",
+  "sourceCode" : "ERLW",
+  "sourcePage" : 31,
+  "tags" : [ ],
+  "description" : "Age. Orcs reach adulthood at age 12 and live up to 50 years. Alignment. The orcs of Eberron are a passionate people, given to powerful emotion and deep faith. They are generally chaotic, but can be any alignment. Size. Your size is Medium. Darkvision. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Aggressive. As a bonus action, you can move up to your movement speed toward a hostile creature you can see or hear. You must end this move closer to the enemy than you started. Primal Intuition. You have proficiency in two of the following skills of your choice: Animal Handling, Insight, Intimidation, Medicine, Nature, Perception, and Survival. Powerful Build. You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift. Languages. You can speak, read, and write Common and Orc.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 30
+    },
+    "senses" : [ {
+      "type" : "darkvision",
+      "range" : 60
+    } ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "strength" : 2,
+        "constitution" : 1
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : [ "animalHandling", "insight", "intimidation", "medicine", "nature", "perception", "survival" ],
+        "category" : null,
+        "fromFilter" : null,
+        "count" : 2,
+        "amount" : null
+      } ]
+    } ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "orc" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : {
+      "mature" : 12,
+      "max" : 50
+    },
+    "heightAndWeight" : {
+      "baseHeight" : 64,
+      "heightMod" : "2d8",
+      "baseWeight" : 175,
+      "weightMod" : "2d6"
+    },
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Age",
+      "description" : "Orcs reach adulthood at age 12 and live up to 50 years."
+    }, {
+      "name" : "Alignment",
+      "description" : "The orcs of Eberron are a passionate people, given to powerful emotion and deep faith. They are generally chaotic, but can be any alignment."
+    }, {
+      "name" : "Size",
+      "description" : "Your size is Medium."
+    }, {
+      "name" : "Darkvision",
+      "description" : "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+    }, {
+      "name" : "Aggressive",
+      "description" : "As a bonus action, you can move up to your movement speed toward a hostile creature you can see or hear. You must end this move closer to the enemy than you started."
+    }, {
+      "name" : "Primal Intuition",
+      "description" : "You have proficiency in two of the following skills of your choice: Animal Handling, Insight, Intimidation, Medicine, Nature, Perception, and Survival."
+    }, {
+      "name" : "Powerful Build",
+      "description" : "You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and Orc."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

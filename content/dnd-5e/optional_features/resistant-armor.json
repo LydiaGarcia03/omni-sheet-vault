@@ -1,0 +1,35 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "resistant-armor",
+  "name" : "Resistant Armor",
+  "sourceBook" : "Tasha's Cauldron of Everything",
+  "sourceCode" : "TCE",
+  "sourcePage" : 23,
+  "tags" : [ ],
+  "description" : "Prerequisite: 6th level, A suit of armor (requires attunement)\n\nWhile wearing this armor, a creature has resistance to one of the following damage types, which you choose when you infuse the item: acid, cold, fire, force, lightning, necrotic, poison, psychic, radiant, or thunder.",
+  "data" : {
+    "featureTypes" : [ "AI" ],
+    "optional" : false,
+    "prerequisiteText" : "6th level, A suit of armor (requires attunement)",
+    "prerequisites" : [ {
+      "level" : {
+        "level" : 6,
+        "class" : {
+          "name" : "Artificer",
+          "source" : "TCE"
+        }
+      },
+      "item" : [ "A suit of armor (requires attunement)" ]
+    } ],
+    "consumes" : null,
+    "additionalSpells" : null,
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

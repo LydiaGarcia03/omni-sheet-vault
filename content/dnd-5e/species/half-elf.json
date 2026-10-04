@@ -1,0 +1,1323 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "half-elf",
+  "name" : "Half-Elf",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 38,
+  "tags" : [ ],
+  "description" : "Age. Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years. Size. Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium. Darkvision. Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Fey Ancestry. You have advantage on saving throws against being charmed, and magic can't put you to sleep. Skill Versatility. You gain proficiency in two skills of your choice. Languages. You can speak, read, and write Common, Elvish, and one extra language of your choice.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 30
+    },
+    "senses" : [ {
+      "type" : "darkvision",
+      "range" : 60
+    } ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "charisma" : 2
+      },
+      "choices" : [ {
+        "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom" ],
+        "weights" : null,
+        "count" : 2,
+        "amount" : 1
+      } ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "any",
+        "fromFilter" : null,
+        "count" : 2,
+        "amount" : null
+      } ]
+    } ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "elvish" ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : {
+      "mature" : 20,
+      "max" : 180
+    },
+    "heightAndWeight" : {
+      "baseHeight" : 57,
+      "heightMod" : "2d8",
+      "baseWeight" : 110,
+      "weightMod" : "2d4"
+    },
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Age",
+      "description" : "Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years."
+    }, {
+      "name" : "Size",
+      "description" : "Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium."
+    }, {
+      "name" : "Darkvision",
+      "description" : "Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+    }, {
+      "name" : "Fey Ancestry",
+      "description" : "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+    }, {
+      "name" : "Skill Versatility",
+      "description" : "You gain proficiency in two skills of your choice."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common, Elvish, and one extra language of your choice."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ {
+      "name" : null,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 38,
+      "overwrite" : [ ],
+      "description" : "",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : null,
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ ],
+      "variants" : [ ]
+    }, {
+      "name" : "Variant; Aquatic Elf Descent",
+      "sourceBook" : "Sword Coast Adventurer's Guide",
+      "sourcePage" : 116,
+      "overwrite" : [ ],
+      "description" : "Variant Feature (Choose 1). Skill Versatility. You gain proficiency in two skills of your choice. Swim. You gain a swimming speed of 30 ft.",
+      "size" : null,
+      "speed" : {
+        "walk" : 30
+      },
+      "senses" : [ ],
+      "abilityAlternatives" : [ ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : null,
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Variant Feature (Choose 1)",
+        "description" : "Skill Versatility. You gain proficiency in two skills of your choice. Swim. You gain a swimming speed of 30 ft."
+      } ],
+      "variants" : [ {
+        "name" : "Variant; Aquatic Elf Descent; Skill Versatility",
+        "description" : "Age. Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years. Size. Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium. Darkvision. Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Fey Ancestry. You have advantage on saving throws against being charmed, and magic can't put you to sleep. Skill Versatility. You gain proficiency in two skills of your choice. Languages. You can speak, read, and write Common, Elvish, and one extra language of your choice. Variant Feature; Skill Versatility. You gain proficiency in two skills of your choice.",
+        "size" : null,
+        "speed" : {
+          "walk" : 30
+        },
+        "senses" : [ ],
+        "abilityAlternatives" : [ ],
+        "skillAlternatives" : [ ],
+        "toolAlternatives" : [ ],
+        "languageAlternatives" : [ ],
+        "weaponAlternatives" : [ ],
+        "armorAlternatives" : [ ],
+        "featAlternatives" : [ ],
+        "skillToolLanguageChoices" : null,
+        "damageResistances" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "damageImmunities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "damageVulnerabilities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "conditionImmunities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "creatureTypes" : null,
+        "additionalSpells" : null,
+        "age" : null,
+        "heightAndWeight" : null,
+        "lineage" : null,
+        "traits" : [ {
+          "name" : "Age",
+          "description" : "Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years."
+        }, {
+          "name" : "Size",
+          "description" : "Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium."
+        }, {
+          "name" : "Darkvision",
+          "description" : "Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+        }, {
+          "name" : "Fey Ancestry",
+          "description" : "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+        }, {
+          "name" : "Skill Versatility",
+          "description" : "You gain proficiency in two skills of your choice."
+        }, {
+          "name" : "Languages",
+          "description" : "You can speak, read, and write Common, Elvish, and one extra language of your choice."
+        }, {
+          "name" : "Variant Feature; Skill Versatility",
+          "description" : "You gain proficiency in two skills of your choice."
+        } ]
+      }, {
+        "name" : "Variant; Aquatic Elf Descent; Swim Speed",
+        "description" : "Age. Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years. Size. Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium. Darkvision. Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Fey Ancestry. You have advantage on saving throws against being charmed, and magic can't put you to sleep. Skill Versatility. You gain proficiency in two skills of your choice. Languages. You can speak, read, and write Common, Elvish, and one extra language of your choice. Variant Feature; Swim Speed. You gain a swimming speed of 30 ft.",
+        "size" : null,
+        "speed" : {
+          "walk" : 30
+        },
+        "senses" : [ ],
+        "abilityAlternatives" : [ ],
+        "skillAlternatives" : [ ],
+        "toolAlternatives" : [ ],
+        "languageAlternatives" : [ ],
+        "weaponAlternatives" : [ ],
+        "armorAlternatives" : [ ],
+        "featAlternatives" : [ ],
+        "skillToolLanguageChoices" : null,
+        "damageResistances" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "damageImmunities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "damageVulnerabilities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "conditionImmunities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "creatureTypes" : null,
+        "additionalSpells" : null,
+        "age" : null,
+        "heightAndWeight" : null,
+        "lineage" : null,
+        "traits" : [ {
+          "name" : "Age",
+          "description" : "Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years."
+        }, {
+          "name" : "Size",
+          "description" : "Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium."
+        }, {
+          "name" : "Darkvision",
+          "description" : "Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+        }, {
+          "name" : "Fey Ancestry",
+          "description" : "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+        }, {
+          "name" : "Skill Versatility",
+          "description" : "You gain proficiency in two skills of your choice."
+        }, {
+          "name" : "Languages",
+          "description" : "You can speak, read, and write Common, Elvish, and one extra language of your choice."
+        }, {
+          "name" : "Variant Feature; Swim Speed",
+          "description" : "You gain a swimming speed of 30 ft."
+        } ]
+      } ]
+    }, {
+      "name" : "Variant; Drow Descent",
+      "sourceBook" : "Sword Coast Adventurer's Guide",
+      "sourcePage" : 116,
+      "overwrite" : [ "skillAlternatives" ],
+      "description" : "Variant Feature (Choose 1). Skill Versatility. You gain proficiency in two skills of your choice. Drow Magic. You know the dancing lights cantrip. When you reach 3rd level, you can cast the faerie fire spell once per day; you must finish a long rest in order to cast the spell again using this trait. When you reach 5th level, you can also cast the darkness spell once per day; you must finish a long rest in order to cast the spell again using this trait. Charisma is your spellcasting ability for these spells.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ ],
+      "skillAlternatives" : [ {
+        "fixed" : [ ],
+        "choices" : [ {
+          "from" : null,
+          "category" : "any",
+          "fromFilter" : null,
+          "count" : 2,
+          "amount" : null
+        } ]
+      } ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "innate" : {
+          "3" : {
+            "daily" : {
+              "1" : [ "faerie fire" ]
+            }
+          },
+          "5" : {
+            "daily" : {
+              "1" : [ "darkness" ]
+            }
+          }
+        },
+        "ability" : "cha",
+        "known" : {
+          "1" : [ "dancing lights#c" ]
+        }
+      } ],
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Variant Feature (Choose 1)",
+        "description" : "Skill Versatility. You gain proficiency in two skills of your choice. Drow Magic. You know the dancing lights cantrip. When you reach 3rd level, you can cast the faerie fire spell once per day; you must finish a long rest in order to cast the spell again using this trait. When you reach 5th level, you can also cast the darkness spell once per day; you must finish a long rest in order to cast the spell again using this trait. Charisma is your spellcasting ability for these spells."
+      } ],
+      "variants" : [ {
+        "name" : "Variant; Drow Descent; Drow Magic",
+        "description" : "Age. Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years. Size. Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium. Darkvision. Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Fey Ancestry. You have advantage on saving throws against being charmed, and magic can't put you to sleep. Skill Versatility. You gain proficiency in two skills of your choice. Languages. You can speak, read, and write Common, Elvish, and one extra language of your choice. Variant Feature; Drow Magic. You know the dancing lights cantrip. When you reach 3rd level, you can cast the faerie fire spell once per day; you must finish a long rest in order to cast the spell again using this trait. When you reach 5th level, you can also cast the darkness spell once per day; you must finish a long rest in order to cast the spell again using this trait. Charisma is your spellcasting ability for these spells.",
+        "size" : null,
+        "speed" : null,
+        "senses" : [ ],
+        "abilityAlternatives" : [ ],
+        "skillAlternatives" : [ {
+          "fixed" : [ ],
+          "choices" : [ {
+            "from" : null,
+            "category" : "any",
+            "fromFilter" : null,
+            "count" : 2,
+            "amount" : null
+          } ]
+        } ],
+        "toolAlternatives" : [ ],
+        "languageAlternatives" : [ ],
+        "weaponAlternatives" : [ ],
+        "armorAlternatives" : [ ],
+        "featAlternatives" : [ ],
+        "skillToolLanguageChoices" : null,
+        "damageResistances" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "damageImmunities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "damageVulnerabilities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "conditionImmunities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "creatureTypes" : null,
+        "additionalSpells" : [ {
+          "innate" : {
+            "3" : {
+              "daily" : {
+                "1" : [ "faerie fire" ]
+              }
+            },
+            "5" : {
+              "daily" : {
+                "1" : [ "darkness" ]
+              }
+            }
+          },
+          "ability" : "cha",
+          "known" : {
+            "1" : [ "dancing lights#c" ]
+          }
+        } ],
+        "age" : null,
+        "heightAndWeight" : null,
+        "lineage" : null,
+        "traits" : [ {
+          "name" : "Age",
+          "description" : "Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years."
+        }, {
+          "name" : "Size",
+          "description" : "Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium."
+        }, {
+          "name" : "Darkvision",
+          "description" : "Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+        }, {
+          "name" : "Fey Ancestry",
+          "description" : "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+        }, {
+          "name" : "Skill Versatility",
+          "description" : "You gain proficiency in two skills of your choice."
+        }, {
+          "name" : "Languages",
+          "description" : "You can speak, read, and write Common, Elvish, and one extra language of your choice."
+        }, {
+          "name" : "Variant Feature; Drow Magic",
+          "description" : "You know the dancing lights cantrip. When you reach 3rd level, you can cast the faerie fire spell once per day; you must finish a long rest in order to cast the spell again using this trait. When you reach 5th level, you can also cast the darkness spell once per day; you must finish a long rest in order to cast the spell again using this trait. Charisma is your spellcasting ability for these spells."
+        } ]
+      }, {
+        "name" : "Variant; Drow Descent; Skill Versatility",
+        "description" : "Age. Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years. Size. Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium. Darkvision. Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Fey Ancestry. You have advantage on saving throws against being charmed, and magic can't put you to sleep. Skill Versatility. You gain proficiency in two skills of your choice. Languages. You can speak, read, and write Common, Elvish, and one extra language of your choice. Variant Feature; Skill Versatility. You gain proficiency in two skills of your choice.",
+        "size" : null,
+        "speed" : null,
+        "senses" : [ ],
+        "abilityAlternatives" : [ ],
+        "skillAlternatives" : [ {
+          "fixed" : [ ],
+          "choices" : [ {
+            "from" : null,
+            "category" : "any",
+            "fromFilter" : null,
+            "count" : 2,
+            "amount" : null
+          } ]
+        } ],
+        "toolAlternatives" : [ ],
+        "languageAlternatives" : [ ],
+        "weaponAlternatives" : [ ],
+        "armorAlternatives" : [ ],
+        "featAlternatives" : [ ],
+        "skillToolLanguageChoices" : null,
+        "damageResistances" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "damageImmunities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "damageVulnerabilities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "conditionImmunities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "creatureTypes" : null,
+        "additionalSpells" : [ {
+          "innate" : {
+            "3" : {
+              "daily" : {
+                "1" : [ "faerie fire" ]
+              }
+            },
+            "5" : {
+              "daily" : {
+                "1" : [ "darkness" ]
+              }
+            }
+          },
+          "ability" : "cha",
+          "known" : {
+            "1" : [ "dancing lights#c" ]
+          }
+        } ],
+        "age" : null,
+        "heightAndWeight" : null,
+        "lineage" : null,
+        "traits" : [ {
+          "name" : "Age",
+          "description" : "Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years."
+        }, {
+          "name" : "Size",
+          "description" : "Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium."
+        }, {
+          "name" : "Darkvision",
+          "description" : "Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+        }, {
+          "name" : "Fey Ancestry",
+          "description" : "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+        }, {
+          "name" : "Skill Versatility",
+          "description" : "You gain proficiency in two skills of your choice."
+        }, {
+          "name" : "Languages",
+          "description" : "You can speak, read, and write Common, Elvish, and one extra language of your choice."
+        }, {
+          "name" : "Variant Feature; Skill Versatility",
+          "description" : "You gain proficiency in two skills of your choice."
+        } ]
+      } ]
+    }, {
+      "name" : "Variant; Mark of Detection",
+      "sourceBook" : "Eberron: Rising from the Last War",
+      "sourcePage" : 40,
+      "overwrite" : [ "abilityAlternatives" ],
+      "description" : "Deductive Intuition. When you make an Intelligence (Investigation) or a Wisdom (Insight) check, you can roll a d4 and add the number rolled to the ability check. Magical Detection. You can cast the detect magic and detect poison and disease spells with this trait. Starting at 3rd level, you can also cast the see invisibility spell with it. Once you cast any of these spells with this trait, you can't cast that spell with it again until you finish a long rest. Wisdom is your spellcasting ability for these spells, and you don't require material components for them. Spells of the Mark. If you have the Spellcasting or the Pact Magic class feature, the spells on the Mark of Detection Spells table are added to the spell list of your spellcasting class.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "wisdom" : 2
+        },
+        "choices" : [ {
+          "from" : [ "strength", "dexterity", "constitution", "intelligence", "charisma" ],
+          "weights" : null,
+          "count" : 1,
+          "amount" : 1
+        } ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "innate" : {
+          "1" : [ "detect magic", "detect poison and disease" ],
+          "3" : {
+            "daily" : {
+              "1" : [ "see invisibility" ]
+            }
+          }
+        },
+        "expanded" : {
+          "s1" : [ "detect evil and good", "detect poison and disease" ],
+          "s2" : [ "detect thoughts", "find traps" ],
+          "s3" : [ "clairvoyance", "nondetection" ],
+          "s4" : [ "arcane eye", "divination" ],
+          "s5" : [ "legend lore" ]
+        },
+        "ability" : "int"
+      } ],
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Deductive Intuition",
+        "description" : "When you make an Intelligence (Investigation) or a Wisdom (Insight) check, you can roll a d4 and add the number rolled to the ability check."
+      }, {
+        "name" : "Magical Detection",
+        "description" : "You can cast the detect magic and detect poison and disease spells with this trait. Starting at 3rd level, you can also cast the see invisibility spell with it. Once you cast any of these spells with this trait, you can't cast that spell with it again until you finish a long rest. Wisdom is your spellcasting ability for these spells, and you don't require material components for them."
+      }, {
+        "name" : "Spells of the Mark",
+        "description" : "If you have the Spellcasting or the Pact Magic class feature, the spells on the Mark of Detection Spells table are added to the spell list of your spellcasting class."
+      } ],
+      "variants" : [ ]
+    }, {
+      "name" : "Variant; Mark of Storm",
+      "sourceBook" : "Eberron: Rising from the Last War",
+      "sourcePage" : 50,
+      "overwrite" : [ "abilityAlternatives" ],
+      "description" : "Windwright's Intuition. When you make a Dexterity (Acrobatics) check or any ability check involving navigator's tools, you can roll a d4 and add the number rolled to the ability check. Storm's Boon. You have resistance to lightning damage. Headwinds. You know the gust cantrip. Starting at 3rd level, you can cast the gust of wind spell once with this trait, and you regain the ability to cast it when you finish a long rest. Charisma is your spellcasting ability for these spells. Spells of the Mark. If you have the Spellcasting or the Pact Magic class feature, the spells on the Mark of Storm Spells table are added to the spell list of your spellcasting class.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "charisma" : 2,
+          "dexterity" : 1
+        },
+        "choices" : [ ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ "lightning" ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "expanded" : {
+          "s1" : [ "feather fall", "fog cloud" ],
+          "s2" : [ "gust of wind", "levitate" ],
+          "s3" : [ "sleet storm", "wind wall" ],
+          "s4" : [ "conjure minor elementals", "control water" ],
+          "s5" : [ "conjure elemental" ]
+        },
+        "ability" : "cha",
+        "known" : {
+          "1" : [ "gust|xge#c" ]
+        }
+      } ],
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Windwright's Intuition",
+        "description" : "When you make a Dexterity (Acrobatics) check or any ability check involving navigator's tools, you can roll a d4 and add the number rolled to the ability check."
+      }, {
+        "name" : "Storm's Boon",
+        "description" : "You have resistance to lightning damage."
+      }, {
+        "name" : "Headwinds",
+        "description" : "You know the gust cantrip. Starting at 3rd level, you can cast the gust of wind spell once with this trait, and you regain the ability to cast it when you finish a long rest. Charisma is your spellcasting ability for these spells."
+      }, {
+        "name" : "Spells of the Mark",
+        "description" : "If you have the Spellcasting or the Pact Magic class feature, the spells on the Mark of Storm Spells table are added to the spell list of your spellcasting class."
+      } ],
+      "variants" : [ ]
+    }, {
+      "name" : "Variant; Moon Elf or Sun Elf Descent",
+      "sourceBook" : "Sword Coast Adventurer's Guide",
+      "sourcePage" : 116,
+      "overwrite" : [ "skillAlternatives" ],
+      "description" : "Variant Feature (Choose 1). Skill Versatility. You gain proficiency in two skills of your choice. Elf Weapon Training. You have proficiency with the longsword, shortsword, shortbow, and longbow. Cantrip. You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ ],
+      "skillAlternatives" : [ {
+        "fixed" : [ ],
+        "choices" : [ {
+          "from" : null,
+          "category" : "any",
+          "fromFilter" : null,
+          "count" : 2,
+          "amount" : null
+        } ]
+      } ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ {
+        "fixed" : [ "longsword", "shortsword", "shortbow", "longbow" ],
+        "choices" : [ ]
+      } ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "ability" : "int",
+        "known" : {
+          "1" : {
+            "_" : [ {
+              "choose" : "level=0|class=Wizard"
+            } ]
+          }
+        }
+      } ],
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Variant Feature (Choose 1)",
+        "description" : "Skill Versatility. You gain proficiency in two skills of your choice. Elf Weapon Training. You have proficiency with the longsword, shortsword, shortbow, and longbow. Cantrip. You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it."
+      } ],
+      "variants" : [ {
+        "name" : "Variant; Moon Elf or Sun Elf Descent; Cantrip",
+        "description" : "Age. Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years. Size. Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium. Darkvision. Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Fey Ancestry. You have advantage on saving throws against being charmed, and magic can't put you to sleep. Skill Versatility. You gain proficiency in two skills of your choice. Languages. You can speak, read, and write Common, Elvish, and one extra language of your choice. Variant Feature; Cantrip. You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it.",
+        "size" : null,
+        "speed" : null,
+        "senses" : [ ],
+        "abilityAlternatives" : [ ],
+        "skillAlternatives" : [ {
+          "fixed" : [ ],
+          "choices" : [ {
+            "from" : null,
+            "category" : "any",
+            "fromFilter" : null,
+            "count" : 2,
+            "amount" : null
+          } ]
+        } ],
+        "toolAlternatives" : [ ],
+        "languageAlternatives" : [ ],
+        "weaponAlternatives" : [ {
+          "fixed" : [ "longsword", "shortsword", "shortbow", "longbow" ],
+          "choices" : [ ]
+        } ],
+        "armorAlternatives" : [ ],
+        "featAlternatives" : [ ],
+        "skillToolLanguageChoices" : null,
+        "damageResistances" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "damageImmunities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "damageVulnerabilities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "conditionImmunities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "creatureTypes" : null,
+        "additionalSpells" : [ {
+          "ability" : "int",
+          "known" : {
+            "1" : {
+              "_" : [ {
+                "choose" : "level=0|class=Wizard"
+              } ]
+            }
+          }
+        } ],
+        "age" : null,
+        "heightAndWeight" : null,
+        "lineage" : null,
+        "traits" : [ {
+          "name" : "Age",
+          "description" : "Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years."
+        }, {
+          "name" : "Size",
+          "description" : "Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium."
+        }, {
+          "name" : "Darkvision",
+          "description" : "Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+        }, {
+          "name" : "Fey Ancestry",
+          "description" : "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+        }, {
+          "name" : "Skill Versatility",
+          "description" : "You gain proficiency in two skills of your choice."
+        }, {
+          "name" : "Languages",
+          "description" : "You can speak, read, and write Common, Elvish, and one extra language of your choice."
+        }, {
+          "name" : "Variant Feature; Cantrip",
+          "description" : "You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it."
+        } ]
+      }, {
+        "name" : "Variant; Moon Elf or Sun Elf Descent; Elf Weapon Training",
+        "description" : "Age. Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years. Size. Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium. Darkvision. Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Fey Ancestry. You have advantage on saving throws against being charmed, and magic can't put you to sleep. Skill Versatility. You gain proficiency in two skills of your choice. Languages. You can speak, read, and write Common, Elvish, and one extra language of your choice. Variant Feature; Elf Weapon Training. You have proficiency with the longsword, shortsword, shortbow, and longbow.",
+        "size" : null,
+        "speed" : null,
+        "senses" : [ ],
+        "abilityAlternatives" : [ ],
+        "skillAlternatives" : [ {
+          "fixed" : [ ],
+          "choices" : [ {
+            "from" : null,
+            "category" : "any",
+            "fromFilter" : null,
+            "count" : 2,
+            "amount" : null
+          } ]
+        } ],
+        "toolAlternatives" : [ ],
+        "languageAlternatives" : [ ],
+        "weaponAlternatives" : [ {
+          "fixed" : [ "longsword", "shortsword", "shortbow", "longbow" ],
+          "choices" : [ ]
+        } ],
+        "armorAlternatives" : [ ],
+        "featAlternatives" : [ ],
+        "skillToolLanguageChoices" : null,
+        "damageResistances" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "damageImmunities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "damageVulnerabilities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "conditionImmunities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "creatureTypes" : null,
+        "additionalSpells" : [ {
+          "ability" : "int",
+          "known" : {
+            "1" : {
+              "_" : [ {
+                "choose" : "level=0|class=Wizard"
+              } ]
+            }
+          }
+        } ],
+        "age" : null,
+        "heightAndWeight" : null,
+        "lineage" : null,
+        "traits" : [ {
+          "name" : "Age",
+          "description" : "Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years."
+        }, {
+          "name" : "Size",
+          "description" : "Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium."
+        }, {
+          "name" : "Darkvision",
+          "description" : "Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+        }, {
+          "name" : "Fey Ancestry",
+          "description" : "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+        }, {
+          "name" : "Skill Versatility",
+          "description" : "You gain proficiency in two skills of your choice."
+        }, {
+          "name" : "Languages",
+          "description" : "You can speak, read, and write Common, Elvish, and one extra language of your choice."
+        }, {
+          "name" : "Variant Feature; Elf Weapon Training",
+          "description" : "You have proficiency with the longsword, shortsword, shortbow, and longbow."
+        } ]
+      }, {
+        "name" : "Variant; Moon Elf or Sun Elf Descent; Skill Versatility",
+        "description" : "Age. Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years. Size. Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium. Darkvision. Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Fey Ancestry. You have advantage on saving throws against being charmed, and magic can't put you to sleep. Skill Versatility. You gain proficiency in two skills of your choice. Languages. You can speak, read, and write Common, Elvish, and one extra language of your choice. Variant Feature; Skill Versatility. You gain proficiency in two skills of your choice.",
+        "size" : null,
+        "speed" : null,
+        "senses" : [ ],
+        "abilityAlternatives" : [ ],
+        "skillAlternatives" : [ {
+          "fixed" : [ ],
+          "choices" : [ {
+            "from" : null,
+            "category" : "any",
+            "fromFilter" : null,
+            "count" : 2,
+            "amount" : null
+          } ]
+        } ],
+        "toolAlternatives" : [ ],
+        "languageAlternatives" : [ ],
+        "weaponAlternatives" : [ {
+          "fixed" : [ "longsword", "shortsword", "shortbow", "longbow" ],
+          "choices" : [ ]
+        } ],
+        "armorAlternatives" : [ ],
+        "featAlternatives" : [ ],
+        "skillToolLanguageChoices" : null,
+        "damageResistances" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "damageImmunities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "damageVulnerabilities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "conditionImmunities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "creatureTypes" : null,
+        "additionalSpells" : [ {
+          "ability" : "int",
+          "known" : {
+            "1" : {
+              "_" : [ {
+                "choose" : "level=0|class=Wizard"
+              } ]
+            }
+          }
+        } ],
+        "age" : null,
+        "heightAndWeight" : null,
+        "lineage" : null,
+        "traits" : [ {
+          "name" : "Age",
+          "description" : "Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years."
+        }, {
+          "name" : "Size",
+          "description" : "Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium."
+        }, {
+          "name" : "Darkvision",
+          "description" : "Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+        }, {
+          "name" : "Fey Ancestry",
+          "description" : "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+        }, {
+          "name" : "Skill Versatility",
+          "description" : "You gain proficiency in two skills of your choice."
+        }, {
+          "name" : "Languages",
+          "description" : "You can speak, read, and write Common, Elvish, and one extra language of your choice."
+        }, {
+          "name" : "Variant Feature; Skill Versatility",
+          "description" : "You gain proficiency in two skills of your choice."
+        } ]
+      } ]
+    }, {
+      "name" : "Variant; Wood Elf Descent",
+      "sourceBook" : "Sword Coast Adventurer's Guide",
+      "sourcePage" : 116,
+      "overwrite" : [ "skillAlternatives" ],
+      "description" : "Variant Feature (Choose 1). Skill Versatility. You gain proficiency in two skills of your choice. Elf Weapon Training. You have proficiency with the longsword, shortsword, shortbow, and longbow. Fleet of Foot. Your base walking speed increases to 35 feet. Mask of the Wild. You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ ],
+      "skillAlternatives" : [ {
+        "fixed" : [ ],
+        "choices" : [ {
+          "from" : null,
+          "category" : "any",
+          "fromFilter" : null,
+          "count" : 2,
+          "amount" : null
+        } ]
+      } ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ {
+        "fixed" : [ "longsword", "shortsword", "shortbow", "longbow" ],
+        "choices" : [ ]
+      } ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : null,
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Variant Feature (Choose 1)",
+        "description" : "Skill Versatility. You gain proficiency in two skills of your choice. Elf Weapon Training. You have proficiency with the longsword, shortsword, shortbow, and longbow. Fleet of Foot. Your base walking speed increases to 35 feet. Mask of the Wild. You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena."
+      } ],
+      "variants" : [ {
+        "name" : "Variant; Wood Elf Descent; Elf Weapon Training",
+        "description" : "Age. Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years. Size. Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium. Darkvision. Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Fey Ancestry. You have advantage on saving throws against being charmed, and magic can't put you to sleep. Skill Versatility. You gain proficiency in two skills of your choice. Languages. You can speak, read, and write Common, Elvish, and one extra language of your choice. Variant Feature; Elf Weapon Training. You have proficiency with the longsword, shortsword, shortbow, and longbow.",
+        "size" : null,
+        "speed" : null,
+        "senses" : [ ],
+        "abilityAlternatives" : [ ],
+        "skillAlternatives" : [ {
+          "fixed" : [ ],
+          "choices" : [ {
+            "from" : null,
+            "category" : "any",
+            "fromFilter" : null,
+            "count" : 2,
+            "amount" : null
+          } ]
+        } ],
+        "toolAlternatives" : [ ],
+        "languageAlternatives" : [ ],
+        "weaponAlternatives" : [ {
+          "fixed" : [ "longsword", "shortsword", "shortbow", "longbow" ],
+          "choices" : [ ]
+        } ],
+        "armorAlternatives" : [ ],
+        "featAlternatives" : [ ],
+        "skillToolLanguageChoices" : null,
+        "damageResistances" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "damageImmunities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "damageVulnerabilities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "conditionImmunities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "creatureTypes" : null,
+        "additionalSpells" : null,
+        "age" : null,
+        "heightAndWeight" : null,
+        "lineage" : null,
+        "traits" : [ {
+          "name" : "Age",
+          "description" : "Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years."
+        }, {
+          "name" : "Size",
+          "description" : "Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium."
+        }, {
+          "name" : "Darkvision",
+          "description" : "Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+        }, {
+          "name" : "Fey Ancestry",
+          "description" : "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+        }, {
+          "name" : "Skill Versatility",
+          "description" : "You gain proficiency in two skills of your choice."
+        }, {
+          "name" : "Languages",
+          "description" : "You can speak, read, and write Common, Elvish, and one extra language of your choice."
+        }, {
+          "name" : "Variant Feature; Elf Weapon Training",
+          "description" : "You have proficiency with the longsword, shortsword, shortbow, and longbow."
+        } ]
+      }, {
+        "name" : "Variant; Wood Elf Descent; Fleet of Foot",
+        "description" : "Age. Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years. Size. Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium. Darkvision. Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Fey Ancestry. You have advantage on saving throws against being charmed, and magic can't put you to sleep. Skill Versatility. You gain proficiency in two skills of your choice. Languages. You can speak, read, and write Common, Elvish, and one extra language of your choice. Variant Feature; Fleet of Foot. Your base walking speed increases to 35 feet.",
+        "size" : null,
+        "speed" : null,
+        "senses" : [ ],
+        "abilityAlternatives" : [ ],
+        "skillAlternatives" : [ {
+          "fixed" : [ ],
+          "choices" : [ {
+            "from" : null,
+            "category" : "any",
+            "fromFilter" : null,
+            "count" : 2,
+            "amount" : null
+          } ]
+        } ],
+        "toolAlternatives" : [ ],
+        "languageAlternatives" : [ ],
+        "weaponAlternatives" : [ {
+          "fixed" : [ "longsword", "shortsword", "shortbow", "longbow" ],
+          "choices" : [ ]
+        } ],
+        "armorAlternatives" : [ ],
+        "featAlternatives" : [ ],
+        "skillToolLanguageChoices" : null,
+        "damageResistances" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "damageImmunities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "damageVulnerabilities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "conditionImmunities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "creatureTypes" : null,
+        "additionalSpells" : null,
+        "age" : null,
+        "heightAndWeight" : null,
+        "lineage" : null,
+        "traits" : [ {
+          "name" : "Age",
+          "description" : "Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years."
+        }, {
+          "name" : "Size",
+          "description" : "Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium."
+        }, {
+          "name" : "Darkvision",
+          "description" : "Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+        }, {
+          "name" : "Fey Ancestry",
+          "description" : "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+        }, {
+          "name" : "Skill Versatility",
+          "description" : "You gain proficiency in two skills of your choice."
+        }, {
+          "name" : "Languages",
+          "description" : "You can speak, read, and write Common, Elvish, and one extra language of your choice."
+        }, {
+          "name" : "Variant Feature; Fleet of Foot",
+          "description" : "Your base walking speed increases to 35 feet."
+        } ]
+      }, {
+        "name" : "Variant; Wood Elf Descent; Mask of the Wild",
+        "description" : "Age. Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years. Size. Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium. Darkvision. Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Fey Ancestry. You have advantage on saving throws against being charmed, and magic can't put you to sleep. Skill Versatility. You gain proficiency in two skills of your choice. Languages. You can speak, read, and write Common, Elvish, and one extra language of your choice. Variant Feature; Mask of the Wild. You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.",
+        "size" : null,
+        "speed" : null,
+        "senses" : [ ],
+        "abilityAlternatives" : [ ],
+        "skillAlternatives" : [ {
+          "fixed" : [ ],
+          "choices" : [ {
+            "from" : null,
+            "category" : "any",
+            "fromFilter" : null,
+            "count" : 2,
+            "amount" : null
+          } ]
+        } ],
+        "toolAlternatives" : [ ],
+        "languageAlternatives" : [ ],
+        "weaponAlternatives" : [ {
+          "fixed" : [ "longsword", "shortsword", "shortbow", "longbow" ],
+          "choices" : [ ]
+        } ],
+        "armorAlternatives" : [ ],
+        "featAlternatives" : [ ],
+        "skillToolLanguageChoices" : null,
+        "damageResistances" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "damageImmunities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "damageVulnerabilities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "conditionImmunities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "creatureTypes" : null,
+        "additionalSpells" : null,
+        "age" : null,
+        "heightAndWeight" : null,
+        "lineage" : null,
+        "traits" : [ {
+          "name" : "Age",
+          "description" : "Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years."
+        }, {
+          "name" : "Size",
+          "description" : "Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium."
+        }, {
+          "name" : "Darkvision",
+          "description" : "Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+        }, {
+          "name" : "Fey Ancestry",
+          "description" : "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+        }, {
+          "name" : "Skill Versatility",
+          "description" : "You gain proficiency in two skills of your choice."
+        }, {
+          "name" : "Languages",
+          "description" : "You can speak, read, and write Common, Elvish, and one extra language of your choice."
+        }, {
+          "name" : "Variant Feature; Mask of the Wild",
+          "description" : "You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena."
+        } ]
+      }, {
+        "name" : "Variant; Wood Elf Descent; Skill Versatility",
+        "description" : "Age. Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years. Size. Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium. Darkvision. Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Fey Ancestry. You have advantage on saving throws against being charmed, and magic can't put you to sleep. Skill Versatility. You gain proficiency in two skills of your choice. Languages. You can speak, read, and write Common, Elvish, and one extra language of your choice. Variant Feature; Skill Versatility. You gain proficiency in two skills of your choice.",
+        "size" : null,
+        "speed" : null,
+        "senses" : [ ],
+        "abilityAlternatives" : [ ],
+        "skillAlternatives" : [ {
+          "fixed" : [ ],
+          "choices" : [ {
+            "from" : null,
+            "category" : "any",
+            "fromFilter" : null,
+            "count" : 2,
+            "amount" : null
+          } ]
+        } ],
+        "toolAlternatives" : [ ],
+        "languageAlternatives" : [ ],
+        "weaponAlternatives" : [ {
+          "fixed" : [ "longsword", "shortsword", "shortbow", "longbow" ],
+          "choices" : [ ]
+        } ],
+        "armorAlternatives" : [ ],
+        "featAlternatives" : [ ],
+        "skillToolLanguageChoices" : null,
+        "damageResistances" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "damageImmunities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "damageVulnerabilities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "conditionImmunities" : {
+          "fixed" : [ ],
+          "choices" : [ ]
+        },
+        "creatureTypes" : null,
+        "additionalSpells" : null,
+        "age" : null,
+        "heightAndWeight" : null,
+        "lineage" : null,
+        "traits" : [ {
+          "name" : "Age",
+          "description" : "Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years."
+        }, {
+          "name" : "Size",
+          "description" : "Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium."
+        }, {
+          "name" : "Darkvision",
+          "description" : "Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+        }, {
+          "name" : "Fey Ancestry",
+          "description" : "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+        }, {
+          "name" : "Skill Versatility",
+          "description" : "You gain proficiency in two skills of your choice."
+        }, {
+          "name" : "Languages",
+          "description" : "You can speak, read, and write Common, Elvish, and one extra language of your choice."
+        }, {
+          "name" : "Variant Feature; Skill Versatility",
+          "description" : "You gain proficiency in two skills of your choice."
+        } ]
+      } ]
+    } ]
+  }
+}

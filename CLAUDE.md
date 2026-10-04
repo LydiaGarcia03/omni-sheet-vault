@@ -54,23 +54,42 @@ for every task.
 | `tech-stack.md` | Adding or upgrading a dependency, or setting up tooling | A version or tool changes |
 | `domain-model.md` | Touching entities, persistence, or anything named after a domain concept | A domain concept is added, renamed or removed |
 | `database-schema.md` | **Before writing any migration, entity or query** | A table, column, index or constraint changes |
-| `features/*.md` | Implementing or changing that specific feature | That feature's behaviour changes |
-| `rulesets/*.md` | Implementing or changing support for that specific game system | That system's rules coverage changes |
+| `features/*.md` | Implementing or changing a **platform** feature, one that works the same for every game system (shell, home, editions, sharing, the generic sheet behaviour) | That feature's behaviour changes |
+| `systems/README.md` | Any task that names a game system, or before touching `ruleset.<system>` / `apps/web/src/systems/<system>` | A system is added, or its status changes |
+| `systems/<system-id>/*.md` | Implementing or changing that game system: its rules, sheet layout and sheet build | That system's rules coverage or sheet changes |
+| `systems/<system-id>/features/*.md` | Implementing or changing a feature that exists only for that system (e.g. D&D's 5etools ingestion, spellcasting pools) | That feature's behaviour changes |
+| `systems/<system-id>/references/*.md` | Checking fidelity against the system's reference site or source (walkthroughs, audits) | A new walkthrough or audit is done |
 | `decisions/*.md` | A choice looks arbitrary and you need the reasoning behind it | A decision with long-term consequences is made |
 | `ui-design-system.md` | Building or restyling any UI | Design tokens or component patterns change |
 | `glossary.md` | You hit an unfamiliar RPG or project term | A new term enters the codebase |
+| `developer-guide.md` | Updating the editions (server, desktop), or looking for where a process lives in `apps/api` / `apps/web` | A key class moves, a process changes, a release step changes, or a game system is added |
 | `changelog.md` | Rarely — for recent history | **After every completed change** |
 | `roadmap.md` | **When asked to plan work or start a phase** | A phase is finished, or the plan changes |
+| `open-items.md` | Starting a session, or when the owner asks what's pending | A decision is deferred to the owner, or one is answered |
 
 ### Fixed reading order for a coding task
 
 1. `ground-rules.md`
 2. `architecture.md`
-3. The relevant `features/*.md` and/or `rulesets/*.md`
+3. The relevant `features/*.md` (platform), and for system work
+   `systems/README.md` followed by the documents of that system's folder
 4. `domain-model.md` and `database-schema.md` if the change touches persistence
 5. `decisions/` only when a constraint looks arbitrary
 
-`features/`, `rulesets/`, `ui-design-system.md` and `glossary.md` are created as the
+### Where a new document goes
+
+- Works the same for every game system → `features/`.
+- Belongs to one game system → `systems/<system-id>/`. Use the root for
+  system-wide specs, `features/` for one feature's plan, and `references/` for
+  comparisons with an external source.
+- `<system-id>` matches the system identifier in code (`dnd-5e`, `vtm-v5`).
+  A new system gets a new folder and a row in `systems/README.md`, never edits
+  to another system's folder.
+- `changelog.md` keeps the paths that were valid when each entry was written.
+  Older entries may name `rulesets/…` or `features/…` paths that moved on
+  2026-10-03; `systems/README.md` maps the old names to the new ones.
+
+`features/`, `systems/`, `ui-design-system.md` and `glossary.md` are created as the
 corresponding work starts. A missing file is not an error — say so and move on.
 
 ---
@@ -84,6 +103,10 @@ omni-sheet-vault/
 │   ├── api/              # Java 25 + Spring Boot backend — Gradle subproject :apps:api
 │   │   ├── build.gradle
 │   │   └── src/
+│   ├── desktop/          # Desktop edition: launcher window + Windows package — Gradle subproject :apps:desktop
+│   │   ├── build.gradle
+│   │   ├── README.md     # How to build, share, install and use the desktop edition
+│   │   └── src/
 │   └── web/              # React + Vite frontend — independent npm project
 ├── infra/
 │   ├── keycloak/         # Exported realm, imported on container startup
@@ -91,7 +114,7 @@ omni-sheet-vault/
 ├── gradle/               # Gradle wrapper — the repository root owns the build
 ├── gradlew
 ├── gradlew.bat
-├── settings.gradle       # Declares include 'apps:api'
+├── settings.gradle       # Declares include 'apps:api' and 'apps:desktop'
 ├── docker-compose.yml    # Local infrastructure
 ├── .env                  # Local credentials — never committed
 ├── .env.example          # Template for .env — committed
@@ -101,7 +124,8 @@ omni-sheet-vault/
 ```
 
 **The Gradle build is rooted at the repository, not at `apps/api`.** The backend is
-the subproject `:apps:api`. There is no wrapper and no `settings.gradle` inside
+the subproject `:apps:api`. The desktop edition's launcher and packaging are the
+subproject `:apps:desktop`, which depends on `:apps:api`. There is no wrapper and no `settings.gradle` inside
 `apps/api` — if one appears, it is stale and must be deleted.
 
 The frontend stays outside the Gradle build. Never add `apps/web` as a subproject.
@@ -128,6 +152,9 @@ docker compose down
 # Frontend — run from apps/web
 npm run dev
 npm test
+
+# Desktop edition — repository root, Windows only (see apps/desktop/README.md)
+./gradlew :apps:desktop:packageDesktop   # → apps/desktop/build/distributions/OmniSheetVault-<version>-windows.zip
 ```
 
 Local service map: API `8090` · Keycloak `8081` · Postgres `5432` ·
@@ -173,9 +200,8 @@ projects. That is intentional and must not be changed: the `toolchain` block in
 - Introduce a framework or library that was not agreed with the user.
 - Handle passwords in application code — Keycloak owns credentials, the API only
   validates tokens.
-- Ship UI assets copied from another product; visual references guide our own assets.
 - Run commits or any Git command. Instead, let the user know what should be done.
-
+- Add comments regarding what was asked for by the user in code classes. Add those type of comments in specific Markdown files, like `.ai/chagelogs.md`. Code classes should only have comments summarizing in one line maximum what that part of the code does. 
 ---
 
 ## 7. Definition of done

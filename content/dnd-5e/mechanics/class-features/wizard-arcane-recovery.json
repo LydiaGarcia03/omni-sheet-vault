@@ -1,0 +1,8 @@
+{
+  "target": { "classSlug": "wizard", "feature": "Arcane Recovery" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 112 },
+  "modifiers": [],
+  "uses": { "resource": "arcane-recovery", "count": 1, "recharge": "LONG_REST" },
+  "action": { "type": "OTHER" },
+  "choices": []
+}

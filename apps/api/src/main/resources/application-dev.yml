@@ -1,0 +1,16 @@
+spring:
+  config:
+    # The repository's .env (never committed) holds the local MinIO credentials; bootRun runs from apps/api.
+    import: optional:file:../../.env[.properties]
+
+server:
+  servlet:
+    session:
+      cookie:
+        # Local development runs on plain http://localhost.
+        secure: false
+
+app:
+  catalogue:
+    # Local development wants the real prose, not markers — see adr-0005.
+    redaction-enabled: false

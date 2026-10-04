@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "LANGUAGE",
+  "slug" : "coalition-pidgin",
+  "name" : "Coalition Pidgin",
+  "sourceBook" : "Plane Shift: Ixalan",
+  "sourceCode" : "PSX",
+  "sourcePage" : 6,
+  "tags" : [ ],
+  "description" : "The humans of the Brazen Coalition speak a different language—a pidgin of Orc, Siren, and a native human language that is similar to Vampire (about as closely related as Italian is to Spanish). Orcs, sirens, and goblins also speak this Brazen Coalition pidgin.",
+  "data" : {
+    "type" : null,
+    "script" : null
+  }
+}

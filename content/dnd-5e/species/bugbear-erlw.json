@@ -1,0 +1,101 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "bugbear-erlw",
+  "name" : "Bugbear",
+  "sourceBook" : "Eberron: Rising from the Last War",
+  "sourceCode" : "ERLW",
+  "sourcePage" : 25,
+  "tags" : [ ],
+  "description" : "Age. Bugbears reach adulthood at age 16 and live up to 80 years. Alignment. Bugbears live on the fringes of society even in Darguun, where they value self-sufficiency and violence. They are generally chaotic, organizing in loose tribes under charismatic and powerful leaders. Size. Your size is Medium. Darkvision. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Long-Limbed. When you make a melee attack on your turn, your reach for it is 5 feet greater than normal. Powerful Build. You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift. Sneaky. You are proficient in the Stealth skill. Surprise Attack. If you surprise a creature and hit it with an attack on your first turn in combat, the attack deals an extra 2d6 damage to it. You can use this trait only once per combat. Languages. You can speak, read, and write Common and Goblin.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 30
+    },
+    "senses" : [ {
+      "type" : "darkvision",
+      "range" : 60
+    } ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "strength" : 2,
+        "dexterity" : 1
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "stealth" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "goblin" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : {
+      "mature" : 16,
+      "max" : 80
+    },
+    "heightAndWeight" : {
+      "baseHeight" : 72,
+      "heightMod" : "2d12",
+      "baseWeight" : 200,
+      "weightMod" : "2d6"
+    },
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Age",
+      "description" : "Bugbears reach adulthood at age 16 and live up to 80 years."
+    }, {
+      "name" : "Alignment",
+      "description" : "Bugbears live on the fringes of society even in Darguun, where they value self-sufficiency and violence. They are generally chaotic, organizing in loose tribes under charismatic and powerful leaders."
+    }, {
+      "name" : "Size",
+      "description" : "Your size is Medium."
+    }, {
+      "name" : "Darkvision",
+      "description" : "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+    }, {
+      "name" : "Long-Limbed",
+      "description" : "When you make a melee attack on your turn, your reach for it is 5 feet greater than normal."
+    }, {
+      "name" : "Powerful Build",
+      "description" : "You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift."
+    }, {
+      "name" : "Sneaky",
+      "description" : "You are proficient in the Stealth skill."
+    }, {
+      "name" : "Surprise Attack",
+      "description" : "If you surprise a creature and hit it with an attack on your first turn in combat, the attack deals an extra 2d6 damage to it. You can use this trait only once per combat."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and Goblin."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

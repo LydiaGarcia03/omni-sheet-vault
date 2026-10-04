@@ -1,0 +1,8 @@
+{
+  "target": { "classSlug": "fighter", "feature": "Action Surge" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 72 },
+  "modifiers": [],
+  "uses": { "resource": "action-surge", "count": 1, "recharge": "SHORT_OR_LONG_REST" },
+  "action": { "type": "OTHER" },
+  "choices": []
+}

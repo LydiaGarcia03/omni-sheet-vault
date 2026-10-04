@@ -1,0 +1,124 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "athlete",
+  "name" : "Athlete",
+  "sourceBook" : "Mythic Odysseys of Theros",
+  "sourceCode" : "MOT",
+  "sourcePage" : 31,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. Acrobatics, Athletics Languages:. One of your choice Tool Proficiencies:. Vehicles (land) Equipment:. A bronze discus or leather ball, a lucky charm or past trophy, a set of traveler's clothes, and a pouch containing 10 gp Feature: Echoes of Victory. You have attracted admiration among spectators, fellow athletes, and trainers in the region that hosted your past athletic victories. When visiting any settlement within 100 miles of where you grew up, there is a 50 percent chance you can find someone there who admires you and is willing to provide information or temporary shelter. Between adventures, you might compete in athletic events sufficient enough to maintain a comfortable lifestyle, as per the \"Practicing a Profession\" downtime activity in chapter 8 of the Player's Handbook. Favored Event. While many athletes practice various games and events, most excel at a single form of competition. Roll or choose from the options in the Favored Event table to determine the athletic event in which you excel. Suggested Characteristics. Competition can forge strong bonds between teammates and rivals or ignite bitter feuds that burn outside the arena. Athletes often apply lessons from their training to their lives in general.",
+  "data" : {
+    "personalityTraits" : [ "I feel most at peace during physical exertion, be it exercise or battle.", "I don't like to sit idle.", "I have a daily exercise routine that I refuse to break.", "Obstacles exist to be overcome.", "When I see others struggling, I offer to help.", "I love to trade banter and gibes.", "Anything worth doing is worth doing best.", "I get irritated if people praise someone else and not me." ],
+    "ideals" : [ "Competition. I strive to test myself in all things. (Chaotic)", "Triumph. The best part of winning is seeing my rivals brought low. (Evil)", "Camaraderie. The strongest bonds are forged through struggle. (Good)", "People. I strive to inspire my spectators. (Neutral)", "Tradition. Every game has rules, and the playing field must be level. (Lawful)", "Growth. Lessons hide in victory and defeat. (Any)" ],
+    "bonds" : [ "My teammates are my family.", "I will overcome a rival and prove myself their better.", "My mistake got someone hurt. I'll never make that mistake again.", "I will be the best for the honor and glory of my home.", "The person who trained me is the most important person in my world.", "I strive to live up to a specific hero's example." ],
+    "flaws" : [ "I indulge in a habit that threatens my reputation or my health.", "I'll do absolutely anything to win.", "I ignore anyone who doesn't compete and anyone who loses to me.", "I have lingering pain from old injuries.", "Any defeat or failure on my part is because my opponent cheated.", "I must be the captain of any group I join." ],
+    "otherTables" : [ {
+      "caption" : "Favored Event",
+      "colLabels" : [ "d8", "Favored Event" ],
+      "rows" : [ [ "1", "Marathon" ], [ "2", "Long-distance running" ], [ "3", "Wrestling" ], [ "4", "Boxing" ], [ "5", "Chariot or horse race" ], [ "6", "Pankration (mixed unarmed combat)" ], [ "7", "Hoplite race (racing in full armor with a unit)" ], [ "8", "Pentathlon (running, long jump, discus, javelin, wrestling)" ] ]
+    } ],
+    "features" : [ {
+      "name" : "Echoes of Victory",
+      "description" : "You have attracted admiration among spectators, fellow athletes, and trainers in the region that hosted your past athletic victories. When visiting any settlement within 100 miles of where you grew up, there is a 50 percent chance you can find someone there who admires you and is willing to provide information or temporary shelter. Between adventures, you might compete in athletic events sufficient enough to maintain a comfortable lifestyle, as per the \"Practicing a Profession\" downtime activity in chapter 8 of the Player's Handbook."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "acrobatics", "athletics" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ {
+      "fixed" : [ "vehicles-land" ],
+      "choices" : [ ]
+    } ],
+    "languageAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : "a",
+        "grants" : [ {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "bronze discus",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        } ]
+      }, {
+        "label" : "b",
+        "grants" : [ {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "leather ball",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        } ]
+      } ]
+    }, {
+      "options" : [ {
+        "label" : "a",
+        "grants" : [ {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "lucky charm",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        } ]
+      }, {
+        "label" : "b",
+        "grants" : [ {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "past trophy",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        } ]
+      } ]
+    }, {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : "travelers-clothes",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 1000,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : null,
+    "prerequisites" : null
+  }
+}

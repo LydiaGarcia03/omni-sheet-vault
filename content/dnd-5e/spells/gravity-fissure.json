@@ -1,0 +1,47 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "gravity-fissure",
+  "name" : "Gravity Fissure",
+  "sourceBook" : "Explorer's Guide to Wildemount",
+  "sourceCode" : "EGW",
+  "sourcePage" : 187,
+  "tags" : [ ],
+  "description" : "You manifest a ravine of gravitational energy in a line originating from you that is 100 feet long and 5 feet wide. Each creature in that line must make a Constitution saving throw, taking 8d8 force damage on a failed save, or half as much damage on a successful one. Each creature within 10 feet of the line but not in it must succeed on a Constitution saving throw or take 8d8 force damage and be pulled toward the line until the creature is in its area.",
+  "data" : {
+    "level" : 6,
+    "school" : "evocation",
+    "castingTime" : "1 Action",
+    "range" : "Self (100-foot line)",
+    "concentration" : false,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : 8,
+    "damageDiceSides" : 8,
+    "damageType" : "force",
+    "notes" : "V, S, M (a fistful of iron filings)",
+    "effectSummary" : "Damage",
+    "saveAbility" : "constitution",
+    "components" : "V, S, M",
+    "materialComponent" : "a fistful of iron filings",
+    "duration" : "Instantaneous",
+    "higherLevelsDescription" : "When you cast this spell using a spell slot of 7th level or higher, the damage increases by 1d8 for each slot level above 6th.",
+    "higherLevelsDamageDiceCount" : 1,
+    "higherLevelsDamageDiceSides" : 8,
+    "sourceCode" : "EGW",
+    "classes" : [ ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Wizard",
+      "classSource" : "PHB",
+      "subclassShortName" : "Chronurgy",
+      "subclassSource" : "EGW"
+    }, {
+      "className" : "Wizard",
+      "classSource" : "PHB",
+      "subclassShortName" : "Graviturgy",
+      "subclassSource" : "EGW"
+    } ],
+    "effect" : null
+  }
+}

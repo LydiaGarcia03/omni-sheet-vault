@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Omni Sheet Vault</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- `--font-body`/`--font-condensed` (frames.css) name Roboto/Roboto Condensed,
+         but nothing ever loaded them — every browser without those installed
+         locally (most, especially Windows) silently fell back past "Helvetica"
+         to its own generic sans-serif the entire time. DOM-measured against
+         D&D Beyond's own sheet (2026-09-03): it loads exactly these two
+         families, confirming the CSS was already right, only the loading was
+         missing. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Roboto+Condensed:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

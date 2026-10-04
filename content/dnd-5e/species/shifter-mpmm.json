@@ -1,0 +1,457 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "shifter-mpmm",
+  "name" : "Shifter",
+  "sourceBook" : "Mordenkainen Presents: Monsters of the Multiverse",
+  "sourceCode" : "MPMM",
+  "sourcePage" : 32,
+  "tags" : [ ],
+  "description" : "Bestial Instincts. Channeling the beast within, you have proficiency in one of the following skills of your choice: Acrobatics, Athletics, Intimidation, or Survival. Darkvision. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were in dim light. You discern colors in that darkness only as shades of gray. Shifting. As a bonus action, you can assume a more bestial appearance. This transformation lasts for 1 minute, until you die, or until you revert to your normal appearance as a bonus action. When you shift, you gain temporary hit points equal to 2 × your proficiency bonus. You can shift a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest. Whenever you shift, you gain an additional benefit based on one of the following options (choose when you select this race): Beasthide. You gain 1d6 additional temporary hit points. While shifted, you have a +1 bonus to your Armor Class. Longtooth. When you shift and as a bonus action on your other turns while shifted, you can use your elongated fangs to make an unarmed strike. If you hit with your fangs, you can deal piercing damage equal to 1d6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike. Swiftstride. While shifted, your walking speed increases by 10 feet. Additionally, you can move up to 10 feet as a reaction when a creature ends its turn within 5 feet of you. This reactive movement doesn't provoke opportunity attacks. Wildhunt. While shifted, you have advantage on Wisdom checks, and no creature within 30 feet of you can make an attack roll with advantage against you unless you're incapacitated. Languages. You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 30
+    },
+    "senses" : [ {
+      "type" : "darkvision",
+      "range" : 60
+    } ],
+    "abilityAlternatives" : [ {
+      "fixed" : { },
+      "choices" : [ {
+        "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+        "weights" : [ 2, 1 ],
+        "count" : 2,
+        "amount" : null
+      } ],
+      "maximum" : null
+    }, {
+      "fixed" : { },
+      "choices" : [ {
+        "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+        "weights" : [ 1, 1, 1 ],
+        "count" : 3,
+        "amount" : null
+      } ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : [ "acrobatics", "athletics", "intimidation", "survival" ],
+        "category" : null,
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common" ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : null,
+    "heightAndWeight" : null,
+    "lineage" : "VRGR",
+    "traits" : [ {
+      "name" : "Bestial Instincts",
+      "description" : "Channeling the beast within, you have proficiency in one of the following skills of your choice: Acrobatics, Athletics, Intimidation, or Survival."
+    }, {
+      "name" : "Darkvision",
+      "description" : "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were in dim light. You discern colors in that darkness only as shades of gray."
+    }, {
+      "name" : "Shifting",
+      "description" : "As a bonus action, you can assume a more bestial appearance. This transformation lasts for 1 minute, until you die, or until you revert to your normal appearance as a bonus action. When you shift, you gain temporary hit points equal to 2 × your proficiency bonus. You can shift a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest. Whenever you shift, you gain an additional benefit based on one of the following options (choose when you select this race): Beasthide. You gain 1d6 additional temporary hit points. While shifted, you have a +1 bonus to your Armor Class. Longtooth. When you shift and as a bonus action on your other turns while shifted, you can use your elongated fangs to make an unarmed strike. If you hit with your fangs, you can deal piercing damage equal to 1d6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike. Swiftstride. While shifted, your walking speed increases by 10 feet. Additionally, you can move up to 10 feet as a reaction when a creature ends its turn within 5 feet of you. This reactive movement doesn't provoke opportunity attacks. Wildhunt. While shifted, you have advantage on Wisdom checks, and no creature within 30 feet of you can make an attack roll with advantage against you unless you're incapacitated."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character."
+    } ],
+    "variants" : [ {
+      "name" : "Shifter; Beasthide",
+      "description" : "Bestial Instincts. Channeling the beast within, you have proficiency in one of the following skills of your choice: Acrobatics, Athletics, Intimidation, or Survival. Darkvision. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were in dim light. You discern colors in that darkness only as shades of gray. Shifting (Beasthide). As a bonus action, you can assume a more bestial appearance. This transformation lasts for 1 minute, until you die, or until you revert to your normal appearance as a bonus action. When you shift, you gain temporary hit points equal to 2 × your proficiency bonus + 1d6, and you regain all expended uses when you finish a long rest. While shifted, you have a +1 bonus to your Armor Class. Languages. You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character.",
+      "size" : [ "medium" ],
+      "speed" : {
+        "walk" : 30
+      },
+      "senses" : [ {
+        "type" : "darkvision",
+        "range" : 60
+      } ],
+      "abilityAlternatives" : [ {
+        "fixed" : { },
+        "choices" : [ {
+          "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+          "weights" : [ 2, 1 ],
+          "count" : 2,
+          "amount" : null
+        } ],
+        "maximum" : null
+      }, {
+        "fixed" : { },
+        "choices" : [ {
+          "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+          "weights" : [ 1, 1, 1 ],
+          "count" : 3,
+          "amount" : null
+        } ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ {
+        "fixed" : [ ],
+        "choices" : [ {
+          "from" : [ "acrobatics", "athletics", "intimidation", "survival" ],
+          "category" : null,
+          "fromFilter" : null,
+          "count" : 1,
+          "amount" : null
+        } ]
+      } ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ {
+        "fixed" : [ "common" ],
+        "choices" : [ {
+          "from" : null,
+          "category" : "standard",
+          "fromFilter" : null,
+          "count" : 1,
+          "amount" : null
+        } ]
+      } ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : null,
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : "VRGR",
+      "traits" : [ {
+        "name" : "Bestial Instincts",
+        "description" : "Channeling the beast within, you have proficiency in one of the following skills of your choice: Acrobatics, Athletics, Intimidation, or Survival."
+      }, {
+        "name" : "Darkvision",
+        "description" : "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were in dim light. You discern colors in that darkness only as shades of gray."
+      }, {
+        "name" : "Shifting (Beasthide)",
+        "description" : "As a bonus action, you can assume a more bestial appearance. This transformation lasts for 1 minute, until you die, or until you revert to your normal appearance as a bonus action. When you shift, you gain temporary hit points equal to 2 × your proficiency bonus + 1d6, and you regain all expended uses when you finish a long rest. While shifted, you have a +1 bonus to your Armor Class."
+      }, {
+        "name" : "Languages",
+        "description" : "You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character."
+      } ]
+    }, {
+      "name" : "Shifter; Longtooth",
+      "description" : "Bestial Instincts. Channeling the beast within, you have proficiency in one of the following skills of your choice: Acrobatics, Athletics, Intimidation, or Survival. Darkvision. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were in dim light. You discern colors in that darkness only as shades of gray. Shifting (Longtooth). As a bonus action, you can assume a more bestial appearance. This transformation lasts for 1 minute, until you die, or until you revert to your normal appearance as a bonus action. When you shift, you gain temporary hit points equal to 2 × your proficiency bonus, and you regain all expended uses when you finish a long rest. When you shift and as a bonus action on your other turns while shifted, you can use your elongated fangs to make an unarmed strike. If you hit with your fangs, you can deal piercing damage equal to 1d6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike. Languages. You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character.",
+      "size" : [ "medium" ],
+      "speed" : {
+        "walk" : 30
+      },
+      "senses" : [ {
+        "type" : "darkvision",
+        "range" : 60
+      } ],
+      "abilityAlternatives" : [ {
+        "fixed" : { },
+        "choices" : [ {
+          "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+          "weights" : [ 2, 1 ],
+          "count" : 2,
+          "amount" : null
+        } ],
+        "maximum" : null
+      }, {
+        "fixed" : { },
+        "choices" : [ {
+          "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+          "weights" : [ 1, 1, 1 ],
+          "count" : 3,
+          "amount" : null
+        } ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ {
+        "fixed" : [ ],
+        "choices" : [ {
+          "from" : [ "acrobatics", "athletics", "intimidation", "survival" ],
+          "category" : null,
+          "fromFilter" : null,
+          "count" : 1,
+          "amount" : null
+        } ]
+      } ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ {
+        "fixed" : [ "common" ],
+        "choices" : [ {
+          "from" : null,
+          "category" : "standard",
+          "fromFilter" : null,
+          "count" : 1,
+          "amount" : null
+        } ]
+      } ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : null,
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : "VRGR",
+      "traits" : [ {
+        "name" : "Bestial Instincts",
+        "description" : "Channeling the beast within, you have proficiency in one of the following skills of your choice: Acrobatics, Athletics, Intimidation, or Survival."
+      }, {
+        "name" : "Darkvision",
+        "description" : "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were in dim light. You discern colors in that darkness only as shades of gray."
+      }, {
+        "name" : "Shifting (Longtooth)",
+        "description" : "As a bonus action, you can assume a more bestial appearance. This transformation lasts for 1 minute, until you die, or until you revert to your normal appearance as a bonus action. When you shift, you gain temporary hit points equal to 2 × your proficiency bonus, and you regain all expended uses when you finish a long rest. When you shift and as a bonus action on your other turns while shifted, you can use your elongated fangs to make an unarmed strike. If you hit with your fangs, you can deal piercing damage equal to 1d6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
+      }, {
+        "name" : "Languages",
+        "description" : "You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character."
+      } ]
+    }, {
+      "name" : "Shifter; Swiftstride",
+      "description" : "Bestial Instincts. Channeling the beast within, you have proficiency in one of the following skills of your choice: Acrobatics, Athletics, Intimidation, or Survival. Darkvision. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were in dim light. You discern colors in that darkness only as shades of gray. Shifting (Swiftstride). As a bonus action, you can assume a more bestial appearance. This transformation lasts for 1 minute, until you die, or until you revert to your normal appearance as a bonus action. When you shift, you gain temporary hit points equal to 2 × your proficiency bonus, and you regain all expended uses when you finish a long rest. While shifted, your walking speed increases by 10 feet. Additionally, you can move up to 10 feet as a reaction when a creature ends its turn within 5 feet of you. This reactive movement doesn't provoke opportunity attacks. Languages. You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character.",
+      "size" : [ "medium" ],
+      "speed" : {
+        "walk" : 30
+      },
+      "senses" : [ {
+        "type" : "darkvision",
+        "range" : 60
+      } ],
+      "abilityAlternatives" : [ {
+        "fixed" : { },
+        "choices" : [ {
+          "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+          "weights" : [ 2, 1 ],
+          "count" : 2,
+          "amount" : null
+        } ],
+        "maximum" : null
+      }, {
+        "fixed" : { },
+        "choices" : [ {
+          "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+          "weights" : [ 1, 1, 1 ],
+          "count" : 3,
+          "amount" : null
+        } ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ {
+        "fixed" : [ ],
+        "choices" : [ {
+          "from" : [ "acrobatics", "athletics", "intimidation", "survival" ],
+          "category" : null,
+          "fromFilter" : null,
+          "count" : 1,
+          "amount" : null
+        } ]
+      } ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ {
+        "fixed" : [ "common" ],
+        "choices" : [ {
+          "from" : null,
+          "category" : "standard",
+          "fromFilter" : null,
+          "count" : 1,
+          "amount" : null
+        } ]
+      } ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : null,
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : "VRGR",
+      "traits" : [ {
+        "name" : "Bestial Instincts",
+        "description" : "Channeling the beast within, you have proficiency in one of the following skills of your choice: Acrobatics, Athletics, Intimidation, or Survival."
+      }, {
+        "name" : "Darkvision",
+        "description" : "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were in dim light. You discern colors in that darkness only as shades of gray."
+      }, {
+        "name" : "Shifting (Swiftstride)",
+        "description" : "As a bonus action, you can assume a more bestial appearance. This transformation lasts for 1 minute, until you die, or until you revert to your normal appearance as a bonus action. When you shift, you gain temporary hit points equal to 2 × your proficiency bonus, and you regain all expended uses when you finish a long rest. While shifted, your walking speed increases by 10 feet. Additionally, you can move up to 10 feet as a reaction when a creature ends its turn within 5 feet of you. This reactive movement doesn't provoke opportunity attacks."
+      }, {
+        "name" : "Languages",
+        "description" : "You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character."
+      } ]
+    }, {
+      "name" : "Shifter; Wildhunt",
+      "description" : "Bestial Instincts. Channeling the beast within, you have proficiency in one of the following skills of your choice: Acrobatics, Athletics, Intimidation, or Survival. Darkvision. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were in dim light. You discern colors in that darkness only as shades of gray. Shifting (Wildhunt). As a bonus action, you can assume a more bestial appearance. This transformation lasts for 1 minute, until you die, or until you revert to your normal appearance as a bonus action. When you shift, you gain temporary hit points equal to 2 × your proficiency bonus, and you regain all expended uses when you finish a long rest. While shifted, you have advantage on Wisdom checks, and no creature within 30 feet of you can make an attack roll with advantage against you unless you're incapacitated. Languages. You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character.",
+      "size" : [ "medium" ],
+      "speed" : {
+        "walk" : 30
+      },
+      "senses" : [ {
+        "type" : "darkvision",
+        "range" : 60
+      } ],
+      "abilityAlternatives" : [ {
+        "fixed" : { },
+        "choices" : [ {
+          "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+          "weights" : [ 2, 1 ],
+          "count" : 2,
+          "amount" : null
+        } ],
+        "maximum" : null
+      }, {
+        "fixed" : { },
+        "choices" : [ {
+          "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+          "weights" : [ 1, 1, 1 ],
+          "count" : 3,
+          "amount" : null
+        } ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ {
+        "fixed" : [ ],
+        "choices" : [ {
+          "from" : [ "acrobatics", "athletics", "intimidation", "survival" ],
+          "category" : null,
+          "fromFilter" : null,
+          "count" : 1,
+          "amount" : null
+        } ]
+      } ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ {
+        "fixed" : [ "common" ],
+        "choices" : [ {
+          "from" : null,
+          "category" : "standard",
+          "fromFilter" : null,
+          "count" : 1,
+          "amount" : null
+        } ]
+      } ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : null,
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : "VRGR",
+      "traits" : [ {
+        "name" : "Bestial Instincts",
+        "description" : "Channeling the beast within, you have proficiency in one of the following skills of your choice: Acrobatics, Athletics, Intimidation, or Survival."
+      }, {
+        "name" : "Darkvision",
+        "description" : "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were in dim light. You discern colors in that darkness only as shades of gray."
+      }, {
+        "name" : "Shifting (Wildhunt)",
+        "description" : "As a bonus action, you can assume a more bestial appearance. This transformation lasts for 1 minute, until you die, or until you revert to your normal appearance as a bonus action. When you shift, you gain temporary hit points equal to 2 × your proficiency bonus, and you regain all expended uses when you finish a long rest. While shifted, you have advantage on Wisdom checks, and no creature within 30 feet of you can make an attack roll with advantage against you unless you're incapacitated."
+      }, {
+        "name" : "Languages",
+        "description" : "You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character."
+      } ]
+    } ],
+    "subspecies" : [ ]
+  }
+}

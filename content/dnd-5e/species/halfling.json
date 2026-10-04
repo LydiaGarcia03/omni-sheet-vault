@@ -1,0 +1,439 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "halfling",
+  "name" : "Halfling",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 26,
+  "tags" : [ ],
+  "description" : "Age. A halfling reaches adulthood at the age of 20 and generally lives into the middle of his or her second century. Size. Halflings average about 3 feet tall and weigh about 40 pounds. Your size is Small. Lucky. When you roll a 1 on an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll. Brave. You have advantage on saving throws against being frightened. Halfling Nimbleness. You can move through the space of any creature that is of a size larger than yours. Languages. You can speak, read, and write Common and Halfling. The Halfling language isn't secret, but halflings are loath to share it with others. They write very little, so they don't have a rich body of literature. Their oral tradition, however, is very strong. Almost all halflings speak Common to converse with the people in whose lands they dwell or through which they are traveling.",
+  "data" : {
+    "size" : [ "small" ],
+    "speed" : {
+      "walk" : 25
+    },
+    "senses" : [ ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "dexterity" : 2
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "halfling" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : {
+      "mature" : 20,
+      "max" : 250
+    },
+    "heightAndWeight" : {
+      "baseHeight" : 31,
+      "heightMod" : "2d4",
+      "baseWeight" : 35
+    },
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Age",
+      "description" : "A halfling reaches adulthood at the age of 20 and generally lives into the middle of his or her second century."
+    }, {
+      "name" : "Size",
+      "description" : "Halflings average about 3 feet tall and weigh about 40 pounds. Your size is Small."
+    }, {
+      "name" : "Lucky",
+      "description" : "When you roll a 1 on an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll."
+    }, {
+      "name" : "Brave",
+      "description" : "You have advantage on saving throws against being frightened."
+    }, {
+      "name" : "Halfling Nimbleness",
+      "description" : "You can move through the space of any creature that is of a size larger than yours."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and Halfling. The Halfling language isn't secret, but halflings are loath to share it with others. They write very little, so they don't have a rich body of literature. Their oral tradition, however, is very strong. Almost all halflings speak Common to converse with the people in whose lands they dwell or through which they are traveling."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ {
+      "name" : "Ghostwise",
+      "sourceBook" : "Sword Coast Adventurer's Guide",
+      "sourcePage" : 110,
+      "overwrite" : [ ],
+      "description" : "Silent Speech. You can speak telepathically to any creature within 30 feet of you. The creature understands you only if the two of you share a language. You can speak telepathically in this way to one creature at a time.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "wisdom" : 1
+        },
+        "choices" : [ ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : null,
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Silent Speech",
+        "description" : "You can speak telepathically to any creature within 30 feet of you. The creature understands you only if the two of you share a language. You can speak telepathically in this way to one creature at a time."
+      } ],
+      "variants" : [ ]
+    }, {
+      "name" : "Lightfoot",
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 28,
+      "overwrite" : [ ],
+      "description" : "Naturally Stealthy. You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "charisma" : 1
+        },
+        "choices" : [ ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : null,
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Naturally Stealthy",
+        "description" : "You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you."
+      } ],
+      "variants" : [ ]
+    }, {
+      "name" : "Lotusden",
+      "sourceBook" : "Explorer's Guide to Wildemount",
+      "sourcePage" : 164,
+      "overwrite" : [ ],
+      "description" : "Child of the Wood. You know the druidcraft cantrip. When you reach 3rd level, you can cast the entangle spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the spike growth spell once with this trait and regain the ability to do so when you finish a long rest. Casting these spells with this trait doesn't require material components. Wisdom is your spellcasting ability for these spells. Timberwalk. Ability checks made to track you have disadvantage, and you can move across difficult terrain made of nonmagical plants and undergrowth without expending extra movement.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "wisdom" : 1
+        },
+        "choices" : [ ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "innate" : {
+          "3" : {
+            "daily" : {
+              "1" : [ "entangle" ]
+            }
+          },
+          "5" : {
+            "daily" : {
+              "1" : [ "spike growth" ]
+            }
+          }
+        },
+        "ability" : "wis",
+        "known" : {
+          "1" : [ "druidcraft#c" ]
+        }
+      } ],
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Child of the Wood",
+        "description" : "You know the druidcraft cantrip. When you reach 3rd level, you can cast the entangle spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the spike growth spell once with this trait and regain the ability to do so when you finish a long rest. Casting these spells with this trait doesn't require material components. Wisdom is your spellcasting ability for these spells."
+      }, {
+        "name" : "Timberwalk",
+        "description" : "Ability checks made to track you have disadvantage, and you can move across difficult terrain made of nonmagical plants and undergrowth without expending extra movement."
+      } ],
+      "variants" : [ ]
+    }, {
+      "name" : "Mark of Healing",
+      "sourceBook" : "Eberron: Rising from the Last War",
+      "sourcePage" : 43,
+      "overwrite" : [ ],
+      "description" : "Medical Intuition. When you make a Wisdom (Medicine) check or an ability check using an herbalism kit, you can roll a d4 and add the number rolled to the ability check. Healing Touch. You can cast the cure wounds spell with this trait. Starting at 3rd level, you can also cast lesser restoration with it. Once you cast either spell with this trait, you can't cast that spell with it again until you finish a long rest. Wisdom is your spellcasting ability for these spells. Spells of the Mark. If you have the Spellcasting or the Pact Magic class feature, the spells on the Mark of Healing Spells table are added to the spell list of your spellcasting class.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "wisdom" : 1
+        },
+        "choices" : [ ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "innate" : {
+          "1" : [ "cure wounds" ],
+          "3" : {
+            "daily" : {
+              "1" : [ "lesser restoration" ]
+            }
+          }
+        },
+        "expanded" : {
+          "s1" : [ "cure wounds", "healing word" ],
+          "s2" : [ "lesser restoration", "prayer of healing" ],
+          "s3" : [ "aura of vitality", "mass healing word" ],
+          "s4" : [ "aura of purity", "aura of life" ],
+          "s5" : [ "greater restoration" ]
+        },
+        "ability" : "wis"
+      } ],
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Medical Intuition",
+        "description" : "When you make a Wisdom (Medicine) check or an ability check using an herbalism kit, you can roll a d4 and add the number rolled to the ability check."
+      }, {
+        "name" : "Healing Touch",
+        "description" : "You can cast the cure wounds spell with this trait. Starting at 3rd level, you can also cast lesser restoration with it. Once you cast either spell with this trait, you can't cast that spell with it again until you finish a long rest. Wisdom is your spellcasting ability for these spells."
+      }, {
+        "name" : "Spells of the Mark",
+        "description" : "If you have the Spellcasting or the Pact Magic class feature, the spells on the Mark of Healing Spells table are added to the spell list of your spellcasting class."
+      } ],
+      "variants" : [ ]
+    }, {
+      "name" : "Mark of Hospitality",
+      "sourceBook" : "Eberron: Rising from the Last War",
+      "sourcePage" : 44,
+      "overwrite" : [ ],
+      "description" : "Ever Hospitable. When you make a Charisma (Persuasion) check or an ability check involving brewer's supplies or cook's utensils, you can roll a d4 and add the number rolled to the ability check. Innkeeper's Magic. You know the prestidigitation cantrip. You can also cast the purify food and drink and unseen servant spells with this trait. Once you cast either spell with this trait, you can't cast that spell with it again until you finish long rest. Charisma is your spellcasting ability for these spells. Spells of the Mark. If you have the Spellcasting or the Pact Magic class feature, the spells on the Mark of Hospitality Spells table are added to the spell list of your spellcasting class.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "charisma" : 1
+        },
+        "choices" : [ ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "expanded" : {
+          "s1" : [ "goodberry", "sleep" ],
+          "s2" : [ "aid", "calm emotions" ],
+          "s3" : [ "create food and water", "leomund's tiny hut" ],
+          "s4" : [ "aura of purity", "mordenkainen's private sanctum" ],
+          "s5" : [ "hallow" ]
+        },
+        "ability" : "cha",
+        "known" : {
+          "1" : [ "prestidigitation#c", "purify food and drink", "unseen servant" ]
+        }
+      } ],
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Ever Hospitable",
+        "description" : "When you make a Charisma (Persuasion) check or an ability check involving brewer's supplies or cook's utensils, you can roll a d4 and add the number rolled to the ability check."
+      }, {
+        "name" : "Innkeeper's Magic",
+        "description" : "You know the prestidigitation cantrip. You can also cast the purify food and drink and unseen servant spells with this trait. Once you cast either spell with this trait, you can't cast that spell with it again until you finish long rest. Charisma is your spellcasting ability for these spells."
+      }, {
+        "name" : "Spells of the Mark",
+        "description" : "If you have the Spellcasting or the Pact Magic class feature, the spells on the Mark of Hospitality Spells table are added to the spell list of your spellcasting class."
+      } ],
+      "variants" : [ ]
+    }, {
+      "name" : "Stout",
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 28,
+      "overwrite" : [ ],
+      "description" : "Stout Resilience. You have advantage on saving throws against poison, and you have resistance against poison damage.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "constitution" : 1
+        },
+        "choices" : [ ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ "poison" ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : null,
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Stout Resilience",
+        "description" : "You have advantage on saving throws against poison, and you have resistance against poison damage."
+      } ],
+      "variants" : [ ]
+    } ]
+  }
+}

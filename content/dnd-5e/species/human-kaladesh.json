@@ -1,0 +1,93 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "human-kaladesh",
+  "name" : "Human (Kaladesh)",
+  "sourceBook" : "Plane Shift: Kaladesh",
+  "sourceCode" : "PSK",
+  "sourcePage" : 22,
+  "tags" : [ ],
+  "description" : "Age. Humans reach adulthood in their late teens and live less than a century. Size. Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position in that range, your size is Medium. Languages. You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Dwarvish curses, Elvish musical expressions, Vedalken scholarly jargon, and so on. Alignment. Humans tend toward no particular alignment. Speed. Your base walking speed is 30 feet.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 30
+    },
+    "senses" : [ ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "strength" : 1,
+        "dexterity" : 1,
+        "constitution" : 1,
+        "intelligence" : 1,
+        "wisdom" : 1,
+        "charisma" : 1
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common" ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : {
+      "mature" : 20,
+      "max" : 100
+    },
+    "heightAndWeight" : {
+      "baseHeight" : 56,
+      "heightMod" : "2d10",
+      "baseWeight" : 110,
+      "weightMod" : "2d4"
+    },
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Age",
+      "description" : "Humans reach adulthood in their late teens and live less than a century."
+    }, {
+      "name" : "Size",
+      "description" : "Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position in that range, your size is Medium."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Dwarvish curses, Elvish musical expressions, Vedalken scholarly jargon, and so on."
+    }, {
+      "name" : "Alignment",
+      "description" : "Humans tend toward no particular alignment."
+    }, {
+      "name" : "Speed",
+      "description" : "Your base walking speed is 30 feet."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

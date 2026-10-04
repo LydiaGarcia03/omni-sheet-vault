@@ -1,0 +1,46 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "flames-of-the-phoenix",
+  "name" : "Flames of the Phoenix",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 81,
+  "tags" : [ ],
+  "description" : "Prerequisite: 11th level\n\nYou can spend 4 ki points to cast fireball.",
+  "data" : {
+    "featureTypes" : [ "ED" ],
+    "optional" : false,
+    "prerequisiteText" : "11th level",
+    "prerequisites" : [ {
+      "level" : {
+        "level" : 11,
+        "class" : {
+          "name" : "Monk"
+        },
+        "subclass" : {
+          "name" : "Four Elements"
+        }
+      }
+    } ],
+    "consumes" : null,
+    "additionalSpells" : [ {
+      "innate" : {
+        "_" : {
+          "resource" : {
+            "4" : [ "fireball" ]
+          }
+        }
+      },
+      "resourceName" : "Ki",
+      "ability" : "wis"
+    } ],
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

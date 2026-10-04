@@ -1,0 +1,35 @@
+{
+  "characterName": "Liriel Moonwhisper",
+  "systemId": "dnd-5e",
+  "build": {
+    "speciesSlug": "elf",
+    "subspeciesName": "High",
+    "speciesVariantName": null,
+    "backgroundSlug": "urchin",
+    "classes": [
+      { "classSlug": "wizard", "subclassSlug": "wizard-evocation", "level": 5 }
+    ],
+    "abilityScoreMethod": "STANDARD_ARRAY",
+    "baseAbilityScores": {
+      "strength": 8, "dexterity": 14, "constitution": 13,
+      "intelligence": 15, "wisdom": 12, "charisma": 10
+    },
+    "hitPointMethod": "FIXED",
+    "rolledHitPoints": [],
+    "choices": [
+      { "id": "class:wizard:equipment-method", "selections": ["equipment"] },
+      { "id": "species:elf:languages:0", "selections": ["draconic"] },
+      { "id": "species:elf:known:1:0", "selections": ["minor-illusion"] },
+      { "id": "class:wizard:skills:0", "selections": ["arcana", "investigation"] },
+      { "id": "class:wizard:equipment:0", "selections": ["a"] },
+      { "id": "class:wizard:equipment:1", "selections": ["b"] },
+      { "id": "class:wizard:equipment:1:0", "selections": ["crystal"] },
+      { "id": "class:wizard:equipment:2", "selections": ["a"] },
+      { "id": "class:wizard:cantrips", "selections": ["fire-bolt", "mage-hand", "light", "ray-of-frost"] },
+      { "id": "class:wizard:spellbook", "selections": ["magic-missile", "shield", "mage-armor", "detect-magic", "find-familiar", "sleep", "burning-hands", "feather-fall", "misty-step", "scorching-ray", "hold-person", "mirror-image", "fireball", "counterspell"] },
+      { "id": "class:wizard:4:asi-or-feat", "selections": ["asi"] },
+      { "id": "class:wizard:4:asi", "selections": ["intelligence", "intelligence"] },
+      { "id": "class:wizard:prepared", "selections": ["magic-missile", "shield", "mage-armor", "detect-magic", "burning-hands", "misty-step", "scorching-ray", "fireball", "counterspell"] }
+    ]
+  }
+}

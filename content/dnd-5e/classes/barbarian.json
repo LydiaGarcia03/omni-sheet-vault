@@ -1,0 +1,501 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CLASS",
+  "slug" : "barbarian",
+  "name" : "Barbarian",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 46,
+  "tags" : [ ],
+  "description" : "",
+  "data" : {
+    "hitDie" : 12,
+    "savingThrows" : [ "strength", "constitution" ],
+    "proficiencies" : {
+      "armor" : [ "light", "medium", "shield" ],
+      "weaponCategories" : [ "simple", "martial" ],
+      "weaponItems" : [ ],
+      "optionalWeaponCategories" : [ ],
+      "notes" : [ ],
+      "toolAlternatives" : [ ],
+      "skillAlternatives" : [ {
+        "fixed" : [ ],
+        "choices" : [ {
+          "from" : [ "animalHandling", "athletics", "intimidation", "nature", "perception", "survival" ],
+          "category" : null,
+          "fromFilter" : null,
+          "count" : 2,
+          "amount" : null
+        } ]
+      } ]
+    },
+    "startingEquipment" : {
+      "additionalFromBackground" : true,
+      "goldAlternative" : "2d4 × 10",
+      "text" : [ "(a) a greataxe or (b) any martial melee weapon", "(a) two handaxes or (b) any simple weapon", "An explorer's pack, and four javelins" ],
+      "groups" : [ {
+        "options" : [ {
+          "label" : "a",
+          "grants" : [ {
+            "itemSlug" : "greataxe",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        }, {
+          "label" : "b",
+          "grants" : [ {
+            "itemSlug" : null,
+            "equipmentType" : "weaponMartialMelee",
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        } ]
+      }, {
+        "options" : [ {
+          "label" : "a",
+          "grants" : [ {
+            "itemSlug" : "handaxe",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 2,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        }, {
+          "label" : "b",
+          "grants" : [ {
+            "itemSlug" : null,
+            "equipmentType" : "weaponSimple",
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        } ]
+      }, {
+        "options" : [ {
+          "label" : null,
+          "grants" : [ {
+            "itemSlug" : "explorers-pack",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          }, {
+            "itemSlug" : "javelin",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 4,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        } ]
+      } ]
+    },
+    "multiclassing" : {
+      "allOf" : {
+        "strength" : 13
+      },
+      "anyOf" : { },
+      "proficienciesGained" : {
+        "armor" : [ "shield" ],
+        "weaponCategories" : [ "simple", "martial" ],
+        "weaponItems" : [ ],
+        "optionalWeaponCategories" : [ ],
+        "notes" : [ ],
+        "toolAlternatives" : [ ],
+        "skillAlternatives" : [ ]
+      }
+    },
+    "spellcasting" : {
+      "ability" : null,
+      "casterProgression" : null,
+      "preparedSpellsFormula" : null,
+      "cantripsKnownByLevel" : null,
+      "spellsKnownByLevel" : null,
+      "spellbookSpellsAddedByLevel" : null,
+      "spellSlotsByLevel" : null,
+      "pactSlotsByLevel" : null
+    },
+    "tableColumns" : [ {
+      "label" : "Rages",
+      "valuesByLevel" : [ "2", "2", "3", "3", "3", "4", "4", "4", "4", "4", "4", "5", "5", "5", "5", "5", "6", "6", "6", "Unlimited" ]
+    }, {
+      "label" : "Rage Damage",
+      "valuesByLevel" : [ "+2", "+2", "+2", "+2", "+2", "+2", "+2", "+2", "+3", "+3", "+3", "+3", "+3", "+3", "+3", "+4", "+4", "+4", "+4", "+4" ]
+    } ],
+    "optionalFeatureProgressions" : [ ],
+    "subclassTitle" : "Primal Path",
+    "subclassLevel" : 3,
+    "abilityScoreImprovementLevels" : [ 4, 8, 12, 16, 19 ],
+    "features" : [ {
+      "name" : "Rage",
+      "level" : 1,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 46,
+      "description" : "In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action. While raging, you gain the following benefits if you aren't wearing heavy armor: You have advantage on Strength checks and Strength saving throws. When you make a melee weapon attack using Strength, you gain a +2 bonus to the damage roll. This bonus increases as you level. You have resistance to bludgeoning, piercing, and slashing damage. If you are able to cast spells, you can't cast them or concentrate on them while raging. Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and you haven't attacked a hostile creature since your last turn or taken damage since then. You can also end your rage on your turn as a bonus action. Once you have raged the maximum number of times for your barbarian level, you must finish a long rest before you can rage again. You may rage 2 times at 1st level, 3 at 3rd, 4 at 6th, 5 at 12th, and 6 at 17th.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Unarmored Defense",
+      "level" : 1,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 46,
+      "description" : "While you are not wearing any armor, your Armor Class equals 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Danger Sense",
+      "level" : 2,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 46,
+      "description" : "At 2nd level, you gain an uncanny sense of when things nearby aren't as they should be, giving you an edge when you dodge away from danger. You have advantage on Dexterity saving throws against effects that you can see, such as traps and spells. To gain this benefit, you can't be blinded, deafened, or incapacitated.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Reckless Attack",
+      "level" : 2,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 46,
+      "description" : "Starting at 2nd level, you can throw aside all concern for defense to attack with fierce desperation. When you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Primal Path",
+      "level" : 3,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 46,
+      "description" : "At 3rd level, you choose a path that shapes the nature of your rage from the list of available paths. Your choice grants you features at 3rd level and again at 6th, 10th, and 14th levels.",
+      "optional" : false,
+      "grantsSubclassFeature" : true,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Primal Knowledge",
+      "level" : 3,
+      "sourceBook" : "Tasha's Cauldron of Everything",
+      "sourcePage" : 24,
+      "description" : "3rd-level barbarian optional feature When you reach 3rd level and again at 10th level, you gain proficiency in one skill of your choice from the list of skills available to barbarians at 1st level.",
+      "optional" : true,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 4,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 46,
+      "description" : "When you reach 4th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Extra Attack",
+      "level" : 5,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 46,
+      "description" : "Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Fast Movement",
+      "level" : 5,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 46,
+      "description" : "Starting at 5th level, your speed increases by 10 feet while you aren't wearing heavy armor.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Path Feature",
+      "level" : 6,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 46,
+      "description" : "At 6th level, you gain a feature from your Primal Path.",
+      "optional" : false,
+      "grantsSubclassFeature" : true,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Feral Instinct",
+      "level" : 7,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 46,
+      "description" : "By 7th level, your instincts are so honed that you have advantage on initiative rolls. Additionally, if you are surprised at the beginning of combat and aren't incapacitated, you can act normally on your first turn, but only if you enter your rage before doing anything else on that turn.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Instinctive Pounce",
+      "level" : 7,
+      "sourceBook" : "Tasha's Cauldron of Everything",
+      "sourcePage" : 24,
+      "description" : "7th-level barbarian optional feature As part of the bonus action you take to enter your rage, you can move up to half your speed.",
+      "optional" : true,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 8,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 46,
+      "description" : "When you reach 8th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Brutal Critical (1 die)",
+      "level" : 9,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 46,
+      "description" : "Beginning at 9th level, you can roll one additional weapon damage die when determining the extra damage for a critical hit with a melee attack. This increases to two additional dice at 13th level and three additional dice at 17th level.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Path feature",
+      "level" : 10,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 46,
+      "description" : "At 10th level, you gain a feature from your Primal Path.",
+      "optional" : false,
+      "grantsSubclassFeature" : true,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Relentless Rage",
+      "level" : 11,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 46,
+      "description" : "Starting at 11th level, your rage can keep you fighting despite grievous wounds. If you drop to 0 hit points while you're raging and don't die outright, you can make a DC 10 Constitution saving throw. If you succeed, you drop to 1 hit point instead. Each time you use this feature after the first, the DC increases by 5. When you finish a short or long rest, the DC resets to 10.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 12,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 46,
+      "description" : "When you reach 12th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Brutal Critical (2 dice)",
+      "level" : 13,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 46,
+      "description" : "At 13th level, you can roll two additional weapon damage dice when determining the extra damage for a critical hit with a melee attack. This increases to three additional dice at 17th level.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Path feature",
+      "level" : 14,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 46,
+      "description" : "At 14th level, you gain a feature from your Primal Path.",
+      "optional" : false,
+      "grantsSubclassFeature" : true,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Persistent Rage",
+      "level" : 15,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 46,
+      "description" : "Beginning at 15th level, your rage is so fierce that it ends early only if you fall unconscious or if you choose to end it.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 16,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 46,
+      "description" : "When you reach 16th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Brutal Critical (3 dice)",
+      "level" : 17,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 46,
+      "description" : "At 17th level, you can roll three additional weapon damage dice when determining the extra damage for a critical hit with a melee attack.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Indomitable Might",
+      "level" : 18,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 46,
+      "description" : "Beginning at 18th level, if your total for a Strength check is less than your Strength score, you can use that score in place of the total.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 19,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 46,
+      "description" : "When you reach 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Primal Champion",
+      "level" : 20,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 46,
+      "description" : "At 20th level, you embody the power of the wilds. Your Strength and Constitution scores increase by 4. Your maximum for those scores is now 24.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    } ]
+  }
+}

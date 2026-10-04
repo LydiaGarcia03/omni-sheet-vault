@@ -1,0 +1,92 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "grinner",
+  "name" : "Grinner",
+  "sourceBook" : "Explorer's Guide to Wildemount",
+  "sourceCode" : "EGW",
+  "sourcePage" : 200,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. Deception, Performance Tool Proficiencies:. One type of musical instrument, thieves' tools Equipment:. A set of fine clothes, a disguise kit, a musical instrument of your choice, a gold-plated ring depicting a smiling face, and a pouch containing 15 gp Feature: Ballad of the Grinning Fool. Like every Grinner, you know how to find a hideout. In any city of 10,000 people or more on the Menagerie Coast or in the lands of the Dwendalian Empire, you can play the \"Ballad of the Grinning Fool\" in a major tavern or inn. A member of the Golden Grin will find you and give shelter to you and any companions you vouch for. This shelter might be discontinued if it becomes too dangerous to hide you, at the DM's discretion. This feature must be used with caution, for not all who know the ballad are your friends. Some are traitors, counterspies, or agents of tyranny. Suggested Characteristics. Grinners are trained in the art of secrecy and innuendo, and are skilled at hiding in plain sight by being the loudest and brightest person in the room. Their skills in subterfuge and combat lend themselves well to an adventuring lifestyle, and traveling with mercenaries and treasure hunters creates a convenient excuse to journey through lands bent under tyranny.",
+  "data" : {
+    "personalityTraits" : [ "I love the spotlight. Everyone, look at me!", "Give me a drink and I'm your friend.", "Talk to me about yourself. I'm a hell of a listener.", "I hate to start fights, but I love to finish them.", "I can't sit still.", "I'm always humming an old tune from my past.", "When I don't have a reason to smile, I'm miserable.", "I'm lucky like you wouldn't believe." ],
+    "ideals" : [ "Revolution. Tyrants must fall, no matter the cost. (Chaotic)", "Compassion. The only way to make a better world is to perform small kindnesses. (Good)", "Justice. A nation built upon just foundations will uphold freedom for all. (Law)", "Expression. Music, joy, and laughter are the keys to freedom. (Good)", "Self-Determination. People should be free to do as they please. (Chaotic)", "Vigilance. A free people must be carefully taught, lest they be misled. (Neutral)" ],
+    "bonds" : [ "I lost someone important to an agent of the Dwendalian Empire. That regime will fall.", "The first people to be hurt by this war will be the common folk. I need to protect them.", "Music helped me through a dark time in my life. Now, I'll use music to change the world.", "I will be known as the greatest spy who ever lived.", "All life is precious to me. I know I can change the world without taking a humanoid life.", "The elite in their ivory towers don't understand how we suffer. I intend to show them." ],
+    "flaws" : [ "I've never lied once in my life. What? No, I'm not crossing my fingers!", "I do everything big! Subtlety? I don't know the meaning of subtlety! Oh, that's a problem?", "Being a spy in wartime is painful. I've seen so much suffering, I think I'm losing my mind.", "I can't focus on my mission. I just want to carouse and sing and play!", "Yeah, that's my name. Yeah, I'm a Grinner spy. Who cares about staying undercover?", "I can't afford to trust anyone. Not. Anyone." ],
+    "otherTables" : [ ],
+    "features" : [ {
+      "name" : "Ballad of the Grinning Fool",
+      "description" : "Like every Grinner, you know how to find a hideout. In any city of 10,000 people or more on the Menagerie Coast or in the lands of the Dwendalian Empire, you can play the \"Ballad of the Grinning Fool\" in a major tavern or inn. A member of the Golden Grin will find you and give shelter to you and any companions you vouch for. This shelter might be discontinued if it becomes too dangerous to hide you, at the DM's discretion. This feature must be used with caution, for not all who know the ballad are your friends. Some are traitors, counterspies, or agents of tyranny."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "deception", "performance" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ {
+      "fixed" : [ "thieves-tools" ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "musicalInstrument",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "languageAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : "fine-clothes",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "disguise-kit",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : "instrumentMusical",
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "gold-plated ring depicting a smiling face",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 1500,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : null,
+    "prerequisites" : null
+  }
+}

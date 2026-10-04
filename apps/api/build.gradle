@@ -26,19 +26,27 @@ dependencies {
 
     // --- Persistence ---
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-flyway'
     implementation 'org.flywaydb:flyway-core'
     implementation 'org.flywaydb:flyway-database-postgresql'
     runtimeOnly 'org.postgresql:postgresql'
 
-    // --- Security (token validation only; the IdP lives outside this app) ---
+    // --- Security (the IdP lives outside this app; the browser gets a session cookie, see adr-0008) ---
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+    implementation 'org.springframework.boot:spring-boot-starter-session-jdbc'
 
     // --- Operations ---
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
-    // --- Image storage (uncomment when the storage adapter is implemented) ---
-    // implementation 'software.amazon.awssdk:s3:2.31.0'
+    // --- Image storage (S3 API: MinIO locally, any S3-compatible provider elsewhere) ---
+    implementation platform('software.amazon.awssdk:bom:2.55.5')
+    implementation 'software.amazon.awssdk:s3'
+
+    // --- Desktop edition: a real PostgreSQL started by the app itself (see features/desktop-edition.md) ---
+    implementation 'io.zonky.test:embedded-postgres:2.2.2'
+    implementation platform('io.zonky.test.postgres:embedded-postgres-binaries-bom:17.11.0')
 
     // --- Local development convenience ---
     developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
@@ -51,6 +59,7 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-testcontainers'
     testImplementation 'org.testcontainers:junit-jupiter'
     testImplementation 'org.testcontainers:postgresql'
+    testImplementation 'org.testcontainers:minio'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
@@ -59,8 +68,34 @@ tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
 
+tasks.named('bootRun') {
+    systemProperty 'spring.profiles.active', 'dev'
+}
+
+tasks.register('ingest5etools', JavaExec) {
+    group = 'content'
+    description = 'Converts raw 5etools JSON (tools/5etools-data/) into this project\'s catalogue-JSON format ' +
+            '(content/dnd-5e/<kind>/) — see .ai/systems/dnd-5e/features/5etools-ingestion.md. Pass args via --args, e.g. ' +
+            '--args="--kind=spell".'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'dev.omnisheetvault.api.catalogue.Ingest5eToolsMain'
+    workingDir = rootProject.projectDir
+}
+
+tasks.register('planBuild', JavaExec) {
+    group = 'content'
+    description = 'Prints the choices a character build offers, read against content/<system>/ — see ' +
+            '.ai/systems/dnd-5e/features/character-creation.md (C1a). Pass args via --args, e.g. ' +
+            '--args="--build=content/dnd-5e/builds/aria.json".'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'dev.omnisheetvault.api.catalogue.PlanBuildMain'
+    workingDir = rootProject.projectDir
+}
+
 tasks.named('test') {
     useJUnitPlatform()
+    // Temporary files (JUnit @TempDir, embedded PostgreSQL) stay inside build/, whatever the machine's TEMP is.
+    systemProperty 'java.io.tmpdir', temporaryDir.absolutePath
     finalizedBy tasks.named('jacocoTestReport')
 }
 

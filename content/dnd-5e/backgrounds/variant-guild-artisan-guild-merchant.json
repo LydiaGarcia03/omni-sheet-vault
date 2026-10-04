@@ -1,0 +1,96 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "variant-guild-artisan-guild-merchant",
+  "name" : "Variant Guild Artisan (Guild Merchant)",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 133,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. Insight, Persuasion Tool Proficiencies:. One type of artisan's tools, or navigator's tools, or an additional language Languages:. One of your choice Equipment:. A set of artisan's tools (one of your choice) or a mule and cart, a letter of introduction from your guild, a set of traveler's clothes, and a belt pouch containing 15 gp Feature: Guild Membership. As an established and respected member of a guild, you can rely on certain benefits that membership provides. Your fellow guild members will provide you with lodging and food if necessary, and pay for your funeral if needed. In some cities and towns, a guildhall offers a central place to meet other members of your profession, which can be a good place to meet potential patrons, allies, or hirelings. Guilds often wield tremendous political power. If you are accused of a crime, your guild will support you if a good case can be made for your innocence or the crime is justifiable. You can also gain access to powerful political figures through the guild, if you are a member in good standing. Such connections might require the donation of money or magic items to the guild's coffers. You must pay dues of 5 gp per month to the guild. If you miss payments, you must make up back dues to remain in the guild's good graces. Specialty. Guilds are generally found in cities large enough to support several artisans practicing the same trade. However, your guild might instead be a loose network of artisans who each work in a different village within a larger realm. Work with your DM to determine the nature of your guild. You can select your guild business from the Guild Business table or roll randomly. Suggested Characteristics. Guild artisans are among the most ordinary people in the world—until they set down their tools and take up an adventuring career. They understand the value of hard work and the importance of community, but they're vulnerable to sins of greed and covetousness.",
+  "data" : {
+    "personalityTraits" : [ "I believe that anything worth doing is worth doing right. I can't help it—I'm a perfectionist.", "I'm a snob who looks down on those who can't appreciate fine art.", "I always want to know how things work and what makes people tick.", "I'm full of witty aphorisms and have a proverb for every occasion.", "I'm rude to people who lack my commitment to hard work and fair play.", "I like to talk at length about my profession.", "I don't part with my money easily and will haggle tirelessly to get the best deal possible.", "I'm well known for my work, and I want to make sure everyone appreciates it. I'm always taken aback when people haven't heard of me." ],
+    "ideals" : [ "Community. It is the duty of all civilized people to strengthen the bonds of community and the security of civilization. (Lawful)", "Generosity. My talents were given to me so that I could use them to benefit the world. (Good)", "Freedom. Everyone should be free to pursue his or her own livelihood. (Chaotic)", "Greed. I'm only in it for the money. (Evil)", "People. I'm committed to the people I care about, not to ideals. (Neutral)", "Aspiration. I work hard to be the best there is at my craft. (Any)" ],
+    "bonds" : [ "The workshop where I learned my trade is the most important place in the world to me.", "I created a great work for someone, and then found them unworthy to receive it. I'm still looking for someone worthy.", "I owe my guild a great debt for forging me into the person I am today.", "I pursue wealth to secure someone's love.", "One day I will return to my guild and prove that I am the greatest artisan of them all.", "I will get revenge on the evil forces that destroyed my place of business and ruined my livelihood." ],
+    "flaws" : [ "I'll do anything to get my hands on something rare or priceless.", "I'm quick to assume that someone is trying to cheat me.", "No one must ever learn that I once stole money from guild coffers.", "I'm never satisfied with what I have—I always want more.", "I would kill to acquire a noble title.", "I'm horribly jealous of anyone who can outshine my handiwork. Everywhere I go, I'm surrounded by rivals." ],
+    "otherTables" : [ {
+      "caption" : null,
+      "colLabels" : [ "d20", "Guild Business" ],
+      "rows" : [ [ "1", "Alchemists and apothecaries" ], [ "2", "Armorers, locksmiths, and finesmiths" ], [ "3", "Brewers, distillers, and vintners" ], [ "4", "Calligraphers, scribes, and scriveners" ], [ "5", "Carpenters, roofers, and plasterers" ], [ "6", "Cartographers, surveyors, and chart-makers" ], [ "7", "Cobblers and shoemakers" ], [ "8", "Cooks and bakers" ], [ "9", "Glassblowers and glaziers" ], [ "10", "Jewelers and gemcutters" ], [ "11", "Leatherworkers, skinners, and tanners" ], [ "12", "Masons and stonecutters" ], [ "13", "Painters, limners, and sign-makers" ], [ "14", "Potters and tile-makers" ], [ "15", "Shipwrights and sail-makers" ], [ "16", "Smiths and metal-forgers" ], [ "17", "Tinkers, pewterers, and casters" ], [ "18", "Wagon-makers and wheelwrights" ], [ "19", "Weavers and dyers" ], [ "20", "Woodcarvers, coopers, and bowyers" ] ]
+    } ],
+    "features" : [ {
+      "name" : "Guild Membership",
+      "description" : "As an established and respected member of a guild, you can rely on certain benefits that membership provides. Your fellow guild members will provide you with lodging and food if necessary, and pay for your funeral if needed. In some cities and towns, a guildhall offers a central place to meet other members of your profession, which can be a good place to meet potential patrons, allies, or hirelings. Guilds often wield tremendous political power. If you are accused of a crime, your guild will support you if a good case can be made for your innocence or the crime is justifiable. You can also gain access to powerful political figures through the guild, if you are a member in good standing. Such connections might require the donation of money or magic items to the guild's coffers. You must pay dues of 5 gp per month to the guild. If you miss payments, you must make up back dues to remain in the guild's good graces."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "insight", "persuasion" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : [ "anyartisanstool", "navigators-tools" ],
+        "category" : null,
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "languageAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : null,
+          "equipmentType" : "toolArtisan",
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "letter of introduction from your guild",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "travelers-clothes",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 1500,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : null,
+    "prerequisites" : null
+  }
+}

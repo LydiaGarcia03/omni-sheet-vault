@@ -1,0 +1,55 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "custom-background",
+  "name" : "Custom Background",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 126,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. Two of your choice Languages and Tool Proficiencies:. Two of your choice Equipment:. The equipment package from any background Feature: Choose a Feature. Choose a feature from any background. Suggested Characteristics. Use the suggested characteristics from any background. See the section on Customizing a Background in the Player's Handbook for more information.",
+  "data" : {
+    "personalityTraits" : [ ],
+    "ideals" : [ ],
+    "bonds" : [ ],
+    "flaws" : [ ],
+    "otherTables" : [ ],
+    "features" : [ {
+      "name" : "Choose a Feature",
+      "description" : "Choose a feature from any background."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "any",
+        "fromFilter" : null,
+        "count" : 2,
+        "amount" : null
+      } ]
+    } ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 2,
+        "amount" : null
+      } ]
+    } ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : [ {
+      "anyLanguage" : 2
+    }, {
+      "anyLanguage" : 1,
+      "anyTool" : 1
+    }, {
+      "anyTool" : 1
+    } ],
+    "startingEquipment" : [ ],
+    "additionalSpells" : null,
+    "prerequisites" : null
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "investment-of-the-chain-master",
+  "name" : "Investment of the Chain Master",
+  "sourceBook" : "Tasha's Cauldron of Everything",
+  "sourceCode" : "TCE",
+  "sourcePage" : 71,
+  "tags" : [ ],
+  "description" : "Prerequisite: Pact of the Chain\n\nWhen you cast find familiar, you infuse the summoned familiar with a measure of your eldritch power, granting the creature the following benefits: The familiar gains either a flying speed or a swimming speed (your choice) of 40 feet. As a bonus action, you can command the familiar to take the Attack action. The familiar's weapon attacks are considered magical for the purpose of overcoming immunity and resistance to nonmagical attacks. If the familiar forces a creature to make a saving throw, it uses your spell save DC. When the familiar takes damage, you can use your reaction to grant it resistance against that damage.",
+  "data" : {
+    "featureTypes" : [ "EI" ],
+    "optional" : true,
+    "prerequisiteText" : "Pact of the Chain",
+    "prerequisites" : [ {
+      "pact" : "Chain"
+    } ],
+    "consumes" : null,
+    "additionalSpells" : null,
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

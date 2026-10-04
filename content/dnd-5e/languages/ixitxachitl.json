@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "LANGUAGE",
+  "slug" : "ixitxachitl",
+  "name" : "Ixitxachitl",
+  "sourceBook" : "Out of the Abyss",
+  "sourceCode" : "OotA",
+  "sourcePage" : 225,
+  "tags" : [ ],
+  "description" : "",
+  "data" : {
+    "type" : null,
+    "script" : null
+  }
+}

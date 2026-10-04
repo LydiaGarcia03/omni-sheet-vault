@@ -1,0 +1,89 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "baldurs-gate-sailor",
+  "name" : "Baldur's Gate Sailor",
+  "sourceBook" : "Baldur's Gate: Descent Into Avernus",
+  "sourceCode" : "BGDIA",
+  "sourcePage" : 204,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. Athletics, Perception Tool Proficiencies:. Navigator's tools, vehicles (water) Equipment:. A belaying pin (club), silk rope (50 feet), a lucky charm such as a rabbit foot or a small stone with a hole in the center (or you may roll for a random trinket on the Trinkets table in chapter 5), a set of common clothes, and a belt pouch containing 10 gp Feature: Ship's Passage. When you need to, you can secure free passage on a sailing ship for yourself and your adventuring companions. You might sail on the ship you served on, or another ship you have good relations with (perhaps one captained by a former crewmate). Because you're calling in a favor, you can't be certain of a schedule or route that will meet your every need. Your Dungeon Master will determine how long it takes to get where you need to go. In return for your free passage, you and your companions are expected to assist the crew during the voyage. Baldur's Gate Feature: Smuggler's Sense. The effects of a Baldur's Gate feature can be used only while the character is in Baldur's Gate—though, at the DM's discretion, they might have applicable effects in situations similar to those in Baldur's Gate. You're familiar with the docks of Baldur's Gate, the movement of inspectors and tax collectors, the way cargo and coin flows. As a result, it's easy for you to hustle a load of cargo ashore or see such a cargo onto a cooperative ship without attracting suspicion or taxation. You also know the movements of the Gray Wavers—the Flaming Fist harbor guards—and have a sense of how to operate the city's mechanized cranes. Suggested Characteristics. Sailors can be a rough lot, but the responsibilities of life on a ship make them generally reliable as well. Life aboard a ship shapes their outlook and forms their most important attachments.",
+  "data" : {
+    "personalityTraits" : [ "My friends know they can rely on me, no matter what.", "I work hard so that I can play hard when the work is done.", "I enjoy sailing into new ports and making new friends over a flagon of ale.", "I stretch the truth for the sake of a good story.", "To me, a tavern brawl is a nice way to get to know a new city.", "I never pass up a friendly wager.", "My language is as foul as an otyugh nest.", "I like a job well done, especially if I can convince someone else to do it." ],
+    "ideals" : [ "Respect. The thing that keeps a ship together is mutual respect between captain and crew. (Good)", "Fairness. We all do the work, so we all share in the rewards. (Lawful)", "Freedom. The sea is freedom—the freedom to go anywhere and do anything. (Chaotic)", "Mastery. I'm a predator, and the other ships on the sea are my prey. (Evil)", "People. I'm committed to my crewmates, not to ideals. (Neutral)", "Aspiration. Someday, I'll own my own ship and chart my own destiny. (Any)" ],
+    "bonds" : [ "I'm loyal to my captain first, everything else second.", "The ship is most important—crewmates and captains come and go.", "I'll always remember my first ship.", "In a harbor town, I have a paramour whose eyes nearly stole me from the sea.", "I was cheated out of my fair share of the profits, and I want to get my due.", "Ruthless pirates murdered my captain and crewmates, plundered our ship, and left me to die. Vengeance will be mine." ],
+    "flaws" : [ "I follow orders, even if I think they're wrong.", "I'll say anything to avoid having to do extra work.", "Once someone questions my courage, I never back down no matter how dangerous the situation.", "Once I start drinking, it's hard for me to stop.", "I can't help but pocket loose coins and other trinkets I come across.", "My pride will probably lead to my destruction." ],
+    "otherTables" : [ ],
+    "features" : [ {
+      "name" : "Ship's Passage",
+      "description" : "When you need to, you can secure free passage on a sailing ship for yourself and your adventuring companions. You might sail on the ship you served on, or another ship you have good relations with (perhaps one captained by a former crewmate). Because you're calling in a favor, you can't be certain of a schedule or route that will meet your every need. Your Dungeon Master will determine how long it takes to get where you need to go. In return for your free passage, you and your companions are expected to assist the crew during the voyage."
+    }, {
+      "name" : "Smuggler's Sense",
+      "description" : "The effects of a Baldur's Gate feature can be used only while the character is in Baldur's Gate—though, at the DM's discretion, they might have applicable effects in situations similar to those in Baldur's Gate. You're familiar with the docks of Baldur's Gate, the movement of inspectors and tax collectors, the way cargo and coin flows. As a result, it's easy for you to hustle a load of cargo ashore or see such a cargo onto a cooperative ship without attracting suspicion or taxation. You also know the movements of the Gray Wavers—the Flaming Fist harbor guards—and have a sense of how to operate the city's mechanized cranes."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "athletics", "perception" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ {
+      "fixed" : [ "navigators-tools", "vehicles-water" ],
+      "choices" : [ ]
+    } ],
+    "languageAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : "club",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : "belaying pin",
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "silk-rope-50-feet",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "trinket",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : "lucky charm",
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "common-clothes",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 1000,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : null,
+    "prerequisites" : null
+  }
+}

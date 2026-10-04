@@ -1,0 +1,56 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "ITEM",
+  "slug" : "tloques-berserker-battleaxe",
+  "name" : "Tloques' Berserker Battleaxe",
+  "sourceBook" : "Tales from the Yawning Portal",
+  "sourceCode" : "TftYP",
+  "sourcePage" : 68,
+  "tags" : [ ],
+  "description" : "This battleaxe has a blade of bronze, and the haft is wound with snakeskin wrappings. It casts an ominous shadow in the shape of what appears to be a withered arm. Those within reach of it feel a cold chill run up and down their spine. Concealed beneath the wrappings around the handle is a parchment containing the spells passwall, burning hands, and gust of wind. When the attuned wielder uses an action to say the correct words of power, which are engraved in Olman on the axe blade, one of these spells can be cast. The axe has 12 charges and regains 1d6 + 4 expended charges daily at dawn. Casting a spell from it takes a number of charges equal to the level at which the spell is cast (5th for passwall, 2nd for gust of wind, and 1st or higher for burning hands; spell save DC 15). If the parchment is removed from the axe, the axe loses the capability of casting these spells forever. You gain a +2 bonus to attack and damage rolls made with this magic weapon. In addition, while you are attuned to this weapon, your hit point maximum increases by 1 for each level you have attained. Whenever a hostile creature damages you while the axe is in your possession, you must succeed on a DC 15 Wisdom saving throw or go berserk. While berserk, you must use your action each round to attack the creature nearest to you with the axe. If you can make extra attacks as part of the Attack action, you use those extra attacks, moving to attack the next nearest creature after you fell your current target. If you have multiple possible targets, you attack one at random. You are berserk until you start your turn with no creatures within 60 feet of you that you can see or hear.",
+  "data" : {
+    "itemKind" : "GEAR",
+    "typeLabel" : "Melee Weapon",
+    "rarity" : "rare",
+    "focusType" : null,
+    "requiresAttunement" : true,
+    "attunementRequirement" : null,
+    "weightLb" : 4.0,
+    "costGp" : null,
+    "weaponCategory" : null,
+    "attackType" : null,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "versatileDamageDiceCount" : null,
+    "versatileDamageDiceSides" : null,
+    "properties" : [ ],
+    "finesse" : false,
+    "normalRange" : null,
+    "longRange" : null,
+    "armorCategory" : null,
+    "baseArmorClass" : null,
+    "stealthDisadvantage" : false,
+    "strengthRequirement" : null,
+    "weaponAttackBonus" : 2,
+    "weaponDamageBonus" : 2,
+    "armorClassBonus" : null,
+    "charges" : 12,
+    "rechargeTrigger" : "Dawn",
+    "rechargeFormula" : "1d6 + 4",
+    "grantedSpells" : [ {
+      "spellSlug" : "burning-hands",
+      "chargeCost" : 1,
+      "fixedSaveDc" : 15
+    }, {
+      "spellSlug" : "gust-of-wind",
+      "chargeCost" : 2,
+      "fixedSaveDc" : 15
+    }, {
+      "spellSlug" : "passwall",
+      "chargeCost" : 5,
+      "fixedSaveDc" : 15
+    } ],
+    "mechanics" : null
+  }
+}

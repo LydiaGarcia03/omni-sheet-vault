@@ -1,0 +1,49 @@
+{
+  "characterName": "Aria Emberfall",
+  "systemId": "dnd-5e",
+  "build": {
+    "speciesSlug": "dwarf",
+    "subspeciesName": "Mountain",
+    "speciesVariantName": null,
+    "backgroundSlug": "folk-hero",
+    "classes": [
+      { "classSlug": "fighter", "subclassSlug": "fighter-battle-master", "level": 20 }
+    ],
+    "abilityScoreMethod": "STANDARD_ARRAY",
+    "baseAbilityScores": {
+      "strength": 15, "dexterity": 13, "constitution": 14,
+      "intelligence": 10, "wisdom": 12, "charisma": 8
+    },
+    "hitPointMethod": "FIXED",
+    "rolledHitPoints": [],
+    "choices": [
+      { "id": "species:dwarf:tools:0", "selections": ["brewers-supplies"] },
+      { "id": "background:folk-hero:tools:0", "selections": ["masons-tools"] },
+      { "id": "background:folk-hero:equipment:0:0", "selections": ["brewers-supplies"] },
+      { "id": "class:fighter:skills:0", "selections": ["intimidation", "perception"] },
+      { "id": "class:fighter:equipment-method", "selections": ["equipment"] },
+      { "id": "class:fighter:1:fighting-style", "selections": ["defense"] },
+      { "id": "subclass:fighter-battle-master:3:student-of-war:0", "selections": ["carpenters-tools"] },
+      { "id": "subclass:fighter-battle-master:3:maneuvers", "selections": ["precision-attack", "riposte", "trip-attack"] },
+      { "id": "subclass:fighter-battle-master:7:maneuvers", "selections": ["menacing-attack", "pushing-attack"] },
+      { "id": "subclass:fighter-battle-master:10:maneuvers", "selections": ["parry", "disarming-attack"] },
+      { "id": "subclass:fighter-battle-master:15:maneuvers", "selections": ["rally", "commanders-strike"] },
+      { "id": "class:fighter:equipment:0", "selections": ["a"] },
+      { "id": "class:fighter:equipment:1", "selections": ["a"] },
+      { "id": "class:fighter:equipment:1:0", "selections": ["warhammer"] },
+      { "id": "class:fighter:equipment:2", "selections": ["b"] },
+      { "id": "class:fighter:equipment:3", "selections": ["b"] },
+      { "id": "class:fighter:4:asi-or-feat", "selections": ["asi"] },
+      { "id": "class:fighter:4:asi", "selections": ["strength", "strength"] },
+      { "id": "class:fighter:6:asi-or-feat", "selections": ["asi"] },
+      { "id": "class:fighter:6:asi", "selections": ["strength", "dexterity"] },
+      { "id": "class:fighter:8:asi-or-feat", "selections": ["durable"] },
+      { "id": "class:fighter:12:asi-or-feat", "selections": ["tough"] },
+      { "id": "class:fighter:14:asi-or-feat", "selections": ["asi"] },
+      { "id": "class:fighter:14:asi", "selections": ["constitution", "constitution"] },
+      { "id": "class:fighter:16:asi-or-feat", "selections": ["asi"] },
+      { "id": "class:fighter:16:asi", "selections": ["dexterity", "dexterity"] },
+      { "id": "class:fighter:19:asi-or-feat", "selections": ["dwarven-fortitude"] }
+    ]
+  }
+}

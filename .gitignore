@@ -1,6 +1,11 @@
 # Dependencies
 node_modules/
 
+# Frontend build output
+apps/web/dist/
+apps/web/dist-desktop/
+*.tsbuildinfo
+
 # Build output
 .gradle/
 build/
@@ -25,3 +30,4 @@ out/
 
 #Other
 design-reference/
+tools/5etools-data/

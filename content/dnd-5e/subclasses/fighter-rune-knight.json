@@ -1,0 +1,182 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SUBCLASS",
+  "slug" : "fighter-rune-knight",
+  "name" : "Rune Knight",
+  "sourceBook" : "Tasha's Cauldron of Everything",
+  "sourceCode" : "TCE",
+  "sourcePage" : 44,
+  "tags" : [ ],
+  "description" : "Rune Knights enhance their martial prowess using the supernatural power of runes, an ancient practice that originated with giants. Rune cutters can be found among any family of giants, and you likely learned your methods first or second hand from such a mystical artisan. Whether you found the giant's work carved into a hill or cave, learned of the runes from a sage, or met the giant in person, you studied the giant's craft and learned how to apply magic runes to empower your equipment.",
+  "data" : {
+    "classSlug" : "fighter",
+    "shortName" : "Rune Knight",
+    "additionalSpells" : null,
+    "spellcasting" : null,
+    "tableColumns" : [ ],
+    "optionalFeatureProgressions" : [ {
+      "name" : "Runes",
+      "featureTypes" : [ "RN" ],
+      "countByLevel" : [ 0, 0, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5 ]
+    } ],
+    "features" : [ {
+      "name" : "Bonus Proficiencies",
+      "level" : 3,
+      "sourceBook" : "Tasha's Cauldron of Everything",
+      "sourcePage" : 44,
+      "description" : "3rd-level Rune Knight feature You gain proficiency with smith's tools, and you learn to speak, read, and write Giant.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Rune Carver",
+      "level" : 3,
+      "sourceBook" : "Tasha's Cauldron of Everything",
+      "sourcePage" : 44,
+      "description" : "3rd-level Rune Knight feature You can use magic runes to enhance your gear. You learn two runes of your choice, from among the runes described below, and each time you gain a level in this class, you can replace one rune you know with a different one from this feature. When you reach certain levels in this class, you learn additional runes, as shown in the Runes Known table. Whenever you finish a long rest, you can touch a number of objects equal to the number of runes you know, and you inscribe a different rune onto each of the objects. To be eligible, an object must be a weapon, a suit of armor, a shield, a piece of jewelry, or something else you can wear or hold in a hand. Your rune remains on an object until you finish a long rest, and an object can bear only one of your runes at a time. The following runes are available to you when you learn a rune. If a rune has a level requirement, you must be at least that level in this class to learn the rune. If a rune requires a saving throw, your Rune Magic save DC equals 8 + your proficiency bonus + your Constitution modifier. Hill Rune (7th Level or Higher). Storm Rune (7th Level or Higher).",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ {
+        "name" : "Cloud Rune",
+        "source" : "TCE"
+      }, {
+        "name" : "Fire Rune",
+        "source" : "TCE"
+      }, {
+        "name" : "Frost Rune",
+        "source" : "TCE"
+      }, {
+        "name" : "Stone Rune",
+        "source" : "TCE"
+      }, {
+        "name" : "Hill Rune",
+        "source" : "TCE"
+      }, {
+        "name" : "Storm Rune",
+        "source" : "TCE"
+      } ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Giant's Might",
+      "level" : 3,
+      "sourceBook" : "Tasha's Cauldron of Everything",
+      "sourcePage" : 44,
+      "description" : "3rd-level Rune Knight feature You have learned how to imbue yourself with the might of giants. As a bonus action, you magically gain the following benefits, which last for 1 minute: If you are smaller than Large, you become Large, along with anything you are wearing. If you lack the room to become Large, your size doesn't change. You have advantage on Strength checks and Strength saving throws. Once on each of your turns, one of your attacks with a weapon or an unarmed strike can deal an extra 1d6 damage to a target on a hit. You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses of it when you finish a long rest.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Runic Shield",
+      "level" : 7,
+      "sourceBook" : "Tasha's Cauldron of Everything",
+      "sourcePage" : 44,
+      "description" : "7th-level Rune Knight feature You learn to invoke your rune magic to protect your allies. When another creature you can see within 60 feet of you is hit by an attack roll, you can use your reaction to force the attacker to reroll the d20 and use the new roll. You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Additional Rune Known",
+      "level" : 7,
+      "sourceBook" : "Tasha's Cauldron of Everything",
+      "sourcePage" : 44,
+      "description" : "7th-level Rune Knight feature You learn an additional Rune.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Great Stature",
+      "level" : 10,
+      "sourceBook" : "Tasha's Cauldron of Everything",
+      "sourcePage" : 44,
+      "description" : "10th-level Rune Knight feature The magic of your runes permanently alters you. When you gain this feature, roll 3d4. You grow a number of inches in height equal to the roll. Moreover, the extra damage you deal with your Giant's Might feature increases to 1d8.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Additional Rune Known",
+      "level" : 10,
+      "sourceBook" : "Tasha's Cauldron of Everything",
+      "sourcePage" : 44,
+      "description" : "10th-level Rune Knight feature You learn an additional Rune.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Master of Runes",
+      "level" : 15,
+      "sourceBook" : "Tasha's Cauldron of Everything",
+      "sourcePage" : 44,
+      "description" : "15th-level Rune Knight feature You can invoke each rune you know from your Rune Carver feature twice, rather than once, and you regain all expended uses when you finish a short or long rest.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Additional Rune Known",
+      "level" : 15,
+      "sourceBook" : "Tasha's Cauldron of Everything",
+      "sourcePage" : 44,
+      "description" : "15th-level Rune Knight feature You learn an additional Rune.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Runic Juggernaut",
+      "level" : 18,
+      "sourceBook" : "Tasha's Cauldron of Everything",
+      "sourcePage" : 44,
+      "description" : "18th-level Rune Knight feature You learn how to amplify your rune-powered transformation. As a result, the extra damage you deal with the Giant's Might feature increases to 1d10. Moreover, when you use that feature, your size can increase to Huge, and while you are that size, your reach increases by 5 feet.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    } ]
+  }
+}

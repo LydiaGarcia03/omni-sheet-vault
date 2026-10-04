@@ -1,0 +1,26 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "two-weapon-fighting",
+  "name" : "Two-Weapon Fighting",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 72,
+  "tags" : [ ],
+  "description" : "When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.",
+  "data" : {
+    "featureTypes" : [ "FS:F", "FS:B", "FS:R" ],
+    "optional" : false,
+    "prerequisiteText" : null,
+    "prerequisites" : null,
+    "consumes" : null,
+    "additionalSpells" : null,
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

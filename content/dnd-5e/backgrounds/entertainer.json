@@ -1,0 +1,87 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "entertainer",
+  "name" : "Entertainer",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 130,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. Acrobatics, Performance Tool Proficiencies:. Disguise kit, one type of musical instrument Equipment:. A musical instrument (one of your choice), the favor of an admirer (love letter, lock of hair, or trinket), costume clothes, and a belt pouch containing 15 gp Feature: By Popular Demand. You can always find a place to perform, usually in an inn or tavern but possibly with a circus, at a theater, or even in a noble's court. At such a place, you receive free lodging and food of a modest or comfortable standard (depending on the quality of the establishment), as long as you perform each night. In addition, your performance makes you something of a local figure. When strangers recognize you in a town where you have performed, they typically take a liking to you. Specialty. A good entertainer is versatile, spicing up every performance with a variety of different routines. Choose one to three routines or roll on the table below to define your expertise as an entertainer. Suggested Characteristics. Successful entertainers have to be able to capture and hold an audience's attention, so they tend to have flamboyant or forceful personalities. They're inclined toward the romantic and often cling to high-minded ideals about the practice of art and the appreciation of beauty.",
+  "data" : {
+    "personalityTraits" : [ "I know a story relevant to almost every situation.", "Whenever I come to a new place, I collect local rumors and spread gossip.", "I'm a hopeless romantic, always searching for that \"special someone\".", "Nobody stays angry at me or around me for long, since I can defuse any amount of tension.", "I love a good insult, even one directed at me.", "I get bitter if I'm not the center of attention.", "I'll settle for nothing less than perfection.", "I change my mood or my mind as quickly as I change key in a song." ],
+    "ideals" : [ "Beauty. When I perform, I make the world better than it was. (Good)", "Tradition. The stories, legends, and songs of the past must never be forgotten, for they teach us who we are. (Lawful)", "Creativity. The world is in need of new ideas and bold action. (Chaotic)", "Greed. I'm only in it for the money and fame. (Evil)", "People. I like seeing the smiles on people's faces when I perform. That's all that matters. (Neutral)", "Honesty. Art should reflect the soul; it should come from within and reveal who we really are. (Any)" ],
+    "bonds" : [ "My instrument is my most treasured possession, and it reminds me of someone I love.", "Someone stole my precious instrument, and someday I'll get it back.", "I want to be famous, whatever it takes.", "I idolize a hero of the old tales and measure my deeds against that person's.", "I will do anything to prove myself superior to my hated rival.", "I would do anything for the other members of my old troupe." ],
+    "flaws" : [ "I'll do anything to win fame and renown.", "I'm a sucker for a pretty face.", "A scandal prevents me from ever going home again. That kind of trouble seems to follow me around.", "I once satirized a noble who still wants my head. It was a mistake that I will likely repeat.", "I have trouble keeping my true feelings hidden. My sharp tongue lands me in trouble.", "Despite my best efforts, I am unreliable to my friends." ],
+    "otherTables" : [ {
+      "caption" : null,
+      "colLabels" : [ "d10", "Routines" ],
+      "rows" : [ [ "1", "Actor" ], [ "2", "Dancer" ], [ "3", "Fire-eater" ], [ "4", "Jester" ], [ "5", "Juggler" ], [ "6", "Instrumentalist" ], [ "7", "Poet" ], [ "8", "Singer" ], [ "9", "Storyteller" ], [ "10", "Tumbler" ] ]
+    } ],
+    "features" : [ {
+      "name" : "By Popular Demand",
+      "description" : "You can always find a place to perform, usually in an inn or tavern but possibly with a circus, at a theater, or even in a noble's court. At such a place, you receive free lodging and food of a modest or comfortable standard (depending on the quality of the establishment), as long as you perform each night. In addition, your performance makes you something of a local figure. When strangers recognize you in a town where you have performed, they typically take a liking to you."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "acrobatics", "performance" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ {
+      "fixed" : [ "disguise-kit" ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "musicalInstrument",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "languageAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : null,
+          "equipmentType" : "instrumentMusical",
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "the favor of an admirer (love letter, lock of hair, or trinket)",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "costume-clothes",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 1500,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : null,
+    "prerequisites" : null
+  }
+}

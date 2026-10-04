@@ -31,7 +31,21 @@ missing, say so rather than working from memory.
 | Token | Value |
 | --- | --- |
 | `--font-body` | `Roboto, Helvetica, sans-serif` |
+| `--font-condensed` | `'Roboto Condensed', Roboto, Helvetica, sans-serif` — the dominant UI font on D&D Beyond's own sheet (tab names, filter chips, row names/labels, headings); plain `--font-body` is reserved for a handful of large numeric displays |
+| `--font-ui-native` | `system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif` — roll-target boxes only, matching D&D Beyond's own native-OS-font treatment for its dice buttons specifically |
 | `--line-height-ratio` | `1.4` |
+
+**Both font families were declared from day one but never actually loaded** —
+found 2026-09-03 chasing an owner report that the sheet's fonts "look
+strange": `document.body`'s computed `font-family` was literally the
+browser's absolute default, "Times New Roman", because nothing had ever set
+`font-family` on `body` (every component's own `font-family: inherit` had
+nothing real to inherit) and no `<link>`/`@font-face` loaded either webfont.
+Fixed with a `body { font-family: var(--font-body); }` rule (`frames.css`)
+plus a Google Fonts `<link>` in `index.html` for both Roboto and Roboto
+Condensed. This affects the whole sheet, not one tab — most visible text
+outside the Actions tab was never audited against this baseline and may be
+worth a fresh look now that the actual typeface renders correctly.
 
 Line height is a ratio, not a set of pixel values. Every measured pair confirmed it:
 13/18.2, 16/22.4, 26/36.4.
@@ -71,11 +85,39 @@ used at the table gets the emphasis — keep that hierarchy.
 
 | Token | Value | Purpose |
 | --- | --- | --- |
-| `--frame-ink` | `#4A5D6B` | Frame outline |
-| `--frame-paper` | `#FFFFFF` | Fill behind the frame |
+| `--theme-accent` | `#C53131` (DDB Red) | The D&D 5e theme color, in `systems/dnd5e/themes.css` |
+| `--theme-accent-dark` | accent 79% + black (`#9C2727`) | Filled theme button on hover (Cast) |
+| `--theme-accent-darker` | accent 58.5% + black (`#731D1D`) | Inset shadow of a hovered filled theme button |
+| `--theme-accent-strong` | `var(--theme-accent)`; `#2B69AB` under Cleric Silver | Solid fills (Roll, remaining slots) through `--accent-control-saturated` |
 
-These two restyle every frame at once. That is the whole theming mechanism — a system
-supplies its own pair and its own artwork, and nothing else changes.
+**Per-character themes:**
+- `themes.css` holds one `:root[data-sheet-theme='<id>']` block per D&D
+  Beyond theme. Each sets `--theme-accent`, and Cleric Silver also sets
+  `--theme-accent-strong`.
+- `useSheetTheme` sets the attribute on the root element while a sheet is
+  open, and clears it on leaving, so the builder is always DDB Red.
+- The list of theme ids lives in `systems/dnd5e/sheetThemes.ts` for the web,
+  and in `Dnd5eAppearance.THEMES` for the API.
+| `--frame-ink` | `var(--theme-accent)` | Frame outline |
+| `--frame-paper` | `#FFFFFF` | Fill behind the frame |
+| `--ink-control` | `#4A5D6B` | Dark control ink that D&D Beyond does not theme: the condition toggle, spell and attunement markers, hover borders of the HP buttons. Proficiency dots (saves and skills) are always `#383838`, under every theme |
+
+`--theme-accent` is the single color a theme changes. D&D Beyond applies its
+theme color to:
+- frames;
+- the active tab underline and the active filter chip;
+- subsection headings and links;
+- outlined and filled theme buttons;
+- the portrait border;
+- the header buttons and their icons;
+- the temp HP box;
+- use and slot marks;
+- the dice button.
+
+The sheet maps each of these to `--theme-accent`, directly or through
+`--frame-ink` and `--accent-control`. The builder's `--builder-ink`,
+`--builder-chip-on` and `--builder-pending` use it as well
+(`systems/dnd-5e/features/leveling-and-appearance.md`).
 
 ### Shape and interaction
 
@@ -86,6 +128,21 @@ supplies its own pair and its own artwork, and nothing else changes.
 | `--roll-bg-default` | `transparent` |
 | `--roll-bg-hover` | `rgba(57, 75, 89, 0.10)` |
 | Hover transition | `background-color 120ms ease` |
+| `--accent-control` | `var(--theme-accent)` — active filter chip fill, active tab underline, headings, links, outlined buttons |
+| `--accent-control-hover` | `#525C63` — inactive filter chip on hover; the same under every theme (measured on DDB Red and Cleric Silver). Outlined "Manage" buttons have no hover color change |
+| `--accent-control-saturated` | `var(--theme-accent)` — solid button fill (Roll, remaining-slot badge). A light theme such as Cleric Silver needs a darker value here (`#2B69AB`, the same hue at 60%/42%), because its accent is too low-contrast to read as a filled button |
+| `--surface-control` | `#ECEDEE` — inactive filter chip fill (also its hover text color) |
+| `--text-control-muted` | `#75838B` — inactive filter chip text (also an active chip's hover fill) |
+| `--border-divider` | `#EAEAEA` — subsection-heading and between-row dividers (much lighter than `--border-control`, which stays reserved for solid control outlines) |
+
+The four accent/surface tokens above were DOM-measured 2026-09-03 against D&D
+Beyond's own Actions/Spells/Features filter chips and its tab bar's active
+underline — one recurring blue-gray accent shared by both controls, not the
+pill-shaped, outline-only guess `FilterChips.tsx`/`TabBar.tsx` originally shipped
+with. `--border-divider` was measured the same day against the Attacks section's
+own heading divider and its between-row dividers. See `systems/dnd-5e/sheet-build.md`'s
+"Tab bar"/"Filter chip row"/"Attack row"/"Attacks section heading" rows for the
+full corrected value lists (padding, font-size, gap, hover behavior).
 
 ---
 
@@ -114,26 +171,47 @@ layout and type scale.
 like proficiencies. Each has its own padding, since the plain frame's border is much
 thinner.
 
+**Ornate panel content padding is `13px 20px`**, shared by Saving Throws, Senses,
+Proficiencies, Skills and the tabbed section — a flat pixel value, not proportional to
+box size, matching D&D Beyond's own equivalent boxes despite their own widths ranging
+278–623px.
+
+### Character header (`SheetShell.tsx`)
+
+DOM-measured against D&D Beyond's own character header.
+
+| Property | Value |
+| --- | --- |
+| Background | `#232B2F` |
+| Button border | `1px solid var(--accent-control)` |
+| Button radius | `3px` |
+| Button padding | `5px 13px 4px` |
+| Button icon | `16 x 16` |
+| Button label | `13px / 700 / uppercase`, white |
+
 ---
 
 ## Frame assets
 
-Every frame is applied as a CSS mask, never as an `<img>`. Two stacked layers, paper
-and ink, share one mask; colour comes from the two theme variables. One black asset
-serves every colour and state.
+**Phase 10 asset refactor:** one dedicated SVG per section, replacing the earlier CSS
+`mask-image` div-pair technique (a masked div shows nothing inspectable in DevTools —
+just a colored rectangle, not the artwork). `FrameLayer.tsx` renders the real, imported
+SVG markup (`import x from '...svg?raw'`) for two stacked layers, paper and ink;
+`SectionPanel.tsx` is the generic wrapper every section's own component supplies its
+own `?raw`-imported asset to. Each SVG is stretched to fill its box exactly
+(`forceStretch`, `svgUtils.ts`), same as the old mask's `mask-size: 100% 100%`
+behaviour — every consumer's own CSS dimensions were already tuned for that.
 
-Three asset requirements. All three break the component without breaking the code, and
-all three are checkable before testing:
+Assets live in `apps/web/src/systems/dnd5e/frames/` (`.svg`, imported with `?raw`), one
+file per section — e.g. `dnd_frame_saving_throws.svg`, `dnd_frame_hit_points.svg`. A
+few components legitimately share one asset because every instance is the same size
+and shape (the six ability boxes all use `dnd_frame.svg`) — that is reuse, not the old
+stretch-and-compromise pattern. `apps/web/public/frames/` (`.png`) is the pre-refactor
+location and should no longer gain new files.
 
-1. **Transparent interior, opaque strokes.** The mask reads the alpha channel, so an
-   opaque white interior renders as a solid filled block. This has already happened
-   once.
-2. **Cropped tight to the drawing.** Empty canvas becomes padding and shrinks the
-   frame inside its box.
-3. **Exported at 3x.** These components are small; thin strokes render soft at nominal
-   size.
-
-Assets live in `apps/web/public/frames/`.
+Icons (`dnd_icon_*.svg`, e.g. rest buttons, the inspiration dot, the unchecked-circle
+proficiency marker) live in the same folder, rendered by `FrameIcon.tsx` instead of
+`FrameLayer.tsx` — no paper/ink layering, just the raw SVG.
 
 ---
 
@@ -141,8 +219,16 @@ Assets live in `apps/web/public/frames/`.
 
 Blockers, not suggestions. Ask before inventing one.
 
-- Sheet grid: column widths, gutters, the top row's internal spacing
-- Hit points block, heroic inspiration, skill row, tab bar, sidebar, dice tray
+- Sheet grid: gutter estimated at 16px (reusing the vertical panel-gap value) and
+  every column at the standard 278px panel width, from
+  `design-reference/screenshots/dnd-character-sheet`, not measured live — see
+  `Dnd5eVitalsColumns.tsx`. The top row's internal spacing is still unmeasured.
+- The tab bar's own strip has no dedicated frame (it sits inside the already-framed
+  `Dnd5eTabbedSection` box, `dnd_frame_actions.svg`), the sidebar, and the dice tray —
+  all three are still plain bordered boxes, no frame asset built for any of them.
+  Hit points and heroic inspiration are no longer on this list — both got dedicated
+  frames in the phase 10 asset refactor (`dnd_frame_hit_points.svg`,
+  `dnd_frame_inspiration.svg`).
 - The label's exact colour — currently inheriting `--text-primary`
 
 Measure these in the browser and tune them in the kit, which carries a slider panel

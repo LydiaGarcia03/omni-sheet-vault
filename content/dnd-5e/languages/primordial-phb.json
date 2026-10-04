@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "LANGUAGE",
+  "slug" : "primordial-phb",
+  "name" : "Primordial",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 123,
+  "tags" : [ ],
+  "description" : "Primordial is a guttural language, filled with harsh syllables and hard consonants.",
+  "data" : {
+    "type" : "exotic",
+    "script" : "Dwarvish"
+  }
+}

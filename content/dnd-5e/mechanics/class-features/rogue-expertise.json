@@ -1,0 +1,8 @@
+{
+  "target": { "classSlug": "rogue", "feature": "Expertise" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 94 },
+  "modifiers": [],
+  "choices": [
+    { "type": "EXPERTISE", "count": 2, "from": ["proficientSkills", "thieves-tools"] }
+  ]
+}

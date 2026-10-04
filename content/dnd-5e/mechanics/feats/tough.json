@@ -1,0 +1,8 @@
+{
+  "target": { "feat": "Tough", "source": "PHB" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 170 },
+  "modifiers": [
+    { "type": "BONUS", "target": "HIT_POINTS_PER_LEVEL", "value": 2, "levelScope": "CHARACTER" }
+  ],
+  "choices": []
+}

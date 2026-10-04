@@ -1,0 +1,89 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "smuggler",
+  "name" : "Smuggler",
+  "sourceBook" : "Ghosts of Saltmarsh",
+  "sourceCode" : "GoS",
+  "sourcePage" : 34,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. Athletics, Deception Tool Proficiencies:. Vehicles (water) Equipment:. A fancy leather vest or a pair of leather boots, a set of common clothes, and a leather pouch with 15 gp Feature: Down Low. You are acquainted with a network of smugglers who are willing to help you out of tight situations. While in a particular town, city, or other similarly sized community (DM's discretion), you and your companions can stay for free in safe houses. Safe houses provide a poor lifestyle. While staying at a safe house, you can choose to keep your presence (and that of your companions) a secret. Claim to Fame. Every smuggler has that one tale that sets them apart from common criminals. By wits, sailing skill, or a silver tongue, you lived to tell the story—and you tell it often. You can roll on the following table to determine your claim or choose one that best fits your character. Suggested Characteristics. In general, smugglers value survival, and then profit, above other things. One could be a part of a larger organization, or might run a small smuggling vessel of their own. Smugglers live the lies they have told, and they have a natural ability to recall all the falsehoods and half-truths they have ever spouted.",
+  "data" : {
+    "personalityTraits" : [ "I love being on the water but hate fishing.", "I think of everything in terms of monetary value.", "I never stop smiling.", "Nothing rattles me; I have a lie for every occasion.", "I love gold but won't cheat a friend.", "I enjoy doing things others believe to be impossible.", "I become wistful when I see the sun rise over the ocean.", "I am no common criminal; I am a mastermind." ],
+    "ideals" : [ "Wealth Heaps of coins in a secure vault is all I dream of. (Any)", "Smuggler's Code I uphold the unwritten rules of the smugglers, who do not cheat one another or directly harm innocents. (Lawful)", "All for a Coin I'll do nearly anything if it means I turn a profit. (Evil)", "Peace and Prosperity I smuggle only to achieve a greater goal that benefits my community. (Good)", "People For all my many lies, I place a high value on friendship. (Any)", "Daring I am most happy when risking everything. (Any)" ],
+    "bonds" : [ "My vessel was stolen from me, and I burn with the desire to recover it.", "I intend to become the leader of the network of smugglers that I belong to.", "I owe a debt that cannot be repaid in gold.", "After one last job, I will retire from the business.", "I was tricked by a fellow smuggler who stole something precious from me. I will find that thief.", "I give most of my profits to a charitable cause, and I don't like to brag about it." ],
+    "flaws" : [ "Lying is reflexive, and I sometimes engage in it without realizing.", "I tend to assess my relationships in terms of profit and loss.", "I believe everyone has a price and am cynical toward those who present themselves as virtuous.", "I struggle to trust the words of others.", "Few people know the real me.", "Though I act charming, I feel nothing for others and don't know what friendship is." ],
+    "otherTables" : [ {
+      "caption" : null,
+      "colLabels" : [ "d6", "Accomplishment" ],
+      "rows" : [ [ "1", "Spirit of the Whale. You smuggled stolen dwarven spirits in the body of a dead whale being pulled behind a fishing boat. When you delivered the goods, the corpse suddenly exploded, sending whale meat and whiskey bottles for half a mile." ], [ "2", "Cart and Sword. You drove a cart filled with stolen art through the middle of a battlefield while singing sea shanties to confuse the combatants." ], [ "3", "The Recruit. You enlisted in another nation's navy for the purpose of smuggling stolen jewels to a distant port. You attained a minor rank before disappearing from the navy and making your way here." ], [ "4", "River of Shadows. Your riverboat accidentally slipped through the veil into the Shadowfell for several hours. While you were there, you sold some stolen dragonborn artifacts before returning to this plane and paddling home." ], [ "5", "Gold-Hearted. You agreed to transport a family escaping a war. The baby began to cry at a checkpoint, and you gave the guards all your gold to let you pass. The family never found out about this gesture." ], [ "6", "Playing Both Sides. You once smuggled crates of crossbow bolts and bundles of arrows, each destined for an opposing side in a regional war, at the same time. The buyers arrived within moments of each other but did not discover your trickery." ] ]
+    } ],
+    "features" : [ {
+      "name" : "Down Low",
+      "description" : "You are acquainted with a network of smugglers who are willing to help you out of tight situations. While in a particular town, city, or other similarly sized community (DM's discretion), you and your companions can stay for free in safe houses. Safe houses provide a poor lifestyle. While staying at a safe house, you can choose to keep your presence (and that of your companions) a secret."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "athletics", "deception" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ {
+      "fixed" : [ "vehicles-water" ],
+      "choices" : [ ]
+    } ],
+    "languageAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : "a",
+        "grants" : [ {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "fancy leather vest",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        } ]
+      }, {
+        "label" : "b",
+        "grants" : [ {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "pair of leather boots",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        } ]
+      } ]
+    }, {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : "common-clothes",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 1500,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : null,
+    "prerequisites" : null
+  }
+}

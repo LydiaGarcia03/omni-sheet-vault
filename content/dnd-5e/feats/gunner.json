@@ -1,0 +1,39 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "FEAT",
+  "slug" : "gunner",
+  "name" : "Gunner",
+  "sourceBook" : "Tasha's Cauldron of Everything",
+  "sourceCode" : "TCE",
+  "sourcePage" : 80,
+  "tags" : [ ],
+  "description" : "You have a quick hand and keen eye when employing firearms, granting you the following benefits: You gain proficiency with firearms (see \"Firearms\" in the Dungeon Master's Guide). You ignore the loading property of firearms. Being within 5 feet of a hostile creature doesn't impose disadvantage on your ranged attack rolls.",
+  "data" : {
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "dexterity" : 1
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ ],
+    "weaponAlternatives" : [ {
+      "fixed" : [ "firearms" ],
+      "choices" : [ ]
+    } ],
+    "armorAlternatives" : [ ],
+    "savingThrowAlternatives" : [ ],
+    "expertiseAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "optionalFeatureProgressions" : [ ],
+    "additionalSpells" : null,
+    "prerequisites" : null,
+    "repeatable" : false,
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

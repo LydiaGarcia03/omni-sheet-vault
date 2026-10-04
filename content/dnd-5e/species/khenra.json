@@ -1,0 +1,84 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "khenra",
+  "name" : "Khenra",
+  "sourceBook" : "Plane Shift: Amonkhet",
+  "sourceCode" : "PSA",
+  "sourcePage" : 17,
+  "tags" : [ ],
+  "description" : "Age. Khenra mature quickly, reaching adulthood in their early teens. Khenra initiates are usually the youngest in a crop, completing the trials by their late teens. Even without a violent death, they rarely live past 60. Alignment. Most khenra lean toward chaotic alignments. They have no particular inclination toward good or evil. Size. Khenra have similar builds to humans. Your size is Medium. Khenra Weapon Training. You have proficiency with the khopesh (longsword), spear, and javelin. Khenra Twins. If your twin is alive and you can see your twin, whenever you roll a 1 on an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll. If your twin is dead (or if you were born without a twin), you can't be frightened. Languages. You can speak, read, and write Common and Khenra.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 35
+    },
+    "senses" : [ ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "dexterity" : 2,
+        "strength" : 1
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "other" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ {
+      "fixed" : [ "longsword", "spear", "javelin" ],
+      "choices" : [ ]
+    } ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : {
+      "mature" : 13,
+      "max" : 60
+    },
+    "heightAndWeight" : null,
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Age",
+      "description" : "Khenra mature quickly, reaching adulthood in their early teens. Khenra initiates are usually the youngest in a crop, completing the trials by their late teens. Even without a violent death, they rarely live past 60."
+    }, {
+      "name" : "Alignment",
+      "description" : "Most khenra lean toward chaotic alignments. They have no particular inclination toward good or evil."
+    }, {
+      "name" : "Size",
+      "description" : "Khenra have similar builds to humans. Your size is Medium."
+    }, {
+      "name" : "Khenra Weapon Training",
+      "description" : "You have proficiency with the khopesh (longsword), spear, and javelin."
+    }, {
+      "name" : "Khenra Twins",
+      "description" : "If your twin is alive and you can see your twin, whenever you roll a 1 on an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll. If your twin is dead (or if you were born without a twin), you can't be frightened."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and Khenra."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

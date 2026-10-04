@@ -1,0 +1,7 @@
+{
+  "target": { "subclassSlug": "fighter-battle-master", "feature": "Additional Superiority Die" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 73 },
+  "modifiers": [],
+  "uses": { "resource": "superiority-dice", "add": 1 },
+  "choices": []
+}

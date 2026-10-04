@@ -1,0 +1,56 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "ITEM",
+  "slug" : "ring-of-animal-influence",
+  "name" : "Ring of Animal Influence",
+  "sourceBook" : "Dungeon Master's Guide",
+  "sourceCode" : "DMG",
+  "sourcePage" : 189,
+  "tags" : [ ],
+  "description" : "This ring has 3 charges, and it regains 1d3 expended charges daily at dawn. While wearing the ring, you can use an action to expend 1 of its charges to cast one of the following spells:",
+  "data" : {
+    "itemKind" : "GEAR",
+    "typeLabel" : "Ring",
+    "rarity" : "rare",
+    "focusType" : null,
+    "requiresAttunement" : false,
+    "attunementRequirement" : null,
+    "weightLb" : null,
+    "costGp" : null,
+    "weaponCategory" : null,
+    "attackType" : null,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "versatileDamageDiceCount" : null,
+    "versatileDamageDiceSides" : null,
+    "properties" : [ ],
+    "finesse" : false,
+    "normalRange" : null,
+    "longRange" : null,
+    "armorCategory" : null,
+    "baseArmorClass" : null,
+    "stealthDisadvantage" : false,
+    "strengthRequirement" : null,
+    "weaponAttackBonus" : null,
+    "weaponDamageBonus" : null,
+    "armorClassBonus" : null,
+    "charges" : 3,
+    "rechargeTrigger" : "Dawn",
+    "rechargeFormula" : "1d3",
+    "grantedSpells" : [ {
+      "spellSlug" : "animal-friendship",
+      "chargeCost" : 1,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "fear",
+      "chargeCost" : 1,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "speak-with-animals",
+      "chargeCost" : 1,
+      "fixedSaveDc" : null
+    } ],
+    "mechanics" : null
+  }
+}

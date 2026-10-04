@@ -1,0 +1,52 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "ITEM",
+  "slug" : "tidecaller-trident",
+  "name" : "Tidecaller Trident",
+  "sourceBook" : "The Book of Many Things",
+  "sourceCode" : "BMT",
+  "sourcePage" : 69,
+  "tags" : [ ],
+  "description" : "You gain a +2 bonus to attack and damage rolls made with this magic trident. You also have advantage on attack rolls made with this weapon while underwater. This trident has 3 charges. You can expend 1 charge to cast Control Water (save DC 15) from the trident or 3 charges to cast Tsunami (save DC 15) from it instead. The trident regains 1d3 expended charges daily at dawn.",
+  "data" : {
+    "itemKind" : "GEAR",
+    "typeLabel" : "Melee Weapon",
+    "rarity" : "very rare",
+    "focusType" : null,
+    "requiresAttunement" : true,
+    "attunementRequirement" : null,
+    "weightLb" : 4.0,
+    "costGp" : null,
+    "weaponCategory" : null,
+    "attackType" : null,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "versatileDamageDiceCount" : null,
+    "versatileDamageDiceSides" : null,
+    "properties" : [ ],
+    "finesse" : false,
+    "normalRange" : null,
+    "longRange" : null,
+    "armorCategory" : null,
+    "baseArmorClass" : null,
+    "stealthDisadvantage" : false,
+    "strengthRequirement" : null,
+    "weaponAttackBonus" : 2,
+    "weaponDamageBonus" : 2,
+    "armorClassBonus" : null,
+    "charges" : 3,
+    "rechargeTrigger" : "Dawn",
+    "rechargeFormula" : "1d3",
+    "grantedSpells" : [ {
+      "spellSlug" : "control-water",
+      "chargeCost" : 1,
+      "fixedSaveDc" : 15
+    }, {
+      "spellSlug" : "tsunami",
+      "chargeCost" : 3,
+      "fixedSaveDc" : 15
+    } ],
+    "mechanics" : null
+  }
+}

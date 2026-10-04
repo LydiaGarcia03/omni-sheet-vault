@@ -1,7 +1,7 @@
 # Feature — character sheet
 
 How the sheet behaves. Layout and styling live in `ui-design-system.md`,
-`ui-design-tokens.md` and `rulesets/<system>-sheet-ui.md`; this document is about what
+`ui-design-tokens.md` and `systems/<system-id>/sheet-ui.md`; this document is about what
 happens when the player interacts with it.
 
 ## Scope
@@ -51,13 +51,22 @@ Consequences:
 
 Manual rolls from the dice tray follow the same path, with no source attached.
 
+Character-builder rolls (`POST /api/characters/{id}/rolls/creation`, allowed on a
+draft) send the dice the build plan describes: a die, a count, an optional "keep
+highest N" and a label.
+- The server still generates the result and records it.
+- `4d6kh3` keeps the three highest dice; every die stays in `results`, and the
+  response lists the dropped ones in `dropped`.
+- Labels read "Strength (4d6 drop lowest)" or "Hit points, Warlock 2 (d8)".
+
 ## Mutations
 
 Each mutation persists immediately. There is no explicit save.
 
 | Mutation | Notes |
 | --- | --- |
-| Hit points | Damage, healing, temporary hit points. Damage consumes temporary first |
+| Hit points | Damage, healing, temporary hit points. Damage consumes temporary first. Damage can be flagged `critical` |
+| Death saves | At 0 hit points the hit points box becomes the Death Saves box. The rules are the PHB's, in the API: dropping to 0 starts fresh counts; damage at 0 is 1 failure (2 on a critical); overflow damage of at least the maximum kills outright; a stable character who takes damage starts dying again; any healing clears the counts. Counts can be set by hand (`PUT …/death-saves`) or rolled (`POST …/death-saves/roll`, a logged d20: 10+ succeeds, a natural 1 is two failures, a natural 20 is back at 1 HP) |
 | Resource use | Marking uses spent or restored |
 | Resource spend with amount | The player chooses how much, not just one unit |
 | Spell slot | Consumed at the level chosen when casting, not the spell's base level |
