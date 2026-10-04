@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
 import tools.jackson.databind.node.ArrayNode;
@@ -24,7 +22,7 @@ final class BackgroundConverter implements FiveEToolsConverter {
     private static final Map<String, String> CHARACTERISTIC_FIELDS = Map.of(
             "personality trait", "personalityTraits", "trait", "personalityTraits",
             "ideal", "ideals", "bond", "bonds", "flaw", "flaws");
-    private static final Pattern FEATURE_NAME = Pattern.compile("^(?:.*\\s)?Feature:\\s*(.+)$");
+    private static final String FEATURE_MARKER = "Feature:";
     private static final String REVISED_2024_EDITION = "one";
 
     private final ObjectMapper objectMapper;
@@ -164,14 +162,28 @@ final class BackgroundConverter implements FiveEToolsConverter {
             if (!entry.isObject() || entry.get("name") == null) {
                 continue;
             }
-            Matcher matcher = FEATURE_NAME.matcher(entry.get("name").asString());
-            if (matcher.matches() || entry.path("data").path("isFeature").asBoolean(false)) {
+            String title = entry.get("name").asString();
+            String featureName = featureName(title);
+            if (featureName != null || entry.path("data").path("isFeature").asBoolean(false)) {
                 ObjectNode feature = features.addObject();
-                feature.put("name", matcher.matches() ? matcher.group(1) : entry.get("name").asString());
+                feature.put("name", featureName != null ? featureName : title);
                 feature.put("description", TagMarkupStripper.strip(FiveEToolsEntries.flatten(entry.get("entries"))));
             }
         }
         return features;
+    }
+
+    /** The name after the last word-starting "Feature:" in a block title, or null when there is none. */
+    static String featureName(String title) {
+        int at = title.lastIndexOf(FEATURE_MARKER);
+        while (at > 0 && !Character.isWhitespace(title.charAt(at - 1))) {
+            at = title.lastIndexOf(FEATURE_MARKER, at - 1);
+        }
+        if (at < 0) {
+            return null;
+        }
+        String name = title.substring(at + FEATURE_MARKER.length()).stripLeading();
+        return name.isEmpty() ? null : name;
     }
 
     private JsonNode copyOrNull(JsonNode node) {

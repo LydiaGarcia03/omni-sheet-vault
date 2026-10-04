@@ -9,5 +9,9 @@ sonar {
         property 'sonar.projectKey', 'lydiagarcia03_omni-sheet-vault'
         property 'sonar.projectName', 'omni-sheet-vault'
         property 'sonar.exclusions', '**/build/**,**/node_modules/**'
+        // Flyway migrations are PostgreSQL; the PL/SQL (Oracle) rules don't apply to them
+        property 'sonar.issue.ignore.multicriteria', 'plsqlMigrations'
+        property 'sonar.issue.ignore.multicriteria.plsqlMigrations.ruleKey', 'plsql:*'
+        property 'sonar.issue.ignore.multicriteria.plsqlMigrations.resourceKey', '**/db/migration/**'
     }
 }

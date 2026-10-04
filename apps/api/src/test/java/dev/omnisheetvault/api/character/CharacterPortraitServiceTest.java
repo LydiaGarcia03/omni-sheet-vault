@@ -3,6 +3,7 @@ package dev.omnisheetvault.api.character;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import dev.omnisheetvault.api.storage.MinioTestImage;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -34,7 +35,7 @@ class CharacterPortraitServiceTest {
     static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:17-alpine");
 
     @Container
-    static MinIOContainer minio = new MinIOContainer("minio/minio:latest");
+    static MinIOContainer minio = new MinIOContainer(MinioTestImage.IMAGE);
 
     @DynamicPropertySource
     static void storage(DynamicPropertyRegistry registry) {

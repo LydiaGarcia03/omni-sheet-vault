@@ -2,6 +2,8 @@ package dev.omnisheetvault.api.character;
 
 import dev.omnisheetvault.api.dice.Roll;
 import java.time.Instant;
+import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -11,9 +13,10 @@ import java.util.UUID;
  * {@code POST /rolls} endpoint (see {@code RollService#spendHitDice}'s doc
  * comment for why the roll and the sheet mutation happen together).
  */
-record HitDiceRollResponse(UUID id, String expression, String context, int[] results, int total, Instant rolledAt) {
+record HitDiceRollResponse(UUID id, String expression, String context, List<Integer> results, int total, Instant rolledAt) {
 
     static HitDiceRollResponse from(Roll roll) {
-        return new HitDiceRollResponse(roll.id(), roll.expression(), roll.context(), roll.results(), roll.total(), roll.rolledAt());
+        return new HitDiceRollResponse(roll.id(), roll.expression(), roll.context(),
+                Arrays.stream(roll.results()).boxed().toList(), roll.total(), roll.rolledAt());
     }
 }

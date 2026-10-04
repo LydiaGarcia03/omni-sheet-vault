@@ -19,7 +19,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 class S3PortraitStorageTest {
 
     @Container
-    static MinIOContainer minio = new MinIOContainer("minio/minio:latest");
+    static MinIOContainer minio = new MinIOContainer(MinioTestImage.IMAGE);
 
     private final HttpClient http = HttpClient.newHttpClient();
     private S3PortraitStorage storage;

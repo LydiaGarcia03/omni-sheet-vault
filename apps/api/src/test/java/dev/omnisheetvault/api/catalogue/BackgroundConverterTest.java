@@ -99,4 +99,14 @@ class BackgroundConverterTest {
                "_copy":{"name":"Soldier","source":"PHB","_mod":{"entries":{"mode":"insertArr","index":1,
                  "items":{"type":"entries","name":"Baldur's Gate Feature: Flaming Fist Veteran","entries":["You served."]}}}}}]}
             """;
+
+    @Test
+    void readsTheFeatureNameAfterAWordStartingFeatureMarker() {
+        assertThat(BackgroundConverter.featureName("Feature: Military Rank")).isEqualTo("Military Rank");
+        assertThat(BackgroundConverter.featureName("Baldur's Gate Feature:  Religious Community")).isEqualTo("Religious Community");
+        assertThat(BackgroundConverter.featureName("Variant Feature: Researcher")).isEqualTo("Researcher");
+        assertThat(BackgroundConverter.featureName("Suggested Characteristics")).isNull();
+        assertThat(BackgroundConverter.featureName("NoFeature: Here")).isNull();
+        assertThat(BackgroundConverter.featureName("Feature:")).isNull();
+    }
 }

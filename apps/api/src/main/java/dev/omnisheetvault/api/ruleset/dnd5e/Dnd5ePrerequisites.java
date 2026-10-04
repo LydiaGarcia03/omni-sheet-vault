@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.regex.Pattern;
 import tools.jackson.databind.JsonNode;
 
 /**
@@ -18,6 +19,7 @@ final class Dnd5ePrerequisites {
     private static final Map<String, String> ABILITY_KEYS = Map.of(
             "str", "strength", "dex", "dexterity", "con", "constitution",
             "int", "intelligence", "wis", "wisdom", "cha", "charisma");
+    private static final Pattern SLUG_SEPARATORS = Pattern.compile("[^a-z0-9]++");
 
     record Result(boolean met, List<String> unverified) {
     }
@@ -137,6 +139,15 @@ final class Dnd5ePrerequisites {
     }
 
     static String slug(String name) {
-        return name.toLowerCase(Locale.ROOT).replace("'", "").replaceAll("[^a-z0-9]+", "-").replaceAll("^-+|-+$", "");
+        String hyphenated = SLUG_SEPARATORS.matcher(name.toLowerCase(Locale.ROOT).replace("'", "")).replaceAll("-");
+        int start = 0;
+        int end = hyphenated.length();
+        while (start < end && hyphenated.charAt(start) == '-') {
+            start++;
+        }
+        while (end > start && hyphenated.charAt(end - 1) == '-') {
+            end--;
+        }
+        return hyphenated.substring(start, end);
     }
 }

@@ -11,7 +11,7 @@ Record every dependency and version change here.
 | Gradle | 9.x | Build rooted at the repository; backend is `:apps:api` |
 | PostgreSQL | 17 | JSONB for system-specific sheet payloads |
 | Flyway | Managed by Boot | Needs `flyway-database-postgresql` alongside `flyway-core`, **and** `spring-boot-flyway` — see constraint below |
-| Testcontainers | Managed by Boot | Real PostgreSQL in tests; H2 is forbidden. The `minio` module (test only, 2026-09-25) runs a real MinIO for the portrait storage tests |
+| Testcontainers | Managed by Boot | Real PostgreSQL in tests; H2 is forbidden. The `minio` module (test only, 2026-09-25) runs a real MinIO for the portrait storage tests. Since 2026-10-04 on `cgr.dev/chainguard/minio` pinned by digest (`MinioTestImage`): MinIO stopped publishing public images, so `minio/minio` no longer pulls on CI |
 | `jpackage` (JDK 25) | JDK tool | The desktop edition's Windows package (`:apps:desktop:packageDesktop`), as an `--type app-image` zipped for sharing. No new dependency. An `.exe` or `.msi` installer would also need the WiX toolset, which isn't installed |
 | `io.zonky.test:embedded-postgres` | 2.2.2, binaries BOM `17.11.0` | Approved by the owner 2026-09-27. The desktop edition's database (`features/desktop-edition.md`): real PostgreSQL 17 binaries, started by the app. Despite "test" in the name it runs a real server. It brings binaries for Windows, macOS, Linux and Alpine; the installer can drop the unused ones later |
 | AWS SDK for Java v2, `s3` | BOM `2.55.5` | Portrait storage over the S3 API (`S3PortraitStorage`): MinIO locally, any S3-compatible provider elsewhere; signed GET URLs via `S3Presigner`. Agreed with the owner 2026-09-25 (D2j) |
@@ -122,7 +122,7 @@ and SEO would add complexity with no benefit.
 | --- | --- | --- |
 | PostgreSQL | `postgres:17-alpine` | 5432 |
 | Keycloak | `quay.io/keycloak/keycloak` | 8081 |
-| MinIO | `minio/minio` | 9000 API, 9001 console |
+| MinIO | `minio/minio` (works only where already pulled: the image is no longer public; a fresh machine needs another source, e.g. `cgr.dev/chainguard/minio`) | 9000 API, 9001 console |
 
 Keycloak keeps its own database inside the same PostgreSQL container, created by a
 first-boot script in `infra/postgres/init/`.

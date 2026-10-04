@@ -267,7 +267,7 @@ corner.
   component): D&D 5e is the ampersand logo (a PNG used as a CSS mask) and
   "Dungeons & Dragons" in Modesto Bold Condensed (not bundled: commercial, so
   it falls back to the heading font where it isn't installed), both in the
-  brand red `#EC2127`, at 15 px so it stays smaller than the app's name;
+  muted brand red `--dnd5e-brand-red-muted` (`#C53131`, the sheet's DDB Red), at 15 px so it stays smaller than the app's name;
   "5th edition · 2014" muted, centred on the name.
 - **Rule (owner, 2026-10-04):** the bar is the same for every system: its
   black background, the app's logo and name, their font and size, the back

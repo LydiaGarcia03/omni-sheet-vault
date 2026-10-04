@@ -33,6 +33,31 @@ deliberately left out.
 - **To check before a public push:** where `old-paper.jpg` came from and its
   licence (it was saved from the web).
 
+## 2026-10-04 — PR #8 checks: MinIO test image and Sonar quality gate
+
+- **CI test failures** (`CharacterPortraitServiceTest`, `S3PortraitStorageTest`,
+  `ContainerFetchException`): `minio/minio:latest` can't be pulled anymore
+  (MinIO stopped publishing public images). Both tests now use
+  `MinioTestImage.IMAGE`, Chainguard's MinIO pinned by digest.
+  `docker-compose.yml` still says `minio/minio:latest`; it runs where the
+  image is cached but not on a fresh machine.
+- **Sonar quality gate** (failed on reliability C and security B; 267 issues,
+  maintainability already A). Reliability fixes:
+  - Backtracking regexes made possessive (`ItemConverter`, `SpellConverter`,
+    `TagMarkupStripper`, `Dnd5eBuildPlanner`); the hyphen trim in both
+    `slug()`s and `BackgroundConverter`'s "Feature:" title match are plain
+    string code now (`featureName`, with a test).
+  - `RollResponse` and `HitDiceRollResponse` carry `List<Integer>` instead of
+    `int[]` (same JSON).
+  - `Math.clamp` sums widened to `long` (`Dnd5eFormulas`, `Dnd5eSheetMutator`).
+  - PL/SQL rules ignored on `db/migration/**` (`build.gradle`): the
+    migrations are PostgreSQL, and applied ones can't be edited anyway.
+- Left for the owner: the security finding (desktop profile's
+  `cookie.secure: false`, needed because the desktop edition serves plain
+  HTTP on 127.0.0.1) has to be marked as reviewed in SonarCloud. The other
+  ~240 maintainability issues don't fail the gate.
+- `:apps:api:check` green.
+
 ## 2026-10-04 — D&D header logo in brand red; VtM XP answer (Q5)
 
 - `Dnd5eSystemMark`: the D&D ampersand logo before the name, made from the

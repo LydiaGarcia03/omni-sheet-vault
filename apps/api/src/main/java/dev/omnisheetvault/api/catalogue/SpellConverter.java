@@ -35,7 +35,7 @@ final class SpellConverter implements FiveEToolsConverter {
     private static final Pattern FIRST_DICE = Pattern.compile("\\{@dice\\s+(\\d+)d(\\d+)");
     /** {@code {@scaledamage}}/{@code {@scaledice}}'s own 3rd pipe segment — the per-slot-level-above-base increment, always plain dice notation (confirmed 2026-09-17 against real data, see TagMarkupStripper). */
     private static final Pattern SCALING_PER_LEVEL_DICE =
-            Pattern.compile("\\{@(?:scaledamage|scaledice)\\s+[^|{}]*\\|[^|{}]*\\|(\\d+)d(\\d+)");
+            Pattern.compile("\\{@(?:scaledamage|scaledice)\\s[^|{}]*+\\|[^|{}]*+\\|(\\d++)d(\\d++)");
 
     private static final String CLASS_LISTS_FILE = "spells/sources.json";
     private static final String SOURCE_LOOKUP_FILE = "generated/gendata-spell-source-lookup.json";

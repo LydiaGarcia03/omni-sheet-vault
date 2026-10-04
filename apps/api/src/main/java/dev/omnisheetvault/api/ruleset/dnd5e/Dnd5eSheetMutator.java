@@ -134,7 +134,7 @@ public class Dnd5eSheetMutator implements SheetMutator {
         if (change == 0 || before.currentHitPoints() == 0) {
             return after;
         }
-        int current = Math.clamp(before.currentHitPoints() + change, 0, newMaximum);
+        int current = Math.clamp((long) before.currentHitPoints() + change, 0, newMaximum);
         return after.withSessionState(current, after.temporaryHitPoints(), after.heroicInspiration(), after.activeConditions());
     }
 

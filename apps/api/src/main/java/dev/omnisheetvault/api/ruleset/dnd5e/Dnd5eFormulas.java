@@ -77,7 +77,7 @@ final class Dnd5eFormulas {
             return customization.overrideScore();
         }
         int otherModifier = customization.otherModifier() == null ? 0 : customization.otherModifier();
-        return Math.clamp(itemScore(sheet, ability, score) + otherModifier, 1, 30);
+        return Math.clamp((long) itemScore(sheet, ability, score) + otherModifier, 1, 30);
     }
 
     /** The score with an active item's set score applied when higher. */

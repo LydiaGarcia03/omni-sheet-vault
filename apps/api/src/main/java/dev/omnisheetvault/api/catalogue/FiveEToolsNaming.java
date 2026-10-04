@@ -25,7 +25,19 @@ final class FiveEToolsNaming {
     static String slug(String name) {
         String withoutApostrophes = name.toLowerCase(Locale.ROOT).replace("'", "");
         String slug = SLUG_SEPARATORS.matcher(withoutApostrophes).replaceAll("-");
-        return slug.replaceAll("^-+|-+$", "");
+        return trimHyphens(slug);
+    }
+
+    private static String trimHyphens(String text) {
+        int start = 0;
+        int end = text.length();
+        while (start < end && text.charAt(start) == '-') {
+            start++;
+        }
+        while (end > start && text.charAt(end - 1) == '-') {
+            end--;
+        }
+        return text.substring(start, end);
     }
 
     /** Strips a trailing {@code |SOURCE} tag some 5etools codes carry (e.g. a {@code type} of {@code "WD|DMG"}). */

@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
  */
 final class TagMarkupStripper {
 
-    private static final Pattern TAG = Pattern.compile("\\{@(\\w+)(?:\\s+([^{}]*))?}");
+    private static final Pattern TAG = Pattern.compile("\\{@(\\w++)(?:\\s++([^{}]*+))?}");
 
     private static final Set<String> TEXT_STYLE_TAGS = Set.of(
             "b", "bold", "i", "italic", "s", "strike", "s2", "strikeDouble", "u", "underline", "u2",
