@@ -6,6 +6,7 @@ import dev.omnisheetvault.api.ruleset.CatalogueRecord;
 import dev.omnisheetvault.api.ruleset.ChoicePlacement;
 import dev.omnisheetvault.api.ruleset.CreationChoice;
 import dev.omnisheetvault.api.ruleset.CreationChoiceOption;
+import dev.omnisheetvault.api.shared.DiceNotation;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -18,8 +19,6 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.TreeMap;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.stream.StreamSupport;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.node.ArrayNode;
@@ -43,7 +42,7 @@ final class Dnd5eBuildPlanner {
     private static final int ABILITY_ROLL_DICE = 4;
     private static final int ABILITY_ROLL_SIDES = 6;
     private static final int ABILITY_ROLL_KEPT = 3;
-    private static final Pattern GOLD_DICE = Pattern.compile("(?<!\\d)(\\d++)d(\\d++)(?:\\s*+[×x*]\\s*+(\\d++))?");
+    private static final String GOLD_MULTIPLY_SIGNS = "×x*";
     private static final List<String> ABILITIES =
             List.of("strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma");
     private static final Set<String> SPECIES_SCALARS = Set.of("size", "speed");
@@ -372,15 +371,25 @@ final class Dnd5eBuildPlanner {
 
     /** Starting gold at its average, like hit points: "4d4 × 10" gp is 4 × 2.5 × 10 = 100 gp. */
     private int averageGoldInCopper(String goldText) {
-        Matcher matcher = GOLD_DICE.matcher(goldText);
-        if (!matcher.find()) {
+        Optional<DiceNotation.Found> found = DiceNotation.first(goldText);
+        if (found.isEmpty()) {
             problems.add("Unreadable starting gold: " + goldText);
             return 0;
         }
-        int dice = Integer.parseInt(matcher.group(1));
-        int faces = Integer.parseInt(matcher.group(2));
-        int multiplier = matcher.group(3) == null ? 1 : Integer.parseInt(matcher.group(3));
-        return dice * (faces + 1) * multiplier * 100 / 2;
+        DiceNotation.Found dice = found.get();
+        return dice.count() * (dice.faces() + 1) * goldMultiplier(goldText, dice.end()) * 100 / 2;
+    }
+
+    /** The "× 10" after the gold dice, or 1 when there is none. */
+    private static int goldMultiplier(String goldText, int afterDice) {
+        int at = afterDice;
+        while (at < goldText.length() && Character.isWhitespace(goldText.charAt(at))) {
+            at++;
+        }
+        if (at < goldText.length() && GOLD_MULTIPLY_SIGNS.indexOf(goldText.charAt(at)) >= 0) {
+            return DiceNotation.numberAt(goldText, at + 1).orElse(1);
+        }
+        return 1;
     }
 
     private CatalogueRecord planClassLevels(CatalogueRecord playerClass, Dnd5eBuildClass buildClass) {
@@ -431,7 +440,8 @@ final class Dnd5eBuildPlanner {
 
     /** "Martial Archetype feature" rows only say a subclass feature arrives; D&D Beyond doesn't list them either. */
     private static boolean isSubclassPlaceholder(JsonNode feature) {
-        return feature.path("grantsSubclassFeature").asBoolean(false) && text(feature, "name").endsWith(" feature");
+        String name = text(feature, "name");
+        return feature.path("grantsSubclassFeature").asBoolean(false) && name != null && name.endsWith(" feature");
     }
 
     private Optional<CatalogueRecord> chooseSubclass(CatalogueRecord playerClass, Dnd5eBuildClass buildClass, String source) {
@@ -905,6 +915,9 @@ final class Dnd5eBuildPlanner {
 
     /** A grant that needs no further pick: a catalogue item, a free-text trinket, or coins (a pouch's contents too). */
     private void recordFixedGrant(JsonNode grant, int quantity) {
+        if (grant == null) {
+            return;
+        }
         if (text(grant, "itemSlug") != null) {
             outcome.addStartingItem(text(grant, "itemSlug"), null, quantity, text(grant, "displayName"));
         } else if (text(grant, "special") != null) {

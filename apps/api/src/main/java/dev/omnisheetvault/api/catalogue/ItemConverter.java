@@ -1,5 +1,6 @@
 package dev.omnisheetvault.api.catalogue;
 
+import dev.omnisheetvault.api.shared.DiceNotation;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -62,7 +63,6 @@ final class ItemConverter implements FiveEToolsConverter {
     private static final Map<String, String> DAMAGE_TYPE_NAMES =
             Map.of("B", "bludgeoning", "P", "piercing", "S", "slashing");
 
-    private static final Pattern DICE = Pattern.compile("(?<!\\d)(\\d++)d(\\d++)");
     /** A charge-cast item's own flat save DC, e.g. Wand of Fireballs' "cast the fireball spell (save {@dc 15})" — a fact of the item, not the wielder's own spellcasting ability. */
     private static final Pattern FIXED_SAVE_DC = Pattern.compile("\\{@dc\\s+(\\d+)");
 
@@ -308,11 +308,9 @@ final class ItemConverter implements FiveEToolsConverter {
         if (diceNode == null) {
             return Dice.NONE;
         }
-        Matcher matcher = DICE.matcher(diceNode.asString());
-        if (matcher.find()) {
-            return new Dice(Integer.valueOf(matcher.group(1)), Integer.valueOf(matcher.group(2)));
-        }
-        return Dice.NONE;
+        return DiceNotation.first(diceNode.asString())
+                .map(found -> new Dice(found.count(), found.faces()))
+                .orElse(Dice.NONE);
     }
 
     private static String damageTypeName(JsonNode dmgType) {

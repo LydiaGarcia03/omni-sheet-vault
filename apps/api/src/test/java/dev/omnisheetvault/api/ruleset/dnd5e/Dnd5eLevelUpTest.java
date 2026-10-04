@@ -91,7 +91,7 @@ class Dnd5eLevelUpTest {
     void fixedHitPointsAskNothingForTheNewLevel() {
         BuildPlan plan = plan(flow.withLevelUp(json(fighter(1, null, 13)), "fighter", CATALOGUE));
 
-        assertThat(plan.choices()).extracting(CreationChoice::type).doesNotContain("ROLLED_HIT_POINTS");
+        assertThat(plan.choices()).isNotEmpty().extracting(CreationChoice::type).doesNotContain("ROLLED_HIT_POINTS");
     }
 
     @Test

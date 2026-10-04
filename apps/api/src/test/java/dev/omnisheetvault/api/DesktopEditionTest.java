@@ -64,7 +64,12 @@ class DesktopEditionTest {
     private JdbcTemplate jdbcTemplate;
 
     @BeforeAll
-    static void bundleThreeConditions() throws IOException {
+    static void bundleContentAndAWebApp() throws IOException {
+        bundleThreeConditions();
+        bundleAWebApp();
+    }
+
+    private static void bundleThreeConditions() throws IOException {
         Path source = Path.of("../../content/dnd-5e/conditions");
         Path target = Files.createDirectories(contentDirectory.resolve("dnd-5e/conditions"));
         for (String file : CONDITIONS) {
@@ -72,8 +77,7 @@ class DesktopEditionTest {
         }
     }
 
-    @BeforeAll
-    static void bundleAWebApp() throws IOException {
+    private static void bundleAWebApp() throws IOException {
         Files.writeString(webDirectory.resolve("index.html"), "<html>the vault</html>");
         Files.writeString(Files.createDirectories(webDirectory.resolve("assets")).resolve("app-1a2b.js"), "console.log('vault')");
     }

@@ -7,6 +7,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicReference;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -20,7 +21,7 @@ public final class DesktopLauncher {
     private final AppFolders folders;
     private final SingleInstance instance;
     private final LauncherWindow window;
-    private volatile ConfigurableApplicationContext vault;
+    private final AtomicReference<ConfigurableApplicationContext> vault = new AtomicReference<>();
     private volatile String address;
 
     private DesktopLauncher(AppFolders folders, SingleInstance instance) {
@@ -44,10 +45,10 @@ public final class DesktopLauncher {
         window.showStarting();
         try {
             int port = PortChooser.choose();
-            vault = new SpringApplicationBuilder(OmniSheetVaultApplication.class)
+            vault.set(new SpringApplicationBuilder(OmniSheetVaultApplication.class)
                     .profiles("desktop")
                     .headless(false)
-                    .run(vaultArguments(folders, port, args));
+                    .run(vaultArguments(folders, port, args)));
             instance.recordPort(port);
             address = "http://localhost:" + port + "/";
             window.showRunning(address);
@@ -79,8 +80,9 @@ public final class DesktopLauncher {
 
     private void quit() {
         window.showStopping();
-        if (vault != null) {
-            SpringApplication.exit(vault);
+        ConfigurableApplicationContext running = vault.get();
+        if (running != null) {
+            SpringApplication.exit(running);
         }
         try {
             instance.close();

@@ -33,6 +33,32 @@ deliberately left out.
 - **To check before a public push:** where `old-paper.jpg` came from and its
   licence (it was saved from the web).
 
+## 2026-10-04 — PR #8 checks, third round (CI Sonar analysis)
+
+- The CI analysis (`./gradlew sonar`, project `lydiagarcia03_omni-sheet-vault`)
+  ran for the first time once the build passed. It is the PR's check now; the
+  `LydiaGarcia03_omni-sheet-vault` project is the old Automatic Analysis one.
+  Its gate failed on coverage 79.4 % (needs 80 %), reliability E and security B.
+- Reliability:
+  - Possible NPEs: `Dnd5ePrerequisites.slug(null)` returns "",
+    `BackgroundConverter` skips an unresolved `_copy`, `Dnd5eBuildPlanner`
+    guards a null feature name and a null grant.
+  - `SingleInstance.acquire` closes the lock file's channel in `finally`
+    whenever no lock was taken (it leaked when `tryLock` threw).
+  - `DesktopLauncher` holds the running context in an `AtomicReference`.
+  - The dice regexes Sonar kept flagging are gone: new
+    `shared/DiceNotation` scans "NdM" (and the gold "× 10") linearly, used by
+    `ItemConverter` and `Dnd5eBuildPlanner`; `DiceNotationTest`.
+  - Tests: `DesktopEditionTest` has one `@BeforeAll`; `Dnd5eLevelUpTest`
+    checks the list isn't empty before `doesNotContain`.
+- Security: `java:S3330` (cookie without HttpOnly) ignored on the two
+  `*SecurityConfig` files: it is the CSRF token cookie, which the web app must
+  read (adr-0008).
+- Coverage: `sonar.coverage.exclusions` for the developer command-line tools
+  (`*Main.java`, `Character*Runner.java`, ~180 lines). Same settings in
+  `build.gradle` and `.sonarcloud.properties`.
+- `:apps:api:check` and `:apps:desktop:test` green.
+
 ## 2026-10-04 — PR #8 checks, second round
 
 - CI failed on `:apps:desktop:test`: `AppFoldersTest` used Windows paths

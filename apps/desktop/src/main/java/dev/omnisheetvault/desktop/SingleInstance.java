@@ -32,16 +32,17 @@ final class SingleInstance implements AutoCloseable {
     static Optional<SingleInstance> acquire(Path dataDirectory) throws IOException {
         Files.createDirectories(dataDirectory);
         FileChannel channel = FileChannel.open(dataDirectory.resolve(LOCK_FILE), StandardOpenOption.CREATE, StandardOpenOption.WRITE);
+        FileLock lock = null;
         try {
-            FileLock lock = channel.tryLock();
-            if (lock != null) {
-                return Optional.of(new SingleInstance(dataDirectory, channel, lock));
-            }
+            lock = channel.tryLock();
         } catch (OverlappingFileLockException alreadyHeldInThisProcess) {
             // Same outcome as a lock held by another process.
+        } finally {
+            if (lock == null) {
+                channel.close();
+            }
         }
-        channel.close();
-        return Optional.empty();
+        return lock == null ? Optional.empty() : Optional.of(new SingleInstance(dataDirectory, channel, lock));
     }
 
     /** The port the running copy recorded, if it recorded one. */

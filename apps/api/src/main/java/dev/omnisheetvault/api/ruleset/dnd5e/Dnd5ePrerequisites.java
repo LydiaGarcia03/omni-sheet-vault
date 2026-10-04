@@ -139,6 +139,9 @@ final class Dnd5ePrerequisites {
     }
 
     static String slug(String name) {
+        if (name == null) {
+            return "";
+        }
         String hyphenated = SLUG_SEPARATORS.matcher(name.toLowerCase(Locale.ROOT).replace("'", "")).replaceAll("-");
         int start = 0;
         int end = hyphenated.length();

@@ -48,7 +48,7 @@ final class BackgroundConverter implements FiveEToolsConverter {
         List<JsonNode> kept = new ArrayList<>();
         for (JsonNode raw : backgrounds) {
             ObjectNode background = resolved.get(key(raw));
-            if (!REVISED_2024_EDITION.equals(background.path("edition").asString(""))) {
+            if (background != null && !REVISED_2024_EDITION.equals(background.path("edition").asString(""))) {
                 kept.add(background);
             }
         }
