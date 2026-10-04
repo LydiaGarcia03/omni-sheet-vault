@@ -1,0 +1,54 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "dominate-monster",
+  "name" : "Dominate Monster",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 235,
+  "tags" : [ "Charmed" ],
+  "description" : "You attempt to beguile a creature that you can see within range. It must succeed on a Wisdom saving throw or be charmed by you for the duration. If you or creatures that are friendly to you are fighting it, it has advantage on the saving throw. While the creature is charmed, you have a telepathic link with it as long as the two of you are on the same plane of existence. You can use this telepathic link to issue commands to the creature while you are conscious (no action required), which it does its best to obey. You can specify a simple and general course of action, such as \"Attack that creature,\" \"Run over there,\" or \"Fetch that object.\" If the creature completes the order and doesn't receive further direction from you, it defends and preserves itself to the best of its ability. You can use your action to take total and precise control of the target. Until the end of your next turn, the creature takes only the actions you choose, and doesn't do anything that you don't allow it to do. During this time, you can also cause the creature to use a reaction, but this requires you to use your own reaction as well. Each time the target takes damage, it makes a new Wisdom saving throw against the spell. If the saving throw succeeds, the spell ends.",
+  "data" : {
+    "level" : 8,
+    "school" : "enchantment",
+    "castingTime" : "1 Action",
+    "range" : "60 ft.",
+    "concentration" : true,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "notes" : "Concentration, 1 hour, V, S",
+    "effectSummary" : "Control",
+    "saveAbility" : "wisdom",
+    "components" : "V, S",
+    "materialComponent" : null,
+    "duration" : "Concentration, 1 hour",
+    "higherLevelsDescription" : "When you cast this spell with a 9th-level spell slot, the duration is concentration, up to 8 hours.",
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Bard",
+      "source" : "PHB"
+    }, {
+      "name" : "Sorcerer",
+      "source" : "PHB"
+    }, {
+      "name" : "Warlock",
+      "source" : "PHB"
+    }, {
+      "name" : "Wizard",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Arcana",
+      "subclassSource" : "SCAG"
+    } ],
+    "effect" : null
+  }
+}

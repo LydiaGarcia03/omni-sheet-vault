@@ -1,0 +1,78 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "burning-hands",
+  "name" : "Burning Hands",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 220,
+  "tags" : [ ],
+  "description" : "As you hold your hands with thumbs touching and fingers spread, a thin sheet of flames shoots forth from your outstretched fingertips. Each creature in a 15-foot cone must make a Dexterity saving throw. A creature takes 3d6 fire damage on a failed save, or half as much damage on a successful one. The fire ignites any flammable objects in the area that aren't being worn or carried.",
+  "data" : {
+    "level" : 1,
+    "school" : "evocation",
+    "castingTime" : "1 Action",
+    "range" : "Self (15-foot cone)",
+    "concentration" : false,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : 3,
+    "damageDiceSides" : 6,
+    "damageType" : "fire",
+    "notes" : "V, S",
+    "effectSummary" : "Damage",
+    "saveAbility" : "dexterity",
+    "components" : "V, S",
+    "materialComponent" : null,
+    "duration" : "Instantaneous",
+    "higherLevelsDescription" : "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st.",
+    "higherLevelsDamageDiceCount" : 1,
+    "higherLevelsDamageDiceSides" : 6,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Sorcerer",
+      "source" : "PHB"
+    }, {
+      "name" : "Wizard",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Light",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Druid",
+      "classSource" : "PHB",
+      "subclassShortName" : "Wildfire",
+      "subclassSource" : "TCE"
+    }, {
+      "className" : "Fighter",
+      "classSource" : "PHB",
+      "subclassShortName" : "Eldritch Knight",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Monk",
+      "classSource" : "PHB",
+      "subclassShortName" : "Sun Soul",
+      "subclassSource" : "XGE"
+    }, {
+      "className" : "Rogue",
+      "classSource" : "PHB",
+      "subclassShortName" : "Arcane Trickster",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Warlock",
+      "classSource" : "PHB",
+      "subclassShortName" : "Fiend",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Warlock",
+      "classSource" : "PHB",
+      "subclassShortName" : "Genie",
+      "subclassSource" : "TCE"
+    } ],
+    "effect" : null
+  }
+}

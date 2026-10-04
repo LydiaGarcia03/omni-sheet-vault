@@ -1,0 +1,62 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "longstrider",
+  "name" : "Longstrider",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 256,
+  "tags" : [ ],
+  "description" : "You touch a creature. The target's speed increases by 10 feet until the spell ends.",
+  "data" : {
+    "level" : 1,
+    "school" : "transmutation",
+    "castingTime" : "1 Action",
+    "range" : "Touch",
+    "concentration" : false,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "notes" : "V, S, M (a pinch of dirt)",
+    "effectSummary" : "Buff",
+    "saveAbility" : null,
+    "components" : "V, S, M",
+    "materialComponent" : "a pinch of dirt",
+    "duration" : "1 hour",
+    "higherLevelsDescription" : "When you cast this spell using a spell slot of 2nd level or higher, you can target one additional creature for each slot level above 1st.",
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Bard",
+      "source" : "PHB"
+    }, {
+      "name" : "Druid",
+      "source" : "PHB"
+    }, {
+      "name" : "Ranger",
+      "source" : "PHB"
+    }, {
+      "name" : "Wizard",
+      "source" : "PHB"
+    }, {
+      "name" : "Artificer",
+      "source" : "TCE"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Fighter",
+      "classSource" : "PHB",
+      "subclassShortName" : "Eldritch Knight",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Rogue",
+      "classSource" : "PHB",
+      "subclassShortName" : "Arcane Trickster",
+      "subclassSource" : "PHB"
+    } ],
+    "effect" : null
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "commune-with-nature",
+  "name" : "Commune with Nature",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 224,
+  "tags" : [ ],
+  "description" : "You briefly become one with nature and gain knowledge of the surrounding territory. In the outdoors, the spell gives you knowledge of the land within 3 miles of you. In caves and other natural underground settings, the radius is limited to 300 feet. The spell doesn't function where nature has been replaced by construction, such as in dungeons and towns. You instantly gain knowledge of up to three facts of your choice about any of the following subjects as they relate to the area: For example, you could determine the location of powerful undead in the area, the location of major sources of safe drinking water, and the location of any nearby towns.",
+  "data" : {
+    "level" : 5,
+    "school" : "divination",
+    "castingTime" : "1 Minute",
+    "range" : "Self",
+    "concentration" : false,
+    "ritual" : true,
+    "attackRoll" : false,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "notes" : "V, S",
+    "effectSummary" : "Detection",
+    "saveAbility" : null,
+    "components" : "V, S",
+    "materialComponent" : null,
+    "duration" : "Instantaneous",
+    "higherLevelsDescription" : null,
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Druid",
+      "source" : "PHB"
+    }, {
+      "name" : "Ranger",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Barbarian",
+      "classSource" : "PHB",
+      "subclassShortName" : "Totem Warrior",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Druid",
+      "classSource" : "PHB",
+      "subclassShortName" : "Land",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Paladin",
+      "classSource" : "PHB",
+      "subclassShortName" : "Ancients",
+      "subclassSource" : "PHB"
+    } ],
+    "effect" : null
+  }
+}

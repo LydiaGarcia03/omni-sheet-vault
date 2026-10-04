@@ -1,0 +1,105 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "tabaxi-mpmm",
+  "name" : "Tabaxi",
+  "sourceBook" : "Mordenkainen Presents: Monsters of the Multiverse",
+  "sourceCode" : "MPMM",
+  "sourcePage" : 33,
+  "tags" : [ ],
+  "description" : "Size. You are Medium or Small. You choose the size when you select this race. Speed. Your walking speed is 30 feet, and you have a climbing speed equal to your walking speed. Cat's Claws. You can use your claws to make unarmed strikes. When you hit with them, the strike deals 1d6 + your Strength modifier slashing damage, instead of the bludgeoning damage normal for an unarmed strike. Cat's Talent. You have proficiency in the Perception and Stealth skills. Darkvision. You can see in dim light within 60 feet of you as if it were bright light and in darkness as if it were dim light. You discern colors in that darkness only as shades of gray. Feline Agility. Your reflexes and agility allow you to move with a burst of speed. When you move on your turn in combat, you can double your speed until the end of the turn. Once you use this trait, you can't use it again until you move 0 feet on one of your turns. Languages. You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character.",
+  "data" : {
+    "size" : [ "small", "medium" ],
+    "speed" : {
+      "walk" : 30,
+      "climb" : 30
+    },
+    "senses" : [ {
+      "type" : "darkvision",
+      "range" : 60
+    } ],
+    "abilityAlternatives" : [ {
+      "fixed" : { },
+      "choices" : [ {
+        "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+        "weights" : [ 2, 1 ],
+        "count" : 2,
+        "amount" : null
+      } ],
+      "maximum" : null
+    }, {
+      "fixed" : { },
+      "choices" : [ {
+        "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+        "weights" : [ 1, 1, 1 ],
+        "count" : 3,
+        "amount" : null
+      } ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "perception", "stealth" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common" ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : null,
+    "heightAndWeight" : null,
+    "lineage" : "VRGR",
+    "traits" : [ {
+      "name" : "Size",
+      "description" : "You are Medium or Small. You choose the size when you select this race."
+    }, {
+      "name" : "Speed",
+      "description" : "Your walking speed is 30 feet, and you have a climbing speed equal to your walking speed."
+    }, {
+      "name" : "Cat's Claws",
+      "description" : "You can use your claws to make unarmed strikes. When you hit with them, the strike deals 1d6 + your Strength modifier slashing damage, instead of the bludgeoning damage normal for an unarmed strike."
+    }, {
+      "name" : "Cat's Talent",
+      "description" : "You have proficiency in the Perception and Stealth skills."
+    }, {
+      "name" : "Darkvision",
+      "description" : "You can see in dim light within 60 feet of you as if it were bright light and in darkness as if it were dim light. You discern colors in that darkness only as shades of gray."
+    }, {
+      "name" : "Feline Agility",
+      "description" : "Your reflexes and agility allow you to move with a burst of speed. When you move on your turn in combat, you can double your speed until the end of the turn. Once you use this trait, you can't use it again until you move 0 feet on one of your turns."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

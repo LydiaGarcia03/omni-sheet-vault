@@ -1,0 +1,42 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "FEAT",
+  "slug" : "knight-of-the-rose",
+  "name" : "Knight of the Rose",
+  "sourceBook" : "Dragonlance: Shadow of the Dragon Queen",
+  "sourceCode" : "DSotDQ",
+  "sourcePage" : 33,
+  "tags" : [ ],
+  "description" : "Prerequisite: level 4+\n\nYou are a Knight of Solamnia aligned with the Order of the Rose, a group known for leadership, justice, and wisdom. Your resolve grants you these benefits: Bolstering Rally. As a bonus action, you can encourage one creature you can see within 30 feet of yourself (you can choose yourself). If the target can see or hear you, the target gains temporary hit points equal to 1d8 + your proficiency bonus + the ability modifier of the ability score increased by this feat. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest. Membership in Knightly Orders. Knights of Solamnia are only ever members of one of their organization's orders. In the course of their training, most knights begin as members of the Knights of the Crown and then move on to join other orders. Whether a character follows this path or another, they retain what they learned as a member of an order even if they join another. Characters can change what knightly order they're a part of, but they always have access to any Knight of Solamnia feats they've acquired.",
+  "data" : {
+    "abilityAlternatives" : [ {
+      "fixed" : { },
+      "choices" : [ {
+        "from" : [ "constitution", "wisdom", "charisma" ],
+        "weights" : null,
+        "count" : 1,
+        "amount" : 1
+      } ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "savingThrowAlternatives" : [ ],
+    "expertiseAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "optionalFeatureProgressions" : [ ],
+    "additionalSpells" : null,
+    "prerequisites" : [ {
+      "level" : 4,
+      "feat" : [ "squire of solamnia|dsotdq" ]
+    } ],
+    "repeatable" : false,
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

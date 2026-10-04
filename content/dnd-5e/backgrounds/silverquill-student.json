@@ -1,0 +1,107 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "silverquill-student",
+  "name" : "Silverquill Student",
+  "sourceBook" : "Strixhaven: A Curriculum of Chaos",
+  "sourceCode" : "SCC",
+  "sourcePage" : 35,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. Intimidation, Persuasion Languages:. Two of your choice Equipment:. A bottle of black ink, an ink pen, a book of poetry, a school uniform, and a pouch containing 15 gp Feature: Silverquill Initiate. You gain the Strixhaven Initiate feat and must choose Silverquill within it. In addition, if you have the Spellcasting or Pact Magic feature, the spells on the Silverquill Spells table are added to the spell list of your spellcasting class. (If you are a multiclass character with multiple spell lists, these spells are added to all of them.) Consider customizing how your spells look when you cast them. Your Silverquill spells might be accompanied by visual effects resembling splotches of ink or radiating ripples of golden light. Any auditory effects of your spells often sound like amplified echoes of your own voice speaking the spells' verbal components—even amid the crash of lightning or a fiery eruption. Building a Silverquill Character. Many bards find a home in Silverquill, putting the power of their voices to use with Silverquill magic. Wizards (especially those who study the Schools of Illusion and Enchantment) are common in Silverquill, as are warlocks. Clerics with the Divine Domains of Light and Trickery also fit in well among the mages of Silverquill. A number of both paladins and rogues attend Silverquill College as well, highlighting the diversity of the student body. Suggested Characteristics. With the college's intense standards looming over them, Silverquill students range from cocky and cutthroat to overwhelmed perfectionists. The Silverquill Personality Traits table suggests a variety of traits you might adopt for your character. Silverquill Trinkets. When you make your character, you may roll once on the Silverquill Trinkets table, instead of on the Trinkets table in the Player's Handbook, for your starting trinket.",
+  "data" : {
+    "personalityTraits" : [ "I'll say whatever I need to in order to maintain my high social status.", "I prefer saying the blunt truth over a pretty lie, and I don't particularly care whose feelings I hurt.", "I believe that uplifting my peers is the best way to succeed.", "I've mastered the art of using humor as a defense, and I always have a charming joke ready.", "I always wait before speaking, analyzing the situation for whichever angle is most advantageous to my goals.", "No one knows about the all-nighters I've pulled to keep my magic looking effortless, and I'm going to keep it that way." ],
+    "ideals" : [ ],
+    "bonds" : [ ],
+    "flaws" : [ ],
+    "otherTables" : [ {
+      "caption" : "Silverquill Spells",
+      "colLabels" : [ "Spell Level", "Spells" ],
+      "rows" : [ [ "1st", "Dissonant Whispers, Silvery Barbs" ], [ "2nd", "Calm Emotions, Darkness" ], [ "3rd", "Beacon of Hope, Daylight" ], [ "4th", "Compulsion, Confusion" ], [ "5th", "Dominate Person, Rary's Telepathic Bond" ] ]
+    } ],
+    "features" : [ {
+      "name" : "Silverquill Initiate",
+      "description" : "You gain the Strixhaven Initiate feat and must choose Silverquill within it. In addition, if you have the Spellcasting or Pact Magic feature, the spells on the Silverquill Spells table are added to the spell list of your spellcasting class. (If you are a multiclass character with multiple spell lists, these spells are added to all of them.) Consider customizing how your spells look when you cast them. Your Silverquill spells might be accompanied by visual effects resembling splotches of ink or radiating ripples of golden light. Any auditory effects of your spells often sound like amplified echoes of your own voice speaking the spells' verbal components—even amid the crash of lightning or a fiery eruption."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "intimidation", "persuasion" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 2,
+        "amount" : null
+      } ]
+    } ],
+    "featAlternatives" : [ {
+      "fixed" : [ "strixhaven-initiate" ],
+      "choices" : [ ]
+    } ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : "ink-1-ounce-bottle",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "ink-pen",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "book of poetry",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "school uniform",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 1500,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : [ {
+      "expanded" : {
+        "s1" : [ "dissonant whispers", "silvery barbs|scc" ],
+        "s2" : [ "calm emotions", "darkness" ],
+        "s3" : [ "beacon of hope", "daylight" ],
+        "s4" : [ "compulsion", "confusion" ],
+        "s5" : [ "dominate person", "rary's telepathic bond" ]
+      }
+    } ],
+    "prerequisites" : null
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "aven-psd",
+  "name" : "Aven",
+  "sourceBook" : "Plane Shift: Dominaria",
+  "sourceCode" : "PSD",
+  "sourcePage" : 6,
+  "tags" : [ ],
+  "description" : "Age. Like humans, aven reach adulthood in their late teens and can live into their 80s. Alignment. Aven are inclined toward the lawful good alignment of the Church of Serra Size. Aven stand from 5 to 6 feet tall, but their bodies are slender and their bones are partially hollow to facilitate their flight. Your size is Medium. Flight. You have a flying speed of 30 feet. You can't use your flying speed while you wear medium or heavy armor. (If your campaign uses the variant rule for encumbrance, you can't use your flying speed if you are encumbered.)  Languages. You can speak, read, and write Common and Aven. Hawkeyed. You have proficiency in the Perception skill. In addition, attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 25,
+      "fly" : 30
+    },
+    "senses" : [ ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "dexterity" : 2,
+        "wisdom" : 2
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "perception" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "other" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : {
+      "mature" : 20,
+      "max" : 100
+    },
+    "heightAndWeight" : null,
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Age",
+      "description" : "Like humans, aven reach adulthood in their late teens and can live into their 80s."
+    }, {
+      "name" : "Alignment",
+      "description" : "Aven are inclined toward the lawful good alignment of the Church of Serra"
+    }, {
+      "name" : "Size",
+      "description" : "Aven stand from 5 to 6 feet tall, but their bodies are slender and their bones are partially hollow to facilitate their flight. Your size is Medium."
+    }, {
+      "name" : "Flight",
+      "description" : "You have a flying speed of 30 feet. You can't use your flying speed while you wear medium or heavy armor. (If your campaign uses the variant rule for encumbrance, you can't use your flying speed if you are encumbered.) "
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and Aven."
+    }, {
+      "name" : "Hawkeyed",
+      "description" : "You have proficiency in the Perception skill. In addition, attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

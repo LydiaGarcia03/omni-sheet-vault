@@ -1,0 +1,108 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "githzerai",
+  "name" : "Githzerai",
+  "sourceBook" : "Mordenkainen Presents: Monsters of the Multiverse",
+  "sourceCode" : "MPMM",
+  "sourcePage" : 19,
+  "tags" : [ ],
+  "description" : "Githzerai Psionics. You know the mage hand cantrip, and the hand is invisible when you cast the cantrip with this trait. Starting at 3rd level, you can cast the shield spell with this trait. Starting at 5th level, you can also cast the detect thoughts spell with it. Once you cast shield or detect thoughts spell with this trait, you can't cast that spell with it again until you finish a long rest. You can also cast either of those spells using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells when you cast them with this trait (choose when you select this race). None of these spells require spell components when you cast them with this trait. Mental Discipline. Your innate psychic defenses grant you advantage on saving throws you make to avoid or end the charmed and frightened conditions on yourself. Psychic Resilience. You have resistance to psychic damage. Languages. You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 30
+    },
+    "senses" : [ ],
+    "abilityAlternatives" : [ {
+      "fixed" : { },
+      "choices" : [ {
+        "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+        "weights" : [ 2, 1 ],
+        "count" : 2,
+        "amount" : null
+      } ],
+      "maximum" : null
+    }, {
+      "fixed" : { },
+      "choices" : [ {
+        "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+        "weights" : [ 1, 1, 1 ],
+        "count" : 3,
+        "amount" : null
+      } ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common" ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ "psychic" ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : [ {
+      "innate" : {
+        "3" : {
+          "daily" : {
+            "1" : [ "shield" ]
+          }
+        },
+        "5" : {
+          "daily" : {
+            "1" : [ "detect thoughts" ]
+          }
+        }
+      },
+      "ability" : {
+        "choose" : [ "int", "wis", "cha" ]
+      },
+      "known" : {
+        "1" : [ "mage hand#c" ]
+      }
+    } ],
+    "age" : null,
+    "heightAndWeight" : null,
+    "lineage" : "VRGR",
+    "traits" : [ {
+      "name" : "Githzerai Psionics",
+      "description" : "You know the mage hand cantrip, and the hand is invisible when you cast the cantrip with this trait. Starting at 3rd level, you can cast the shield spell with this trait. Starting at 5th level, you can also cast the detect thoughts spell with it. Once you cast shield or detect thoughts spell with this trait, you can't cast that spell with it again until you finish a long rest. You can also cast either of those spells using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells when you cast them with this trait (choose when you select this race). None of these spells require spell components when you cast them with this trait."
+    }, {
+      "name" : "Mental Discipline",
+      "description" : "Your innate psychic defenses grant you advantage on saving throws you make to avoid or end the charmed and frightened conditions on yourself."
+    }, {
+      "name" : "Psychic Resilience",
+      "description" : "You have resistance to psychic damage."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

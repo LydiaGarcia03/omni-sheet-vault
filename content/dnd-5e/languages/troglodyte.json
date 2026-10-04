@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "LANGUAGE",
+  "slug" : "troglodyte",
+  "name" : "Troglodyte",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 290,
+  "tags" : [ ],
+  "description" : "",
+  "data" : {
+    "type" : null,
+    "script" : null
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "target": { "optionalFeature": "Defense", "source": "PHB" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 72 },
+  "modifiers": [
+    { "type": "BONUS", "target": "ARMORED_ARMOR_CLASS", "value": 1 }
+  ],
+  "choices": []
+}

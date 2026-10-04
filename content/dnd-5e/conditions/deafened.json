@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CONDITION",
+  "slug" : "deafened",
+  "name" : "Deafened",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 290,
+  "tags" : [ ],
+  "description" : "A deafened creature can't hear and automatically fails any ability check that requires hearing.",
+  "data" : {
+    "modifiers" : [ ],
+    "levels" : null
+  }
+}

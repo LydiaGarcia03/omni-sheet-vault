@@ -1,0 +1,7 @@
+{
+  "target": { "condition": "Invisible", "source": "PHB" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 291 },
+  "modifiers": [
+    { "type": "ADVANTAGE", "target": "ATTACK_ROLLS", "value": 0 }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "target": { "condition": "Restrained", "source": "PHB" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 292 },
+  "modifiers": [
+    { "type": "SET", "target": "SPEED", "value": 0 },
+    { "type": "DISADVANTAGE", "target": "ATTACK_ROLLS", "value": 0 },
+    { "type": "DISADVANTAGE", "target": "DEXTERITY_SAVING_THROWS", "value": 0 }
+  ]
+}

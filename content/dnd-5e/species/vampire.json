@@ -1,0 +1,193 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "vampire",
+  "name" : "Vampire",
+  "sourceBook" : "Plane Shift: Zendikar",
+  "sourceCode" : "PSZ",
+  "sourcePage" : 14,
+  "tags" : [ ],
+  "description" : "Age. Vampires don't mature and age in the same way that other races do. Every living vampire is either a bloodchief, infected by Ulamog's influence in the distant reaches of history, or was spawned by a bloodchief from a living human. Most vampires are thus very old, but few have any memory of their earliest years. Alignment. Vampires have no innate tendency toward evil, but consuming the life energy of other creatures often pushes them to that end. Regardless of their moral bent, the strict hierarchies of their bloodchiefs inclines them toward a lawful alignment. Size. Vampires are about the same size and build as humans. Your size is Medium. Blood Thirst. You can drain blood and life energy from a willing creature, or one that is grappled by you, incapacitated, or restrained. Make a melee attack against the target. If you hit, you deal 1 piercing damage and 1d6 necrotic damage. The target's hit point maximum is reduced by an amount equal to the necrotic damage taken, and you regain hit points equal to that amount. The reduction lasts until the target finishes a long rest. The target dies if this effect reduces its hit point maximum to 0. Darkvision. Thanks to your heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Languages. You can speak, read, and write Common and Vampire. Vampiric Resistance. You have resistance to necrotic damage.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 30
+    },
+    "senses" : [ {
+      "type" : "darkvision",
+      "range" : 60
+    } ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "charisma" : 2
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "other" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ "necrotic" ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : null,
+    "heightAndWeight" : null,
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Age",
+      "description" : "Vampires don't mature and age in the same way that other races do. Every living vampire is either a bloodchief, infected by Ulamog's influence in the distant reaches of history, or was spawned by a bloodchief from a living human. Most vampires are thus very old, but few have any memory of their earliest years."
+    }, {
+      "name" : "Alignment",
+      "description" : "Vampires have no innate tendency toward evil, but consuming the life energy of other creatures often pushes them to that end. Regardless of their moral bent, the strict hierarchies of their bloodchiefs inclines them toward a lawful alignment."
+    }, {
+      "name" : "Size",
+      "description" : "Vampires are about the same size and build as humans. Your size is Medium."
+    }, {
+      "name" : "Blood Thirst",
+      "description" : "You can drain blood and life energy from a willing creature, or one that is grappled by you, incapacitated, or restrained. Make a melee attack against the target. If you hit, you deal 1 piercing damage and 1d6 necrotic damage. The target's hit point maximum is reduced by an amount equal to the necrotic damage taken, and you regain hit points equal to that amount. The reduction lasts until the target finishes a long rest. The target dies if this effect reduces its hit point maximum to 0."
+    }, {
+      "name" : "Darkvision",
+      "description" : "Thanks to your heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and Vampire."
+    }, {
+      "name" : "Vampiric Resistance",
+      "description" : "You have resistance to necrotic damage."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ {
+      "name" : "Ixalan",
+      "sourceBook" : "Plane Shift: Ixalan",
+      "sourcePage" : 14,
+      "overwrite" : [ ],
+      "description" : "Age. Vampires don't mature and age in the same way that other races do. Alignment. Vampires might not have an innate tendency toward evil, but many of them end up there. Evil or not, their strict hierarchies incline them toward a lawful alignment. Size. Vampires are the same size and build as humans. Your size is Medium. Feast of Blood. When you drain blood with your Bloodthirst ability, you experience a surge of vitality. Your speed increases by 10 feet, and you gain advantage on Strength and Dexterity checks and saving throws for 1 minute. Languages. You can speak, read, and write Common (if it exists in your campaign) and Vampire.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "wisdom" : 1
+        },
+        "choices" : [ ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : null,
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Age",
+        "description" : "Vampires don't mature and age in the same way that other races do."
+      }, {
+        "name" : "Alignment",
+        "description" : "Vampires might not have an innate tendency toward evil, but many of them end up there. Evil or not, their strict hierarchies incline them toward a lawful alignment."
+      }, {
+        "name" : "Size",
+        "description" : "Vampires are the same size and build as humans. Your size is Medium."
+      }, {
+        "name" : "Feast of Blood",
+        "description" : "When you drain blood with your Bloodthirst ability, you experience a surge of vitality. Your speed increases by 10 feet, and you gain advantage on Strength and Dexterity checks and saving throws for 1 minute."
+      }, {
+        "name" : "Languages",
+        "description" : "You can speak, read, and write Common (if it exists in your campaign) and Vampire."
+      } ],
+      "variants" : [ ]
+    }, {
+      "name" : "Zendikar",
+      "sourceBook" : "Plane Shift: Zendikar",
+      "sourcePage" : 14,
+      "overwrite" : [ ],
+      "description" : "Null Transformation. A humanoid killed with your Bloodthirst ability becomes a null.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "intelligence" : 1
+        },
+        "choices" : [ ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : null,
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Null Transformation",
+        "description" : "A humanoid killed with your Bloodthirst ability becomes a null."
+      } ],
+      "variants" : [ ]
+    } ]
+  }
+}

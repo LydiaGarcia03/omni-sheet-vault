@@ -1,0 +1,29 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "seeking-spell",
+  "name" : "Seeking Spell",
+  "sourceBook" : "Tasha's Cauldron of Everything",
+  "sourceCode" : "TCE",
+  "sourcePage" : 66,
+  "tags" : [ ],
+  "description" : "If you make an attack roll for a spell and miss, you can spend 2 sorcery points to reroll the d20, and you must use the new roll. You can use Seeking Spell even if you have already used a different Metamagic option during the casting of the spell.",
+  "data" : {
+    "featureTypes" : [ "MM" ],
+    "optional" : true,
+    "prerequisiteText" : null,
+    "prerequisites" : null,
+    "consumes" : {
+      "name" : "Sorcery Point",
+      "amount" : 2
+    },
+    "additionalSpells" : null,
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

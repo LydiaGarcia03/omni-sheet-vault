@@ -1,0 +1,224 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SUBCLASS",
+  "slug" : "druid-land",
+  "name" : "Circle of the Land",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 68,
+  "tags" : [ ],
+  "description" : "The Circle of the Land is made up of mystics and sages who safeguard ancient knowledge and rites through a vast oral tradition. These druids meet within sacred circles of trees or standing stones to whisper primal secrets in Druidic. The circle's wisest members preside as the chief priests of communities that hold to the Old Faith and serve as advisors to the rulers of those folk. As a member of this circle, your magic is influenced by the land where you were initiated into the circle's mysterious rites.",
+  "data" : {
+    "classSlug" : "druid",
+    "shortName" : "Land",
+    "additionalSpells" : [ {
+      "name" : "Arctic",
+      "known" : {
+        "1" : {
+          "_" : [ {
+            "choose" : "level=0|class=Druid"
+          } ]
+        }
+      },
+      "prepared" : {
+        "3" : [ "hold person", "spike growth" ],
+        "5" : [ "sleet storm", "slow" ],
+        "7" : [ "freedom of movement", "ice storm" ],
+        "9" : [ "commune with nature", "cone of cold" ]
+      }
+    }, {
+      "name" : "Coast",
+      "known" : {
+        "1" : {
+          "_" : [ {
+            "choose" : "level=0|class=Druid"
+          } ]
+        }
+      },
+      "prepared" : {
+        "3" : [ "mirror image", "misty step" ],
+        "5" : [ "water breathing", "water walk" ],
+        "7" : [ "control water", "freedom of movement" ],
+        "9" : [ "conjure elemental", "scrying" ]
+      }
+    }, {
+      "name" : "Desert",
+      "known" : {
+        "1" : {
+          "_" : [ {
+            "choose" : "level=0|class=Druid"
+          } ]
+        }
+      },
+      "prepared" : {
+        "3" : [ "blur", "silence" ],
+        "5" : [ "create food and water", "protection from energy" ],
+        "7" : [ "blight", "hallucinatory terrain" ],
+        "9" : [ "insect plague", "wall of stone" ]
+      }
+    }, {
+      "name" : "Forest",
+      "known" : {
+        "1" : {
+          "_" : [ {
+            "choose" : "level=0|class=Druid"
+          } ]
+        }
+      },
+      "prepared" : {
+        "3" : [ "barkskin", "spider climb" ],
+        "5" : [ "call lightning", "plant growth" ],
+        "7" : [ "divination", "freedom of movement" ],
+        "9" : [ "commune with nature", "tree stride" ]
+      }
+    }, {
+      "name" : "Grassland",
+      "known" : {
+        "1" : {
+          "_" : [ {
+            "choose" : "level=0|class=Druid"
+          } ]
+        }
+      },
+      "prepared" : {
+        "3" : [ "invisibility", "pass without trace" ],
+        "5" : [ "daylight", "haste" ],
+        "7" : [ "divination", "freedom of movement" ],
+        "9" : [ "dream", "insect plague" ]
+      }
+    }, {
+      "name" : "Mountain",
+      "known" : {
+        "1" : {
+          "_" : [ {
+            "choose" : "level=0|class=Druid"
+          } ]
+        }
+      },
+      "prepared" : {
+        "3" : [ "spider climb", "spike growth" ],
+        "5" : [ "lightning bolt", "meld into stone" ],
+        "7" : [ "stone shape", "stoneskin" ],
+        "9" : [ "passwall", "wall of stone" ]
+      }
+    }, {
+      "name" : "Swamp",
+      "known" : {
+        "1" : {
+          "_" : [ {
+            "choose" : "level=0|class=Druid"
+          } ]
+        }
+      },
+      "prepared" : {
+        "3" : [ "darkness", "Melf's acid arrow" ],
+        "5" : [ "water walk", "stinking cloud" ],
+        "7" : [ "freedom of movement", "locate creature" ],
+        "9" : [ "insect plague", "scrying" ]
+      }
+    }, {
+      "name" : "Underdark",
+      "known" : {
+        "1" : {
+          "_" : [ {
+            "choose" : "level=0|class=Druid"
+          } ]
+        }
+      },
+      "prepared" : {
+        "3" : [ "spider climb", "web" ],
+        "5" : [ "gaseous form", "stinking cloud" ],
+        "7" : [ "greater invisibility", "stone shape" ],
+        "9" : [ "cloudkill", "insect plague" ]
+      }
+    } ],
+    "spellcasting" : null,
+    "tableColumns" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "features" : [ {
+      "name" : "Bonus Cantrip",
+      "level" : 2,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 68,
+      "description" : "You learn one additional druid cantrip of your choice. This cantrip doesn't count against the number of druid cantrips you know.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Natural Recovery",
+      "level" : 2,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 68,
+      "description" : "Starting at 2nd level, you can regain some of your magical energy by sitting in meditation and communing with nature. During a short rest, you choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your druid level (rounded up), and none of the slots can be 6th level or higher. You can't use this feature again until you finish a long rest. For example, when you are a 4th-level druid, you can recover up to two levels worth of spell slots. You can recover either a 2nd-level slot or two 1st-level slots.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Circle Spells",
+      "level" : 2,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 68,
+      "description" : "Your mystical connection to the land infuses you with the ability to cast certain spells. At 3rd, 5th, 7th, and 9th level you gain access to circle spells connected to the land where you became a druid. Choose that land—arctic, coast, desert, forest, grassland, mountain, swamp, or Underdark—and consult the associated list of spells. Once you gain access to a circle spell, you always have it prepared, and it doesn't count against the number of spells you can prepare each day. If you gain access to a spell that doesn't appear on the druid spell list, the spell is nonetheless a druid spell for you.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Land's Stride",
+      "level" : 6,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 68,
+      "description" : "Starting at 6th level, moving through nonmagical difficult terrain costs you no extra movement. You can also pass through nonmagical plants without being slowed by them and without taking damage from them if they have thorns, spines, or a similar hazard. In addition, you have advantage on saving throws against plants that are magically created or manipulated to impede movement, such as those created by the entangle spell.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Nature's Ward",
+      "level" : 10,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 68,
+      "description" : "When you reach 10th level, you can't be charmed or frightened by elementals or fey, and you are immune to poison and disease.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Nature's Sanctuary",
+      "level" : 14,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 68,
+      "description" : "When you reach 14th level, creatures of the natural world sense your connection to nature and become hesitant to attack you. When a beast or plant creature attacks you, that creature must make a Wisdom saving throw against your druid spell save DC. On a failed save, the creature must choose a different target, or the attack automatically misses. On a successful save, the creature is immune to this effect for 24 hours. The creature is aware of this effect before it makes its attack against you.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    } ]
+  }
+}

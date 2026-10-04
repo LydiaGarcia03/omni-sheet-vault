@@ -1,0 +1,56 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "FEAT",
+  "slug" : "fey-teleportation",
+  "name" : "Fey Teleportation",
+  "sourceBook" : "Xanathar's Guide to Everything",
+  "sourceCode" : "XGE",
+  "sourcePage" : 74,
+  "tags" : [ ],
+  "description" : "Prerequisite: Elf\n\nYour study of high elven lore has unlocked fey power that few other elves possess, except your eladrin cousins. Drawing on your fey ancestry, you can momentarily stride through the Feywild to shorten your path from one place to another. You gain the following benefits: You learn to speak, read, and write Sylvan. You learn the misty step spell and can cast it once without expending a spell slot. You regain the ability to cast it in this way when you finish a short or long rest. Intelligence is your spellcasting ability for this spell.",
+  "data" : {
+    "abilityAlternatives" : [ {
+      "fixed" : { },
+      "choices" : [ {
+        "from" : [ "intelligence", "charisma" ],
+        "weights" : null,
+        "count" : 1,
+        "amount" : 1
+      } ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "sylvan" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "savingThrowAlternatives" : [ ],
+    "expertiseAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "optionalFeatureProgressions" : [ ],
+    "additionalSpells" : [ {
+      "ability" : "int",
+      "innate" : {
+        "_" : {
+          "daily" : {
+            "1" : [ "misty step" ]
+          }
+        }
+      }
+    } ],
+    "prerequisites" : [ {
+      "race" : [ {
+        "name" : "elf",
+        "subrace" : "high"
+      } ]
+    } ],
+    "repeatable" : false,
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

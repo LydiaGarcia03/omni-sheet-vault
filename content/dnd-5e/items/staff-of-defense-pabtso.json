@@ -1,0 +1,62 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "ITEM",
+  "slug" : "staff-of-defense-pabtso",
+  "name" : "Staff of Defense",
+  "sourceBook" : "Phandelver and Below: The Shattered Obelisk",
+  "sourceCode" : "PaBTSO",
+  "sourcePage" : 220,
+  "tags" : [ ],
+  "description" : "This slender, hollow staff is made of glass yet is as strong as oak. It weighs 3 pounds. While holding the staff, you have a +1 bonus to your Armor Class.",
+  "data" : {
+    "itemKind" : "GEAR",
+    "typeLabel" : "Melee Weapon",
+    "rarity" : "rare",
+    "focusType" : null,
+    "requiresAttunement" : true,
+    "attunementRequirement" : "by a bard, sorcerer, warlock, or wizard",
+    "weightLb" : 3.0,
+    "costGp" : null,
+    "weaponCategory" : null,
+    "attackType" : null,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "versatileDamageDiceCount" : null,
+    "versatileDamageDiceSides" : null,
+    "properties" : [ ],
+    "finesse" : false,
+    "normalRange" : null,
+    "longRange" : null,
+    "armorCategory" : null,
+    "baseArmorClass" : null,
+    "stealthDisadvantage" : false,
+    "strengthRequirement" : null,
+    "weaponAttackBonus" : null,
+    "weaponDamageBonus" : null,
+    "armorClassBonus" : 1,
+    "charges" : 10,
+    "rechargeTrigger" : "Dawn",
+    "rechargeFormula" : "1d6 + 4",
+    "grantedSpells" : [ {
+      "spellSlug" : "mage-armor",
+      "chargeCost" : 1,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "shield",
+      "chargeCost" : 2,
+      "fixedSaveDc" : null
+    } ],
+    "mechanics" : {
+      "modifiers" : [ {
+        "type" : "BONUS",
+        "target" : "ARMOR_CLASS",
+        "value" : 1
+      } ],
+      "damageResistances" : [ ],
+      "damageImmunities" : [ ],
+      "damageVulnerabilities" : [ ],
+      "conditionImmunities" : [ ]
+    }
+  }
+}

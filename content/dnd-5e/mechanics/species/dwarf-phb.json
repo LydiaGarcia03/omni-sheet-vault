@@ -1,0 +1,11 @@
+{
+  "target": { "species": "Dwarf", "source": "PHB" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 18 },
+  "traits": {
+    "Dwarven Resilience": {
+      "modifiers": [
+        { "type": "ADVANTAGE", "target": "SAVING_THROWS", "value": 0, "restriction": "against poison" }
+      ]
+    }
+  }
+}

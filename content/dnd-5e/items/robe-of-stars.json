@@ -1,0 +1,58 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "ITEM",
+  "slug" : "robe-of-stars",
+  "name" : "Robe of Stars",
+  "sourceBook" : "Dungeon Master's Guide",
+  "sourceCode" : "DMG",
+  "sourcePage" : 194,
+  "tags" : [ ],
+  "description" : "This black or dark blue robe is embroidered with small white or silver stars. You gain a +1 bonus to saving throws while you wear it. Six stars, located on the robe's upper front portion, are particularly large. While wearing this robe, you can use an action to pull off one of the stars and use it to cast magic missile as a 5th-level spell. Daily at dusk, 1d6 removed stars reappear on the robe. While you wear the robe, you can use an action to enter the Astral Plane along with everything you are wearing and carrying. You remain there until you use an action to return to the plane you were on. You reappear in the last space you occupied, or if that space is occupied, the nearest unoccupied space.",
+  "data" : {
+    "itemKind" : "GEAR",
+    "typeLabel" : "Wondrous Item",
+    "rarity" : "very rare",
+    "focusType" : null,
+    "requiresAttunement" : true,
+    "attunementRequirement" : null,
+    "weightLb" : null,
+    "costGp" : null,
+    "weaponCategory" : null,
+    "attackType" : null,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "versatileDamageDiceCount" : null,
+    "versatileDamageDiceSides" : null,
+    "properties" : [ ],
+    "finesse" : false,
+    "normalRange" : null,
+    "longRange" : null,
+    "armorCategory" : null,
+    "baseArmorClass" : null,
+    "stealthDisadvantage" : false,
+    "strengthRequirement" : null,
+    "weaponAttackBonus" : null,
+    "weaponDamageBonus" : null,
+    "armorClassBonus" : null,
+    "charges" : 6,
+    "rechargeTrigger" : null,
+    "rechargeFormula" : "1d6",
+    "grantedSpells" : [ {
+      "spellSlug" : "magic-missile-5",
+      "chargeCost" : 1,
+      "fixedSaveDc" : null
+    } ],
+    "mechanics" : {
+      "modifiers" : [ {
+        "type" : "BONUS",
+        "target" : "SAVING_THROWS",
+        "value" : 1
+      } ],
+      "damageResistances" : [ ],
+      "damageImmunities" : [ ],
+      "damageVulnerabilities" : [ ],
+      "conditionImmunities" : [ ]
+    }
+  }
+}

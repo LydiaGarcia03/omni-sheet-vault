@@ -1,0 +1,50 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "branding-smite",
+  "name" : "Branding Smite",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 219,
+  "tags" : [ ],
+  "description" : "The next time you hit a creature with a weapon attack before this spell ends, the weapon gleams with astral radiance as you strike. The attack deals an extra 2d6 radiant damage to the target, which becomes visible if it's invisible, and the target sheds dim light in a 5-foot radius and can't become invisible until the spell ends.",
+  "data" : {
+    "level" : 2,
+    "school" : "evocation",
+    "castingTime" : "1 Bonus Action",
+    "range" : "Self",
+    "concentration" : true,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : 2,
+    "damageDiceSides" : 6,
+    "damageType" : "radiant",
+    "notes" : "Concentration, 1 minute, V",
+    "effectSummary" : "Damage",
+    "saveAbility" : null,
+    "components" : "V",
+    "materialComponent" : null,
+    "duration" : "Concentration, 1 minute",
+    "higherLevelsDescription" : "When you cast this spell using a spell slot of 3rd level or higher, the extra damage increases by 1d6 for each slot level above 2nd.",
+    "higherLevelsDamageDiceCount" : 1,
+    "higherLevelsDamageDiceSides" : 6,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Paladin",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Artificer",
+      "classSource" : "TCE",
+      "subclassShortName" : "Battle Smith",
+      "subclassSource" : "TCE"
+    }, {
+      "className" : "Warlock",
+      "classSource" : "PHB",
+      "subclassShortName" : "Hexblade",
+      "subclassSource" : "XGE"
+    } ],
+    "effect" : null
+  }
+}

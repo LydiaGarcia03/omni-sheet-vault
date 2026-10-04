@@ -27,6 +27,21 @@ English. Conversation with the owner is in Brazilian Portuguese. These never mix
   second game system exists. One implementation plus a clear seam beats a framework
   built on guesses.
 
+## Comments
+
+- A comment names what the code **is or does**, briefly enough to orient a reader
+  in a few seconds — e.g. `// Skills section CSS`. It is never a record of what
+  the owner asked for, when, or the back-and-forth that produced the change —
+  that history belongs in `changelog.md`, one entry per change, not scattered
+  through the codebase as narrative comments.
+- Only write a comment when the WHY is genuinely non-obvious (a hidden
+  constraint, a workaround for a specific bug, behavior that would surprise a
+  reader) — see "Clean Code" above. Keep it about the code, not about the request
+  that produced it.
+- Existing narrative comments (dated, quoting the owner, walking through what
+  changed and why) predate this rule. Leave them as they are unless a dedicated
+  cleanup pass is asked for — don't fold that cleanup into an unrelated change.
+
 ## Java conventions
 
 - Java 25. Use records for immutable data, sealed interfaces where the set of
@@ -51,9 +66,26 @@ English. Conversation with the owner is in Brazilian Portuguese. These never mix
 - Relational columns for anything queried, joined or constrained. JSONB only for the
   system-specific shape.
 
+## Catalogue content
+
+- **Same name, different source, different entity.** When two sources publish an
+  entity with the same name (e.g. *Aberrant Dragonmark* in ERLW and EFA), both are
+  kept as separate catalogue entries. Never pick one.
+  - Ingestion gives each one a source-suffixed slug (`aberrant-dragonmark-erlw`,
+    `aberrant-dragonmark-efa`).
+  - Two entries with the same name *and* the same source fail ingestion.
+- **Every catalogue listing shows each entry's source** next to its name, so
+  same-named entries are always distinguishable. Use `CatalogueSourceLabel` in the
+  web app.
+
 ## Security
 
-- The API is a resource server. It validates JWTs and nothing else.
+- The API validates Keycloak JWTs, and it also runs the browser's login
+  (adr-0008).
+  - The tokens stay server-side in the session. The browser holds only an
+    `HttpOnly` session cookie.
+  - Controllers always receive a validated `Jwt`, taken from the session.
+  - No Bearer header is accepted. Every write needs the CSRF token.
 - Passwords, registration, password reset and MFA belong to Keycloak. No credential
   handling in application code, ever.
 - Every endpoint is authenticated by default. Public endpoints are opt-in and explicit.
@@ -71,7 +103,15 @@ English. Conversation with the owner is in Brazilian Portuguese. These never mix
 - TypeScript, functional components, hooks.
 - No business rules in the frontend. If the UI needs to know what a modifier is, the
   API returns it.
-- Tokens are handled by the OIDC library. Never store tokens in `localStorage` by hand.
+- The web app never holds a token (adr-0008).
+  - It relies on the API's `HttpOnly` session cookie, and calls the API only
+    through `apiFetch`, on its own origin, which adds the CSRF header to
+    writes.
+  - Never add an OIDC library or store credentials in browser storage.
+- **Any change to the D&D 5e character sheet ends with a live comparison against
+  D&D Beyond's own sheet** — see `systems/dnd-5e/sheet-ui.md`'s "Verifying
+  fidelity against D&D Beyond" for the reference URL and how to apply it. Do not
+  call sheet UI work done without it.
 
 ## Testing
 

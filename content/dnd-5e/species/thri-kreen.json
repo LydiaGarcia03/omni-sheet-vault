@@ -1,0 +1,104 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "thri-kreen",
+  "name" : "Thri-kreen",
+  "sourceBook" : "Astral Adventurer's Guide",
+  "sourceCode" : "AAG",
+  "sourcePage" : 15,
+  "tags" : [ ],
+  "description" : "Creature Type. You are a Monstrosity. Size. You are Medium or Small. You choose the size when you select this race. Chameleon Carapace. While you aren't wearing armor, your carapace gives you a base Armor Class of 13 + your Dexterity modifier. As an action, you can change the color of your carapace to match the color and texture of your surroundings, giving you advantage on Dexterity (Stealth) checks made to hide in those surroundings. Darkvision. You can see in dim light within 60 feet of yourself as if it were bright light, and in darkness as if it were dim light. You discern colors in that darkness only as shades of gray. Secondary Arms. You have two slightly smaller secondary arms below your primary pair of arms. The secondary arms can manipulate an object, open or close a door or container, pick up or set down a Tiny object, or wield a weapon that has the light property. Sleepless. You do not require sleep and can remain conscious during a long rest, though you must still refrain from strenuous activity to gain the benefit of the rest. Thri-kreen Telepathy. Without the assistance of magic, you can't speak the non-thri-kreen languages you know. Instead you use telepathy to convey your thoughts. You have the magical ability to transmit your thoughts mentally to willing creatures within 120 feet of yourself. A contacted creature doesn't need to share a language with you to understand your thoughts, but it must be able to understand at least one language. Your telepathic link to a creature is broken if you and the creature move more than 120 feet apart, if either of you is incapacitated, or if either of you mentally breaks the contact (no action required). Languages. You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character.",
+  "data" : {
+    "size" : [ "small", "medium" ],
+    "speed" : {
+      "walk" : 30
+    },
+    "senses" : [ {
+      "type" : "darkvision",
+      "range" : 60
+    } ],
+    "abilityAlternatives" : [ {
+      "fixed" : { },
+      "choices" : [ {
+        "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+        "weights" : [ 2, 1 ],
+        "count" : 2,
+        "amount" : null
+      } ],
+      "maximum" : null
+    }, {
+      "fixed" : { },
+      "choices" : [ {
+        "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+        "weights" : [ 1, 1, 1 ],
+        "count" : 3,
+        "amount" : null
+      } ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common" ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : [ "monstrosity" ],
+    "additionalSpells" : null,
+    "age" : null,
+    "heightAndWeight" : null,
+    "lineage" : "VRGR",
+    "traits" : [ {
+      "name" : "Creature Type",
+      "description" : "You are a Monstrosity."
+    }, {
+      "name" : "Size",
+      "description" : "You are Medium or Small. You choose the size when you select this race."
+    }, {
+      "name" : "Chameleon Carapace",
+      "description" : "While you aren't wearing armor, your carapace gives you a base Armor Class of 13 + your Dexterity modifier. As an action, you can change the color of your carapace to match the color and texture of your surroundings, giving you advantage on Dexterity (Stealth) checks made to hide in those surroundings."
+    }, {
+      "name" : "Darkvision",
+      "description" : "You can see in dim light within 60 feet of yourself as if it were bright light, and in darkness as if it were dim light. You discern colors in that darkness only as shades of gray."
+    }, {
+      "name" : "Secondary Arms",
+      "description" : "You have two slightly smaller secondary arms below your primary pair of arms. The secondary arms can manipulate an object, open or close a door or container, pick up or set down a Tiny object, or wield a weapon that has the light property."
+    }, {
+      "name" : "Sleepless",
+      "description" : "You do not require sleep and can remain conscious during a long rest, though you must still refrain from strenuous activity to gain the benefit of the rest."
+    }, {
+      "name" : "Thri-kreen Telepathy",
+      "description" : "Without the assistance of magic, you can't speak the non-thri-kreen languages you know. Instead you use telepathy to convey your thoughts. You have the magical ability to transmit your thoughts mentally to willing creatures within 120 feet of yourself. A contacted creature doesn't need to share a language with you to understand your thoughts, but it must be able to understand at least one language. Your telepathic link to a creature is broken if you and the creature move more than 120 feet apart, if either of you is incapacitated, or if either of you mentally breaks the contact (no action required)."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

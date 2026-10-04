@@ -1,0 +1,8 @@
+{
+  "target": { "classSlug": "fighter", "feature": "Extra Attack" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 72 },
+  "modifiers": [
+    { "type": "SET", "target": "EXTRA_ATTACKS", "value": 1 }
+  ],
+  "choices": []
+}

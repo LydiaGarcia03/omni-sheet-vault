@@ -1,0 +1,113 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "soldier",
+  "name" : "Soldier",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 140,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. Athletics, Intimidation Tool Proficiencies:. One type of gaming set, vehicles (land) Equipment:. An insignia of rank, a trophy taken from a fallen enemy (a dagger, broken blade, or piece of a banner), a bone dice set or playing card set, a set of common clothes, and a belt pouch containing 10 gp Feature: Military Rank. You have a military rank from your career as a soldier. Soldiers loyal to your former military organization still recognize your authority and influence, and they defer to you if they are of a lower rank. You can invoke your rank to exert influence over other soldiers and requisition simple equipment or horses for temporary use. You can also usually gain access to friendly military encampments and fortresses where your rank is recognized. Specialty. During your time as a soldier, you had a specific role to play in your unit or army. Roll a d8 or choose from the options in the table below to determine your role: Suggested Characteristics. The horrors of war combined with the rigid discipline of military service leave their mark on all soldiers, shaping their ideals, creating strong bonds, and often leaving them scarred and vulnerable to fear, shame, and hatred.",
+  "data" : {
+    "personalityTraits" : [ "I'm always polite and respectful.", "I'm haunted by memories of war. I can't get the images of violence out of my mind.", "I've lost too many friends, and I'm slow to make new ones.", "I'm full of inspiring and cautionary tales from my military experience relevant to almost every combat situation.", "I can stare down a hell hound without flinching.", "I enjoy being strong and like breaking things.", "I have a crude sense of humor.", "I face problems head-on. A simple, direct solution is the best path to success." ],
+    "ideals" : [ "Greater Good. Our lot is to lay down our lives in defense of others. (Good)", "Responsibility. I do what I must and obey just authority. (Lawful)", "Independence. When people follow orders blindly, they embrace a kind of tyranny. (Chaotic)", "Might. In life as in war, the stronger force wins. (Evil)", "Live and Let Live. Ideals aren't worth killing over or going to war for. (Neutral)", "Nation. My city, nation, or people are all that matter. (Any)" ],
+    "bonds" : [ "I would still lay down my life for the people I served with.", "Someone saved my life on the battlefield. To this day, I will never leave a friend behind.", "My honor is my life.", "I'll never forget the crushing defeat my company suffered or the enemies who dealt it.", "Those who fight beside me are those worth dying for.", "I fight for those who cannot fight for themselves." ],
+    "flaws" : [ "The monstrous enemy we faced in battle still leaves me quivering with fear.", "I have little respect for anyone who is not a proven warrior.", "I made a terrible mistake in battle that cost many lives—and I would do anything to keep that mistake secret.", "My hatred of my enemies is blinding and unreasoning.", "I obey the law, even if the law causes misery.", "I'd rather eat my armor than admit when I'm wrong." ],
+    "otherTables" : [ {
+      "caption" : null,
+      "colLabels" : [ "d8", "Role" ],
+      "rows" : [ [ "1", "Officer" ], [ "2", "Scout" ], [ "3", "Infantry" ], [ "4", "Cavalry" ], [ "5", "Healer" ], [ "6", "Quartermaster" ], [ "7", "Standard-bearer" ], [ "8", "Support staff (cook, blacksmith, or the like)" ] ]
+    } ],
+    "features" : [ {
+      "name" : "Military Rank",
+      "description" : "You have a military rank from your career as a soldier. Soldiers loyal to your former military organization still recognize your authority and influence, and they defer to you if they are of a lower rank. You can invoke your rank to exert influence over other soldiers and requisition simple equipment or horses for temporary use. You can also usually gain access to friendly military encampments and fortresses where your rank is recognized."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "athletics", "intimidation" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ {
+      "fixed" : [ "vehicles-land" ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "gamingSet",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "languageAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "insignia of rank",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "trophy taken from a fallen enemy (a dagger, broken blade, or piece of a banner)",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "common-clothes",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 1000,
+          "worthValueCp" : null
+        } ]
+      } ]
+    }, {
+      "options" : [ {
+        "label" : "a",
+        "grants" : [ {
+          "itemSlug" : "dice-set",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : "bone dice set",
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        } ]
+      }, {
+        "label" : "b",
+        "grants" : [ {
+          "itemSlug" : "playing-card-set",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : null,
+    "prerequisites" : null
+  }
+}

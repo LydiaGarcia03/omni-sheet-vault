@@ -1,0 +1,11 @@
+{
+  "target": { "species": "Elf", "source": "PHB" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 21 },
+  "traits": {
+    "Fey Ancestry": {
+      "modifiers": [
+        { "type": "ADVANTAGE", "target": "SAVING_THROWS", "value": 0, "restriction": "against being charmed" }
+      ]
+    }
+  }
+}

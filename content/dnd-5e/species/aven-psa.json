@@ -1,0 +1,179 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "aven-psa",
+  "name" : "Aven",
+  "sourceBook" : "Plane Shift: Amonkhet",
+  "sourceCode" : "PSA",
+  "sourcePage" : 15,
+  "tags" : [ ],
+  "description" : "Age. Like humans, aven reach adulthood in their late teens and can theoretically live into their 80s. Of course, most find a glorious (or inglorious) death long before that point. Alignment. Most aven lean toward some form of neutrality. Ibis-headed aven, focused more on knowledge than any other virtue, are usually neutral. Hawk-headed aven are inclined toward lawful neutral. Size. Aven stand from 5 to 6 feet tall, but their bodies are slender and their bones are partially hollow to facilitate their flight. Your size is Medium. Flight. You have a flying speed of 30 feet. You can't use your flying speed while you wear medium or heavy armor. (If your campaign uses the variant rule for encumbrance, you can't use your flying speed if you are encumbered.)  Languages. You can speak, read, and write Common and Aven.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 25,
+      "fly" : 30
+    },
+    "senses" : [ ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "dexterity" : 2
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "other" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : {
+      "mature" : 20,
+      "max" : 100
+    },
+    "heightAndWeight" : null,
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Age",
+      "description" : "Like humans, aven reach adulthood in their late teens and can theoretically live into their 80s. Of course, most find a glorious (or inglorious) death long before that point."
+    }, {
+      "name" : "Alignment",
+      "description" : "Most aven lean toward some form of neutrality. Ibis-headed aven, focused more on knowledge than any other virtue, are usually neutral. Hawk-headed aven are inclined toward lawful neutral."
+    }, {
+      "name" : "Size",
+      "description" : "Aven stand from 5 to 6 feet tall, but their bodies are slender and their bones are partially hollow to facilitate their flight. Your size is Medium."
+    }, {
+      "name" : "Flight",
+      "description" : "You have a flying speed of 30 feet. You can't use your flying speed while you wear medium or heavy armor. (If your campaign uses the variant rule for encumbrance, you can't use your flying speed if you are encumbered.) "
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and Aven."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ {
+      "name" : "Hawk-Headed",
+      "sourceBook" : "Plane Shift: Amonkhet",
+      "sourcePage" : 16,
+      "overwrite" : [ ],
+      "description" : "Hawkeyed. You have proficiency in the Perception skill. In addition, attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "wisdom" : 2
+        },
+        "choices" : [ ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ {
+        "fixed" : [ "perception" ],
+        "choices" : [ ]
+      } ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : null,
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Hawkeyed",
+        "description" : "You have proficiency in the Perception skill. In addition, attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls."
+      } ],
+      "variants" : [ ]
+    }, {
+      "name" : "Ibis-Headed",
+      "sourceBook" : "Plane Shift: Amonkhet",
+      "sourcePage" : 16,
+      "overwrite" : [ ],
+      "description" : "Kefnet's Blessing. You can add half your proficiency bonus, rounded down, to any Intelligence check you make that doesn't already include your proficiency bonus.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "intelligence" : 1
+        },
+        "choices" : [ ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : null,
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Kefnet's Blessing",
+        "description" : "You can add half your proficiency bonus, rounded down, to any Intelligence check you make that doesn't already include your proficiency bonus."
+      } ],
+      "variants" : [ ]
+    } ]
+  }
+}

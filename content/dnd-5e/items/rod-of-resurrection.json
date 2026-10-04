@@ -1,0 +1,52 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "ITEM",
+  "slug" : "rod-of-resurrection",
+  "name" : "Rod of Resurrection",
+  "sourceBook" : "Dungeon Master's Guide",
+  "sourceCode" : "DMG",
+  "sourcePage" : 197,
+  "tags" : [ ],
+  "description" : "The rod has 5 charges. While you hold it, you can use an action to cast one of the following spells from it: heal (expends 1 charge) or resurrection (expends 5 charges). The rod regains 1 expended charge daily at dawn. If the rod is reduced to 0 charges, roll a d20. On a 1, the rod disappears in a burst of radiance.",
+  "data" : {
+    "itemKind" : "GEAR",
+    "typeLabel" : "Rod",
+    "rarity" : "legendary",
+    "focusType" : null,
+    "requiresAttunement" : true,
+    "attunementRequirement" : "by a cleric, druid, or paladin",
+    "weightLb" : 2.0,
+    "costGp" : null,
+    "weaponCategory" : null,
+    "attackType" : null,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "versatileDamageDiceCount" : null,
+    "versatileDamageDiceSides" : null,
+    "properties" : [ ],
+    "finesse" : false,
+    "normalRange" : null,
+    "longRange" : null,
+    "armorCategory" : null,
+    "baseArmorClass" : null,
+    "stealthDisadvantage" : false,
+    "strengthRequirement" : null,
+    "weaponAttackBonus" : null,
+    "weaponDamageBonus" : null,
+    "armorClassBonus" : null,
+    "charges" : 5,
+    "rechargeTrigger" : "Dawn",
+    "rechargeFormula" : "1",
+    "grantedSpells" : [ {
+      "spellSlug" : "heal",
+      "chargeCost" : 1,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "resurrection",
+      "chargeCost" : 5,
+      "fixedSaveDc" : null
+    } ],
+    "mechanics" : null
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "magic-missile",
+  "name" : "Magic Missile",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 257,
+  "tags" : [ ],
+  "description" : "You create three glowing darts of magical force. Each dart hits a creature of your choice that you can see within range. A dart deals 1d4 + 1 force damage to its target. The darts all strike simultaneously, and you can direct them to hit one creature or several.",
+  "data" : {
+    "level" : 1,
+    "school" : "evocation",
+    "castingTime" : "1 Action",
+    "range" : "120 ft.",
+    "concentration" : false,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : 1,
+    "damageDiceSides" : 4,
+    "damageType" : "force",
+    "notes" : "V, S",
+    "effectSummary" : "Damage",
+    "saveAbility" : null,
+    "components" : "V, S",
+    "materialComponent" : null,
+    "duration" : "Instantaneous",
+    "higherLevelsDescription" : "When you cast this spell using a spell slot of 2nd level or higher, the spell creates one more dart for each slot level above 1st.",
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Sorcerer",
+      "source" : "PHB"
+    }, {
+      "name" : "Wizard",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Artificer",
+      "classSource" : "TCE",
+      "subclassShortName" : "Armorer",
+      "subclassSource" : "TCE"
+    }, {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Arcana",
+      "subclassSource" : "SCAG"
+    }, {
+      "className" : "Fighter",
+      "classSource" : "PHB",
+      "subclassShortName" : "Eldritch Knight",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Rogue",
+      "classSource" : "PHB",
+      "subclassShortName" : "Arcane Trickster",
+      "subclassSource" : "PHB"
+    } ],
+    "effect" : null
+  }
+}

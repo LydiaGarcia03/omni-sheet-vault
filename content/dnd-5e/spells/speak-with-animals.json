@@ -1,0 +1,61 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "speak-with-animals",
+  "name" : "Speak with Animals",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 277,
+  "tags" : [ ],
+  "description" : "You gain the ability to comprehend and verbally communicate with beasts for the duration. The knowledge and awareness of many beasts is limited by their intelligence, but at minimum, beasts can give you information about nearby locations and monsters, including whatever they can perceive or have perceived within the past day. You might be able to persuade a beast to perform a small favor for you, at the DM's discretion.",
+  "data" : {
+    "level" : 1,
+    "school" : "divination",
+    "castingTime" : "1 Action",
+    "range" : "Self",
+    "concentration" : false,
+    "ritual" : true,
+    "attackRoll" : false,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "notes" : "V, S",
+    "effectSummary" : "Detection",
+    "saveAbility" : null,
+    "components" : "V, S",
+    "materialComponent" : null,
+    "duration" : "10 minutes",
+    "higherLevelsDescription" : null,
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Bard",
+      "source" : "PHB"
+    }, {
+      "name" : "Druid",
+      "source" : "PHB"
+    }, {
+      "name" : "Ranger",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Barbarian",
+      "classSource" : "PHB",
+      "subclassShortName" : "Totem Warrior",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Nature",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Paladin",
+      "classSource" : "PHB",
+      "subclassShortName" : "Ancients",
+      "subclassSource" : "PHB"
+    } ],
+    "effect" : null
+  }
+}

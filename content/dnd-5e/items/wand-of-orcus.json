@@ -1,0 +1,78 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "ITEM",
+  "slug" : "wand-of-orcus",
+  "name" : "Wand of Orcus",
+  "sourceBook" : "Dungeon Master's Guide",
+  "sourceCode" : "DMG",
+  "sourcePage" : 227,
+  "tags" : [ ],
+  "description" : "The ghastly Wand of Orcus rarely leaves Orcus's side. The device, as evil as its creator, shares the demon lord's aims to snuff out the lives of all living things and bind the Material Plane in the stasis of undeath. Orcus allows the wand to slip from his grasp from time to time. When it does, it magically appears wherever its master senses an opportunity to achieve some fell goal. Made from bones as hard as iron, the wand is topped with a magically enlarged skull that once belonged to a human hero slain by Orcus. The wand can magically change in size to better conform to the grip of its user. Plants wither, drinks spoil, flesh rots, and vermin thrive in the wand's presence. Any creature besides Orcus that tries to attune to the wand must make a DC 17 Constitution saving throw. On a successful save, the creature takes 10d6 necrotic damage. On a failed save, the creature dies and rises as a zombie. In the hands of one who is attuned to it, the wand can be wielded as a magic mace that grants a +3 bonus to attack and damage rolls made with it. The wand deals an extra 2d12 necrotic damage on a hit.",
+  "data" : {
+    "itemKind" : "GEAR",
+    "typeLabel" : "Wand",
+    "rarity" : "artifact",
+    "focusType" : null,
+    "requiresAttunement" : true,
+    "attunementRequirement" : null,
+    "weightLb" : 4.0,
+    "costGp" : null,
+    "weaponCategory" : null,
+    "attackType" : null,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "versatileDamageDiceCount" : null,
+    "versatileDamageDiceSides" : null,
+    "properties" : [ ],
+    "finesse" : false,
+    "normalRange" : null,
+    "longRange" : null,
+    "armorCategory" : null,
+    "baseArmorClass" : null,
+    "stealthDisadvantage" : false,
+    "strengthRequirement" : null,
+    "weaponAttackBonus" : 3,
+    "weaponDamageBonus" : 3,
+    "armorClassBonus" : 3,
+    "charges" : 7,
+    "rechargeTrigger" : "Dawn",
+    "rechargeFormula" : "1d4 + 3",
+    "grantedSpells" : [ {
+      "spellSlug" : "animate-dead",
+      "chargeCost" : 1,
+      "fixedSaveDc" : 17
+    }, {
+      "spellSlug" : "speak-with-dead",
+      "chargeCost" : 1,
+      "fixedSaveDc" : 17
+    }, {
+      "spellSlug" : "blight",
+      "chargeCost" : 2,
+      "fixedSaveDc" : 17
+    }, {
+      "spellSlug" : "circle-of-death",
+      "chargeCost" : 3,
+      "fixedSaveDc" : 17
+    }, {
+      "spellSlug" : "finger-of-death",
+      "chargeCost" : 3,
+      "fixedSaveDc" : 17
+    }, {
+      "spellSlug" : "power-word-kill",
+      "chargeCost" : 4,
+      "fixedSaveDc" : 17
+    } ],
+    "mechanics" : {
+      "modifiers" : [ {
+        "type" : "BONUS",
+        "target" : "ARMOR_CLASS",
+        "value" : 3
+      } ],
+      "damageResistances" : [ ],
+      "damageImmunities" : [ ],
+      "damageVulnerabilities" : [ ],
+      "conditionImmunities" : [ ]
+    }
+  }
+}

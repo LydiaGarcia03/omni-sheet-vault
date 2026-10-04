@@ -1,0 +1,48 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "dispel-evil-and-good",
+  "name" : "Dispel Evil and Good",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 233,
+  "tags" : [ ],
+  "description" : "Shimmering energy surrounds and protects you from fey, undead, and creatures originating from beyond the Material Plane. For the duration, celestials, elementals, fey, fiends, and undead have disadvantage on attack rolls against you. You can end the spell early by using either of the following special functions.",
+  "data" : {
+    "level" : 5,
+    "school" : "abjuration",
+    "castingTime" : "1 Action",
+    "range" : "Self",
+    "concentration" : true,
+    "ritual" : false,
+    "attackRoll" : true,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "notes" : "Concentration, 1 minute, V, S, M (holy water or powdered silver and iron)",
+    "effectSummary" : "Buff",
+    "saveAbility" : "charisma",
+    "components" : "V, S, M",
+    "materialComponent" : "holy water or powdered silver and iron",
+    "duration" : "Concentration, 1 minute",
+    "higherLevelsDescription" : null,
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Cleric",
+      "source" : "PHB"
+    }, {
+      "name" : "Paladin",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Sorcerer",
+      "classSource" : "PHB",
+      "subclassShortName" : "Divine Soul",
+      "subclassSource" : "XGE"
+    } ],
+    "effect" : null
+  }
+}

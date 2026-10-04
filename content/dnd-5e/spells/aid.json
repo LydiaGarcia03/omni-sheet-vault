@@ -1,0 +1,72 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "aid",
+  "name" : "Aid",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 211,
+  "tags" : [ "Healing" ],
+  "description" : "Your spell bolsters your allies with toughness and resolve. Choose up to three creatures within range. Each target's hit point maximum and current hit points increase by 5 for the duration.",
+  "data" : {
+    "level" : 2,
+    "school" : "abjuration",
+    "castingTime" : "1 Action",
+    "range" : "30 ft.",
+    "concentration" : false,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "notes" : "V, S, M (a tiny strip of white cloth)",
+    "effectSummary" : "Healing",
+    "saveAbility" : null,
+    "components" : "V, S, M",
+    "materialComponent" : "a tiny strip of white cloth",
+    "duration" : "8 hours",
+    "higherLevelsDescription" : "When you cast this spell using a spell slot of 3rd level or higher, a target's hit points increase by an additional 5 for each slot level above 2nd.",
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Cleric",
+      "source" : "PHB"
+    }, {
+      "name" : "Paladin",
+      "source" : "PHB"
+    }, {
+      "name" : "Artificer",
+      "source" : "TCE"
+    } ],
+    "optionalClasses" : [ {
+      "name" : "Bard",
+      "source" : "PHB"
+    }, {
+      "name" : "Ranger",
+      "source" : "PHB"
+    } ],
+    "subclasses" : [ {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Solidarity (PSA)",
+      "subclassSource" : "PSA"
+    }, {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Peace",
+      "subclassSource" : "TCE"
+    }, {
+      "className" : "Sorcerer",
+      "classSource" : "PHB",
+      "subclassShortName" : "Divine Soul",
+      "subclassSource" : "XGE"
+    }, {
+      "className" : "Sorcerer",
+      "classSource" : "PHB",
+      "subclassShortName" : "Clockwork Soul",
+      "subclassSource" : "TCE"
+    } ],
+    "effect" : null
+  }
+}

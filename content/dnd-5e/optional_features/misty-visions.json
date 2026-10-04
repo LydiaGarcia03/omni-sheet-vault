@@ -1,0 +1,30 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "misty-visions",
+  "name" : "Misty Visions",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 111,
+  "tags" : [ ],
+  "description" : "You can cast silent image at will, without expending a spell slot or material components.",
+  "data" : {
+    "featureTypes" : [ "EI" ],
+    "optional" : false,
+    "prerequisiteText" : null,
+    "prerequisites" : null,
+    "consumes" : null,
+    "additionalSpells" : [ {
+      "innate" : {
+        "_" : [ "silent image" ]
+      }
+    } ],
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

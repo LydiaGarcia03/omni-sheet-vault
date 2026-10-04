@@ -1,0 +1,58 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "ITEM",
+  "slug" : "jewel-of-three-prayers-dormant",
+  "name" : "Jewel of Three Prayers (Dormant)",
+  "sourceBook" : "Critical Role: Call of the Netherdeep",
+  "sourceCode" : "CRCotN",
+  "sourcePage" : 213,
+  "tags" : [ ],
+  "description" : "The Jewel of Three Prayers is a Vestige of Divergence (see the \"Vestiges of Divergence\" sidebar). In ancient times, Alyxian the Apotheon bore this amulet as a symbol of his covenant with three Prime Deities: Sehanine the Moon Weaver, Avandra the Change Bringer, and Corellon the Arch Heart. When the jewel is found, only Sehanine's power thrums within its dormant heart. The power of the other two deities waits to be reawakened by a hero—or heroes—who can follow in Alyxian's footsteps.",
+  "data" : {
+    "itemKind" : "GEAR",
+    "typeLabel" : "Wondrous Item",
+    "rarity" : "legendary",
+    "focusType" : null,
+    "requiresAttunement" : true,
+    "attunementRequirement" : null,
+    "weightLb" : null,
+    "costGp" : null,
+    "weaponCategory" : null,
+    "attackType" : null,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "versatileDamageDiceCount" : null,
+    "versatileDamageDiceSides" : null,
+    "properties" : [ ],
+    "finesse" : false,
+    "normalRange" : null,
+    "longRange" : null,
+    "armorCategory" : null,
+    "baseArmorClass" : null,
+    "stealthDisadvantage" : false,
+    "strengthRequirement" : null,
+    "weaponAttackBonus" : null,
+    "weaponDamageBonus" : null,
+    "armorClassBonus" : 1,
+    "charges" : 3,
+    "rechargeTrigger" : "Dawn",
+    "rechargeFormula" : "3",
+    "grantedSpells" : [ {
+      "spellSlug" : "invisibility",
+      "chargeCost" : 1,
+      "fixedSaveDc" : null
+    } ],
+    "mechanics" : {
+      "modifiers" : [ {
+        "type" : "BONUS",
+        "target" : "ARMOR_CLASS",
+        "value" : 1
+      } ],
+      "damageResistances" : [ ],
+      "damageImmunities" : [ ],
+      "damageVulnerabilities" : [ ],
+      "conditionImmunities" : [ ]
+    }
+  }
+}

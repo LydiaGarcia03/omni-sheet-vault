@@ -1,0 +1,45 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "thunderous-smite",
+  "name" : "Thunderous Smite",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 282,
+  "tags" : [ "Prone" ],
+  "description" : "The first time you hit with a melee weapon attack during this spell's duration, your weapon rings with thunder that is audible within 300 feet of you, and the attack deals an extra 2d6 thunder damage to the target. Additionally, if the target is a creature, it must succeed on a Strength saving throw or be pushed 10 feet away from you and knocked prone.",
+  "data" : {
+    "level" : 1,
+    "school" : "evocation",
+    "castingTime" : "1 Bonus Action",
+    "range" : "Self",
+    "concentration" : true,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : 2,
+    "damageDiceSides" : 6,
+    "damageType" : "thunder",
+    "notes" : "Concentration, 1 minute, V",
+    "effectSummary" : "Damage",
+    "saveAbility" : "strength",
+    "components" : "V",
+    "materialComponent" : null,
+    "duration" : "Concentration, 1 minute",
+    "higherLevelsDescription" : null,
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Paladin",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Zeal (PSA)",
+      "subclassSource" : "PSA"
+    } ],
+    "effect" : null
+  }
+}

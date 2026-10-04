@@ -1,0 +1,71 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "silence",
+  "name" : "Silence",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 275,
+  "tags" : [ "Deafened" ],
+  "description" : "For the duration, no sound can be created within or pass through a 20-foot-radius sphere centered on a point you choose within range. Any creature or object entirely inside the sphere is immune to thunder damage, and creatures are deafened while entirely inside it. Casting a spell that includes a verbal component is impossible there.",
+  "data" : {
+    "level" : 2,
+    "school" : "illusion",
+    "castingTime" : "1 Action",
+    "range" : "120 ft.",
+    "concentration" : true,
+    "ritual" : true,
+    "attackRoll" : false,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "notes" : "Concentration, 10 minutes, V, S",
+    "effectSummary" : "Control",
+    "saveAbility" : null,
+    "components" : "V, S",
+    "materialComponent" : null,
+    "duration" : "Concentration, 10 minutes",
+    "higherLevelsDescription" : null,
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Bard",
+      "source" : "PHB"
+    }, {
+      "name" : "Cleric",
+      "source" : "PHB"
+    }, {
+      "name" : "Ranger",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Druid",
+      "classSource" : "PHB",
+      "subclassShortName" : "Land",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Monk",
+      "classSource" : "PHB",
+      "subclassShortName" : "Shadow",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Sorcerer",
+      "classSource" : "PHB",
+      "subclassShortName" : "Divine Soul",
+      "subclassSource" : "XGE"
+    }, {
+      "className" : "Warlock",
+      "classSource" : "PHB",
+      "subclassShortName" : "Undying",
+      "subclassSource" : "SCAG"
+    }, {
+      "className" : "Warlock",
+      "classSource" : "PHB",
+      "subclassShortName" : "Fathomless",
+      "subclassSource" : "TCE"
+    } ],
+    "effect" : null
+  }
+}

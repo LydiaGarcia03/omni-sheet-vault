@@ -1,0 +1,59 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "feather-fall",
+  "name" : "Feather Fall",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 239,
+  "tags" : [ ],
+  "description" : "Choose up to five falling creatures within range. A falling creature's rate of descent slows to 60 feet per round until the spell ends. If the creature lands before the spell ends, it takes no falling damage and can land on its feet, and the spell ends for that creature.",
+  "data" : {
+    "level" : 1,
+    "school" : "transmutation",
+    "castingTime" : "1 Reaction",
+    "range" : "60 ft.",
+    "concentration" : false,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "notes" : "V, M (a small feather or a piece of down)",
+    "effectSummary" : "Buff",
+    "saveAbility" : null,
+    "components" : "V, M",
+    "materialComponent" : "a small feather or a piece of down",
+    "duration" : "1 minute",
+    "higherLevelsDescription" : null,
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Bard",
+      "source" : "PHB"
+    }, {
+      "name" : "Sorcerer",
+      "source" : "PHB"
+    }, {
+      "name" : "Wizard",
+      "source" : "PHB"
+    }, {
+      "name" : "Artificer",
+      "source" : "TCE"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Fighter",
+      "classSource" : "PHB",
+      "subclassShortName" : "Eldritch Knight",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Rogue",
+      "classSource" : "PHB",
+      "subclassShortName" : "Arcane Trickster",
+      "subclassSource" : "PHB"
+    } ],
+    "effect" : null
+  }
+}

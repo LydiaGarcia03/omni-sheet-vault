@@ -1,0 +1,76 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "insect-plague",
+  "name" : "Insect Plague",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 254,
+  "tags" : [ ],
+  "description" : "Swarming, biting locusts fill a 20-foot-radius sphere centered on a point you choose within range. The sphere spreads around corners. The sphere remains for the duration, and its area is lightly obscured. The sphere's area is difficult terrain. When the area appears, each creature in it must make a Constitution saving throw. A creature takes 4d10 piercing damage on a failed save, or half as much damage on a successful one. A creature must also make this saving throw when it enters the spell's area for the first time on a turn or ends its turn there.",
+  "data" : {
+    "level" : 5,
+    "school" : "conjuration",
+    "castingTime" : "1 Action",
+    "range" : "300 ft.",
+    "concentration" : true,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : 4,
+    "damageDiceSides" : 10,
+    "damageType" : "piercing",
+    "notes" : "Concentration, 10 minutes, V, S, M (a few grains of sugar, some kernels of grain, and a smear of fat)",
+    "effectSummary" : "Damage",
+    "saveAbility" : "constitution",
+    "components" : "V, S, M",
+    "materialComponent" : "a few grains of sugar, some kernels of grain, and a smear of fat",
+    "duration" : "Concentration, 10 minutes",
+    "higherLevelsDescription" : "When you cast this spell using a spell slot of 6th level or higher, the damage increases by 1d10 for each slot level above 5th.",
+    "higherLevelsDamageDiceCount" : 1,
+    "higherLevelsDamageDiceSides" : 10,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Cleric",
+      "source" : "PHB"
+    }, {
+      "name" : "Druid",
+      "source" : "PHB"
+    }, {
+      "name" : "Sorcerer",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Nature",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Tempest",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Strength (PSA)",
+      "subclassSource" : "PSA"
+    }, {
+      "className" : "Druid",
+      "classSource" : "PHB",
+      "subclassShortName" : "Land",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Ranger",
+      "classSource" : "PHB",
+      "subclassShortName" : "Swarmkeeper",
+      "subclassSource" : "TCE"
+    }, {
+      "className" : "Sorcerer",
+      "classSource" : "PHB",
+      "subclassShortName" : "Divine Soul",
+      "subclassSource" : "XGE"
+    } ],
+    "effect" : null
+  }
+}

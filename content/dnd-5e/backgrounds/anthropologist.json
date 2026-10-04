@@ -1,0 +1,105 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "anthropologist",
+  "name" : "Anthropologist",
+  "sourceBook" : "Tomb of Annihilation",
+  "sourceCode" : "ToA",
+  "sourcePage" : 191,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. Insight, Religion Languages:. Two of your choice Equipment:. A leather-bound diary, a bottle of ink, an ink pen, a set of traveler's clothes, one trinket of special significance, and a pouch containing 10 gp Cultural Chameleon. Before becoming an adventurer, you spent much of your adult life away from your homeland, living among people different from your kin. You came to understand these foreign cultures and the ways of their people, who eventually treated you as one of their own. One culture had more of an influence on you than any other, shaping your beliefs and customs. Choose a race whose culture you've adopted, or roll on the Adopted Culture table. Feature: Adept Linguist. You can communicate with humanoids who don't speak any language you know. You must observe the humanoids interacting with one another for at least 1 day, after which you learn a handful of important words, expressions, and gestures - enough to communicate on a rudimentary level. Suggested Characteristics. Anthropologists leave behind the societies into which they were born to discover what life is like in other parts of the world. They seek to see how other races and civilizations survive - or why they did not. Some anthropologists are driven by intellectual curiosity, while others want the fame and recognition that comes with being the first to discover a new people, a lost tribe, or the truth about an ancient empire's downfall.",
+  "data" : {
+    "personalityTraits" : [ "I prefer the company of those who aren't like me, including people of other races", "I'm a stickler when it comes to observing proper etiquette and local customs", "I would rather observe than meddle", "By living among violent people, I have become desensitized to violence.", "I would risk life and limb to discover a new culture or unravel the secrets of a dead one.", "When I arrive at a new settlement for the first time, I must learn all its customs." ],
+    "ideals" : [ "Discovery. I want to be the first person to discover a lost culture. (Any)", "Distance. One must not interfere with the affairs of another culture - even one in need of aid. (Lawful)", "Knowledge. By understanding other races and cultures, we learn to understand ourselves. (Any)", "Power. Common people crave strong leadership, and I do my utmost to provide it. (Lawful)", "Protection. I must do everything possible to save a society facing extinction. (Good)", "Indifferent. Life is cruel. What's the point in saving people if they're going to die anyway? (Chaotic)" ],
+    "bonds" : [ "My mentor gave me a journal filled with lore and wisdom. Losing it would devastate me.", "Having lived among the people of a primeval tribe or clan, I long to return and see how they are faring.", "Years ago, tragedy struck the members of an isolated society I befriended, and I will honor them.", "I want to learn more about a particular humanoid culture that fascinates me.", "I seek to avenge a clan, tribe, kingdom, or empire that was wiped out.", "I have a trinket that I believe is the key to finding a long-lost society." ],
+    "flaws" : [ "Boats make me seasick.", "I talk to myself, and I don't make friends easily.", "I believe that I'm intellectually superior to people from other cultures and have much to teach them.", "I've picked up some unpleasant habits living among goblins, lizardfolk, or orcs.", "I complain about everything.", "I wear a tribal mask and never take it off." ],
+    "otherTables" : [ {
+      "caption" : null,
+      "colLabels" : [ "d8", "Culture" ],
+      "rows" : [ [ "1", "Aarakocra" ], [ "2", "Dwarf" ], [ "3", "Elf" ], [ "4", "Goblin" ], [ "5", "Halfling" ], [ "6", "Human" ], [ "7", "Lizardfolk" ], [ "8", "Orc" ] ]
+    } ],
+    "features" : [ {
+      "name" : "Adept Linguist",
+      "description" : "You can communicate with humanoids who don't speak any language you know. You must observe the humanoids interacting with one another for at least 1 day, after which you learn a handful of important words, expressions, and gestures - enough to communicate on a rudimentary level."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "insight", "religion" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 2,
+        "amount" : null
+      } ]
+    } ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "leather-bound diary",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "ink-1-ounce-bottle",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "ink-pen",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "travelers-clothes",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "trinket",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : "trinket of special significance",
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 1000,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : null,
+    "prerequisites" : null
+  }
+}

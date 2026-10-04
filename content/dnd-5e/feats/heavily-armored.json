@@ -1,0 +1,43 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "FEAT",
+  "slug" : "heavily-armored",
+  "name" : "Heavily Armored",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 167,
+  "tags" : [ ],
+  "description" : "Prerequisite: proficiency with medium armor\n\nYou have trained to master the use of heavy armor, gaining the following benefits: You gain proficiency with heavy armor.",
+  "data" : {
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "strength" : 1
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ {
+      "fixed" : [ "heavy" ],
+      "choices" : [ ]
+    } ],
+    "savingThrowAlternatives" : [ ],
+    "expertiseAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "optionalFeatureProgressions" : [ ],
+    "additionalSpells" : null,
+    "prerequisites" : [ {
+      "proficiency" : [ {
+        "armor" : "medium"
+      } ]
+    } ],
+    "repeatable" : false,
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

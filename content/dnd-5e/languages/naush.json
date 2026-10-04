@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "LANGUAGE",
+  "slug" : "naush",
+  "name" : "Naush",
+  "sourceBook" : "Explorer's Guide to Wildemount",
+  "sourceCode" : "EGW",
+  "sourcePage" : 9,
+  "tags" : [ ],
+  "description" : "Originally spoken by the Ki'Nau islanders native to the Menagerie Coast, Naush is a thriving language within the multicultural cities of the Clovis Concord. Even sailors who only speak Common incorporate dozens of Naush words into their nautical jargon.",
+  "data" : {
+    "type" : null,
+    "script" : null
+  }
+}

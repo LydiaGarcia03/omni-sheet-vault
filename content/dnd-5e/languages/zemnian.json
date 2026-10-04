@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "LANGUAGE",
+  "slug" : "zemnian",
+  "name" : "Zemnian",
+  "sourceBook" : "Explorer's Guide to Wildemount",
+  "sourceCode" : "EGW",
+  "sourcePage" : 9,
+  "tags" : [ ],
+  "description" : "This ancient language was spoken by the people of Zemniaz in the Age of Arcanum. That ancient culture has long since crumbled, but its language and its people live on in the Dwendalian Empire. Many ancient scrolls were written in Zemnian, but it is a language now largely spoken by farmers, as Common is the default language of the empire.",
+  "data" : {
+    "type" : null,
+    "script" : null
+  }
+}

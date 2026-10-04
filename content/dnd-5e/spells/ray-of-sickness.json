@@ -1,0 +1,73 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "ray-of-sickness",
+  "name" : "Ray of Sickness",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 271,
+  "tags" : [ "Poisoned" ],
+  "description" : "A ray of sickening greenish energy lashes out toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 2d8 poison damage and must make a Constitution saving throw. On a failed save, it is also poisoned until the end of your next turn.",
+  "data" : {
+    "level" : 1,
+    "school" : "necromancy",
+    "castingTime" : "1 Action",
+    "range" : "60 ft.",
+    "concentration" : false,
+    "ritual" : false,
+    "attackRoll" : true,
+    "damageDiceCount" : 2,
+    "damageDiceSides" : 8,
+    "damageType" : "poison",
+    "notes" : "V, S",
+    "effectSummary" : "Damage",
+    "saveAbility" : "constitution",
+    "components" : "V, S",
+    "materialComponent" : null,
+    "duration" : "Instantaneous",
+    "higherLevelsDescription" : "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d8 for each slot level above 1st.",
+    "higherLevelsDamageDiceCount" : 1,
+    "higherLevelsDamageDiceSides" : 8,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Sorcerer",
+      "source" : "PHB"
+    }, {
+      "name" : "Wizard",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Artificer",
+      "classSource" : "TCE",
+      "subclassShortName" : "Alchemist",
+      "subclassSource" : "TCE"
+    }, {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Death",
+      "subclassSource" : "DMG"
+    }, {
+      "className" : "Fighter",
+      "classSource" : "PHB",
+      "subclassShortName" : "Eldritch Knight",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Rogue",
+      "classSource" : "PHB",
+      "subclassShortName" : "Arcane Trickster",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Sorcerer",
+      "classSource" : "PHB",
+      "subclassShortName" : "Lunar",
+      "subclassSource" : "DSotDQ"
+    }, {
+      "className" : "Warlock",
+      "classSource" : "PHB",
+      "subclassShortName" : "Undying",
+      "subclassSource" : "SCAG"
+    } ],
+    "effect" : null
+  }
+}

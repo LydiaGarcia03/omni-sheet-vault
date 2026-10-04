@@ -1,0 +1,7 @@
+{
+  "target": { "classSlug": "sorcerer", "feature": "Font of Magic" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 99 },
+  "modifiers": [],
+  "uses": { "resource": "sorcery-points", "fromTableColumn": "Sorcery Points", "recharge": "LONG_REST" },
+  "choices": []
+}

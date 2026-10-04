@@ -1,0 +1,69 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "hallucinatory-terrain",
+  "name" : "Hallucinatory Terrain",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 249,
+  "tags" : [ ],
+  "description" : "You make natural terrain in a 150-foot cube in range look, sound, and smell like some other sort of natural terrain. Thus, open fields or a road can be made to resemble a swamp, hill, crevasse, or some other difficult or impassable terrain. A pond can be made to seem like a grassy meadow, a precipice like a gentle slope, or a rock-strewn gully like a wide and smooth road. Manufactured structures, equipment, and creatures within the area aren't changed in appearance. The tactile characteristics of the terrain are unchanged, so creatures entering the area are likely to see through the illusion. If the difference isn't obvious by touch, a creature carefully examining the illusion can attempt an Intelligence (Investigation) check against your spell save DC to disbelieve it. A creature who discerns the illusion for what it is, sees it as a vague image superimposed on the terrain.",
+  "data" : {
+    "level" : 4,
+    "school" : "illusion",
+    "castingTime" : "10 Minutes",
+    "range" : "300 ft.",
+    "concentration" : false,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "notes" : "V, S, M (a stone, a twig, and a bit of green plant)",
+    "effectSummary" : "Buff",
+    "saveAbility" : null,
+    "components" : "V, S, M",
+    "materialComponent" : "a stone, a twig, and a bit of green plant",
+    "duration" : "24 hours",
+    "higherLevelsDescription" : null,
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Bard",
+      "source" : "PHB"
+    }, {
+      "name" : "Druid",
+      "source" : "PHB"
+    }, {
+      "name" : "Warlock",
+      "source" : "PHB"
+    }, {
+      "name" : "Wizard",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Druid",
+      "classSource" : "PHB",
+      "subclassShortName" : "Land",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Fighter",
+      "classSource" : "PHB",
+      "subclassShortName" : "Eldritch Knight",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Rogue",
+      "classSource" : "PHB",
+      "subclassShortName" : "Arcane Trickster",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Sorcerer",
+      "classSource" : "PHB",
+      "subclassShortName" : "Lunar",
+      "subclassSource" : "DSotDQ"
+    } ],
+    "effect" : null
+  }
+}

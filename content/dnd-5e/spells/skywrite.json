@@ -1,0 +1,59 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "skywrite",
+  "name" : "Skywrite",
+  "sourceBook" : "Xanathar's Guide to Everything",
+  "sourceCode" : "XGE",
+  "sourcePage" : 165,
+  "tags" : [ ],
+  "description" : "You cause up to ten words to form in a part of the sky you can see. The words appear to be made of cloud and remain in place for the spell's duration. The words dissipate when the spell ends. A strong wind can disperse the clouds and end the spell early.",
+  "data" : {
+    "level" : 2,
+    "school" : "transmutation",
+    "castingTime" : "1 Action",
+    "range" : "Sight",
+    "concentration" : true,
+    "ritual" : true,
+    "attackRoll" : false,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "notes" : "Concentration, 1 hour, V, S",
+    "effectSummary" : "Buff",
+    "saveAbility" : null,
+    "components" : "V, S",
+    "materialComponent" : null,
+    "duration" : "Concentration, 1 hour",
+    "higherLevelsDescription" : null,
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "XGE",
+    "classes" : [ {
+      "name" : "Bard",
+      "source" : "PHB"
+    }, {
+      "name" : "Druid",
+      "source" : "PHB"
+    }, {
+      "name" : "Wizard",
+      "source" : "PHB"
+    }, {
+      "name" : "Artificer",
+      "source" : "TCE"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Fighter",
+      "classSource" : "PHB",
+      "subclassShortName" : "Eldritch Knight",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Rogue",
+      "classSource" : "PHB",
+      "subclassShortName" : "Arcane Trickster",
+      "subclassSource" : "PHB"
+    } ],
+    "effect" : null
+  }
+}

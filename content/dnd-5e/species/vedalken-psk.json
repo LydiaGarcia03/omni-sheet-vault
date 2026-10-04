@@ -1,0 +1,81 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "vedalken-psk",
+  "name" : "Vedalken",
+  "sourceBook" : "Plane Shift: Kaladesh",
+  "sourceCode" : "PSK",
+  "sourcePage" : 23,
+  "tags" : [ ],
+  "description" : "Age. Vedalken mature at the same rate humans do, and most are expected to settle down into an adult life by around age 40. They can live 350 to almost 500 years. Alignment. Vedalken are most often lawful and rarely evil. Size. Vedalken are taller than humans but more slender. They average 6 to 6½ feet tall, but usually weigh less than 200 pounds. Your size is Medium. Languages. You can speak, read, and write Common and Vedalken. The Vedalken language is renowned for its technical treatises and its catalogs of knowledge about the natural world and the aether that pervades it. Vedalken Cunning. You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic. Aether Lore. Whenever you make an Intelligence (History) check related to magic items or aether-powered technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you normally apply.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 30
+    },
+    "senses" : [ ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "intelligence" : 2,
+        "wisdom" : 1
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "other" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : {
+      "mature" : 40,
+      "max" : 500
+    },
+    "heightAndWeight" : null,
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Age",
+      "description" : "Vedalken mature at the same rate humans do, and most are expected to settle down into an adult life by around age 40. They can live 350 to almost 500 years."
+    }, {
+      "name" : "Alignment",
+      "description" : "Vedalken are most often lawful and rarely evil."
+    }, {
+      "name" : "Size",
+      "description" : "Vedalken are taller than humans but more slender. They average 6 to 6½ feet tall, but usually weigh less than 200 pounds. Your size is Medium."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and Vedalken. The Vedalken language is renowned for its technical treatises and its catalogs of knowledge about the natural world and the aether that pervades it."
+    }, {
+      "name" : "Vedalken Cunning",
+      "description" : "You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic."
+    }, {
+      "name" : "Aether Lore",
+      "description" : "Whenever you make an Intelligence (History) check related to magic items or aether-powered technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you normally apply."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

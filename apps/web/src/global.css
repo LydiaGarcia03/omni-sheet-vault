@@ -1,0 +1,20 @@
+/*
+ * Direct owner report, 2026-09-04: a persistent white strip above
+ * SheetShell.tsx's dark header bar survived even after that shell's own
+ * outer wrapper dropped its top padding — DOM-measured (`getComputedStyle`
+ * on `document.body`) as the browser's own default `body { margin: 8px }`
+ * user-agent style, never reset anywhere in this project. No component-level
+ * fix could remove it, since it sits outside every component this app
+ * renders, around `#root` itself.
+ */
+html {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Character portraits: an <img> takes the placeholder box's size and frame and fills it */
+img.has-image { display: block; object-fit: cover; background: none; }

@@ -1,0 +1,34 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "FEAT",
+  "slug" : "medium-armor-master",
+  "name" : "Medium Armor Master",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 168,
+  "tags" : [ ],
+  "description" : "Prerequisite: proficiency with medium armor\n\nYou have practiced moving in medium armor to gain the following benefits: Wearing medium armor doesn't impose disadvantage on your Dexterity (Stealth) checks. When you wear medium armor, you can add 3, rather than 2, to your AC if you have a Dexterity of 16 or higher.",
+  "data" : {
+    "abilityAlternatives" : [ ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "savingThrowAlternatives" : [ ],
+    "expertiseAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "optionalFeatureProgressions" : [ ],
+    "additionalSpells" : null,
+    "prerequisites" : [ {
+      "proficiency" : [ {
+        "armor" : "medium"
+      } ]
+    } ],
+    "repeatable" : false,
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

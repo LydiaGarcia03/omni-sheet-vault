@@ -1,0 +1,45 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "FEAT",
+  "slug" : "svirfneblin-magic",
+  "name" : "Svirfneblin Magic",
+  "sourceBook" : "Mordenkainen's Tome of Foes",
+  "sourceCode" : "MTF",
+  "sourcePage" : 114,
+  "tags" : [ ],
+  "description" : "Prerequisite: Gnome\n\nYou have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast nondetection on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: blindness/deafness, blur, and disguise self. You regain the ability to cast these spells when you finish a long rest. Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels.",
+  "data" : {
+    "abilityAlternatives" : [ ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "savingThrowAlternatives" : [ ],
+    "expertiseAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "optionalFeatureProgressions" : [ ],
+    "additionalSpells" : [ {
+      "ability" : "int",
+      "innate" : {
+        "_" : {
+          "will" : [ "nondetection" ],
+          "daily" : {
+            "1e" : [ "blindness/deafness", "blur", "disguise self" ]
+          }
+        }
+      }
+    } ],
+    "prerequisites" : [ {
+      "race" : [ {
+        "name" : "gnome",
+        "subrace" : "deep"
+      } ]
+    } ],
+    "repeatable" : false,
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

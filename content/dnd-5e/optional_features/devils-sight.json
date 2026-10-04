@@ -1,0 +1,26 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "devils-sight",
+  "name" : "Devil's Sight",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 110,
+  "tags" : [ ],
+  "description" : "You can see normally in darkness, both magical and nonmagical, to a distance of 120 feet.",
+  "data" : {
+    "featureTypes" : [ "EI" ],
+    "optional" : false,
+    "prerequisiteText" : null,
+    "prerequisites" : null,
+    "consumes" : null,
+    "additionalSpells" : null,
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

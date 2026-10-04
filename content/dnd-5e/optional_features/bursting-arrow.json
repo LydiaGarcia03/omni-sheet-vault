@@ -1,0 +1,28 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "bursting-arrow",
+  "name" : "Bursting Arrow",
+  "sourceBook" : "Xanathar's Guide to Everything",
+  "sourceCode" : "XGE",
+  "sourcePage" : 29,
+  "tags" : [ ],
+  "description" : "You imbue your arrow with force energy drawn from the school of evocation. The energy detonates after your attack. Immediately after the arrow hits the creature, the target and all other creatures within 10 feet of it take 2d6 force damage each. The force damage increases to 4d6 when you reach 18th level in this class.",
+  "data" : {
+    "featureTypes" : [ "AS" ],
+    "optional" : false,
+    "prerequisiteText" : null,
+    "prerequisites" : null,
+    "consumes" : {
+      "name" : "Arcane Shot"
+    },
+    "additionalSpells" : null,
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

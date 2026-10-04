@@ -1,0 +1,9 @@
+{
+  "target": { "subclassSlug": "sorcerer-draconic", "feature": "Draconic Resilience" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 102 },
+  "modifiers": [
+    { "type": "BONUS", "target": "HIT_POINTS_PER_LEVEL", "value": 1, "levelScope": "CLASS" },
+    { "type": "SET_BASE", "target": "UNARMORED_ARMOR_CLASS", "value": 13 }
+  ],
+  "choices": []
+}

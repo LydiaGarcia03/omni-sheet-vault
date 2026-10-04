@@ -1,0 +1,50 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "banishing-smite",
+  "name" : "Banishing Smite",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 216,
+  "tags" : [ "Incapacitated" ],
+  "description" : "The next time you hit a creature with a weapon attack before this spell ends, your weapon crackles with force, and the attack deals an extra 5d10 force damage to the target. Additionally, if this attack reduces the target to 50 hit points or fewer, you banish it. If the target is native to a different plane of existence than the one you're on, the target disappears, returning to its home plane. If the target is native to the plane you're on, the creature vanishes into a harmless demiplane. While there, the target is incapacitated. It remains there until the spell ends, at which point the target reappears in the space it left or in the nearest unoccupied space if that space is occupied.",
+  "data" : {
+    "level" : 5,
+    "school" : "abjuration",
+    "castingTime" : "1 Bonus Action",
+    "range" : "Self",
+    "concentration" : true,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : 5,
+    "damageDiceSides" : 10,
+    "damageType" : "force",
+    "notes" : "Concentration, 1 minute, V",
+    "effectSummary" : "Damage",
+    "saveAbility" : null,
+    "components" : "V",
+    "materialComponent" : null,
+    "duration" : "Concentration, 1 minute",
+    "higherLevelsDescription" : null,
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Paladin",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Artificer",
+      "classSource" : "TCE",
+      "subclassShortName" : "Battle Smith",
+      "subclassSource" : "TCE"
+    }, {
+      "className" : "Warlock",
+      "classSource" : "PHB",
+      "subclassShortName" : "Hexblade",
+      "subclassSource" : "XGE"
+    } ],
+    "effect" : null
+  }
+}

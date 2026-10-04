@@ -1,0 +1,7 @@
+{
+  "target": { "subclassSlug": "fighter-battle-master", "feature": "Improved Combat Superiority (d10)" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 73 },
+  "modifiers": [],
+  "uses": { "resource": "superiority-dice", "die": 10 },
+  "choices": []
+}

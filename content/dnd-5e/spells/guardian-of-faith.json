@@ -1,0 +1,75 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "guardian-of-faith",
+  "name" : "Guardian of Faith",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 246,
+  "tags" : [ ],
+  "description" : "A Large spectral guardian appears and hovers for the duration in an unoccupied space of your choice that you can see within range. The guardian occupies that space and is indistinct except for a gleaming sword and shield emblazoned with the symbol of your deity. Any creature hostile to you that moves to a space within 10 feet of the guardian for the first time on a turn must succeed on a Dexterity saving throw. The creature takes 20 radiant damage on a failed save, or half as much damage on a successful one. The guardian vanishes when it has dealt a total of 60 damage.",
+  "data" : {
+    "level" : 4,
+    "school" : "conjuration",
+    "castingTime" : "1 Action",
+    "range" : "30 ft.",
+    "concentration" : false,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : "radiant",
+    "notes" : "V",
+    "effectSummary" : "Damage",
+    "saveAbility" : "dexterity",
+    "components" : "V",
+    "materialComponent" : null,
+    "duration" : "8 hours",
+    "higherLevelsDescription" : null,
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Cleric",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Life",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Light",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Solidarity (PSA)",
+      "subclassSource" : "PSA"
+    }, {
+      "className" : "Paladin",
+      "classSource" : "PHB",
+      "subclassShortName" : "Devotion",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Paladin",
+      "classSource" : "PHB",
+      "subclassShortName" : "Crown",
+      "subclassSource" : "SCAG"
+    }, {
+      "className" : "Sorcerer",
+      "classSource" : "PHB",
+      "subclassShortName" : "Divine Soul",
+      "subclassSource" : "XGE"
+    }, {
+      "className" : "Warlock",
+      "classSource" : "PHB",
+      "subclassShortName" : "Celestial",
+      "subclassSource" : "XGE"
+    } ],
+    "effect" : null
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "FEAT",
+  "slug" : "fighting-initiate",
+  "name" : "Fighting Initiate",
+  "sourceBook" : "Tasha's Cauldron of Everything",
+  "sourceCode" : "TCE",
+  "sourcePage" : 80,
+  "tags" : [ ],
+  "description" : "Prerequisite: proficiency with martial weapon\n\nYour martial training has helped you develop a particular style of fighting. As a result, you learn one Fighting Style option of your choice from the fighter class. If you already have a style, the one you choose must be different. Whenever you reach a level that grants the Ability Score Improvement feature, you can replace this feat's fighting style with another one from the fighter class that you don't have.",
+  "data" : {
+    "abilityAlternatives" : [ ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "savingThrowAlternatives" : [ ],
+    "expertiseAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "optionalFeatureProgressions" : [ {
+      "name" : "Fighting Style",
+      "featureTypes" : [ "FS:F" ],
+      "countByLevel" : [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ]
+    } ],
+    "additionalSpells" : null,
+    "prerequisites" : [ {
+      "proficiency" : [ {
+        "weapon" : "martial"
+      } ]
+    } ],
+    "repeatable" : false,
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

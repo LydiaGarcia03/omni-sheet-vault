@@ -1,0 +1,48 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "dawn",
+  "name" : "Dawn",
+  "sourceBook" : "Xanathar's Guide to Everything",
+  "sourceCode" : "XGE",
+  "sourcePage" : 153,
+  "tags" : [ ],
+  "description" : "The light of dawn shines down on a location you specify within range. Until the spell ends, a 30-foot-radius, 40-foot-high cylinder of bright light glimmers there. This light is sunlight. When the cylinder appears, each creature in it must make a Constitution saving throw, taking 4d10 radiant damage on a failed save, or half as much damage on a successful one. A creature must also make this saving throw whenever it ends its turn in the cylinder. If you're within 60 feet of the cylinder, you can move it up to 60 feet as a bonus action on your turn.",
+  "data" : {
+    "level" : 5,
+    "school" : "evocation",
+    "castingTime" : "1 Action",
+    "range" : "60 ft.",
+    "concentration" : true,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : 4,
+    "damageDiceSides" : 10,
+    "damageType" : "radiant",
+    "notes" : "Concentration, 1 minute, V, S, M (a sunburst pendant worth at least 100 gp)",
+    "effectSummary" : "Damage",
+    "saveAbility" : "constitution",
+    "components" : "V, S, M",
+    "materialComponent" : "a sunburst pendant worth at least 100 gp",
+    "duration" : "Concentration, 1 minute",
+    "higherLevelsDescription" : null,
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "XGE",
+    "classes" : [ {
+      "name" : "Cleric",
+      "source" : "PHB"
+    }, {
+      "name" : "Wizard",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Sorcerer",
+      "classSource" : "PHB",
+      "subclassShortName" : "Divine Soul",
+      "subclassSource" : "XGE"
+    } ],
+    "effect" : null
+  }
+}

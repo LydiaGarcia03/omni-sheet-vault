@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "LANGUAGE",
+  "slug" : "naga",
+  "name" : "Naga",
+  "sourceBook" : "Plane Shift: Amonkhet",
+  "sourceCode" : "PSA",
+  "sourcePage" : 18,
+  "tags" : [ ],
+  "description" : "",
+  "data" : {
+    "type" : null,
+    "script" : null
+  }
+}

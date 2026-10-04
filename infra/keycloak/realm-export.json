@@ -27,7 +27,9 @@
   "oauth2DevicePollingInterval": 5,
   "enabled": true,
   "sslRequired": "external",
-  "registrationAllowed": false,
+  "loginTheme": "omni-sheet-vault",
+  "registrationAllowed": true,
+  "passwordPolicy": "length(8) and maxLength(128) and notUsername and notEmail",
   "registrationEmailAsUsername": false,
   "rememberMe": false,
   "verifyEmail": false,
@@ -35,7 +37,7 @@
   "duplicateEmailsAllowed": false,
   "resetPasswordAllowed": false,
   "editUsernameAllowed": false,
-  "bruteForceProtected": false,
+  "bruteForceProtected": true,
   "permanentLockout": false,
   "maxTemporaryLockouts": 0,
   "bruteForceStrategy": "MULTIPLE",
@@ -44,7 +46,7 @@
   "waitIncrementSeconds": 60,
   "quickLoginCheckMilliSeconds": 1000,
   "maxDeltaTimeSeconds": 43200,
-  "failureFactor": 30,
+  "failureFactor": 10,
   "roles": {
     "realm": [
       {
@@ -302,7 +304,7 @@
       ],
       "security-admin-console": [],
       "admin-cli": [],
-      "omni-sheet-vault-web": [],
+      "omni-sheet-vault-bff": [],
       "account-console": [],
       "broker": [
         {
@@ -669,10 +671,10 @@
       ]
     },
     {
-      "id": "80705f1a-fed6-475d-8659-b92c4dd6d787",
-      "clientId": "omni-sheet-vault-web",
-      "name": "omni-sheet-vault-web",
-      "description": "",
+      "id": "3f0b5c1e-8d2a-4c7e-9a61-2b7d4e8f0c15",
+      "clientId": "omni-sheet-vault-bff",
+      "name": "omni-sheet-vault-bff",
+      "description": "The API's own login for browsers (adr-0008). Confidential: its secret lives in .env, never here.",
       "rootUrl": "",
       "adminUrl": "",
       "baseUrl": "",
@@ -681,11 +683,10 @@
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "http://localhost:5173/*"
+        "http://localhost:5173/login/oauth2/code/keycloak",
+        "http://localhost:8090/login/oauth2/code/keycloak"
       ],
-      "webOrigins": [
-        "http://localhost:5173/*"
-      ],
+      "webOrigins": [],
       "notBefore": 0,
       "bearerOnly": false,
       "consentRequired": false,
@@ -693,15 +694,14 @@
       "implicitFlowEnabled": false,
       "directAccessGrantsEnabled": false,
       "serviceAccountsEnabled": false,
-      "publicClient": true,
-      "frontchannelLogout": true,
+      "publicClient": false,
+      "frontchannelLogout": false,
       "protocol": "openid-connect",
       "attributes": {
         "realm_client": "false",
         "oidc.ciba.grant.enabled": "false",
         "backchannel.logout.session.required": "true",
         "standard.token.exchange.enabled": "false",
-        "frontchannel.logout.session.required": "true",
         "post.logout.redirect.uris": "http://localhost:5173/*",
         "display.on.consent.screen": "false",
         "oauth2.device.authorization.grant.enabled": "false",

@@ -1,0 +1,87 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "freedom-of-movement",
+  "name" : "Freedom of Movement",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 244,
+  "tags" : [ ],
+  "description" : "You touch a willing creature. For the duration, the target's movement is unaffected by difficult terrain, and spells and other magical effects can neither reduce the target's speed nor cause the target to be paralyzed or restrained. The target can also spend 5 feet of movement to automatically escape from nonmagical restraints, such as manacles or a creature that has it grappled. Finally, being underwater imposes no penalties on the target's movement or attacks.",
+  "data" : {
+    "level" : 4,
+    "school" : "abjuration",
+    "castingTime" : "1 Action",
+    "range" : "Touch",
+    "concentration" : false,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "notes" : "V, S, M (a leather strap, bound around the arm or a similar appendage)",
+    "effectSummary" : "Buff",
+    "saveAbility" : null,
+    "components" : "V, S, M",
+    "materialComponent" : "a leather strap, bound around the arm or a similar appendage",
+    "duration" : "1 hour",
+    "higherLevelsDescription" : null,
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Bard",
+      "source" : "PHB"
+    }, {
+      "name" : "Cleric",
+      "source" : "PHB"
+    }, {
+      "name" : "Druid",
+      "source" : "PHB"
+    }, {
+      "name" : "Ranger",
+      "source" : "PHB"
+    }, {
+      "name" : "Artificer",
+      "source" : "TCE"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "War",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Zeal (PSA)",
+      "subclassSource" : "PSA"
+    }, {
+      "className" : "Druid",
+      "classSource" : "PHB",
+      "subclassShortName" : "Land",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Paladin",
+      "classSource" : "PHB",
+      "subclassShortName" : "Devotion",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Paladin",
+      "classSource" : "PHB",
+      "subclassShortName" : "Glory",
+      "subclassSource" : "TCE"
+    }, {
+      "className" : "Sorcerer",
+      "classSource" : "PHB",
+      "subclassShortName" : "Divine Soul",
+      "subclassSource" : "XGE"
+    }, {
+      "className" : "Sorcerer",
+      "classSource" : "PHB",
+      "subclassShortName" : "Clockwork Soul",
+      "subclassSource" : "TCE"
+    } ],
+    "effect" : null
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "spray-of-cards",
+  "name" : "Spray of Cards",
+  "sourceBook" : "The Book of Many Things",
+  "sourceCode" : "BMT",
+  "sourcePage" : 50,
+  "tags" : [ "Blinded" ],
+  "description" : "You spray a 15-foot cone of spectral cards. Each creature in that area must make a Dexterity saving throw. On a failed save, a creature takes 2d10 force damage and has the blinded condition until the end of its next turn. On a successful save, a creature takes half as much damage only.",
+  "data" : {
+    "level" : 2,
+    "school" : "conjuration",
+    "castingTime" : "1 Action",
+    "range" : "Self (15-foot cone)",
+    "concentration" : false,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : 2,
+    "damageDiceSides" : 10,
+    "damageType" : "force",
+    "notes" : "V, S, M (a deck of cards)",
+    "effectSummary" : "Damage",
+    "saveAbility" : "dexterity",
+    "components" : "V, S, M",
+    "materialComponent" : "a deck of cards",
+    "duration" : "Instantaneous",
+    "higherLevelsDescription" : "When you cast this spell using a spell slot of 3rd level or higher, the damage increases by 1d10 for each slot level above 2nd.",
+    "higherLevelsDamageDiceCount" : 1,
+    "higherLevelsDamageDiceSides" : 10,
+    "sourceCode" : "BMT",
+    "classes" : [ {
+      "name" : "Bard",
+      "source" : "PHB"
+    }, {
+      "name" : "Sorcerer",
+      "source" : "PHB"
+    }, {
+      "name" : "Warlock",
+      "source" : "PHB"
+    }, {
+      "name" : "Wizard",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Fighter",
+      "classSource" : "PHB",
+      "subclassShortName" : "Eldritch Knight",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Rogue",
+      "classSource" : "PHB",
+      "subclassShortName" : "Arcane Trickster",
+      "subclassSource" : "PHB"
+    } ],
+    "effect" : null
+  }
+}

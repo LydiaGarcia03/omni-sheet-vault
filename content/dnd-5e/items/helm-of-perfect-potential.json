@@ -1,0 +1,64 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "ITEM",
+  "slug" : "helm-of-perfect-potential",
+  "name" : "Helm of Perfect Potential",
+  "sourceBook" : "Bigby Presents: Glory of the Giants",
+  "sourceCode" : "BGG",
+  "sourcePage" : 112,
+  "tags" : [ ],
+  "description" : "This copper-hued helm contains a shard of the Elemental Chaos embedded in its forehead, surrounded by a motif of a rising sun. Legend says Annam fashioned this helm for his daughter Diancastra to hold the fragment of chaos she used to prove her worth to her father.",
+  "data" : {
+    "itemKind" : "GEAR",
+    "typeLabel" : "Wondrous Item",
+    "rarity" : "artifact",
+    "focusType" : null,
+    "requiresAttunement" : true,
+    "attunementRequirement" : null,
+    "weightLb" : null,
+    "costGp" : null,
+    "weaponCategory" : null,
+    "attackType" : null,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "versatileDamageDiceCount" : null,
+    "versatileDamageDiceSides" : null,
+    "properties" : [ ],
+    "finesse" : false,
+    "normalRange" : null,
+    "longRange" : null,
+    "armorCategory" : null,
+    "baseArmorClass" : null,
+    "stealthDisadvantage" : false,
+    "strengthRequirement" : null,
+    "weaponAttackBonus" : null,
+    "weaponDamageBonus" : null,
+    "armorClassBonus" : null,
+    "charges" : 6,
+    "rechargeTrigger" : "Dawn",
+    "rechargeFormula" : "1d6",
+    "grantedSpells" : [ {
+      "spellSlug" : "elemental-weapon",
+      "chargeCost" : 1,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "call-lightning",
+      "chargeCost" : 2,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "wall-of-fire",
+      "chargeCost" : 3,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "conjure-elemental",
+      "chargeCost" : 4,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "tsunami",
+      "chargeCost" : 5,
+      "fixedSaveDc" : null
+    } ],
+    "mechanics" : null
+  }
+}

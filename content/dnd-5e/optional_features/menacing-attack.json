@@ -1,0 +1,28 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "menacing-attack",
+  "name" : "Menacing Attack",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 74,
+  "tags" : [ ],
+  "description" : "When you hit a creature with a weapon attack, you can expend one superiority die to attempt to frighten the target. You add the superiority die to the attack's damage roll, and the target must make a Wisdom saving throw. On a failed save, it is frightened of you until the end of your next turn.",
+  "data" : {
+    "featureTypes" : [ "MV:B" ],
+    "optional" : false,
+    "prerequisiteText" : null,
+    "prerequisites" : null,
+    "consumes" : {
+      "name" : "Superiority Die"
+    },
+    "additionalSpells" : null,
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "spike-growth",
+  "name" : "Spike Growth",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 277,
+  "tags" : [ ],
+  "description" : "The ground in a 20-foot radius centered on a point within range twists and sprouts hard spikes and thorns. The area becomes difficult terrain for the duration. When a creature moves into or within the area, it takes 2d4 piercing damage for every 5 feet it travels. The transformation of the ground is camouflaged to look natural. Any creature that can't see the area at the time the spell is cast must make a Wisdom (Perception) check against your spell save DC to recognize the terrain as hazardous before entering it.",
+  "data" : {
+    "level" : 2,
+    "school" : "transmutation",
+    "castingTime" : "1 Action",
+    "range" : "150 ft.",
+    "concentration" : true,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : 2,
+    "damageDiceSides" : 4,
+    "damageType" : "piercing",
+    "notes" : "Concentration, 10 minutes, V, S, M (seven sharp thorns or seven small twigs, each sharpened to a point)",
+    "effectSummary" : "Damage",
+    "saveAbility" : null,
+    "components" : "V, S, M",
+    "materialComponent" : "seven sharp thorns or seven small twigs, each sharpened to a point",
+    "duration" : "Concentration, 10 minutes",
+    "higherLevelsDescription" : null,
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Druid",
+      "source" : "PHB"
+    }, {
+      "name" : "Ranger",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Nature",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Druid",
+      "classSource" : "PHB",
+      "subclassShortName" : "Land",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Warlock",
+      "classSource" : "PHB",
+      "subclassShortName" : "Genie",
+      "subclassSource" : "TCE"
+    } ],
+    "effect" : null
+  }
+}

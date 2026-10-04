@@ -1,0 +1,49 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "skill-empowerment",
+  "name" : "Skill Empowerment",
+  "sourceBook" : "Xanathar's Guide to Everything",
+  "sourceCode" : "XGE",
+  "sourcePage" : 165,
+  "tags" : [ ],
+  "description" : "Your magic deepens a creature's understanding of its own talent. You touch one willing creature and give it expertise in one skill of your choice; until the spell ends, the creature doubles its proficiency bonus for ability checks it makes that use the chosen skill. You must choose a skill in which the target is proficient and that isn't already benefiting from an effect, such as Expertise, that doubles its proficiency bonus.",
+  "data" : {
+    "level" : 5,
+    "school" : "transmutation",
+    "castingTime" : "1 Action",
+    "range" : "Touch",
+    "concentration" : true,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "notes" : "Concentration, 1 hour, V, S",
+    "effectSummary" : "Buff",
+    "saveAbility" : null,
+    "components" : "V, S",
+    "materialComponent" : null,
+    "duration" : "Concentration, 1 hour",
+    "higherLevelsDescription" : null,
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "XGE",
+    "classes" : [ {
+      "name" : "Bard",
+      "source" : "PHB"
+    }, {
+      "name" : "Sorcerer",
+      "source" : "PHB"
+    }, {
+      "name" : "Wizard",
+      "source" : "PHB"
+    }, {
+      "name" : "Artificer",
+      "source" : "TCE"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ ],
+    "effect" : null
+  }
+}

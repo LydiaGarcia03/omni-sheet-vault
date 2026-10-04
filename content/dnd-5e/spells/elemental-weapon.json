@@ -1,0 +1,59 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "elemental-weapon",
+  "name" : "Elemental Weapon",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 237,
+  "tags" : [ ],
+  "description" : "A nonmagical weapon you touch becomes a magic weapon. Choose one of the following damage types: acid, cold, fire, lightning, or thunder. For the duration, the weapon has a +1 bonus to attack rolls and deals an extra 1d4 damage of the chosen type when it hits.",
+  "data" : {
+    "level" : 3,
+    "school" : "transmutation",
+    "castingTime" : "1 Action",
+    "range" : "Touch",
+    "concentration" : true,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : 1,
+    "damageDiceSides" : 4,
+    "damageType" : "acid",
+    "notes" : "Concentration, 1 hour, V, S",
+    "effectSummary" : "Damage",
+    "saveAbility" : null,
+    "components" : "V, S",
+    "materialComponent" : null,
+    "duration" : "Concentration, 1 hour",
+    "higherLevelsDescription" : "When you cast this spell using a spell slot of 5th or 6th level, the bonus to attack rolls increases to +2 and the extra damage increases to 2d4. When you use a spell slot of 7th level or higher, the bonus increases to +3 and the extra damage increases to 3d4.",
+    "higherLevelsDamageDiceCount" : 2,
+    "higherLevelsDamageDiceSides" : 4,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Paladin",
+      "source" : "PHB"
+    }, {
+      "name" : "Artificer",
+      "source" : "TCE"
+    } ],
+    "optionalClasses" : [ {
+      "name" : "Druid",
+      "source" : "PHB"
+    }, {
+      "name" : "Ranger",
+      "source" : "PHB"
+    } ],
+    "subclasses" : [ {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Forge",
+      "subclassSource" : "XGE"
+    }, {
+      "className" : "Warlock",
+      "classSource" : "PHB",
+      "subclassShortName" : "Hexblade",
+      "subclassSource" : "XGE"
+    } ],
+    "effect" : null
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "triton-mpmm",
+  "name" : "Triton",
+  "sourceBook" : "Mordenkainen Presents: Monsters of the Multiverse",
+  "sourceCode" : "MPMM",
+  "sourcePage" : 35,
+  "tags" : [ ],
+  "description" : "Speed. Your walking speed is 30 feet, and you have a swimming speed equal to your walking speed. Amphibious. You can breathe air and water. Control Air and Water. You can cast fog cloud with this trait. Starting at 3rd level, you can cast the gust of wind spell with this trait. Starting at 5th level, you can also cast the water walk spell with it. Once you cast any of these spells with this trait, you can't cast that spell with it again until you finish a long rest. You can also cast these spells using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells when you cast them with this trait (choose when you select this race). Darkvision. You can see in dim light within 60 feet of you as if it were bright light and in darkness as if it were dim light. You discern colors in that darkness only as shades of gray. Emissary of the Sea. You can communicate simple ideas to any Beast, Elemental, or Monstrosity that has a swimming speed. It can understand your words, though you have no special ability to understand it in return. Guardian of the Depths. Adapted to the frigid ocean depths, you have resistance to cold damage. Languages. You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 30,
+      "swim" : 30
+    },
+    "senses" : [ {
+      "type" : "darkvision",
+      "range" : 60
+    } ],
+    "abilityAlternatives" : [ {
+      "fixed" : { },
+      "choices" : [ {
+        "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+        "weights" : [ 2, 1 ],
+        "count" : 2,
+        "amount" : null
+      } ],
+      "maximum" : null
+    }, {
+      "fixed" : { },
+      "choices" : [ {
+        "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+        "weights" : [ 1, 1, 1 ],
+        "count" : 3,
+        "amount" : null
+      } ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common" ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ "cold" ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : [ {
+      "innate" : {
+        "1" : {
+          "daily" : {
+            "1" : [ "fog cloud" ]
+          }
+        },
+        "3" : {
+          "daily" : {
+            "1" : [ "gust of wind" ]
+          }
+        },
+        "5" : {
+          "daily" : {
+            "1" : [ "water walk" ]
+          }
+        }
+      },
+      "ability" : {
+        "choose" : [ "int", "wis", "cha" ]
+      }
+    } ],
+    "age" : null,
+    "heightAndWeight" : null,
+    "lineage" : "VRGR",
+    "traits" : [ {
+      "name" : "Speed",
+      "description" : "Your walking speed is 30 feet, and you have a swimming speed equal to your walking speed."
+    }, {
+      "name" : "Amphibious",
+      "description" : "You can breathe air and water."
+    }, {
+      "name" : "Control Air and Water",
+      "description" : "You can cast fog cloud with this trait. Starting at 3rd level, you can cast the gust of wind spell with this trait. Starting at 5th level, you can also cast the water walk spell with it. Once you cast any of these spells with this trait, you can't cast that spell with it again until you finish a long rest. You can also cast these spells using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells when you cast them with this trait (choose when you select this race)."
+    }, {
+      "name" : "Darkvision",
+      "description" : "You can see in dim light within 60 feet of you as if it were bright light and in darkness as if it were dim light. You discern colors in that darkness only as shades of gray."
+    }, {
+      "name" : "Emissary of the Sea",
+      "description" : "You can communicate simple ideas to any Beast, Elemental, or Monstrosity that has a swimming speed. It can understand your words, though you have no special ability to understand it in return."
+    }, {
+      "name" : "Guardian of the Depths",
+      "description" : "Adapted to the frigid ocean depths, you have resistance to cold damage."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

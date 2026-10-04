@@ -1,0 +1,58 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "rarys-telepathic-bond",
+  "name" : "Rary's Telepathic Bond",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 270,
+  "tags" : [ ],
+  "description" : "You forge a telepathic link among up to eight willing creatures of your choice within range, psychically linking each creature to all the others for the duration. Creatures with Intelligence scores of 2 or less aren't affected by this spell. Until the spell ends, the targets can communicate telepathically through the bond whether or not they have a common language. The communication is possible over any distance, though it can't extend to other planes of existence.",
+  "data" : {
+    "level" : 5,
+    "school" : "divination",
+    "castingTime" : "1 Action",
+    "range" : "30 ft.",
+    "concentration" : false,
+    "ritual" : true,
+    "attackRoll" : false,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "notes" : "V, S, M (pieces of eggshell from two different kinds of creatures)",
+    "effectSummary" : "Detection",
+    "saveAbility" : null,
+    "components" : "V, S, M",
+    "materialComponent" : "pieces of eggshell from two different kinds of creatures",
+    "duration" : "1 hour",
+    "higherLevelsDescription" : null,
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Wizard",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ {
+      "name" : "Bard",
+      "source" : "PHB"
+    } ],
+    "subclasses" : [ {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Peace",
+      "subclassSource" : "TCE"
+    }, {
+      "className" : "Sorcerer",
+      "classSource" : "PHB",
+      "subclassShortName" : "Aberrant Mind",
+      "subclassSource" : "TCE"
+    }, {
+      "className" : "Sorcerer",
+      "classSource" : "PHB",
+      "subclassShortName" : "Lunar",
+      "subclassSource" : "DSotDQ"
+    } ],
+    "effect" : null
+  }
+}

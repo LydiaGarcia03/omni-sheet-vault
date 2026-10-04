@@ -1,0 +1,64 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "spirit-shroud",
+  "name" : "Spirit Shroud",
+  "sourceBook" : "Tasha's Cauldron of Everything",
+  "sourceCode" : "TCE",
+  "sourcePage" : 108,
+  "tags" : [ ],
+  "description" : "You call forth spirits of the dead, which flit around you for the spell's duration. The spirits are intangible and invulnerable. Until the spell ends, any attack you make deals 1d8 extra damage when you hit a creature within 10 feet of you. This damage is radiant, necrotic, or cold (your choice when you cast the spell). Any creature that takes this damage can't regain hit points until the start of your next turn. In addition, any creature of your choice that you can see that starts its turn within 10 feet of you has its speed reduced by 10 feet until the start of your next turn.",
+  "data" : {
+    "level" : 3,
+    "school" : "necromancy",
+    "castingTime" : "1 Bonus Action",
+    "range" : "Self",
+    "concentration" : true,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : 1,
+    "damageDiceSides" : 8,
+    "damageType" : "radiant",
+    "notes" : "Concentration, 1 minute, V, S",
+    "effectSummary" : "Damage",
+    "saveAbility" : null,
+    "components" : "V, S",
+    "materialComponent" : null,
+    "duration" : "Concentration, 1 minute",
+    "higherLevelsDescription" : "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d8 for every two slot levels above 3rd.",
+    "higherLevelsDamageDiceCount" : 1,
+    "higherLevelsDamageDiceSides" : 8,
+    "sourceCode" : "TCE",
+    "classes" : [ {
+      "name" : "Cleric",
+      "source" : "PHB"
+    }, {
+      "name" : "Paladin",
+      "source" : "PHB"
+    }, {
+      "name" : "Warlock",
+      "source" : "PHB"
+    }, {
+      "name" : "Wizard",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Fighter",
+      "classSource" : "PHB",
+      "subclassShortName" : "Eldritch Knight",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Rogue",
+      "classSource" : "PHB",
+      "subclassShortName" : "Arcane Trickster",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Sorcerer",
+      "classSource" : "PHB",
+      "subclassShortName" : "Divine Soul",
+      "subclassSource" : "XGE"
+    } ],
+    "effect" : null
+  }
+}

@@ -1,0 +1,609 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CLASS",
+  "slug" : "fighter",
+  "name" : "Fighter",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 70,
+  "tags" : [ ],
+  "description" : "",
+  "data" : {
+    "hitDie" : 10,
+    "savingThrows" : [ "strength", "constitution" ],
+    "proficiencies" : {
+      "armor" : [ "light", "medium", "heavy", "shield" ],
+      "weaponCategories" : [ "simple", "martial" ],
+      "weaponItems" : [ ],
+      "optionalWeaponCategories" : [ ],
+      "notes" : [ ],
+      "toolAlternatives" : [ ],
+      "skillAlternatives" : [ {
+        "fixed" : [ ],
+        "choices" : [ {
+          "from" : [ "acrobatics", "animalHandling", "athletics", "history", "insight", "intimidation", "perception", "survival" ],
+          "category" : null,
+          "fromFilter" : null,
+          "count" : 2,
+          "amount" : null
+        } ]
+      } ]
+    },
+    "startingEquipment" : {
+      "additionalFromBackground" : true,
+      "goldAlternative" : "5d4 × 10",
+      "text" : [ "(a) chain mail or (b) leather armor, longbow, and 20 arrows", "(a) a martial weapon and a shield or (b) two martial weapons", "(a) a light crossbow and 20 bolts or (b) two handaxes", "(a) a dungeoneer's pack or (b) an explorer's pack" ],
+      "groups" : [ {
+        "options" : [ {
+          "label" : "a",
+          "grants" : [ {
+            "itemSlug" : "chain-mail",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        }, {
+          "label" : "b",
+          "grants" : [ {
+            "itemSlug" : "leather-armor",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          }, {
+            "itemSlug" : "longbow",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          }, {
+            "itemSlug" : "arrows-20",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        } ]
+      }, {
+        "options" : [ {
+          "label" : "a",
+          "grants" : [ {
+            "itemSlug" : null,
+            "equipmentType" : "weaponMartial",
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          }, {
+            "itemSlug" : "shield",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        }, {
+          "label" : "b",
+          "grants" : [ {
+            "itemSlug" : null,
+            "equipmentType" : "weaponMartial",
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 2,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        } ]
+      }, {
+        "options" : [ {
+          "label" : "a",
+          "grants" : [ {
+            "itemSlug" : "light-crossbow",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          }, {
+            "itemSlug" : "crossbow-bolts-20",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        }, {
+          "label" : "b",
+          "grants" : [ {
+            "itemSlug" : "handaxe",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 2,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        } ]
+      }, {
+        "options" : [ {
+          "label" : "a",
+          "grants" : [ {
+            "itemSlug" : "dungeoneers-pack",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        }, {
+          "label" : "b",
+          "grants" : [ {
+            "itemSlug" : "explorers-pack",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        } ]
+      } ]
+    },
+    "multiclassing" : {
+      "allOf" : { },
+      "anyOf" : {
+        "strength" : 13,
+        "dexterity" : 13
+      },
+      "proficienciesGained" : {
+        "armor" : [ "light", "medium", "shield" ],
+        "weaponCategories" : [ "simple", "martial" ],
+        "weaponItems" : [ ],
+        "optionalWeaponCategories" : [ ],
+        "notes" : [ ],
+        "toolAlternatives" : [ ],
+        "skillAlternatives" : [ ]
+      }
+    },
+    "spellcasting" : {
+      "ability" : null,
+      "casterProgression" : null,
+      "preparedSpellsFormula" : null,
+      "cantripsKnownByLevel" : null,
+      "spellsKnownByLevel" : null,
+      "spellbookSpellsAddedByLevel" : null,
+      "spellSlotsByLevel" : null,
+      "pactSlotsByLevel" : null
+    },
+    "tableColumns" : [ ],
+    "optionalFeatureProgressions" : [ {
+      "name" : "Fighting Style",
+      "featureTypes" : [ "FS:F" ],
+      "countByLevel" : [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ]
+    } ],
+    "subclassTitle" : "Martial Archetype",
+    "subclassLevel" : 3,
+    "abilityScoreImprovementLevels" : [ 4, 6, 8, 12, 14, 16, 19 ],
+    "features" : [ {
+      "name" : "Fighting Style",
+      "level" : 1,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 72,
+      "description" : "You adopt a particular style of fighting as your specialty. Choose one of the following options. You can't take the same Fighting Style option more than once, even if you get to choose again.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ {
+        "name" : "Archery",
+        "source" : "PHB"
+      }, {
+        "name" : "Defense",
+        "source" : "PHB"
+      }, {
+        "name" : "Dueling",
+        "source" : "PHB"
+      }, {
+        "name" : "Great Weapon Fighting",
+        "source" : "PHB"
+      }, {
+        "name" : "Protection",
+        "source" : "PHB"
+      }, {
+        "name" : "Two-Weapon Fighting",
+        "source" : "PHB"
+      }, {
+        "name" : "Blind Fighting",
+        "source" : "TCE"
+      }, {
+        "name" : "Interception",
+        "source" : "TCE"
+      }, {
+        "name" : "Superior Technique",
+        "source" : "TCE"
+      }, {
+        "name" : "Thrown Weapon Fighting",
+        "source" : "TCE"
+      }, {
+        "name" : "Unarmed Fighting",
+        "source" : "TCE"
+      } ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Second Wind",
+      "level" : 1,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 72,
+      "description" : "You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level. Once you use this feature, you must finish a short or long rest before you can use it again.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : {
+        "resource" : "second-wind",
+        "count" : 1,
+        "recharge" : "SHORT_OR_LONG_REST"
+      },
+      "action" : {
+        "type" : "BONUS_ACTION"
+      },
+      "grants" : null
+    }, {
+      "name" : "Action Surge",
+      "level" : 2,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 72,
+      "description" : "Starting at 2nd level, you can push yourself beyond your normal limits for a moment. On your turn, you can take one additional action. Once you use this feature, you must finish a short or long rest before you can use it again. Starting at 17th level, you can use it twice before a rest, but only once on the same turn.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : {
+        "resource" : "action-surge",
+        "count" : 1,
+        "recharge" : "SHORT_OR_LONG_REST"
+      },
+      "action" : {
+        "type" : "OTHER"
+      },
+      "grants" : null
+    }, {
+      "name" : "Martial Archetype",
+      "level" : 3,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 72,
+      "description" : "At 3rd level, you choose an archetype from the list available that you strive to emulate in your combat styles and techniques. The archetype you choose grants you features at 3rd level and again at 7th, 10th, 15th, and 18th level.",
+      "optional" : false,
+      "grantsSubclassFeature" : true,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 4,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 72,
+      "description" : "When you reach 4th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Martial Versatility",
+      "level" : 4,
+      "sourceBook" : "Tasha's Cauldron of Everything",
+      "sourcePage" : 41,
+      "description" : "4th-level fighter optional feature Whenever you reach a level in this class that grants the Ability Score Improvement feature, you can do one of the following, as you shift the focus of your martial practice: Replace a fighting style you know with another fighting style available to fighters. If you know any maneuvers from the Battle Master archetype, you can replace one maneuver you know with a different maneuver.",
+      "optional" : true,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Extra Attack",
+      "level" : 5,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 72,
+      "description" : "Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn. The number of attacks increases to three when you reach 11th level in this class and to four when you reach 20th level in this class.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ {
+        "type" : "SET",
+        "target" : "EXTRA_ATTACKS",
+        "value" : 1
+      } ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 6,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 72,
+      "description" : "When you reach 6th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Martial Archetype feature",
+      "level" : 7,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 72,
+      "description" : "At 7th level, you gain a feature granted by your Martial Archetype.",
+      "optional" : false,
+      "grantsSubclassFeature" : true,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 8,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 72,
+      "description" : "When you reach 8th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Indomitable",
+      "level" : 9,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 72,
+      "description" : "Beginning at 9th level, you can reroll a saving throw that you fail. If you do so, you must use the new roll, and you can't use this feature again until you finish a long rest. You can use this feature twice between long rests starting at 13th level and three times between long rests starting at 17th level.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : {
+        "resource" : "indomitable",
+        "count" : 1,
+        "recharge" : "LONG_REST"
+      },
+      "action" : {
+        "type" : "OTHER"
+      },
+      "grants" : null
+    }, {
+      "name" : "Martial Archetype feature",
+      "level" : 10,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 72,
+      "description" : "At 10th level, you gain a feature granted by your Martial Archetype.",
+      "optional" : false,
+      "grantsSubclassFeature" : true,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Extra Attack (2)",
+      "level" : 11,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 72,
+      "description" : "At 11th level, you can attack three times whenever you take the Attack action on your turn.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ {
+        "type" : "SET",
+        "target" : "EXTRA_ATTACKS",
+        "value" : 2
+      } ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 12,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 72,
+      "description" : "When you reach 12th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Indomitable (two uses)",
+      "level" : 13,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 72,
+      "description" : "At 13th level, you can use Indomitable twice between long rests.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : {
+        "resource" : "indomitable",
+        "count" : 2
+      },
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 14,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 72,
+      "description" : "When you reach 14th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Martial Archetype feature",
+      "level" : 15,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 72,
+      "description" : "At 15th level, you gain a feature granted by your Martial Archetype.",
+      "optional" : false,
+      "grantsSubclassFeature" : true,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 16,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 72,
+      "description" : "When you reach 16th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Action Surge (two uses)",
+      "level" : 17,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 72,
+      "description" : "At 17th level, you can use Action Surge twice before a rest, but only once on the same turn.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : {
+        "resource" : "action-surge",
+        "count" : 2
+      },
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Indomitable (three uses)",
+      "level" : 17,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 72,
+      "description" : "At 17th level, you can use Indomitable three times between long rests.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : {
+        "resource" : "indomitable",
+        "count" : 3
+      },
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Martial Archetype feature",
+      "level" : 18,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 72,
+      "description" : "At 18th level, you gain a feature granted by your Martial Archetype.",
+      "optional" : false,
+      "grantsSubclassFeature" : true,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 19,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 72,
+      "description" : "When you reach 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Extra Attack (3)",
+      "level" : 20,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 72,
+      "description" : "At 20th level, you can attack four times whenever you take the Attack action on your turn.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ {
+        "type" : "SET",
+        "target" : "EXTRA_ATTACKS",
+        "value" : 3
+      } ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    } ]
+  }
+}

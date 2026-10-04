@@ -1,0 +1,40 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "maelstrom",
+  "name" : "Maelstrom",
+  "sourceBook" : "Xanathar's Guide to Everything",
+  "sourceCode" : "XGE",
+  "sourcePage" : 160,
+  "tags" : [ ],
+  "description" : "A swirling mass of 5-foot-deep water appears in a 30-foot radius centered on a point you can see within range. The point must be on the ground or in a body of water. Until the spell ends, that area is difficult terrain, and any creature that starts its turn there must succeed on a Strength saving throw or take 6d6 bludgeoning damage and be pulled 10 feet toward the center.",
+  "data" : {
+    "level" : 5,
+    "school" : "evocation",
+    "castingTime" : "1 Action",
+    "range" : "120 ft.",
+    "concentration" : true,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : 6,
+    "damageDiceSides" : 6,
+    "damageType" : "bludgeoning",
+    "notes" : "Concentration, 1 minute, V, S, M (paper or leaf in the shape of a funnel)",
+    "effectSummary" : "Damage",
+    "saveAbility" : "strength",
+    "components" : "V, S, M",
+    "materialComponent" : "paper or leaf in the shape of a funnel",
+    "duration" : "Concentration, 1 minute",
+    "higherLevelsDescription" : null,
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "XGE",
+    "classes" : [ {
+      "name" : "Druid",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ ],
+    "effect" : null
+  }
+}

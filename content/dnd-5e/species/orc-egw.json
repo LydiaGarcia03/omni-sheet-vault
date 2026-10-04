@@ -1,0 +1,99 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "orc-egw",
+  "name" : "Orc",
+  "sourceBook" : "Explorer's Guide to Wildemount",
+  "sourceCode" : "EGW",
+  "sourcePage" : 178,
+  "tags" : [ ],
+  "description" : "Age. Orcs reach adulthood at age 16, and live up to 80 years. Alignment. Orcs fear the curse of ruin that is said to plague their race, and tend strongly toward either chaos (accepting their fate), or toward law (rejecting it). Size. Orcs stand easily 8 feet tall and corded with powerful muscles, weighing up to 280 pounds. Your size is Medium. Darkvision. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Aggressive. As a bonus action, you can move up to your movement speed toward a hostile creature you can see or hear. You must end this move closer to the enemy than you started. Primal Intuition. You have proficiency in two of the following skills of your choice: Animal Handling, Insight, Intimidation, Medicine, Perception, and Survival. Powerful Build. You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift. Languages. You can speak, read, and write Common and Orc.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 30
+    },
+    "senses" : [ {
+      "type" : "darkvision",
+      "range" : 60
+    } ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "strength" : 2,
+        "constitution" : 1
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : [ "animalHandling", "insight", "intimidation", "medicine", "perception", "survival" ],
+        "category" : null,
+        "fromFilter" : null,
+        "count" : 2,
+        "amount" : null
+      } ]
+    } ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "orc" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : {
+      "mature" : 12,
+      "max" : 50
+    },
+    "heightAndWeight" : null,
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Age",
+      "description" : "Orcs reach adulthood at age 16, and live up to 80 years."
+    }, {
+      "name" : "Alignment",
+      "description" : "Orcs fear the curse of ruin that is said to plague their race, and tend strongly toward either chaos (accepting their fate), or toward law (rejecting it)."
+    }, {
+      "name" : "Size",
+      "description" : "Orcs stand easily 8 feet tall and corded with powerful muscles, weighing up to 280 pounds. Your size is Medium."
+    }, {
+      "name" : "Darkvision",
+      "description" : "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+    }, {
+      "name" : "Aggressive",
+      "description" : "As a bonus action, you can move up to your movement speed toward a hostile creature you can see or hear. You must end this move closer to the enemy than you started."
+    }, {
+      "name" : "Primal Intuition",
+      "description" : "You have proficiency in two of the following skills of your choice: Animal Handling, Insight, Intimidation, Medicine, Perception, and Survival."
+    }, {
+      "name" : "Powerful Build",
+      "description" : "You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and Orc."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

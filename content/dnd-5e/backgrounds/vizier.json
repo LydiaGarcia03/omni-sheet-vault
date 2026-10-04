@@ -1,0 +1,115 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "vizier",
+  "name" : "Vizier",
+  "sourceBook" : "Plane Shift: Amonkhet",
+  "sourceCode" : "PSA",
+  "sourcePage" : 10,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. History, Religion Tool Proficiencies:. One type of artisan's tools, one type of musical instrument Equipment:. A set of artisan's tools or a musical instrument (one of your choice), a scroll of your god's teachings, a vizier's cartouche, a set of fine clothes, and a pouch containing 25 gp Feature: Voice of Authority. Your voice is the voice of your god, at least in theory. Your job might include training and instructing initiates, and they are required to obey you. In any circumstance, an initiate is expected to defer to your voice and obey your commands. If you abuse this authority, though, your god might personally punish you. Suggested Characteristics. A vizier's characteristics strongly reflect the ideals and personality of the god they serve.",
+  "data" : {
+    "personalityTraits" : [ "Everything I do, I do gracefully and deliberately, and with complete confidence. (Oketra)", "Nothing can shake my rock-hard focus. (Oketra)", "When I am at peace, I am an oasis of perfect calm in the world. When I am roused to anger, I am an embodiment of terror. (Kefnet)", "I enjoy teasing acolytes and initiates with juicy tidbits of knowledge wrapped up in fiendishly difficult puzzles. (Kefnet)", "I have the utmost faith in myself and my abilities. (Rhonas)", "I get restless when life in the city feels too tame, too safe. (Rhonas)", "I enjoy solitude as an opportunity to plan my victory. (Bontu)", "I use satire as a way to undermine the teachings of the other gods. (Bontu)", "I love, fight, and feast with equal zeal. (Hazoret)", "I think of those in my care as my family, in a way that most people have trouble understanding. (Hazoret)" ],
+    "ideals" : [ "Solidarity. The worthy must respect the worthy. In the afterlife, all will be united in goal and action. (Oketra)", "Knowledge. The worthy shall cultivate a nimble mind, so as to perceive the wonders beyond imagination that wait in the afterlife. (Kefnet)", "Strength. The worthy shall hone a strong body that can withstand the boundless energies of the afterlife. (Rhonas)", "Ambition. The worthy shall strive for greatness, for supremacy in life leads to supremacy in the afterlife. (Bontu)", "Zeal. The worthy shall rush to the God-Pharaoh's side with relentless passion, rising to overcome every obstacle in their way. (Hazoret)", "Naktamun. The life of the city is ordered according to the plan of the God-Pharaoh, and that order must be preserved at all costs." ],
+    "bonds" : [ "My loyalty to my companions embodies the ideal of loyalty to my god. (Oketra)", "The teachings of my god are more precious to me than any possession. (Kefnet)", "I would do anything to defend the temple of my god from any harm or desecration. (Rhonas)", "I am committed to the service of my god—because it's my sure ticket into the afterlife. (Bontu)", "I love my god and never want my service to end. (Hazoret)", "I have a close friend or lover who is also a vizier." ],
+    "flaws" : [ "I am in love with an initiate, and I want to shield this person from death in the trials.", "I secretly wish I had not been chosen as a vizier, so I could participate in the trials as an initiate.", "I secretly question whether the gods care at all about us or what we do.", "A vizier of another god seeks my death in retribution for a past insult.", "I am terrified of what lies beyond the Gate to the Afterlife.", "I secretly believe the God-Pharaoh's return will not bring blessing to this world." ],
+    "otherTables" : [ ],
+    "features" : [ {
+      "name" : "Voice of Authority",
+      "description" : "Your voice is the voice of your god, at least in theory. Your job might include training and instructing initiates, and they are required to obey you. In any circumstance, an initiate is expected to defer to your voice and obey your commands. If you abuse this authority, though, your god might personally punish you."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "history", "religion" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "artisansTool",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      }, {
+        "from" : null,
+        "category" : "musicalInstrument",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "languageAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : "a",
+        "grants" : [ {
+          "itemSlug" : null,
+          "equipmentType" : "toolArtisan",
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        } ]
+      }, {
+        "label" : "b",
+        "grants" : [ {
+          "itemSlug" : null,
+          "equipmentType" : "instrumentMusical",
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        } ]
+      } ]
+    }, {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "scroll of your god's teachings",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "vizier's cartouche",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "fine-clothes",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 2500,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : null,
+    "prerequisites" : null
+  }
+}

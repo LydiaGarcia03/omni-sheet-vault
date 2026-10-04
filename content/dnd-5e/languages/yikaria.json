@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "LANGUAGE",
+  "slug" : "yikaria",
+  "name" : "Yikaria",
+  "sourceBook" : "Storm King's Thunder",
+  "sourceCode" : "SKT",
+  "sourcePage" : 244,
+  "tags" : [ ],
+  "description" : "",
+  "data" : {
+    "type" : null,
+    "script" : null
+  }
+}

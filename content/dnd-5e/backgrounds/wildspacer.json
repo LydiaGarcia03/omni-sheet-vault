@@ -1,0 +1,93 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "wildspacer",
+  "name" : "Wildspacer",
+  "sourceBook" : "Astral Adventurer's Guide",
+  "sourceCode" : "AAG",
+  "sourcePage" : 8,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. Athletics, Survival Tool Proficiencies:. Navigator's tools, vehicles (space) Equipment:. A belaying pin (club), a set of traveler's clothes, a grappling hook, 50 feet of hempen rope, and a pouch containing 10 gp Close Encounter. You had a harrowing encounter with one of Wildspace's many terrors. You escaped with your life, but the encounter left you with a scar or two, or perhaps a recurring nightmare. Roll on the Close Encounter table to determine which creature nearly got the best of you. Creatures marked with an asterisk appear in Boo's Astral Menagerie; the others are described in the Monster Manual. Feature: Wildspace Adaptation. You gain the Tough feat from the Player's Handbook. In addition, you learned how to adapt to zero gravity. Being weightless doesn't give you disadvantage on any of your melee attack rolls (see \"Weightlessness\" in chapter 2).",
+  "data" : {
+    "personalityTraits" : [ ],
+    "ideals" : [ ],
+    "bonds" : [ ],
+    "flaws" : [ ],
+    "otherTables" : [ {
+      "caption" : "Close Encounter",
+      "colLabels" : [ "d10", "Creature" ],
+      "rows" : [ [ "1", "Beholder" ], [ "2", "Cosmic horror*" ], [ "3", "Feyr*" ], [ "4", "Lunar dragon*" ], [ "5", "Mind flayer" ], [ "6", "Neh-thalggu*" ], [ "7", "Neogi*" ], [ "8", "Space clown*" ], [ "9", "Vampirate*" ], [ "10", "Void scavver*" ] ]
+    } ],
+    "features" : [ {
+      "name" : "Wildspace Adaptation",
+      "description" : "You gain the Tough feat from the Player's Handbook. In addition, you learned how to adapt to zero gravity. Being weightless doesn't give you disadvantage on any of your melee attack rolls (see \"Weightlessness\" in chapter 2)."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "athletics", "survival" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ {
+      "fixed" : [ "navigators-tools", "vehicles-space" ],
+      "choices" : [ ]
+    } ],
+    "languageAlternatives" : [ ],
+    "featAlternatives" : [ {
+      "fixed" : [ "tough" ],
+      "choices" : [ ]
+    } ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : "club",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : "belaying pin",
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "travelers-clothes",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "grappling-hook",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "hempen-rope-50-feet",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 1000,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : null,
+    "prerequisites" : null
+  }
+}

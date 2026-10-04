@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CONDITION",
+  "slug" : "incapacitated",
+  "name" : "Incapacitated",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 290,
+  "tags" : [ ],
+  "description" : "An incapacitated creature can't take actions or reactions.",
+  "data" : {
+    "modifiers" : [ ],
+    "levels" : null
+  }
+}

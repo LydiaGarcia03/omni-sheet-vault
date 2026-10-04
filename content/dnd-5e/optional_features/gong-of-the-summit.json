@@ -1,0 +1,46 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "gong-of-the-summit",
+  "name" : "Gong of the Summit",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 81,
+  "tags" : [ ],
+  "description" : "Prerequisite: 6th level\n\nYou can spend 3 ki points to cast shatter.",
+  "data" : {
+    "featureTypes" : [ "ED" ],
+    "optional" : false,
+    "prerequisiteText" : "6th level",
+    "prerequisites" : [ {
+      "level" : {
+        "level" : 6,
+        "class" : {
+          "name" : "Monk"
+        },
+        "subclass" : {
+          "name" : "Four Elements"
+        }
+      }
+    } ],
+    "consumes" : null,
+    "additionalSpells" : [ {
+      "innate" : {
+        "_" : {
+          "resource" : {
+            "3" : [ "shatter" ]
+          }
+        }
+      },
+      "resourceName" : "Ki",
+      "ability" : "wis"
+    } ],
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

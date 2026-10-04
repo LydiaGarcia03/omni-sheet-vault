@@ -1,0 +1,47 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "wristpocket",
+  "name" : "Wristpocket",
+  "sourceBook" : "Explorer's Guide to Wildemount",
+  "sourceCode" : "EGW",
+  "sourcePage" : 190,
+  "tags" : [ ],
+  "description" : "You flick your wrist, causing one object in your hand to vanish. The object, which only you can be holding and can weigh no more than 5 pounds, is transported to an extradimensional space, where it remains for the duration. Until the spell ends, you can use your action to summon the object to your free hand, and you can use your action to return the object to the extradimensional space. An object still in the pocket plane when the spell ends appears in your space, at your feet.",
+  "data" : {
+    "level" : 2,
+    "school" : "conjuration",
+    "castingTime" : "1 Action",
+    "range" : "Self",
+    "concentration" : true,
+    "ritual" : true,
+    "attackRoll" : false,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "notes" : "Concentration, 1 hour, S",
+    "effectSummary" : "Buff",
+    "saveAbility" : null,
+    "components" : "S",
+    "materialComponent" : null,
+    "duration" : "Concentration, 1 hour",
+    "higherLevelsDescription" : null,
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "EGW",
+    "classes" : [ ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Wizard",
+      "classSource" : "PHB",
+      "subclassShortName" : "Chronurgy",
+      "subclassSource" : "EGW"
+    }, {
+      "className" : "Wizard",
+      "classSource" : "PHB",
+      "subclassShortName" : "Graviturgy",
+      "subclassSource" : "EGW"
+    } ],
+    "effect" : null
+  }
+}

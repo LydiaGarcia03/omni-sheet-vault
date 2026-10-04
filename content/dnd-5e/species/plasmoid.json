@@ -1,0 +1,104 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "plasmoid",
+  "name" : "Plasmoid",
+  "sourceBook" : "Astral Adventurer's Guide",
+  "sourceCode" : "AAG",
+  "sourcePage" : 14,
+  "tags" : [ ],
+  "description" : "Creature Type. You are an Ooze. Size. You are Medium or Small. You choose the size when you select this race. Amorphous. You can squeeze through a space as narrow as 1 inch wide, provided you are wearing and carrying nothing. You have advantage on ability checks you make to initiate or escape a grapple. Darkvision. You can see in dim light within 60 feet of yourself as if it were bright light, and in darkness as if it were dim light. You discern colors in that darkness only as shades of gray. Hold Breath. You can hold your breath for 1 hour. Natural Resilience. You have resistance to acid and poison damage, and you have advantage on saving throws against being poisoned. Shape Self. As an action, you can reshape your body to give yourself a head, one or two arms, one or two legs, and makeshift hands and feet, or you can revert to a limbless blob. While you have a humanlike shape, you can wear clothing and armor made for a Humanoid of your size. As a bonus action, you can extrude a pseudopod that is up to 6 inches wide and 10 feet long or reabsorb it into your body. As part of the same bonus action, you can use this pseudopod to manipulate an object, open or close a door or container, or pick up or set down a Tiny object. The pseudopod contains no sensory organs and can't attack, activate magic items, or lift more than 10 pounds. Languages. You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character.",
+  "data" : {
+    "size" : [ "small", "medium" ],
+    "speed" : {
+      "walk" : 30
+    },
+    "senses" : [ {
+      "type" : "darkvision",
+      "range" : 60
+    } ],
+    "abilityAlternatives" : [ {
+      "fixed" : { },
+      "choices" : [ {
+        "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+        "weights" : [ 2, 1 ],
+        "count" : 2,
+        "amount" : null
+      } ],
+      "maximum" : null
+    }, {
+      "fixed" : { },
+      "choices" : [ {
+        "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+        "weights" : [ 1, 1, 1 ],
+        "count" : 3,
+        "amount" : null
+      } ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common" ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ "acid", "poison" ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : [ "ooze" ],
+    "additionalSpells" : null,
+    "age" : null,
+    "heightAndWeight" : null,
+    "lineage" : "VRGR",
+    "traits" : [ {
+      "name" : "Creature Type",
+      "description" : "You are an Ooze."
+    }, {
+      "name" : "Size",
+      "description" : "You are Medium or Small. You choose the size when you select this race."
+    }, {
+      "name" : "Amorphous",
+      "description" : "You can squeeze through a space as narrow as 1 inch wide, provided you are wearing and carrying nothing. You have advantage on ability checks you make to initiate or escape a grapple."
+    }, {
+      "name" : "Darkvision",
+      "description" : "You can see in dim light within 60 feet of yourself as if it were bright light, and in darkness as if it were dim light. You discern colors in that darkness only as shades of gray."
+    }, {
+      "name" : "Hold Breath",
+      "description" : "You can hold your breath for 1 hour."
+    }, {
+      "name" : "Natural Resilience",
+      "description" : "You have resistance to acid and poison damage, and you have advantage on saving throws against being poisoned."
+    }, {
+      "name" : "Shape Self",
+      "description" : "As an action, you can reshape your body to give yourself a head, one or two arms, one or two legs, and makeshift hands and feet, or you can revert to a limbless blob. While you have a humanlike shape, you can wear clothing and armor made for a Humanoid of your size. As a bonus action, you can extrude a pseudopod that is up to 6 inches wide and 10 feet long or reabsorb it into your body. As part of the same bonus action, you can use this pseudopod to manipulate an object, open or close a door or container, or pick up or set down a Tiny object. The pseudopod contains no sensory organs and can't attack, activate magic items, or lift more than 10 pounds."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and one other language that you and your DM agree is appropriate for your character."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

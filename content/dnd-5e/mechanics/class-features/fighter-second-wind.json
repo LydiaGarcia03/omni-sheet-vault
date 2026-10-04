@@ -1,0 +1,8 @@
+{
+  "target": { "classSlug": "fighter", "feature": "Second Wind" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 72 },
+  "modifiers": [],
+  "uses": { "resource": "second-wind", "count": 1, "recharge": "SHORT_OR_LONG_REST" },
+  "action": { "type": "BONUS_ACTION" },
+  "choices": []
+}

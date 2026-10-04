@@ -1,0 +1,58 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "pass-without-trace",
+  "name" : "Pass without Trace",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 264,
+  "tags" : [ ],
+  "description" : "A veil of shadows and silence radiates from you, masking you and your companions from detection. For the duration, each creature you choose within 30 feet of you (including you) has a +10 bonus to Dexterity (Stealth) checks and can't be tracked except by magical means. A creature that receives this bonus leaves behind no tracks or other traces of its passage.",
+  "data" : {
+    "level" : 2,
+    "school" : "abjuration",
+    "castingTime" : "1 Action",
+    "range" : "Self",
+    "concentration" : true,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "notes" : "Concentration, 1 hour, V, S, M (ashes from a burned leaf of mistletoe and a sprig of spruce)",
+    "effectSummary" : "Buff",
+    "saveAbility" : null,
+    "components" : "V, S, M",
+    "materialComponent" : "ashes from a burned leaf of mistletoe and a sprig of spruce",
+    "duration" : "Concentration, 1 hour",
+    "higherLevelsDescription" : null,
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Druid",
+      "source" : "PHB"
+    }, {
+      "name" : "Ranger",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Trickery",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Druid",
+      "classSource" : "PHB",
+      "subclassShortName" : "Land",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Monk",
+      "classSource" : "PHB",
+      "subclassShortName" : "Shadow",
+      "subclassSource" : "PHB"
+    } ],
+    "effect" : null
+  }
+}

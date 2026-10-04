@@ -1,0 +1,7 @@
+{
+  "target": { "classSlug": "fighter", "feature": "Action Surge (two uses)" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 72 },
+  "modifiers": [],
+  "uses": { "resource": "action-surge", "count": 2 },
+  "choices": []
+}

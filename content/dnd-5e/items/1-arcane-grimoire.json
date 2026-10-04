@@ -1,0 +1,58 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "ITEM",
+  "slug" : "1-arcane-grimoire",
+  "name" : "+1 Arcane Grimoire",
+  "sourceBook" : "Tasha's Cauldron of Everything",
+  "sourceCode" : "TCE",
+  "sourcePage" : 120,
+  "tags" : [ ],
+  "description" : "While you are holding this leather-bound book, you can use it as a spellcasting focus for your wizard spells, and you gain a +1 bonus to spell attack rolls and to the saving throw DCs of your wizard spells. You can use this book as a spellbook. In addition, when you use your Arcane Recovery feature, you can increase the number of spell slot levels you regain by 1.",
+  "data" : {
+    "itemKind" : "GEAR",
+    "typeLabel" : "Spellcasting Focus",
+    "rarity" : "uncommon",
+    "focusType" : null,
+    "requiresAttunement" : true,
+    "attunementRequirement" : "by a wizard",
+    "weightLb" : 3.0,
+    "costGp" : null,
+    "weaponCategory" : null,
+    "attackType" : null,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "versatileDamageDiceCount" : null,
+    "versatileDamageDiceSides" : null,
+    "properties" : [ ],
+    "finesse" : false,
+    "normalRange" : null,
+    "longRange" : null,
+    "armorCategory" : null,
+    "baseArmorClass" : null,
+    "stealthDisadvantage" : false,
+    "strengthRequirement" : null,
+    "weaponAttackBonus" : null,
+    "weaponDamageBonus" : null,
+    "armorClassBonus" : null,
+    "charges" : null,
+    "rechargeTrigger" : null,
+    "rechargeFormula" : null,
+    "grantedSpells" : [ ],
+    "mechanics" : {
+      "modifiers" : [ {
+        "type" : "BONUS",
+        "target" : "SPELL_ATTACKS",
+        "value" : 1
+      }, {
+        "type" : "BONUS",
+        "target" : "SPELL_SAVE_DC",
+        "value" : 1
+      } ],
+      "damageResistances" : [ ],
+      "damageImmunities" : [ ],
+      "damageVulnerabilities" : [ ],
+      "conditionImmunities" : [ ]
+    }
+  }
+}

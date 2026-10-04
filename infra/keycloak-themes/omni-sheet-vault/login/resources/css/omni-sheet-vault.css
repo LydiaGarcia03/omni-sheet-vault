@@ -1,0 +1,129 @@
+/* Omni Sheet Vault login theme: direction B of design-reference/mockups/home (light, charcoal header, gold accent). */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Condensed:wght@700&display=swap');
+
+:root {
+  --osv-bg: #F3F3F1;
+  --osv-surface: #FFFFFF;
+  --osv-surface-2: #F6F7F8;
+  --osv-ink: #242528;
+  --osv-muted: #6B7A85;
+  --osv-line: #E2E5E8;
+  --osv-accent: #D9A441;
+  --osv-accent-ink: #1F2327;
+  --osv-header: #1F2327;
+  --osv-radius: 8px;
+  --pf-v5-global--FontFamily--text: Roboto, Helvetica, sans-serif;
+  --pf-v5-global--FontFamily--heading: 'Roboto Condensed', Roboto, Helvetica, sans-serif;
+  --pf-v5-global--primary-color--100: var(--osv-accent);
+  --pf-v5-global--link--Color: #7A5510;
+  --pf-v5-global--link--Color--hover: #5C400C;
+}
+
+html, body, .pf-v5-c-login {
+  background: linear-gradient(180deg, #E8ECEF 0%, var(--osv-bg) 100%) !important;
+  color: var(--osv-ink);
+  font-family: Roboto, Helvetica, sans-serif;
+}
+
+/* One card: the charcoal header on top, the form below */
+.pf-v5-c-login__container {
+  display: block !important;
+  width: 100%;
+  max-width: 432px;
+  margin: 0 auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+#kc-header.pf-v5-c-login__header {
+  display: flex;
+  align-items: center;
+  min-height: 0;
+  margin: 0;
+  padding: 22px;
+  background: var(--osv-header) url('../img/party.png') no-repeat right 18px center / auto 38px;
+  border-radius: var(--osv-radius) var(--osv-radius) 0 0;
+}
+
+#kc-header-wrapper {
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #FFFFFF;
+  font: 700 17px 'Roboto Condensed', Roboto, sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+#kc-header-wrapper::before {
+  content: '';
+  flex: none;
+  width: 32px;
+  height: 32px;
+  background: url('../img/omni-logo-light.svg') no-repeat center / contain;
+}
+
+.pf-v5-c-login__main {
+  margin: 0;
+  background: var(--osv-surface) !important;
+  color: var(--osv-ink);
+  border: 1px solid var(--osv-line);
+  border-top: 0 !important;
+  border-radius: 0 0 var(--osv-radius) var(--osv-radius);
+  box-shadow: 0 20px 50px rgba(31, 35, 39, .18);
+}
+
+.pf-v5-c-login__main-header { display: block; padding-top: 24px; border-top: 0 !important; }
+
+#kc-page-title {
+  font: 700 20px 'Roboto Condensed', Roboto, sans-serif;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--osv-ink);
+}
+
+/* Fields */
+.pf-v5-c-form__label-text {
+  font: 700 11px 'Roboto Condensed', Roboto, sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--osv-muted);
+}
+
+.pf-v5-c-form-control {
+  --pf-v5-c-form-control--BackgroundColor: var(--osv-surface-2);
+  --pf-v5-c-form-control--before--BorderColor: var(--osv-line);
+  --pf-v5-c-form-control--after--BorderColor: transparent;
+  --pf-v5-c-form-control--hover--after--BorderBottomColor: var(--osv-muted);
+  --pf-v5-c-form-control--m-focus--after--BorderBottomColor: var(--osv-accent);
+  border-radius: 4px;
+  color: var(--osv-ink);
+}
+
+.pf-v5-c-form-control::after { border-bottom-color: transparent !important; }
+.pf-v5-c-form-control:focus-within::after { border-bottom-color: var(--osv-accent) !important; }
+
+.pf-v5-c-form-control > input {
+  color: var(--osv-ink);
+  font-family: Roboto, Helvetica, sans-serif;
+}
+
+/* The primary button in the app's gold, with charcoal text for contrast */
+.pf-v5-c-button.pf-m-primary {
+  --pf-v5-c-button--m-primary--BackgroundColor: var(--osv-accent);
+  --pf-v5-c-button--m-primary--Color: var(--osv-accent-ink);
+  --pf-v5-c-button--m-primary--hover--BackgroundColor: #E2B45A;
+  --pf-v5-c-button--m-primary--hover--Color: var(--osv-accent-ink);
+  --pf-v5-c-button--m-primary--focus--BackgroundColor: #E2B45A;
+  --pf-v5-c-button--m-primary--focus--Color: var(--osv-accent-ink);
+  --pf-v5-c-button--m-primary--active--BackgroundColor: #C8932F;
+  --pf-v5-c-button--m-primary--active--Color: var(--osv-accent-ink);
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.pf-v5-c-login__main-footer, .pf-v5-c-login__main-footer-band { color: var(--osv-muted); }

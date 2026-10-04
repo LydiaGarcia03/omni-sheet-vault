@@ -1,0 +1,83 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "plaintiff",
+  "name" : "Plaintiff",
+  "sourceBook" : "Acquisitions Incorporated",
+  "sourceCode" : "AI",
+  "sourcePage" : 50,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. Medicine, Persuasion Tool Proficiencies:. One type of artisan's tools Languages:. Any one of your choice Equipment:. One set of artisan's tools, fine clothes, 20 gp Feature: Legalese. Your experience with your local legal system has given you a firm knowledge of the ins and outs of that system. Even when the law is not on your side, you can use complex terms like ex injuria jus non oritur and cogitationis poenam nemo patitur to frighten people into thinking you know what you're talking about. With common folks who don't know any better, you might be able to intimidate or deceive to get favors or special treatment. Suggested Characteristics. Plaintiffs come in many varieties. Some are innocent bystanders who want only fair compensation for their injuries. Others are professional courtroom operatives, going to extreme lengths to appear wronged in pursuit of a large payout.",
+  "data" : {
+    "personalityTraits" : [ "I can't believe I have a chance to join Acquisitions Incorporated! The fun I'm going to have!", "I've been wronged my entire life, and the world owes me.", "I have always tried to make the best of a bad situation.", "The law doesn't protect the honest and the hard working. I'm going to do whatever needs to be done to make things right.", "I'm always in the wrong place at the wrong time.", "My superiors are smarter and wiser than I am. I do what I'm told.", "Never pass up the opportunity to make an easy bit of coin. That's my motto.", "I'm beginning to feel like the gods are not on my side." ],
+    "ideals" : [ "Justice. Those who break the law need to answer for their crimes. (Lawful)", "Freedom. People must have the freedom to do what they want and pursue their dreams. (Chaotic)", "Greed. Everyone I see is getting theirs, so I'm surely going to get mine. (Evil)", "Chaos. You're out of order! And you're out of order! This whole realm is out of order! (Chaotic)", "Humility. I'm just a small part of a larger whole. So is everyone else. (Neutral)", "Responsibility. We all have our roles to play. I'll hold up my end of the bargain. (Any)" ],
+    "bonds" : [ "Others hurt in the same accident that hurt me are my new family. I'll make sure they're taken care of.", "The rulers of this place were kind to me, and they have my lifelong devotion.", "My parents worry about me, but I'll make them proud.", "The only bond that matters is the one holding my money pouch to my belt.", "The other new hires at Acquisitions Incorporated are my allies. We have each other's backs.", "My legal counsel is my best friend. I owe all my forthcoming opportunities to their hard work." ],
+    "flaws" : [ "The person who gains the most reward for the least effort wins.", "Three magic beans for just one cow? What a deal!", "I have only one vice, but it controls my life.", "Sleep is for the weak. We need to keep training more if we're going to be ready for the challenges ahead.", "Until my songs are sung in every tavern in this realm, I won't be satisfied.", "If people find me unpleasant, that's their problem." ],
+    "otherTables" : [ ],
+    "features" : [ {
+      "name" : "Legalese",
+      "description" : "Your experience with your local legal system has given you a firm knowledge of the ins and outs of that system. Even when the law is not on your side, you can use complex terms like ex injuria jus non oritur and cogitationis poenam nemo patitur to frighten people into thinking you know what you're talking about. With common folks who don't know any better, you might be able to intimidate or deceive to get favors or special treatment."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "medicine", "persuasion" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "artisansTool",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "languageAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : null,
+          "equipmentType" : "toolArtisan",
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "fine-clothes",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : 2000,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : null,
+    "prerequisites" : null
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "triton-mot",
+  "name" : "Triton",
+  "sourceBook" : "Mythic Odysseys of Theros",
+  "sourceCode" : "MOT",
+  "sourcePage" : 26,
+  "tags" : [ ],
+  "description" : "Age. Tritons reach maturity around age 15 and can live up to 200 years. Size. Tritons are slightly shorter than humans, averaging about 5 feet tall. Your size is Medium. Swim Speed. You have a swimming speed of 30 feet. Amphibious. You can breathe air and water. Control Air and Water. A child of the sea, you can call on the magic of elemental air and water. You can cast fog cloud with this trait. Starting at 3rd level, you can cast gust of wind with it, and starting at 5th level, you can also cast wall of water with it. Once you cast a spell with this trait, you can't cast that spell with it again until you finish a long rest. Charisma is your spellcasting ability for these spells. Darkvision. You can see in dim light within 60 feet of you as if it were bright light and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Emissary of the Sea. Aquatic beasts have an extraordinary affinity with your people. You can communicate simple ideas with beasts that can breathe water. They can understand the meaning of your words, though you have no special ability to understand them in return. Guardians of the Depths. Adapted to even the most extreme ocean depths, you have resistance to cold damage. Languages. You can speak, read, and write Common and Primordial. Alignment. Tritons tend toward neutrality. Their culture encourages them to be mindful of life's currents, knowing when to harness fate's tides and when to flow along with them.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 30,
+      "swim" : 30
+    },
+    "senses" : [ {
+      "type" : "darkvision",
+      "range" : 60
+    } ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "strength" : 1,
+        "charisma" : 1,
+        "constitution" : 1
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "primordial" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ "cold" ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : [ {
+      "innate" : {
+        "1" : {
+          "daily" : {
+            "1" : [ "fog cloud" ]
+          }
+        },
+        "3" : {
+          "daily" : {
+            "1" : [ "gust of wind" ]
+          }
+        },
+        "5" : {
+          "daily" : {
+            "1" : [ "wall of water|xge" ]
+          }
+        }
+      },
+      "ability" : "cha"
+    } ],
+    "age" : {
+      "mature" : 15,
+      "max" : 200
+    },
+    "heightAndWeight" : {
+      "baseHeight" : 54,
+      "heightMod" : "2d10",
+      "baseWeight" : 90,
+      "weightMod" : "2d4"
+    },
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Age",
+      "description" : "Tritons reach maturity around age 15 and can live up to 200 years."
+    }, {
+      "name" : "Size",
+      "description" : "Tritons are slightly shorter than humans, averaging about 5 feet tall. Your size is Medium."
+    }, {
+      "name" : "Swim Speed",
+      "description" : "You have a swimming speed of 30 feet."
+    }, {
+      "name" : "Amphibious",
+      "description" : "You can breathe air and water."
+    }, {
+      "name" : "Control Air and Water",
+      "description" : "A child of the sea, you can call on the magic of elemental air and water. You can cast fog cloud with this trait. Starting at 3rd level, you can cast gust of wind with it, and starting at 5th level, you can also cast wall of water with it. Once you cast a spell with this trait, you can't cast that spell with it again until you finish a long rest. Charisma is your spellcasting ability for these spells."
+    }, {
+      "name" : "Darkvision",
+      "description" : "You can see in dim light within 60 feet of you as if it were bright light and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+    }, {
+      "name" : "Emissary of the Sea",
+      "description" : "Aquatic beasts have an extraordinary affinity with your people. You can communicate simple ideas with beasts that can breathe water. They can understand the meaning of your words, though you have no special ability to understand them in return."
+    }, {
+      "name" : "Guardians of the Depths",
+      "description" : "Adapted to even the most extreme ocean depths, you have resistance to cold damage."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and Primordial."
+    }, {
+      "name" : "Alignment",
+      "description" : "Tritons tend toward neutrality. Their culture encourages them to be mindful of life's currents, knowing when to harness fate's tides and when to flow along with them."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

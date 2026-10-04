@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "LANGUAGE",
+  "slug" : "vedalken",
+  "name" : "Vedalken",
+  "sourceBook" : "Guildmasters' Guide to Ravnica",
+  "sourceCode" : "GGR",
+  "sourcePage" : 9,
+  "tags" : [ ],
+  "description" : "The Vedalken language is renowned for its technical treatises and its catalogs of knowledge about the natural world and the aether that pervades it.",
+  "data" : {
+    "type" : "standard",
+    "script" : "Vedalken"
+  }
+}

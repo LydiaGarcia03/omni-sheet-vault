@@ -1,0 +1,336 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "genasi-eepc",
+  "name" : "Genasi",
+  "sourceBook" : "Elemental Evil Player's Companion",
+  "sourceCode" : "EEPC",
+  "sourcePage" : 9,
+  "tags" : [ ],
+  "description" : "Age. Genasi mature at about the same rate as humans and reach adulthood in their late teens. They live somewhat longer than humans do, up to 120 years. Alignment. Independent and self-reliant, genasi tend toward a neutral alignment. Size. Genasi are as varied as their mortal parents but are generally built like humans, standing anywhere from 5 feet to over 6 feet tall. Your size is Medium. Languages. You can speak, read, and write Common and Primordial. Primordial is a guttural language, filled with harsh syllables and hard consonants.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 30
+    },
+    "senses" : [ ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "constitution" : 2
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "primordial" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : {
+      "mature" : 20,
+      "max" : 120
+    },
+    "heightAndWeight" : {
+      "baseHeight" : 56,
+      "heightMod" : "2d10",
+      "baseWeight" : 110,
+      "weightMod" : "2d4"
+    },
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Age",
+      "description" : "Genasi mature at about the same rate as humans and reach adulthood in their late teens. They live somewhat longer than humans do, up to 120 years."
+    }, {
+      "name" : "Alignment",
+      "description" : "Independent and self-reliant, genasi tend toward a neutral alignment."
+    }, {
+      "name" : "Size",
+      "description" : "Genasi are as varied as their mortal parents but are generally built like humans, standing anywhere from 5 feet to over 6 feet tall. Your size is Medium."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and Primordial. Primordial is a guttural language, filled with harsh syllables and hard consonants."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ {
+      "name" : "Air",
+      "sourceBook" : "Elemental Evil Player's Companion",
+      "sourcePage" : 9,
+      "overwrite" : [ ],
+      "description" : "Unending Breath. You can hold your breath indefinitely while you're not incapacitated. Mingle with the Wind. You can cast the levitate spell once with this trait, requiring no material components, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for this spell.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "dexterity" : 1
+        },
+        "choices" : [ ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "ability" : "con",
+        "known" : {
+          "1" : [ "levitate" ]
+        }
+      } ],
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Unending Breath",
+        "description" : "You can hold your breath indefinitely while you're not incapacitated."
+      }, {
+        "name" : "Mingle with the Wind",
+        "description" : "You can cast the levitate spell once with this trait, requiring no material components, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for this spell."
+      } ],
+      "variants" : [ ]
+    }, {
+      "name" : "Earth",
+      "sourceBook" : "Elemental Evil Player's Companion",
+      "sourcePage" : 9,
+      "overwrite" : [ ],
+      "description" : "Earth Walk. You can move across difficult terrain made of earth or stone without expending extra movement. Merge with Stone. You can cast the pass without trace spell once with this trait, requiring no material components, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for this spell.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "strength" : 1
+        },
+        "choices" : [ ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "ability" : "con",
+        "known" : {
+          "1" : [ "pass without trace" ]
+        }
+      } ],
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Earth Walk",
+        "description" : "You can move across difficult terrain made of earth or stone without expending extra movement."
+      }, {
+        "name" : "Merge with Stone",
+        "description" : "You can cast the pass without trace spell once with this trait, requiring no material components, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for this spell."
+      } ],
+      "variants" : [ ]
+    }, {
+      "name" : "Fire",
+      "sourceBook" : "Elemental Evil Player's Companion",
+      "sourcePage" : 9,
+      "overwrite" : [ ],
+      "description" : "Darkvision. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. Your ties to the Elemental Plane of Fire make your darkvision unusual: everything you see in darkness is in a shade of red. Fire Resistance. You have resistance to fire damage. Reach to the Blaze. You know the produce flame cantrip. Once you reach 3rd level, you can cast the burning hands spell once with this trait as a 1st-level spell, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for these spells.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ {
+        "type" : "darkvision",
+        "range" : 60
+      } ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "intelligence" : 1
+        },
+        "choices" : [ ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ "fire" ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "innate" : {
+          "3" : {
+            "daily" : {
+              "1" : [ "burning hands" ]
+            }
+          }
+        },
+        "ability" : "con",
+        "known" : {
+          "1" : [ "produce flame#c" ]
+        }
+      } ],
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Darkvision",
+        "description" : "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. Your ties to the Elemental Plane of Fire make your darkvision unusual: everything you see in darkness is in a shade of red."
+      }, {
+        "name" : "Fire Resistance",
+        "description" : "You have resistance to fire damage."
+      }, {
+        "name" : "Reach to the Blaze",
+        "description" : "You know the produce flame cantrip. Once you reach 3rd level, you can cast the burning hands spell once with this trait as a 1st-level spell, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for these spells."
+      } ],
+      "variants" : [ ]
+    }, {
+      "name" : "Water",
+      "sourceBook" : "Elemental Evil Player's Companion",
+      "sourcePage" : 10,
+      "overwrite" : [ ],
+      "description" : "Acid Resistance. You have resistance to acid damage. Amphibious. You can breathe air and water. Swim. You have a swimming speed of 30 feet. Call to the Wave. You know the shape water cantrip. When you reach 3rd level, you can cast the create or destroy water spell as a 2nd-level spell once with this trait, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for these spells.",
+      "size" : null,
+      "speed" : {
+        "walk" : 30,
+        "swim" : 30
+      },
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "wisdom" : 1
+        },
+        "choices" : [ ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ "acid" ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "innate" : {
+          "3" : {
+            "daily" : {
+              "1" : [ "create or destroy water#2" ]
+            }
+          }
+        },
+        "ability" : "con",
+        "known" : {
+          "1" : [ "shape water|xge#c" ]
+        }
+      } ],
+      "age" : null,
+      "heightAndWeight" : null,
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Acid Resistance",
+        "description" : "You have resistance to acid damage."
+      }, {
+        "name" : "Amphibious",
+        "description" : "You can breathe air and water."
+      }, {
+        "name" : "Swim",
+        "description" : "You have a swimming speed of 30 feet."
+      }, {
+        "name" : "Call to the Wave",
+        "description" : "You know the shape water cantrip. When you reach 3rd level, you can cast the create or destroy water spell as a 2nd-level spell once with this trait, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for these spells."
+      } ],
+      "variants" : [ ]
+    } ]
+  }
+}

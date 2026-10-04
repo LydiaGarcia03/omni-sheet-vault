@@ -1,0 +1,28 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "eldritch-spear",
+  "name" : "Eldritch Spear",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 111,
+  "tags" : [ ],
+  "description" : "Prerequisite: eldritch blast cantrip\n\nWhen you cast eldritch blast, its range is 300 feet.",
+  "data" : {
+    "featureTypes" : [ "EI" ],
+    "optional" : false,
+    "prerequisiteText" : "eldritch blast cantrip",
+    "prerequisites" : [ {
+      "spell" : [ "eldritch blast#c" ]
+    } ],
+    "consumes" : null,
+    "additionalSpells" : null,
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

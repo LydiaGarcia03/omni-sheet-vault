@@ -1,0 +1,7 @@
+{
+  "target": { "condition": "Petrified", "source": "PHB" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 291 },
+  "modifiers": [
+    { "type": "SET", "target": "SPEED", "value": 0 }
+  ]
+}

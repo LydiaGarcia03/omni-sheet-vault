@@ -1,0 +1,86 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "fire-shield",
+  "name" : "Fire Shield",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 242,
+  "tags" : [ ],
+  "description" : "Thin and wispy flames wreathe your body for the duration, shedding bright light in a 10-foot radius and dim light for an additional 10 feet. You can end the spell early by using an action to dismiss it. The flames provide you with a warm shield or a chill shield, as you choose. The warm shield grants you resistance to cold damage, and the chill shield grants you resistance to fire damage. In addition, whenever a creature within 5 feet of you hits you with a melee attack, the shield erupts with flame. The attacker takes 2d8 fire damage from a warm shield, or 2d8 cold damage from a cold shield.",
+  "data" : {
+    "level" : 4,
+    "school" : "evocation",
+    "castingTime" : "1 Action",
+    "range" : "Self",
+    "concentration" : false,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : 2,
+    "damageDiceSides" : 8,
+    "damageType" : "cold",
+    "notes" : "V, S, M (a bit of phosphorus or a firefly)",
+    "effectSummary" : "Damage",
+    "saveAbility" : null,
+    "components" : "V, S, M",
+    "materialComponent" : "a bit of phosphorus or a firefly",
+    "duration" : "10 minutes",
+    "higherLevelsDescription" : null,
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Wizard",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ {
+      "name" : "Druid",
+      "source" : "PHB"
+    }, {
+      "name" : "Sorcerer",
+      "source" : "PHB"
+    } ],
+    "subclasses" : [ {
+      "className" : "Artificer",
+      "classSource" : "TCE",
+      "subclassShortName" : "Armorer",
+      "subclassSource" : "TCE"
+    }, {
+      "className" : "Artificer",
+      "classSource" : "TCE",
+      "subclassShortName" : "Battle Smith",
+      "subclassSource" : "TCE"
+    }, {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Zeal (PSA)",
+      "subclassSource" : "PSA"
+    }, {
+      "className" : "Druid",
+      "classSource" : "PHB",
+      "subclassShortName" : "Wildfire",
+      "subclassSource" : "TCE"
+    }, {
+      "className" : "Fighter",
+      "classSource" : "PHB",
+      "subclassShortName" : "Eldritch Knight",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Rogue",
+      "classSource" : "PHB",
+      "subclassShortName" : "Arcane Trickster",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Warlock",
+      "classSource" : "PHB",
+      "subclassShortName" : "Fiend",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Warlock",
+      "classSource" : "PHB",
+      "subclassShortName" : "Genie",
+      "subclassSource" : "TCE"
+    } ],
+    "effect" : null
+  }
+}

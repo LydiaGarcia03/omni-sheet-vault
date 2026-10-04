@@ -1,0 +1,42 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "FEAT",
+  "slug" : "cohort-of-chaos",
+  "name" : "Cohort of Chaos",
+  "sourceBook" : "Sigil and the Outlands",
+  "sourceCode" : "SatO",
+  "sourcePage" : 10,
+  "tags" : [ ],
+  "description" : "Prerequisite: level 4+\n\nYou can channel cosmic forces of chaos to gain these benefits: Chaotic Flare. When you roll a 1 or a 20 on an attack roll or a saving throw, the magic of chaos flows through you. Roll a d4 and consult the Chaotic Flares table to determine what happens. A flare lasts until the end of your next turn, and a new flare can't occur until after the first flare ends.",
+  "data" : {
+    "abilityAlternatives" : [ {
+      "fixed" : { },
+      "choices" : [ {
+        "from" : [ "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma" ],
+        "weights" : null,
+        "count" : 1,
+        "amount" : 1
+      } ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "savingThrowAlternatives" : [ ],
+    "expertiseAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "optionalFeatureProgressions" : [ ],
+    "additionalSpells" : null,
+    "prerequisites" : [ {
+      "level" : 4,
+      "feat" : [ "scion of the outer planes|sato|scion of the outer planes (chaotic outer plane)" ]
+    } ],
+    "repeatable" : false,
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

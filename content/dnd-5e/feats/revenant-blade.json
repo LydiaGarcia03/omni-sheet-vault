@@ -1,0 +1,43 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "FEAT",
+  "slug" : "revenant-blade",
+  "name" : "Revenant Blade",
+  "sourceBook" : "Eberron: Rising from the Last War",
+  "sourceCode" : "ERLW",
+  "sourcePage" : 22,
+  "tags" : [ ],
+  "description" : "Prerequisite: Elf\n\nYou are descended from a master of the double-bladed scimitar, and some of that mastery has passed on to you. You gain the following benefits: While you are holding a double-bladed scimitar with two hands, you gain a +1 bonus to Armor Class. A double-bladed scimitar has the finesse property when you wield it.",
+  "data" : {
+    "abilityAlternatives" : [ {
+      "fixed" : { },
+      "choices" : [ {
+        "from" : [ "strength", "dexterity" ],
+        "weights" : null,
+        "count" : 1,
+        "amount" : 1
+      } ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "savingThrowAlternatives" : [ ],
+    "expertiseAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "optionalFeatureProgressions" : [ ],
+    "additionalSpells" : null,
+    "prerequisites" : [ {
+      "race" : [ {
+        "name" : "elf"
+      } ]
+    } ],
+    "repeatable" : false,
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

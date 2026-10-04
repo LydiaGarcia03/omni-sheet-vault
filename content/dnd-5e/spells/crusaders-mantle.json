@@ -1,0 +1,50 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "crusaders-mantle",
+  "name" : "Crusader's Mantle",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 230,
+  "tags" : [ ],
+  "description" : "Holy power radiates from you in an aura with a 30-foot radius, awakening boldness in friendly creatures. Until the spell ends, the aura moves with you, centered on you. While in the aura, each nonhostile creature in the aura (including you) deals an extra 1d4 radiant damage when it hits with a weapon attack.",
+  "data" : {
+    "level" : 3,
+    "school" : "evocation",
+    "castingTime" : "1 Action",
+    "range" : "Self (30-foot radius)",
+    "concentration" : true,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : 1,
+    "damageDiceSides" : 4,
+    "damageType" : "radiant",
+    "notes" : "Concentration, 1 minute, V",
+    "effectSummary" : "Damage",
+    "saveAbility" : null,
+    "components" : "V",
+    "materialComponent" : null,
+    "duration" : "Concentration, 1 minute",
+    "higherLevelsDescription" : null,
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Paladin",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "War",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Solidarity (PSA)",
+      "subclassSource" : "PSA"
+    } ],
+    "effect" : null
+  }
+}

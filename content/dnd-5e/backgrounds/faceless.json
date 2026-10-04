@@ -1,0 +1,81 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "faceless",
+  "name" : "Faceless",
+  "sourceBook" : "Baldur's Gate: Descent Into Avernus",
+  "sourceCode" : "BGDIA",
+  "sourcePage" : 203,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. Deception, Intimidation Tool Proficiencies:. Disguise kit Languages:. One of your choice Equipment:. Disguise kit, a costume, a pouch containing 10 gp Faceless Persona. A faceless character adventures behind the mask of a public persona. This persona is as natural to them as their hidden, true face, but it disguises their identity. Roll on the Faceless Persona table to determine your persona, or work with the DM to create a persona that's unique to your character and suits the tone of your game. Feature: Dual Personalities. Most of your fellow adventurers and the world know you as your persona. Those who seek to learn more about you—your weaknesses, your origins, your purpose—find themselves stymied by your disguise. Upon donning a disguise and behaving as your persona, you are unidentifiable as your true self. By removing your disguise and revealing your true face, you are no longer identifiable as your persona. This allows you to change appearances between your two personalities as often as you wish, using one to hide the other or serve as convenient camouflage. However, should someone realize the connection between your persona and your true self, your deception might lose its effectiveness. Suggested Characteristics. A faceless character usually plays their persona—the hero or extraordinary person they are every day. That's all a facade, though, or a part of them expressed to an extreme. To define a persona, feel free to choose characteristics from other backgrounds, particularly folk hero, hermit, or noble. For the person behind the persona, the one who truly strives to be faceless, consider a distinct set of faceless characteristics. As a result, those with this background have two sets of characteristics, one for their persona, and one for their faceless selves.",
+  "data" : {
+    "personalityTraits" : [ "I'm earnest and uncommonly direct.", "I strive to have no personality—it's easier to forget what's hardly there.", "I treasure a memento of the person or instance that set me upon my path.", "I sleep just as much as I need to and on an unusual schedule.", "I think far ahead, a detachedness often mistaken for daydreaming.", "I cultivate a single obscure hobby or study and eagerly discuss it at length.", "I am ever learning how to be among others—when to stay quiet, when to laugh.", "I behave like an extreme opposite of my persona." ],
+    "ideals" : [ "Justice. Place in society shouldn't determine one's access to what is right. (Good)", "Security. Doing what must be done can't bring the innocent to harm. (Lawful)", "Confusion. Deception is a weapon. Strike from where your foes won't expect. (Chaotic)", "Infamy. My name will be a malediction, a curse that fulfills my will. (Evil)", "Incorruptibility. Be a symbol, and leave your flawed being behind. (Any)", "Anonymity. It's my deeds that should be remembered, not their instrument. (Any)" ],
+    "bonds" : [ "I do everything for my family. My first thought is keeping them safe.", "What I do, I do for the world. The people don't realize how much they need me.", "I've seen too many in need. I must not fail them as everyone else has.", "I stand in opposition, lest the wicked go unopposed.", "I am exceptional. I do this because no one else can, and no one can stop me.", "I do everything for those who were taken from me." ],
+    "flaws" : [ "I am callous about death. It comes to us all eventually.", "I never make eye contact or hold it unflinchingly.", "I have no sense of humor. Laughing is uncomfortable and embarrassing.", "I overexert myself, sometimes needing to recuperate for a day or more.", "I think far ahead, a detachedness often mistaken for daydreaming.", "I see morality entirely in black and white." ],
+    "otherTables" : [ {
+      "caption" : "",
+      "colLabels" : [ "d10", "Faceless Persona" ],
+      "rows" : [ [ "1", "A flamboyant spy or brigand" ], [ "2", "The incarnation of a nation or people" ], [ "3", "A scoundrel with a masked guise" ], [ "4", "A vengeful spirit" ], [ "5", "The manifestation of a deity or your faith" ], [ "6", "One whose beauty is greatly accented using makeup" ], [ "7", "An impersonation of another hero" ], [ "8", "The embodiment of a school of magic" ], [ "9", "A warrior with distinctive armor" ], [ "10", "A disguise with animalistic or monstrous characteristics, meant to inspire fear" ] ]
+    } ],
+    "features" : [ {
+      "name" : "Dual Personalities",
+      "description" : "Most of your fellow adventurers and the world know you as your persona. Those who seek to learn more about you—your weaknesses, your origins, your purpose—find themselves stymied by your disguise. Upon donning a disguise and behaving as your persona, you are unidentifiable as your true self. By removing your disguise and revealing your true face, you are no longer identifiable as your persona. This allows you to change appearances between your two personalities as often as you wish, using one to hide the other or serve as convenient camouflage. However, should someone realize the connection between your persona and your true self, your deception might lose its effectiveness."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "deception", "intimidation" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ {
+      "fixed" : [ "disguise-kit" ],
+      "choices" : [ ]
+    } ],
+    "languageAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : "disguise-kit",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "costume-clothes",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 1000,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : null,
+    "prerequisites" : null
+  }
+}

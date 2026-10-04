@@ -1,0 +1,71 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "cone-of-cold",
+  "name" : "Cone of Cold",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 224,
+  "tags" : [ ],
+  "description" : "A blast of cold air erupts from your hands. Each creature in a 60-foot cone must make a Constitution saving throw. A creature takes 8d8 cold damage on a failed save, or half as much damage on a successful one. A creature killed by this spell becomes a frozen statue until it thaws.",
+  "data" : {
+    "level" : 5,
+    "school" : "evocation",
+    "castingTime" : "1 Action",
+    "range" : "Self (60-foot cone)",
+    "concentration" : false,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : 8,
+    "damageDiceSides" : 8,
+    "damageType" : "cold",
+    "notes" : "V, S, M (a small crystal or glass cone)",
+    "effectSummary" : "Damage",
+    "saveAbility" : "constitution",
+    "components" : "V, S, M",
+    "materialComponent" : "a small crystal or glass cone",
+    "duration" : "Instantaneous",
+    "higherLevelsDescription" : "When you cast this spell using a spell slot of 6th level or higher, the damage increases by 1d8 for each slot level above 5th.",
+    "higherLevelsDamageDiceCount" : 1,
+    "higherLevelsDamageDiceSides" : 8,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Sorcerer",
+      "source" : "PHB"
+    }, {
+      "name" : "Wizard",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ {
+      "name" : "Druid",
+      "source" : "PHB"
+    } ],
+    "subclasses" : [ {
+      "className" : "Artificer",
+      "classSource" : "TCE",
+      "subclassShortName" : "Artillerist",
+      "subclassSource" : "TCE"
+    }, {
+      "className" : "Druid",
+      "classSource" : "PHB",
+      "subclassShortName" : "Land",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Warlock",
+      "classSource" : "PHB",
+      "subclassShortName" : "Hexblade",
+      "subclassSource" : "XGE"
+    }, {
+      "className" : "Warlock",
+      "classSource" : "PHB",
+      "subclassShortName" : "Fathomless",
+      "subclassSource" : "TCE"
+    }, {
+      "className" : "Warlock",
+      "classSource" : "PHB",
+      "subclassShortName" : "Genie",
+      "subclassSource" : "TCE"
+    } ],
+    "effect" : null
+  }
+}

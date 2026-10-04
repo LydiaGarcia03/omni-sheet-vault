@@ -1,0 +1,8 @@
+{
+  "target": { "subclassSlug": "fighter-battle-master", "feature": "Student of War" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 73 },
+  "modifiers": [],
+  "choices": [
+    { "type": "PROFICIENCY", "grant": "tool", "count": 1, "category": "artisansTool" }
+  ]
+}

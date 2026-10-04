@@ -1,0 +1,65 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "druidcraft",
+  "name" : "Druidcraft",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 236,
+  "tags" : [ ],
+  "description" : "Whispering to the spirits of nature, you create one of the following effects within range:",
+  "data" : {
+    "level" : 0,
+    "school" : "transmutation",
+    "castingTime" : "1 Action",
+    "range" : "30 ft.",
+    "concentration" : false,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "notes" : "V, S",
+    "effectSummary" : "Buff",
+    "saveAbility" : null,
+    "components" : "V, S",
+    "materialComponent" : null,
+    "duration" : "Instantaneous",
+    "higherLevelsDescription" : null,
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Druid",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Barbarian",
+      "classSource" : "PHB",
+      "subclassShortName" : "Giant",
+      "subclassSource" : "BGG"
+    }, {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Nature",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Strength (PSA)",
+      "subclassSource" : "PSA"
+    }, {
+      "className" : "Druid",
+      "classSource" : "PHB",
+      "subclassShortName" : "Land",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Fighter",
+      "classSource" : "PHB",
+      "subclassShortName" : "Arcane Archer",
+      "subclassSource" : "XGE"
+    } ],
+    "effect" : null
+  }
+}

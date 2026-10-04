@@ -1,0 +1,87 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "protection-from-evil-and-good",
+  "name" : "Protection from Evil and Good",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 270,
+  "tags" : [ ],
+  "description" : "Until the spell ends, one willing creature you touch is protected against certain types of creatures: aberrations, celestials, elementals, fey, fiends, and undead. The protection grants several benefits. Creatures of those types have disadvantage on attack rolls against the target. The target also can't be charmed, frightened, or possessed by them. If the target is already charmed, frightened, or possessed by such a creature, the target has advantage on any new saving throw against the relevant effect.",
+  "data" : {
+    "level" : 1,
+    "school" : "abjuration",
+    "castingTime" : "1 Action",
+    "range" : "Touch",
+    "concentration" : true,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "notes" : "Concentration, 10 minutes, V, S, M (holy water or powdered silver and iron, which the spell consumes)",
+    "effectSummary" : "Buff",
+    "saveAbility" : null,
+    "components" : "V, S, M",
+    "materialComponent" : "holy water or powdered silver and iron, which the spell consumes",
+    "duration" : "Concentration, 10 minutes",
+    "higherLevelsDescription" : null,
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Cleric",
+      "source" : "PHB"
+    }, {
+      "name" : "Paladin",
+      "source" : "PHB"
+    }, {
+      "name" : "Warlock",
+      "source" : "PHB"
+    }, {
+      "name" : "Wizard",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ {
+      "name" : "Druid",
+      "source" : "PHB"
+    } ],
+    "subclasses" : [ {
+      "className" : "Fighter",
+      "classSource" : "PHB",
+      "subclassShortName" : "Eldritch Knight",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Paladin",
+      "classSource" : "PHB",
+      "subclassShortName" : "Devotion",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Ranger",
+      "classSource" : "PHB",
+      "subclassShortName" : "Horizon Walker",
+      "subclassSource" : "XGE"
+    }, {
+      "className" : "Ranger",
+      "classSource" : "PHB",
+      "subclassShortName" : "Monster Slayer",
+      "subclassSource" : "XGE"
+    }, {
+      "className" : "Rogue",
+      "classSource" : "PHB",
+      "subclassShortName" : "Arcane Trickster",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Sorcerer",
+      "classSource" : "PHB",
+      "subclassShortName" : "Divine Soul",
+      "subclassSource" : "XGE"
+    }, {
+      "className" : "Sorcerer",
+      "classSource" : "PHB",
+      "subclassShortName" : "Clockwork Soul",
+      "subclassSource" : "TCE"
+    } ],
+    "effect" : null
+  }
+}

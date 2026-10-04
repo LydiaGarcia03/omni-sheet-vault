@@ -1,0 +1,99 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "astral-drifter",
+  "name" : "Astral Drifter",
+  "sourceBook" : "Astral Adventurer's Guide",
+  "sourceCode" : "AAG",
+  "sourcePage" : 7,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. Insight, Religion Languages:. Two of your choice (Celestial or Gith recommended) Equipment:. A set of traveler's clothes, a diary, an ink pen, a bottle of ink, and a pouch containing 10 gp Longevity. You are 20d6 years older than you look, because you have spent that much time in the Astral Sea without aging. Feature: Divine Contact. You gain the Magic Initiate feat from the Player's Handbook and must choose cleric for the feat. In the Astral Sea, you crossed paths with a wandering deity. The encounter was brief and nonviolent, yet it made a lasting impression on you. This deity saw fit to share one secret or obscure bit of cosmic lore with you. Work with your DM to determine the details of this knowledge and its impact on the campaign. Roll on the Divine Contact table to determine which deity you encountered, or work with your DM to identify a more suitable choice.",
+  "data" : {
+    "personalityTraits" : [ ],
+    "ideals" : [ ],
+    "bonds" : [ ],
+    "flaws" : [ ],
+    "otherTables" : [ {
+      "caption" : "Divine Contact",
+      "colLabels" : [ "d10", "Wandering Deity" ],
+      "rows" : [ [ "1", "Corellon, god of art and magic (chaotic good)" ], [ "2", "Tymora, god of good fortune (chaotic good)" ], [ "3", "Fharlanghn, god of horizons and travel (neutral good)" ], [ "4", "Istus, god of fate and destiny (neutral)" ], [ "5", "Nuada, god of war and warriors (neutral)" ], [ "6", "Zivilyn, god of wisdom (neutral)" ], [ "7", "Arawn, god of life and death (neutral evil)" ], [ "8", "Hecate, god of magic and moons (chaotic evil)" ], [ "9", "Celestian, god of stars and wanderers (neutral)" ], [ "10", "Ptah, god of knowledge and secrets (lawful neutral)" ] ]
+    } ],
+    "features" : [ {
+      "name" : "Divine Contact",
+      "description" : "You gain the Magic Initiate feat from the Player's Handbook and must choose cleric for the feat. In the Astral Sea, you crossed paths with a wandering deity. The encounter was brief and nonviolent, yet it made a lasting impression on you. This deity saw fit to share one secret or obscure bit of cosmic lore with you. Work with your DM to determine the details of this knowledge and its impact on the campaign. Roll on the Divine Contact table to determine which deity you encountered, or work with your DM to identify a more suitable choice."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "insight", "religion" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 2,
+        "amount" : null
+      } ]
+    } ],
+    "featAlternatives" : [ {
+      "fixed" : [ "magic-initiate" ],
+      "choices" : [ ]
+    } ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : "travelers-clothes",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "diary",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "ink-pen",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "ink-1-ounce-bottle",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 1000,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : null,
+    "prerequisites" : null
+  }
+}

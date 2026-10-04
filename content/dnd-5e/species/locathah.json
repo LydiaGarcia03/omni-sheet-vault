@@ -1,0 +1,91 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "locathah",
+  "name" : "Locathah",
+  "sourceBook" : "Locathah Rising",
+  "sourceCode" : "LR",
+  "sourcePage" : 24,
+  "tags" : [ ],
+  "description" : "Age. Locathah mature to adulthood by the age of 10 but have been known to live up to 80 years. Alignment. Most locathah are true neutral or have some aspect of neutrality in their alignment. They tend toward good, coming from a culture where compassion for the downtrodden is a commonality. Natural Armor. You have tough, scaly skin. When you aren't wearing armor, your AC is 12 + your Dexterity modifier. You can use your natural armor to determine your AC if the armor you wear would leave you with a lower AC. A shield's benefits apply as normal while you use your natural armor. Observant & Athletic. You have proficiency in the Athletics and Perception skills. Leviathan Will. You have advantage on saving throws against being charmed, frightened, paralyzed, poisoned, stunned, or put to sleep. Limited Amphibiousness. You can breathe air and water, but you need to be submerged at least once every 4 hours to avoid suffocating. Size. Locathah stand between 5 and 6 feet tall and average about 150 pounds. Your size is Medium. Language. You can speak, read, and write Aquan and Common.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 30,
+      "swim" : 30
+    },
+    "senses" : [ ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "strength" : 2,
+        "dexterity" : 1
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "athletics", "perception" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "aquan", "common" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : {
+      "mature" : 10,
+      "max" : 80
+    },
+    "heightAndWeight" : null,
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Age",
+      "description" : "Locathah mature to adulthood by the age of 10 but have been known to live up to 80 years."
+    }, {
+      "name" : "Alignment",
+      "description" : "Most locathah are true neutral or have some aspect of neutrality in their alignment. They tend toward good, coming from a culture where compassion for the downtrodden is a commonality."
+    }, {
+      "name" : "Natural Armor",
+      "description" : "You have tough, scaly skin. When you aren't wearing armor, your AC is 12 + your Dexterity modifier. You can use your natural armor to determine your AC if the armor you wear would leave you with a lower AC. A shield's benefits apply as normal while you use your natural armor."
+    }, {
+      "name" : "Observant & Athletic",
+      "description" : "You have proficiency in the Athletics and Perception skills."
+    }, {
+      "name" : "Leviathan Will",
+      "description" : "You have advantage on saving throws against being charmed, frightened, paralyzed, poisoned, stunned, or put to sleep."
+    }, {
+      "name" : "Limited Amphibiousness",
+      "description" : "You can breathe air and water, but you need to be submerged at least once every 4 hours to avoid suffocating."
+    }, {
+      "name" : "Size",
+      "description" : "Locathah stand between 5 and 6 feet tall and average about 150 pounds. Your size is Medium."
+    }, {
+      "name" : "Language",
+      "description" : "You can speak, read, and write Aquan and Common."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

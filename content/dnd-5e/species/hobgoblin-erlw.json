@@ -1,0 +1,104 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "hobgoblin-erlw",
+  "name" : "Hobgoblin",
+  "sourceBook" : "Eberron: Rising from the Last War",
+  "sourceCode" : "ERLW",
+  "sourcePage" : 26,
+  "tags" : [ ],
+  "description" : "Age. Hobgoblins mature at the same rate as humans and have lifespans similar in length to theirs. Size. Your size is Medium. Darkvision. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Martial Training. You are proficient with two martial weapons of your choice and with light armor. Saving Face. Hobgoblins are careful not to show weakness in front of their allies, for fear of losing status. If you miss with an attack roll or fail an ability check or a saving throw, you can gain a bonus to the roll equal to the number of allies you can see within 30 feet of you (maximum bonus of +5). Once you use this trait, you can't use it again until you finish a short or long rest. Languages. You can speak, read, and write Common and Goblin. Alignment. Hobgoblin society in Eberron is shaped by the ideal of a strict code of honor and rigid martial discipline. Most hobgoblins are lawful, tending toward harsh enforcement of their laws.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 30
+    },
+    "senses" : [ {
+      "type" : "darkvision",
+      "range" : 60
+    } ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "constitution" : 2,
+        "intelligence" : 1
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "goblin" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : null,
+        "fromFilter" : "type=martial weapon|miscellaneous=mundane",
+        "count" : 2,
+        "amount" : null
+      } ]
+    } ],
+    "armorAlternatives" : [ {
+      "fixed" : [ "light" ],
+      "choices" : [ ]
+    } ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : {
+      "mature" : 20,
+      "max" : 100
+    },
+    "heightAndWeight" : {
+      "baseHeight" : 56,
+      "heightMod" : "2d10",
+      "baseWeight" : 110,
+      "weightMod" : "2d4"
+    },
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Age",
+      "description" : "Hobgoblins mature at the same rate as humans and have lifespans similar in length to theirs."
+    }, {
+      "name" : "Size",
+      "description" : "Your size is Medium."
+    }, {
+      "name" : "Darkvision",
+      "description" : "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+    }, {
+      "name" : "Martial Training",
+      "description" : "You are proficient with two martial weapons of your choice and with light armor."
+    }, {
+      "name" : "Saving Face",
+      "description" : "Hobgoblins are careful not to show weakness in front of their allies, for fear of losing status. If you miss with an attack roll or fail an ability check or a saving throw, you can gain a bonus to the roll equal to the number of allies you can see within 30 feet of you (maximum bonus of +5). Once you use this trait, you can't use it again until you finish a short or long rest."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and Goblin."
+    }, {
+      "name" : "Alignment",
+      "description" : "Hobgoblin society in Eberron is shaped by the ideal of a strict code of honor and rigid martial discipline. Most hobgoblins are lawful, tending toward harsh enforcement of their laws."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "ruined",
+  "name" : "Ruined",
+  "sourceBook" : "The Book of Many Things",
+  "sourceCode" : "BMT",
+  "sourcePage" : 58,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. Stealth, Survival Languages:. One of your choice Equipment:. A cracked hourglass, a set of rusty manacles, a half-empty bottle, a hunting trap, a gaming set (matching your chosen proficiency), a set of traveler's clothes, and a pouch containing 13 gp Tool Proficiencies:. One gaming set of your choice (such as playing cards or three-dragon ante cards) Feature: Still Standing. You have weathered ruinous misfortune, and you possess hidden reserves others don't expect. You gain the Alert, Skilled, or Tough feat (your choice). Your choice of feat reflects how you've dealt with the terrible loss that changed your life forever. If you've kept your senses sharp for every opportunity and climbed your way out of misery by seizing the tiniest scrap of hope, choose Alert. If you've redoubled your efforts to reclaim what was once yours, choose Skilled. If you've stoically persevered through your misfortune, select Tough. Suggested Characteristics. Rising above misfortune shapes one's perspective. The Ruined Personality Traits table suggests traits you might adopt for your character (and ruinous cards that might have prompted this trait). Building a Ruined Character. Ruined characters were on top of the world before misfortune struck. Many were wealthy. Others come from modest backgrounds, but they were surrounded by friends, family, and loved ones. They might have been famous, or simply never encountered serious hardship before. Some were born to privilege or rose to prominence through trickery or a false reputation. Now a Deck of Many Things—or another calamity—has knocked them down like a house of cards. If your character's life was ruined by a Deck of Many Things, consider which card was responsible. Perhaps your character was imprisoned for years by the Donjon or Void card, and now everyone they knew has died. Maybe your character drew the Rogue card, and the person closest to them—a spouse, child, or parent—turned against them. A devil unleashed by the Flames card might have destroyed their life. The Ruin or Talons card might have stolen the character's material goods or saddled them with vast debt. Ruined Trinkets. When you make your character, you can roll once on the Ruined Trinkets table instead of on the Trinkets table in the Player's Handbook.",
+  "data" : {
+    "personalityTraits" : [ "I've changed from my past, and I work to live up to my new path. (Balance, Throne)", "Every moment is a gift I refuse to squander. (Euryale, Skull)", "Now that I've overcome having nothing, I can survive anything. (Fool, Ruin, Talons)", "I know enemies are set against me, and I always prepare for the worst. (Flames, Rogue)", "I interpret every event as part of a larger pattern I just haven't worked out yet. (Puzzle, Star)", "I must make up for so much time I've already lost. (Donjon, Void)" ],
+    "ideals" : [ ],
+    "bonds" : [ ],
+    "flaws" : [ ],
+    "otherTables" : [ {
+      "caption" : null,
+      "colLabels" : [ "d6", "Trinket" ],
+      "rows" : [ [ "1", "A rusted scrap of a once-beloved family heirloom" ], [ "2", "A land deed, but all the names and markings that once tied it to you have faded into obscurity" ], [ "3", "A bauble once imbued with powerful magic" ], [ "4", "A battered playing card with a hole pierced in it, its face depicting the card that affected you" ], [ "5", "A yellowed Humanoid tooth that whispers eerily when placed under a pillow" ], [ "6", "A keepsake from someone you were once close to but who is now your enemy" ] ]
+    } ],
+    "features" : [ {
+      "name" : "Still Standing",
+      "description" : "You have weathered ruinous misfortune, and you possess hidden reserves others don't expect. You gain the Alert, Skilled, or Tough feat (your choice). Your choice of feat reflects how you've dealt with the terrible loss that changed your life forever. If you've kept your senses sharp for every opportunity and climbed your way out of misery by seizing the tiniest scrap of hope, choose Alert. If you've redoubled your efforts to reclaim what was once yours, choose Skilled. If you've stoically persevered through your misfortune, select Tough."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "stealth", "survival" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "gamingSet",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "languageAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "featAlternatives" : [ {
+      "fixed" : [ "alert" ],
+      "choices" : [ ]
+    }, {
+      "fixed" : [ "skilled" ],
+      "choices" : [ ]
+    }, {
+      "fixed" : [ "tough" ],
+      "choices" : [ ]
+    } ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : "hourglass",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : "cracked hourglass",
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "manacles",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : "set of rusty manacles",
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "half-empty bottle",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "hunting-trap",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : "setGaming",
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : "gaming set matching your chosen proficiency",
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "travelers-clothes",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 1300,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : null,
+    "prerequisites" : null
+  }
+}

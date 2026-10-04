@@ -1,0 +1,70 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "lizardfolk-dmg",
+  "name" : "Lizardfolk",
+  "sourceBook" : "Dungeon Master's Guide",
+  "sourceCode" : "DMG",
+  "sourcePage" : 282,
+  "tags" : [ ],
+  "description" : "Hold Breath. You can hold your breath for up to 15 minutes at a time. Natural Armor. Your scales function as natural armor, granting you a +3 bonus to Armor Class. Languages. You can speak, read, and write Draconic.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 30,
+      "swim" : 30
+    },
+    "senses" : [ ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "strength" : 2,
+        "intelligence" : -2
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "draconic" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : null,
+    "heightAndWeight" : null,
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Hold Breath",
+      "description" : "You can hold your breath for up to 15 minutes at a time."
+    }, {
+      "name" : "Natural Armor",
+      "description" : "Your scales function as natural armor, granting you a +3 bonus to Armor Class."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Draconic."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

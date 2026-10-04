@@ -1,0 +1,238 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "gith",
+  "name" : "Gith",
+  "sourceBook" : "Mordenkainen's Tome of Foes",
+  "sourceCode" : "MTF",
+  "sourcePage" : 96,
+  "tags" : [ ],
+  "description" : "Age. Gith reach adulthood in their late teens and live for about a century. Size. Gith are taller and leaner than humans, with most a slender 6 feet in height. Languages. You can speak, read, and write Common and Gith.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 30
+    },
+    "senses" : [ ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "intelligence" : 1
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "other" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : {
+      "mature" : 20,
+      "max" : 100
+    },
+    "heightAndWeight" : null,
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Age",
+      "description" : "Gith reach adulthood in their late teens and live for about a century."
+    }, {
+      "name" : "Size",
+      "description" : "Gith are taller and leaner than humans, with most a slender 6 feet in height."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and Gith."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ {
+      "name" : "Githyanki",
+      "sourceBook" : "Mordenkainen's Tome of Foes",
+      "sourcePage" : 96,
+      "overwrite" : [ ],
+      "description" : "Alignment. Githyanki tend toward lawful evil. They are aggressive and arrogant, and they remain the faithful servants of their lich-queen, Vlaakith. Renegade githyanki tend toward chaos. Decadent Mastery. You learn one language of your choice, and you are proficient with one skill or tool of your choice. In the timeless city of Tu'narath, githyanki have bountiful time to master odd bits of knowledge. Martial Prodigy. You are proficient with light and medium armor and with shortswords, longswords, and greatswords. Githyanki Psionics. You know the mage hand cantrip, and the hand is invisible when you cast the cantrip with this trait. When you reach 3rd level, you can cast jump once with this trait, and you regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the misty step spell once with this trait, and you regain the ability to do so when you finish a long rest. Intelligence is your spellcasting ability for these spells. When you cast them with this trait, they don't require components.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "strength" : 2
+        },
+        "choices" : [ ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ {
+        "fixed" : [ "shortsword", "longsword", "greatsword" ],
+        "choices" : [ ]
+      } ],
+      "armorAlternatives" : [ {
+        "fixed" : [ "light", "medium" ],
+        "choices" : [ ]
+      } ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : [ {
+        "choose" : [ {
+          "from" : [ "anySkill", "anyTool" ]
+        } ]
+      } ],
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "innate" : {
+          "3" : {
+            "daily" : {
+              "1" : [ "jump" ]
+            }
+          },
+          "5" : {
+            "daily" : {
+              "1" : [ "misty step" ]
+            }
+          }
+        },
+        "ability" : "int",
+        "known" : {
+          "1" : [ "mage hand#c" ]
+        }
+      } ],
+      "age" : null,
+      "heightAndWeight" : {
+        "baseHeight" : 60,
+        "heightMod" : "2d12",
+        "baseWeight" : 100,
+        "weightMod" : "2d4"
+      },
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Alignment",
+        "description" : "Githyanki tend toward lawful evil. They are aggressive and arrogant, and they remain the faithful servants of their lich-queen, Vlaakith. Renegade githyanki tend toward chaos."
+      }, {
+        "name" : "Decadent Mastery",
+        "description" : "You learn one language of your choice, and you are proficient with one skill or tool of your choice. In the timeless city of Tu'narath, githyanki have bountiful time to master odd bits of knowledge."
+      }, {
+        "name" : "Martial Prodigy",
+        "description" : "You are proficient with light and medium armor and with shortswords, longswords, and greatswords."
+      }, {
+        "name" : "Githyanki Psionics",
+        "description" : "You know the mage hand cantrip, and the hand is invisible when you cast the cantrip with this trait. When you reach 3rd level, you can cast jump once with this trait, and you regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the misty step spell once with this trait, and you regain the ability to do so when you finish a long rest. Intelligence is your spellcasting ability for these spells. When you cast them with this trait, they don't require components."
+      } ],
+      "variants" : [ ]
+    }, {
+      "name" : "Githzerai",
+      "sourceBook" : "Mordenkainen's Tome of Foes",
+      "sourcePage" : 96,
+      "overwrite" : [ ],
+      "description" : "Alignment. Githzerai tend toward lawful neutral. Their rigorous training in psychic abilities requires an implacable mental discipline. Mental Discipline. You have advantage on saving throws against the charmed and frightened conditions. Under the tutelage of monastic masters, githzerai learn to govern their own minds. Githzerai Psionics. You know the mage hand cantrip, and the hand is invisible when you cast the cantrip with this trait. When you reach 3rd level, you can cast shield once with this trait, and you regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the detect thoughts spell once with this trait, and you regain the ability to do so when you finish a long rest. Wisdom is your spellcasting ability for these spells. When you cast them with this trait, they don't require components.",
+      "size" : null,
+      "speed" : null,
+      "senses" : [ ],
+      "abilityAlternatives" : [ {
+        "fixed" : {
+          "wisdom" : 2
+        },
+        "choices" : [ ],
+        "maximum" : null
+      } ],
+      "skillAlternatives" : [ ],
+      "toolAlternatives" : [ ],
+      "languageAlternatives" : [ ],
+      "weaponAlternatives" : [ ],
+      "armorAlternatives" : [ ],
+      "featAlternatives" : [ ],
+      "skillToolLanguageChoices" : null,
+      "damageResistances" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "damageVulnerabilities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "conditionImmunities" : {
+        "fixed" : [ ],
+        "choices" : [ ]
+      },
+      "creatureTypes" : null,
+      "additionalSpells" : [ {
+        "innate" : {
+          "3" : {
+            "daily" : {
+              "1" : [ "shield" ]
+            }
+          },
+          "5" : {
+            "daily" : {
+              "1" : [ "detect thoughts" ]
+            }
+          }
+        },
+        "ability" : "wis",
+        "known" : {
+          "1" : [ "mage hand#c" ]
+        }
+      } ],
+      "age" : null,
+      "heightAndWeight" : {
+        "baseHeight" : 59,
+        "heightMod" : "2d12",
+        "baseWeight" : 90,
+        "weightMod" : "1d4"
+      },
+      "lineage" : null,
+      "traits" : [ {
+        "name" : "Alignment",
+        "description" : "Githzerai tend toward lawful neutral. Their rigorous training in psychic abilities requires an implacable mental discipline."
+      }, {
+        "name" : "Mental Discipline",
+        "description" : "You have advantage on saving throws against the charmed and frightened conditions. Under the tutelage of monastic masters, githzerai learn to govern their own minds."
+      }, {
+        "name" : "Githzerai Psionics",
+        "description" : "You know the mage hand cantrip, and the hand is invisible when you cast the cantrip with this trait. When you reach 3rd level, you can cast shield once with this trait, and you regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the detect thoughts spell once with this trait, and you regain the ability to do so when you finish a long rest. Wisdom is your spellcasting ability for these spells. When you cast them with this trait, they don't require components."
+      } ],
+      "variants" : [ ]
+    } ]
+  }
+}

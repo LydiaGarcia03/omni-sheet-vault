@@ -1,0 +1,86 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "volstrucker-agent",
+  "name" : "Volstrucker Agent",
+  "sourceBook" : "Explorer's Guide to Wildemount",
+  "sourceCode" : "EGW",
+  "sourcePage" : 202,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. Deception, Stealth Tool Proficiencies:. Poisoner's kit Languages:. One of your choice Equipment:. A set of common clothes, a black cloak with a hood, a poisoner's kit, and a pouch containing 10 gp Feature: Shadow Network. You have access to the Volstrucker shadow network, which allows you to communicate with other members of the order over long distances. If you write a letter in a special arcane ink, address it to a member of the Volstrucker, and cast it into a fire, the letter will burn to cinders and materialize whole again on the person of the agent you addressed it to. The ink used to send a letter across the shadow network is the same as that used by a wizard to scribe spells in a spellbook. Writing a letter in this ink costs 10 gp per page. Suggested Characteristics. Agents of the Volstrucker are groomed to follow orders without question and to kill without mercy. The trauma that brings one into the order can fester even more strongly against the darkness of a Volstrucker agent's assignments. Officially, no one ever leaves the order—but those desperate enough do whatever it takes to gain some measure of freedom.",
+  "data" : {
+    "personalityTraits" : [ "I prefer to keep my thoughts to myself.", "I indulge vice in excess to quiet my conscience.", "I've left emotion behind me. I'm now perfectly placid.", "Some event from the past keeps worming its way into my mind, making me restless.", "I always keep my word—except when I'm commanded to break it.", "I laugh off insults and never take them personally." ],
+    "ideals" : [ "Order. The will of the crown is absolute. (Law)", "True Loyalty. The Cerberus Assembly is greater than any power, even the crown. (Law)", "Death. The penalty for disloyalty is death. (Evil)", "Determination. I cannot fail. Not ever. (Neutral)", "Fear. People should not respect power. They should fear it. (Evil)", "Escape. The Volstrucker are pure evil! I can't atone for what I've done for them, but I can escape with my life. (Any)" ],
+    "bonds" : [ "The job is all that matters. I will see it through.", "My orders are important, but my comrades are worth more than anything. I would die for them.", "Everything I've done, I've done to protect someone close to me.", "If the empire falls, all of civilization falls with it. I will hold back chaos and barbarism at any cost." ],
+    "flaws" : [ "I drink to dull the pain in the back of my head.", "I go a bit mad when I see blood.", "I can hear the voices of everyone I've killed. I see their faces. I can't be free of these ghosts.", "Fear is a powerful motivator. I will do whatever it takes to prevent those who know what I am from seeing me fail, and from those I care about from knowing what I am." ],
+    "otherTables" : [ ],
+    "features" : [ {
+      "name" : "Shadow Network",
+      "description" : "You have access to the Volstrucker shadow network, which allows you to communicate with other members of the order over long distances. If you write a letter in a special arcane ink, address it to a member of the Volstrucker, and cast it into a fire, the letter will burn to cinders and materialize whole again on the person of the agent you addressed it to. The ink used to send a letter across the shadow network is the same as that used by a wizard to scribe spells in a spellbook. Writing a letter in this ink costs 10 gp per page."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "deception", "stealth" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ {
+      "fixed" : [ "poisoners-kit" ],
+      "choices" : [ ]
+    } ],
+    "languageAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : "common-clothes",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "black cloak with a hood",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "poisoners-kit",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 1000,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : null,
+    "prerequisites" : null
+  }
+}

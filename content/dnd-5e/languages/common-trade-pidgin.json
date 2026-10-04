@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "LANGUAGE",
+  "slug" : "common-trade-pidgin",
+  "name" : "Common Trade Pidgin",
+  "sourceBook" : "Plane Shift: Ixalan",
+  "sourceCode" : "PSX",
+  "sourcePage" : 6,
+  "tags" : [ ],
+  "description" : "A trade pidgin used in circumstances where members of different peoples do interact with each other. But this language is almost impossible to use for discussions of matters of any depth.",
+  "data" : {
+    "type" : null,
+    "script" : null
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "ITEM",
+  "slug" : "crook-of-rao",
+  "name" : "Crook of Rao",
+  "sourceBook" : "Tasha's Cauldron of Everything",
+  "sourceCode" : "TCE",
+  "sourcePage" : 123,
+  "tags" : [ ],
+  "description" : "Ages ago, the serene god Rao created a tool to shield his fledgling faithful against the evils of the Lower Planes. Yet, as eons passed, mortals developed their own methods of dealing with existential threats, and the crook was largely forgotten. In recent ages, though, the Crook of Rao was rediscovered and leveraged against the rising power of the Witch Queen Iggwilv (one of the names of the wizard Tasha). Although she was defeated, Iggwilv managed to damage the crook during the battle, infecting it with an insidious curse-and the potential for future victory. In the aftermath, the crook was again lost. Occasionally it reappears, but the famed artifact is not what it was. Whether or not the artifact's bearers realize its full threat, few risk using the Crook of Rao -potentially for the final time.",
+  "data" : {
+    "itemKind" : "GEAR",
+    "typeLabel" : "Wondrous Item",
+    "rarity" : "artifact",
+    "focusType" : null,
+    "requiresAttunement" : true,
+    "attunementRequirement" : null,
+    "weightLb" : null,
+    "costGp" : null,
+    "weaponCategory" : null,
+    "attackType" : null,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "versatileDamageDiceCount" : null,
+    "versatileDamageDiceSides" : null,
+    "properties" : [ ],
+    "finesse" : false,
+    "normalRange" : null,
+    "longRange" : null,
+    "armorCategory" : null,
+    "baseArmorClass" : null,
+    "stealthDisadvantage" : false,
+    "strengthRequirement" : null,
+    "weaponAttackBonus" : null,
+    "weaponDamageBonus" : null,
+    "armorClassBonus" : null,
+    "charges" : 6,
+    "rechargeTrigger" : "Dawn",
+    "rechargeFormula" : "1d6",
+    "grantedSpells" : [ {
+      "spellSlug" : "banishment",
+      "chargeCost" : 1,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "beacon-of-hope",
+      "chargeCost" : 1,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "aura-of-life",
+      "chargeCost" : 2,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "aura-of-purity",
+      "chargeCost" : 2,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "mass-cure-wounds",
+      "chargeCost" : 3,
+      "fixedSaveDc" : null
+    } ],
+    "mechanics" : null
+  }
+}

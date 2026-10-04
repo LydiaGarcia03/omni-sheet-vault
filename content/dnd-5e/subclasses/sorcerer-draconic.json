@@ -1,0 +1,145 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SUBCLASS",
+  "slug" : "sorcerer-draconic",
+  "name" : "Draconic Bloodline",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 102,
+  "tags" : [ ],
+  "description" : "Your innate magic comes from draconic magic that was mingled with your blood or that of your ancestors. Most often, sorcerers with this origin trace their descent back to a mighty sorcerer of ancient times who made a bargain with a dragon or who might even have claimed a dragon parent. Some of these bloodlines are well established in the world, but most are obscure. Any given sorcerer could be the first of a new bloodline, as a result of a pact or some other exceptional circumstance.",
+  "data" : {
+    "classSlug" : "sorcerer",
+    "shortName" : "Draconic",
+    "additionalSpells" : null,
+    "spellcasting" : null,
+    "tableColumns" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "features" : [ {
+      "name" : "Dragon Ancestor",
+      "level" : 1,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 102,
+      "description" : "At 1st level, you choose one type of dragon as your ancestor. The damage type associated with each dragon is used by features you gain later. You can speak, read, and write Draconic. Additionally, whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ {
+        "type" : "FEATURE_OPTION",
+        "count" : 1,
+        "options" : [ {
+          "key" : "black",
+          "label" : "Black",
+          "summary" : "Acid"
+        }, {
+          "key" : "blue",
+          "label" : "Blue",
+          "summary" : "Lightning"
+        }, {
+          "key" : "brass",
+          "label" : "Brass",
+          "summary" : "Fire"
+        }, {
+          "key" : "bronze",
+          "label" : "Bronze",
+          "summary" : "Lightning"
+        }, {
+          "key" : "copper",
+          "label" : "Copper",
+          "summary" : "Acid"
+        }, {
+          "key" : "gold",
+          "label" : "Gold",
+          "summary" : "Fire"
+        }, {
+          "key" : "green",
+          "label" : "Green",
+          "summary" : "Poison"
+        }, {
+          "key" : "red",
+          "label" : "Red",
+          "summary" : "Fire"
+        }, {
+          "key" : "silver",
+          "label" : "Silver",
+          "summary" : "Cold"
+        }, {
+          "key" : "white",
+          "label" : "White",
+          "summary" : "Cold"
+        } ]
+      } ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : {
+        "languages" : [ "draconic" ]
+      }
+    }, {
+      "name" : "Draconic Resilience",
+      "level" : 1,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 102,
+      "description" : "As magic flows through your body, it causes physical traits of your dragon ancestors to emerge. At 1st level, your hit point maximum increases by 1 and increases by 1 again whenever you gain a level in this class. Additionally, parts of your skin are covered by a thin sheen of dragon-like scales. When you aren't wearing armor, your AC equals 13 + your Dexterity modifier.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ {
+        "type" : "BONUS",
+        "target" : "HIT_POINTS_PER_LEVEL",
+        "value" : 1,
+        "levelScope" : "CLASS"
+      }, {
+        "type" : "SET_BASE",
+        "target" : "UNARMORED_ARMOR_CLASS",
+        "value" : 13
+      } ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Elemental Affinity",
+      "level" : 6,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 102,
+      "description" : "Starting at 6th level, when you cast a spell that deals damage of the type associated with your draconic ancestry, you can add your Charisma modifier to one damage roll of that spell. At the same time, you can spend 1 sorcery point to gain resistance to that damage type for 1 hour.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Dragon Wings",
+      "level" : 14,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 102,
+      "description" : "At 14th level, you gain the ability to sprout a pair of dragon wings from your back, gaining a flying speed equal to your current speed. You can create these wings as a bonus action on your turn. They last until you dismiss them as a bonus action on your turn. You can't manifest your wings while wearing armor unless the armor is made to accommodate them, and clothing not made to accommodate your wings might be destroyed when you manifest them.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Draconic Presence",
+      "level" : 18,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 102,
+      "description" : "Beginning at 18th level, you can channel the dread presence of your dragon ancestor, causing those around you to become awestruck or frightened. As an action, you can spend 5 sorcery points to draw on this power and exude an aura of awe or fear (your choice) to a distance of 60 feet. For 1 minute or until you lose your concentration (as if you were casting a concentration spell), each hostile creature that starts its turn in this aura must succeed on a Wisdom saving throw or be charmed (if you chose awe) or frightened (if you chose fear) until the aura ends. A creature that succeeds on this saving throw is immune to your aura for 24 hours.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    } ]
+  }
+}

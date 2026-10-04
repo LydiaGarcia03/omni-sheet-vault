@@ -1,0 +1,87 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "goblin-dankwood",
+  "name" : "Goblin (Dankwood)",
+  "sourceBook" : "Adventure with Muk",
+  "sourceCode" : "AWM",
+  "sourcePage" : 35,
+  "tags" : [ ],
+  "description" : "Age. Dankwood goblins reach adulthood at age 8 and live up to 60 years. Size. Dankwood goblins are between 3 and 4 feet tall and weigh between 40 and 80 pounds. Your size is Small. Darkvision. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Speak with Small Beasts. Through sounds and gestures, you can communicate simple ideas with Small or smaller beasts. Dankwood goblins love animals and often keep squirrels, badgers, rabbits, moles, woodpeckers, and other creatures as beloved pets. Nimble Escape. You can take the Disengage or Hide action as a bonus action on each of your turns. Languages. You can speak, read, and write Common and Goblin. Alignment. Dankwood goblins are typically neutral or neutral good, though some mischievous Dankwood goblins are chaotic neutral.",
+  "data" : {
+    "size" : [ "small" ],
+    "speed" : {
+      "walk" : 30
+    },
+    "senses" : [ {
+      "type" : "darkvision",
+      "range" : 60
+    } ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "dexterity" : 2,
+        "wisdom" : 1
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "goblin" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : {
+      "mature" : 8,
+      "max" : 60
+    },
+    "heightAndWeight" : null,
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Age",
+      "description" : "Dankwood goblins reach adulthood at age 8 and live up to 60 years."
+    }, {
+      "name" : "Size",
+      "description" : "Dankwood goblins are between 3 and 4 feet tall and weigh between 40 and 80 pounds. Your size is Small."
+    }, {
+      "name" : "Darkvision",
+      "description" : "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+    }, {
+      "name" : "Speak with Small Beasts",
+      "description" : "Through sounds and gestures, you can communicate simple ideas with Small or smaller beasts. Dankwood goblins love animals and often keep squirrels, badgers, rabbits, moles, woodpeckers, and other creatures as beloved pets."
+    }, {
+      "name" : "Nimble Escape",
+      "description" : "You can take the Disengage or Hide action as a bonus action on each of your turns."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and Goblin."
+    }, {
+      "name" : "Alignment",
+      "description" : "Dankwood goblins are typically neutral or neutral good, though some mischievous Dankwood goblins are chaotic neutral."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

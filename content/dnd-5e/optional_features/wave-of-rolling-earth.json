@@ -1,0 +1,46 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "wave-of-rolling-earth",
+  "name" : "Wave of Rolling Earth",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 81,
+  "tags" : [ ],
+  "description" : "Prerequisite: 17th level\n\nYou can spend 6 ki points to cast wall of stone.",
+  "data" : {
+    "featureTypes" : [ "ED" ],
+    "optional" : false,
+    "prerequisiteText" : "17th level",
+    "prerequisites" : [ {
+      "level" : {
+        "level" : 17,
+        "class" : {
+          "name" : "Monk"
+        },
+        "subclass" : {
+          "name" : "Four Elements"
+        }
+      }
+    } ],
+    "consumes" : null,
+    "additionalSpells" : [ {
+      "innate" : {
+        "_" : {
+          "resource" : {
+            "6" : [ "wall of stone" ]
+          }
+        }
+      },
+      "resourceName" : "Ki",
+      "ability" : "wis"
+    } ],
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

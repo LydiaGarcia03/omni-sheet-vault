@@ -1,0 +1,86 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "command",
+  "name" : "Command",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 223,
+  "tags" : [ "Prone" ],
+  "description" : "You speak a one-word command to a creature you can see within range. The target must succeed on a Wisdom saving throw or follow the command on its next turn. The spell has no effect if the target is undead, if it doesn't understand your language, or if your command is directly harmful to it. Some typical commands and their effects follow. You might issue a command other than one described here. If you do so, the DM determines how the target behaves. If the target can't follow your command, the spell ends.",
+  "data" : {
+    "level" : 1,
+    "school" : "enchantment",
+    "castingTime" : "1 Action",
+    "range" : "60 ft.",
+    "concentration" : false,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "notes" : "V",
+    "effectSummary" : "Control",
+    "saveAbility" : "wisdom",
+    "components" : "V",
+    "materialComponent" : null,
+    "duration" : "1 round",
+    "higherLevelsDescription" : "When you cast this spell using a spell slot of 2nd level or higher, you can affect one additional creature for each slot level above 1st. The creatures must be within 30 feet of each other when you target them.",
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Cleric",
+      "source" : "PHB"
+    }, {
+      "name" : "Paladin",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ {
+      "name" : "Bard",
+      "source" : "PHB"
+    } ],
+    "subclasses" : [ {
+      "className" : "Bard",
+      "classSource" : "PHB",
+      "subclassShortName" : "Glamour",
+      "subclassSource" : "XGE"
+    }, {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Knowledge",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Knowledge (PSA)",
+      "subclassSource" : "PSA"
+    }, {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Order",
+      "subclassSource" : "TCE"
+    }, {
+      "className" : "Paladin",
+      "classSource" : "PHB",
+      "subclassShortName" : "Crown",
+      "subclassSource" : "SCAG"
+    }, {
+      "className" : "Paladin",
+      "classSource" : "PHB",
+      "subclassShortName" : "Conquest",
+      "subclassSource" : "XGE"
+    }, {
+      "className" : "Sorcerer",
+      "classSource" : "PHB",
+      "subclassShortName" : "Divine Soul",
+      "subclassSource" : "XGE"
+    }, {
+      "className" : "Warlock",
+      "classSource" : "PHB",
+      "subclassShortName" : "Fiend",
+      "subclassSource" : "PHB"
+    } ],
+    "effect" : null
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "tashas-caustic-brew",
+  "name" : "Tasha's Caustic Brew",
+  "sourceBook" : "Tasha's Cauldron of Everything",
+  "sourceCode" : "TCE",
+  "sourcePage" : 115,
+  "tags" : [ ],
+  "description" : "A stream of acid emanates from you in a line 30 feet long and 5 feet wide in a direction you choose. Each creature in the line must succeed on a Dexterity saving throw or be covered in acid for the spell's duration or until a creature uses its action to scrape or wash the acid off itself or another creature. A creature covered in the acid takes 2d4 acid damage at start of each of its turns.",
+  "data" : {
+    "level" : 1,
+    "school" : "evocation",
+    "castingTime" : "1 Action",
+    "range" : "Self (30-foot line)",
+    "concentration" : true,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : 2,
+    "damageDiceSides" : 4,
+    "damageType" : "acid",
+    "notes" : "Concentration, 1 minute, V, S, M (a bit of rotten food)",
+    "effectSummary" : "Damage",
+    "saveAbility" : "dexterity",
+    "components" : "V, S, M",
+    "materialComponent" : "a bit of rotten food",
+    "duration" : "Concentration, 1 minute",
+    "higherLevelsDescription" : "When you cast this spell using a spell slot of 2nd level or higher, the damage increases by 2d4 for each slot level above 1st.",
+    "higherLevelsDamageDiceCount" : 2,
+    "higherLevelsDamageDiceSides" : 4,
+    "sourceCode" : "TCE",
+    "classes" : [ {
+      "name" : "Artificer",
+      "source" : "TCE"
+    }, {
+      "name" : "Sorcerer",
+      "source" : "PHB"
+    }, {
+      "name" : "Wizard",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Fighter",
+      "classSource" : "PHB",
+      "subclassShortName" : "Eldritch Knight",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Rogue",
+      "classSource" : "PHB",
+      "subclassShortName" : "Arcane Trickster",
+      "subclassSource" : "PHB"
+    } ],
+    "effect" : null
+  }
+}

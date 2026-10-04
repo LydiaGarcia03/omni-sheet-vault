@@ -1,0 +1,28 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "brace",
+  "name" : "Brace",
+  "sourceBook" : "Tasha's Cauldron of Everything",
+  "sourceCode" : "TCE",
+  "sourcePage" : 42,
+  "tags" : [ ],
+  "description" : "When a creature you can see moves into the reach you have with the melee weapon you're wielding, you can use your reaction to expend one superiority die and make one attack against the creature, using that weapon. If the attack hits, add the superiority die to the weapon's damage roll.",
+  "data" : {
+    "featureTypes" : [ "MV:B" ],
+    "optional" : true,
+    "prerequisiteText" : null,
+    "prerequisites" : null,
+    "consumes" : {
+      "name" : "Superiority Die"
+    },
+    "additionalSpells" : null,
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

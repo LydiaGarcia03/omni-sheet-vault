@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "LANGUAGE",
+  "slug" : "kruthik",
+  "name" : "Kruthik",
+  "sourceBook" : "Mordenkainen's Tome of Foes",
+  "sourceCode" : "MTF",
+  "sourcePage" : 211,
+  "tags" : [ ],
+  "description" : "",
+  "data" : {
+    "type" : null,
+    "script" : null
+  }
+}

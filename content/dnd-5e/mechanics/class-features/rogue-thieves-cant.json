@@ -1,0 +1,6 @@
+{
+  "target": { "classSlug": "rogue", "feature": "Thieves' Cant" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 94 },
+  "modifiers": [],
+  "grants": { "languages": ["thieves-cant"] }
+}

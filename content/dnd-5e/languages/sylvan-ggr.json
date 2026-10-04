@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "LANGUAGE",
+  "slug" : "sylvan-ggr",
+  "name" : "Sylvan",
+  "sourceBook" : "Guildmasters' Guide to Ravnica",
+  "sourceCode" : "GGR",
+  "sourcePage" : 9,
+  "tags" : [ ],
+  "description" : "Sylvan is widely spoken in the Selesnya Conclave, for it is rich in vocabulary to describe natural phenomena and spiritual forces.",
+  "data" : {
+    "type" : "standard",
+    "script" : "Elvish"
+  }
+}

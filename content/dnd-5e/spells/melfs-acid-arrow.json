@@ -1,0 +1,60 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "melfs-acid-arrow",
+  "name" : "Melf's Acid Arrow",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 259,
+  "tags" : [ ],
+  "description" : "A shimmering green arrow streaks toward a target within range and bursts in a spray of acid. Make a ranged spell attack against the target. On a hit, the target takes 4d4 acid damage immediately and 2d4 acid damage at the end of its next turn. On a miss, the arrow splashes the target with acid for half as much of the initial damage and no damage at the end of its next turn.",
+  "data" : {
+    "level" : 2,
+    "school" : "evocation",
+    "castingTime" : "1 Action",
+    "range" : "90 ft.",
+    "concentration" : false,
+    "ritual" : false,
+    "attackRoll" : true,
+    "damageDiceCount" : 4,
+    "damageDiceSides" : 4,
+    "damageType" : "acid",
+    "notes" : "V, S, M (powdered rhubarb leaf and an adder's stomach)",
+    "effectSummary" : "Damage",
+    "saveAbility" : null,
+    "components" : "V, S, M",
+    "materialComponent" : "powdered rhubarb leaf and an adder's stomach",
+    "duration" : "Instantaneous",
+    "higherLevelsDescription" : "When you cast this spell using a spell slot of 3rd level or higher, the damage (both initial and later) increases by 1d4 for each slot level above 2nd.",
+    "higherLevelsDamageDiceCount" : 1,
+    "higherLevelsDamageDiceSides" : 4,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Wizard",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Artificer",
+      "classSource" : "TCE",
+      "subclassShortName" : "Alchemist",
+      "subclassSource" : "TCE"
+    }, {
+      "className" : "Druid",
+      "classSource" : "PHB",
+      "subclassShortName" : "Land",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Fighter",
+      "classSource" : "PHB",
+      "subclassShortName" : "Eldritch Knight",
+      "subclassSource" : "PHB"
+    }, {
+      "className" : "Rogue",
+      "classSource" : "PHB",
+      "subclassShortName" : "Arcane Trickster",
+      "subclassSource" : "PHB"
+    } ],
+    "effect" : null
+  }
+}

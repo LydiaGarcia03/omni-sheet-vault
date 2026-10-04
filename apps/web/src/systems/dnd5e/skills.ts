@@ -1,0 +1,21 @@
+/** The eighteen skills in the sheet's order, keyed as the API keys them. */
+export const SKILLS: { key: string; label: string }[] = [
+  { key: 'acrobatics', label: 'Acrobatics' },
+  { key: 'animalHandling', label: 'Animal Handling' },
+  { key: 'arcana', label: 'Arcana' },
+  { key: 'athletics', label: 'Athletics' },
+  { key: 'deception', label: 'Deception' },
+  { key: 'history', label: 'History' },
+  { key: 'insight', label: 'Insight' },
+  { key: 'intimidation', label: 'Intimidation' },
+  { key: 'investigation', label: 'Investigation' },
+  { key: 'medicine', label: 'Medicine' },
+  { key: 'nature', label: 'Nature' },
+  { key: 'perception', label: 'Perception' },
+  { key: 'performance', label: 'Performance' },
+  { key: 'persuasion', label: 'Persuasion' },
+  { key: 'religion', label: 'Religion' },
+  { key: 'sleightOfHand', label: 'Sleight of Hand' },
+  { key: 'stealth', label: 'Stealth' },
+  { key: 'survival', label: 'Survival' },
+];

@@ -31,7 +31,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Build, test and coverage report
-        run: ./gradlew :apps:api:build
+        run: ./gradlew :apps:api:build :apps:desktop:test
 
       - name: SonarQube analysis
         if: ${{ github.event_name == 'pull_request' || github.ref == 'refs/heads/main' }}

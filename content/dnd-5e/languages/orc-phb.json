@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "LANGUAGE",
+  "slug" : "orc-phb",
+  "name" : "Orc",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 123,
+  "tags" : [ ],
+  "description" : "Orc is a harsh, grating language with hard consonants. It has no script of its own but is written in the Dwarvish script.",
+  "data" : {
+    "type" : "standard",
+    "script" : "Dwarvish"
+  }
+}

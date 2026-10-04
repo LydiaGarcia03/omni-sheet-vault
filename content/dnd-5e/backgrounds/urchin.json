@@ -1,0 +1,95 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "urchin",
+  "name" : "Urchin",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 141,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. Sleight of Hand, Stealth Tool Proficiencies:. Disguise kit, Thieves' tools Equipment:. A small knife, a map of the city you grew up in, a pet mouse, a token to remember your parents by, a set of common clothes, and a belt pouch containing 10 gp Feature: City Secrets. You know the secret patterns and flow to cities and can find passages through the urban sprawl that others would miss. When you are not in combat, you (and companions you lead) can travel between any two locations in the city twice as fast as your speed would normally allow. Suggested Characteristics. Urchins are shaped by lives of desperate poverty, for good and for ill. They tend to be driven either by a commitment to the people with whom they shared life on the street or by a burning desire to find a better life—and maybe get some payback on all the rich people who treated them badly.",
+  "data" : {
+    "personalityTraits" : [ "I hide scraps of food and trinkets away in my pockets.", "I ask a lot of questions.", "I like to squeeze into small places where no one else can get to me.", "I sleep with my back to a wall or tree, with everything I own wrapped in a bundle in my arms.", "I eat like a pig and have bad manners.", "I think anyone who's nice to me is hiding evil intent.", "I don't like to bathe.", "I bluntly say what others are hinting at or hiding." ],
+    "ideals" : [ "Respect. All people, rich or poor, deserve respect. (Good)", "Community. We have to take care of each other, because no one else is going to do it. (Lawful)", "Change. The low are lifted up, and the high and mighty are brought down. Change is the nature of things. (Chaotic)", "Retribution. The rich need to be shown what life and death are like in the gutters. (Evil)", "People. I help the people who help me—that's what keeps us alive. (Neutral)", "Aspiration. I'm going to prove that I'm worthy of a better life. (Any)" ],
+    "bonds" : [ "My town or city is my home, and I'll fight to defend it.", "I sponsor an orphanage to keep others from enduring what I was forced to endure.", "I owe my survival to another urchin who taught me to live on the streets.", "I owe a debt I can never repay to the person who took pity on me.", "I escaped my life of poverty by robbing an important person, and I'm wanted for it.", "No one else should have to endure the hardships I've been through." ],
+    "flaws" : [ "If I'm outnumbered, I will run away from a fight.", "Gold seems like a lot of money to me, and I'll do just about anything for more of it.", "I will never fully trust anyone other than myself.", "I'd rather kill someone in their sleep than fight fair.", "It's not stealing if I need it more than someone else.", "People who can't take care of themselves get what they deserve." ],
+    "otherTables" : [ ],
+    "features" : [ {
+      "name" : "City Secrets",
+      "description" : "You know the secret patterns and flow to cities and can find passages through the urban sprawl that others would miss. When you are not in combat, you (and companions you lead) can travel between any two locations in the city twice as fast as your speed would normally allow."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "sleightOfHand", "stealth" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ {
+      "fixed" : [ "disguise-kit", "thieves-tools" ],
+      "choices" : [ ]
+    } ],
+    "languageAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "small knife",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "map of the city you grew up in",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "pet mouse",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "token to remember your parents by",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "common-clothes",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 1000,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : null,
+    "prerequisites" : null
+  }
+}

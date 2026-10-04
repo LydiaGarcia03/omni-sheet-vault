@@ -1,0 +1,71 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "kenku-dmg",
+  "name" : "Kenku",
+  "sourceBook" : "Dungeon Master's Guide",
+  "sourceCode" : "DMG",
+  "sourcePage" : 282,
+  "tags" : [ ],
+  "description" : "Ambusher. In the first round of a combat, you have advantage on attack rolls against any creature who is surprised. Mimicry. You can mimic any sounds you have heard, including voices. A creature that hears the sounds can tell they are imitations with a successful DC 14 Wisdom (Insight) check. Languages. You can read and write Common and Auran, but you can only speak using your Mimicry trait.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 30
+    },
+    "senses" : [ {
+      "type" : "darkvision",
+      "range" : 60
+    } ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "dexterity" : 2
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "auran" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : null,
+    "heightAndWeight" : null,
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Ambusher",
+      "description" : "In the first round of a combat, you have advantage on attack rolls against any creature who is surprised."
+    }, {
+      "name" : "Mimicry",
+      "description" : "You can mimic any sounds you have heard, including voices. A creature that hears the sounds can tell they are imitations with a successful DC 14 Wisdom (Insight) check."
+    }, {
+      "name" : "Languages",
+      "description" : "You can read and write Common and Auran, but you can only speak using your Mimicry trait."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "gift-of-the-depths",
+  "name" : "Gift of the Depths",
+  "sourceBook" : "Xanathar's Guide to Everything",
+  "sourceCode" : "XGE",
+  "sourcePage" : 57,
+  "tags" : [ ],
+  "description" : "Prerequisite: 5th level\n\nYou can breathe underwater, and you gain a swimming speed equal to your walking speed. You can also cast water breathing once without expending a spell slot. You regain the ability to do so when you finish a long rest.",
+  "data" : {
+    "featureTypes" : [ "EI" ],
+    "optional" : false,
+    "prerequisiteText" : "5th level",
+    "prerequisites" : [ {
+      "level" : {
+        "level" : 5,
+        "class" : {
+          "name" : "Warlock"
+        }
+      }
+    } ],
+    "consumes" : null,
+    "additionalSpells" : [ {
+      "innate" : {
+        "_" : {
+          "daily" : {
+            "1e" : [ "water breathing" ]
+          }
+        }
+      }
+    } ],
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

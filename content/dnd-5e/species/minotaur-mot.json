@@ -1,0 +1,101 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "minotaur-mot",
+  "name" : "Minotaur",
+  "sourceBook" : "Mythic Odysseys of Theros",
+  "sourceCode" : "MOT",
+  "sourcePage" : 22,
+  "tags" : [ ],
+  "description" : "These traits are also suitable for minotaurs in other D&D worlds where these people have avoided the demonic influence of Baphomet. Age. Minotaurs mature and age at about the same rate as humans. Alignment. Minotaurs who leave the walls of Skophos have the opportunity to be free of its culture and pursue chaotic alignments, while those who remain within the polis and its tyrannical regime tend toward lawful alignments. Size. Minotaurs average over 6 feet in height, and they have stocky builds. Your size is Medium. Horns. Your horns are natural melee weapons, which you can use to make unarmed strikes. If you hit with them, you deal piercing damage equal to 1d6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike. Goring Rush. Immediately after you use the Dash action on your turn and move at least 20 feet, you can make one melee attack with your horns as a bonus action. Hammering Horns. Immediately after you hit a creature with a melee attack as part of the Attack action on your turn, you can use a bonus action to attempt to shove that target with your horns. The target must be no more than one size larger than you and within 5 feet of you. Unless it succeeds on a Strength saving throw against a DC equal to 8 + your proficiency bonus + your Strength modifier, you push it up to 10 feet away from you. Imposing Presence. You have proficiency in one of the following skills of your choice: Intimidation or Persuasion. Languages. You can speak, read, and write Common and Minotaur.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 30
+    },
+    "senses" : [ ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "strength" : 2,
+        "constitution" : 1
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : [ "intimidation", "persuasion" ],
+        "category" : null,
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "other" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : {
+      "mature" : 17,
+      "max" : 150
+    },
+    "heightAndWeight" : {
+      "baseHeight" : 64,
+      "heightMod" : "2d8",
+      "baseWeight" : 175,
+      "weightMod" : "2d6"
+    },
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Age",
+      "description" : "Minotaurs mature and age at about the same rate as humans."
+    }, {
+      "name" : "Alignment",
+      "description" : "Minotaurs who leave the walls of Skophos have the opportunity to be free of its culture and pursue chaotic alignments, while those who remain within the polis and its tyrannical regime tend toward lawful alignments."
+    }, {
+      "name" : "Size",
+      "description" : "Minotaurs average over 6 feet in height, and they have stocky builds. Your size is Medium."
+    }, {
+      "name" : "Horns",
+      "description" : "Your horns are natural melee weapons, which you can use to make unarmed strikes. If you hit with them, you deal piercing damage equal to 1d6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
+    }, {
+      "name" : "Goring Rush",
+      "description" : "Immediately after you use the Dash action on your turn and move at least 20 feet, you can make one melee attack with your horns as a bonus action."
+    }, {
+      "name" : "Hammering Horns",
+      "description" : "Immediately after you hit a creature with a melee attack as part of the Attack action on your turn, you can use a bonus action to attempt to shove that target with your horns. The target must be no more than one size larger than you and within 5 feet of you. Unless it succeeds on a Strength saving throw against a DC equal to 8 + your proficiency bonus + your Strength modifier, you push it up to 10 feet away from you."
+    }, {
+      "name" : "Imposing Presence",
+      "description" : "You have proficiency in one of the following skills of your choice: Intimidation or Persuasion."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and Minotaur."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

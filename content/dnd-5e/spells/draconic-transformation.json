@@ -1,0 +1,51 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "draconic-transformation",
+  "name" : "Draconic Transformation",
+  "sourceBook" : "Fizban's Treasury of Dragons",
+  "sourceCode" : "FTD",
+  "sourcePage" : 19,
+  "tags" : [ ],
+  "description" : "With a roar, you draw on the magic of dragons to transform yourself, taking on draconic features. You gain the following benefits until the spell ends:",
+  "data" : {
+    "level" : 7,
+    "school" : "transmutation",
+    "castingTime" : "1 Bonus Action",
+    "range" : "Self",
+    "concentration" : true,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : "force",
+    "notes" : "Concentration, 1 minute, V, S, M (a statuette of a dragon, worth at least 500 gp)",
+    "effectSummary" : "Damage",
+    "saveAbility" : "dexterity",
+    "components" : "V, S, M",
+    "materialComponent" : "a statuette of a dragon, worth at least 500 gp",
+    "duration" : "Concentration, 1 minute",
+    "higherLevelsDescription" : null,
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "FTD",
+    "classes" : [ {
+      "name" : "Druid",
+      "source" : "PHB"
+    }, {
+      "name" : "Sorcerer",
+      "source" : "PHB"
+    }, {
+      "name" : "Wizard",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Cleric",
+      "classSource" : "PHB",
+      "subclassShortName" : "Arcana",
+      "subclassSource" : "SCAG"
+    } ],
+    "effect" : null
+  }
+}

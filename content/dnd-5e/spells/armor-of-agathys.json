@@ -1,0 +1,45 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "armor-of-agathys",
+  "name" : "Armor of Agathys",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 215,
+  "tags" : [ ],
+  "description" : "A protective magical force surrounds you, manifesting as a spectral frost that covers you and your gear. You gain 5 temporary hit points for the duration. If a creature hits you with a melee attack while you have these hit points, the creature takes 5 cold damage.",
+  "data" : {
+    "level" : 1,
+    "school" : "abjuration",
+    "castingTime" : "1 Action",
+    "range" : "Self",
+    "concentration" : false,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : "cold",
+    "notes" : "V, S, M (a cup of water)",
+    "effectSummary" : "Damage",
+    "saveAbility" : null,
+    "components" : "V, S, M",
+    "materialComponent" : "a cup of water",
+    "duration" : "1 hour",
+    "higherLevelsDescription" : "When you cast this spell using a spell slot of 2nd level or higher, both the temporary hit points and the cold damage increase by 5 for each slot level above 1st.",
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "PHB",
+    "classes" : [ {
+      "name" : "Warlock",
+      "source" : "PHB"
+    } ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Paladin",
+      "classSource" : "PHB",
+      "subclassShortName" : "Conquest",
+      "subclassSource" : "XGE"
+    } ],
+    "effect" : null
+  }
+}

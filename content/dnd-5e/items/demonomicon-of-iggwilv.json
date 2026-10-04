@@ -1,0 +1,68 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "ITEM",
+  "slug" : "demonomicon-of-iggwilv",
+  "name" : "Demonomicon of Iggwilv",
+  "sourceBook" : "Tasha's Cauldron of Everything",
+  "sourceCode" : "TCE",
+  "sourcePage" : 125,
+  "tags" : [ ],
+  "description" : "An expansive treatise documenting the Abyss's infinite layers and inhabitants, the Demonomicon of Iggwilv is the most thorough and blasphemous tome of demonology in the multiverse. The tome recounts both the oldest and most current profanities of the Abyss and demons. Demons have attempted to censor the text, and while sections have been ripped from the book's spine, the general chapters remain, ever revealing demonic secrets. And the book holds more than blasphemies. Caged behind lines of script roils a secret piece of the Abyss itself, which keeps the book up-to-date, no matter how many pages are removed, and it longs to be more than mere reference material.",
+  "data" : {
+    "itemKind" : "GEAR",
+    "typeLabel" : "Wondrous Item",
+    "rarity" : "artifact",
+    "focusType" : null,
+    "requiresAttunement" : true,
+    "attunementRequirement" : null,
+    "weightLb" : null,
+    "costGp" : null,
+    "weaponCategory" : null,
+    "attackType" : null,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "versatileDamageDiceCount" : null,
+    "versatileDamageDiceSides" : null,
+    "properties" : [ ],
+    "finesse" : false,
+    "normalRange" : null,
+    "longRange" : null,
+    "armorCategory" : null,
+    "baseArmorClass" : null,
+    "stealthDisadvantage" : false,
+    "strengthRequirement" : null,
+    "weaponAttackBonus" : null,
+    "weaponDamageBonus" : null,
+    "armorClassBonus" : null,
+    "charges" : 8,
+    "rechargeTrigger" : "Dawn",
+    "rechargeFormula" : "1d8",
+    "grantedSpells" : [ {
+      "spellSlug" : "magic-circle",
+      "chargeCost" : 1,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "planar-binding",
+      "chargeCost" : 2,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "magic-jar",
+      "chargeCost" : 3,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "planar-ally",
+      "chargeCost" : 3,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "plane-shift",
+      "chargeCost" : 3,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "summon-fiend",
+      "chargeCost" : 3,
+      "fixedSaveDc" : null
+    } ],
+    "mechanics" : null
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "target": { "subclassSlug": "sorcerer-draconic", "feature": "Dragon Ancestor" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 102 },
+  "modifiers": [],
+  "grants": { "languages": ["draconic"] },
+  "choices": [
+    { "type": "FEATURE_OPTION", "count": 1, "optionsFromTable": { "labelColumn": 0, "summaryColumn": 1 } }
+  ]
+}

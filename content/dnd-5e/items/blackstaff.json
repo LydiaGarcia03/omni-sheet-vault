@@ -1,0 +1,102 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "ITEM",
+  "slug" : "blackstaff",
+  "name" : "Blackstaff",
+  "sourceBook" : "Waterdeep: Dragon Heist",
+  "sourceCode" : "WDH",
+  "sourcePage" : 190,
+  "tags" : [ ],
+  "description" : "The Blackstaff is a sentient, rune-carved staff set with thin silver veins. It is the symbol of office for the Blackstaff, the highest-ranking wizard in Waterdeep. As the rightful owner of the Blackstaff, Vajra Safahr is the only one who can become attuned to it. The staff can, however, choose a new owner (see \"Personality\" below). This staff can be wielded as a magic quarterstaff that grants a +2 bonus to attack and damage rolls made with it. While holding it, you gain a +2 bonus to Armor Class, saving throws, and spell attack rolls. The staff has 20 charges for the following properties. The staff regains 2d8 + 4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, the staff retains its +2 bonus to attack and damage roll but loses all other properties. On a 20, the staff regain 1d8 + 2 charges.",
+  "data" : {
+    "itemKind" : "GEAR",
+    "typeLabel" : "Adventuring Gear",
+    "rarity" : "legendary",
+    "focusType" : null,
+    "requiresAttunement" : true,
+    "attunementRequirement" : "by the Blackstaff heir, who must be a wizard",
+    "weightLb" : 4.0,
+    "costGp" : null,
+    "weaponCategory" : null,
+    "attackType" : null,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "versatileDamageDiceCount" : null,
+    "versatileDamageDiceSides" : null,
+    "properties" : [ ],
+    "finesse" : false,
+    "normalRange" : null,
+    "longRange" : null,
+    "armorCategory" : null,
+    "baseArmorClass" : null,
+    "stealthDisadvantage" : false,
+    "strengthRequirement" : null,
+    "weaponAttackBonus" : 2,
+    "weaponDamageBonus" : 2,
+    "armorClassBonus" : 2,
+    "charges" : 20,
+    "rechargeTrigger" : "Dawn",
+    "rechargeFormula" : "2d8 + 4",
+    "grantedSpells" : [ {
+      "spellSlug" : "dispel-magic",
+      "chargeCost" : 1,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "magic-missile",
+      "chargeCost" : 1,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "ray-of-enfeeblement",
+      "chargeCost" : 1,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "levitate",
+      "chargeCost" : 2,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "cone-of-cold",
+      "chargeCost" : 5,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "fireball-5",
+      "chargeCost" : 5,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "hold-monster",
+      "chargeCost" : 5,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "lightning-bolt-5",
+      "chargeCost" : 5,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "wall-of-force",
+      "chargeCost" : 5,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "globe-of-invulnerability",
+      "chargeCost" : 6,
+      "fixedSaveDc" : null
+    } ],
+    "mechanics" : {
+      "modifiers" : [ {
+        "type" : "BONUS",
+        "target" : "ARMOR_CLASS",
+        "value" : 2
+      }, {
+        "type" : "BONUS",
+        "target" : "SAVING_THROWS",
+        "value" : 2
+      }, {
+        "type" : "BONUS",
+        "target" : "SPELL_ATTACKS",
+        "value" : 2
+      } ],
+      "damageResistances" : [ ],
+      "damageImmunities" : [ ],
+      "damageVulnerabilities" : [ ],
+      "conditionImmunities" : [ ]
+    }
+  }
+}

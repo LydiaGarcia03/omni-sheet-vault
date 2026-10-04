@@ -1,0 +1,29 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "quickened-spell",
+  "name" : "Quickened Spell",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 102,
+  "tags" : [ ],
+  "description" : "When you cast a spell that has a casting time of 1 action, you can spend 2 sorcery points to change the casting time to 1 bonus action for this casting.",
+  "data" : {
+    "featureTypes" : [ "MM" ],
+    "optional" : false,
+    "prerequisiteText" : null,
+    "prerequisites" : null,
+    "consumes" : {
+      "name" : "Sorcery Point",
+      "amount" : 2
+    },
+    "additionalSpells" : null,
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "ITEM",
+  "slug" : "shield-of-the-hidden-lord",
+  "name" : "Shield of the Hidden Lord",
+  "sourceBook" : "Baldur's Gate: Descent Into Avernus",
+  "sourceCode" : "BGDIA",
+  "sourcePage" : 225,
+  "tags" : [ ],
+  "description" : "The Shield of the Hidden Lord is of celestial origin and serves as a prison for the pit fiend Gargauth, whose mortal followers revere it as a god. Over time, Gargauth's evil has warped the shield's appearance, so that its celestial motif and designs have become twisted into a fiendish face that subtly moves in disturbing ways. While holding this shield, you gain a +2 bonus to AC and resistance to fire damage.",
+  "data" : {
+    "itemKind" : "SHIELD",
+    "typeLabel" : "Shield",
+    "rarity" : "legendary",
+    "focusType" : null,
+    "requiresAttunement" : true,
+    "attunementRequirement" : null,
+    "weightLb" : 6.0,
+    "costGp" : null,
+    "weaponCategory" : null,
+    "attackType" : null,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "versatileDamageDiceCount" : null,
+    "versatileDamageDiceSides" : null,
+    "properties" : [ ],
+    "finesse" : false,
+    "normalRange" : null,
+    "longRange" : null,
+    "armorCategory" : null,
+    "baseArmorClass" : 2,
+    "stealthDisadvantage" : false,
+    "strengthRequirement" : null,
+    "weaponAttackBonus" : null,
+    "weaponDamageBonus" : null,
+    "armorClassBonus" : 2,
+    "charges" : 3,
+    "rechargeTrigger" : "Dawn",
+    "rechargeFormula" : "3",
+    "grantedSpells" : [ {
+      "spellSlug" : "fireball",
+      "chargeCost" : 1,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "wall-of-fire",
+      "chargeCost" : 2,
+      "fixedSaveDc" : null
+    } ],
+    "mechanics" : null
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "ITEM",
+  "slug" : "netherese-ring-of-protection",
+  "name" : "Netherese Ring of Protection",
+  "sourceBook" : "Phandelver and Below: The Shattered Obelisk",
+  "sourceCode" : "PaBTSO",
+  "sourcePage" : 50,
+  "tags" : [ ],
+  "description" : "You gain a +1 bonus to AC and saving throws while wearing this ring. The ring is made from a single piece of mystical green glass that's stronger than steel. It has the added property of making the wearer less likely to drop or lose anything held in the hand the ring is on. The wearer receives a +4 bonus to saving throws or checks made to avoid dropping or being disarmed of any item held in that hand.",
+  "data" : {
+    "itemKind" : "GEAR",
+    "typeLabel" : "Ring",
+    "rarity" : "rare",
+    "focusType" : null,
+    "requiresAttunement" : true,
+    "attunementRequirement" : null,
+    "weightLb" : null,
+    "costGp" : null,
+    "weaponCategory" : null,
+    "attackType" : null,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "versatileDamageDiceCount" : null,
+    "versatileDamageDiceSides" : null,
+    "properties" : [ ],
+    "finesse" : false,
+    "normalRange" : null,
+    "longRange" : null,
+    "armorCategory" : null,
+    "baseArmorClass" : null,
+    "stealthDisadvantage" : false,
+    "strengthRequirement" : null,
+    "weaponAttackBonus" : null,
+    "weaponDamageBonus" : null,
+    "armorClassBonus" : 1,
+    "charges" : null,
+    "rechargeTrigger" : null,
+    "rechargeFormula" : null,
+    "grantedSpells" : [ ],
+    "mechanics" : {
+      "modifiers" : [ {
+        "type" : "BONUS",
+        "target" : "ARMOR_CLASS",
+        "value" : 1
+      }, {
+        "type" : "BONUS",
+        "target" : "SAVING_THROWS",
+        "value" : 4
+      } ],
+      "damageResistances" : [ ],
+      "damageImmunities" : [ ],
+      "damageVulnerabilities" : [ ],
+      "conditionImmunities" : [ ]
+    }
+  }
+}

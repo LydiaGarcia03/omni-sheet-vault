@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "LANGUAGE",
+  "slug" : "umber-hulk",
+  "name" : "Umber Hulk",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 292,
+  "tags" : [ ],
+  "description" : "",
+  "data" : {
+    "type" : null,
+    "script" : null
+  }
+}

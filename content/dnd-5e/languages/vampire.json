@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "LANGUAGE",
+  "slug" : "vampire",
+  "name" : "Vampire",
+  "sourceBook" : "Plane Shift: Ixalan",
+  "sourceCode" : "PSX",
+  "sourcePage" : 6,
+  "tags" : [ ],
+  "description" : "",
+  "data" : {
+    "type" : null,
+    "script" : null
+  }
+}

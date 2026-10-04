@@ -1,0 +1,27 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CONDITION",
+  "slug" : "restrained",
+  "name" : "Restrained",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 292,
+  "tags" : [ ],
+  "description" : "A restrained creature's speed becomes 0, and it can't benefit from any bonus to its speed. Attack rolls against the creature have advantage, and the creature's attack rolls have disadvantage. The creature has disadvantage on Dexterity saving throws.",
+  "data" : {
+    "modifiers" : [ {
+      "type" : "SET",
+      "target" : "SPEED",
+      "value" : 0
+    }, {
+      "type" : "DISADVANTAGE",
+      "target" : "ATTACK_ROLLS",
+      "value" : 0
+    }, {
+      "type" : "DISADVANTAGE",
+      "target" : "DEXTERITY_SAVING_THROWS",
+      "value" : 0
+    } ],
+    "levels" : null
+  }
+}

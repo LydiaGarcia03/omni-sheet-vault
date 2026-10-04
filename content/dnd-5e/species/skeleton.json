@@ -1,0 +1,76 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "skeleton",
+  "name" : "Skeleton",
+  "sourceBook" : "Dungeon Master's Guide",
+  "sourceCode" : "DMG",
+  "sourcePage" : 282,
+  "tags" : [ ],
+  "description" : "Creature Type. You are Undead. Brittle Bones. You are vulnerable to bludgeoning damage. Undead Nature. You are immune to poison damage and exhaustion, and you can't be poisoned. You don't require air, food, drink, or sleep. Darkvision. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Languages. You can't speak, but you can understand the languages you knew in life.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 30
+    },
+    "senses" : [ {
+      "type" : "darkvision",
+      "range" : 60
+    } ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "dexterity" : 2,
+        "intelligence" : -4,
+        "charisma" : -4
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ "poison" ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ "bludgeoning" ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ "exhaustion", "poisoned" ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : [ "undead" ],
+    "additionalSpells" : null,
+    "age" : null,
+    "heightAndWeight" : null,
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Creature Type",
+      "description" : "You are Undead."
+    }, {
+      "name" : "Brittle Bones",
+      "description" : "You are vulnerable to bludgeoning damage."
+    }, {
+      "name" : "Undead Nature",
+      "description" : "You are immune to poison damage and exhaustion, and you can't be poisoned. You don't require air, food, drink, or sleep."
+    }, {
+      "name" : "Darkvision",
+      "description" : "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+    }, {
+      "name" : "Languages",
+      "description" : "You can't speak, but you can understand the languages you knew in life."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

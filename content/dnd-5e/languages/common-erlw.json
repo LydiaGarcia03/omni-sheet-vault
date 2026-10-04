@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "LANGUAGE",
+  "slug" : "common-erlw",
+  "name" : "Common",
+  "sourceBook" : "Eberron: Rising from the Last War",
+  "sourceCode" : "ERLW",
+  "sourcePage" : 6,
+  "tags" : [ ],
+  "description" : "",
+  "data" : {
+    "type" : "standard",
+    "script" : "Common"
+  }
+}

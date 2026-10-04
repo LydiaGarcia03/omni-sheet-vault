@@ -1,0 +1,7 @@
+{
+  "target": { "condition": "Stunned", "source": "PHB" },
+  "citation": { "sourceBook": "Player's Handbook", "page": 292 },
+  "modifiers": [
+    { "type": "SET", "target": "SPEED", "value": 0 }
+  ]
+}

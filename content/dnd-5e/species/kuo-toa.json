@@ -1,0 +1,75 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "kuo-toa",
+  "name" : "Kuo-Toa",
+  "sourceBook" : "Dungeon Master's Guide",
+  "sourceCode" : "DMG",
+  "sourcePage" : 282,
+  "tags" : [ ],
+  "description" : "Amphibious. You can breathe air and water. Otherworldly Perception. You can sense the presence of any creature within 30 feet of you that is invisible or on the Ethereal Plane. You can pinpoint such a creature that is moving. Slippery. You have advantage on ability checks and saving throws made to escape a grapple. Sunlight Sensitivity. While in sunlight, you have disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight. Superior Darkvision. You have superior vision in dark and dim conditions. You can see in dim light within 120 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Languages. You can speak, read, and write Undercommon.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 30,
+      "swim" : 30
+    },
+    "senses" : [ {
+      "type" : "darkvision",
+      "range" : 120
+    } ],
+    "abilityAlternatives" : [ ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "undercommon" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : null,
+    "heightAndWeight" : null,
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Amphibious",
+      "description" : "You can breathe air and water."
+    }, {
+      "name" : "Otherworldly Perception",
+      "description" : "You can sense the presence of any creature within 30 feet of you that is invisible or on the Ethereal Plane. You can pinpoint such a creature that is moving."
+    }, {
+      "name" : "Slippery",
+      "description" : "You have advantage on ability checks and saving throws made to escape a grapple."
+    }, {
+      "name" : "Sunlight Sensitivity",
+      "description" : "While in sunlight, you have disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+    }, {
+      "name" : "Superior Darkvision",
+      "description" : "You have superior vision in dark and dim conditions. You can see in dim light within 120 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Undercommon."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

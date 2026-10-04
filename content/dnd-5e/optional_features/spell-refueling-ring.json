@@ -1,0 +1,35 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "spell-refueling-ring",
+  "name" : "Spell-Refueling Ring",
+  "sourceBook" : "Tasha's Cauldron of Everything",
+  "sourceCode" : "TCE",
+  "sourcePage" : 23,
+  "tags" : [ ],
+  "description" : "Prerequisite: 6th level, A ring (requires attunement)\n\nWhile wearing this ring, the creature can recover one expended spell slot as an action. The recovered slot can be of 3rd level or lower. Once used, the ring can't be used again until the next dawn.",
+  "data" : {
+    "featureTypes" : [ "AI" ],
+    "optional" : false,
+    "prerequisiteText" : "6th level, A ring (requires attunement)",
+    "prerequisites" : [ {
+      "level" : {
+        "level" : 6,
+        "class" : {
+          "name" : "Artificer",
+          "source" : "TCE"
+        }
+      },
+      "item" : [ "A ring (requires attunement)" ]
+    } ],
+    "consumes" : null,
+    "additionalSpells" : null,
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

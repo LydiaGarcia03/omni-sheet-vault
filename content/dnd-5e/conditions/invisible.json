@@ -1,0 +1,19 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CONDITION",
+  "slug" : "invisible",
+  "name" : "Invisible",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 291,
+  "tags" : [ ],
+  "description" : "An invisible creature is impossible to see without the aid of magic or a special sense. For the purpose of hiding, the creature is heavily obscured. The creature's location can be detected by any noise it makes or any tracks it leaves. Attack rolls against the creature have disadvantage, and the creature's attack rolls have advantage.",
+  "data" : {
+    "modifiers" : [ {
+      "type" : "ADVANTAGE",
+      "target" : "ATTACK_ROLLS",
+      "value" : 0
+    } ],
+    "levels" : null
+  }
+}

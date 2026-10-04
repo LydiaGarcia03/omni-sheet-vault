@@ -1,0 +1,92 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "gambler",
+  "name" : "Gambler",
+  "sourceBook" : "Acquisitions Incorporated",
+  "sourceCode" : "AI",
+  "sourcePage" : 49,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. Deception, Insight Tool Proficiencies:. One gaming set Languages:. Any one of your choice Equipment:. One gaming set, a lucky charm, a set of fine clothes, and a belt pouch containing 15 gp Feature: Never Tell Me the Odds. Odds and probability are your bread and butter. During downtime activities that involve games of chance or figuring odds on the best plan, you can get a solid sense of which choice is likely the best one and which opportunities seem too good to be true, at the DM's determination. Suggested Characteristics. Some gamble out of necessity. Others do so out of boredom. Still others become addicted to the thrill of winning or losing everything on a turn of fortune. For some, gambling is less a matter of chance and more a matter of seeking every advantage to ensure the outcome. The best gamblers can lose everything, and the worst gamblers sometimes win. Regardless, you can always tell gamblers by the look in their eyes. Lady Luck haunts them.",
+  "data" : {
+    "personalityTraits" : [ "I plan for every contingency. Leave nothing to chance!", "Every copper wants to be a silver. Each bet is an opportunity.", "I'm one of Lady Luck's favored. Anything I try is destined to succeed.", "I've lost so much to gambling that I refuse to spend money on anything anymore.", "Nothing is certain. Planning is a coward's act.", "I can't be sure who I've swindled, cheated, or defeated, so I keep a low profile in public.", "The perfect bet is out there somewhere. I just have to keep my eyes open.", "I have beaten my addiction, but all it takes is one weak moment and I'll be back at the card table." ],
+    "ideals" : [ "Knowledge. Knowledge is power, and knowing which horse to back is the key to success. (Any)", "Fate. Whatever happens is fated, regardless of any planning or striving. (Lawful)", "Bravery. If you want to succeed, you have to take risks. (Chaotic)", "Survival. You can't win if you're dead. Live to fight another day—when the odds might be more in your favor. (Any)", "Reliability. When I was in need, I was able to rely on others. Now I want to be the one others rely on. (Good)", "Victory. Winning is the real measure of a person. In the end, the only thing that matters is the scoreboard. (Evil)" ],
+    "bonds" : [ "One person in particular owes me a lot of money, and I need to keep them alive if I want to be repaid.", "I'm loyal to the friend or family member who taught me how to gamble.", "The person who saved me from my gambling addiction is the only reason I'm alive today.", "A patron once fronted me money in exchange for a percentage of my winnings. I owe them a debt of gratitude. And a lot of cash.", "A criminal syndicate I once played for isn't happy I left the game, and its enforcers are looking for me.", "Urchins once helped me find marks for my games. Now I'm driven to help them escape the streets." ],
+    "flaws" : [ "I don't know when to quit. Especially when everyone else is telling me to.", "I save my sympathy for my friends, and I have no friends.", "You think we're in trouble now? Let me tell you how bad things are likely to get!", "You can loan me a little, right? I've got a sure thing. I'll double your money, guaranteed.", "I was once a terribly flawed person, like you. Let me tell you how you can save yourself.", "I'm a great gambler. I'm just bad at math and logic." ],
+    "otherTables" : [ ],
+    "features" : [ {
+      "name" : "Never Tell Me the Odds",
+      "description" : "Odds and probability are your bread and butter. During downtime activities that involve games of chance or figuring odds on the best plan, you can get a solid sense of which choice is likely the best one and which opportunities seem too good to be true, at the DM's determination."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "deception", "insight" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "gamingSet",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "languageAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : null,
+          "equipmentType" : "setGaming",
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "lucky charm",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "fine-clothes",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 1500,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : null,
+    "prerequisites" : null
+  }
+}

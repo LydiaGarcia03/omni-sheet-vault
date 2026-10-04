@@ -1,0 +1,26 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "thrown-weapon-fighting",
+  "name" : "Thrown Weapon Fighting",
+  "sourceBook" : "Tasha's Cauldron of Everything",
+  "sourceCode" : "TCE",
+  "sourcePage" : 42,
+  "tags" : [ ],
+  "description" : "You can draw a weapon that has the thrown property as part of the attack you make with the weapon. In addition, when you hit with a ranged attack using a thrown weapon, you gain a +2 bonus to the damage roll.",
+  "data" : {
+    "featureTypes" : [ "FS:F", "FS:R" ],
+    "optional" : true,
+    "prerequisiteText" : null,
+    "prerequisites" : null,
+    "consumes" : null,
+    "additionalSpells" : null,
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

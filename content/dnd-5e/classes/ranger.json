@@ -1,0 +1,643 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CLASS",
+  "slug" : "ranger",
+  "name" : "Ranger",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 89,
+  "tags" : [ ],
+  "description" : "",
+  "data" : {
+    "hitDie" : 10,
+    "savingThrows" : [ "strength", "dexterity" ],
+    "proficiencies" : {
+      "armor" : [ "light", "medium", "shield" ],
+      "weaponCategories" : [ "simple", "martial" ],
+      "weaponItems" : [ ],
+      "optionalWeaponCategories" : [ ],
+      "notes" : [ ],
+      "toolAlternatives" : [ ],
+      "skillAlternatives" : [ {
+        "fixed" : [ ],
+        "choices" : [ {
+          "from" : [ "animalHandling", "athletics", "insight", "investigation", "nature", "perception", "stealth", "survival" ],
+          "category" : null,
+          "fromFilter" : null,
+          "count" : 3,
+          "amount" : null
+        } ]
+      } ]
+    },
+    "startingEquipment" : {
+      "additionalFromBackground" : true,
+      "goldAlternative" : "5d4 × 10",
+      "text" : [ "(a) scale mail or (b) leather armor", "(a) two shortswords or (b) two simple melee weapons", "(a) a dungeoneer's pack or (b) an explorer's pack", "A longbow and a quiver of 20 arrows" ],
+      "groups" : [ {
+        "options" : [ {
+          "label" : "a",
+          "grants" : [ {
+            "itemSlug" : "scale-mail",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        }, {
+          "label" : "b",
+          "grants" : [ {
+            "itemSlug" : "leather-armor",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        } ]
+      }, {
+        "options" : [ {
+          "label" : "a",
+          "grants" : [ {
+            "itemSlug" : "shortsword",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 2,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        }, {
+          "label" : "b",
+          "grants" : [ {
+            "itemSlug" : null,
+            "equipmentType" : "weaponSimpleMelee",
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 2,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        } ]
+      }, {
+        "options" : [ {
+          "label" : "a",
+          "grants" : [ {
+            "itemSlug" : "dungeoneers-pack",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        }, {
+          "label" : "b",
+          "grants" : [ {
+            "itemSlug" : "explorers-pack",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        } ]
+      }, {
+        "options" : [ {
+          "label" : null,
+          "grants" : [ {
+            "itemSlug" : "longbow",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          }, {
+            "itemSlug" : "arrows-20",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        } ]
+      } ]
+    },
+    "multiclassing" : {
+      "allOf" : {
+        "dexterity" : 13,
+        "wisdom" : 13
+      },
+      "anyOf" : { },
+      "proficienciesGained" : {
+        "armor" : [ "light", "medium", "shield" ],
+        "weaponCategories" : [ "simple", "martial" ],
+        "weaponItems" : [ ],
+        "optionalWeaponCategories" : [ ],
+        "notes" : [ ],
+        "toolAlternatives" : [ ],
+        "skillAlternatives" : [ {
+          "fixed" : [ ],
+          "choices" : [ {
+            "from" : [ "animalHandling", "athletics", "insight", "investigation", "nature", "perception", "stealth", "survival" ],
+            "category" : null,
+            "fromFilter" : null,
+            "count" : 1,
+            "amount" : null
+          } ]
+        } ]
+      }
+    },
+    "spellcasting" : {
+      "ability" : "wisdom",
+      "casterProgression" : "1/2",
+      "preparedSpellsFormula" : null,
+      "cantripsKnownByLevel" : null,
+      "spellsKnownByLevel" : [ 0, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11 ],
+      "spellbookSpellsAddedByLevel" : null,
+      "spellSlotsByLevel" : [ [ 0, 0, 0, 0, 0 ], [ 2, 0, 0, 0, 0 ], [ 3, 0, 0, 0, 0 ], [ 3, 0, 0, 0, 0 ], [ 4, 2, 0, 0, 0 ], [ 4, 2, 0, 0, 0 ], [ 4, 3, 0, 0, 0 ], [ 4, 3, 0, 0, 0 ], [ 4, 3, 2, 0, 0 ], [ 4, 3, 2, 0, 0 ], [ 4, 3, 3, 0, 0 ], [ 4, 3, 3, 0, 0 ], [ 4, 3, 3, 1, 0 ], [ 4, 3, 3, 1, 0 ], [ 4, 3, 3, 2, 0 ], [ 4, 3, 3, 2, 0 ], [ 4, 3, 3, 3, 1 ], [ 4, 3, 3, 3, 1 ], [ 4, 3, 3, 3, 2 ], [ 4, 3, 3, 3, 2 ] ],
+      "pactSlotsByLevel" : null
+    },
+    "tableColumns" : [ {
+      "label" : "Spells Known",
+      "valuesByLevel" : [ "0", "2", "3", "3", "4", "4", "5", "5", "6", "6", "7", "7", "8", "8", "9", "9", "10", "10", "11", "11" ]
+    } ],
+    "optionalFeatureProgressions" : [ {
+      "name" : "Fighting Style",
+      "featureTypes" : [ "FS:R" ],
+      "countByLevel" : [ 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ]
+    } ],
+    "subclassTitle" : "Ranger Archetype",
+    "subclassLevel" : 3,
+    "abilityScoreImprovementLevels" : [ 4, 8, 12, 16, 19 ],
+    "features" : [ {
+      "name" : "Favored Enemy",
+      "level" : 1,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 89,
+      "description" : "Beginning at 1st level, you have significant experience studying, tracking, hunting, and even talking to a certain type of enemy. Choose a type of favored enemy: aberrations, beasts, celestials, constructs, dragons, elementals, fey, fiends, giants, monstrosities, oozes, plants, or undead. Alternatively, you can select two races of humanoid (such as gnolls and orcs) as favored enemies. You have advantage on Wisdom (Survival) checks to track your favored enemies, as well as on Intelligence checks to recall information about them. When you gain this feature, you also learn one language of your choice that is spoken by your favored enemies, if they speak one at all. You choose one additional favored enemy, as well as an associated language, at 6th and 14th level. As you gain levels, your choices should reflect the types of monsters you have encountered on your adventures.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Favored Foe",
+      "level" : 1,
+      "sourceBook" : "Tasha's Cauldron of Everything",
+      "sourcePage" : 56,
+      "description" : "1st-level ranger optional feature, which replaces the Favored Enemy feature and works with the Foe Slayer feature When you hit a creature with an attack roll, you can call on your mystical bond with nature to mark the target as your favored enemy for 1 minute or until you lose your concentration (as if you were concentrating on a spell). The first time on each of your turns that you hit the favored enemy and deal damage to it, including when you mark it, you can increase that damage by 1d4. You can use this feature to mark a favored enemy a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest. This feature's extra damage increases when you reach certain levels in this class: to 1d6 at 6th level and to 1d8 at 14th level.",
+      "optional" : true,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Natural Explorer",
+      "level" : 1,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 89,
+      "description" : "You are particularly familiar with one type of natural environment and are adept at traveling and surviving in such regions. Choose one type of favored terrain: arctic, coast, desert, forest, grassland, mountain, swamp, or the Underdark. When you make an Intelligence or Wisdom check related to your favored terrain, your proficiency bonus is doubled if you are using a skill that you're proficient in. While traveling for an hour or more in your favored terrain, you gain the following benefits: Difficult terrain doesn't slow your group's travel. Your group can't become lost except by magical means. Even when you are engaged in another activity while traveling (such as foraging, navigating, or tracking), you remain alert to danger. If you are traveling alone, you can move stealthily at a normal pace. When you forage, you find twice as much food as you normally would. While tracking other creatures, you also learn their exact number, their sizes, and how long ago they passed through the area. You choose additional favored terrain types at 6th and 10th level.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Deft Explorer",
+      "level" : 1,
+      "sourceBook" : "Tasha's Cauldron of Everything",
+      "sourcePage" : 56,
+      "description" : "1st-level ranger optional feature, which replaces the Natural Explorer feature You are an unsurpassed explorer and survivor, both in the wilderness and in dealing with others on your travels. You gain the Canny benefit below, and you gain an additional benefit below when you reach 6th level and 10th level in this class. Canny. Choose one of your skill proficiencies. Your proficiency bonus is doubled for any ability check you make that uses the chosen skill. You can also speak, read, and write two additional languages of your choice.",
+      "optional" : true,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Fighting Style",
+      "level" : 2,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 89,
+      "description" : "At 2nd level, you adopt a particular style of fighting as your specialty. Choose one of the following options. You can't take a Fighting Style option more than once, even if you later get to choose again.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ {
+        "name" : "Archery",
+        "source" : "PHB"
+      }, {
+        "name" : "Defense",
+        "source" : "PHB"
+      }, {
+        "name" : "Dueling",
+        "source" : "PHB"
+      }, {
+        "name" : "Two-Weapon Fighting",
+        "source" : "PHB"
+      }, {
+        "name" : "Blind Fighting",
+        "source" : "TCE"
+      }, {
+        "name" : "Druidic Warrior",
+        "source" : "TCE"
+      }, {
+        "name" : "Thrown Weapon Fighting",
+        "source" : "TCE"
+      } ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Spellcasting",
+      "level" : 2,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 89,
+      "description" : "By the time you reach 2nd level, you have learned to use the magical essence of nature to cast spells, much as a druid does. See chapter 10 for the general rules of spellcasting and chapter 11 for the ranger spell list. Spell Slots. The Ranger table shows how many spell slots you have to cast your ranger spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest. For example, if you know the 1st-level spell animal friendship and have a 1st-level and a 2nd-level spell slot available, you can cast animal friendship using either slot. Spells Known of 1st Level and Higher. You know two 1st-level spells of your choice from the ranger spell list. The Spells Known column of the Ranger table shows when you learn more ranger spells of your choice. Each of these spells must be of a level for which you have spell slots. For instance, when you reach 5th level in this class, you can learn one new spell of 1st or 2nd level. Additionally, when you gain a level in this class, you can choose one of the ranger spells you know and replace it with another spell from the ranger spell list, which also must be of a level for which you have spell slots. Spellcasting Ability. Wisdom is your spellcasting ability for your ranger spells, since your magic draws on your attunement to nature. You use your Wisdom whenever a spell refers to your spellcasting ability. In addition, you use your Wisdom modifier when setting the saving throw DC for a ranger spell you cast and when making an attack roll with one. Spell save DC = 8 + your proficiency bonus + your Wisdom modifier Spell attack modifier = your proficiency bonus + your Wisdom modifier",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Spellcasting Focus",
+      "level" : 2,
+      "sourceBook" : "Tasha's Cauldron of Everything",
+      "sourcePage" : 56,
+      "description" : "2nd-level ranger optional feature You can use a druidic focus as a spellcasting focus for your ranger spells. A druidic focus might be a sprig of mistletoe or holly, a wand or rod made of yew or another special wood, a staff drawn whole from a living tree, or an object incorporating feathers, fur, bones, and teeth from sacred animals.",
+      "optional" : true,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ranger Archetype",
+      "level" : 3,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 89,
+      "description" : "At 3rd level, you choose an archetype that you strive to emulate from the list of available archetypes. Your choice grants features at 3rd level, and again at 7th, 11th, and 15th level.",
+      "optional" : false,
+      "grantsSubclassFeature" : true,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Primeval Awareness",
+      "level" : 3,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 89,
+      "description" : "Beginning at 3rd level, you can use your action and expend one ranger spell slot to focus your awareness on the region around you. For 1 minute per level of the spell slot you expend, you can sense whether the following types of creatures are present within 1 mile of you (or within up to 6 miles if you are in your favored terrain): aberrations, celestials, dragons, elementals, fey, fiends, and undead. This feature doesn't reveal the creatures' location or number.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Primal Awareness",
+      "level" : 3,
+      "sourceBook" : "Tasha's Cauldron of Everything",
+      "sourcePage" : 56,
+      "description" : "3rd-level ranger optional feature, which replaces the Primeval Awareness feature You can focus your awareness through the interconnections of nature: you learn additional spells when you reach certain levels in this class if you don't already know them, as shown in the Primal Awareness Spells table. These spells don't count against the number of ranger spells you know. You can cast each of these spells once without expending a spell slot. Once you cast a spell in this way, you can't do so again until you finish a long rest.",
+      "optional" : true,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 4,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 89,
+      "description" : "When you reach 4th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Martial Versatility",
+      "level" : 4,
+      "sourceBook" : "Tasha's Cauldron of Everything",
+      "sourcePage" : 56,
+      "description" : "4th-level ranger optional feature Whenever you reach a level in this class that grants the Ability Score Improvement feature, you can replace a fighting style you know with another fighting style available to rangers. This replacement represents a shift of focus in your martial practice.",
+      "optional" : true,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Extra Attack",
+      "level" : 5,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 89,
+      "description" : "Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Favored Enemy and Natural Explorer improvements",
+      "level" : 6,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 89,
+      "description" : "At 6th level, you gain an additional favored terrain. At 6th level, you choose one additional favored enemy, as well as an associated language. Your choice should reflect the types of monsters you have encountered on your adventures.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Deft Explorer Improvement",
+      "level" : 6,
+      "sourceBook" : "Tasha's Cauldron of Everything",
+      "sourcePage" : 56,
+      "description" : "You gain an additional benefit when you reach 6th level in this class. Roving. Your walking speed increases by 5, and you gain a climbing speed and a swimming speed equal to your walking speed.",
+      "optional" : true,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ranger Archetype feature",
+      "level" : 7,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 89,
+      "description" : "At 7th level, you gain a feature granted to you by your Ranger Archetype.",
+      "optional" : false,
+      "grantsSubclassFeature" : true,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 8,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 89,
+      "description" : "When you reach 8th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Land's Stride",
+      "level" : 8,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 89,
+      "description" : "Starting at 8th level, moving through nonmagical difficult terrain costs you no extra movement. You can also pass through nonmagical plants without being slowed by them and without taking damage from them if they have thorns, spines, or a similar hazard. In addition, you have advantage on saving throws against plants that are magically created or manipulated to impede movement, such as those created by the entangle spell.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Hide in Plain Sight",
+      "level" : 10,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 89,
+      "description" : "Starting at 10th level, you can spend 1 minute creating camouflage for yourself. You must have access to fresh mud, dirt, plants, soot, and other naturally occurring materials with which to create your camouflage. Once you are camouflaged in this way, you can try to hide by pressing yourself up against a solid surface, such as a tree or wall, that is at least as tall and wide as you are. You gain a +10 bonus to Dexterity (Stealth) checks as long as you remain there without moving or taking actions. Once you move or take an action or a reaction, you must camouflage yourself again to gain this benefit.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Nature's Veil",
+      "level" : 10,
+      "sourceBook" : "Tasha's Cauldron of Everything",
+      "sourcePage" : 56,
+      "description" : "10th-level ranger optional feature, which replaces the Hide in Plain Sight feature You draw on the powers of nature to hide yourself from view briefly. As a bonus action, you can magically become invisible, along with any equipment you are wearing or carrying, until the start of your next turn. You can use this feature a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.",
+      "optional" : true,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Natural Explorer improvement",
+      "level" : 10,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 89,
+      "description" : "You gain an additional favored terrain.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Deft Explorer Improvement",
+      "level" : 10,
+      "sourceBook" : "Tasha's Cauldron of Everything",
+      "sourcePage" : 56,
+      "description" : "You gain an additional benefit when you reach 10th level in this class. Tireless. As an action, you can give yourself a number of temporary hit points equal to 1d8 + your Wisdom modifier (minimum of 1 temporary hit point). You can use this action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest. In addition, whenever you finish a short rest, your exhaustion level, if any, is decreased by 1.",
+      "optional" : true,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ranger Archetype feature",
+      "level" : 11,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 89,
+      "description" : "At 11th level, you gain a feature granted to you by your Ranger Archetype.",
+      "optional" : false,
+      "grantsSubclassFeature" : true,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 12,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 89,
+      "description" : "When you reach 12th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Vanish",
+      "level" : 14,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 89,
+      "description" : "Starting at 14th level, you can use the Hide action as a bonus action on your turn. Also, you can't be tracked by nonmagical means, unless you choose to leave a trail.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Favored Enemy improvement",
+      "level" : 14,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 89,
+      "description" : "At 14th level, you choose one additional favored enemy, as well as an associated language. Your choice should reflect the types of monsters you have encountered on your adventures.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ranger Archetype feature",
+      "level" : 15,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 89,
+      "description" : "At 15th level, you gain a feature granted to you by your Ranger Archetype.",
+      "optional" : false,
+      "grantsSubclassFeature" : true,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 16,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 89,
+      "description" : "When you reach 16th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Feral Senses",
+      "level" : 18,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 89,
+      "description" : "At 18th level, you gain preternatural senses that help you fight creatures you can't see. When you attack a creature you can't see, your inability to see it doesn't impose disadvantage on your attack rolls against it. You are also aware of the location of any invisible creature within 30 feet of you, provided that the creature isn't hidden from you and you aren't blinded or deafened.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 19,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 89,
+      "description" : "When you reach 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Foe Slayer",
+      "level" : 20,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 89,
+      "description" : "At 20th level, you become an unparalleled hunter of your enemies. Once on each of your turns, you can add your Wisdom modifier to the attack roll or the damage roll of an attack you make against one of your favored enemies. You can choose to use this feature before or after the roll, but before any effects of the roll are applied.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    } ]
+  }
+}

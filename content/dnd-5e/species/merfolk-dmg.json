@@ -1,0 +1,60 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "merfolk-dmg",
+  "name" : "Merfolk",
+  "sourceBook" : "Dungeon Master's Guide",
+  "sourceCode" : "DMG",
+  "sourcePage" : 282,
+  "tags" : [ ],
+  "description" : "Amphibious. You can breathe air and water. Languages. You can speak, read, and write Common and Aquan.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 10,
+      "swim" : 40
+    },
+    "senses" : [ ],
+    "abilityAlternatives" : [ ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "aquan" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : null,
+    "heightAndWeight" : null,
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Amphibious",
+      "description" : "You can breathe air and water."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common and Aquan."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

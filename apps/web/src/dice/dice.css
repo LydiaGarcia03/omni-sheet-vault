@@ -1,0 +1,395 @@
+/*
+ * The dice tray is system-agnostic UI, unlike systems/dnd5e/frames.css — no frame
+ * asset for it (component inventory: "Not built"), so it's a plain bordered box
+ * using the same tokens (--text-primary, --border-control etc.) defined on :root
+ * in frames.css, which every sheet screen already imports. The game log's own
+ * styling used to live here too, before it moved into the sidebar's Log mold
+ * (sheet/LogPanel.tsx, inline styles like the mold's siblings) — see changelog.md.
+ */
+
+/* Top-left, away from the custom roll picker's own bottom-left corner — the picker's
+   panel pops upward from its trigger, and the two corners never being the same stack
+   means it can never overlap this log, whatever the log's own content height. `top`
+   clears AppShell.tsx's own unstyled header row (plain `<header>`, no fixed height
+   yet — phase 1 scaffolding, not a sheet-owned element) rather than sitting flush at
+   the viewport's top edge. */
+.dice-tray {
+    position: fixed;
+    top: 65px;
+    left: 16px;
+    width: 200px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border: 1px solid var(--border-control);
+    border-radius: var(--radius-control);
+    background: var(--frame-paper, #fff);
+    padding: 10px 28px 10px 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+/* Direct owner request, 2026-09-20: a manual close, rather than only the 30s
+   auto-dismiss countdown — top-right, clear of the total/expression text
+   the tray's own right padding (above) already makes room for. */
+.dice-tray__close {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 18px;
+    height: 18px;
+    box-sizing: border-box;
+    padding: 3px;
+    border: none;
+    background: none;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+.dice-tray__close:hover, .dice-tray__close:focus-visible {
+    color: var(--text-primary);
+}
+.dice-tray__close-icon {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.dice-tray__close-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+/* The countdown bar along the tray's own bottom edge — `overflow: hidden`
+   above keeps its square corners from poking past the tray's own rounded
+   ones. `scaleX` or the animation would run identically driven by `width`
+   instead, but `transform` is the one of the two that doesn't force a
+   layout recalculation on every animation frame. `forwards` holds the
+   fully-shrunk (`scaleX(0)`) end state after the animation completes,
+   rather than snapping back to full width the instant before
+   `onAnimationEnd` unmounts it. */
+@keyframes dice-tray-countdown {
+    from { transform: scaleX(1); }
+    to { transform: scaleX(0); }
+}
+.dice-tray__progress {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    background: var(--theme-accent);
+    transform-origin: left;
+    animation-name: dice-tray-countdown;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+.dice-tray__progress--paused {
+    animation-play-state: paused;
+}
+.dice-tray__context {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+.dice-tray__total {
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+.dice-tray__expression {
+    font-size: 10px;
+    color: var(--text-muted);
+}
+.dice-tray__error {
+    font-size: 11px;
+    color: #B3261E;
+}
+
+/*
+ * The manual/custom roll picker — its own fixed bottom-left corner,
+ * independent of the dice tray (top-left). Redesigned 2026-09-08 to match
+ * D&D Beyond's own "Roll Dice" popover, DOM-measured live against
+ * dndbeyond.com/characters/50149479 (getComputedStyle + getBoundingClientRect
+ * on the real popover, not guessed) — colors, sizes and layout below are the
+ * live-measured values, not this app's usual --frame-paper/--border-control
+ * tokens, since D&D Beyond's own dice tray is dark-themed regardless of the
+ * rest of the site being light. The dice-set switcher (avatar + name +
+ * "Change Dice") is left out — this app has no 3D dice/dice-skin feature to
+ * switch between, so there is nothing for that row to control.
+ */
+.custom-roll-picker {
+    position: fixed;
+    left: 16px;
+    bottom: 16px;
+}
+/* 50x50 solid circle (measured), not a bare icon on `background: none` —
+ * matches the real trigger exactly and means dnd_icon_dice_roll.svg no
+ * longer needs its own white backing circle (removed 2026-09-08): a solid
+ * button background already stops gaps in the d20 line art from showing
+ * the page through, the same problem that circle used to solve. */
+.custom-roll-picker__trigger {
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+    border: 1px solid var(--theme-accent);
+    border-radius: 50%;
+    background: var(--theme-accent);
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #12181c;
+}
+.custom-roll-picker__trigger-icon {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.custom-roll-picker__trigger-icon svg {
+    width: 100%;
+    height: 100%;
+}
+.custom-roll-picker__panel {
+    position: absolute;
+    left: 0;
+    bottom: calc(100% + 16px);
+    width: 326px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background: rgba(18, 24, 28, 0.95);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+}
+.custom-roll-picker__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 0 16px;
+    border-bottom: 1px solid rgba(55, 64, 69, 0.85);
+    font-size: 13px;
+    font-weight: 500;
+    color: #a2acb2;
+}
+.custom-roll-picker__close {
+    width: 40px;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 12px;
+    border: none;
+    background: none;
+    color: #a2acb2;
+    cursor: pointer;
+}
+.custom-roll-picker__close svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.custom-roll-picker__close:hover, .custom-roll-picker__close:focus-visible {
+    color: #fff;
+}
+.custom-roll-picker__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 16px;
+    padding: 16px 30px 0;
+}
+/*
+ * Direct owner request, 2026-08-18: an icon above the `d4`/`d6`/... label,
+ * matching D&D Beyond's own die-select buttons. 2026-09-08: resized/recolored
+ * to the live-measured values (56x64, 8px radius) instead of the original
+ * guessed 3-column grid tile — see CustomRollPicker.tsx's own doc comment on
+ * `DIE_ICONS` for where the icons themselves came from.
+ */
+.custom-roll-picker__die {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    width: 56px;
+    height: 64px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background: none;
+    color: #a2acb2;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.custom-roll-picker__die--selected {
+    background: #c4cbce;
+    color: #373f45;
+}
+.custom-roll-picker__die-icon {
+    width: 32px;
+    height: 32px;
+    display: block;
+}
+.custom-roll-picker__die-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.custom-roll-picker__count {
+    position: absolute;
+    top: -8px;
+    right: 4px;
+    min-width: 20px;
+    height: 20px;
+    box-sizing: border-box;
+    padding: 0 2px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background: #000;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: center;
+}
+.custom-roll-picker__actions {
+    display: flex;
+    gap: 8px;
+    padding: 16px 30px 0;
+}
+.custom-roll-picker__reset {
+    flex: 1;
+    height: 32px;
+    box-sizing: border-box;
+    border: 1px solid #374045;
+    border-radius: 8px;
+    background: #fff;
+    color: #232b2f;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+/* Roll button: filled with the theme's strong accent. */
+.custom-roll-picker__roll {
+    flex: 1;
+    height: 32px;
+    box-sizing: border-box;
+    border: 1px solid var(--accent-control-saturated);
+    border-radius: 8px;
+    background: var(--accent-control-saturated);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.custom-roll-picker__reset:disabled, .custom-roll-picker__roll:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+.custom-roll-picker__clear-row {
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px 30px 16px;
+}
+.custom-roll-picker__clear {
+    border: none;
+    background: none;
+    padding: 0;
+    color: #eccf83;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.custom-roll-picker__clear:hover, .custom-roll-picker__clear:focus-visible {
+    color: #fff;
+}
+
+/* The advantage/disadvantage right-click popover (RollModeMenu.tsx) — same dark
+   popover palette as .custom-roll-picker__panel above, DOM-extracted live from
+   dndbeyond.com/characters/50149479's own "ROLL WITH" menu. `position: fixed` at
+   the click coordinates, unlike the picker's own anchored-to-trigger popup, since
+   this one opens whichever roll target on the sheet was right-clicked. */
+.roll-mode-menu {
+    position: fixed;
+    z-index: 20;
+    width: 210px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background: rgba(18, 24, 28, 0.95);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    padding: 8px 0;
+    font-family: Roboto, Helvetica, sans-serif;
+}
+.roll-mode-menu__header {
+    padding: 4px 16px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #a2acb2;
+}
+.roll-mode-menu__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 16px;
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: 14px;
+    text-align: left;
+    cursor: pointer;
+}
+.roll-mode-menu__item:hover, .roll-mode-menu__item:focus-visible {
+    background: rgba(255, 255, 255, 0.08);
+}
+.roll-mode-menu__item--selected {
+    background: rgba(255, 255, 255, 0.12);
+    font-weight: 700;
+}
+.roll-mode-menu__icon {
+    width: 20px;
+    height: 20px;
+    flex: none;
+}
+.roll-mode-menu__icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.roll-mode-menu__icon--flat {
+    color: #a2acb2;
+}
+.roll-mode-menu__confirm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 4px;
+    padding: 12px 16px 4px;
+    border: none;
+    border-top: 1px solid rgba(55, 64, 69, 0.85);
+    background: none;
+    color: rgb(75, 142, 215);
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.roll-mode-menu__confirm:hover, .roll-mode-menu__confirm:focus-visible {
+    color: #fff;
+}
+.roll-mode-menu__confirm-icon {
+    width: 18px;
+    height: 18px;
+    flex: none;
+}
+.roll-mode-menu__confirm-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}

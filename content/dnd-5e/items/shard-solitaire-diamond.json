@@ -1,0 +1,60 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "ITEM",
+  "slug" : "shard-solitaire-diamond",
+  "name" : "Shard Solitaire (Diamond)",
+  "sourceBook" : "Keys from the Golden Vault",
+  "sourceCode" : "KftGV",
+  "sourcePage" : 193,
+  "tags" : [ ],
+  "description" : "This gemstone contains an unstable extradimensional rift. Its facets are ribboned with iridescent veins that seem to move of their own accord. Five types of shard solitaire are known to exist, each one a different type of gemstone, as shown in the Shard Solitaire Types table.",
+  "data" : {
+    "itemKind" : "GEAR",
+    "typeLabel" : "Wondrous Item",
+    "rarity" : "legendary",
+    "focusType" : null,
+    "requiresAttunement" : true,
+    "attunementRequirement" : null,
+    "weightLb" : null,
+    "costGp" : null,
+    "weaponCategory" : null,
+    "attackType" : null,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "versatileDamageDiceCount" : null,
+    "versatileDamageDiceSides" : null,
+    "properties" : [ ],
+    "finesse" : false,
+    "normalRange" : null,
+    "longRange" : null,
+    "armorCategory" : null,
+    "baseArmorClass" : null,
+    "stealthDisadvantage" : false,
+    "strengthRequirement" : null,
+    "weaponAttackBonus" : null,
+    "weaponDamageBonus" : null,
+    "armorClassBonus" : null,
+    "charges" : 6,
+    "rechargeTrigger" : "Dawn",
+    "rechargeFormula" : "1d6",
+    "grantedSpells" : [ {
+      "spellSlug" : "mirror-image",
+      "chargeCost" : 1,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "banishment",
+      "chargeCost" : 3,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "ice-storm",
+      "chargeCost" : 3,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "simulacrum",
+      "chargeCost" : 6,
+      "fixedSaveDc" : null
+    } ],
+    "mechanics" : null
+  }
+}

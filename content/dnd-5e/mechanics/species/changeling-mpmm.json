@@ -1,0 +1,7 @@
+{
+  "target": { "species": "Changeling", "source": "MPMM" },
+  "citation": { "sourceBook": "Mordenkainen Presents: Monsters of the Multiverse", "page": 10 },
+  "traits": {
+    "Shapechanger": { "modifiers": [], "action": { "type": "ACTION" } }
+  }
+}

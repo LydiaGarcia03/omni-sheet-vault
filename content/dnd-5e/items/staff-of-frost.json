@@ -1,0 +1,66 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "ITEM",
+  "slug" : "staff-of-frost",
+  "name" : "Staff of Frost",
+  "sourceBook" : "Dungeon Master's Guide",
+  "sourceCode" : "DMG",
+  "sourcePage" : 202,
+  "tags" : [ ],
+  "description" : "You have resistance to cold damage while you hold this staff. The staff has 10 charges. While holding it, you can use an action to expend 1 or more of its charges to cast one of the following spells from it, using your spell save DC: cone of cold (5 charges), fog cloud (1 charge), ice storm (4 charges), or wall of ice (4 charges). The staff regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1. the staff turns to water and is destroyed.",
+  "data" : {
+    "itemKind" : "GEAR",
+    "typeLabel" : "Adventuring Gear",
+    "rarity" : "very rare",
+    "focusType" : null,
+    "requiresAttunement" : true,
+    "attunementRequirement" : "by a druid, sorcerer, warlock, or wizard",
+    "weightLb" : 4.0,
+    "costGp" : null,
+    "weaponCategory" : null,
+    "attackType" : null,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "versatileDamageDiceCount" : null,
+    "versatileDamageDiceSides" : null,
+    "properties" : [ ],
+    "finesse" : false,
+    "normalRange" : null,
+    "longRange" : null,
+    "armorCategory" : null,
+    "baseArmorClass" : null,
+    "stealthDisadvantage" : false,
+    "strengthRequirement" : null,
+    "weaponAttackBonus" : null,
+    "weaponDamageBonus" : null,
+    "armorClassBonus" : null,
+    "charges" : 10,
+    "rechargeTrigger" : "Dawn",
+    "rechargeFormula" : "1d6 + 4",
+    "grantedSpells" : [ {
+      "spellSlug" : "fog-cloud",
+      "chargeCost" : 1,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "ice-storm",
+      "chargeCost" : 4,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "wall-of-ice",
+      "chargeCost" : 4,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "cone-of-cold",
+      "chargeCost" : 5,
+      "fixedSaveDc" : null
+    } ],
+    "mechanics" : {
+      "modifiers" : [ ],
+      "damageResistances" : [ "cold" ],
+      "damageImmunities" : [ ],
+      "damageVulnerabilities" : [ ],
+      "conditionImmunities" : [ ]
+    }
+  }
+}

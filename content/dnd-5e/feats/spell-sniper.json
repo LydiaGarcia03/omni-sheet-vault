@@ -1,0 +1,86 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "FEAT",
+  "slug" : "spell-sniper",
+  "name" : "Spell Sniper",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 170,
+  "tags" : [ ],
+  "description" : "Prerequisite: the ability to cast at least one spell\n\nYou have learned techniques to enhance your attacks with certain kinds of spells, gaining the following benefits: When you cast a spell that requires you to make an attack roll, the spell's range is doubled. Your ranged spell attacks ignore half cover and three-quarters cover. You learn one cantrip that requires an attack roll. Choose the cantrip from the bard, cleric, druid, sorcerer, warlock, or wizard spell list. Your spellcasting ability for this cantrip depends on the spell list you chose from: Charisma for bard, sorcerer, or warlock; Wisdom for cleric or druid; or Intelligence for wizard.",
+  "data" : {
+    "abilityAlternatives" : [ ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "savingThrowAlternatives" : [ ],
+    "expertiseAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "optionalFeatureProgressions" : [ ],
+    "additionalSpells" : [ {
+      "name" : "Bard Spells",
+      "ability" : "cha",
+      "known" : {
+        "_" : [ {
+          "choose" : "level=0|class=Bard|spell attack=m;r;o",
+          "count" : 1
+        } ]
+      }
+    }, {
+      "name" : "Cleric Spells",
+      "ability" : "wis",
+      "known" : {
+        "_" : [ {
+          "choose" : "level=0|class=Cleric|spell attack=m;r;o",
+          "count" : 1
+        } ]
+      }
+    }, {
+      "name" : "Druid Spells",
+      "ability" : "wis",
+      "known" : {
+        "_" : [ {
+          "choose" : "level=0|class=Druid|spell attack=m;r;o",
+          "count" : 1
+        } ]
+      }
+    }, {
+      "name" : "Sorcerer Spells",
+      "ability" : "cha",
+      "known" : {
+        "_" : [ {
+          "choose" : "level=0|class=Sorcerer|spell attack=m;r;o",
+          "count" : 1
+        } ]
+      }
+    }, {
+      "name" : "Warlock Spells",
+      "ability" : "cha",
+      "known" : {
+        "_" : [ {
+          "choose" : "level=0|class=Warlock|spell attack=m;r;o",
+          "count" : 1
+        } ]
+      }
+    }, {
+      "name" : "Wizard Spells",
+      "ability" : "int",
+      "known" : {
+        "_" : [ {
+          "choose" : "level=0|class=Wizard|spell attack=m;r;o",
+          "count" : 1
+        } ]
+      }
+    } ],
+    "prerequisites" : [ {
+      "spellcasting" : true
+    } ],
+    "repeatable" : false,
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

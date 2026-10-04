@@ -1,0 +1,47 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "temporal-shunt",
+  "name" : "Temporal Shunt",
+  "sourceBook" : "Explorer's Guide to Wildemount",
+  "sourceCode" : "EGW",
+  "sourcePage" : 189,
+  "tags" : [ ],
+  "description" : "You target the triggering creature, which must succeed on a Wisdom saving throw or vanish, being thrown to another point in time and causing the attack to miss or the spell to be wasted. At the start of its next turn, the target reappears where it was or in the closest unoccupied space. The target doesn't remember you casting the spell or being affected by it.",
+  "data" : {
+    "level" : 5,
+    "school" : "transmutation",
+    "castingTime" : "1 Reaction",
+    "range" : "120 ft.",
+    "concentration" : false,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "notes" : "V, S",
+    "effectSummary" : "Buff",
+    "saveAbility" : "wisdom",
+    "components" : "V, S",
+    "materialComponent" : null,
+    "duration" : "1 round",
+    "higherLevelsDescription" : "When you cast this spell using a spell slot of 6th level or higher, you can target one additional creature for each slot level above 5th. All targets must be within 30 feet of each other.",
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "EGW",
+    "classes" : [ ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Wizard",
+      "classSource" : "PHB",
+      "subclassShortName" : "Chronurgy",
+      "subclassSource" : "EGW"
+    }, {
+      "className" : "Wizard",
+      "classSource" : "PHB",
+      "subclassShortName" : "Graviturgy",
+      "subclassSource" : "EGW"
+    } ],
+    "effect" : null
+  }
+}

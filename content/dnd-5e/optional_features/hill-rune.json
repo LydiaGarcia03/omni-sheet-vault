@@ -1,0 +1,37 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "hill-rune",
+  "name" : "Hill Rune",
+  "sourceBook" : "Tasha's Cauldron of Everything",
+  "sourceCode" : "TCE",
+  "sourcePage" : 45,
+  "tags" : [ ],
+  "description" : "Prerequisite: 7th level\n\nThis rune's magic bestows a resilience reminiscent of a hill giant. While wearing or carrying an object that bears this rune, you have advantage on saving throws against being poisoned, and you have resistance against poison damage. In addition, you can invoke the rune as a bonus action, gaining resistance to bludgeoning, piercing, and slashing damage for 1 minute. Once you invoke this rune, you can't do so again until you finish a short or long rest.",
+  "data" : {
+    "featureTypes" : [ "RN" ],
+    "optional" : false,
+    "prerequisiteText" : "7th level",
+    "prerequisites" : [ {
+      "level" : {
+        "level" : 7,
+        "class" : {
+          "name" : "Fighter"
+        },
+        "subclass" : {
+          "name" : "Rune Knight",
+          "source" : "TCE"
+        }
+      }
+    } ],
+    "consumes" : null,
+    "additionalSpells" : null,
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

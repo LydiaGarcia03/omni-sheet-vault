@@ -1,0 +1,93 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "orc-ixalan",
+  "name" : "Orc (Ixalan)",
+  "sourceBook" : "Plane Shift: Ixalan",
+  "sourceCode" : "PSX",
+  "sourcePage" : 15,
+  "tags" : [ ],
+  "description" : "Age. Orcs mature a little faster than humans, reaching adulthood around age 14. They age noticeably faster and rarely live longer than 75 years. Alignment. Most orcs lean toward chaotic alignments, and many serve on pirate ships that encourage an inclination toward evil. Size. Orcs average over 6 feet in height, and they have strong, stocky builds. Your size is Medium. Menacing. You gain proficiency in the Intimidation skill. Relentless Endurance. When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can't use this feature again until you finish a long rest. Savage Attacks. When you score a critical hit with a melee weapon attack, you can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit. Darkvision. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Languages. You can speak, read, and write Common (if it exists in your campaign) and Orc.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 30
+    },
+    "senses" : [ {
+      "type" : "darkvision",
+      "range" : 60
+    } ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "strength" : 2,
+        "constitution" : 1
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "intimidation" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "orc" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : {
+      "mature" : 14,
+      "max" : 75
+    },
+    "heightAndWeight" : null,
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Age",
+      "description" : "Orcs mature a little faster than humans, reaching adulthood around age 14. They age noticeably faster and rarely live longer than 75 years."
+    }, {
+      "name" : "Alignment",
+      "description" : "Most orcs lean toward chaotic alignments, and many serve on pirate ships that encourage an inclination toward evil."
+    }, {
+      "name" : "Size",
+      "description" : "Orcs average over 6 feet in height, and they have strong, stocky builds. Your size is Medium."
+    }, {
+      "name" : "Menacing",
+      "description" : "You gain proficiency in the Intimidation skill."
+    }, {
+      "name" : "Relentless Endurance",
+      "description" : "When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can't use this feature again until you finish a long rest."
+    }, {
+      "name" : "Savage Attacks",
+      "description" : "When you score a critical hit with a melee weapon attack, you can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit."
+    }, {
+      "name" : "Darkvision",
+      "description" : "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common (if it exists in your campaign) and Orc."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "voice-of-the-chain-master",
+  "name" : "Voice of the Chain Master",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 111,
+  "tags" : [ ],
+  "description" : "Prerequisite: Pact of the Chain\n\nYou can communicate telepathically with your familiar and perceive through your familiar's senses as long as you are on the same plane of existence. Additionally, while perceiving through your familiar's senses, you can also speak through your familiar in your own voice, even if your familiar is normally incapable of speech.",
+  "data" : {
+    "featureTypes" : [ "EI" ],
+    "optional" : false,
+    "prerequisiteText" : "Pact of the Chain",
+    "prerequisites" : [ {
+      "pact" : "Chain"
+    } ],
+    "consumes" : null,
+    "additionalSpells" : null,
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

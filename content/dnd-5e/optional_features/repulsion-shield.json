@@ -1,0 +1,35 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "repulsion-shield",
+  "name" : "Repulsion Shield",
+  "sourceBook" : "Tasha's Cauldron of Everything",
+  "sourceCode" : "TCE",
+  "sourcePage" : 23,
+  "tags" : [ ],
+  "description" : "Prerequisite: 6th level, A shield (requires attunement)\n\nA creature gains a +1 bonus to Armor Class while wielding this shield. The shield has 4 charges. While holding it, the wielder can use a reaction immediately after being hit by a melee attack to expend 1 of the shield's charges and push the attacker up to 15 feet away. The shield regains 1d4 expended charges daily at dawn.",
+  "data" : {
+    "featureTypes" : [ "AI" ],
+    "optional" : false,
+    "prerequisiteText" : "6th level, A shield (requires attunement)",
+    "prerequisites" : [ {
+      "level" : {
+        "level" : 6,
+        "class" : {
+          "name" : "Artificer",
+          "source" : "TCE"
+        }
+      },
+      "item" : [ "A shield (requires attunement)" ]
+    } ],
+    "consumes" : null,
+    "additionalSpells" : null,
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

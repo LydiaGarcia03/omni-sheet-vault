@@ -1,0 +1,83 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "gnome-deep",
+  "name" : "Gnome (Deep)",
+  "sourceBook" : "Dungeon Master's Guide",
+  "sourceCode" : "DMG",
+  "sourcePage" : 282,
+  "tags" : [ ],
+  "description" : "Innate Spellcasting. You have an innate ability to cast the following spells, requiring no material components: At will:. nondetection (self only) 1/day each:. blindness/deafness, blur, disguise self Intelligence is your spellcasting ability for these spells. Stone Camouflage. You have advantage on Dexterity (Stealth) checks to hide in rocky terrain. Gnome Cunning. You have advantage on Intelligence, Wisdom, and Charisma saving throws against magic. Superior Darkvision. Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 120 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray. Languages. You can speak, read, and write Gnomish, Terran, and Undercommon.",
+  "data" : {
+    "size" : [ "small" ],
+    "speed" : {
+      "walk" : 20
+    },
+    "senses" : [ {
+      "type" : "darkvision",
+      "range" : 120
+    } ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "strength" : 1,
+        "dexterity" : 2
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "gnomish", "terran", "undercommon" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : [ {
+      "ability" : "int",
+      "known" : {
+        "1" : [ "nondetection", "blindness/deafness", "blur", "disguise self" ]
+      }
+    } ],
+    "age" : null,
+    "heightAndWeight" : null,
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Innate Spellcasting",
+      "description" : "You have an innate ability to cast the following spells, requiring no material components: At will:. nondetection (self only) 1/day each:. blindness/deafness, blur, disguise self Intelligence is your spellcasting ability for these spells."
+    }, {
+      "name" : "Stone Camouflage",
+      "description" : "You have advantage on Dexterity (Stealth) checks to hide in rocky terrain."
+    }, {
+      "name" : "Gnome Cunning",
+      "description" : "You have advantage on Intelligence, Wisdom, and Charisma saving throws against magic."
+    }, {
+      "name" : "Superior Darkvision",
+      "description" : "Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 120 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Gnomish, Terran, and Undercommon."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

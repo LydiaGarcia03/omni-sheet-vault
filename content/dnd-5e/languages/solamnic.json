@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "LANGUAGE",
+  "slug" : "solamnic",
+  "name" : "Solamnic",
+  "sourceBook" : "Dragonlance: Shadow of the Dragon Queen",
+  "sourceCode" : "DSotDQ",
+  "sourcePage" : 9,
+  "tags" : [ ],
+  "description" : "",
+  "data" : {
+    "type" : "standard",
+    "script" : "Common"
+  }
+}

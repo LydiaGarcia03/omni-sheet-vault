@@ -1,0 +1,56 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "ITEM",
+  "slug" : "hazirawn",
+  "name" : "Hazirawn",
+  "sourceBook" : "Hoard of the Dragon Queen",
+  "sourceCode" : "HotDQ",
+  "sourcePage" : 94,
+  "tags" : [ ],
+  "description" : "A sentient (neutral evil) greatsword, Hazirawn is capable of speech in Common and Netherese. Even if you aren't attuned to the sword, you gain a +1 bonus to attack and damage rolls made with this weapon. If you are not attuned to Hazirawn, you deal an extra 1d6 necrotic damage when you hit with the weapon.",
+  "data" : {
+    "itemKind" : "GEAR",
+    "typeLabel" : "Melee Weapon",
+    "rarity" : "legendary",
+    "focusType" : null,
+    "requiresAttunement" : true,
+    "attunementRequirement" : null,
+    "weightLb" : 6.0,
+    "costGp" : null,
+    "weaponCategory" : null,
+    "attackType" : null,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "versatileDamageDiceCount" : null,
+    "versatileDamageDiceSides" : null,
+    "properties" : [ ],
+    "finesse" : false,
+    "normalRange" : null,
+    "longRange" : null,
+    "armorCategory" : null,
+    "baseArmorClass" : null,
+    "stealthDisadvantage" : false,
+    "strengthRequirement" : null,
+    "weaponAttackBonus" : 1,
+    "weaponDamageBonus" : 1,
+    "armorClassBonus" : null,
+    "charges" : 4,
+    "rechargeTrigger" : "Midnight",
+    "rechargeFormula" : "1d4",
+    "grantedSpells" : [ {
+      "spellSlug" : "detect-evil-and-good",
+      "chargeCost" : 1,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "detect-magic",
+      "chargeCost" : 1,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "detect-thoughts",
+      "chargeCost" : 2,
+      "fixedSaveDc" : null
+    } ],
+    "mechanics" : null
+  }
+}

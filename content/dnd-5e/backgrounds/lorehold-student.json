@@ -1,0 +1,134 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "lorehold-student",
+  "name" : "Lorehold Student",
+  "sourceBook" : "Strixhaven: A Curriculum of Chaos",
+  "sourceCode" : "SCC",
+  "sourcePage" : 31,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. History, Religion Languages:. Two of your choice Equipment:. A bottle of black ink, an ink pen, a hammer, a hooded lantern, a tinderbox, a tome of history, a school uniform, and a pouch containing 15 gp Feature: Lorehold Initiate. You gain the Strixhaven Initiate feat and must choose Lorehold within it. In addition, if you have the Spellcasting or Pact Magic feature, the spells on the Lorehold Spells table are added to the spell list of your spellcasting class. (If you are a multiclass character with multiple spell lists, these spells are added to all of them.) Consider customizing how your spells look when you cast them. Your Lorehold spells might create displays of golden light. You might use a tome or a scroll as a spellcasting focus, and your spell effects might reflect the appearance of the reference books you study. Building a Lorehold Character. Any class or subclass that deals with knowledge of the past can be a good fit in Lorehold. Bards thrive in Lorehold, and wizards (particularly those of the School of Divination) are numerous among its students. Clerics (often with the Knowledge or Light domains) are also quite common. For a more unusual take on a Lorehold student, you could consider playing a barbarian with a primal connection to the past (perhaps adopting the Path of the Ancestral Guardian from Xanathar's Guide to Everything) or a paladin whose Oath of the Ancients gives a concrete link to history. Suggested Characteristics. Methodical historians and daring adventurers alike can be found among the ranks of Lorehold college. The Lorehold Personality Traits table suggests a variety of traits you might adopt for your character. Lorehold Trinkets. When you make your character, you may roll once on the Lorehold Trinkets table, instead of on the Trinkets table in the Player's Handbook, for your starting trinket.",
+  "data" : {
+    "personalityTraits" : [ "I thrive on esoteric lore. The more obscure the historical references I can include in everyday conversation, the better.", "By searching for these lost artifacts, I hope to find who I really am along the way.", "I can barely go a minute without talking about my research. I have so much knowledge in my head, and it needs to be let out somewhere!", "The spirits of the dead are so much more interesting to talk with than living classmates.", "I can speak eloquently about the historical ramifications of an ancient war. But ask me to add two-digit numbers together, and I'm a mess.", "In the end, it's all just entropy. Everything falls apart someday." ],
+    "ideals" : [ ],
+    "bonds" : [ ],
+    "flaws" : [ ],
+    "otherTables" : [ {
+      "caption" : "Lorehold Spells",
+      "colLabels" : [ "Spell Level", "Spells" ],
+      "rows" : [ [ "1st", "Comprehend Languages, Identify" ], [ "2nd", "Borrowed Knowledge, Locate Object" ], [ "3rd", "Speak with Dead, Spirit Guardians" ], [ "4th", "Arcane Eye, Stone Shape" ], [ "5th", "Flame Strike, Legend Lore" ] ]
+    } ],
+    "features" : [ {
+      "name" : "Lorehold Initiate",
+      "description" : "You gain the Strixhaven Initiate feat and must choose Lorehold within it. In addition, if you have the Spellcasting or Pact Magic feature, the spells on the Lorehold Spells table are added to the spell list of your spellcasting class. (If you are a multiclass character with multiple spell lists, these spells are added to all of them.) Consider customizing how your spells look when you cast them. Your Lorehold spells might create displays of golden light. You might use a tome or a scroll as a spellcasting focus, and your spell effects might reflect the appearance of the reference books you study."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "history", "religion" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 2,
+        "amount" : null
+      } ]
+    } ],
+    "featAlternatives" : [ {
+      "fixed" : [ "strixhaven-initiate" ],
+      "choices" : [ ]
+    } ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : "ink-1-ounce-bottle",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "ink-pen",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "hammer",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "hooded-lantern",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "tinderbox",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "tome of history",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "school uniform",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 1500,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : [ {
+      "expanded" : {
+        "s1" : [ "comprehend languages", "identify" ],
+        "s2" : [ "borrowed knowledge|scc", "locate object" ],
+        "s3" : [ "speak with dead", "spirit guardians" ],
+        "s4" : [ "arcane eye", "stone shape" ],
+        "s5" : [ "flame strike", "legend lore" ]
+      }
+    } ],
+    "prerequisites" : null
+  }
+}

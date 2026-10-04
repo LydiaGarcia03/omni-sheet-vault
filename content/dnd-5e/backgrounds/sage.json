@@ -1,0 +1,105 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "sage",
+  "name" : "Sage",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 137,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. Arcana, History Languages:. Two of your choice Equipment:. A bottle of black ink, a quill, a small knife, a letter from a dead colleague posing a question you have not yet been able to answer, a set of common clothes, and a belt pouch containing 10 gp Feature: Researcher. When you attempt to learn or recall a piece of lore, if you do not know that information, you often know where and from whom you can obtain it. Usually, this information comes from a library, scriptorium, university, or a sage or other learned person or creature. Your DM might rule that the knowledge you seek is secreted away in an almost inaccessible place, or that it simply cannot be found. Unearthing the deepest secrets of the multiverse can require an adventure or even a whole campaign. Specialty. To determine the nature of your scholarly training, roll a d8 or choose from the options in the table below. Suggested Characteristics. Sages are defined by their extensive studies, and their characteristics reflect this life of study. Devoted to scholarly pursuits, a sage values knowledge highly—sometimes in its own right, sometimes as a means toward other ideals.",
+  "data" : {
+    "personalityTraits" : [ "I use polysyllabic words that convey the impression of great erudition.", "I've read every book in the world's greatest libraries—or I like to boast that I have.", "I'm used to helping out those who aren't as smart as I am, and I patiently explain anything and everything to others.", "There's nothing I like more than a good mystery.", "I'm willing to listen to every side of an argument before I make my own judgment.", "I... speak... slowly... when talking... to idiots,... which... almost... everyone... is... compared... to me.", "I am horribly, horribly awkward in social situations.", "I'm convinced that people are always trying to steal my secrets." ],
+    "ideals" : [ "Knowledge. The path to power and self-improvement is through knowledge. (Neutral)", "Beauty. What is beautiful points us beyond itself toward what is true. (Good)", "Logic. Emotions must not cloud our logical thinking. (Lawful)", "No Limits. Nothing should fetter the infinite possibility inherent in all existence. (Chaotic)", "Power. Knowledge is the path to power and domination. (Evil)", "Self-Improvement. The goal of a life of study is the betterment of oneself. (Any)" ],
+    "bonds" : [ "It is my duty to protect my students.", "I have an ancient text that holds terrible secrets that must not fall into the wrong hands.", "I work to preserve a library, university, scriptorium, or monastery.", "My life's work is a series of tomes related to a specific field of lore.", "I've been searching my whole life for the answer to a certain question.", "I sold my soul for knowledge. I hope to do great deeds and win it back." ],
+    "flaws" : [ "I am easily distracted by the promise of information.", "Most people scream and run when they see a demon. I stop and take notes on its anatomy.", "Unlocking an ancient mystery is worth the price of a civilization.", "I overlook obvious solutions in favor of complicated ones.", "I speak without really thinking through my words, invariably insulting others.", "I can't keep a secret to save my life, or anyone else's." ],
+    "otherTables" : [ {
+      "caption" : null,
+      "colLabels" : [ "d8", "Field of Study" ],
+      "rows" : [ [ "1", "Alchemist" ], [ "2", "Astronomer" ], [ "3", "Discredited academic" ], [ "4", "Librarian" ], [ "5", "Professor" ], [ "6", "Researcher" ], [ "7", "Wizard's apprentice" ], [ "8", "Scribe" ] ]
+    } ],
+    "features" : [ {
+      "name" : "Researcher",
+      "description" : "When you attempt to learn or recall a piece of lore, if you do not know that information, you often know where and from whom you can obtain it. Usually, this information comes from a library, scriptorium, university, or a sage or other learned person or creature. Your DM might rule that the knowledge you seek is secreted away in an almost inaccessible place, or that it simply cannot be found. Unearthing the deepest secrets of the multiverse can require an adventure or even a whole campaign."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "arcana", "history" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 2,
+        "amount" : null
+      } ]
+    } ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : "ink-1-ounce-bottle",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "quill",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "small knife",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "letter from a dead colleague posing a question you have not yet been able to answer",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "common-clothes",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 1000,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : null,
+    "prerequisites" : null
+  }
+}

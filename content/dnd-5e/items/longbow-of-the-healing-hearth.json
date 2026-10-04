@@ -1,0 +1,56 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "ITEM",
+  "slug" : "longbow-of-the-healing-hearth",
+  "name" : "Longbow of the Healing Hearth",
+  "sourceBook" : "Bigby Presents: Glory of the Giants",
+  "sourceCode" : "BGG",
+  "sourcePage" : 113,
+  "tags" : [ ],
+  "description" : "This ivory longbow is inscribed with a prayer to the god Hiatea, the runes of which are entwined with gilded engravings of wheat stalks and deer antlers. You gain a +3 bonus to attack and damage rolls made with this weapon. If you load no ammunition in the weapon, it produces its own, automatically creating one magic arrow when you pull back the string. The arrow created by the bow vanishes the instant after it hits or misses a target. The bow has 8 charges for the following properties, which you can use while wielding the bow. The bow regains 1d4 + 1 charges daily at dawn.",
+  "data" : {
+    "itemKind" : "GEAR",
+    "typeLabel" : "Ranged Weapon",
+    "rarity" : "legendary",
+    "focusType" : null,
+    "requiresAttunement" : true,
+    "attunementRequirement" : null,
+    "weightLb" : 2.0,
+    "costGp" : null,
+    "weaponCategory" : null,
+    "attackType" : null,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "versatileDamageDiceCount" : null,
+    "versatileDamageDiceSides" : null,
+    "properties" : [ ],
+    "finesse" : false,
+    "normalRange" : null,
+    "longRange" : null,
+    "armorCategory" : null,
+    "baseArmorClass" : null,
+    "stealthDisadvantage" : false,
+    "strengthRequirement" : null,
+    "weaponAttackBonus" : 3,
+    "weaponDamageBonus" : 3,
+    "armorClassBonus" : null,
+    "charges" : 8,
+    "rechargeTrigger" : "Dawn",
+    "rechargeFormula" : "1d4 + 1",
+    "grantedSpells" : [ {
+      "spellSlug" : "create-food-and-water",
+      "chargeCost" : 1,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "warding-bond",
+      "chargeCost" : 2,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "guardian-of-faith",
+      "chargeCost" : 3,
+      "fixedSaveDc" : null
+    } ],
+    "mechanics" : null
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "outlander",
+  "name" : "Outlander",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 136,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. Athletics, Survival Tool Proficiencies:. One type of musical instrument Languages:. One of your choice Equipment:. A staff, a hunting trap, a trophy from an animal you killed, a set of traveler's clothes, and a belt pouch containing 10 gp Feature: Wanderer. You have an excellent memory for maps and geography, and you can always recall the general layout of terrain, settlements, and other features around you. In addition, you can find food and fresh water for yourself and up to five other people each day, provided that the land offers berries, small game, water, and so forth. Specialty. You've been to strange places and seen things that others cannot begin to fathom. Consider some of the distant lands you have visited, and how they impacted you. You can roll on the following table to determine your occupation during your time in the wild, or choose one that best fits your character. Suggested Characteristics. Often considered rude and uncouth among civilized folk, outlanders have little respect for the niceties of life in the cities. The ties of tribe, clan, family, and the natural world of which they are a part are the most important bonds to most outlanders.",
+  "data" : {
+    "personalityTraits" : [ "I'm driven by a wanderlust that led me away from home.", "I watch over my friends as if they were a litter of newborn pups.", "I once ran twenty-five miles without stopping to warn my clan of an approaching orc horde. I'd do it again if I had to.", "I have a lesson for every situation, drawn from observing nature.", "I place no stock in wealthy or well-mannered folk. Money and manners won't save you from a hungry owlbear.", "I'm always picking things up, absently fiddling with them, and sometimes accidentally breaking them.", "I feel far more comfortable around animals than people.", "I was, in fact, raised by wolves." ],
+    "ideals" : [ "Change. Life is like the seasons, in constant change, and we must change with it. (Chaotic)", "Greater Good. It is each person's responsibility to make the most happiness for the whole tribe. (Good)", "Honor. If I dishonor myself, I dishonor my whole clan. (Lawful)", "Might. The strongest are meant to rule. (Evil)", "Nature. The natural world is more important than all the constructs of civilization. (Neutral)", "Glory. I must earn glory in battle, for myself and my clan. (Any)" ],
+    "bonds" : [ "My family, clan, or tribe is the most important thing in my life, even when they are far from me.", "An injury to the unspoiled wilderness of my home is an injury to me.", "I will bring terrible wrath down on the evildoers who destroyed my homeland.", "I am the last of my tribe, and it is up to me to ensure their names enter legend.", "I suffer awful visions of a coming disaster and will do anything to prevent it.", "It is my duty to provide children to sustain my tribe." ],
+    "flaws" : [ "I am too enamored of ale, wine, and other intoxicants.", "There's no room for caution in a life lived to the fullest.", "I remember every insult I've received and nurse a silent resentment toward anyone who's ever wronged me.", "I am slow to trust members of other races, tribes, and societies.", "Violence is my answer to almost any challenge.", "Don't expect me to save those who can't save themselves. It is nature's way that the strong thrive and the weak perish." ],
+    "otherTables" : [ {
+      "caption" : null,
+      "colLabels" : [ "d10", "Origin" ],
+      "rows" : [ [ "1", "Forester" ], [ "2", "Trapper" ], [ "3", "Homesteader" ], [ "4", "Guide" ], [ "5", "Exile or outcast" ], [ "6", "Bounty hunter" ], [ "7", "Pilgrim" ], [ "8", "Tribal nomad" ], [ "9", "Hunter-gatherer" ], [ "10", "Tribal marauder" ] ]
+    } ],
+    "features" : [ {
+      "name" : "Wanderer",
+      "description" : "You have an excellent memory for maps and geography, and you can always recall the general layout of terrain, settlements, and other features around you. In addition, you can find food and fresh water for yourself and up to five other people each day, provided that the land offers berries, small game, water, and so forth."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "athletics", "survival" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "musicalInstrument",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "languageAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : "staff",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "hunting-trap",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "trophy from an animal you killed",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "travelers-clothes",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 1000,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : null,
+    "prerequisites" : null
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "ITEM",
+  "slug" : "staff-of-swarming-insects",
+  "name" : "Staff of Swarming Insects",
+  "sourceBook" : "Dungeon Master's Guide",
+  "sourceCode" : "DMG",
+  "sourcePage" : 203,
+  "tags" : [ ],
+  "description" : "This staff has 10 charges and regains 1d6 + 4 expended charges daily at dawn. If you expend the last charge, roll a d20. On a 1, a swarm of insects consumes and destroys the staff, then disperses.",
+  "data" : {
+    "itemKind" : "GEAR",
+    "typeLabel" : "Adventuring Gear",
+    "rarity" : "rare",
+    "focusType" : null,
+    "requiresAttunement" : true,
+    "attunementRequirement" : "by a bard, cleric, druid, sorcerer, warlock, or wizard",
+    "weightLb" : 4.0,
+    "costGp" : null,
+    "weaponCategory" : null,
+    "attackType" : null,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "versatileDamageDiceCount" : null,
+    "versatileDamageDiceSides" : null,
+    "properties" : [ ],
+    "finesse" : false,
+    "normalRange" : null,
+    "longRange" : null,
+    "armorCategory" : null,
+    "baseArmorClass" : null,
+    "stealthDisadvantage" : false,
+    "strengthRequirement" : null,
+    "weaponAttackBonus" : null,
+    "weaponDamageBonus" : null,
+    "armorClassBonus" : null,
+    "charges" : 10,
+    "rechargeTrigger" : "Dawn",
+    "rechargeFormula" : "1d6 + 4",
+    "grantedSpells" : [ {
+      "spellSlug" : "giant-insect",
+      "chargeCost" : 4,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "insect-plague",
+      "chargeCost" : 5,
+      "fixedSaveDc" : null
+    } ],
+    "mechanics" : null
+  }
+}

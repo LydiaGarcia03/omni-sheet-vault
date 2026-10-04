@@ -1,0 +1,52 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "ITEM",
+  "slug" : "earworm",
+  "name" : "Earworm",
+  "sourceBook" : "Eberron: Rising from the Last War",
+  "sourceCode" : "ERLW",
+  "sourcePage" : 277,
+  "tags" : [ ],
+  "description" : "To attune to this symbiont, you must hold it against the skin behind your ear for the entire attunement period, whereupon it burrows into your head and bonds to your skull. While the earworm is inside you, you can speak, read, and write Deep Speech.",
+  "data" : {
+    "itemKind" : "GEAR",
+    "typeLabel" : "Wondrous Item",
+    "rarity" : "uncommon",
+    "focusType" : null,
+    "requiresAttunement" : true,
+    "attunementRequirement" : null,
+    "weightLb" : null,
+    "costGp" : null,
+    "weaponCategory" : null,
+    "attackType" : null,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "versatileDamageDiceCount" : null,
+    "versatileDamageDiceSides" : null,
+    "properties" : [ ],
+    "finesse" : false,
+    "normalRange" : null,
+    "longRange" : null,
+    "armorCategory" : null,
+    "baseArmorClass" : null,
+    "stealthDisadvantage" : false,
+    "strengthRequirement" : null,
+    "weaponAttackBonus" : null,
+    "weaponDamageBonus" : null,
+    "armorClassBonus" : null,
+    "charges" : 4,
+    "rechargeTrigger" : "Dawn",
+    "rechargeFormula" : "1d4",
+    "grantedSpells" : [ {
+      "spellSlug" : "dissonant-whispers",
+      "chargeCost" : 1,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "detect-thoughts",
+      "chargeCost" : 2,
+      "fixedSaveDc" : null
+    } ],
+    "mechanics" : null
+  }
+}

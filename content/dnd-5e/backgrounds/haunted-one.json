@@ -1,0 +1,99 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "haunted-one",
+  "name" : "Haunted One",
+  "sourceBook" : "Van Richten's Guide to Ravenloft",
+  "sourceCode" : "VRGR",
+  "sourcePage" : 34,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. Choose two from among Arcana, Investigation, Religion, or Survival Languages:. Choose two, one of which must be Abyssal, Celestial, Deep Speech, Draconic, Infernal, Primordial, Sylvan, or Undercommon Equipment:. Monster hunter's pack (containing a chest, a crowbar, a hammer, three wooden stakes, a holy symbol, a flask of holy water, a set of manacles, a steel mirror, a flask of oil, a tinderbox, and 3 torches), a set of common clothes, one trinket of special significance (choose one or roll on the Horror Trinkets table), and 1 sp Feature: Heart of Darkness. Those who look into your eyes can see that you have faced unimaginable horror and that you are no stranger to darkness. Though they might fear you, commoners will extend you every courtesy and do their utmost to help you. Unless you have shown yourself to be a danger to them, they will even take up arms to fight alongside you, should you find yourself facing an enemy alone. Harrowing Event. Prior to becoming an adventurer, your path in life was defined by one dark moment, one fateful decision, or one tragedy. Now you feel a darkness threatening to consume you, and you fear there may be no hope of escape. Choose a harrowing event that haunts you, or roll one on the Harrowing Events table. Horror Characteristics. Characters in a horror-focused campaign might have distinct motivations and characteristics. Use the following tables to supplement your background's suggested characteristics or to inspire those of your own design.",
+  "data" : {
+    "personalityTraits" : [ "I had an encounter that I believe gives me a special affinity with a supernatural creature or event.", "A signature piece of clothing or distinct weapon serves as an emblem of who I am.", "I never accept that I'm out of my depth.", "I must know the answer to every secret. No door remains unopened in my presence.", "I let people underestimate me, revealing my full competency only to those close to me.", "I compulsively seek to collect trophies of my travels and victories.", "It doesn't matter if the whole world's against me. I'll always do what I think is right.", "I have morbid interests and a macabre aesthetic.", "I have a personal ritual, mantra, or relaxation method I use to deal with stress.", "Nothing is more important than life, and I never leave anyone in danger.", "I'm quick to jump to extreme solutions. Why risk a lesser option not working?", "I'm easily startled, but I'm not a coward." ],
+    "ideals" : [ "Adrenaline. I've experienced such strangeness that now I feel alive only in extreme situations.", "Balance. I strive to counter the deeds of someone for whom I feel responsible.", "Bound. I've wronged someone and must work their will to avoid their curse.", "Escape. I believe there is something beyond the world I know, and I need to find it.", "Legacy. I must do something great so that I'm remembered, and my time is running out.", "Misdirection. I work vigorously to keep others from realizing my flaws or misdeeds.", "Obsession. I've lived this way for so long that I can't imagine another way.", "Obligation. I owe it to my people, faith, family, or teacher to continue a vaunted legacy.", "Promise. My life is no longer my own. I must fulfill the dream of someone who's gone.", "Revelation. I need to know what lies beyond the mysteries of death, the world, or the Mists.", "Sanctuary. I know the forces at work in the world and strive to create islands apart from them.", "Truth. I care about the truth above all else, even if it doesn't benefit anyone." ],
+    "bonds" : [ "I desperately need to get back to someone or someplace, but I lost them in the Mists.", "Everything I do is in the service of a powerful master, one I must keep a secret from everyone.", "I owe much to my vanished mentor. I seek to continue their work even as I search to find them.", "I've seen great darkness, and I'm committed to being a light against it—the light of all lights.", "Someone I love has become a monster, murderer, or other threat. It's up to me to redeem them.", "The world has been convinced of a terrible lie. It's up to me to reveal the truth.", "I deeply miss someone and am quick to adopt people who remind me of them.", "A great evil dwells within me. I will fight against it and the world's other evils for as long as I can.", "I'm desperately seeking a cure to an affliction or a curse, either for someone close to me for myself.", "Spirits are drawn to me. I do all I can to help them find peace.", "I use my cunning mind to solve mysteries and find justice for those who've been wronged.", "I lost someone I care about, but I still see them in guilty visions, recurring dreams, or as a spirit." ],
+    "flaws" : [ "I believe doom follows me and that anyone who gets close to me will face a tragic end.", "I'm convinced something is after me, appearing in mirrors, dreams, and places where no one could.", "I'm especially superstitious and live life seeking to avoid bad luck, wicked spirits, or the Mists.", "I've done unspeakable evil and will do anything to prevent others from finding out.", "I am exceptionally credulous and believe any story or legend immediately.", "I'm a skeptic and don't believe in the power of rituals, religion, superstition, or spirits.", "I know my future is written and that anything I do will lead to a prophesied end.", "I need to find the best in everyone and everything, even when that means denying obvious malice.", "I've seen the evil of a type of place—like forests, cities, or graveyards—and resist going there.", "I'm exceptionally cautious, planning laboriously and devising countless contingencies.", "I have a reputation for defeating a great evil, but that's a lie and the wicked force knows.", "I know the ends always justify the means and am quick to make sacrifices to attain my goals." ],
+    "otherTables" : [ {
+      "caption" : "Harrowing Event",
+      "colLabels" : [ "d10", "Event" ],
+      "rows" : [ [ "1", "A monster that slaughtered dozens of innocent people spared your life, and you don't know why." ], [ "2", "You were born under a dark star. You can feel it watching you, coldly and distantly. Sometimes it beckons you in the dead of night." ], [ "3", "An apparition that has haunted your family for generations now haunts you. You don't know what it wants, and it won't leave you alone." ], [ "4", "Your family has a history of practicing the dark arts. You dabbled once and felt something horrible clutch at your soul, whereupon you fled in terror." ], [ "5", "An oni took your sibling one cold, dark night, and you were unable to stop it." ], [ "6", "You were cursed with lycanthropy and later cured. You are now haunted by the innocents you slaughtered." ], [ "7", "A hag kidnapped and raised you. You escaped, but the hag still has a magical hold over you and fills your mind with evil thoughts." ], [ "8", "You opened an eldritch tome and saw things unfit for a sane mind. You burned the book, but its words and images are burned into your psyche." ], [ "9", "A fiend possessed you as a child. You were locked away but escaped. The fiend is still inside you, but now you try to keep it bottled up." ], [ "10", "You did terrible things to avenge the murder of someone you loved. You became a monster, and it haunts your waking dreams." ] ]
+    } ],
+    "features" : [ {
+      "name" : "Heart of Darkness",
+      "description" : "Those who look into your eyes can see that you have faced unimaginable horror and that you are no stranger to darkness. Though they might fear you, commoners will extend you every courtesy and do their utmost to help you. Unless you have shown yourself to be a danger to them, they will even take up arms to fight alongside you, should you find yourself facing an enemy alone."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : [ "arcana", "investigation", "religion", "survival" ],
+        "category" : null,
+        "fromFilter" : null,
+        "count" : 2,
+        "amount" : null
+      } ]
+    } ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      }, {
+        "from" : [ "abyssal", "celestial", "deep-speech", "draconic", "infernal", "primordial", "sylvan", "undercommon" ],
+        "category" : null,
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : "monster-hunters-pack",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "common-clothes",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "horror-trinket",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : "trinket of special significance (choose one or roll on the Horror Trinkets table)",
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : 10,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : null,
+    "prerequisites" : null
+  }
+}

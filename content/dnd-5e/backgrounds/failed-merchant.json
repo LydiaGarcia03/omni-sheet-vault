@@ -1,0 +1,92 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "failed-merchant",
+  "name" : "Failed Merchant",
+  "sourceBook" : "Acquisitions Incorporated",
+  "sourceCode" : "AI",
+  "sourcePage" : 49,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. Investigation, Persuasion Tool Proficiencies:. One type of artisan's tools Languages:. Any one of your choice Equipment:. One set of artisan's tools, merchant's scale, a set of fine clothes, and a belt pouch containing 10 gp Feature: Supply Chain. From your time as a merchant, you retain connections with wholesalers, suppliers, and other merchants and entrepreneurs. You can call upon these connections when looking for items or information. Suggested Characteristics. Being a merchant involved having a head for numbers, a strong personality, the ability to make deals with hostile adversaries, a strong sword arm to fight off bandits, and the intuition for knowing what people want and need. The art of business is the art of finding the best path to profit, and that path might be different with each transaction. It takes a strong mind and a stronger stomach to succeed. So why did you fail?",
+  "data" : {
+    "personalityTraits" : [ "I didn't have the cutthroat attitude necessary to succeed. I won't make that mistake again.", "Even my competitors said I was affable and talented. Those traits should serve me well.", "To prosper, you have to be in control.", "The customer is always right.", "I was cutting corners and breaking deals to maximize profit. That's why I failed.", "When I get an idea, I am single-minded in its execution—even if it's a terrible idea.", "If I can be everyone's friend, I'll always have support.", "My heart wasn't in being a merchant, so I failed. I'm not all that keen on adventuring either, but I need the money." ],
+    "ideals" : [ "Survival. Where there's life, there's hope. If I remain alive and flexible, I can succeed. (Any)", "Generosity. People helped me when I was down. Now that I'm back on my feet, I'll pay it forward. (Good)", "Excitement. Caution got me nowhere in my previous business. I'm not going to let it hold me back now. (Chaotic)", "Wealth. With enough coin, I can buy comfort, power, knowledge, and even eternal life. Nothing will stand between me and money. (Evil)", "Stability. The mercantile trade was too chaotic for me. I need a nice stable profession, like adventuring. (Lawful)", "Redemption. Too many people consider me a failure. So I need to prove them wrong. (Any)" ],
+    "bonds" : [ "My family means everything to me. I failed them before, and I must not do so again.", "My church provides a connection to my god, so I must ensure that it is protected and funded.", "My former business partner fell ill, and then our business failed. Part of my new venture involves earning enough to take care of their family.", "If I take care of my possessions, they'll take care of me. People come and go, but a weapon or a wand is something you can always rely on.", "Although my business failed, the people of my community were kind to me. I'll do everything in my power to protect them.", "I owe a dangerous person a lot of money. As long as they're happy, they let my debt rest unpaid." ],
+    "flaws" : [ "Why spend gold here when you can buy the same thing for copper in the next town?", "I must have the best of everything. Like, right now.", "You haven't heard of me? I'm sure that's because of your ignorance and low breeding.", "I failed, but I'm awesome. So when anyone else is successful, it must be because of nepotism, dishonesty, or dumb luck.", "I find that most people are trustworthy. Hey, where's my belt pouch?", "Nothing gets between me and danger except my fellow adventurers. So I'll be sure to put them there." ],
+    "otherTables" : [ ],
+    "features" : [ {
+      "name" : "Supply Chain",
+      "description" : "From your time as a merchant, you retain connections with wholesalers, suppliers, and other merchants and entrepreneurs. You can call upon these connections when looking for items or information."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "investigation", "persuasion" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "artisansTool",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "languageAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : null,
+          "equipmentType" : "toolArtisan",
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "merchants-scale",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "fine-clothes",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 1000,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : null,
+    "prerequisites" : null
+  }
+}

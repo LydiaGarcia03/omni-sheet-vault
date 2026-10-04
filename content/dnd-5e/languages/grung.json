@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "LANGUAGE",
+  "slug" : "grung",
+  "name" : "Grung",
+  "sourceBook" : "Volo's Guide to Monsters",
+  "sourceCode" : "VGM",
+  "sourcePage" : 156,
+  "tags" : [ ],
+  "description" : "",
+  "data" : {
+    "type" : null,
+    "script" : null
+  }
+}

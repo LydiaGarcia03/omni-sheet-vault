@@ -1,0 +1,41 @@
+{
+  "characterName": "Vex",
+  "systemId": "dnd-5e",
+  "build": {
+    "speciesSlug": "changeling-mpmm",
+    "subspeciesName": null,
+    "speciesVariantName": null,
+    "backgroundSlug": "urchin",
+    "classes": [
+      { "classSlug": "rogue", "subclassSlug": "rogue-thief", "level": 4 },
+      { "classSlug": "sorcerer", "subclassSlug": "sorcerer-draconic", "level": 3 }
+    ],
+    "abilityScoreMethod": "STANDARD_ARRAY",
+    "baseAbilityScores": {
+      "strength": 8, "dexterity": 15, "constitution": 13,
+      "intelligence": 10, "wisdom": 12, "charisma": 14
+    },
+    "hitPointMethod": "FIXED",
+    "rolledHitPoints": [],
+    "choices": [
+      { "id": "class:rogue:equipment-method", "selections": ["equipment"] },
+      { "id": "species:changeling-mpmm:ability-set", "selections": ["0"] },
+      { "id": "species:changeling-mpmm:ability:0", "selections": ["dexterity", "charisma"] },
+      { "id": "species:changeling-mpmm:size", "selections": ["medium"] },
+      { "id": "species:changeling-mpmm:skills:0", "selections": ["deception", "persuasion"] },
+      { "id": "species:changeling-mpmm:languages:0", "selections": ["elvish"] },
+      { "id": "class:rogue:skills:0", "selections": ["acrobatics", "perception", "insight", "investigation"] },
+      { "id": "class:rogue:tools:replace:thieves-tools", "selections": ["poisoners-kit"] },
+      { "id": "class:rogue:equipment:0", "selections": ["a"] },
+      { "id": "class:rogue:equipment:1", "selections": ["a"] },
+      { "id": "class:rogue:equipment:2", "selections": ["a"] },
+      { "id": "class:rogue:1:expertise:0", "selections": ["stealth", "thieves-tools"] },
+      { "id": "class:rogue:4:asi-or-feat", "selections": ["asi"] },
+      { "id": "class:rogue:4:asi", "selections": ["dexterity", "charisma"] },
+      { "id": "subclass:sorcerer-draconic:1:dragon-ancestor:0", "selections": ["red"] },
+      { "id": "class:sorcerer:cantrips", "selections": ["fire-bolt", "mage-hand", "minor-illusion", "prestidigitation"] },
+      { "id": "class:sorcerer:spells", "selections": ["shield", "chromatic-orb", "magic-missile", "misty-step"] },
+      { "id": "class:sorcerer:3:metamagic", "selections": ["quickened-spell", "twinned-spell"] }
+    ]
+  }
+}

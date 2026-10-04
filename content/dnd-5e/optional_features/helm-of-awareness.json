@@ -1,0 +1,35 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "helm-of-awareness",
+  "name" : "Helm of Awareness",
+  "sourceBook" : "Tasha's Cauldron of Everything",
+  "sourceCode" : "TCE",
+  "sourcePage" : 21,
+  "tags" : [ ],
+  "description" : "Prerequisite: 10th level, A helmet (requires attunement)\n\nWhile wearing this helmet, a creature has advantage on initiative rolls. In addition, the wearer can't be surprised, provided it isn't incapacitated.",
+  "data" : {
+    "featureTypes" : [ "AI" ],
+    "optional" : false,
+    "prerequisiteText" : "10th level, A helmet (requires attunement)",
+    "prerequisites" : [ {
+      "level" : {
+        "level" : 10,
+        "class" : {
+          "name" : "Artificer",
+          "source" : "TCE"
+        }
+      },
+      "item" : [ "A helmet (requires attunement)" ]
+    } ],
+    "consumes" : null,
+    "additionalSpells" : null,
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

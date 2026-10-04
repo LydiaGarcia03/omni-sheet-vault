@@ -1,0 +1,30 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "defense",
+  "name" : "Defense",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 72,
+  "tags" : [ ],
+  "description" : "While you are wearing armor, you gain a +1 bonus to AC.",
+  "data" : {
+    "featureTypes" : [ "FS:F", "FS:P", "FS:R" ],
+    "optional" : false,
+    "prerequisiteText" : null,
+    "prerequisites" : null,
+    "consumes" : null,
+    "additionalSpells" : null,
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ {
+      "type" : "BONUS",
+      "target" : "ARMORED_ARMOR_CLASS",
+      "value" : 1
+    } ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

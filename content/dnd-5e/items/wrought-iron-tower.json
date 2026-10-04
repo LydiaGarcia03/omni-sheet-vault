@@ -1,0 +1,62 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "ITEM",
+  "slug" : "wrought-iron-tower",
+  "name" : "Wrought-Iron Tower",
+  "sourceBook" : "Chains of Asmodeus",
+  "sourceCode" : "CoA",
+  "sourcePage" : 276,
+  "tags" : [ ],
+  "description" : "Constructed from the same materials as his tower, Dispater's Wrought-Iron Tower is a powerful weapon that marks his rule over Dis. It embodies his ideals, representing defense, authority, and power. Its construction changes hourly, similar to the tower, appearing as either iron, steel, lead, or adamantine. The Wrought-Iron Tower is a magic staff that functions as a warhammer and you have a +3 bonus to attack and damage rolls made with it. If a creature is vulnerable to a certain type of damage, all damage dealt with the staff is converted to that damage type. When you hit a good aligned creature with it, that creature takes an extra 3d6 fire damage. While holding the staff, you can control and navigate through the Iron Tower in Dis. While the staff is on the layer of Dis, Dispater knows the exact location of it, and is capable of teleporting to within 30 feet of it at will.",
+  "data" : {
+    "itemKind" : "GEAR",
+    "typeLabel" : "Melee Weapon",
+    "rarity" : "artifact",
+    "focusType" : null,
+    "requiresAttunement" : true,
+    "attunementRequirement" : null,
+    "weightLb" : 2.0,
+    "costGp" : null,
+    "weaponCategory" : null,
+    "attackType" : null,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "versatileDamageDiceCount" : null,
+    "versatileDamageDiceSides" : null,
+    "properties" : [ ],
+    "finesse" : false,
+    "normalRange" : null,
+    "longRange" : null,
+    "armorCategory" : null,
+    "baseArmorClass" : null,
+    "stealthDisadvantage" : false,
+    "strengthRequirement" : null,
+    "weaponAttackBonus" : 3,
+    "weaponDamageBonus" : 3,
+    "armorClassBonus" : 2,
+    "charges" : 10,
+    "rechargeTrigger" : "Dawn",
+    "rechargeFormula" : "10",
+    "grantedSpells" : [ {
+      "spellSlug" : "searing-smite-6",
+      "chargeCost" : 1,
+      "fixedSaveDc" : null
+    } ],
+    "mechanics" : {
+      "modifiers" : [ {
+        "type" : "BONUS",
+        "target" : "ARMOR_CLASS",
+        "value" : 2
+      }, {
+        "type" : "BONUS",
+        "target" : "SAVING_THROWS",
+        "value" : 2
+      } ],
+      "damageResistances" : [ ],
+      "damageImmunities" : [ ],
+      "damageVulnerabilities" : [ ],
+      "conditionImmunities" : [ ]
+    }
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "BACKGROUND",
+  "slug" : "rune-carver",
+  "name" : "Rune Carver",
+  "sourceBook" : "Bigby Presents: Glory of the Giants",
+  "sourceCode" : "BGG",
+  "sourcePage" : 12,
+  "tags" : [ ],
+  "description" : "Skill Proficiencies:. History, Perception Tool Proficiencies:. One set of artisan's tools Languages:. Giant Equipment:. A set of artisan's tools (one of your choice), a small knife, a whetstone, a set of common clothes, and a pouch containing 10 gp Rune Styles. Each rune carver has a unique style and preferred medium. To determine how you make your runes, you can roll on the Rune Style table. Building a Rune Carver Character. Scholarly pursuits, ancient mysteries, or a fateful encounter might inspire a character to pursue the secrets of a rune carver. Feature: Rune Shaper. You gain the Rune Shaper feat. Suggested Characteristics. The Rune Carver Personality Traits table suggests a variety of traits you might adopt for your character.",
+  "data" : {
+    "personalityTraits" : [ "Is it practical to learn an ancient language that is rarely spoken? No. But is it fun? Very.", "I learned one of my ancestors was a lauded rune carver whose story was lost to time. I seek to rekindle that legacy.", "The old, traditional markings of runecraft look so boring. Why not give my runes some flair?", "In my studies of runes, I strive to understand how great civilizations of the past fell, so I can prevent it from happening to societies of the present.", "Life may be a whirlwind of chaos, but whenever I create my runes, I feel at peace.", "My brain struggles to process words written in ink, but the feeling of carved runes makes my mind sing." ],
+    "ideals" : [ ],
+    "bonds" : [ ],
+    "flaws" : [ ],
+    "otherTables" : [ {
+      "caption" : "Rune Style",
+      "colLabels" : [ "d6", "Style" ],
+      "rows" : [ [ "1", "You inscribe runes in wax or clay with a fine metal needle." ], [ "2", "You whittle pieces of wood into small figurines you mark with runes." ], [ "3", "You engrave runes onto glass beads and thread them onto necklaces and bracelets." ], [ "4", "You stitch runes into the hems of clothing." ], [ "5", "You carve runes on a set of animal bones you can throw in different formations." ], [ "6", "You draw runes into candles, melting the wax to smooth over the engravings." ] ]
+    } ],
+    "features" : [ {
+      "name" : "Rune Shaper",
+      "description" : "You gain the Rune Shaper feat."
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ "history", "perception" ],
+      "choices" : [ ]
+    } ],
+    "toolAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "artisansTool",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "giant" ],
+      "choices" : [ ]
+    } ],
+    "featAlternatives" : [ {
+      "fixed" : [ "rune-shaper" ],
+      "choices" : [ ]
+    } ],
+    "skillToolLanguageChoices" : null,
+    "startingEquipment" : [ {
+      "options" : [ {
+        "label" : null,
+        "grants" : [ {
+          "itemSlug" : null,
+          "equipmentType" : "toolArtisan",
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : null,
+          "equipmentType" : null,
+          "special" : "small knife",
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "whetstone",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "common-clothes",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : null,
+          "worthValueCp" : null
+        }, {
+          "itemSlug" : "pouch",
+          "equipmentType" : null,
+          "special" : null,
+          "valueCp" : null,
+          "quantity" : 1,
+          "displayName" : null,
+          "containsValueCp" : 1000,
+          "worthValueCp" : null
+        } ]
+      } ]
+    } ],
+    "additionalSpells" : null,
+    "prerequisites" : null
+  }
+}

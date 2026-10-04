@@ -1,0 +1,79 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "siren",
+  "name" : "Siren",
+  "sourceBook" : "Plane Shift: Ixalan",
+  "sourceCode" : "PSX",
+  "sourcePage" : 17,
+  "tags" : [ ],
+  "description" : "Alignment. Most sirens lean toward chaotic alignment, cherishing the freedom and independence that comes from joining a pirate crew. Size. Sirens stand about 5 to 6 feet tall, but their bodies are slender and their bones partially hollow to facilitate their flight. Your size is Medium. Siren's Song. You know the friends cantrip and can cast it without material components. Flight. You have a flying speed of 30 feet. You can't use your flying speed while you wear medium or heavy armor. (If your campaign uses the variant rule for encumbrance, you can't use your flying speed if you are encumbered.) Languages. You can speak, read, and write Common (if it exists in your campaign) and Siren.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 25,
+      "fly" : 30
+    },
+    "senses" : [ ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "charisma" : 2
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ ],
+    "toolAlternatives" : [ ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "other" ],
+      "choices" : [ ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : [ {
+      "known" : {
+        "1" : [ "friends#c" ]
+      }
+    } ],
+    "age" : null,
+    "heightAndWeight" : null,
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Alignment",
+      "description" : "Most sirens lean toward chaotic alignment, cherishing the freedom and independence that comes from joining a pirate crew."
+    }, {
+      "name" : "Size",
+      "description" : "Sirens stand about 5 to 6 feet tall, but their bodies are slender and their bones partially hollow to facilitate their flight. Your size is Medium."
+    }, {
+      "name" : "Siren's Song",
+      "description" : "You know the friends cantrip and can cast it without material components."
+    }, {
+      "name" : "Flight",
+      "description" : "You have a flying speed of 30 feet. You can't use your flying speed while you wear medium or heavy armor. (If your campaign uses the variant rule for encumbrance, you can't use your flying speed if you are encumbered.)"
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common (if it exists in your campaign) and Siren."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

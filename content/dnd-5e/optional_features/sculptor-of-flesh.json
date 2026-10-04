@@ -1,0 +1,41 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "sculptor-of-flesh",
+  "name" : "Sculptor of Flesh",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 111,
+  "tags" : [ ],
+  "description" : "Prerequisite: 7th level\n\nYou can cast polymorph once using a warlock spell slot. You can't do so again until you finish a long rest.",
+  "data" : {
+    "featureTypes" : [ "EI" ],
+    "optional" : false,
+    "prerequisiteText" : "7th level",
+    "prerequisites" : [ {
+      "level" : {
+        "level" : 7,
+        "class" : {
+          "name" : "Warlock"
+        }
+      }
+    } ],
+    "consumes" : null,
+    "additionalSpells" : [ {
+      "innate" : {
+        "_" : {
+          "daily" : {
+            "1e" : [ "polymorph" ]
+          }
+        }
+      }
+    } ],
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

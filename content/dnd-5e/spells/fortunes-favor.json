@@ -1,0 +1,47 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "fortunes-favor",
+  "name" : "Fortune's Favor",
+  "sourceBook" : "Explorer's Guide to Wildemount",
+  "sourceCode" : "EGW",
+  "sourcePage" : 186,
+  "tags" : [ ],
+  "description" : "You impart latent luck to yourself or one willing creature you can see within range. When the chosen creature makes an attack roll, an ability check, or a saving throw before the spell ends, it can dismiss this spell on itself to roll an additional d20 and choose which of the d20s to use. Alternatively, when an attack roll is made against the chosen creature, it can dismiss this spell on itself to roll a d20 and choose which of the d20s to use, the one it rolled or the one the attacker rolled. If the original d20 roll has advantage or disadvantage, the creature rolls the additional d20 after advantage or disadvantage has been applied to the original roll.",
+  "data" : {
+    "level" : 2,
+    "school" : "divination",
+    "castingTime" : "1 Minute",
+    "range" : "60 ft.",
+    "concentration" : false,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "notes" : "V, S, M (a white pearl worth at least 100 gp, which the spell consumes)",
+    "effectSummary" : "Detection",
+    "saveAbility" : null,
+    "components" : "V, S, M",
+    "materialComponent" : "a white pearl worth at least 100 gp, which the spell consumes",
+    "duration" : "1 hour",
+    "higherLevelsDescription" : "When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd.",
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "EGW",
+    "classes" : [ ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Wizard",
+      "classSource" : "PHB",
+      "subclassShortName" : "Chronurgy",
+      "subclassSource" : "EGW"
+    }, {
+      "className" : "Wizard",
+      "classSource" : "PHB",
+      "subclassShortName" : "Graviturgy",
+      "subclassSource" : "EGW"
+    } ],
+    "effect" : null
+  }
+}

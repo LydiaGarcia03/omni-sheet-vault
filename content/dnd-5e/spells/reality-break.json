@@ -1,0 +1,47 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPELL",
+  "slug" : "reality-break",
+  "name" : "Reality Break",
+  "sourceBook" : "Explorer's Guide to Wildemount",
+  "sourceCode" : "EGW",
+  "sourcePage" : 189,
+  "tags" : [ "Stunned", "Prone", "Blinded" ],
+  "description" : "You shatter the barriers between realities and timelines, thrusting a creature into turmoil and madness. The target must succeed on a Wisdom saving throw, or it can't take reactions until the spell ends. The affected target must also roll a d10 at the start of each of its turns; the number rolled determines what happens to the target, as shown on the Reality Break Effects table. At the end of each of its turns, the affected target can repeat the Wisdom saving throw, ending the spell on itself on a success.",
+  "data" : {
+    "level" : 8,
+    "school" : "conjuration",
+    "castingTime" : "1 Action",
+    "range" : "60 ft.",
+    "concentration" : true,
+    "ritual" : false,
+    "attackRoll" : false,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : "psychic",
+    "notes" : "Concentration, 1 minute, V, S, M (a crystal prism)",
+    "effectSummary" : "Damage",
+    "saveAbility" : "wisdom",
+    "components" : "V, S, M",
+    "materialComponent" : "a crystal prism",
+    "duration" : "Concentration, 1 minute",
+    "higherLevelsDescription" : null,
+    "higherLevelsDamageDiceCount" : null,
+    "higherLevelsDamageDiceSides" : null,
+    "sourceCode" : "EGW",
+    "classes" : [ ],
+    "optionalClasses" : [ ],
+    "subclasses" : [ {
+      "className" : "Wizard",
+      "classSource" : "PHB",
+      "subclassShortName" : "Chronurgy",
+      "subclassSource" : "EGW"
+    }, {
+      "className" : "Wizard",
+      "classSource" : "PHB",
+      "subclassShortName" : "Graviturgy",
+      "subclassSource" : "EGW"
+    } ],
+    "effect" : null
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "SPECIES",
+  "slug" : "vedalken-ggr",
+  "name" : "Vedalken",
+  "sourceBook" : "Guildmasters' Guide to Ravnica",
+  "sourceCode" : "GGR",
+  "sourcePage" : 21,
+  "tags" : [ ],
+  "description" : "Age. Vedalken mature slower than humans do, reaching maturity around age 40. Their life span is typically 350 years, with some living to the age of 500. Alignment. Vedalken are usually lawful and non-evil. Size. Tall and slender, Vedalken stand 6 to 6½ feet tall on average and usually weigh less than 200 pounds. Your size is Medium. Vedalken Dispassion. You have advantage on all Intelligence, Wisdom, and Charisma saving throws. Tireless Precision. You are proficient in one of the following skills of your choice: Arcana, History, Investigation, Medicine, Performance, or Sleight of Hand. You are also proficient with one tool of your choice. Whenever you make an ability check with the chosen skill or tool, roll a d4 and add the number rolled to the check's total. Partially Amphibious. By absorbing oxygen through your skin, you can breathe underwater for up to 1 hour. Once you've reached that limit, you can't use this trait again until you finish a long rest. Languages. You can speak, read, and write Common, Vedalken, and one other language of your choice.",
+  "data" : {
+    "size" : [ "medium" ],
+    "speed" : {
+      "walk" : 30
+    },
+    "senses" : [ ],
+    "abilityAlternatives" : [ {
+      "fixed" : {
+        "intelligence" : 2,
+        "wisdom" : 1
+      },
+      "choices" : [ ],
+      "maximum" : null
+    } ],
+    "skillAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : [ "arcana", "history", "investigation", "medicine", "performance", "sleightOfHand" ],
+        "category" : null,
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "toolAlternatives" : [ {
+      "fixed" : [ ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "any",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "languageAlternatives" : [ {
+      "fixed" : [ "common", "other" ],
+      "choices" : [ {
+        "from" : null,
+        "category" : "standard",
+        "fromFilter" : null,
+        "count" : 1,
+        "amount" : null
+      } ]
+    } ],
+    "weaponAlternatives" : [ ],
+    "armorAlternatives" : [ ],
+    "featAlternatives" : [ ],
+    "skillToolLanguageChoices" : null,
+    "damageResistances" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "damageVulnerabilities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "conditionImmunities" : {
+      "fixed" : [ ],
+      "choices" : [ ]
+    },
+    "creatureTypes" : null,
+    "additionalSpells" : null,
+    "age" : {
+      "mature" : 40,
+      "max" : 500
+    },
+    "heightAndWeight" : {
+      "baseHeight" : 64,
+      "heightMod" : "2d10",
+      "baseWeight" : 110,
+      "weightMod" : "2d4"
+    },
+    "lineage" : null,
+    "traits" : [ {
+      "name" : "Age",
+      "description" : "Vedalken mature slower than humans do, reaching maturity around age 40. Their life span is typically 350 years, with some living to the age of 500."
+    }, {
+      "name" : "Alignment",
+      "description" : "Vedalken are usually lawful and non-evil."
+    }, {
+      "name" : "Size",
+      "description" : "Tall and slender, Vedalken stand 6 to 6½ feet tall on average and usually weigh less than 200 pounds. Your size is Medium."
+    }, {
+      "name" : "Vedalken Dispassion",
+      "description" : "You have advantage on all Intelligence, Wisdom, and Charisma saving throws."
+    }, {
+      "name" : "Tireless Precision",
+      "description" : "You are proficient in one of the following skills of your choice: Arcana, History, Investigation, Medicine, Performance, or Sleight of Hand. You are also proficient with one tool of your choice. Whenever you make an ability check with the chosen skill or tool, roll a d4 and add the number rolled to the check's total."
+    }, {
+      "name" : "Partially Amphibious",
+      "description" : "By absorbing oxygen through your skin, you can breathe underwater for up to 1 hour. Once you've reached that limit, you can't use this trait again until you finish a long rest."
+    }, {
+      "name" : "Languages",
+      "description" : "You can speak, read, and write Common, Vedalken, and one other language of your choice."
+    } ],
+    "variants" : [ ],
+    "subspecies" : [ ]
+  }
+}

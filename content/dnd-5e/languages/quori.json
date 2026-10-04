@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "LANGUAGE",
+  "slug" : "quori",
+  "name" : "Quori",
+  "sourceBook" : "Eberron: Rising from the Last War",
+  "sourceCode" : "ERLW",
+  "sourcePage" : 6,
+  "tags" : [ ],
+  "description" : "",
+  "data" : {
+    "type" : "exotic",
+    "script" : "Quori"
+  }
+}

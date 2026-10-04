@@ -1,0 +1,34 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "OPTIONAL_FEATURE",
+  "slug" : "bond-of-the-talisman",
+  "name" : "Bond of the Talisman",
+  "sourceBook" : "Tasha's Cauldron of Everything",
+  "sourceCode" : "TCE",
+  "sourcePage" : 70,
+  "tags" : [ ],
+  "description" : "Prerequisite: 12th level, Pact of the Talisman\n\nWhile someone else is wearing your talisman, you can use your action to teleport to the unoccupied space closest to them, provided the two of you are on the same plane of existence. The wearer of your talisman can do the same thing, using their action to teleport to you. The teleportation can be used a number of times equal to your proficiency bonus, and all expended uses are restored when you finish a long rest.",
+  "data" : {
+    "featureTypes" : [ "EI" ],
+    "optional" : true,
+    "prerequisiteText" : "12th level, Pact of the Talisman",
+    "prerequisites" : [ {
+      "level" : {
+        "level" : 12,
+        "class" : {
+          "name" : "Warlock"
+        }
+      },
+      "pact" : "Talisman"
+    } ],
+    "consumes" : null,
+    "additionalSpells" : null,
+    "senses" : [ ],
+    "skillAlternatives" : [ ],
+    "optionalFeatureProgressions" : [ ],
+    "modifiers" : [ ],
+    "uses" : null,
+    "action" : null,
+    "grants" : null
+  }
+}

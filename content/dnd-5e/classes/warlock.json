@@ -1,0 +1,536 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CLASS",
+  "slug" : "warlock",
+  "name" : "Warlock",
+  "sourceBook" : "Player's Handbook",
+  "sourceCode" : "PHB",
+  "sourcePage" : 105,
+  "tags" : [ ],
+  "description" : "",
+  "data" : {
+    "hitDie" : 8,
+    "savingThrows" : [ "wisdom", "charisma" ],
+    "proficiencies" : {
+      "armor" : [ "light" ],
+      "weaponCategories" : [ "simple" ],
+      "weaponItems" : [ ],
+      "optionalWeaponCategories" : [ ],
+      "notes" : [ ],
+      "toolAlternatives" : [ ],
+      "skillAlternatives" : [ {
+        "fixed" : [ ],
+        "choices" : [ {
+          "from" : [ "arcana", "deception", "history", "intimidation", "investigation", "nature", "religion" ],
+          "category" : null,
+          "fromFilter" : null,
+          "count" : 2,
+          "amount" : null
+        } ]
+      } ]
+    },
+    "startingEquipment" : {
+      "additionalFromBackground" : true,
+      "goldAlternative" : "4d4 × 10",
+      "text" : [ "(a) a light crossbow and 20 bolts or (b) any simple weapon", "(a) a component pouch or (b) an arcane focus", "(a) a scholar's pack or (b) a dungeoneer's pack", "Leather armor, any simple weapon, and two daggers" ],
+      "groups" : [ {
+        "options" : [ {
+          "label" : "a",
+          "grants" : [ {
+            "itemSlug" : "light-crossbow",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          }, {
+            "itemSlug" : "crossbow-bolts-20",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        }, {
+          "label" : "b",
+          "grants" : [ {
+            "itemSlug" : null,
+            "equipmentType" : "weaponSimple",
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        } ]
+      }, {
+        "options" : [ {
+          "label" : "a",
+          "grants" : [ {
+            "itemSlug" : "component-pouch",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        }, {
+          "label" : "b",
+          "grants" : [ {
+            "itemSlug" : null,
+            "equipmentType" : "focusSpellcastingArcane",
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        } ]
+      }, {
+        "options" : [ {
+          "label" : "a",
+          "grants" : [ {
+            "itemSlug" : "scholars-pack",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        }, {
+          "label" : "b",
+          "grants" : [ {
+            "itemSlug" : "dungeoneers-pack",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        } ]
+      }, {
+        "options" : [ {
+          "label" : null,
+          "grants" : [ {
+            "itemSlug" : "leather-armor",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          }, {
+            "itemSlug" : null,
+            "equipmentType" : "weaponSimple",
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 1,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          }, {
+            "itemSlug" : "dagger",
+            "equipmentType" : null,
+            "special" : null,
+            "valueCp" : null,
+            "quantity" : 2,
+            "displayName" : null,
+            "containsValueCp" : null,
+            "worthValueCp" : null
+          } ]
+        } ]
+      } ]
+    },
+    "multiclassing" : {
+      "allOf" : {
+        "charisma" : 13
+      },
+      "anyOf" : { },
+      "proficienciesGained" : {
+        "armor" : [ "light" ],
+        "weaponCategories" : [ "simple" ],
+        "weaponItems" : [ ],
+        "optionalWeaponCategories" : [ ],
+        "notes" : [ ],
+        "toolAlternatives" : [ ],
+        "skillAlternatives" : [ ]
+      }
+    },
+    "spellcasting" : {
+      "ability" : "charisma",
+      "casterProgression" : "pact",
+      "preparedSpellsFormula" : null,
+      "cantripsKnownByLevel" : [ 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4 ],
+      "spellsKnownByLevel" : [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15 ],
+      "spellbookSpellsAddedByLevel" : null,
+      "spellSlotsByLevel" : null,
+      "pactSlotsByLevel" : [ {
+        "slots" : 1,
+        "slotLevel" : 1
+      }, {
+        "slots" : 2,
+        "slotLevel" : 1
+      }, {
+        "slots" : 2,
+        "slotLevel" : 2
+      }, {
+        "slots" : 2,
+        "slotLevel" : 2
+      }, {
+        "slots" : 2,
+        "slotLevel" : 3
+      }, {
+        "slots" : 2,
+        "slotLevel" : 3
+      }, {
+        "slots" : 2,
+        "slotLevel" : 4
+      }, {
+        "slots" : 2,
+        "slotLevel" : 4
+      }, {
+        "slots" : 2,
+        "slotLevel" : 5
+      }, {
+        "slots" : 2,
+        "slotLevel" : 5
+      }, {
+        "slots" : 3,
+        "slotLevel" : 5
+      }, {
+        "slots" : 3,
+        "slotLevel" : 5
+      }, {
+        "slots" : 3,
+        "slotLevel" : 5
+      }, {
+        "slots" : 3,
+        "slotLevel" : 5
+      }, {
+        "slots" : 3,
+        "slotLevel" : 5
+      }, {
+        "slots" : 3,
+        "slotLevel" : 5
+      }, {
+        "slots" : 4,
+        "slotLevel" : 5
+      }, {
+        "slots" : 4,
+        "slotLevel" : 5
+      }, {
+        "slots" : 4,
+        "slotLevel" : 5
+      }, {
+        "slots" : 4,
+        "slotLevel" : 5
+      } ]
+    },
+    "tableColumns" : [ {
+      "label" : "Cantrips Known",
+      "valuesByLevel" : [ "2", "2", "2", "3", "3", "3", "3", "3", "3", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4", "4" ]
+    }, {
+      "label" : "Spells Known",
+      "valuesByLevel" : [ "2", "3", "4", "5", "6", "7", "8", "9", "10", "10", "11", "11", "12", "12", "13", "13", "14", "14", "15", "15" ]
+    }, {
+      "label" : "Spell Slots",
+      "valuesByLevel" : [ "1", "2", "2", "2", "2", "2", "2", "2", "2", "2", "3", "3", "3", "3", "3", "3", "4", "4", "4", "4" ]
+    }, {
+      "label" : "Slot Level",
+      "valuesByLevel" : [ "1st", "1st", "2nd", "2nd", "3rd", "3rd", "4th", "4th", "5th", "5th", "5th", "5th", "5th", "5th", "5th", "5th", "5th", "5th", "5th", "5th" ]
+    }, {
+      "label" : "Invocations Known",
+      "valuesByLevel" : [ "0", "2", "2", "2", "3", "3", "4", "4", "5", "5", "5", "6", "6", "6", "7", "7", "7", "8", "8", "8" ]
+    } ],
+    "optionalFeatureProgressions" : [ {
+      "name" : "Eldritch Invocations",
+      "featureTypes" : [ "EI" ],
+      "countByLevel" : [ 0, 2, 2, 2, 3, 3, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8 ]
+    }, {
+      "name" : "Pact Boon",
+      "featureTypes" : [ "PB" ],
+      "countByLevel" : [ 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ]
+    } ],
+    "subclassTitle" : "Otherworldly Patron",
+    "subclassLevel" : 1,
+    "abilityScoreImprovementLevels" : [ 4, 8, 12, 16, 19 ],
+    "features" : [ {
+      "name" : "Pact Magic",
+      "level" : 1,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 105,
+      "description" : "Your arcane research and the magic bestowed on you by your patron have given you facility with spells. See chapter 10 for the general rules of spellcasting and chapter 11 for the warlock spell list. Cantrips. You know two cantrips of your choice from the warlock spell list. You learn additional warlock cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Warlock table. Spell Slots. The Warlock table shows how many spell slots you have to cast your warlock spells of 1st through 5th level. The table also shows what the level of those slots is; all of your spell slots are the same level. To cast one of your warlock spells of 1st level or higher, you must expend a spell slot. You regain all expended spell slots when you finish a short or long rest. For example, when you are 5th level, you have two 3rd-level spell slots. To cast the 1st-level spell witch bolt, you must spend one of those slots, and you cast it as a 3rd-level spell. Spells Known of 1st Level and Higher. At 1st level, you know two 1st-level spells of your choice from the warlock spell list. The Spells Known column of the Warlock table shows when you learn more warlock spells of your choice of 1st level and higher. A spell you choose must be of a level no higher than what's shown in the table's Slot Level column for your level. When you reach 6th level, for example, you learn a new warlock spell, which can be 1st, 2nd, or 3rd level. Additionally, when you gain a level in this class, you can choose one of the warlock spells you know and replace it with another spell from the warlock spell list, which also must be of a level for which you have spell slots. Spellcasting Ability. Charisma is your spellcasting ability for your warlock spells, so you use your Charisma whenever a spell refers to your spellcasting ability. In addition, you use your Charisma modifier when setting the saving throw DC for a warlock spell you cast and when making an attack roll with one. Spell save DC = 8 + your proficiency bonus + your Charisma modifier Spell attack modifier = your proficiency bonus + your Charisma modifier Spellcasting Focus. You can use an arcane focus as a spellcasting focus for your warlock spells.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Otherworldly Patron",
+      "level" : 1,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 105,
+      "description" : "At 1st level, you have struck a bargain with an otherworldly being chosen from the list of available patrons. Your choice grants you features at 1st level and again at 6th, 10th, and 14th level.",
+      "optional" : false,
+      "grantsSubclassFeature" : true,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Eldritch Invocations",
+      "level" : 2,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 105,
+      "description" : "In your study of occult lore, you have unearthed eldritch invocations, fragments of forbidden knowledge that imbue you with an abiding magical ability. At 2nd level, you gain two eldritch invocations of your choice. A list of the available options can be found on the Optional Features page. When you gain certain warlock levels, you gain additional invocations of your choice, as shown in the Invocations Known column of the Warlock table. Additionally, when you gain a level in this class, you can choose one of the invocations you know and replace it with another invocation that you could learn at that level. If an eldritch invocation has prerequisites, you must meet them to learn it. You can learn the invocation at the same time that you meet its prerequisites. A level prerequisite refers to your level in this class.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Pact Boon",
+      "level" : 3,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 105,
+      "description" : "At 3rd level, your otherworldly patron bestows a gift upon you for your loyal service. You gain one of the following features of your choice.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ {
+        "name" : "Pact of the Chain",
+        "source" : "PHB"
+      }, {
+        "name" : "Pact of the Blade",
+        "source" : "PHB"
+      }, {
+        "name" : "Pact of the Tome",
+        "source" : "PHB"
+      }, {
+        "name" : "Pact of the Talisman",
+        "source" : "TCE"
+      } ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 4,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 105,
+      "description" : "When you reach 4th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Eldritch Versatility",
+      "level" : 4,
+      "sourceBook" : "Tasha's Cauldron of Everything",
+      "sourcePage" : 70,
+      "description" : "4th-level warlock optional feature Whenever you reach a level in this class that grants the Ability Score Improvement feature, you can do one of the following, representing a change of focus in your occult studies: Replace one cantrip you learned from this class's Pact Magic feature with another cantrip from the warlock spell list. Replace the option you chose for the Pact Boon feature with one of that feature's other options. If you're 12th level or higher, replace one spell from your Mystic Arcanum feature with another warlock spell of the same level. If this change makes you ineligible for any of your Eldritch Invocations, you must also replace them now, choosing invocations for which you qualify.",
+      "optional" : true,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Otherworldly Patron feature",
+      "level" : 6,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 105,
+      "description" : "At 6th level, you gain a feature granted by your Otherworldly Patron.",
+      "optional" : false,
+      "grantsSubclassFeature" : true,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 8,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 105,
+      "description" : "When you reach 8th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Otherworldly Patron feature",
+      "level" : 10,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 105,
+      "description" : "At 10th level, you gain a feature granted by your Otherworldly Patron.",
+      "optional" : false,
+      "grantsSubclassFeature" : true,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Mystic Arcanum (6th level)",
+      "level" : 11,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 105,
+      "description" : "At 11th level, your patron bestows upon you a magical secret called an arcanum. Choose one 6th-level spell from the warlock spell list as this arcanum. You can cast your arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again. At higher levels, you gain more warlock spells of your choice that can be cast in this way: one 7th-level spell at 13th level, one 8th-level spell at 15th level, and one 9th-level spell at 17th level. You regain all uses of your Mystic Arcanum when you finish a long rest.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 12,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 105,
+      "description" : "When you reach 12th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Mystic Arcanum (7th level)",
+      "level" : 13,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 105,
+      "description" : "At 13th level, your patron bestows upon you a magical secret called an arcanum. Choose one 7th-level spell from the warlock spell list as this arcanum. You can cast your arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Otherworldly Patron feature",
+      "level" : 14,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 105,
+      "description" : "At 14th level, you gain a feature granted by your Otherworldly Patron.",
+      "optional" : false,
+      "grantsSubclassFeature" : true,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Mystic Arcanum (8th level)",
+      "level" : 15,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 105,
+      "description" : "At 15th level, your patron bestows upon you a magical secret called an arcanum. Choose one 8th-level spell from the warlock spell list as this arcanum. You can cast your arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 16,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 105,
+      "description" : "When you reach 16th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Mystic Arcanum (9th level)",
+      "level" : 17,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 105,
+      "description" : "At 17th level, your patron bestows upon you a magical secret called an arcanum. Choose one 9th-level spell from the warlock spell list as this arcanum. You can cast your arcanum spell once without expending a spell slot. You must finish a long rest before you can do so again.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Ability Score Improvement",
+      "level" : 19,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 105,
+      "description" : "When you reach 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature. If your DM allows the use of feats, you may instead take a feat.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    }, {
+      "name" : "Eldritch Master",
+      "level" : 20,
+      "sourceBook" : "Player's Handbook",
+      "sourcePage" : 105,
+      "description" : "At 20th level, you can draw on your inner reserve of mystical power while entreating your patron to regain expended spell slots. You can spend 1 minute entreating your patron for aid to regain all your expended spell slots from your Pact Magic feature. Once you regain spell slots with this feature, you must finish a long rest before you can do so again.",
+      "optional" : false,
+      "grantsSubclassFeature" : false,
+      "optionalFeatureOptions" : [ ],
+      "choices" : [ ],
+      "modifiers" : [ ],
+      "uses" : null,
+      "action" : null,
+      "grants" : null
+    } ]
+  }
+}

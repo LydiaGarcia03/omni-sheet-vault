@@ -1,0 +1,15 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "LANGUAGE",
+  "slug" : "olman",
+  "name" : "Olman",
+  "sourceBook" : "Tales from the Yawning Portal",
+  "sourceCode" : "TftYP",
+  "sourcePage" : 238,
+  "tags" : [ ],
+  "description" : "",
+  "data" : {
+    "type" : null,
+    "script" : null
+  }
+}

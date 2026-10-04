@@ -1,0 +1,52 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "ITEM",
+  "slug" : "ruby-rod-of-asmodeus",
+  "name" : "Ruby Rod of Asmodeus",
+  "sourceBook" : "Chains of Asmodeus",
+  "sourceCode" : "CoA",
+  "sourcePage" : 274,
+  "tags" : [ ],
+  "description" : "Asmodeus's Ruby Rod is said to have been constructed from a shard of pure evil, a ruby soaked in the blood of the innocents, the drool from a draconic deity, and the tears of 777 angels. It is a magic rod that functions as a morningstar and you have a +2 bonus to attack and damage rolls made with it. All damage dealt with it is converted to necrotic, and when you hit a good aligned creature, that creature takes an extra 2d12 necrotic damage. The Ruby Rod of Asmodeus has 66 charges and regains 6d6 charges each nightfall. Asmodeus is always capable of perceiving through the rod and knows the exact location of any creature attuned to it. If a creature uses the special abilities of the rod without Asmodeus's permission, they take 2d12 necrotic damage each use, doubled if they're good aligned. This damage ignores resistances and immunities, and if it kills the user, Asmodeus permanently claims their soul.",
+  "data" : {
+    "itemKind" : "GEAR",
+    "typeLabel" : "Rod",
+    "rarity" : "artifact",
+    "focusType" : null,
+    "requiresAttunement" : true,
+    "attunementRequirement" : null,
+    "weightLb" : null,
+    "costGp" : null,
+    "weaponCategory" : null,
+    "attackType" : null,
+    "damageDiceCount" : null,
+    "damageDiceSides" : null,
+    "damageType" : null,
+    "versatileDamageDiceCount" : null,
+    "versatileDamageDiceSides" : null,
+    "properties" : [ ],
+    "finesse" : false,
+    "normalRange" : null,
+    "longRange" : null,
+    "armorCategory" : null,
+    "baseArmorClass" : null,
+    "stealthDisadvantage" : false,
+    "strengthRequirement" : null,
+    "weaponAttackBonus" : 2,
+    "weaponDamageBonus" : 2,
+    "armorClassBonus" : null,
+    "charges" : 66,
+    "rechargeTrigger" : "Dusk",
+    "rechargeFormula" : "6d6",
+    "grantedSpells" : [ {
+      "spellSlug" : "lesser-restoration",
+      "chargeCost" : 3,
+      "fixedSaveDc" : null
+    }, {
+      "spellSlug" : "greater-restoration",
+      "chargeCost" : 12,
+      "fixedSaveDc" : null
+    } ],
+    "mechanics" : null
+  }
+}
