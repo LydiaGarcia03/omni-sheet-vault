@@ -401,7 +401,58 @@ tool from 5etools (2014 sources only). Never hand-write a rules fact.
 
 **System docs:** `systems/dnd-5e/` (start with `systems/README.md`).
 
-#### 2.4.2 Next system — template
+#### 2.4.2 Vampire: The Masquerade 5e (vtm-v5) — ruleset.vtm5
+
+Per adr-0009 VtM shares only the platform (character and draft creation,
+list, portraits, builder frame logic) and owns its sheet, actions, rolls and
+endpoints. Specs and status: `systems/vtm-v5/`.
+
+**Strategy implementations (registered by system id):**
+
+| Seam | Class |
+| --- | --- |
+| `GameSystem` | `Vtm5GameSystem` (`vtm-v5`) |
+| `CharacterCreationFlow` | `Vtm5CharacterCreationFlow` (no `withLevelUp`: the default refuses) |
+| `CharacterSummarizer` | `Vtm5CharacterSummarizer` (clan, age, predator) |
+
+`SheetCalculator` and `SheetMutator` are D&D's shapes; VtM doesn't implement
+them and uses its own controllers instead.
+
+**Stored data:** the build document (draft) as the web builder writes it;
+the sheet JSON (`schemaVersion` 1) with `identity`, `attributes`, `skills`,
+`specialties`, `disciplines` (dots + powers; Thin-Blood Alchemy's powers
+are its formulas), `rituals`, `advantages`, `loresheets` (name → owned
+entry levels), `thinBlood` (merits, flaws, alchemy method), `inventory`,
+`coterie` (text fields, members, contribution, othersDonated, domain,
+backgrounds; pool checked by `Vtm5SheetActions.coterie`),
+`predatorExtras`, `convictions`, `humanity`, `stains`, `bloodPotency`,
+`hunger`, `health` / `willpower` (superficial, aggravated), `resonance`,
+`notes`, `xpLog` (awards and spends, undone spends flagged) and `build`.
+Content is `resources/ruleset/vtm5/vtm5-content.json` (owner-curated
+summaries), served at `GET /api/vtm5/content`; not the catalogue.
+
+**Where each rule lives:**
+
+| Rule | Where |
+| --- | --- |
+| Creation choices and problems (attribute spread, skill distributions, specialties, clan disciplines, power levels, free ritual, predator gifts and restrictions, advantage budgets, ancilla, thin-blood, Caitiff) | `Vtm5CharacterCreationFlow.plan` |
+| The sheet a finished build becomes | `Vtm5CharacterCreationFlow.sheet` |
+| Derived values (Health, Willpower, Blood Potency row, XP totals, next-dot costs) | `Vtm5SheetController.derived`, `Vtm5SheetActions.nextCosts` |
+| Play state and XP (damage, trackers, identity, convictions, spends with the cost table, undo, powers, rituals, advantages) | `Vtm5SheetActions` via `POST /api/vtm5/characters/{id}/actions` |
+| Dice: successes, criticals, messy, bestial, Difficulty, margin | `Vtm5Dice` |
+| Pools, Rouse Check, Willpower re-roll, frenzy check, Remorse | `Vtm5RollController` (`/api/vtm5/characters/{id}/rolls…`), stored through `RollService.recordReadRoll` |
+
+**Web (`src/systems/vtm5/`):** `content.ts` (content hook and types),
+`builder/` (`Vtm5BuilderFrame` draws the whole builder page through
+`BuilderDefinition.Frame`; `Vtm5StepPage`, `Vtm5Explain`), `sheet/`
+(`Vtm5SheetScreen` registered in `sheet/sheetLayouts.ts`, `Vtm5DiceDock`),
+`portraits/`, `Vtm5SystemMark`, `Vtm5Footer`, `vtm5-builder.css` and
+`vtm5-sheet.css` (scoped ports of the mockups' CSS).
+
+**Tests:** `apps/api/src/test/java/…/ruleset/vtm5/` (dice, creation flow,
+actions, summarizer, controllers; fixture `Vtm5TestBuilds`).
+
+#### 2.4.3 Next system — template
 
 Copy this heading for each new system (e.g. `2.4.2 Daggerheart
 (daggerheart) — ruleset.daggerheart`) and fill the same three tables:
@@ -448,6 +499,7 @@ sit next to the code (`*.test.tsx`), run with `npm test` (Vitest).
 | `builder/CharacterBuilder.tsx` | The builder frame: loads the draft, autosaves 600 ms after a change, finishes |
 | `builder/draftApi.ts` | Draft endpoints |
 | `levelup/levelUpPages.ts` | Level-up page per system id |
+| `sheet/sheetLayouts.ts` | Sheet screen per system id (D&D's is `CharacterSheetScreen`) |
 | `sheet/CharacterSheetScreen.tsx` | The sheet screen: loads the sheet, owns sidebar, rolls and mutations (~690 lines) |
 | `sheet/api.ts` | `CharacterSheet` type (`:775`), `MutationAction` (`:920`), `postMutationAction` (`:969`), one function per endpoint |
 | `sheet/Sidebar.tsx`, `sheet/*Panel.tsx` | The right-hand sidebar and its panels (HP, inventory, spells, conditions…) |
@@ -552,8 +604,8 @@ generality until then):
 
 - `sheet/CharacterSheetScreen.tsx` renders `Dnd5eVitalsTopRow`,
   `Dnd5eVitalsColumns`, `HitDice`, rest bodies, D&D conditions and themes
-  directly. It needs a per-system "sheet layout" registry, like
-  `builderDefinitions.ts`.
+  directly. Since 2026-10-04 it is D&D's entry in `sheet/sheetLayouts.ts`, so
+  this is D&D's own screen (adr-0009); another system registers its own.
 - `sheet/api.ts`'s `CharacterSheet` type mirrors `CharacterSheetResponse`,
   whose fields (spell slots, heroic inspiration, death saves…) follow D&D 5e.
 - `dice/` uses D&D icons from `systems/dnd5e/frames/`.

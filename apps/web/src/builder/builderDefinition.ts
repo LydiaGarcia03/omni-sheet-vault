@@ -46,6 +46,16 @@ export type BuilderDefinition = {
   checklistGroupRank: (group: string) => number;
   /** The system's page backdrop (D&D 5e: the parchment). */
   pageClassName?: string;
+  /** Draws the whole builder page instead of the shared three-column frame; the draft logic stays shared. */
+  Frame?: ComponentType<BuilderFrameProps>;
+};
+
+/** Everything a system's own builder page needs: the draft's state and the shared actions. */
+export type BuilderFrameProps = Omit<StepPageProps, 'choices' | 'preview'> & {
+  userName: string;
+  steps: BuilderStep[];
+  saveLabel: string;
+  error: string | null;
 };
 
 export type ChecklistLine = { group: string; total: number; pending: number };

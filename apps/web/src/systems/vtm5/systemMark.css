@@ -1,0 +1,14 @@
+/* VtM 5e system mark in the app header */
+.vtm5-system-mark { --vtm5-red: #C82434; display: flex; align-items: center; gap: 9px; white-space: nowrap; }
+.vtm5-system-mark__diamond { width: 8px; height: 8px; border: 1px solid var(--vtm5-red); background: #5A0A10; transform: rotate(45deg); }
+.vtm5-system-mark__name { font: 700 16px 'Cormorant', 'EB Garamond', Georgia, serif; letter-spacing: .04em; text-transform: uppercase; color: var(--vtm5-red); }
+.vtm5-system-mark__edition { font: 400 10px var(--app-heading-font); letter-spacing: .12em; text-transform: uppercase; color: rgba(255, 255, 255, .55); }
+
+/* VtM pages (builder and sheet) put the app header on pure black, to match the sheet's look */
+.vtm5-page .app-header { background: #000; border-bottom: 1px solid #1c1c1c; }
+/* Behind a VtM page (overscroll, a window narrower than the layout) the document itself stays dark */
+html:has(.vtm5-page), body:has(.vtm5-page) { background: #050505; }
+.vtm5-page { min-width: fit-content; }
+/* The app footer on VtM pages, in the sheet's dark look */
+.vtm5-page .app-footer { background: #000; color: #8a8a8a; border-top: 1px solid #1c1c1c; }
+.vtm5-page .app-footer a { color: #C82434; }

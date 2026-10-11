@@ -1,6 +1,10 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router';
 import { describe, expect, it, vi } from 'vitest';
+vi.mock('../characters/supportedSystems', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('../characters/supportedSystems')>();
+  return { ...actual, SUPPORTED_SYSTEMS: actual.SUPPORTED_SYSTEMS.filter((system) => system.id === 'dnd-5e'), onlySystemId: () => 'dnd-5e' };
+});
 import { LandingPage } from './LandingPage';
 
 const signIn = vi.fn();
