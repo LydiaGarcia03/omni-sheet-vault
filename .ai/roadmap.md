@@ -34,7 +34,7 @@ plus the documents it lists before writing code.
 | 9 | Rests and mechanics | Done |
 | 10 | Sheet fidelity to D&D Beyond | Done |
 | 11 | Character creation | Not started |
-| 12 | Second game system | Not started |
+| 12 | Second game system | Done for now (2026-10-04): Vampire 5e, see `systems/vtm-v5/features/implementation-plan.md` |
 
 ---
 

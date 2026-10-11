@@ -78,8 +78,11 @@ class CharacterDraftService {
         if (!materialized.isMaterialized()) {
             throw new BuildNotReadyException(draft.name(), materialized.plan());
         }
-        String sheetJson = characterSheetService.withStartingEquipment(draft.systemId(), materialized.sheetJson(),
-                materialized.startingItems(), materialized.startingCopper());
+        boolean hasStartingGear = !materialized.startingItems().isEmpty() || materialized.startingCopper() > 0;
+        String sheetJson = hasStartingGear
+                ? characterSheetService.withStartingEquipment(draft.systemId(), materialized.sheetJson(),
+                        materialized.startingItems(), materialized.startingCopper())
+                : materialized.sheetJson();
         draft.finish(sheetJson, objectMapper.readTree(sheetJson).path("schemaVersion").asInt());
         return characterRepository.save(draft);
     }

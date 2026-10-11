@@ -1,0 +1,2180 @@
+{
+ "attributeScale": [
+  "Weak",
+  "Average",
+  "Good",
+  "Exceptional",
+  "Peak of what a body or mind can do"
+ ],
+ "skillScale": [
+  "Novice: knows the basics",
+  "Practiced: a capable amateur",
+  "Professional: could earn a living with it",
+  "Expert: known in the field",
+  "Master: one of the best alive"
+ ],
+ "attributes": {
+  "Strength": {
+   "group": "Physical",
+   "short": "Raw muscle: lifting, breaking, hitting hard.",
+   "uses": "Brawl and Melee damage, forcing doors, carrying."
+  },
+  "Dexterity": {
+   "group": "Physical",
+   "short": "Coordination, speed and a steady hand.",
+   "uses": "Firearms, Stealth, Larceny, dodging."
+  },
+  "Stamina": {
+   "group": "Physical",
+   "short": "How much punishment the body takes.",
+   "uses": "Sets Health (Stamina + 3); enduring pain and exertion."
+  },
+  "Charisma": {
+   "group": "Social",
+   "short": "Presence and the pull to make people follow.",
+   "uses": "Leadership, Performance, many Presence and Dominate powers."
+  },
+  "Manipulation": {
+   "group": "Social",
+   "short": "Steering people where they would not go alone.",
+   "uses": "Subterfuge, Persuasion, Mesmerize."
+  },
+  "Composure": {
+   "group": "Social",
+   "short": "Staying cool under pressure and against the Beast.",
+   "uses": "Half of Willpower; resisting fear and frenzy."
+  },
+  "Intelligence": {
+   "group": "Mental",
+   "short": "Memory, reasoning and learned knowledge.",
+   "uses": "Academics, Medicine, Science, rituals."
+  },
+  "Wits": {
+   "group": "Mental",
+   "short": "Thinking fast and noticing the moment.",
+   "uses": "Awareness, initiative-like reactions, Heightened Senses."
+  },
+  "Resolve": {
+   "group": "Mental",
+   "short": "Focus and stubborn will to see things through.",
+   "uses": "Half of Willpower; Auspex pools, long investigations."
+  }
+ },
+ "skills": {
+  "Athletics": {
+   "group": "Physical",
+   "short": "Running, climbing, jumping, swimming.",
+   "specialties": [
+    "Climbing",
+    "Parkour",
+    "Swimming"
+   ]
+  },
+  "Brawl": {
+   "group": "Physical",
+   "short": "Fighting with fists, grapples and fangs.",
+   "specialties": [
+    "Grappling",
+    "Kindred",
+    "Bar fights"
+   ]
+  },
+  "Craft": {
+   "group": "Physical",
+   "short": "Making things by hand. Always needs a specialty.",
+   "specialties": [
+    "Painting",
+    "Carpentry",
+    "Tailoring"
+   ]
+  },
+  "Drive": {
+   "group": "Physical",
+   "short": "Handling vehicles at speed and in chases.",
+   "specialties": [
+    "Motorcycles",
+    "Pursuit",
+    "Trucks"
+   ]
+  },
+  "Firearms": {
+   "group": "Physical",
+   "short": "Shooting, and looking after guns.",
+   "specialties": [
+    "Pistols",
+    "Sniping",
+    "Quick draw"
+   ]
+  },
+  "Larceny": {
+   "group": "Physical",
+   "short": "Locks, alarms, pockets and break-ins.",
+   "specialties": [
+    "Lockpicking",
+    "Pickpocket",
+    "Alarms"
+   ]
+  },
+  "Melee": {
+   "group": "Physical",
+   "short": "Fighting with blades, clubs and stakes.",
+   "specialties": [
+    "Knives",
+    "Swords",
+    "Disarm"
+   ]
+  },
+  "Stealth": {
+   "group": "Physical",
+   "short": "Moving and hiding without being noticed.",
+   "specialties": [
+    "Shadowing",
+    "Break-in",
+    "Urban"
+   ]
+  },
+  "Survival": {
+   "group": "Physical",
+   "short": "Tracking, and living rough outside the city.",
+   "specialties": [
+    "Hunting",
+    "Tracking",
+    "Shelter"
+   ]
+  },
+  "Animal Ken": {
+   "group": "Social",
+   "short": "Reading, calming and training animals.",
+   "specialties": [
+    "Dogs",
+    "Rats",
+    "Training"
+   ]
+  },
+  "Etiquette": {
+   "group": "Social",
+   "short": "Knowing the manners of a court or a crowd.",
+   "specialties": [
+    "Elysium",
+    "High society",
+    "Anarch"
+   ]
+  },
+  "Insight": {
+   "group": "Social",
+   "short": "Reading moods, motives and lies.",
+   "specialties": [
+    "Lies",
+    "Motives",
+    "Emotions"
+   ]
+  },
+  "Intimidation": {
+   "group": "Social",
+   "short": "Threats, stares and making people back off.",
+   "specialties": [
+    "Stickups",
+    "Veiled threats",
+    "Stare-downs"
+   ]
+  },
+  "Leadership": {
+   "group": "Social",
+   "short": "Getting a group to act together for you.",
+   "specialties": [
+    "Command",
+    "Inspiration",
+    "Coterie"
+   ]
+  },
+  "Performance": {
+   "group": "Social",
+   "short": "Art in front of an audience. Always needs a specialty.",
+   "specialties": [
+    "Singing",
+    "Dance",
+    "Poetry"
+   ]
+  },
+  "Persuasion": {
+   "group": "Social",
+   "short": "Convincing with words and reasons.",
+   "specialties": [
+    "Victims",
+    "Negotiation",
+    "Bargaining"
+   ]
+  },
+  "Streetwise": {
+   "group": "Social",
+   "short": "Knowing the street, its rules and markets.",
+   "specialties": [
+    "Black market",
+    "Gangs",
+    "Fence"
+   ]
+  },
+  "Subterfuge": {
+   "group": "Social",
+   "short": "Lying, misleading and keeping a straight face.",
+   "specialties": [
+    "Seduction",
+    "Cover stories",
+    "Coverups"
+   ]
+  },
+  "Academics": {
+   "group": "Mental",
+   "short": "History, art and the humanities. Always needs a specialty.",
+   "specialties": [
+    "Art history",
+    "Law",
+    "Philosophy"
+   ]
+  },
+  "Awareness": {
+   "group": "Mental",
+   "short": "Noticing what is out of place, sensing danger.",
+   "specialties": [
+    "Ambushes",
+    "Camouflage",
+    "Instincts"
+   ]
+  },
+  "Finance": {
+   "group": "Mental",
+   "short": "Money, markets and following the trail of it.",
+   "specialties": [
+    "Accounting",
+    "Laundering",
+    "Stocks"
+   ]
+  },
+  "Investigation": {
+   "group": "Mental",
+   "short": "Finding clues and putting them together.",
+   "specialties": [
+    "Crime scenes",
+    "Research",
+    "Murder"
+   ]
+  },
+  "Medicine": {
+   "group": "Mental",
+   "short": "Treating wounds, and knowing the body.",
+   "specialties": [
+    "Phlebotomy",
+    "Anesthetics",
+    "Surgery"
+   ]
+  },
+  "Occult": {
+   "group": "Mental",
+   "short": "Lore of the supernatural and of Kindred.",
+   "specialties": [
+    "Kindred lore",
+    "Rituals",
+    "Ghosts"
+   ]
+  },
+  "Politics": {
+   "group": "Mental",
+   "short": "How power works, mortal and Kindred.",
+   "specialties": [
+    "City council",
+    "Camarilla",
+    "Anarch"
+   ]
+  },
+  "Science": {
+   "group": "Mental",
+   "short": "The natural sciences. Always needs a specialty.",
+   "specialties": [
+    "Chemistry",
+    "Biology",
+    "Physics"
+   ]
+  },
+  "Technology": {
+   "group": "Mental",
+   "short": "Computers, networks and modern devices.",
+   "specialties": [
+    "Hacking",
+    "Surveillance",
+    "Repair"
+   ]
+  }
+ },
+ "freeSpecialtySkills": [
+  "Academics",
+  "Craft",
+  "Performance",
+  "Science"
+ ],
+ "distributions": {
+  "Jack of all trades": {
+   "slots": {
+    "1": 10,
+    "2": 8,
+    "3": 1
+   },
+   "short": "A little of everything: one skill at 3, most others touched.",
+   "fits": "Generalists, survivors, people who lived many lives."
+  },
+  "Balanced": {
+   "slots": {
+    "1": 7,
+    "2": 5,
+    "3": 3
+   },
+   "short": "A few strengths and a solid base.",
+   "fits": "The usual pick: a clear role with backup skills."
+  },
+  "Specialist": {
+   "slots": {
+    "1": 3,
+    "2": 3,
+    "3": 3,
+    "4": 1
+   },
+   "short": "One skill at 4, the rest narrow.",
+   "fits": "Experts: the surgeon, the hacker, the duelist."
+  }
+ },
+ "disciplines": {
+  "Animalism": {
+   "type": "Mental",
+   "resonance": "Animal",
+   "short": "Speak with, command and become kin to beasts and the Beast.",
+   "powers": [
+    {
+     "level": 1,
+     "name": "Bond Famulus",
+     "cost": "Free",
+     "pool": "—",
+     "summary": "Bind one animal as a loyal servant."
+    },
+    {
+     "level": 1,
+     "name": "Sense the Beast",
+     "cost": "Free",
+     "pool": "Resolve + Animalism",
+     "summary": "Feel hostility and the Beast in others."
+    },
+    {
+     "level": 2,
+     "name": "Feral Whispers",
+     "cost": "One Rouse Check",
+     "pool": "Manipulation + Animalism",
+     "summary": "Talk with animals and call them to you."
+    },
+    {
+     "level": 3,
+     "name": "Animal Succulence",
+     "cost": "Free",
+     "pool": "—",
+     "summary": "Animal blood slakes more Hunger."
+    },
+    {
+     "level": 3,
+     "name": "Quell the Beast",
+     "cost": "One Rouse Check",
+     "pool": "Charisma + Animalism",
+     "summary": "Calm a mortal into apathy, or soothe a vampire."
+    }
+   ]
+  },
+  "Auspex": {
+   "type": "Mental",
+   "resonance": "Phlegmatic",
+   "short": "Senses beyond mortal limits, and glimpses into minds and futures.",
+   "powers": [
+    {
+     "level": 1,
+     "name": "Heightened Senses",
+     "cost": "Free",
+     "pool": "Wits + Resolve",
+     "summary": "Senses sharpen far past mortal limits."
+    },
+    {
+     "level": 1,
+     "name": "Sense the Unseen",
+     "cost": "Free",
+     "pool": "Wits + Auspex",
+     "summary": "Notice hidden or supernatural presences."
+    },
+    {
+     "level": 2,
+     "name": "Premonition",
+     "cost": "Free or one Rouse Check",
+     "pool": "Resolve + Auspex",
+     "summary": "Flashes of insight about what is coming."
+    },
+    {
+     "level": 3,
+     "name": "Scry the Soul",
+     "cost": "One Rouse Check",
+     "pool": "Intelligence + Auspex",
+     "summary": "Read the aura and nature of someone."
+    },
+    {
+     "level": 3,
+     "name": "Share the Senses",
+     "cost": "One Rouse Check",
+     "pool": "Resolve + Auspex",
+     "summary": "See and hear through another Kindred."
+    }
+   ]
+  },
+  "Celerity": {
+   "type": "Physical",
+   "resonance": "Choleric",
+   "short": "Supernatural speed and grace.",
+   "powers": [
+    {
+     "level": 1,
+     "name": "Cat's Grace",
+     "cost": "Passive",
+     "pool": "—",
+     "summary": "Perfect balance on any footing."
+    },
+    {
+     "level": 1,
+     "name": "Rapid Reflexes",
+     "cost": "Passive",
+     "pool": "—",
+     "summary": "React faster; small actions cost nothing."
+    },
+    {
+     "level": 2,
+     "name": "Fleetness",
+     "cost": "One Rouse Check",
+     "pool": "—",
+     "summary": "Add Celerity to defense and non-combat Dexterity."
+    },
+    {
+     "level": 3,
+     "name": "Blink",
+     "cost": "One Rouse Check",
+     "pool": "Dexterity + Athletics",
+     "summary": "Close a distance in an instant."
+    },
+    {
+     "level": 3,
+     "name": "Traversal",
+     "cost": "One Rouse Check",
+     "pool": "Dexterity + Athletics",
+     "summary": "Run up walls and across water."
+    }
+   ]
+  },
+  "Dominate": {
+   "type": "Mental",
+   "resonance": "Phlegmatic",
+   "short": "Bend minds with a look and a word.",
+   "powers": [
+    {
+     "level": 1,
+     "name": "Cloud Memory",
+     "cost": "Free",
+     "pool": "Charisma + Dominate",
+     "summary": "Make someone forget the last moments."
+    },
+    {
+     "level": 1,
+     "name": "Compel",
+     "cost": "Free",
+     "pool": "Charisma + Dominate",
+     "summary": "A one-word order that must be obeyed."
+    },
+    {
+     "level": 2,
+     "name": "Mesmerize",
+     "cost": "One Rouse Check",
+     "pool": "Manipulation + Dominate",
+     "summary": "Give a longer, detailed command."
+    },
+    {
+     "level": 3,
+     "name": "The Forgetful Mind",
+     "cost": "One Rouse Check",
+     "pool": "Manipulation + Dominate",
+     "summary": "Rewrite a memory."
+    },
+    {
+     "level": 3,
+     "name": "Submerged Directive",
+     "cost": "Free",
+     "pool": "—",
+     "summary": "Hide a command to trigger later."
+    }
+   ]
+  },
+  "Fortitude": {
+   "type": "Physical",
+   "resonance": "Melancholic",
+   "short": "Unnatural toughness of body and mind.",
+   "powers": [
+    {
+     "level": 1,
+     "name": "Resilience",
+     "cost": "Passive",
+     "pool": "—",
+     "summary": "Add Fortitude to Health."
+    },
+    {
+     "level": 1,
+     "name": "Unswayable Mind",
+     "cost": "Passive",
+     "pool": "—",
+     "summary": "Extra dice to resist mind control."
+    },
+    {
+     "level": 2,
+     "name": "Toughness",
+     "cost": "One Rouse Check",
+     "pool": "—",
+     "summary": "Shrug off part of Superficial damage."
+    },
+    {
+     "level": 3,
+     "name": "Defy Bane",
+     "cost": "One Rouse Check",
+     "pool": "—",
+     "summary": "Turn Aggravated damage into Superficial."
+    },
+    {
+     "level": 3,
+     "name": "Fortify the Inner Façade",
+     "cost": "Passive",
+     "pool": "—",
+     "summary": "Hard to read with Auspex."
+    }
+   ]
+  },
+  "Obfuscate": {
+   "type": "Mental",
+   "resonance": "Melancholic",
+   "short": "Go unseen and unremembered.",
+   "powers": [
+    {
+     "level": 1,
+     "name": "Cloak of Shadows",
+     "cost": "Free",
+     "pool": "—",
+     "summary": "Stay unseen while standing still."
+    },
+    {
+     "level": 1,
+     "name": "Silence of Death",
+     "cost": "Free",
+     "pool": "—",
+     "summary": "Make no sound at all."
+    },
+    {
+     "level": 2,
+     "name": "Unseen Passage",
+     "cost": "One Rouse Check",
+     "pool": "—",
+     "summary": "Move while staying unseen."
+    },
+    {
+     "level": 3,
+     "name": "Ghost in the Machine",
+     "cost": "Free",
+     "pool": "—",
+     "summary": "Obfuscate works on cameras too."
+    },
+    {
+     "level": 3,
+     "name": "Mask of a Thousand Faces",
+     "cost": "One Rouse Check",
+     "pool": "—",
+     "summary": "Look like a forgettable stranger."
+    }
+   ]
+  },
+  "Potence": {
+   "type": "Physical",
+   "resonance": "Choleric",
+   "short": "Strength far beyond any living body.",
+   "powers": [
+    {
+     "level": 1,
+     "name": "Lethal Body",
+     "cost": "Free",
+     "pool": "—",
+     "summary": "Bare hands deal Aggravated damage to mortals."
+    },
+    {
+     "level": 1,
+     "name": "Soaring Leap",
+     "cost": "Free",
+     "pool": "—",
+     "summary": "Jump far higher and longer."
+    },
+    {
+     "level": 2,
+     "name": "Prowess",
+     "cost": "One Rouse Check",
+     "pool": "—",
+     "summary": "Add Potence to Strength damage and feats."
+    },
+    {
+     "level": 3,
+     "name": "Brutal Feed",
+     "cost": "Free",
+     "pool": "—",
+     "summary": "Drain a victim in seconds."
+    },
+    {
+     "level": 3,
+     "name": "Uncanny Grip",
+     "cost": "One Rouse Check",
+     "pool": "—",
+     "summary": "Cling to any surface."
+    }
+   ]
+  },
+  "Presence": {
+   "type": "Mental",
+   "resonance": "Sanguine",
+   "short": "Draw, awe and terrify crowds by emotion.",
+   "powers": [
+    {
+     "level": 1,
+     "name": "Awe",
+     "cost": "Free",
+     "pool": "Manipulation + Presence",
+     "summary": "Become the center of the room."
+    },
+    {
+     "level": 1,
+     "name": "Daunt",
+     "cost": "Free",
+     "pool": "Charisma + Presence",
+     "summary": "Make people back away."
+    },
+    {
+     "level": 2,
+     "name": "Lingering Kiss",
+     "cost": "Passive",
+     "pool": "—",
+     "summary": "Your victims crave your bite."
+    },
+    {
+     "level": 3,
+     "name": "Dread Gaze",
+     "cost": "One Rouse Check",
+     "pool": "Charisma + Presence",
+     "summary": "Terrify one person into fleeing."
+    },
+    {
+     "level": 3,
+     "name": "Entrancement",
+     "cost": "One Rouse Check",
+     "pool": "Charisma + Presence",
+     "summary": "Make someone devoted to you."
+    }
+   ]
+  },
+  "Protean": {
+   "type": "Physical",
+   "resonance": "Animal",
+   "short": "Reshape the body: claws, eyes, beast forms.",
+   "powers": [
+    {
+     "level": 1,
+     "name": "Eyes of the Beast",
+     "cost": "Free",
+     "pool": "—",
+     "summary": "See in total darkness."
+    },
+    {
+     "level": 1,
+     "name": "Weight of the Feather",
+     "cost": "Free",
+     "pool": "—",
+     "summary": "Become nearly weightless; fall safely."
+    },
+    {
+     "level": 2,
+     "name": "Feral Weapons",
+     "cost": "One Rouse Check",
+     "pool": "—",
+     "summary": "Grow claws that deal Aggravated damage."
+    },
+    {
+     "level": 3,
+     "name": "Earth Meld",
+     "cost": "One Rouse Check",
+     "pool": "—",
+     "summary": "Sink into the earth to rest."
+    },
+    {
+     "level": 3,
+     "name": "Shapechange",
+     "cost": "One Rouse Check",
+     "pool": "—",
+     "summary": "Become an animal of your size."
+    }
+   ]
+  },
+  "Blood Sorcery": {
+   "type": "Sorcery",
+   "resonance": "Sanguine",
+   "short": "Blood magic, and the rituals of the Tremere and Banu Haqim.",
+   "powers": [
+    {
+     "level": 1,
+     "name": "Corrosive Vitae",
+     "cost": "One or more Rouse Checks",
+     "pool": "—",
+     "summary": "Your blood eats through objects."
+    },
+    {
+     "level": 1,
+     "name": "A Taste for Blood",
+     "cost": "Free",
+     "pool": "Resolve + Blood Sorcery",
+     "summary": "Learn about someone from their blood."
+    },
+    {
+     "level": 2,
+     "name": "Extinguish Vitae",
+     "cost": "One Rouse Check",
+     "pool": "Intelligence + Blood Sorcery",
+     "summary": "Make another vampire hungrier."
+    },
+    {
+     "level": 3,
+     "name": "Blood of Potency",
+     "cost": "One Rouse Check",
+     "pool": "Resolve + Blood Sorcery",
+     "summary": "Raise your Blood Potency for a night."
+    },
+    {
+     "level": 3,
+     "name": "Scorpion's Touch",
+     "cost": "One or more Rouse Checks",
+     "pool": "Strength + Blood Sorcery",
+     "summary": "Turn your blood into poison."
+    }
+   ]
+  },
+  "Thin-Blood Alchemy": {
+   "type": "Alchemy",
+   "resonance": "Any",
+   "short": "Brew temporary powers from blood and ingredients instead of inheriting them.",
+   "powers": [
+    {
+     "level": 1,
+     "name": "Far Reach",
+     "cost": "One Rouse Check to distill",
+     "pool": "—",
+     "summary": "Move objects with the mind."
+    },
+    {
+     "level": 1,
+     "name": "Haze",
+     "cost": "One Rouse Check to distill",
+     "pool": "—",
+     "summary": "Wrap yourself in a cloud of mist."
+    },
+    {
+     "level": 1,
+     "name": "Profane Hieros Gamos",
+     "cost": "One Rouse Check to distill",
+     "pool": "—",
+     "summary": "Reshape a body's sex and features."
+    },
+    {
+     "level": 2,
+     "name": "Envelop",
+     "cost": "One Rouse Check to distill",
+     "pool": "—",
+     "summary": "Smother a target in blinding mist."
+    },
+    {
+     "level": 3,
+     "name": "Defractionate",
+     "cost": "One Rouse Check to distill",
+     "pool": "—",
+     "summary": "Make bagged or preserved blood nourishing again."
+    },
+    {
+     "level": 4,
+     "name": "Airborne Momentum",
+     "cost": "One Rouse Check to distill",
+     "pool": "—",
+     "summary": "Fly for a short while."
+    },
+    {
+     "level": 5,
+     "name": "Awaken the Sleeper",
+     "cost": "One Rouse Check to distill",
+     "pool": "—",
+     "summary": "Rouse a vampire from torpor."
+    }
+   ]
+  }
+ },
+ "clans": [
+  {
+   "name": "Brujah",
+   "nick": "Rebels with a cause",
+   "source": "Core",
+   "tint": "#5a1a10",
+   "disciplines": [
+    "Celerity",
+    "Potence",
+    "Presence"
+   ],
+   "long": "Philosophers turned street fighters. Brujah burn hot for causes, people and grudges, and they are the first to raise a fist against tyrants, Kindred or mortal.",
+   "play": "Passion, conviction and a temper that becomes a problem.",
+   "bane": {
+    "name": "Violent Temper",
+    "text": "Fewer dice to resist fury frenzy."
+   },
+   "compulsion": {
+    "name": "Rebellion",
+    "text": "Must defy someone in authority, or suffer a penalty."
+   }
+  },
+  {
+   "name": "Gangrel",
+   "nick": "Feral wanderers",
+   "source": "Core",
+   "tint": "#2f3a14",
+   "disciplines": [
+    "Animalism",
+    "Fortitude",
+    "Protean"
+   ],
+   "long": "Loners closest to the Beast. Gangrel roam the edges of cities and wilds, survive anything, and come back from frenzy with something animal left behind.",
+   "play": "Independence, instinct and bodies that change.",
+   "bane": {
+    "name": "Bestial Features",
+    "text": "Frenzy leaves animal traits that weaken attributes."
+   },
+   "compulsion": {
+    "name": "Feral Impulses",
+    "text": "Speech and reasoning drop to the animal for a while."
+   }
+  },
+  {
+   "name": "Malkavian",
+   "nick": "Seers of broken truths",
+   "source": "Core",
+   "tint": "#2a1a48",
+   "disciplines": [
+    "Auspex",
+    "Dominate",
+    "Obfuscate"
+   ],
+   "long": "Every Malkavian is touched by a madness that sees what others miss. Prophets, jesters and oracles, they are feared because they are so often right.",
+   "play": "Insight that costs sanity, and a mind that is never quite safe.",
+   "bane": {
+    "name": "Fractured Perspective",
+    "text": "A bestial failure or compulsion clouds one kind of roll for the scene."
+   },
+   "compulsion": {
+    "name": "Delusion",
+    "text": "Perceptions twist; senses and judgment suffer."
+   }
+  },
+  {
+   "name": "Nosferatu",
+   "nick": "Hidden in the dark",
+   "source": "Core",
+   "tint": "#203030",
+   "disciplines": [
+    "Animalism",
+    "Obfuscate",
+    "Potence"
+   ],
+   "long": "Hideous since the Embrace, the Nosferatu live in sewers and networks. They trade in secrets and know more about the city than anyone wants.",
+   "play": "Information brokering, stealth and a face no one can look at.",
+   "bane": {
+    "name": "Repulsiveness",
+    "text": "Can never pass as beautiful; disguising as human is harder."
+   },
+   "compulsion": {
+    "name": "Cryptophilia",
+    "text": "Must learn a secret before anything else."
+   }
+  },
+  {
+   "name": "Toreador",
+   "nick": "Devotees of beauty",
+   "source": "Core",
+   "tint": "#5a0e2e",
+   "disciplines": [
+    "Auspex",
+    "Celerity",
+    "Presence"
+   ],
+   "long": "Artists, lovers and connoisseurs. Toreador collect beauty and people, set the fashions of Elysium, and suffer badly when the world turns ugly.",
+   "play": "Society, art and charm, with a weakness for the sublime.",
+   "bane": {
+    "name": "Aesthetic Fixation",
+    "text": "Fewer dice on Discipline rolls in ugly or squalid places."
+   },
+   "compulsion": {
+    "name": "Obsession",
+    "text": "Fixates on one beautiful thing until satisfied."
+   }
+  },
+  {
+   "name": "Tremere",
+   "nick": "Scholars of the blood",
+   "source": "Core",
+   "tint": "#4a0a14",
+   "disciplines": [
+    "Auspex",
+    "Dominate",
+    "Blood Sorcery"
+   ],
+   "long": "Once a pyramid of warlocks, now a broken house of sorcerers. Tremere practice blood magic, keep secrets, and are distrusted by everyone.",
+   "play": "Rituals, research and ambition inside a fallen hierarchy.",
+   "bane": {
+    "name": "Deficient Blood",
+    "text": "Cannot Blood Bond other Kindred; mortals need extra drinks."
+   },
+   "compulsion": {
+    "name": "Perfectionism",
+    "text": "Only a flawless result is good enough."
+   }
+  },
+  {
+   "name": "Ventrue",
+   "nick": "Born to rule",
+   "source": "Core",
+   "tint": "#14244a",
+   "disciplines": [
+    "Dominate",
+    "Fortitude",
+    "Presence"
+   ],
+   "long": "The aristocrats of the night. Ventrue lead the Camarilla, own the boardrooms, and can only feed on one kind of prey.",
+   "play": "Leadership, wealth and command, with picky tastes.",
+   "bane": {
+    "name": "Rarefied Tastes",
+    "text": "Can only feed on one type of victim; others cost Willpower."
+   },
+   "compulsion": {
+    "name": "Arrogance",
+    "text": "Must make someone obey them."
+   }
+  },
+  {
+   "name": "Banu Haqim",
+   "nick": "Judges of the guilty",
+   "source": "Camarilla",
+   "tint": "#3a2a0a",
+   "disciplines": [
+    "Blood Sorcery",
+    "Celerity",
+    "Obfuscate"
+   ],
+   "long": "Assassins and judges who feed on the guilty. The Banu Haqim recently joined the Camarilla and remain its sharpest, most dangerous blade.",
+   "play": "Justice, discipline and a thirst for Kindred blood.",
+   "bane": {
+    "name": "Blood Addiction",
+    "text": "Drinking vampire blood risks a hunger frenzy."
+   },
+   "compulsion": {
+    "name": "Judgment",
+    "text": "Must punish whoever breaks one of their Convictions."
+   }
+  },
+  {
+   "name": "The Ministry",
+   "nick": "Tempters and liberators",
+   "source": "Anarch",
+   "tint": "#3a3a0a",
+   "disciplines": [
+    "Obfuscate",
+    "Presence",
+    "Protean"
+   ],
+   "long": "Followers of Set who free people by corrupting them. The Ministry deals in temptation, cults and secrets, and is welcome among the Anarchs.",
+   "play": "Temptation, faith and pushing others past their limits.",
+   "bane": {
+    "name": "Abhorrent of Light",
+    "text": "Bright light weakens them; sunlight burns worse."
+   },
+   "compulsion": {
+    "name": "Transgression",
+    "text": "Must lead someone to break a principle."
+   }
+  },
+  {
+   "name": "Caitiff",
+   "nick": "Clanless",
+   "source": "Core",
+   "tint": "#2a2a2a",
+   "disciplines": [],
+   "long": "Embraced without a clan, or abandoned by one. Caitiff have no bane and no birthright, choose any disciplines, and are looked down on by everyone.",
+   "play": "Freedom of build, outsider status.",
+   "bane": {
+    "name": "None",
+    "text": "Starts with the Suspect flaw and no Status."
+   },
+   "compulsion": {
+    "name": "None",
+    "text": "Only the generic compulsions."
+   }
+  },
+  {
+   "name": "Thin-blooded",
+   "nick": "Barely Kindred",
+   "source": "Core",
+   "tint": "#3a3030",
+   "disciplines": [],
+   "long": "Too far from Caine to be fully vampires. Thin-bloods walk in daylight sometimes, eat food, and brew alchemy instead of true disciplines.",
+   "play": "Half-mortal, improvised powers, despised by elders.",
+   "bane": {
+    "name": "None",
+    "text": "Blood Potency 0; mortal-like weaknesses."
+   },
+   "compulsion": {
+    "name": "None",
+    "text": "Only the generic compulsions."
+   }
+  }
+ ],
+ "predators": [
+  {
+   "name": "Alleycat",
+   "short": "Takes blood by force: ambush, mugging, threat.",
+   "specialties": [
+    {
+     "skill": "Intimidation",
+     "specialty": "Stickups"
+    },
+    {
+     "skill": "Brawl",
+     "specialty": "Grappling"
+    }
+   ],
+   "disciplines": [
+    "Celerity",
+    "Potence"
+   ],
+   "humanity": -1,
+   "extras": "Contacts ••• (criminal)"
+  },
+  {
+   "name": "Bagger",
+   "short": "Steals or buys bagged blood: hospitals, blood banks, the black market.",
+   "specialties": [
+    {
+     "skill": "Larceny",
+     "specialty": "Lockpicking"
+    },
+    {
+     "skill": "Streetwise",
+     "specialty": "Black market"
+    }
+   ],
+   "disciplines": [
+    "Blood Sorcery",
+    "Obfuscate"
+   ],
+   "extras": "Iron Gullet •••, Enemy ••",
+   "notFor": [
+    "Ventrue"
+   ]
+  },
+  {
+   "name": "Blood Leech",
+   "short": "Feeds on other vampires. Powerful, and a crime.",
+   "specialties": [
+    {
+     "skill": "Brawl",
+     "specialty": "Kindred"
+    },
+    {
+     "skill": "Stealth",
+     "specialty": "Against Kindred"
+    }
+   ],
+   "disciplines": [
+    "Celerity",
+    "Protean"
+   ],
+   "humanity": -1,
+   "bp": 1,
+   "extras": "Diablerist •• or Shunned ••, Prey Exclusion (mortals) ••"
+  },
+  {
+   "name": "Cleaver",
+   "short": "Feeds in secret on a family or circle that does not know.",
+   "specialties": [
+    {
+     "skill": "Persuasion",
+     "specialty": "Gaslighting"
+    },
+    {
+     "skill": "Subterfuge",
+     "specialty": "Coverups"
+    }
+   ],
+   "disciplines": [
+    "Dominate",
+    "Animalism"
+   ],
+   "extras": "Dark Secret • (Cleaver), Herd ••"
+  },
+  {
+   "name": "Consensualist",
+   "short": "Only feeds with consent: a clinic, a kink, a study.",
+   "specialties": [
+    {
+     "skill": "Medicine",
+     "specialty": "Phlebotomy"
+    },
+    {
+     "skill": "Persuasion",
+     "specialty": "Victims"
+    }
+   ],
+   "disciplines": [
+    "Auspex",
+    "Fortitude"
+   ],
+   "humanity": 1,
+   "extras": "Masquerade Breacher •, Prey Exclusion (non-consenting) •"
+  },
+  {
+   "name": "Farmer",
+   "short": "Feeds only on animals, holding on to Humanity.",
+   "specialties": [
+    {
+     "skill": "Animal Ken",
+     "specialty": "Specific animal"
+    },
+    {
+     "skill": "Survival",
+     "specialty": "Hunting"
+    }
+   ],
+   "disciplines": [
+    "Animalism",
+    "Protean"
+   ],
+   "humanity": 1,
+   "extras": "Vegan ••",
+   "notFor": [
+    "Ventrue"
+   ]
+  },
+  {
+   "name": "Osiris",
+   "short": "A celebrity or cult leader fed by followers.",
+   "specialties": [
+    {
+     "skill": "Occult",
+     "specialty": "Specific tradition"
+    },
+    {
+     "skill": "Performance",
+     "specialty": "Specific field"
+    }
+   ],
+   "disciplines": [
+    "Blood Sorcery",
+    "Presence"
+   ],
+   "extras": "3 dots of Fame or Herd; 2 dots of Enemy or Mythic flaws"
+  },
+  {
+   "name": "Sandman",
+   "short": "Breaks in and feeds on sleepers who never wake.",
+   "specialties": [
+    {
+     "skill": "Medicine",
+     "specialty": "Anesthetics"
+    },
+    {
+     "skill": "Stealth",
+     "specialty": "Break-in"
+    }
+   ],
+   "disciplines": [
+    "Auspex",
+    "Obfuscate"
+   ],
+   "extras": "Resources •"
+  },
+  {
+   "name": "Scene Queen",
+   "short": "A fixture of a subculture who feeds on its people.",
+   "specialties": [
+    {
+     "skill": "Etiquette",
+     "specialty": "Specific scene"
+    },
+    {
+     "skill": "Leadership",
+     "specialty": "Specific scene"
+    },
+    {
+     "skill": "Streetwise",
+     "specialty": "Specific scene"
+    }
+   ],
+   "disciplines": [
+    "Dominate",
+    "Potence"
+   ],
+   "extras": "Fame •, Contact •, Disliked • or Prey Exclusion •"
+  },
+  {
+   "name": "Siren",
+   "short": "Seduces victims and feeds in intimacy.",
+   "specialties": [
+    {
+     "skill": "Persuasion",
+     "specialty": "Seduction"
+    },
+    {
+     "skill": "Subterfuge",
+     "specialty": "Seduction"
+    }
+   ],
+   "disciplines": [
+    "Fortitude",
+    "Presence"
+   ],
+   "extras": "Beautiful ••, Enemy •"
+  }
+ ],
+ "sorceryClans": [
+  "Tremere",
+  "Banu Haqim"
+ ],
+ "ages": {
+  "Childer": {
+   "short": "Embraced recently, still learning what you are.",
+   "bp": 1,
+   "xp": 0,
+   "generations": [
+    "12th",
+    "13th"
+   ],
+   "note": "No starting XP."
+  },
+  "Neonate": {
+   "short": "A few years in the night, found your feet.",
+   "bp": 1,
+   "xp": 15,
+   "generations": [
+    "12th",
+    "13th"
+   ],
+   "note": "+15 XP to spend."
+  },
+  "Ancilla": {
+   "short": "Decades of unlife, with power and old debts.",
+   "bp": 2,
+   "xp": 35,
+   "generations": [
+    "10th",
+    "11th"
+   ],
+   "note": "+35 XP, +2 advantage points, +2 flaw points, −1 Humanity."
+  }
+ },
+ "advantages": [
+  {
+   "name": "Allies",
+   "kind": "Background",
+   "max": 5,
+   "short": "Mortals who help you when it counts."
+  },
+  {
+   "name": "Contacts",
+   "kind": "Background",
+   "max": 3,
+   "short": "People who pass you information and favors."
+  },
+  {
+   "name": "Fame",
+   "kind": "Background",
+   "max": 5,
+   "short": "Mortal celebrity: open doors, hard to hide."
+  },
+  {
+   "name": "Haven",
+   "kind": "Background",
+   "max": 3,
+   "short": "A safe place to rest by day."
+  },
+  {
+   "name": "Herd",
+   "kind": "Background",
+   "max": 5,
+   "short": "Willing vessels you can feed on easily."
+  },
+  {
+   "name": "Influence",
+   "kind": "Background",
+   "max": 5,
+   "short": "Pull over a mortal group or institution."
+  },
+  {
+   "name": "Mask",
+   "kind": "Background",
+   "max": 2,
+   "short": "A fake mortal identity with papers."
+  },
+  {
+   "name": "Mawla",
+   "kind": "Background",
+   "max": 5,
+   "short": "An older Kindred mentor who has your back."
+  },
+  {
+   "name": "Resources",
+   "kind": "Background",
+   "max": 5,
+   "short": "Money and the lifestyle it buys."
+  },
+  {
+   "name": "Retainers",
+   "kind": "Background",
+   "max": 3,
+   "short": "Loyal servants, often ghouls."
+  },
+  {
+   "name": "Status",
+   "kind": "Background",
+   "max": 5,
+   "short": "Standing in your sect."
+  },
+  {
+   "name": "Beautiful",
+   "kind": "Merit",
+   "max": 2,
+   "fixed": 2,
+   "short": "+1 die on social rolls where looks matter."
+  },
+  {
+   "name": "Linguistics",
+   "kind": "Merit",
+   "max": 3,
+   "short": "One extra language per dot."
+  },
+  {
+   "name": "Bloodhound",
+   "kind": "Merit",
+   "max": 1,
+   "fixed": 1,
+   "short": "Smell the Resonance in mortal blood."
+  },
+  {
+   "name": "Iron Gullet",
+   "kind": "Merit",
+   "max": 3,
+   "fixed": 3,
+   "short": "Feed on rancid or bagged blood without trouble."
+  },
+  {
+   "name": "Eat Food",
+   "kind": "Merit",
+   "max": 2,
+   "fixed": 2,
+   "short": "Eat and keep down mortal food."
+  },
+  {
+   "name": "Prey Exclusion",
+   "kind": "Flaw",
+   "max": 1,
+   "fixed": 1,
+   "short": "There is a kind of victim you refuse to feed on."
+  },
+  {
+   "name": "Dark Secret",
+   "kind": "Flaw",
+   "max": 1,
+   "fixed": 1,
+   "short": "Something that would ruin you if known."
+  },
+  {
+   "name": "Enemy",
+   "kind": "Flaw",
+   "max": 2,
+   "short": "Someone who wants you harmed."
+  },
+  {
+   "name": "Suspect",
+   "kind": "Flaw",
+   "max": 1,
+   "fixed": 1,
+   "short": "Your sect does not trust you."
+  },
+  {
+   "name": "Destitute",
+   "kind": "Flaw",
+   "max": 1,
+   "fixed": 1,
+   "short": "No money and no home."
+  },
+  {
+   "name": "Known Corpse",
+   "kind": "Flaw",
+   "max": 1,
+   "fixed": 1,
+   "short": "People know you died."
+  },
+  {
+   "name": "Ugly",
+   "kind": "Flaw",
+   "max": 1,
+   "fixed": 1,
+   "short": "−1 die on social rolls where looks matter."
+  },
+  {
+   "name": "Addiction",
+   "kind": "Flaw",
+   "max": 1,
+   "fixed": 1,
+   "short": "Needs blood carrying a drug, or suffers."
+  },
+  {
+   "name": "Folkloric Bane",
+   "kind": "Flaw",
+   "max": 1,
+   "fixed": 1,
+   "short": "A folk-tale object (silver, garlic) burns you."
+  }
+ ],
+ "blood": {
+  "Health": "How much damage you take. Stamina + 3 boxes. Superficial damage (/) from most weapons is halved; Aggravated (X) comes from fire, sun and claws. A full track of Aggravated means torpor.",
+  "Willpower": "Inner strength. Composure + Resolve boxes. Spend one to re-roll up to three regular dice. Full track: −2 dice on Social and Mental rolls.",
+  "Hunger": "How badly the Beast wants blood, 0 to 5. Each point turns one die of every pool into a Hunger die, which can cause messy criticals and bestial failures.",
+  "Humanity": "What is left of the person. 0 to 10, starts at 7. Stains from monstrous acts may cost a dot at the end of the session.",
+  "Blood Potency": "The power of your blood. Sets Blood Surge, how much you mend per Rouse Check, discipline bonus dice and Bane Severity.",
+  "Resonance": "The emotion in the last blood you drank. Strong Resonance gives a bonus die to matching disciplines."
+ },
+ "resonances": {
+  "Choleric": [
+   "Celerity",
+   "Potence"
+  ],
+  "Melancholic": [
+   "Fortitude",
+   "Obfuscate"
+  ],
+  "Phlegmatic": [
+   "Auspex",
+   "Dominate"
+  ],
+  "Sanguine": [
+   "Blood Sorcery",
+   "Presence"
+  ],
+  "Animal": [
+   "Animalism",
+   "Protean"
+  ]
+ },
+ "bpTable": [
+  [
+   "—",
+   "1",
+   "—",
+   "—",
+   "0"
+  ],
+  [
+   "+1 die",
+   "1",
+   "—",
+   "Level 1",
+   "1"
+  ],
+  [
+   "+1 die",
+   "2",
+   "+1",
+   "Level 1",
+   "1"
+  ],
+  [
+   "+2 dice",
+   "2",
+   "+1",
+   "Level 2 or less",
+   "2"
+  ],
+  [
+   "+2 dice",
+   "3",
+   "+2",
+   "Level 2 or less",
+   "2"
+  ],
+  [
+   "+3 dice",
+   "3",
+   "+2",
+   "Level 3 or less",
+   "3"
+  ]
+ ],
+ "identity": {
+  "Concept": "Who you were before and what you are now, in a few words. Guides how you play.",
+  "Chronicle": "The game or city this character lives in.",
+  "Clan": "Your bloodline: three easy disciplines, a bane and a compulsion. Set at creation.",
+  "Predator": "How you hunt. Set at creation; it gave a specialty, a discipline dot and some advantages.",
+  "Ambition": "The long-term goal. Working toward it heals Aggravated Willpower.",
+  "Generation": "Steps from Caine. Lower generations can reach higher Blood Potency.",
+  "Sire": "The vampire who Embraced you. Often a story hook, sometimes a Mawla or an Enemy.",
+  "Desire": "A short-term want for this session. Acting on it restores Willpower.",
+  "Age": "How long since the Embrace: childer, neonate or ancilla."
+ },
+ "convictionHelp": "A moral line you will not cross, tied to a mortal Touchstone who embodies it. Losing the Touchstone shakes your Humanity.",
+ "rituals": [
+  {
+   "level": 1,
+   "name": "Blood Walk",
+   "summary": "Read a subject's lineage of sires from a taste of their blood."
+  },
+  {
+   "level": 1,
+   "name": "Clinging of the Insect",
+   "summary": "Cling to walls and ceilings like a spider."
+  },
+  {
+   "level": 1,
+   "name": "Craft Bloodstone",
+   "summary": "Make a stone of your blood that you can always find again."
+  },
+  {
+   "level": 1,
+   "name": "Wake with Evening's Freshness",
+   "summary": "Wake up at once when danger comes during the day."
+  },
+  {
+   "level": 1,
+   "name": "Ward against Ghouls",
+   "summary": "An object warded to hurt any ghoul who touches it."
+  },
+  {
+   "level": 2,
+   "name": "Communicate with Kindred Sire",
+   "summary": "Speak mind to mind with your sire, wherever they are."
+  },
+  {
+   "level": 2,
+   "name": "Eyes of Babel",
+   "summary": "Understand and speak a language taken from another."
+  },
+  {
+   "level": 2,
+   "name": "Illuminate the Trail of Prey",
+   "summary": "See the path your quarry walked glow before you."
+  },
+  {
+   "level": 2,
+   "name": "Truth of Blood",
+   "summary": "Taste blood to tell whether its owner speaks the truth."
+  },
+  {
+   "level": 2,
+   "name": "Ward against Spirits",
+   "summary": "An object warded to hurt spirits and ghosts."
+  },
+  {
+   "level": 2,
+   "name": "Warding Circle against Ghouls",
+   "summary": "A circle that ghouls cannot cross unharmed."
+  },
+  {
+   "level": 3,
+   "name": "Dagon's Call",
+   "summary": "Drown someone from within, through blood you once touched."
+  },
+  {
+   "level": 3,
+   "name": "Deflection of Wooden Doom",
+   "summary": "Stakes cannot pierce your heart while it lasts."
+  },
+  {
+   "level": 3,
+   "name": "Essence of Air",
+   "summary": "Your body turns light as air and floats."
+  },
+  {
+   "level": 3,
+   "name": "Firewalker",
+   "summary": "Shield yourself against flame."
+  },
+  {
+   "level": 3,
+   "name": "Ward against Lupines",
+   "summary": "An object warded to hurt werewolves."
+  },
+  {
+   "level": 3,
+   "name": "Warding Circle against Spirits",
+   "summary": "A circle spirits cannot cross unharmed."
+  }
+ ],
+ "thinBloodMerits": [
+  {
+   "name": "Anarch Comrades",
+   "short": "Anarch allies who look out for you."
+  },
+  {
+   "name": "Camarilla Contact",
+   "short": "Someone in the Camarilla who will talk to you."
+  },
+  {
+   "name": "Catenating Blood",
+   "short": "Your blood can bond and Embrace like a true vampire."
+  },
+  {
+   "name": "Day Drinker",
+   "short": "You can walk in sunlight, weakened."
+  },
+  {
+   "name": "Discipline Affinity",
+   "short": "One discipline stays with you at one dot."
+  },
+  {
+   "name": "Lifelike",
+   "short": "Your body passes for a living one."
+  },
+  {
+   "name": "Thin-blood Alchemist",
+   "short": "You start with Thin-Blood Alchemy and a formula."
+  },
+  {
+   "name": "Vampiric Resilience",
+   "short": "You take damage like a full vampire."
+  }
+ ],
+ "thinBloodFlaws": [
+  {
+   "name": "Baby Teeth",
+   "short": "Your fangs are useless for feeding."
+  },
+  {
+   "name": "Bestial Temper",
+   "short": "You frenzy as easily as true Kindred."
+  },
+  {
+   "name": "Branded",
+   "short": "The Camarilla has marked you."
+  },
+  {
+   "name": "Clan Curse",
+   "short": "You carry the bane of the clan that made you."
+  },
+  {
+   "name": "Dead Flesh",
+   "short": "You look and smell dead to mortals."
+  },
+  {
+   "name": "Mortal Frailty",
+   "short": "You cannot mend with blood."
+  },
+  {
+   "name": "Shunned by the Anarchs",
+   "short": "The Anarchs want nothing to do with you."
+  },
+  {
+   "name": "Vitae Dependency",
+   "short": "You need Kindred blood regularly."
+  }
+ ],
+ "alchemyMethods": [
+  {
+   "name": "Athanor Corporis",
+   "attribute": "Stamina",
+   "short": "Distill inside your own body."
+  },
+  {
+   "name": "Calcinatio",
+   "attribute": "Manipulation",
+   "short": "Distill by reducing blood and ingredients to ash."
+  },
+  {
+   "name": "Fixatio",
+   "attribute": "Intelligence",
+   "short": "Distill in a laboratory, slowly and precisely."
+  }
+ ],
+ "loresheets": [
+  {
+   "name": "The Bahari",
+   "book": "Core",
+   "restriction": "",
+   "levels": [
+    "Dangerous Reputation",
+    "Ritual Scarification",
+    "Sacrifice the Children",
+    "The Womb's Blood",
+    "First-Cursed"
+   ]
+  },
+  {
+   "name": "Theo Bell",
+   "book": "Core",
+   "restriction": "",
+   "levels": [
+    "Rebel Cell",
+    "True Anarch",
+    "Contact Information",
+    "Bell's Circle",
+    "Sect Neutrality"
+   ]
+  },
+  {
+   "name": "Cainite Heresy",
+   "book": "Core",
+   "restriction": "",
+   "levels": [
+    "Let He Who Hath Understanding",
+    "Hand of the Heresy",
+    "Counter-Inquisition",
+    "Red Celebrant",
+    "The One Named in Prophecy"
+   ]
+  },
+  {
+   "name": "Carna",
+   "book": "Core",
+   "restriction": "",
+   "levels": [
+    "Embrace the Vision",
+    "The Rebel Trail",
+    "Unorthodox Rituals",
+    "Reimagined Bond",
+    "Book of the Grave-War"
+   ]
+  },
+  {
+   "name": "The Circulatory System",
+   "book": "Core",
+   "restriction": "",
+   "levels": [
+    "Tap into the System",
+    "Little Black Book",
+    "Farm Upstate",
+    "Secure Transit",
+    "Blood Sommelier"
+   ]
+  },
+  {
+   "name": "Convention of Thorns",
+   "book": "Core",
+   "restriction": "",
+   "levels": [
+    "Thorns Historian",
+    "Tradition Master",
+    "Convention Secrets",
+    "Prospective Justicar",
+    "New Traditions"
+   ]
+  },
+  {
+   "name": "The First Inquisition",
+   "book": "Core",
+   "restriction": "",
+   "levels": [
+    "Mistakes of the Past",
+    "Names of the Guilty",
+    "The Sect of St. James",
+    "The Second Act",
+    "Black Spot"
+   ]
+  },
+  {
+   "name": "Golconda",
+   "book": "Core",
+   "restriction": "",
+   "levels": [
+    "Seeds of Golconda",
+    "The One True Way",
+    "Saulot's Disciple",
+    "Satisfy the Hunger",
+    "Greet the Sun"
+   ]
+  },
+  {
+   "name": "Descendant of Hardestadt",
+   "book": "Core",
+   "restriction": "Ventrue",
+   "levels": [
+    "Voice of Hardestadt",
+    "Supreme Leader",
+    "Ventrue Pillar",
+    "Line to the Founders",
+    "Hardestadt's Heir"
+   ]
+  },
+  {
+   "name": "Descendant of Helena",
+   "book": "Core",
+   "restriction": "Toreador",
+   "levels": [
+    "Skin-Deep",
+    "Real Talent",
+    "Embrace the Stereotype",
+    "Divine Purity",
+    "Succubus Club Franchise"
+   ]
+  },
+  {
+   "name": "Sect War Veteran",
+   "book": "Core",
+   "restriction": "",
+   "levels": [
+    "Survivor",
+    "Active Participant",
+    "Trophy Kill",
+    "No Vampire's Land",
+    "Sect Agitator"
+   ]
+  },
+  {
+   "name": "The Trinity",
+   "book": "Core",
+   "restriction": "",
+   "levels": [
+    "Constantinople",
+    "Antonius' Architecture",
+    "The Dream",
+    "The Dracon",
+    "The New Trinity"
+   ]
+  },
+  {
+   "name": "Jeanette/Therese Voerman",
+   "book": "Core",
+   "restriction": "",
+   "levels": [
+    "Asylum Membership",
+    "Performing Monkey",
+    "Jeanette's Favorite",
+    "Therese's Favorite",
+    "Asylum Operator"
+   ]
+  },
+  {
+   "name": "The Week of Nightmares",
+   "book": "Core",
+   "restriction": "",
+   "levels": [
+    "Oral History",
+    "Ravnos Remains",
+    "I Was There",
+    "The Red Star",
+    "Blood of Zapathasura"
+   ]
+  },
+  {
+   "name": "Rudi",
+   "book": "Core",
+   "restriction": "",
+   "levels": [
+    "Newfound Rights",
+    "Them and Theirs",
+    "Gangrel Advocate",
+    "The Bear Pack",
+    "Rudi's Army"
+   ]
+  },
+  {
+   "name": "Descendant of Tyler",
+   "book": "Core",
+   "restriction": "Brujah",
+   "levels": [
+    "Instigator",
+    "Champion of the Cause",
+    "Tyler's Mercy",
+    "The Furores",
+    "Permanent Revolution"
+   ]
+  },
+  {
+   "name": "Descendant of Zelios",
+   "book": "Core",
+   "restriction": "Nosferatu",
+   "levels": [
+    "Sanctuary",
+    "Saboteur",
+    "On Commission",
+    "The Labyrinth",
+    "Sense the Ley Lines"
+   ]
+  },
+  {
+   "name": "Descendant of Vasantasena",
+   "book": "Core",
+   "restriction": "Malkavian",
+   "levels": [
+    "Agent of Chaos",
+    "Hear My Words",
+    "Scent the Bond",
+    "Destroy the Bond",
+    "Sabbat Becomes Camarilla"
+   ]
+  },
+  {
+   "name": "High Clan",
+   "book": "Core",
+   "restriction": "",
+   "levels": [
+    "Peacock",
+    "Sway the Low",
+    "Elevate the Low",
+    "Embraced to Rule",
+    "Blessed, not Cursed"
+   ]
+  },
+  {
+   "name": "Low Clan",
+   "book": "Core",
+   "restriction": "",
+   "levels": [
+    "Thick Hide",
+    "Cursed with Pride",
+    "Uncanny Kinship",
+    "Trade Among Equals",
+    "Criticality Incident"
+   ]
+  },
+  {
+   "name": "Ambrus Maropis",
+   "book": "Core",
+   "restriction": "",
+   "levels": [
+    "True Believer",
+    "Clandestine Information",
+    "Taught by the Best",
+    "Back Door Panopticon",
+    "On Another Grid Entirely"
+   ]
+  },
+  {
+   "name": "Carmelita Neillson",
+   "book": "Core",
+   "restriction": "",
+   "levels": [
+    "The Art of Story",
+    "The Art of Will",
+    "Neillson Library",
+    "Interview With the Methuselah",
+    "Ancestor's Tomb"
+   ]
+  },
+  {
+   "name": "Fiorenza Savona",
+   "book": "Core",
+   "restriction": "",
+   "levels": [
+    "On Fiorenza's List",
+    "Breakfast with Fiorenza",
+    "Friendly Benefits",
+    "The Directorate",
+    "Government Motion"
+   ]
+  },
+  {
+   "name": "Descendant of Karl Schrekt",
+   "book": "Core",
+   "restriction": "Tremere",
+   "levels": [
+    "Remember the House",
+    "Hardliner",
+    "Ritual Preparedness",
+    "Archon's Bane",
+    "Know the World"
+   ]
+  },
+  {
+   "name": "Descendant of Xaviar",
+   "book": "Core",
+   "restriction": "Gangrel",
+   "levels": [
+    "Martyred Ancestor",
+    "Where the Bodies Are Buried",
+    "Loyal Hound",
+    "Monstrous Bat",
+    "Experienced the Antediluvian"
+   ]
+  },
+  {
+   "name": "Fatima al-Faqadi",
+   "book": "Camarilla",
+   "restriction": "",
+   "levels": [
+    "Weapons Locker",
+    "Extended Web",
+    "Missed Hit",
+    "Recognized Judge",
+    "Open Contract"
+   ]
+  },
+  {
+   "name": "Pure Ventrue Lineage",
+   "book": "Camarilla",
+   "restriction": "Ventrue",
+   "levels": [
+    "Sire of Renown",
+    "A Lineage of Title",
+    "Recitation",
+    "Legendary Lineage",
+    "Name the Antediluvian"
+   ]
+  },
+  {
+   "name": "The Cult of Mithras",
+   "book": "Camarilla",
+   "restriction": "",
+   "levels": [
+    "Neophyte",
+    "Nymphus",
+    "Leo",
+    "Perses",
+    "Unconquered"
+   ]
+  },
+  {
+   "name": "The Pyramid",
+   "book": "Camarilla",
+   "restriction": "Tremere",
+   "levels": [
+    "Apprentice",
+    "Savant",
+    "Regent",
+    "Pontifex",
+    "The New Council"
+   ]
+  },
+  {
+   "name": "Victoria Ash",
+   "book": "Camarilla",
+   "restriction": "",
+   "levels": [
+    "Ashen Kiss",
+    "Vermilion Invitation",
+    "What Makes Them Tick",
+    "Celebrity Affectations",
+    "Patron, Lover, Companion"
+   ]
+  },
+  {
+   "name": "Salvador Garcia",
+   "book": "Anarch",
+   "restriction": "",
+   "levels": [
+    "A Way With Words",
+    "Old School",
+    "Enemy of the State",
+    "The War of Ideas",
+    "Rise Up"
+   ]
+  },
+  {
+   "name": "Agata Starek",
+   "book": "Anarch",
+   "restriction": "",
+   "levels": [
+    "Terrorizing the Powerful",
+    "Apprentice",
+    "A Favor Owed",
+    "Unlikely Allies",
+    "The Joy of Transgression"
+   ]
+  },
+  {
+   "name": "Hesha Ruhadze",
+   "book": "Anarch",
+   "restriction": "",
+   "levels": [
+    "One of Hesha's Works",
+    "Something Hesha Wants",
+    "Museum of the Faithful",
+    "Blood Cult",
+    "Hear the Blood Sing"
+   ]
+  },
+  {
+   "name": "The Church of Set",
+   "book": "Anarch",
+   "restriction": "",
+   "levels": [
+    "Congregation",
+    "Tap the Secret Vein",
+    "Freedom from the Aeons",
+    "Degenerative Process",
+    "Body of Set"
+   ]
+  },
+  {
+   "name": "Ruins of Carthage",
+   "book": "Anarch",
+   "restriction": "",
+   "levels": [
+    "Clan Historian",
+    "Punic Pride",
+    "Death to Tyrants",
+    "Moloch's Will or Troile's Wish",
+    "Carthage Anew"
+   ]
+  },
+  {
+   "name": "Blood Plagued",
+   "book": "Anarch",
+   "restriction": "",
+   "levels": [
+    "Detection",
+    "The Science of the Blood",
+    "Trace the Torpid Victims",
+    "Curative Vitae",
+    "Vector"
+   ]
+  },
+  {
+   "name": "Anarch Revolt",
+   "book": "Anarch",
+   "restriction": "",
+   "levels": [
+    "Critical Ancestor",
+    "Speak the Words",
+    "Enemy of the Establishment",
+    "Icon",
+    "Reignite the Revolt"
+   ]
+  }
+ ],
+ "coterieTypes": [
+  "Blood Cult",
+  "Cerberus",
+  "Champions",
+  "Commando",
+  "Day Watch",
+  "Fang Gang",
+  "Hunting Party",
+  "Maréchal",
+  "Nomads",
+  "Plumaire",
+  "Questari",
+  "Regency",
+  "Sbirri",
+  "Vehme",
+  "Watchmen"
+ ],
+ "domain": {
+  "Chasse": "How rich the hunting ground is: each dot makes hunting there easier.",
+  "Lien": "How well the coterie knows its streets: extra dice for actions inside the domain.",
+  "Portillon": "How well guarded it is: fewer dice for intruders acting against you there."
+ }
+}

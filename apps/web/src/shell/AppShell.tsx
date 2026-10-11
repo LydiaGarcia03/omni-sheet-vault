@@ -9,7 +9,7 @@ import { getCharacter, type Character } from '../characters/api';
 import { HomePage } from '../home/HomePage';
 import { levelUpPageFor } from '../levelup/levelUpPages';
 import { LandingPage } from '../home/LandingPage';
-import { CharacterSheetScreen } from '../sheet/CharacterSheetScreen';
+import { sheetLayoutFor } from '../sheet/sheetLayouts';
 import { CreditsPage } from './CreditsPage';
 
 export function AppShell() {
@@ -109,7 +109,11 @@ function SheetPage({ userLabel }: { userLabel: string }) {
   if (character.status === 'DRAFT') {
     return <Navigate to={`/characters/${character.id}/build`} replace />;
   }
-  return <CharacterSheetScreen key={character.id} character={character} userLabel={userLabel} onBack={() => navigate('/')} />;
+  const Layout = sheetLayoutFor(character.systemId);
+  if (!Layout) {
+    return <Navigate to="/" replace />;
+  }
+  return <Layout key={character.id} character={character} userLabel={userLabel} onBack={() => navigate('/')} />;
 }
 
 /** The level up page of the character's own game system; back to the list when the system has none. */

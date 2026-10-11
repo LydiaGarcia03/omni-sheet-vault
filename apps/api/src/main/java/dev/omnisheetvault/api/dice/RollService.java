@@ -161,6 +161,16 @@ public class RollService {
      * only needs the randomness plus the append-only log, without exposing
      * {@link DiceRoller} or {@link RollRepository} outside this package.
      */
+    /** Raw dice for a game system that reads its own results (VtM: successes over a d10 pool); nothing is stored. */
+    public int[] rollDice(int diceCount, int diceSides) {
+        return diceRoller.roll(diceCount, diceSides);
+    }
+
+    /** Stores a roll a game system already read: its dice as rolled, its own expression, context and total. */
+    public Roll recordReadRoll(UUID characterId, String expression, String context, int[] results, int total) {
+        return rollRepository.save(Roll.create(characterId, expression, context, results, total));
+    }
+
     public Roll recordRoll(UUID characterId, int diceCount, int diceSides, int flatModifier, String context) {
         int[] results = diceRoller.roll(diceCount, diceSides);
         int total = Arrays.stream(results).sum() + flatModifier;

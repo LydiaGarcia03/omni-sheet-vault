@@ -1,6 +1,10 @@
 import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+vi.mock('../characters/supportedSystems', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('../characters/supportedSystems')>();
+  return { ...actual, SUPPORTED_SYSTEMS: actual.SUPPORTED_SYSTEMS.filter((system) => system.id === 'dnd-5e'), onlySystemId: () => 'dnd-5e' };
+});
 import type { Character } from '../characters/api';
 import { HomePage } from './HomePage';
 

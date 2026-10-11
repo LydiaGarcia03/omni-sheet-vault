@@ -64,6 +64,13 @@ public class CharacterService {
         return characterRepository.save(character);
     }
 
+    /** Stores a new sheet for an active character of mine; for systems that change their own sheet. */
+    public Character replaceMySheet(Jwt jwt, UUID characterId, String sheetJson) {
+        Character character = getMineActive(jwt, characterId);
+        character.replaceSheet(sheetJson);
+        return characterRepository.save(character);
+    }
+
     public void deleteMine(Jwt jwt, UUID characterId) {
         Character character = getMine(jwt, characterId);
         character.softDelete();

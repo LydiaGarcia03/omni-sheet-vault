@@ -33,7 +33,10 @@ public interface CharacterCreationFlow {
      * {@code buildJson} with one more level in {@code classSlug}: a class the build has, or a new
      * one at its first level.
      *
-     * @throws LevelUpNotAllowedException at the top level, or for a class the catalogue doesn't have
+     * @throws LevelUpNotAllowedException at the top level, for a class the catalogue doesn't have,
+     *         or always in a system without levels (the default)
      */
-    LevelUp withLevelUp(String buildJson, String classSlug, CatalogueLookup catalogue);
+    default LevelUp withLevelUp(String buildJson, String classSlug, CatalogueLookup catalogue) {
+        throw new LevelUpNotAllowedException("This game system has no levels.");
+    }
 }

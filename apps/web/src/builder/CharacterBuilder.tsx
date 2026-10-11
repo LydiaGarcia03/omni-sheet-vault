@@ -132,7 +132,30 @@ function LoadedBuilder({ initial, stepId, definition, userName }: LoadedBuilderP
   const stepIndex = definition.steps.indexOf(step);
   const previous = definition.steps[stepIndex - 1];
   const next = definition.steps[stepIndex + 1];
-  const { StepPage } = definition;
+  const { StepPage, Frame } = definition;
+
+  if (Frame) {
+    return (
+      <Frame
+        characterId={initial.id}
+        systemId={initial.systemId}
+        stepId={step.id}
+        steps={definition.steps}
+        userName={userName}
+        portrait={portrait}
+        onPortraitChange={setPortrait}
+        name={name}
+        onNameChange={edit(setName)}
+        build={build}
+        onBuildChange={edit(setBuild)}
+        plan={livePlan}
+        onFinish={finish}
+        finishing={finishing}
+        saveLabel={SAVE_LABELS[saveState]}
+        error={error}
+      />
+    );
+  }
 
   return (
     <div className={definition.pageClassName ? `builder-page ${definition.pageClassName}` : 'builder-page'}>
