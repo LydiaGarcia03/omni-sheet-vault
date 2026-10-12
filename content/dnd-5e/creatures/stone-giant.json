@@ -1,0 +1,82 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "stone-giant",
+  "name" : "Stone Giant",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 156,
+  "tags" : [ "underdark", "mountain", "hill" ],
+  "description" : null,
+  "data" : {
+    "size" : "Huge",
+    "creatureType" : "Giant",
+    "alignment" : "neutral",
+    "armorClass" : 17,
+    "armorClassText" : "17 (natural armor)",
+    "hitPoints" : 126,
+    "hitDice" : "11d12 + 55",
+    "speed" : 40,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 23,
+      "save" : 6
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 15,
+      "save" : 5
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 20,
+      "save" : 8
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 12,
+      "save" : 4
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 9,
+      "save" : -1
+    } ],
+    "skills" : [ {
+      "name" : "Athletics",
+      "bonus" : 12
+    }, {
+      "name" : "Perception",
+      "bonus" : 4
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 14",
+    "languages" : "Giant",
+    "challengeRating" : "7",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Stone Camouflage",
+      "description" : "The giant has advantage on Dexterity (Stealth) checks made to hide in rocky terrain."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The giant makes two greatclub attacks."
+    }, {
+      "name" : "Greatclub",
+      "description" : "Melee Weapon Attack: +9 to hit, reach 15 ft., one target. Hit: 19 (3d8 + 6) bludgeoning damage."
+    }, {
+      "name" : "Rock",
+      "description" : "Ranged Weapon Attack: +9 to hit, range 60/240 ft., one target. Hit: 28 (4d10 + 6) bludgeoning damage. If the target is a creature, it must succeed on a DC 17 Strength saving throw or be knocked prone."
+    } ],
+    "reactions" : [ {
+      "name" : "Rock Catching",
+      "description" : "If a rock or similar object is hurled at the giant, the giant can, with a successful DC 10 Dexterity saving throw, catch the missile and take no bludgeoning damage from it."
+    } ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark", "mountain", "hill" ]
+  }
+}

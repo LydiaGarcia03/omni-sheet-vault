@@ -1,0 +1,85 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "centaur",
+  "name" : "Centaur",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 38,
+  "tags" : [ "grassland", "forest" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Monstrosity",
+    "alignment" : "neutral good",
+    "armorClass" : 12,
+    "armorClassText" : "12",
+    "hitPoints" : 45,
+    "hitDice" : "6d10 + 12",
+    "speed" : 50,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 18,
+      "save" : 4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 9,
+      "save" : -1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 11,
+      "save" : 0
+    } ],
+    "skills" : [ {
+      "name" : "Athletics",
+      "bonus" : 6
+    }, {
+      "name" : "Perception",
+      "bonus" : 3
+    }, {
+      "name" : "Survival",
+      "bonus" : 3
+    } ],
+    "senses" : "passive Perception 13",
+    "languages" : "Elvish, Sylvan",
+    "challengeRating" : "2",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Charge",
+      "description" : "If the centaur moves at least 30 feet straight toward a target and then hits it with a pike attack on the same turn, the target takes an extra 10 (3d6) piercing damage."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The centaur makes two attacks: one with its pike and one with its hooves or two with its longbow."
+    }, {
+      "name" : "Pike",
+      "description" : "Melee Weapon Attack: +6 to hit, reach 10 ft., one target. Hit: 9 (1d10 + 4) piercing damage."
+    }, {
+      "name" : "Hooves",
+      "description" : "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) bludgeoning damage."
+    }, {
+      "name" : "Longbow",
+      "description" : "Ranged Weapon Attack: +4 to hit, range 150/600 ft., one target. Hit: 6 (1d8 + 2) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "grassland", "forest" ]
+  }
+}

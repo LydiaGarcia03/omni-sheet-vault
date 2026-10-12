@@ -1,0 +1,91 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "green-hag",
+  "name" : "Green Hag",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 177,
+  "tags" : [ "forest", "swamp", "hill" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Fey",
+    "alignment" : "neutral evil",
+    "armorClass" : 17,
+    "armorClassText" : "17 (natural armor)",
+    "hitPoints" : 82,
+    "hitDice" : "11d8 + 33",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 18,
+      "save" : 4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 14,
+      "save" : 2
+    } ],
+    "skills" : [ {
+      "name" : "Arcana",
+      "bonus" : 3
+    }, {
+      "name" : "Deception",
+      "bonus" : 4
+    }, {
+      "name" : "Perception",
+      "bonus" : 4
+    }, {
+      "name" : "Stealth",
+      "bonus" : 3
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 14",
+    "languages" : "Common, Draconic, Sylvan",
+    "challengeRating" : "3",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Amphibious",
+      "description" : "The hag can breathe air and water."
+    }, {
+      "name" : "Mimicry",
+      "description" : "The hag can mimic animal sounds and humanoid voices. A creature that hears the sounds can tell they are imitations with a successful DC 14 Wisdom (Insight) check."
+    }, {
+      "name" : "Innate Spellcasting",
+      "description" : "The hag's innate spellcasting ability is Charisma (spell save DC 12). She can innately cast the following spells, requiring no material components:\nAt will: dancing lights, minor illusion, vicious mockery"
+    } ],
+    "actions" : [ {
+      "name" : "Claws",
+      "description" : "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 13 (2d8 + 4) slashing damage."
+    }, {
+      "name" : "Illusory Appearance",
+      "description" : "The hag covers herself and anything she is wearing or carrying with a magical illusion that makes her look like another creature of her general size and humanoid shape. The illusion ends if the hag takes a bonus action to end it or if she dies. The changes wrought by this effect fail to hold up to physical inspection. For example, the hag could appear to have smooth skin, but someone touching her would feel her rough flesh. Otherwise, a creature must take an action to visually inspect the illusion and succeed on a DC 20 Intelligence (Investigation) check to discern that the hag is disguised."
+    }, {
+      "name" : "Invisible Passage",
+      "description" : "The hag magically turns invisible until she attacks or casts a spell, or until her concentration ends (as if concentrating on a spell). While invisible, she leaves no physical evidence of her passage, so she can be tracked only by magic. Any equipment she wears or carries is invisible with her."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "forest", "swamp", "hill" ]
+  }
+}

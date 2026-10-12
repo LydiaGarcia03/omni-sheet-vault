@@ -1,0 +1,73 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "earth-elemental",
+  "name" : "Earth Elemental",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 124,
+  "tags" : [ "underdark" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Elemental",
+    "alignment" : "neutral",
+    "armorClass" : 17,
+    "armorClassText" : "17 (natural armor)",
+    "hitPoints" : 126,
+    "hitDice" : "12d10 + 60",
+    "speed" : 30,
+    "additionalSpeeds" : "Burrow 30 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 20,
+      "save" : 5
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 20,
+      "save" : 5
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 5,
+      "save" : -3
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 5,
+      "save" : -3
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 60 ft., tremorsense 60 ft., passive Perception 10",
+    "languages" : "Terran",
+    "challengeRating" : "5",
+    "damageVulnerabilities" : "thunder",
+    "damageResistances" : "bludgeoning, piercing, and slashing from nonmagical attacks",
+    "damageImmunities" : "poison",
+    "conditionImmunities" : "exhaustion, paralyzed, petrified, poisoned, unconscious",
+    "traits" : [ {
+      "name" : "Earth Glide",
+      "description" : "The elemental can burrow through nonmagical, unworked earth and stone. While doing so, the elemental doesn't disturb the material it moves through."
+    }, {
+      "name" : "Siege Monster",
+      "description" : "The elemental deals double damage to objects and structures."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The elemental makes two slam attacks."
+    }, {
+      "name" : "Slam",
+      "description" : "Melee Weapon Attack: +8 to hit, reach 10 ft., one target. Hit: 14 (2d8 + 5) bludgeoning damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark" ]
+  }
+}

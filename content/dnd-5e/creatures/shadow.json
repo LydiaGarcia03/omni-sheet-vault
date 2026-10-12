@@ -1,0 +1,76 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "shadow",
+  "name" : "Shadow",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 269,
+  "tags" : [ "underdark", "urban" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Undead",
+    "alignment" : "chaotic evil",
+    "armorClass" : 12,
+    "armorClassText" : "12",
+    "hitPoints" : 16,
+    "hitDice" : "3d8 + 3",
+    "speed" : 40,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 6,
+      "save" : -2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 6,
+      "save" : -2
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 8,
+      "save" : -1
+    } ],
+    "skills" : [ {
+      "name" : "Stealth",
+      "bonus" : 4
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 10",
+    "languages" : "—",
+    "challengeRating" : "1/2",
+    "damageVulnerabilities" : "radiant",
+    "damageResistances" : "acid, cold, fire, lightning, thunder; bludgeoning, piercing, and slashing from nonmagical attacks",
+    "damageImmunities" : "necrotic, poison",
+    "conditionImmunities" : "exhaustion, frightened, grappled, paralyzed, petrified, poisoned, prone, restrained",
+    "traits" : [ {
+      "name" : "Amorphous",
+      "description" : "The shadow can move through a space as narrow as 1 inch wide without squeezing."
+    }, {
+      "name" : "Shadow Stealth",
+      "description" : "While in dim light or darkness, the shadow can take the Hide action as a bonus action. Its stealth bonus is also improved to +6."
+    }, {
+      "name" : "Sunlight Weakness",
+      "description" : "While in sunlight, the shadow has disadvantage on attack rolls, ability checks, and saving throws."
+    } ],
+    "actions" : [ {
+      "name" : "Strength Drain",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 9 (2d6 + 2) necrotic damage, and the target's Strength score is reduced by 1d4. The target dies if this reduces its Strength to 0. Otherwise, the reduction lasts until the target finishes a short or long rest. If a non-evil humanoid dies from this attack, a new shadow rises from the corpse 1d4 hours later."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark", "urban" ]
+  }
+}

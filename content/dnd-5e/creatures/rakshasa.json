@@ -1,0 +1,79 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "rakshasa",
+  "name" : "Rakshasa",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 257,
+  "tags" : [ "urban" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Fiend",
+    "alignment" : "lawful evil",
+    "armorClass" : 16,
+    "armorClassText" : "16 (natural armor)",
+    "hitPoints" : 110,
+    "hitDice" : "13d8 + 52",
+    "speed" : 40,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 17,
+      "save" : 3
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 18,
+      "save" : 4
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 20,
+      "save" : 5
+    } ],
+    "skills" : [ {
+      "name" : "Deception",
+      "bonus" : 10
+    }, {
+      "name" : "Insight",
+      "bonus" : 8
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 13",
+    "languages" : "Common, Infernal",
+    "challengeRating" : "13",
+    "damageVulnerabilities" : "piercing from magic weapons wielded by good creatures",
+    "damageResistances" : null,
+    "damageImmunities" : "bludgeoning, piercing, and slashing from nonmagical attacks",
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Limited Magic Immunity",
+      "description" : "The rakshasa can't be affected or detected by spells of 6th level or lower unless it wishes to be. It has advantage on saving throws against all other spells and magical effects."
+    }, {
+      "name" : "Innate Spellcasting",
+      "description" : "The rakshasa's innate spellcasting ability is Charisma (spell save DC 18, +10 to hit with spell attacks). The rakshasa can innately cast the following spells, requiring no material components:\nAt will: detect thoughts, disguise self, mage hand, minor illusion\n3/day each: charm person, detect magic, invisibility, major image, suggestion\n1/day each: dominate person, fly, plane shift, true seeing"
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The rakshasa makes two claw attacks."
+    }, {
+      "name" : "Claw",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 9 (2d6 + 2) slashing damage, and the target is cursed if it is a creature. The magical curse takes effect whenever the target takes a short or long rest, filling the target's thoughts with horrible images and dreams. The cursed target gains no benefit from finishing a short or long rest. The curse lasts until it is lifted by a remove curse spell or similar magic."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "urban" ]
+  }
+}

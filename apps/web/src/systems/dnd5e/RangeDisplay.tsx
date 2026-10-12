@@ -11,6 +11,8 @@ type ParsedRange = {
   unit?: string;
   longRange?: string;
   areaDetail?: string;
+  /** A melee weapon's "Reach", shown under the distance. */
+  note?: string;
 };
 
 /**
@@ -35,9 +37,9 @@ export function parseRange(range: string): ParsedRange {
   if (dual) {
     return { primary: dual[1], longRange: `/${dual[2]}` };
   }
-  const simple = range.match(/^(\d+)\s*(?:ft\.?|feet)$/i);
+  const simple = range.match(/^(\d+)\s*(?:ft\.?|feet)(?:\s+(reach))?$/i);
   if (simple) {
-    return { primary: simple[1], unit: 'ft.' };
+    return simple[2] ? { primary: simple[1], unit: 'ft.', note: 'Reach' } : { primary: simple[1], unit: 'ft.' };
   }
   const withDetail = range.match(/^(Self|Touch)\s*\((.+)\)$/i);
   if (withDetail) {
@@ -66,6 +68,7 @@ export function RangeDisplay({ range }: RangeDisplayProps) {
       <span className="range-display__primary">{parsed.primary}</span>
       {parsed.unit && <span className="range-display__suffix"> {parsed.unit}</span>}
       {parsed.longRange && <span className="range-display__suffix">{parsed.longRange}</span>}
+      {parsed.note && <span className="range-display__suffix range-display__note">{parsed.note}</span>}
     </>
   );
 }

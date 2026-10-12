@@ -1,0 +1,94 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "drow-priestess-of-lolth",
+  "name" : "Drow Priestess of Lolth",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 129,
+  "tags" : [ "underdark" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (Drow elf)",
+    "alignment" : "neutral evil",
+    "armorClass" : 16,
+    "armorClassText" : "16 (scale mail)",
+    "hitPoints" : 71,
+    "hitDice" : "13d8 + 13",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 12,
+      "save" : 4
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 17,
+      "save" : 6
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 18,
+      "save" : 7
+    } ],
+    "skills" : [ {
+      "name" : "Insight",
+      "bonus" : 6
+    }, {
+      "name" : "Perception",
+      "bonus" : 6
+    }, {
+      "name" : "Religion",
+      "bonus" : 4
+    }, {
+      "name" : "Stealth",
+      "bonus" : 5
+    } ],
+    "senses" : "darkvision 120 ft., passive Perception 16",
+    "languages" : "Elvish, Undercommon",
+    "challengeRating" : "8",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Fey Ancestry",
+      "description" : "The drow has advantage on saving throws against being charmed, and magic can't put the drow to sleep."
+    }, {
+      "name" : "Sunlight Sensitivity",
+      "description" : "While in sunlight, the drow has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+    }, {
+      "name" : "Innate Spellcasting",
+      "description" : "The drow's spellcasting ability is Charisma (spell save DC 15). She can innately cast the following spells, requiring no material components:\nAt will: dancing lights\n1/day each: darkness, faerie fire, levitate (self only)"
+    }, {
+      "name" : "Spellcasting",
+      "description" : "The drow is a 10th-level spellcaster. Her spellcasting ability is Wisdom (save DC 14, +6 to hit with spell attacks). The drow has the following cleric spells prepared:\nCantrips (at will): guidance, poison spray, resistance, spare the dying, thaumaturgy\n1st level (4 slots): animal friendship, cure wounds, detect poison and disease, ray of sickness\n2nd level (3 slots): lesser restoration, protection from poison, web\n3rd level (3 slots): conjure animals (2 giant spiders), dispel magic\n4th level (3 slots): divination, freedom of movement\n5th level (2 slots): insect plague, mass cure wounds"
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The drow makes two scourge attacks."
+    }, {
+      "name" : "Scourge",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage plus 17 (5d6) poison damage."
+    }, {
+      "name" : "Summon Demon (1/Day)",
+      "description" : "The drow attempts to magically summon a yochlol with a 30 percent chance of success. If the attempt fails, the drow takes 5 (1d10) psychic damage. Otherwise, the summoned demon appears in an unoccupied space within 60 feet of its summoner, acts as an ally of its summoner, and can't summon other demons. It remains for 10 minutes, until it or its summoner dies, or until its summoner dismisses it as an action."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark" ]
+  }
+}

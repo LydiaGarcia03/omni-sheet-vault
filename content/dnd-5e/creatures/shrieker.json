@@ -1,0 +1,67 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "shrieker",
+  "name" : "Shrieker",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 138,
+  "tags" : [ "underdark" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Plant",
+    "alignment" : "unaligned",
+    "armorClass" : 5,
+    "armorClassText" : "5",
+    "hitPoints" : 13,
+    "hitDice" : "3d8",
+    "speed" : 0,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 1,
+      "save" : -5
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 1,
+      "save" : -5
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 1,
+      "save" : -5
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 3,
+      "save" : -4
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 1,
+      "save" : -5
+    } ],
+    "skills" : [ ],
+    "senses" : "blindsight 30 ft. (blind beyond this radius), passive Perception 6",
+    "languages" : "—",
+    "challengeRating" : "0",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : "blinded, deafened, frightened",
+    "traits" : [ {
+      "name" : "False Appearance",
+      "description" : "While the shrieker remains motionless, it is indistinguishable from an ordinary fungus."
+    } ],
+    "actions" : [ ],
+    "reactions" : [ {
+      "name" : "Shriek",
+      "description" : "When bright light or a creature is within 30 feet of the shrieker, it emits a shriek audible within 300 feet of it. The shrieker continues to shriek until the disturbance moves out of range and for 1d4 of the shrieker's turns afterward."
+    } ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark" ]
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "quadrone",
+  "name" : "Quadrone",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 226,
+  "tags" : [ ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Construct",
+    "alignment" : "lawful neutral",
+    "armorClass" : 16,
+    "armorClassText" : "16 (natural armor)",
+    "hitPoints" : 22,
+    "hitDice" : "4d8 + 4",
+    "speed" : 30,
+    "additionalSpeeds" : "Fly 30 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 11,
+      "save" : 0
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 2
+    } ],
+    "senses" : "truesight 120 ft., passive Perception 12",
+    "languages" : "Modron",
+    "challengeRating" : "1",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Axiomatic Mind",
+      "description" : "The quadrone can't be compelled to act in a manner contrary to its nature or its instructions."
+    }, {
+      "name" : "Disintegration",
+      "description" : "If the quadrone dies, its body disintegrates into dust, leaving behind its weapons and anything else it was carrying."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The quadrone makes two fist attacks or four shortbow attacks."
+    }, {
+      "name" : "Fist",
+      "description" : "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) bludgeoning damage."
+    }, {
+      "name" : "Shortbow",
+      "description" : "Ranged Weapon Attack: +4 to hit, range 80/320 ft., one target. Hit: 5 (1d6 + 2) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ ]
+  }
+}

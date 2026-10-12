@@ -162,13 +162,13 @@ class CharacterControllerTest {
     void returnsTheCharacterSheet() throws Exception {
         UUID characterId = UUID.randomUUID();
         CalculatedValue armorClass = new CalculatedValue(12, List.of(new Contribution("Base (unarmored)", 10),
-                new Contribution("Dexterity modifier", 2)));
+                new Contribution("Dexterity mod.", 2)));
         VitalsZone vitals = new VitalsZone(
                 Map.of("dexterity", 14),
                 Map.of("dexterity", new CalculatedValue(2, List.of(new Contribution("Dexterity score 14", 2)))),
                 new CalculatedValue(3, List.of(new Contribution("Level 5", 3))),
                 armorClass,
-                new CalculatedValue(2, List.of(new Contribution("Dexterity modifier", 2))),
+                new CalculatedValue(2, List.of(new Contribution("Dexterity mod.", 2))),
                 new CalculatedValue(44, List.of(new Contribution("Hit die (level 1)", 10))),
                 30,
                 5,

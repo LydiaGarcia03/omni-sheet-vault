@@ -18,13 +18,99 @@
 .landing-feature p { margin: 0; color: var(--app-muted); font-size: 14px; line-height: 1.45; }
 
 /* System cards */
-.system-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; }
-.system-cards.is-compact { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; }
-.system-card {
-  position: relative; overflow: hidden; min-height: 150px; padding: 16px; display: flex; flex-direction: column; justify-content: flex-end;
-  color: #fff; border-radius: var(--app-radius); border: 1px solid var(--app-line);
+/* System cards */
+.system-carousel {
+  position: relative;
+  width: 100%;
 }
-.system-cards.is-compact .system-card { min-height: 108px; padding: 12px; }
+
+.system-cards {
+  display: flex;
+  gap: 14px;
+
+  width: 100%;
+  min-width: 0;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+
+  scrollbar-width: none;
+}
+
+.system-cards::-webkit-scrollbar {
+  display: none;
+}
+
+.system-cards.is-compact {
+  gap: 12px;
+}
+
+.system-card {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 150px;
+  flex: 0 0 200px;
+
+  padding: 16px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  color: #fff;
+  border-radius: var(--app-radius);
+  border: 1px solid var(--app-line);
+
+  scroll-snap-align: start;
+}
+
+.system-cards.is-compact .system-card {
+  min-height: 108px;
+  flex: 0 0 146px;
+  padding: 12px;
+}
+
+/* Carousel arrows */
+.system-carousel__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 34px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--app-line);
+  border-radius: 6px;
+  background: var(--app-surface);
+  color: var(--app-ink);
+  font-size: 28px;
+  line-height: 1;
+  padding-bottom: 3px;
+  cursor: pointer;
+  transition: background 120ms ease, opacity 120ms ease;
+}
+
+.system-carousel__arrow:hover {
+  background: var(--app-surface-2);
+}
+
+.system-carousel__arrow--left {
+  left: -44px;
+}
+
+.system-carousel__arrow--right {
+  right: -44px;
+}
+/*.system-card {*/
+/*  position: relative; overflow: hidden; min-height: 150px; padding: 16px; display: flex; flex-direction: column; justify-content: flex-end;*/
+/*  color: #fff; border-radius: var(--app-radius); border: 1px solid var(--app-line);*/
+/*}*/
+/*.system-cards.is-compact .system-card { min-height: 108px; padding: 12px; }*/
 .system-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, .65) 100%); }
 .system-card > * { position: relative; }
 .system-card.is-soon { filter: saturate(.55); }
@@ -110,3 +196,13 @@
   .landing-features { grid-template-columns: 1fr; }
   .landing-hero h1 { font-size: 34px; }
 }
+
+/* System picker (/characters/new): the app's look, the home's system cards */
+.system-picker { padding-top: 32px; padding-bottom: 40px; }
+.system-picker__lead { margin: 8px 0 20px; color: var(--app-muted, #6B7A85); }
+.system-picker__error { color: #C2412F; }
+.system-picker__back { display: inline-block; margin-top: 24px; text-decoration: none; }
+
+/* Collapsible "Start something new" strip and system groups */
+.home-toggle { display: flex; align-items: center; gap: 8px; width: 100%; background: none; border: 0; padding: 0; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.home-toggle:hover h2, button.home-label.home-toggle:hover { opacity: .8; }

@@ -1,0 +1,70 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "water-weird",
+  "name" : "Water Weird",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 299,
+  "tags" : [ "underdark", "urban" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Elemental",
+    "alignment" : "neutral",
+    "armorClass" : 13,
+    "armorClassText" : "13",
+    "hitPoints" : 58,
+    "hitDice" : "9d10 + 9",
+    "speed" : 0,
+    "additionalSpeeds" : "Swim 60 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 17,
+      "save" : 3
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 10,
+      "save" : 0
+    } ],
+    "skills" : [ ],
+    "senses" : "blindsight 30 ft., passive Perception 10",
+    "languages" : "understands Aquan but doesn't speak",
+    "challengeRating" : "3",
+    "damageVulnerabilities" : null,
+    "damageResistances" : "fire; bludgeoning, piercing, and slashing from nonmagical attacks",
+    "damageImmunities" : "poison",
+    "conditionImmunities" : "exhaustion, grappled, paralyzed, poisoned, restrained, prone, unconscious",
+    "traits" : [ {
+      "name" : "Invisible in Water",
+      "description" : "The water weird is invisible while fully immersed in water."
+    }, {
+      "name" : "Water Bound",
+      "description" : "The water weird dies if it leaves the water to which it is bound or if that water is destroyed."
+    } ],
+    "actions" : [ {
+      "name" : "Constrict",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 10 ft., one creature. Hit: 13 (3d6 + 3) bludgeoning damage. If the target is Medium or smaller, it is grappled (escape DC 13) and pulled 5 feet toward the water weird. Until this grapple ends, the target is restrained, the water weird tries to drown it, and the water weird can't constrict another target."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark", "urban" ]
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "magma-mephit",
+  "name" : "Magma Mephit",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 216,
+  "tags" : [ "underdark" ],
+  "description" : null,
+  "data" : {
+    "size" : "Small",
+    "creatureType" : "Elemental",
+    "alignment" : "neutral evil",
+    "armorClass" : 11,
+    "armorClassText" : "11",
+    "hitPoints" : 22,
+    "hitDice" : "5d6 + 5",
+    "speed" : 30,
+    "additionalSpeeds" : "Fly 30 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 7,
+      "save" : -2
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 10,
+      "save" : 0
+    } ],
+    "skills" : [ {
+      "name" : "Stealth",
+      "bonus" : 3
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 10",
+    "languages" : "Ignan, Terran",
+    "challengeRating" : "1/2",
+    "damageVulnerabilities" : "cold",
+    "damageResistances" : null,
+    "damageImmunities" : "fire, poison",
+    "conditionImmunities" : "poisoned",
+    "traits" : [ {
+      "name" : "Death Burst",
+      "description" : "When the mephit dies, it explodes in a burst of lava. Each creature within 5 feet of it must make a DC 11 Dexterity saving throw, taking 7 (2d6) fire damage on a failed save, or half as much damage on a successful one."
+    }, {
+      "name" : "False Appearance",
+      "description" : "While the mephit remains motionless, it is indistinguishable from an ordinary mound of magma."
+    }, {
+      "name" : "Innate Spellcasting (1/Day)",
+      "description" : "The mephit can innately cast heat metal (spell save DC 10), requiring no material components. Its innate spellcasting ability is Charisma.\nAt will: heat metal"
+    } ],
+    "actions" : [ {
+      "name" : "Claws",
+      "description" : "Melee Weapon Attack: +3 to hit, reach 5 ft., one creature. Hit: 3 (1d4 + 1) slashing damage plus 2 (1d4) fire damage."
+    }, {
+      "name" : "Fire Breath (Recharge 6)",
+      "description" : "The mephit exhales a 15-foot cone of fire. Each creature in that area must make a DC 11 Dexterity saving throw, taking 7 (2d6) fire damage on a failed save, or half as much damage on a successful one."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark" ]
+  }
+}

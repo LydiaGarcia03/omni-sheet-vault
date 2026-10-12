@@ -1,0 +1,88 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "sahuagin-priestess",
+  "name" : "Sahuagin Priestess",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 264,
+  "tags" : [ "underwater", "coastal" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (sahuagin)",
+    "alignment" : "lawful evil",
+    "armorClass" : 12,
+    "armorClassText" : "12 (natural armor)",
+    "hitPoints" : 33,
+    "hitDice" : "6d8 + 6",
+    "speed" : 30,
+    "additionalSpeeds" : "Swim 40 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 13,
+      "save" : 1
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 6
+    }, {
+      "name" : "Religion",
+      "bonus" : 3
+    } ],
+    "senses" : "darkvision 120 ft., passive Perception 16",
+    "languages" : "Sahuagin",
+    "challengeRating" : "2",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Blood Frenzy",
+      "description" : "The sahuagin has advantage on melee attack rolls against any creature that doesn't have all its hit points."
+    }, {
+      "name" : "Limited Amphibiousness",
+      "description" : "The sahuagin can breathe air and water, but it needs to be submerged at least once every 4 hours to avoid suffocating."
+    }, {
+      "name" : "Shark Telepathy",
+      "description" : "The sahuagin can magically command any shark within 120 feet of it, using a limited telepathy."
+    }, {
+      "name" : "Spellcasting",
+      "description" : "The sahuagin is a 6th-level spellcaster. Her spellcasting ability is Wisdom (spell save DC 12, +4 to hit with spell attacks). She has the following cleric spells prepared:\nCantrips (at will): guidance, thaumaturgy\n1st level (4 slots): bless, detect magic, guiding bolt\n2nd level (3 slots): hold person, spiritual weapon (trident)\n3rd level (3 slots): mass healing word, tongues"
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The sahuagin makes two melee attacks: one with her bite and one with her claws."
+    }, {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) piercing damage."
+    }, {
+      "name" : "Claws",
+      "description" : "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) slashing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underwater", "coastal" ]
+  }
+}

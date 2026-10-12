@@ -1,0 +1,97 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "spy",
+  "name" : "Spy",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 349,
+  "tags" : [ "urban" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (any race)",
+    "alignment" : "any alignment",
+    "armorClass" : 12,
+    "armorClassText" : "12",
+    "hitPoints" : 27,
+    "hitDice" : "6d8",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 16,
+      "save" : 3
+    } ],
+    "skills" : [ {
+      "name" : "Deception",
+      "bonus" : 5
+    }, {
+      "name" : "Insight",
+      "bonus" : 4
+    }, {
+      "name" : "Investigation",
+      "bonus" : 5
+    }, {
+      "name" : "Perception",
+      "bonus" : 6
+    }, {
+      "name" : "Persuasion",
+      "bonus" : 5
+    }, {
+      "name" : "Sleight Of Hand",
+      "bonus" : 4
+    }, {
+      "name" : "Stealth",
+      "bonus" : 4
+    } ],
+    "senses" : "passive Perception 16",
+    "languages" : "any two languages",
+    "challengeRating" : "1",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Cunning Action",
+      "description" : "On each of its turns, the spy can use a bonus action to take the Dash, Disengage, or Hide action."
+    }, {
+      "name" : "Sneak Attack (1/Turn)",
+      "description" : "The spy deals an extra 7 (2d6) damage when it hits a target with a weapon attack and has advantage on the attack roll, or when the target is within 5 feet of an ally of the spy that isn't incapacitated and the spy doesn't have disadvantage on the attack roll."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The spy makes two melee attacks."
+    }, {
+      "name" : "Shortsword",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage."
+    }, {
+      "name" : "Hand Crossbow",
+      "description" : "Ranged Weapon Attack: +4 to hit, range 30/120 ft., one target. Hit: 5 (1d6 + 2) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "urban" ]
+  }
+}

@@ -1,4 +1,6 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import type { ReactElement } from 'react';
+import { MemoryRouter } from 'react-router';
 import { describe, expect, it, vi } from 'vitest';
 import type { CreationChoice } from '../../../builder/draftApi';
 import { postCreationRoll } from '../../../dice/api';
@@ -36,30 +38,47 @@ const BUILD: Dnd5eBuild = {
   choices: [],
 };
 
+const FIXED_CHOICE: CreationChoice = { ...CHOICE, id: 'build.fixedHitPoints', type: 'FIXED_HIT_POINTS', count: 0, optional: true, pending: false };
+
+function renderField(field: ReactElement) {
+  return render(<MemoryRouter>{field}</MemoryRouter>);
+}
+
 describe('Dnd5eRolledHitPointsField', () => {
   it('shows one row per level with its die, and the rolled total against the average', () => {
-    render(<Dnd5eRolledHitPointsField characterId="c1" choice={CHOICE} build={{ ...BUILD, rolledHitPoints: [7, null] }} onChange={vi.fn()} />);
+    renderField(<Dnd5eRolledHitPointsField characterId="c1" choice={CHOICE} build={{ ...BUILD, rolledHitPoints: [7, null] }} onChange={vi.fn()} />);
 
     expect(screen.getByRole('button', { name: 'Roll d10' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Roll d6' })).toBeInTheDocument();
-    expect(screen.getByLabelText('Hit points, Fighter 2')).toHaveValue(7);
-    expect(screen.getByLabelText('Hit points, Wizard 1')).toHaveValue(null);
+    expect(screen.getByLabelText('Hit points, Fighter 2')).toHaveValue('7');
+    expect(screen.getByLabelText('Hit points, Wizard 1')).toHaveValue('');
     expect(screen.getByText('Rolled total 7')).toBeInTheDocument();
     expect(screen.getByText('Average would be 10')).toBeInTheDocument();
   });
 
   it('keeps a typed result in its own row, leaving the others unrolled', () => {
     const onChange = vi.fn();
-    render(<Dnd5eRolledHitPointsField characterId="c1" choice={CHOICE} build={BUILD} onChange={onChange} />);
+    renderField(<Dnd5eRolledHitPointsField characterId="c1" choice={CHOICE} build={BUILD} onChange={onChange} />);
 
     fireEvent.change(screen.getByLabelText('Hit points, Wizard 1'), { target: { value: '5' } });
 
     expect(onChange).toHaveBeenCalledWith(expect.objectContaining({ rolledHitPoints: [null, 5] }));
   });
 
+  it('keeps only the digits typed into a plain text field', () => {
+    const onChange = vi.fn();
+    renderField(<Dnd5eRolledHitPointsField characterId="c1" choice={CHOICE} build={BUILD} onChange={onChange} />);
+    const field = screen.getByLabelText('Hit points, Fighter 2');
+
+    expect(field).toHaveAttribute('type', 'text');
+    fireEvent.change(field, { target: { value: '8a' } });
+
+    expect(onChange).toHaveBeenCalledWith(expect.objectContaining({ rolledHitPoints: [8, null] }));
+  });
+
   it("shows only one class's rows, writing each at its own place in the build", () => {
     const onChange = vi.fn();
-    render(<Dnd5eRolledHitPointsField characterId="c1" choice={CHOICE} build={{ ...BUILD, rolledHitPoints: [7, null] }} onChange={onChange} group="wizard" />);
+    renderField(<Dnd5eRolledHitPointsField characterId="c1" choice={CHOICE} build={{ ...BUILD, rolledHitPoints: [7, null] }} onChange={onChange} group="wizard" />);
 
     expect(screen.queryByLabelText('Hit points, Fighter 2')).toBeNull();
     expect(screen.getByText('Average would be 4')).toBeInTheDocument();
@@ -70,14 +89,23 @@ describe('Dnd5eRolledHitPointsField', () => {
     expect(unrolledHitPointLevels(CHOICE, { ...BUILD, rolledHitPoints: [7, null] }, 'fighter')).toBe(0);
   });
 
-  it("takes a level's fixed value instead of rolling it", () => {
-    const onChange = vi.fn();
-    render(<Dnd5eRolledHitPointsField characterId="c1" choice={CHOICE} build={{ ...BUILD, rolledHitPoints: [7, null] }} onChange={onChange} />);
+  it('offers no fixed value while rolling, and points to the Basics setting instead', () => {
+    renderField(<Dnd5eRolledHitPointsField characterId="c1" choice={CHOICE} build={BUILD} onChange={vi.fn()} />);
 
-    fireEvent.click(screen.getByRole('button', { name: 'Use fixed value for Wizard 1' }));
+    expect(screen.queryByRole('button', { name: /Use fixed/ })).toBeNull();
+    expect(screen.getByRole('link', { name: 'Basics' })).toHaveAttribute('href', '/characters/c1/build/basics');
+    expect(screen.getByText(/set Hit points on level up to Fixed/)).toBeInTheDocument();
+  });
 
-    expect(screen.getByRole('button', { name: 'Use fixed value for Fighter 2' })).toHaveTextContent('Use fixed (6)');
-    expect(onChange).toHaveBeenCalledWith(expect.objectContaining({ rolledHitPoints: [7, 4] }));
+  it('shows each level’s fixed value and the fixed total when hit points are fixed', () => {
+    renderField(<Dnd5eRolledHitPointsField characterId="c1" choice={FIXED_CHOICE} build={{ ...BUILD, hitPointMethod: 'FIXED' }} onChange={vi.fn()} />);
+
+    expect(screen.getByLabelText('Hit points, Fighter 2')).toHaveTextContent('6');
+    expect(screen.getByLabelText('Hit points, Wizard 1')).toHaveTextContent('4');
+    expect(screen.getByText('Fixed total 10')).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /Roll/ })).toBeNull();
+    expect(screen.getByText(/set Hit points on level up to Rolled/)).toBeInTheDocument();
+    expect(unrolledHitPointLevels(FIXED_CHOICE, BUILD)).toBe(0);
   });
 
   it('rolls a level on the server with its label and writes the result', async () => {
@@ -91,7 +119,7 @@ describe('Dnd5eRolledHitPointsField', () => {
       rolledAt: '2026-09-26T00:00:00Z',
     });
     const onChange = vi.fn();
-    render(<Dnd5eRolledHitPointsField characterId="c1" choice={CHOICE} build={BUILD} onChange={onChange} />);
+    renderField(<Dnd5eRolledHitPointsField characterId="c1" choice={CHOICE} build={BUILD} onChange={onChange} />);
 
     fireEvent.click(screen.getByRole('button', { name: 'Roll d10' }));
 

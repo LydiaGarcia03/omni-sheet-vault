@@ -1,0 +1,85 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "barlgura",
+  "name" : "Barlgura",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 56,
+  "tags" : [ ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Fiend (demon)",
+    "alignment" : "chaotic evil",
+    "armorClass" : 15,
+    "armorClassText" : "15 (natural armor)",
+    "hitPoints" : 68,
+    "hitDice" : "8d10 + 24",
+    "speed" : 40,
+    "additionalSpeeds" : "Climb 40 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 18,
+      "save" : 4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 15,
+      "save" : 5
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 16,
+      "save" : 6
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 7,
+      "save" : -2
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 9,
+      "save" : -1
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 5
+    }, {
+      "name" : "Stealth",
+      "bonus" : 5
+    } ],
+    "senses" : "blindsight 30 ft., darkvision 120 ft., passive Perception 15",
+    "languages" : "Abyssal, telepathy 120 ft.",
+    "challengeRating" : "5",
+    "damageVulnerabilities" : null,
+    "damageResistances" : "cold, fire, lightning",
+    "damageImmunities" : "poison",
+    "conditionImmunities" : "poisoned",
+    "traits" : [ {
+      "name" : "Reckless",
+      "description" : "At the start of its turn, the barlgura can gain advantage on all melee weapon attack rolls it makes during that turn, but attack rolls against it have advantage until the start of its next turn."
+    }, {
+      "name" : "Running Leap",
+      "description" : "The barlgura's long jump is up to 40 feet and its high jump is up to 20 feet when it has a running start."
+    }, {
+      "name" : "Innate Spellcasting",
+      "description" : "The barlgura's spellcasting ability is Wisdom (spell save DC 13). The barlgura can innately cast the following spells, requiring no material components:\n1/day each: entangle, phantasmal force\n2/day each: disguise self, invisibility (self only)"
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The barlgura makes three attacks: one with its bite and two with its fists."
+    }, {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) piercing damage."
+    }, {
+      "name" : "Fist",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 9 (1d10 + 4) bludgeoning damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ ]
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "lizard-queen",
+  "name" : "Lizard Queen",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 205,
+  "tags" : [ "forest", "swamp" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (lizardfolk)",
+    "alignment" : "chaotic evil",
+    "armorClass" : 15,
+    "armorClassText" : "15 (natural armor)",
+    "hitPoints" : 78,
+    "hitDice" : "12d8 + 24",
+    "speed" : 30,
+    "additionalSpeeds" : "Swim 30 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 17,
+      "save" : 3
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 15,
+      "save" : 4
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 11,
+      "save" : 2
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 15,
+      "save" : 2
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 4
+    }, {
+      "name" : "Stealth",
+      "bonus" : 5
+    }, {
+      "name" : "Survival",
+      "bonus" : 4
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 14",
+    "languages" : "Abyssal, Draconic",
+    "challengeRating" : "4",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : "frightened",
+    "traits" : [ {
+      "name" : "Hold Breath",
+      "description" : "The lizardfolk can hold its breath for 15 minutes."
+    }, {
+      "name" : "Skewer",
+      "description" : "Once per turn, when the lizardfolk makes a melee attack with its trident and hits, the target takes an extra 10 (3d6) damage, and the lizardfolk gains temporary hit points equal to the extra damage dealt."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The lizardfolk makes two attacks: one with its bite and one with its claws or trident or two melee attacks with its trident."
+    }, {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) piercing damage."
+    }, {
+      "name" : "Claws",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 5 (1d4 + 3) slashing damage."
+    }, {
+      "name" : "Trident",
+      "description" : "Melee Weapon  or Ranged Weapon Attack: +5 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 6 (1d6 + 3) piercing damage, or 7 (1d8 + 3) piercing damage if used with two hands to make a melee attack."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "forest", "swamp" ]
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "archmage",
+  "name" : "Archmage",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 342,
+  "tags" : [ "urban" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (any race)",
+    "alignment" : "any alignment",
+    "armorClass" : 12,
+    "armorClassText" : "12, 15 with mage armor",
+    "hitPoints" : 99,
+    "hitDice" : "18d8 + 18",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 20,
+      "save" : 9
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 15,
+      "save" : 6
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 16,
+      "save" : 3
+    } ],
+    "skills" : [ {
+      "name" : "Arcana",
+      "bonus" : 13
+    }, {
+      "name" : "History",
+      "bonus" : 13
+    } ],
+    "senses" : "passive Perception 12",
+    "languages" : "any six languages",
+    "challengeRating" : "12",
+    "damageVulnerabilities" : null,
+    "damageResistances" : "damage from spells; nonmagical bludgeoning, piercing, and slashing (from stoneskin)",
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Magic Resistance",
+      "description" : "The archmage has advantage on saving throws against spells and other magical effects."
+    }, {
+      "name" : "Spellcasting",
+      "description" : "The archmage is an 18th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 17, +9 to hit with spell attacks). The archmage can cast disguise self and invisibility at will and has the following wizard spells prepared:\nAt will: disguise self, invisibility\nCantrips (at will): fire bolt, light, mage hand, prestidigitation, shocking grasp\n1st level (4 slots): detect magic, identify, mage armor*, magic missile\n2nd level (3 slots): detect thoughts, mirror image, misty step\n3rd level (3 slots): counterspell, fly, lightning bolt\n4th level (3 slots): banishment, fire shield, stoneskin*\n5th level (3 slots): cone of cold, scrying, wall of force\n6th level (1 slot): globe of invulnerability\n7th level (1 slot): teleport\n8th level (1 slot): mind blank*\n9th level (1 slot): time stop\n*The archmage casts these spells on itself before combat."
+    } ],
+    "actions" : [ {
+      "name" : "Dagger",
+      "description" : "Melee Weapon  or Ranged Weapon Attack: +6 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (1d4 + 2) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "urban" ]
+  }
+}

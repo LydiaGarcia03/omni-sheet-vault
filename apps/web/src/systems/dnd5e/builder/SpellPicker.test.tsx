@@ -3,6 +3,9 @@ import { describe, expect, it, vi } from 'vitest';
 import type { CreationChoice } from '../../../builder/draftApi';
 import { SpellPicker } from './SpellPicker';
 
+const { getCatalogue } = vi.hoisted(() => ({ getCatalogue: vi.fn() }));
+vi.mock('../../../catalogue/api', () => ({ getCatalogue }));
+
 function spell(key: string, label: string, level: number, school: string, damageType: string | null, sourceBook = "Player's Handbook") {
   return {
     key,
@@ -67,21 +70,33 @@ describe('SpellPicker', () => {
     expect(screen.getByText('1 of 4 spells')).toBeInTheDocument();
   });
 
-  it('starts with the list hidden once the choice is complete, and shows it on request', () => {
+  it('starts collapsed once the choice is complete, naming the picks, and opens on request', async () => {
     render(<SpellPicker choice={cantrips(['fire-bolt', 'mage-hand'])} onChange={vi.fn()} />);
 
     expect(screen.queryByRole('textbox', { name: 'Search spells' })).not.toBeInTheDocument();
-    fireEvent.click(screen.getByRole('button', { name: /Show spells/ }));
+    expect(screen.getByText('Fire Bolt, Mage Hand')).toBeInTheDocument();
+    fireEvent.click(screen.getByText('Choose 2 Wizard cantrip(s)'));
 
-    expect(screen.getByRole('textbox', { name: 'Search spells' })).toBeInTheDocument();
+    expect(await screen.findByRole('textbox', { name: 'Search spells' })).toBeInTheDocument();
   });
 
-  it('adds spells until the count is reached and removes a chosen one', () => {
+  it('shows a spell description when its name is opened', async () => {
+    getCatalogue.mockResolvedValue([
+      { slug: 'fire-bolt', description: { value: 'You hurl a mote of fire.', redacted: false }, data: { higherLevelsDescription: null } },
+    ]);
+    render(<SpellPicker choice={cantrips([])} onChange={vi.fn()} />);
+
+    fireEvent.click(screen.getByRole('button', { name: /^Fire Bolt/ }));
+
+    expect(await screen.findByText('You hurl a mote of fire.')).toBeInTheDocument();
+  });
+
+  it('adds spells until the count is reached and removes a chosen one', async () => {
     const onChange = vi.fn();
     render(<SpellPicker choice={cantrips(['fire-bolt', 'mage-hand'])} onChange={onChange} />);
-    fireEvent.click(screen.getByRole('button', { name: /Show spells/ }));
+    fireEvent.click(screen.getByText('Choose 2 Wizard cantrip(s)'));
 
-    expect(screen.getByRole('button', { name: 'Choose Ray of Frost' })).toBeDisabled();
+    expect(await screen.findByRole('button', { name: 'Choose Ray of Frost' })).toBeDisabled();
     fireEvent.click(screen.getByRole('button', { name: 'Remove Mage Hand' }));
 
     expect(onChange).toHaveBeenCalledWith(['fire-bolt']);

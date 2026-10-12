@@ -1,0 +1,76 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "roc",
+  "name" : "Roc",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 260,
+  "tags" : [ "mountain", "hill", "desert", "coastal", "arctic" ],
+  "description" : null,
+  "data" : {
+    "size" : "Gargantuan",
+    "creatureType" : "Monstrosity",
+    "alignment" : "unaligned",
+    "armorClass" : 15,
+    "armorClassText" : "15 (natural armor)",
+    "hitPoints" : 248,
+    "hitDice" : "16d20 + 80",
+    "speed" : 20,
+    "additionalSpeeds" : "Fly 120 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 28,
+      "save" : 9
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 10,
+      "save" : 4
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 20,
+      "save" : 9
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 3,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 10,
+      "save" : 4
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 9,
+      "save" : 3
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 4
+    } ],
+    "senses" : "passive Perception 14",
+    "languages" : "—",
+    "challengeRating" : "11",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Keen Sight",
+      "description" : "The roc has advantage on Wisdom (Perception) checks that rely on sight."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The roc makes two attacks: one with its beak and one with its talons."
+    }, {
+      "name" : "Beak",
+      "description" : "Melee Weapon Attack: +13 to hit, reach 10 ft., one target. Hit: 27 (4d8 + 9) piercing damage."
+    }, {
+      "name" : "Talons",
+      "description" : "Melee Weapon Attack: +13 to hit, reach 5 ft., one target. Hit: 23 (4d6 + 9) slashing damage, and the target is grappled (escape DC 19). Until this grapple ends, the target is restrained, and the roc can't use its talons on another target."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "mountain", "hill", "desert", "coastal", "arctic" ]
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "marid",
+  "name" : "Marid",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 146,
+  "tags" : [ "underwater", "coastal" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Elemental",
+    "alignment" : "chaotic neutral",
+    "armorClass" : 17,
+    "armorClassText" : "17 (natural armor)",
+    "hitPoints" : 229,
+    "hitDice" : "17d10 + 136",
+    "speed" : 30,
+    "additionalSpeeds" : "Fly 60 ft., Swim 90 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 22,
+      "save" : 6
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 12,
+      "save" : 5
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 26,
+      "save" : 8
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 18,
+      "save" : 4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 17,
+      "save" : 7
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 18,
+      "save" : 8
+    } ],
+    "skills" : [ ],
+    "senses" : "blindsight 30 ft., darkvision 120 ft., passive Perception 13",
+    "languages" : "Aquan",
+    "challengeRating" : "11",
+    "damageVulnerabilities" : null,
+    "damageResistances" : "acid, cold, lightning",
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Amphibious",
+      "description" : "The marid can breathe air and water."
+    }, {
+      "name" : "Elemental Demise",
+      "description" : "If the marid dies, its body disintegrates into a burst of water and foam, leaving behind only equipment the marid was wearing or carrying."
+    }, {
+      "name" : "Innate Spellcasting",
+      "description" : "The marid's innate spellcasting ability is Charisma (spell save DC 16, +8 to hit with spell attacks). It can innately cast the following spells, requiring no material components:\nAt will: create or destroy water, detect evil and good, detect magic, fog cloud, purify food and drink\n3/day each: tongues, water breathing, water walk\n1/day each: conjure elemental (water elemental only), control water, gaseous form, invisibility, plane shift"
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The marid makes two trident attacks."
+    }, {
+      "name" : "Trident",
+      "description" : "Melee Weapon  or Ranged Weapon Attack: +10 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 13 (2d6 + 6) piercing damage, or 15 (2d8 + 6) piercing damage if used with two hands to make a melee attack."
+    }, {
+      "name" : "Water Jet",
+      "description" : "The marid magically shoots water in a 60-foot line that is 5 feet wide. Each creature in that line must make a DC 16 Dexterity saving throw. On a failure, a target takes 21 (6d6) bludgeoning damage and, if it is Huge or smaller, is pushed up to 20 feet away from the marid and knocked prone. On a success, a target takes half the bludgeoning damage, but is neither pushed nor knocked prone."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underwater", "coastal" ]
+  }
+}

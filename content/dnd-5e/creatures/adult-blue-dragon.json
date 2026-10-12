@@ -1,0 +1,97 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "adult-blue-dragon",
+  "name" : "Adult Blue Dragon",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 91,
+  "tags" : [ "desert", "coastal" ],
+  "description" : null,
+  "data" : {
+    "size" : "Huge",
+    "creatureType" : "Dragon",
+    "alignment" : "lawful evil",
+    "armorClass" : 19,
+    "armorClassText" : "19 (natural armor)",
+    "hitPoints" : 225,
+    "hitDice" : "18d12 + 108",
+    "speed" : 40,
+    "additionalSpeeds" : "Burrow 30 ft., Fly 80 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 25,
+      "save" : 7
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 10,
+      "save" : 5
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 23,
+      "save" : 11
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 15,
+      "save" : 7
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 19,
+      "save" : 9
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 12
+    }, {
+      "name" : "Stealth",
+      "bonus" : 5
+    } ],
+    "senses" : "blindsight 60 ft., darkvision 120 ft., passive Perception 22",
+    "languages" : "Common, Draconic",
+    "challengeRating" : "16",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : "lightning",
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Legendary Resistance (3/Day)",
+      "description" : "If the dragon fails a saving throw, it can choose to succeed instead."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws."
+    }, {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +12 to hit, reach 10 ft., one target. Hit: 18 (2d10 + 7) piercing damage plus 5 (1d10) lightning damage."
+    }, {
+      "name" : "Claw",
+      "description" : "Melee Weapon Attack: +12 to hit, reach 5 ft., one target. Hit: 14 (2d6 + 7) slashing damage."
+    }, {
+      "name" : "Tail",
+      "description" : "Melee Weapon Attack: +12 to hit, reach 15 ft., one target. Hit: 16 (2d8 + 7) bludgeoning damage."
+    }, {
+      "name" : "Frightful Presence",
+      "description" : "Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 17 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours."
+    }, {
+      "name" : "Lightning Breath (Recharge 5–6)",
+      "description" : "The dragon exhales lightning in a 90-foot line that is 5 feet wide. Each creature in that line must make a DC 19 Dexterity saving throw, taking 66 (12d10) lightning damage on a failed save, or half as much damage on a successful one."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ {
+      "name" : "Detect",
+      "description" : "The dragon makes a Wisdom (Perception) check."
+    }, {
+      "name" : "Tail Attack",
+      "description" : "The dragon makes a tail attack."
+    }, {
+      "name" : "Wing Attack (Costs 2 Actions)",
+      "description" : "The dragon beats its wings. Each creature within 10 feet of the dragon must succeed on a DC 20 Dexterity saving throw or take 14 (2d6 + 7) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed."
+    } ],
+    "familiar" : false,
+    "environments" : [ "desert", "coastal" ]
+  }
+}

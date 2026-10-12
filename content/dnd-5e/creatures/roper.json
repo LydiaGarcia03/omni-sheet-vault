@@ -1,0 +1,88 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "roper",
+  "name" : "Roper",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 261,
+  "tags" : [ "underdark" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Monstrosity",
+    "alignment" : "neutral evil",
+    "armorClass" : 20,
+    "armorClassText" : "20 (natural armor)",
+    "hitPoints" : 93,
+    "hitDice" : "11d10 + 33",
+    "speed" : 10,
+    "additionalSpeeds" : "Climb 10 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 18,
+      "save" : 4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 17,
+      "save" : 3
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 7,
+      "save" : -2
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 6,
+      "save" : -2
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 6
+    }, {
+      "name" : "Stealth",
+      "bonus" : 5
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 16",
+    "languages" : "—",
+    "challengeRating" : "5",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "False Appearance",
+      "description" : "While the roper remains motionless, it is indistinguishable from a normal cave formation, such as a stalagmite."
+    }, {
+      "name" : "Grasping Tendrils",
+      "description" : "The roper can have up to six tendrils at a time. Each tendril can be attacked (AC 20; 10 hit points; immunity to poison and psychic damage). Destroying a tendril deals no damage to the roper, which can extrude a replacement tendril on its next turn. A tendril can also be broken if a creature takes an action and succeeds on a DC 15 Strength check against it."
+    }, {
+      "name" : "Spider Climb",
+      "description" : "The roper can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The roper makes four attacks with its tendrils, uses Reel, and makes one attack with its bite."
+    }, {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 22 (4d8 + 4) piercing damage."
+    }, {
+      "name" : "Tendril",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 50 ft., one creature. Hit: The target is grappled (escape DC 15). Until the grapple ends, the target is restrained and has disadvantage on Strength checks and Strength saving throws, and the roper can't use the same tendril on another target."
+    }, {
+      "name" : "Reel",
+      "description" : "The roper pulls each creature grappled by it up to 25 feet straight toward it."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark" ]
+  }
+}

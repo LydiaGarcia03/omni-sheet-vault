@@ -1,0 +1,82 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "githzerai-zerth",
+  "name" : "Githzerai Zerth",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 161,
+  "tags" : [ ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (gith)",
+    "alignment" : "lawful neutral",
+    "armorClass" : 17,
+    "armorClassText" : "17",
+    "hitPoints" : 84,
+    "hitDice" : "13d8 + 26",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 13,
+      "save" : 4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 18,
+      "save" : 7
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 16,
+      "save" : 6
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 17,
+      "save" : 6
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 12,
+      "save" : 1
+    } ],
+    "skills" : [ {
+      "name" : "Arcana",
+      "bonus" : 6
+    }, {
+      "name" : "Insight",
+      "bonus" : 6
+    }, {
+      "name" : "Perception",
+      "bonus" : 6
+    } ],
+    "senses" : "passive Perception 16",
+    "languages" : "Gith",
+    "challengeRating" : "6",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Psychic Defense",
+      "description" : "While the githzerai is wearing no armor and wielding no shield, its AC includes its Wisdom modifier."
+    }, {
+      "name" : "Innate Spellcasting (Psionics)",
+      "description" : "The githzerai's innate spellcasting ability is Wisdom. It can innately cast the following spells, requiring no components:\nAt will: mage hand (the hand is invisible)\n3/day each: feather fall, jump, see invisibility, shield\n1/day each: phantasmal killer, plane shift"
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The githzerai makes two unarmed strikes."
+    }, {
+      "name" : "Unarmed Strike",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) bludgeoning damage plus 13 (3d8) psychic damage. This is a magic weapon attack."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ ]
+  }
+}

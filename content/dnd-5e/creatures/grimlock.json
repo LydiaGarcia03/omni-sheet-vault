@@ -1,0 +1,82 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "grimlock",
+  "name" : "Grimlock",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 175,
+  "tags" : [ "underdark" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (grimlock)",
+    "alignment" : "neutral evil",
+    "armorClass" : 11,
+    "armorClassText" : "11",
+    "hitPoints" : 11,
+    "hitDice" : "2d8 + 2",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 9,
+      "save" : -1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 6,
+      "save" : -2
+    } ],
+    "skills" : [ {
+      "name" : "Athletics",
+      "bonus" : 5
+    }, {
+      "name" : "Perception",
+      "bonus" : 3
+    }, {
+      "name" : "Stealth",
+      "bonus" : 3
+    } ],
+    "senses" : "blindsight 30 ft. or 10 ft. while deafened (blind beyond this radius), passive Perception 13",
+    "languages" : "Undercommon",
+    "challengeRating" : "1/4",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : "blinded",
+    "traits" : [ {
+      "name" : "Blind Senses",
+      "description" : "The grimlock can't use its blindsight while deafened and unable to smell."
+    }, {
+      "name" : "Keen Hearing and Smell",
+      "description" : "The grimlock has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+    }, {
+      "name" : "Stone Camouflage",
+      "description" : "The grimlock has advantage on Dexterity (Stealth) checks made to hide in rocky terrain."
+    } ],
+    "actions" : [ {
+      "name" : "Spiked Bone Club",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 5 (1d4 + 3) bludgeoning damage plus 2 (1d4) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark" ]
+  }
+}

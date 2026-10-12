@@ -7,6 +7,7 @@ package dev.omnisheetvault.api.ruleset;
  * {@link CalculatedValue} field. {@code statBlock} carries the full structured
  * detail (phase 10 slice 10) — see {@link ExtraStatBlock}. {@code currentHitPoints}/
  * {@code temporaryHitPoints} are real, mutable session state, scoped to this one extra.
+ * {@code source} is the book it came from (null when written by hand), {@code notes} the player's own line.
  */
 public record Extra(
         String key,
@@ -17,5 +18,12 @@ public record Extra(
         int currentHitPoints,
         int temporaryHitPoints,
         int speed,
-        ExtraStatBlock statBlock) {
+        ExtraStatBlock statBlock,
+        String source,
+        String notes) {
+
+    public Extra(String key, String name, String category, int armorClass, int maxHitPoints, int currentHitPoints,
+            int temporaryHitPoints, int speed, ExtraStatBlock statBlock) {
+        this(key, name, category, armorClass, maxHitPoints, currentHitPoints, temporaryHitPoints, speed, statBlock, null, null);
+    }
 }

@@ -1,0 +1,79 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "priest",
+  "name" : "Priest",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 348,
+  "tags" : [ "urban" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (any race)",
+    "alignment" : "any alignment",
+    "armorClass" : 13,
+    "armorClassText" : "13 (chain shirt)",
+    "hitPoints" : 27,
+    "hitDice" : "5d8 + 5",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 13,
+      "save" : 1
+    } ],
+    "skills" : [ {
+      "name" : "Medicine",
+      "bonus" : 7
+    }, {
+      "name" : "Persuasion",
+      "bonus" : 3
+    }, {
+      "name" : "Religion",
+      "bonus" : 5
+    } ],
+    "senses" : "passive Perception 13",
+    "languages" : "any two languages",
+    "challengeRating" : "2",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Divine Eminence",
+      "description" : "As a bonus action, the priest can expend a spell slot to cause its melee weapon attacks to magically deal an extra 10 (3d6) radiant damage to a target on a hit. This benefit lasts until the end of the turn. If the priest expends a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each level above 1st."
+    }, {
+      "name" : "Spellcasting",
+      "description" : "The priest is a 5th-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 13, +5 to hit with spell attacks). The priest has the following cleric spells prepared:\nCantrips (at will): light, sacred flame, thaumaturgy\n1st level (4 slots): cure wounds, guiding bolt, sanctuary\n2nd level (3 slots): lesser restoration, spiritual weapon\n3rd level (2 slots): dispel magic, spirit guardians"
+    } ],
+    "actions" : [ {
+      "name" : "Mace",
+      "description" : "Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 3 (1d6) bludgeoning damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "urban" ]
+  }
+}

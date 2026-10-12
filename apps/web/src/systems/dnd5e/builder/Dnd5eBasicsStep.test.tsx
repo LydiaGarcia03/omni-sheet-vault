@@ -71,18 +71,22 @@ describe('Dnd5eBasicsStep', () => {
 
   it('lists the partners with imported books in the partner dropdown, every one chosen by default', async () => {
     renderBasics();
+    expect(await screen.findByText('Every partner (2)')).toBeInTheDocument();
 
-    expect(await screen.findByRole('checkbox', { name: /Rick and Morty/ })).toBeChecked();
+    fireEvent.click(screen.getByRole('button', { name: 'Choose partners' }));
+
+    expect(await screen.findByRole('option', { name: /^Rick and Morty/ })).toHaveAttribute('aria-selected', 'true');
     expect(screen.getByRole('switch', { name: 'Enable partnered content' })).toHaveAttribute('aria-checked', 'true');
-    expect(screen.getByText('Every partner (2)')).toBeInTheDocument();
-    expect(screen.getByRole('checkbox', { name: /Critical Role/ })).toBeChecked();
-    expect(screen.queryByRole('checkbox', { name: /^Explorer's Guide to Wildemount/ })).toBeNull();
+    expect(screen.getByRole('option', { name: /^Critical Role/ })).toHaveAttribute('aria-selected', 'true');
+    expect(screen.queryByRole('option', { name: /^Explorer's Guide to Wildemount/ })).toBeNull();
   });
 
   it('unchecks one partner, keeping the others', async () => {
     const onChange = renderBasics();
+    await screen.findByText('Every partner (2)');
 
-    fireEvent.click(await screen.findByRole('checkbox', { name: /Rick and Morty/ }));
+    fireEvent.click(screen.getByRole('button', { name: 'Choose partners' }));
+    fireEvent.click(await screen.findByRole('option', { name: /^Rick and Morty/ }));
 
     expect(onChange).toHaveBeenCalledWith(
       expect.objectContaining({ preferences: expect.objectContaining({ partners: ['Critical Role'] }) }),

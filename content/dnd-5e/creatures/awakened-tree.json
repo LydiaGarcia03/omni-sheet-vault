@@ -1,0 +1,67 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "awakened-tree",
+  "name" : "Awakened Tree",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 317,
+  "tags" : [ "forest" ],
+  "description" : null,
+  "data" : {
+    "size" : "Huge",
+    "creatureType" : "Plant",
+    "alignment" : "unaligned",
+    "armorClass" : 13,
+    "armorClassText" : "13 (natural armor)",
+    "hitPoints" : 59,
+    "hitDice" : "7d12 + 14",
+    "speed" : 20,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 19,
+      "save" : 4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 6,
+      "save" : -2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 7,
+      "save" : -2
+    } ],
+    "skills" : [ ],
+    "senses" : "passive Perception 10",
+    "languages" : "one language known by its creator",
+    "challengeRating" : "2",
+    "damageVulnerabilities" : "fire",
+    "damageResistances" : "bludgeoning, piercing",
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "False Appearance",
+      "description" : "While the tree remains motionless, it is indistinguishable from a normal tree."
+    } ],
+    "actions" : [ {
+      "name" : "Slam",
+      "description" : "Melee Weapon Attack: +6 to hit, reach 10 ft., one target. Hit: 14 (3d6 + 4) bludgeoning damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "forest" ]
+  }
+}

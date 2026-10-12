@@ -1,0 +1,64 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "manes",
+  "name" : "Manes",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 60,
+  "tags" : [ ],
+  "description" : null,
+  "data" : {
+    "size" : "Small",
+    "creatureType" : "Fiend (demon)",
+    "alignment" : "chaotic evil",
+    "armorClass" : 9,
+    "armorClassText" : "9 (natural armor)",
+    "hitPoints" : 9,
+    "hitDice" : "2d6 + 2",
+    "speed" : 20,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 9,
+      "save" : -1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 3,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 4,
+      "save" : -3
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 60 ft., passive Perception 9",
+    "languages" : "understands Abyssal but can't speak",
+    "challengeRating" : "1/8",
+    "damageVulnerabilities" : null,
+    "damageResistances" : "cold, fire, lightning",
+    "damageImmunities" : "poison",
+    "conditionImmunities" : "charmed, frightened, poisoned",
+    "traits" : [ ],
+    "actions" : [ {
+      "name" : "Claws",
+      "description" : "Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 5 (2d4) slashing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ ]
+  }
+}

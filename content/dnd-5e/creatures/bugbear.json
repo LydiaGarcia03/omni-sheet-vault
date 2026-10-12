@@ -1,0 +1,79 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "bugbear",
+  "name" : "Bugbear",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 33,
+  "tags" : [ "underdark", "grassland", "forest" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (goblinoid)",
+    "alignment" : "chaotic evil",
+    "armorClass" : 16,
+    "armorClassText" : "16 (hide armor, shield)",
+    "hitPoints" : 27,
+    "hitDice" : "5d8 + 5",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 9,
+      "save" : -1
+    } ],
+    "skills" : [ {
+      "name" : "Stealth",
+      "bonus" : 6
+    }, {
+      "name" : "Survival",
+      "bonus" : 2
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 10",
+    "languages" : "Common, Goblin",
+    "challengeRating" : "1",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Brute",
+      "description" : "A melee weapon deals one extra die of its damage when the bugbear hits with it (included in the attack)."
+    }, {
+      "name" : "Surprise Attack",
+      "description" : "If the bugbear surprises a creature and hits it with an attack during the first round of combat, the target takes an extra 7 (2d6) damage from the attack."
+    } ],
+    "actions" : [ {
+      "name" : "Morningstar",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 11 (2d8 + 2) piercing damage."
+    }, {
+      "name" : "Javelin",
+      "description" : "Melee Weapon  or Ranged Weapon Attack: +4 to hit, reach 5 ft. or range 30/120 ft., one target. Hit: 9 (2d6 + 2) piercing damage in melee or 5 (1d6 + 2) piercing damage at range."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark", "grassland", "forest" ]
+  }
+}

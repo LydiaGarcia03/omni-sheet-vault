@@ -1,0 +1,91 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "kuo-toa-monitor",
+  "name" : "Kuo-toa Monitor",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 198,
+  "tags" : [ "underdark" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (kuo-toa)",
+    "alignment" : "neutral evil",
+    "armorClass" : 13,
+    "armorClassText" : "13 (natural armor, Unarmored Defense)",
+    "hitPoints" : 65,
+    "hitDice" : "10d8 + 20",
+    "speed" : 30,
+    "additionalSpeeds" : "Swim 30 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 11,
+      "save" : 0
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 6
+    }, {
+      "name" : "Religion",
+      "bonus" : 5
+    } ],
+    "senses" : "darkvision 120 ft., passive Perception 16",
+    "languages" : "Undercommon",
+    "challengeRating" : "3",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Amphibious",
+      "description" : "The kuo-toa can breathe air and water."
+    }, {
+      "name" : "Otherworldly Perception",
+      "description" : "The kuo-toa can sense the presence of any creature within 30 feet of it that is invisible or on the Ethereal Plane. It can pinpoint such a creature that is moving."
+    }, {
+      "name" : "Slippery",
+      "description" : "The kuo-toa has advantage on ability checks and saving throws made to escape a grapple."
+    }, {
+      "name" : "Sunlight Sensitivity",
+      "description" : "While in sunlight, the kuo-toa has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+    }, {
+      "name" : "Unarmored Defense",
+      "description" : "The kuo-toa adds its Wisdom modifier to its armor class."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The kuo-toa makes one bite attack and two unarmed strikes."
+    }, {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage."
+    }, {
+      "name" : "Unarmed Strike",
+      "description" : "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) bludgeoning damage plus 3 (1d6) lightning damage, and the target can't take reactions until the end of the kuo-toa's next turn."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark" ]
+  }
+}

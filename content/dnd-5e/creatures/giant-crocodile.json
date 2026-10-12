@@ -1,0 +1,76 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "giant-crocodile",
+  "name" : "Giant Crocodile",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 324,
+  "tags" : [ "swamp" ],
+  "description" : null,
+  "data" : {
+    "size" : "Huge",
+    "creatureType" : "Beast",
+    "alignment" : "unaligned",
+    "armorClass" : 14,
+    "armorClassText" : "14 (natural armor)",
+    "hitPoints" : 85,
+    "hitDice" : "9d12 + 27",
+    "speed" : 30,
+    "additionalSpeeds" : "Swim 50 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 21,
+      "save" : 5
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 9,
+      "save" : -1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 17,
+      "save" : 3
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 2,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 7,
+      "save" : -2
+    } ],
+    "skills" : [ {
+      "name" : "Stealth",
+      "bonus" : 5
+    } ],
+    "senses" : "passive Perception 10",
+    "languages" : "—",
+    "challengeRating" : "5",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Hold Breath",
+      "description" : "The crocodile can hold its breath for 30 minutes."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The crocodile makes two attacks: one with its bite and one with its tail."
+    }, {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 21 (3d10 + 5) piercing damage, and the target is grappled (escape DC 16). Until this grapple ends, the target is restrained, and the crocodile can't bite another target."
+    }, {
+      "name" : "Tail",
+      "description" : "Melee Weapon Attack: +8 to hit, reach 10 ft., one target not grappled by the crocodile. Hit: 14 (2d8 + 5) bludgeoning damage. If the target is a creature, it must succeed on a DC 16 Strength saving throw or be knocked prone."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "swamp" ]
+  }
+}

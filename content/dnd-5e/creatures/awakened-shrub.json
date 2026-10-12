@@ -1,0 +1,67 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "awakened-shrub",
+  "name" : "Awakened Shrub",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 317,
+  "tags" : [ "forest" ],
+  "description" : null,
+  "data" : {
+    "size" : "Small",
+    "creatureType" : "Plant",
+    "alignment" : "unaligned",
+    "armorClass" : 9,
+    "armorClassText" : "9",
+    "hitPoints" : 10,
+    "hitDice" : "3d6",
+    "speed" : 20,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 3,
+      "save" : -4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 6,
+      "save" : -2
+    } ],
+    "skills" : [ ],
+    "senses" : "passive Perception 10",
+    "languages" : "one language known by its creator",
+    "challengeRating" : "0",
+    "damageVulnerabilities" : "fire",
+    "damageResistances" : "piercing",
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "False Appearance",
+      "description" : "While the shrub remains motionless, it is indistinguishable from a normal shrub."
+    } ],
+    "actions" : [ {
+      "name" : "Rake",
+      "description" : "Melee Weapon Attack: +1 to hit, reach 5 ft., one target. Hit: 1 (1d4 - 1) slashing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "forest" ]
+  }
+}

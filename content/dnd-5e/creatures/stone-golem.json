@@ -1,0 +1,79 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "stone-golem",
+  "name" : "Stone Golem",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 170,
+  "tags" : [ ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Construct",
+    "alignment" : "unaligned",
+    "armorClass" : 17,
+    "armorClassText" : "17 (natural armor)",
+    "hitPoints" : 178,
+    "hitDice" : "17d10 + 85",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 22,
+      "save" : 6
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 9,
+      "save" : -1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 20,
+      "save" : 5
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 3,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 1,
+      "save" : -5
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 120 ft., passive Perception 10",
+    "languages" : "understands the languages of its creator but can't speak",
+    "challengeRating" : "10",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : "poison, psychic; bludgeoning, piercing, and slashing from nonmagical attacks that aren't adamantine",
+    "conditionImmunities" : "charmed, exhaustion, frightened, paralyzed, petrified, poisoned",
+    "traits" : [ {
+      "name" : "Immutable Form",
+      "description" : "The golem is immune to any spell or effect that would alter its form."
+    }, {
+      "name" : "Magic Resistance",
+      "description" : "The golem has advantage on saving throws against spells and other magical effects."
+    }, {
+      "name" : "Magic Weapons",
+      "description" : "The golem's weapon attacks are magical."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The golem makes two slam attacks."
+    }, {
+      "name" : "Slam",
+      "description" : "Melee Weapon Attack: +10 to hit, reach 5 ft., one target. Hit: 19 (3d8 + 6) bludgeoning damage."
+    }, {
+      "name" : "Slow (Recharge 5–6)",
+      "description" : "The golem targets one or more creatures it can see within 10 feet of it. Each target must make a DC 17 Wisdom saving throw against this magic. On a failed save, a target can't use reactions, its speed is halved, and it can't make more than one attack on its turn. In addition, the target can take either an action or a bonus action on its turn, not both. These effects last for 1 minute. A target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ ]
+  }
+}

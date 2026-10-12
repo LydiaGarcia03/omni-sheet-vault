@@ -1,0 +1,76 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "frost-giant",
+  "name" : "Frost Giant",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 155,
+  "tags" : [ "mountain", "arctic" ],
+  "description" : null,
+  "data" : {
+    "size" : "Huge",
+    "creatureType" : "Giant",
+    "alignment" : "neutral evil",
+    "armorClass" : 15,
+    "armorClassText" : "15 (patchwork armor)",
+    "hitPoints" : 138,
+    "hitDice" : "12d12 + 60",
+    "speed" : 40,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 23,
+      "save" : 6
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 9,
+      "save" : -1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 21,
+      "save" : 8
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 9,
+      "save" : -1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 10,
+      "save" : 3
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 12,
+      "save" : 4
+    } ],
+    "skills" : [ {
+      "name" : "Athletics",
+      "bonus" : 9
+    }, {
+      "name" : "Perception",
+      "bonus" : 3
+    } ],
+    "senses" : "passive Perception 13",
+    "languages" : "Giant",
+    "challengeRating" : "8",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : "cold",
+    "conditionImmunities" : null,
+    "traits" : [ ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The giant makes two greataxe attacks."
+    }, {
+      "name" : "Greataxe",
+      "description" : "Melee Weapon Attack: +9 to hit, reach 10 ft., one target. Hit: 25 (3d12 + 6) slashing damage."
+    }, {
+      "name" : "Rock",
+      "description" : "Ranged Weapon Attack: +9 to hit, range 60/240 ft., one target. Hit: 28 (4d10 + 6) bludgeoning damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "mountain", "arctic" ]
+  }
+}

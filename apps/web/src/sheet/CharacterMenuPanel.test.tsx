@@ -58,11 +58,29 @@ describe('CharacterMenuPanel', () => {
     expect(props.onLevelUp).toHaveBeenCalledOnce();
   });
 
-  it('always offers Level up to a milestone build, with no experience controls', () => {
-    renderMenu({ experience: experience({ advancement: 'MILESTONE' }) });
+  it('gives a milestone build a Milestone reached switch instead of experience controls, and no Level up until it is on', () => {
+    const onSetExperience = vi.fn();
+    renderMenu({ experience: experience({ advancement: 'MILESTONE', points: 23000 }), onSetExperience });
 
-    expect(screen.getByRole('button', { name: /Level up/ })).toBeInTheDocument();
     expect(screen.queryByRole('button', { name: /Manage experience/ })).toBeNull();
+    expect(screen.queryByRole('button', { name: /Level up/ })).toBeNull();
+    const milestone = screen.getByRole('switch', { name: 'Milestone reached' });
+    expect(milestone).toHaveAttribute('aria-checked', 'false');
+
+    fireEvent.click(milestone);
+
+    expect(onSetExperience).toHaveBeenCalledWith(34000);
+  });
+
+  it('shows Level up once the milestone is marked, and unmarking returns to the level start', () => {
+    const onSetExperience = vi.fn();
+    const props = renderMenu({ experience: experience({ advancement: 'MILESTONE', points: 34000, levelUpAvailable: true }), onSetExperience });
+
+    fireEvent.click(screen.getByRole('button', { name: /Level up/ }));
+    fireEvent.click(screen.getByRole('switch', { name: 'Milestone reached' }));
+
+    expect(props.onLevelUp).toHaveBeenCalledOnce();
+    expect(onSetExperience).toHaveBeenCalledWith(23000);
   });
 
   it('renames from the pencil when the field loses focus, and only with a changed, non-blank name', () => {
@@ -99,6 +117,14 @@ describe('CharacterMenuPanel', () => {
 
     expect(screen.getByText('Rogue')).toBeInTheDocument();
     expect(screen.getByText('Thief')).toBeInTheDocument();
+  });
+
+  it('draws the system emblem beside each class row', () => {
+    const classIcon = vi.fn((className: string) => <img data-testid={`icon-${className}`} alt="" />);
+    renderMenu({ classIcon });
+
+    expect(classIcon).toHaveBeenCalledWith('Rogue');
+    expect(screen.getByTestId('icon-Rogue')).toBeInTheDocument();
   });
 });
 

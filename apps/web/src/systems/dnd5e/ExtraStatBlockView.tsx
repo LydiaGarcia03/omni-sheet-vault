@@ -24,7 +24,8 @@ const ABILITY_ABBREVIATIONS: Record<string, string> = {
 function Attribute({ label, value }: { label: string; value: string }) {
   return (
     <div className="extra-stat-block__attribute">
-      <span className="extra-stat-block__attribute-label">{label}</span> {value}
+      <span className="extra-stat-block__attribute-label">{label}</span>
+      {value}
     </div>
   );
 }
@@ -94,9 +95,20 @@ export function ExtraStatBlockView({ name, statBlock, armorClass, maxHitPoints, 
       {skills && <Attribute label="Skills" value={skills} />}
       <Attribute label="Senses" value={statBlock.senses} />
       <Attribute label="Languages" value={statBlock.languages} />
-      <Attribute label="CR" value={statBlock.challengeRating} />
+      <Attribute label="CR" value={challengeText(statBlock)} />
       <Entries heading="Traits" entries={statBlock.traits} />
       <Entries heading="Actions" entries={statBlock.actions} />
+      <Entries heading="Reactions" entries={statBlock.reactions ?? []} />
+      <Entries heading="Legendary Actions" entries={statBlock.legendaryActions ?? []} />
     </div>
   );
+}
+
+/** D&D Beyond's "0 (XP 10; PB +2)"; just the rating when the server gave no XP. */
+export function challengeText(statBlock: ExtraStatBlock): string {
+  if (statBlock.challengeXp == null) {
+    return statBlock.challengeRating;
+  }
+  const bonus = statBlock.challengeProficiencyBonus == null ? '' : `; PB ${formatSigned(statBlock.challengeProficiencyBonus)}`;
+  return `${statBlock.challengeRating} (XP ${statBlock.challengeXp.toLocaleString('en-US')}${bonus})`;
 }

@@ -49,6 +49,12 @@ class CatalogueServiceTest {
     @Autowired
     private ObjectMapper objectMapper;
 
+    @Autowired
+    private CatalogueRecordCache recordCache;
+
+    @Autowired
+    private CatalogueService catalogueService;
+
     private Path directory;
 
     /** See CatalogueImportServiceTest's doc comment on why this isn't {@code @TempDir}. */
@@ -60,7 +66,7 @@ class CatalogueServiceTest {
     @Test
     void redactionEnabledHidesDescriptionButKeepsMechanics() throws IOException {
         importOneSpell();
-        CatalogueService redacting = new CatalogueService(catalogueEntryRepository, gameSystemRegistry, objectMapper, true);
+        CatalogueService redacting = new CatalogueService(catalogueEntryRepository, gameSystemRegistry, objectMapper, true, recordCache);
 
         CatalogueEntryResponse response = redacting.list("dnd-5e", CatalogueEntryKind.SPELL).get(0);
 
@@ -73,7 +79,7 @@ class CatalogueServiceTest {
     @Test
     void redactionDisabledReturnsTheProse() throws IOException {
         importOneSpell();
-        CatalogueService open = new CatalogueService(catalogueEntryRepository, gameSystemRegistry, objectMapper, false);
+        CatalogueService open = new CatalogueService(catalogueEntryRepository, gameSystemRegistry, objectMapper, false, recordCache);
 
         CatalogueEntryResponse response = open.list("dnd-5e", CatalogueEntryKind.SPELL).get(0);
 
@@ -83,7 +89,7 @@ class CatalogueServiceTest {
 
     @Test
     void rejectsAnUnknownSystem() {
-        CatalogueService service = new CatalogueService(catalogueEntryRepository, gameSystemRegistry, objectMapper, false);
+        CatalogueService service = new CatalogueService(catalogueEntryRepository, gameSystemRegistry, objectMapper, false, recordCache);
 
         assertThatThrownBy(() -> service.list("not-a-real-system", null))
                 .isInstanceOf(UnsupportedGameSystemException.class);
@@ -91,7 +97,7 @@ class CatalogueServiceTest {
 
     @Test
     void gettingAMissingEntryThrows() {
-        CatalogueService service = new CatalogueService(catalogueEntryRepository, gameSystemRegistry, objectMapper, false);
+        CatalogueService service = new CatalogueService(catalogueEntryRepository, gameSystemRegistry, objectMapper, false, recordCache);
 
         assertThatThrownBy(() -> service.get(UUID.randomUUID())).isInstanceOf(CatalogueEntryNotFoundException.class);
     }
@@ -108,13 +114,30 @@ class CatalogueServiceTest {
                 {"systemId":"dnd-5e","kind":"SPELL","slug":"plain-bolt","name":"Plain Bolt",
                 "sourceBook":"Player's Handbook","sourceCode":"PHB","description":"","data":{"level":1}}""");
         catalogueImportService.importFrom(directory);
-        CatalogueService service = new CatalogueService(catalogueEntryRepository, gameSystemRegistry, objectMapper, false);
+        CatalogueService service = new CatalogueService(catalogueEntryRepository, gameSystemRegistry, objectMapper, false, recordCache);
 
         assertThat(service.sources("dnd-5e"))
                 .extracting(CatalogueSourceResponse::sourceCode, CatalogueSourceResponse::playtest, CatalogueSourceResponse::partner)
                 .contains(tuple("UATheMysticClass", true, null), tuple("PHB", false, null), tuple("EGW", false, "Critical Role"));
         assertThat(service.partners("dnd-5e"))
                 .containsExactly(new CataloguePartnerResponse("Critical Role", List.of("Explorer's Guide to Wildemount")));
+    }
+
+    @Test
+    void lookupsShareOneParsedCatalogueUntilAnImportChangesIt() throws IOException {
+        importOneSpell();
+        CatalogueRecordCache.Snapshot first = recordCache.snapshot("dnd-5e");
+
+        assertThat(recordCache.snapshot("dnd-5e")).isSameAs(first);
+        assertThat(catalogueService.lookup("dnd-5e").find("SPELL", "sparkling-bolt")).isPresent();
+
+        Files.writeString(directory.resolve("second-bolt.json"), """
+                {"systemId":"dnd-5e","kind":"SPELL","slug":"second-bolt","name":"Second Bolt",
+                "description":"Another fictional spell.","data":{"level":2}}""");
+        catalogueImportService.importFrom(directory);
+
+        assertThat(recordCache.snapshot("dnd-5e")).isNotSameAs(first);
+        assertThat(catalogueService.lookup("dnd-5e").find("SPELL", "second-bolt")).isPresent();
     }
 
     private void importOneSpell() throws IOException {

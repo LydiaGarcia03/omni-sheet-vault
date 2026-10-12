@@ -1,0 +1,73 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "azer",
+  "name" : "Azer",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 22,
+  "tags" : [ ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Elemental",
+    "alignment" : "lawful neutral",
+    "armorClass" : 17,
+    "armorClassText" : "17 (natural armor, shield)",
+    "hitPoints" : 39,
+    "hitDice" : "6d8 + 12",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 17,
+      "save" : 3
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 15,
+      "save" : 4
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 10,
+      "save" : 0
+    } ],
+    "skills" : [ ],
+    "senses" : "passive Perception 11",
+    "languages" : "Ignan",
+    "challengeRating" : "2",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : "fire, poison",
+    "conditionImmunities" : "poisoned",
+    "traits" : [ {
+      "name" : "Heated Body",
+      "description" : "A creature that touches the azer or hits it with a melee attack while within 5 feet of it takes 5 (1d10) fire damage."
+    }, {
+      "name" : "Heated Weapons",
+      "description" : "When the azer hits with a metal melee weapon, it deals an extra 3 (1d6) fire damage (included in the attack)."
+    }, {
+      "name" : "Illumination",
+      "description" : "The azer sheds bright light in a 10-foot radius and dim light for an additional 10 feet."
+    } ],
+    "actions" : [ {
+      "name" : "Warhammer",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 7 (1d8 + 3) bludgeoning damage, or 8 (1d10 + 3) bludgeoning damage if used with two hands to make a melee attack, plus 3 (1d6) fire damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ ]
+  }
+}

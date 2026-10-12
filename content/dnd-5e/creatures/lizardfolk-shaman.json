@@ -1,0 +1,88 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "lizardfolk-shaman",
+  "name" : "Lizardfolk Shaman",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 205,
+  "tags" : [ "forest", "swamp" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (lizardfolk)",
+    "alignment" : "neutral",
+    "armorClass" : 13,
+    "armorClassText" : "13 (natural armor)",
+    "hitPoints" : 27,
+    "hitDice" : "5d8 + 5",
+    "speed" : 30,
+    "additionalSpeeds" : "Swim 30 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 8,
+      "save" : -1
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 4
+    }, {
+      "name" : "Stealth",
+      "bonus" : 4
+    }, {
+      "name" : "Survival",
+      "bonus" : 6
+    } ],
+    "senses" : "passive Perception 14",
+    "languages" : "Draconic",
+    "challengeRating" : "2",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Hold Breath",
+      "description" : "The lizardfolk can hold its breath for 15 minutes."
+    }, {
+      "name" : "Spellcasting (Lizardfolk Form Only)",
+      "description" : "The lizardfolk is a 5th-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 12, +4 to hit with spell attacks). The lizardfolk has the following druid spells prepared:\nCantrips (at will): druidcraft, produce flame, thorn whip\n1st level (4 slots): entangle, fog cloud\n2nd level (3 slots): heat metal, spike growth\n3rd level (2 slots): conjure animals (reptiles only), plant growth"
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack (Lizardfolk Form Only)",
+      "description" : "The lizardfolk makes two attacks: one with its bite and one with its claws."
+    }, {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage, or 7 (1d10 + 2) piercing damage in crocodile form. If the lizardfolk is in crocodile form and the target is a Large or smaller creature, the target is grappled (escape DC 12). Until this grapple ends, the target is restrained, and the lizardfolk can't bite another target. If the lizardfolk reverts to its true form, the grapple ends."
+    }, {
+      "name" : "Claws (Lizardfolk Form Only)",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) slashing damage."
+    }, {
+      "name" : "Change Shape (Recharges after a Short or Long Rest)",
+      "description" : "The lizardfolk magically polymorphs into a crocodile, remaining in that form for up to 1 hour. It can revert to its true form as a bonus action. Its statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "forest", "swamp" ]
+  }
+}

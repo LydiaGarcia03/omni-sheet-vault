@@ -1,5 +1,5 @@
 import { useRef, useState, type ReactNode } from 'react';
-import type { CharacterMenuRequest } from './api';
+import type { CharacterMenuRequest, Experience } from './api';
 import { PencilIcon } from './sidebarIcons';
 import { XpBar } from './XpBar';
 
@@ -66,19 +66,25 @@ function MenuItem({ icon, label, onClick }: { icon: ReactNode; label: string; on
   );
 }
 
-function LevelUpIcon() {
+/** Marks the table's milestone as reached, which makes the next level available; unmarking takes it back. */
+function MilestoneSwitch({ experience, onSetExperience }: { experience: Experience; onSetExperience: (points: number) => void }) {
+  const reached = experience.levelUpAvailable;
+  const toggle = () => onSetExperience(reached ? experience.currentLevelAt : (experience.nextLevelAt ?? experience.currentLevelAt));
   return (
-    <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
-      <path d="M8 1 15 9h-4v6H5V9H1z" />
-    </svg>
+    <li>
+      <button type="button" role="switch" aria-checked={reached} className="character-menu__item character-menu__milestone" onClick={toggle}>
+        <span className={`character-menu__milestone-box${reached ? ' is-on' : ''}`} aria-hidden="true" />
+        Milestone reached
+      </button>
+    </li>
   );
 }
 
 /**
  * The character sidebar (D&D Beyond's "character manage" pane): portrait, name, subtitle, the
  * experience bar and class levels on a dark gradient, then the My character and Play menus.
- * Experience builds get Manage experience, with Level up right under it once a level is
- * available; milestone builds get Level up directly.
+ * Experience builds get Manage experience, milestone builds a Milestone reached switch; either
+ * way Level up appears under it once a level is available.
  */
 export function CharacterMenuPanel({
   name,
@@ -86,6 +92,7 @@ export function CharacterMenuPanel({
   subtitle,
   experience,
   onManageExperience,
+  onSetExperience,
   onLevelUp,
   onOpenLog,
   onOpenShortRest,
@@ -93,6 +100,7 @@ export function CharacterMenuPanel({
   onChangeAppearance,
   onRename,
   icons,
+  classIcon,
 }: CharacterMenuRequest) {
   const experienceBuild = experience?.advancement === 'XP';
   return (
@@ -121,7 +129,10 @@ export function CharacterMenuPanel({
           <ul className="character-menu__classes">
             {experience.classes.map((classLevel) => (
               <li key={classLevel.name} className="character-menu__class">
-                <span className="character-menu__class-level">{classLevel.level}</span>
+                <span className="character-menu__class-badge">
+                  {classIcon?.(classLevel.name)}
+                  <span className="character-menu__class-level">{classLevel.level}</span>
+                </span>
                 <span>
                   <span className="character-menu__class-name">{classLevel.name}</span>
                   {classLevel.subclass && <span className="character-menu__class-meta">{classLevel.subclass}</span>}
@@ -141,14 +152,16 @@ export function CharacterMenuPanel({
         {experienceBuild && (
           <MenuItem icon={<span className="character-menu__xp-glyph">XP</span>} label="Manage experience" onClick={onManageExperience} />
         )}
-        {experienceBuild && experience?.levelUpAvailable && (
+        {!experienceBuild && experience?.canLevelUp && experience.nextLevelAt !== null && onSetExperience && (
+          <MilestoneSwitch experience={experience} onSetExperience={onSetExperience} />
+        )}
+        {experience?.levelUpAvailable && (
           <li className="character-menu__level-up-row">
             <button type="button" className="character-menu__level-up" onClick={onLevelUp}>
               Level up
             </button>
           </li>
         )}
-        {!experienceBuild && experience?.canLevelUp && <MenuItem icon={<LevelUpIcon />} label="Level up" onClick={onLevelUp} />}
         <li className="character-menu__group">Play</li>
         <MenuItem icon={icons.gameLog} label="Game log" onClick={onOpenLog} />
         <MenuItem icon={icons.shortRest} label="Short rest" onClick={onOpenShortRest} />

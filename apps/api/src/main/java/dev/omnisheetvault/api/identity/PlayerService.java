@@ -1,11 +1,13 @@
 package dev.omnisheetvault.api.identity;
 
 import java.util.List;
+import java.util.regex.Pattern;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 import org.springframework.transaction.support.TransactionTemplate;
@@ -17,6 +19,9 @@ import org.springframework.transaction.support.TransactionTemplate;
  */
 @Service
 public class PlayerService {
+
+    /** "builder:dnd-5e": lowercase words joined by ':', '-' or '.'. */
+    private static final Pattern TUTORIAL_ID = Pattern.compile("[a-z0-9]+([:.-][a-z0-9]+){0,7}");
 
     private final PlayerRepository playerRepository;
     private final ApplicationEventPublisher eventPublisher;
@@ -34,6 +39,15 @@ public class PlayerService {
 
     public Player currentPlayer(Jwt jwt) {
         return playerRepository.findBySubject(jwt.getSubject()).orElseGet(() -> createOrFindPlayer(jwt));
+    }
+
+    /** Records that the player finished or skipped a tutorial; marking one twice changes nothing. */
+    @Transactional
+    public void markTutorialSeen(Jwt jwt, String tutorialId) {
+        if (!TUTORIAL_ID.matcher(tutorialId).matches()) {
+            throw new InvalidTutorialIdException(tutorialId);
+        }
+        playerRepository.markTutorialSeen(currentPlayer(jwt).id(), tutorialId);
     }
 
     /** Players by their Keycloak username, for command-line tools that act on a named local account. */

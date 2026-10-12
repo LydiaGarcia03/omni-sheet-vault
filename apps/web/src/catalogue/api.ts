@@ -67,6 +67,15 @@ export async function getCataloguePartners(systemId: string): Promise<CatalogueP
   return response.json() as Promise<CataloguePartner[]>;
 }
 
+/** The entries of `kind` a character may pick on its sheet: only the books its build allows. */
+export async function getCharacterCatalogue(characterId: string, kind: string): Promise<CatalogueEntry[]> {
+  const response = await apiFetch(`/api/characters/${encodeURIComponent(characterId)}/catalogue?kind=${encodeURIComponent(kind)}`);
+  if (!response.ok) {
+    throw new Error(`Failed to load the catalogue: ${response.status}`);
+  }
+  return response.json() as Promise<CatalogueEntry[]>;
+}
+
 export async function getCatalogue(systemId: string, kind: string): Promise<CatalogueEntry[]> {
   const response = await apiFetch(`/api/catalogue?systemId=${encodeURIComponent(systemId)}&kind=${encodeURIComponent(kind)}`);
   if (!response.ok) {

@@ -1,0 +1,79 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "invisible-stalker",
+  "name" : "Invisible Stalker",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 192,
+  "tags" : [ "urban" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Elemental",
+    "alignment" : "neutral",
+    "armorClass" : 14,
+    "armorClassText" : "14",
+    "hitPoints" : 104,
+    "hitDice" : "16d8 + 32",
+    "speed" : 50,
+    "additionalSpeeds" : "Fly 50 ft. (hover)",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 19,
+      "save" : 4
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 11,
+      "save" : 0
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 8
+    }, {
+      "name" : "Stealth",
+      "bonus" : 10
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 18",
+    "languages" : "Auran, understands Common but doesn't speak it",
+    "challengeRating" : "6",
+    "damageVulnerabilities" : null,
+    "damageResistances" : "bludgeoning, piercing, and slashing from nonmagical attacks",
+    "damageImmunities" : "poison",
+    "conditionImmunities" : "exhaustion, grappled, paralyzed, petrified, poisoned, prone, restrained, unconscious",
+    "traits" : [ {
+      "name" : "Invisibility",
+      "description" : "The stalker is invisible."
+    }, {
+      "name" : "Faultless Tracker",
+      "description" : "The stalker is given a quarry by its summoner. The stalker knows the direction and distance to its quarry as long as the two of them are on the same plane of existence. The stalker also knows the location of its summoner."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The stalker makes two slam attacks."
+    }, {
+      "name" : "Slam",
+      "description" : "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) bludgeoning damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "urban" ]
+  }
+}

@@ -16,7 +16,8 @@ systems/<system-id>/
 | System | Id | Status | Code | Start with |
 | --- | --- | --- | --- | --- |
 | Dungeons & Dragons 5e (2014) | `dnd-5e` | Playable: sheet, builder, level up | `ruleset.dnd5e`, `apps/web/src/systems/dnd5e` | `dnd-5e/sheet-build.md`, then `dnd-5e/sheet-ui.md` |
-| Vampire: The Masquerade 5e | `vtm-v5` | Planned (roadmap phase 12) | — | `vtm-v5/features/implementation-plan.md`, then `vtm-v5/character-rules.md` |
+| Vampire: The Masquerade 5e | `vtm-v5` | Playable: builder, sheet, play state, rolls (closed for now) | `ruleset.vtm5`, `apps/web/src/systems/vtm5` | `vtm-v5/features/implementation-plan.md`, then `vtm-v5/character-rules.md` |
+| Daggerheart (SRD 2.0, incl. Hope & Fear) | `daggerheart` | Planned: mockups awaiting the owner's pick | — | `daggerheart/features/implementation-plan.md`, then `daggerheart/character-rules.md` |
 
 ## D&D 5e — `dnd-5e/`
 
@@ -45,6 +46,13 @@ Related decisions: `../decisions/adr-0006-5etools-as-content-source.md`,
 | --- | --- |
 | `character-rules.md` | Rules and character options compiled from the core, Camarilla and Anarch books |
 | `features/implementation-plan.md` | Demiplane walkthrough, seams to generalize, slices V0–V7, owner questions |
+
+## Daggerheart — `daggerheart/`
+
+| Document | What it is |
+| --- | --- |
+| `character-rules.md` | Rules and character options from the SRD 2.0 (Core + Hope & Fear), licence notes |
+| `features/implementation-plan.md` | Demiplane walkthrough, licence constraints, content import, slices D0–D7, mockups, owner questions |
 
 ## Old paths (before 2026-10-03)
 

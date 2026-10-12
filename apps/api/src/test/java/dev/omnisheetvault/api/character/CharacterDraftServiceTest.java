@@ -57,6 +57,11 @@ class CharacterDraftServiceTest {
         Path directory = Files.createTempDirectory("draft-service-test");
         write(directory, "SPECIES", "human", "Human", """
                 {"size":["medium"],"speed":{"walk":30},"abilityAlternatives":[],"subspecies":[],"variants":[]}""");
+        write(directory, "SPECIES", "fairy", "Fairy", """
+                {"size":["small"],"speed":{"walk":30},"creatureTypes":["fey"],"abilityAlternatives":[],"subspecies":[],"variants":[],
+                 "languageAlternatives":[{"fixed":["common"],"choices":[]}],
+                 "traits":[{"name":"Creature Type","description":"You are a Fey."},{"name":"Flight","description":"You can fly."},
+                           {"name":"Languages","description":"You can speak Common."}]}""");
         write(directory, "BACKGROUND", "acolyte", "Acolyte", """
                 {"skillAlternatives":[{"fixed":["insight"],"choices":[]}],
                  "features":[{"name":"Shelter of the Faithful","description":"You command respect."}],
@@ -133,6 +138,17 @@ class CharacterDraftServiceTest {
         assertThat(saved.vitals().level()).isEqualTo(1);
         assertThat(saved.vitals().hitPoints().value()).isEqualTo(12);
         assertThat(saved.vitals().savingThrowProficiencies()).containsEntry("strength", "FULL");
+    }
+
+    @Test
+    void theSummaryNamesTheCreatureTypeInsteadOfItsTrait() {
+        UUID id = draftService.create(jwt, "Pip", "dnd-5e").character().id();
+
+        CharacterDraftService.DraftView saved = draftService.save(jwt, id, "Pip", build(false).replace("\"speciesSlug\":\"human\"", "\"speciesSlug\":\"fairy\""));
+
+        assertThat(DraftPreviewResponse.from(saved.preview(), saved.vitals()).vitals().features())
+                .contains("Fey", "Flight")
+                .doesNotContain("Creature Type", "Languages", "Common");
     }
 
     @Test

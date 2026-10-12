@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { CharacterSheet, EntityDetailHandler, Item, MutationHandler, StorageSection } from '../../sheet/api';
+import { canToggleEquipped, type CharacterSheet, type EntityDetailHandler, type Item, type MutationHandler, type StorageSection } from '../../sheet/api';
 import { FilterChips } from '../../sheet/FilterChips';
 import { GridHeaderRow, GridScroll } from '../../sheet/ListGrid';
 import { SearchField } from '../../sheet/SearchField';
@@ -31,6 +31,11 @@ const GRID_COLUMNS = [
 
 function sectionLabel(location: string): string {
   return SECTION_LABELS[location] ?? location;
+}
+
+/** Items that can be equipped come first, each group keeping its own order. */
+export function equippableFirst(items: Item[]): Item[] {
+  return [...items.filter(canToggleEquipped), ...items.filter((item) => !canToggleEquipped(item))];
 }
 
 /** Gated on equipped, not attuned — the real Bag of Holding item never requires attunement. */
@@ -109,7 +114,7 @@ export function InventoryTab({ sheet, onMutate, onOpenDetail, onOpenManageInvent
 
   const renderSection = (location: string) => {
     const section = sectionByLocation.get(location);
-    const items = visibleItems.filter((item) => item.storageLocation === location);
+    const items = equippableFirst(visibleItems.filter((item) => item.storageLocation === location));
     const raritySuffix = location === 'BAG_OF_HOLDING' ? bagOfHoldingRaritySuffix(sheet.items) : null;
     // Other Possessions is never physically carried — no weight/capacity stat, matching D&D Beyond exactly.
     const showWeight = section && location !== 'OTHER_POSSESSIONS';

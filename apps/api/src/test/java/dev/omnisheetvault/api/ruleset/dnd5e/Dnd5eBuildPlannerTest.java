@@ -162,6 +162,21 @@ class Dnd5eBuildPlannerTest {
     }
 
     @Test
+    void multiclassingChecksTheStartingClassRequirementsToo() {
+        Dnd5eCharacterBuild build = new Dnd5eCharacterBuild(
+                "dwarf", "Mountain", null, "soldier", List.of(new Dnd5eBuildClass("fighter", null, 1), new Dnd5eBuildClass("rogue", null, 1)),
+                Dnd5eAbilityScoreMethod.MANUAL,
+                Map.of("strength", 10, "dexterity", 14, "constitution", 14, "intelligence", 8, "wisdom", 12, "charisma", 10),
+                null, null, null);
+        Dnd5eCharacterBuild singleClass = new Dnd5eCharacterBuild(build.speciesSlug(), build.subspeciesName(), null, build.backgroundSlug(),
+                List.of(new Dnd5eBuildClass("fighter", null, 2)), build.abilityScoreMethod(), build.baseAbilityScores(), null, null, null);
+
+        assertThat(plan(build).problems()).contains("Multiclassing out of Fighter (the starting class) requires strength 13")
+                .noneMatch(problem -> problem.startsWith("Rogue multiclass"));
+        assertThat(plan(singleClass).problems()).noneMatch(problem -> problem.contains("multiclass requires"));
+    }
+
+    @Test
     void skipsMulticlassRequirementsWhenThePreferenceIsOff() {
         Dnd5eCharacterBuild base = new Dnd5eCharacterBuild(
                 "dwarf", "Mountain", null, "soldier", List.of(new Dnd5eBuildClass("fighter", null, 1), new Dnd5eBuildClass("rogue", null, 1)),
@@ -316,9 +331,58 @@ class Dnd5eBuildPlannerTest {
 
         BuildPlan plan = new Dnd5eBuildPlanner(build, catalogue).plan();
 
-        assertThat(choice(plan, "species:changeling:ability:0").prompt()).contains("+2, +1");
-        assertThat(choice(plan, "species:changeling:ability:0").isPending()).isFalse();
+        assertThat(choice(plan, "species:changeling:ability-set").options()).extracting(CreationChoiceOption::label)
+                .containsExactly("+2 and +1 to 2 different abilities of your choice", "+1 to 3 abilities of your choice");
+        assertThat(choice(plan, "species:changeling:ability-set").options()).extracting(CreationChoiceOption::summary).containsOnlyNulls();
+        assertThat(choice(plan, "species:changeling:ability:0:1").selected()).containsExactly("dexterity");
+        assertThat(choice(plan, "species:changeling:ability:0:2").selected()).containsExactly("charisma");
         assertThat(plan.problems()).isEmpty();
+    }
+
+    @Test
+    void unequalIncreasesAreOnePickPerBonusAndNeverTheSameAbility() {
+        Dnd5eCharacterBuild build = new Dnd5eCharacterBuild(
+                "changeling", null, null, "soldier", List.of(new Dnd5eBuildClass("rogue", null, 1)),
+                Dnd5eAbilityScoreMethod.MANUAL,
+                Map.of("strength", 8, "dexterity", 13, "constitution", 12, "intelligence", 10, "wisdom", 10, "charisma", 12),
+                Dnd5eHitPointMethod.FIXED, List.of(),
+                List.of(answer("species:changeling:ability-set", "0"), answer("species:changeling:ability:0:2", "wisdom")));
+
+        BuildPlan plan = new Dnd5eBuildPlanner(build, catalogue()).plan();
+
+        CreationChoice plusTwo = choice(plan, "species:changeling:ability:0:1");
+        CreationChoice plusOne = choice(plan, "species:changeling:ability:0:2");
+        assertThat(plusTwo.prompt()).isEqualTo("Increase one ability by 2");
+        assertThat(plusTwo.count()).isEqualTo(1);
+        assertThat(plusTwo.isPending()).isTrue();
+        assertThat(plusTwo.options()).extracting(CreationChoiceOption::key).doesNotContain("wisdom");
+        assertThat(plusOne.prompt()).isEqualTo("Increase a different ability by 1");
+        assertThat(plusOne.selected()).containsExactly("wisdom");
+        assertThat(plan.problems()).isEmpty();
+    }
+
+    @Test
+    void startingGoldAsksForTheDiceRollAndAddsItMultipliedOnceRolled() {
+        Dnd5eCharacterBuild unrolled = build(null, "cleric", null, 1, List.of(answer("class:cleric:equipment-method", "gold")));
+        Dnd5eBuildPlanner unrolledPlanner = new Dnd5eBuildPlanner(unrolled, catalogue());
+        BuildPlan unrolledPlan = unrolledPlanner.plan();
+
+        CreationChoice roll = choice(unrolledPlan, "class:cleric:equipment-gold");
+        assertThat(roll.type()).isEqualTo("STARTING_GOLD");
+        assertThat(roll.isPending()).isTrue();
+        assertThat(roll.options()).extracting(CreationChoiceOption::key).first().isEqualTo("4");
+        assertThat(roll.options()).extracting(CreationChoiceOption::key).last().isEqualTo("16");
+        assertThat(roll.options().get(8).label()).isEqualTo("120 gp");
+        assertThat(unrolledPlanner.outcome().startingCopper()).isZero();
+
+        Dnd5eCharacterBuild rolled = build(null, "cleric", null, 1,
+                List.of(answer("class:cleric:equipment-method", "gold"), answer("class:cleric:equipment-gold", "12")));
+        Dnd5eBuildPlanner rolledPlanner = new Dnd5eBuildPlanner(rolled, catalogue());
+        BuildPlan rolledPlan = rolledPlanner.plan();
+
+        assertThat(choice(rolledPlan, "class:cleric:equipment-gold").isPending()).isFalse();
+        assertThat(rolledPlanner.outcome().startingCopper()).isEqualTo(120 * 100);
+        assertThat(rolledPlan.problems()).noneMatch(problem -> problem.contains("equipment-gold"));
     }
 
     // ---- fixtures -----------------------------------------------------------------
@@ -383,6 +447,12 @@ class Dnd5eBuildPlannerTest {
                  "optionalFeatureProgressions":[],
                  "features":[{"name":"Expertise","level":1,"optional":false,"grantsSubclassFeature":false,
                    "choices":[{"type":"EXPERTISE","count":2,"from":["proficientSkills","thieves-tools"]}]}]}""");
+        add(byKind, "CLASS", "cleric", "Cleric", """
+                {"savingThrows":["wisdom","charisma"],"subclassTitle":"Divine Domain","subclassLevel":1,"abilityScoreImprovementLevels":[4],
+                 "proficiencies":{"armor":["light"],"weaponCategories":["simple"],"weaponItems":[],"skillAlternatives":[],"toolAlternatives":[]},
+                 "startingEquipment":{"goldAlternative":"4d4 × 10","groups":[]},
+                 "multiclassing":{"allOf":{"wisdom":13},"anyOf":{},"proficienciesGained":{}},
+                 "optionalFeatureProgressions":[],"features":[]}""");
         add(byKind, "SUBCLASS", "fighter-battle-master", "Battle Master", """
                 {"classSlug":"fighter","features":[],
                  "optionalFeatureProgressions":[{"name":"Maneuvers","featureTypes":["MV:B"],"countByLevel":[0,0,3,3,3,3,5]}]}""");

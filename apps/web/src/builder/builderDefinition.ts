@@ -1,5 +1,6 @@
 import type { ComponentType } from 'react';
 import type { Portrait } from '../characters/portrait';
+import type { TutorialDefinition } from '../tutorial/tutorialDefinition';
 import type { BuildPlan, CreationChoice, DraftPreview } from './draftApi';
 
 export type BuilderStep = {
@@ -48,6 +49,8 @@ export type BuilderDefinition = {
   pageClassName?: string;
   /** Draws the whole builder page instead of the shared three-column frame; the draft logic stays shared. */
   Frame?: ComponentType<BuilderFrameProps>;
+  /** The guided tour shown the first time a player opens this system's builder. */
+  tutorial?: TutorialDefinition;
 };
 
 /** Everything a system's own builder page needs: the draft's state and the shared actions. */

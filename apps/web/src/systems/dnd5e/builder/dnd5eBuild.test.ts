@@ -140,6 +140,17 @@ describe('withoutStaleAnswers', () => {
     expect(pruned.choices).toEqual([{ id: 'class:fighter:skills:0', selections: ['athletics'] }]);
     expect(withoutStaleAnswers(pruned, plan('class:fighter:skills:0'))).toBe(pruned);
   });
+
+  it('moves an ordered answer into the one-pick slots that replaced it', () => {
+    const build = { ...EMPTY, choices: [{ id: 'species:changeling:ability:0', selections: ['dexterity', 'charisma'] }] };
+
+    const migrated = withoutStaleAnswers(build, plan('species:changeling:ability:0:1', 'species:changeling:ability:0:2'));
+
+    expect(migrated.choices).toEqual([
+      { id: 'species:changeling:ability:0:1', selections: ['dexterity'] },
+      { id: 'species:changeling:ability:0:2', selections: ['charisma'] },
+    ]);
+  });
 });
 
 describe('withStartingItemEquipped', () => {

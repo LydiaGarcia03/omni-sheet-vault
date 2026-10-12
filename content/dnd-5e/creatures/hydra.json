@@ -1,0 +1,82 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "hydra",
+  "name" : "Hydra",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 190,
+  "tags" : [ "swamp" ],
+  "description" : null,
+  "data" : {
+    "size" : "Huge",
+    "creatureType" : "Monstrosity",
+    "alignment" : "unaligned",
+    "armorClass" : 15,
+    "armorClassText" : "15 (natural armor)",
+    "hitPoints" : 172,
+    "hitDice" : "15d12 + 75",
+    "speed" : 30,
+    "additionalSpeeds" : "Swim 30 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 20,
+      "save" : 5
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 20,
+      "save" : 5
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 2,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 7,
+      "save" : -2
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 6
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 16",
+    "languages" : "—",
+    "challengeRating" : "8",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Hold Breath",
+      "description" : "The hydra can hold its breath for 1 hour."
+    }, {
+      "name" : "Multiple Heads",
+      "description" : "The hydra has five heads. While it has more than one head, the hydra has advantage on saving throws against being blinded, charmed, deafened, frightened, stunned, and knocked unconscious. Whenever the hydra takes 25 or more damage in a single turn, one of its heads dies. If all its heads die, the hydra dies. At the end of its turn, it grows two heads for each of its heads that died since its last turn, unless it has taken fire damage since its last turn. The hydra regains 10 hit points for each head regrown in this way."
+    }, {
+      "name" : "Reactive Heads",
+      "description" : "For each head the hydra has beyond one, it gets an extra reaction that can be used only for opportunity attacks."
+    }, {
+      "name" : "Wakeful",
+      "description" : "While the hydra sleeps, at least one of its heads is awake."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The hydra makes as many bite attacks as it has heads."
+    }, {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +8 to hit, reach 10 ft., one target. Hit: 10 (1d10 + 5) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "swamp" ]
+  }
+}

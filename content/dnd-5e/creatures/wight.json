@@ -1,0 +1,82 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "wight",
+  "name" : "Wight",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 300,
+  "tags" : [ "underdark", "swamp", "urban", "desert" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Undead",
+    "alignment" : "neutral evil",
+    "armorClass" : 14,
+    "armorClassText" : "14 (studded leather)",
+    "hitPoints" : 45,
+    "hitDice" : "6d8 + 18",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 15,
+      "save" : 2
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 3
+    }, {
+      "name" : "Stealth",
+      "bonus" : 4
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 13",
+    "languages" : "the languages it knew in life",
+    "challengeRating" : "3",
+    "damageVulnerabilities" : null,
+    "damageResistances" : "necrotic; bludgeoning, piercing, and slashing from nonmagical attacks that aren't silvered",
+    "damageImmunities" : "poison",
+    "conditionImmunities" : "exhaustion, poisoned",
+    "traits" : [ {
+      "name" : "Sunlight Sensitivity",
+      "description" : "While in sunlight, the wight has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The wight makes two longsword attacks or two longbow attacks. It can use its Life Drain in place of one longsword attack."
+    }, {
+      "name" : "Life Drain",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 5 (1d6 + 2) necrotic damage. The target must succeed on a DC 13 Constitution saving throw or its hit point maximum is reduced by an amount equal to the damage taken. This reduction lasts until the target finishes a long rest. The target dies if this effect reduces its hit point maximum to 0. A humanoid slain by this attack rises 24 hours later as a zombie under the wight's control, unless the humanoid is restored to life or its body is destroyed. The wight can have no more than twelve zombies under its control at one time."
+    }, {
+      "name" : "Longsword",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 (1d8 + 2) slashing damage, or 7 (1d10 + 2) slashing damage if used with two hands."
+    }, {
+      "name" : "Longbow",
+      "description" : "Ranged Weapon Attack: +4 to hit, range 150/600 ft., one target. Hit: 6 (1d8 + 2) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark", "swamp", "urban", "desert" ]
+  }
+}

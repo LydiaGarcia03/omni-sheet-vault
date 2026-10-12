@@ -1,0 +1,79 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "goblin-boss",
+  "name" : "Goblin Boss",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 166,
+  "tags" : [ "underdark", "grassland", "forest", "hill" ],
+  "description" : null,
+  "data" : {
+    "size" : "Small",
+    "creatureType" : "Humanoid (goblinoid)",
+    "alignment" : "neutral evil",
+    "armorClass" : 17,
+    "armorClassText" : "17 (chain shirt, shield)",
+    "hitPoints" : 21,
+    "hitDice" : "6d6",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 10,
+      "save" : 0
+    } ],
+    "skills" : [ {
+      "name" : "Stealth",
+      "bonus" : 6
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 9",
+    "languages" : "Common, Goblin",
+    "challengeRating" : "1",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Nimble Escape",
+      "description" : "The goblin can take the Disengage or Hide action as a bonus action on each of its turns."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The goblin makes two attacks with its scimitar. The second attack has disadvantage."
+    }, {
+      "name" : "Scimitar",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) slashing damage."
+    }, {
+      "name" : "Javelin",
+      "description" : "Melee Weapon  or Ranged Weapon Attack: +2 to hit, reach 5 ft. or range 30/120 ft., one target. Hit: 3 (1d6) piercing damage."
+    } ],
+    "reactions" : [ {
+      "name" : "Redirect Attack",
+      "description" : "When a creature the goblin can see targets it with an attack, the goblin chooses another goblin within 5 feet of it. The two goblins swap places, and the chosen goblin becomes the target instead."
+    } ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark", "grassland", "forest", "hill" ]
+  }
+}

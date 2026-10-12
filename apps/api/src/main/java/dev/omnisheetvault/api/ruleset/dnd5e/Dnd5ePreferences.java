@@ -6,8 +6,8 @@ import java.util.Set;
 /**
  * The rules a build is made under, D&D Beyond's character preferences.
  * {@code sources} names the source books whose options the builder offers
- * ({@code null} = every imported book); the 2014 Player's Handbook and Dungeon
- * Master's Guide are always allowed. Playtest material (Unearthed Arcana) ignores
+ * ({@code null} = every imported book); the 2014 core books (Player's Handbook,
+ * Dungeon Master's Guide, Monster Manual) are always allowed. Playtest material (Unearthed Arcana) ignores
  * {@code sources} and is offered only when {@code playtestContent} is on; a partner
  * brand's books (Critical Role, Rick and Morty) ignore it too, and are offered only
  * while {@code partneredContent} is on and their brand is in {@code partners}
@@ -29,7 +29,7 @@ public record Dnd5ePreferences(
         Boolean partneredContent,
         Set<String> partners) {
 
-    public static final Set<String> LOCKED_SOURCES = Set.of("Player's Handbook", "Dungeon Master's Guide");
+    public static final Set<String> LOCKED_SOURCES = Set.of("Player's Handbook", "Dungeon Master's Guide", "Monster Manual");
 
     public enum Dnd5eAdvancement { MILESTONE, XP }
 

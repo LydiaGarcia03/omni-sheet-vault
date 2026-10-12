@@ -19,6 +19,8 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.node.ArrayNode;
@@ -59,6 +61,8 @@ final class Dnd5eBuildPlanner {
     private final CatalogueLookup catalogue;
     private final Dnd5eChoiceOptions options;
     private final Map<String, List<String>> answers = new HashMap<>();
+    /** Answers stored under an id the plan no longer offers but still reads (see {@link #weightedIncreases}). */
+    private final Set<String> absorbedAnswers = new HashSet<>();
     private final List<CreationChoice> choices = new ArrayList<>();
     private final List<String> problems = new ArrayList<>();
     private final Dnd5eGrantState state;
@@ -302,6 +306,10 @@ final class Dnd5eBuildPlanner {
 
     private void planStartingClass(CatalogueRecord playerClass) {
         JsonNode data = playerClass.data();
+        JsonNode multiclassing = data.get("multiclassing");
+        if (build.classes().size() > 1 && build.preferences().multiclassPrerequisites() && multiclassing != null && !multiclassing.isNull()) {
+            checkMulticlassRequirements("Multiclassing out of " + playerClass.name() + " (the starting class)", multiclassing);
+        }
         String prefix = "class:" + playerClass.slug();
         String source = playerClass.name() + " 1";
         strings(data.get("savingThrows")).forEach(save -> state.grant(Dnd5eGrantState.Kind.SAVING_THROW, save, source));
@@ -317,7 +325,7 @@ final class Dnd5eBuildPlanner {
                             new CreationChoiceOption("gold", "Starting gold", null, gold)),
                     null, false);
             if (method.contains("gold")) {
-                outcome.addStartingCopper(averageGoldInCopper(gold));
+                planStartingGold(prefix, gold, playerClass.name());
             }
             if (!method.contains("equipment")) {
                 return;
@@ -332,7 +340,7 @@ final class Dnd5eBuildPlanner {
             return;
         }
         if (build.preferences().multiclassPrerequisites()) {
-            checkMulticlassRequirements(playerClass.name(), multiclassing);
+            checkMulticlassRequirements(playerClass.name() + " multiclass", multiclassing);
         }
         String prefix = "class:" + playerClass.slug() + ":multiclass";
         String source = playerClass.name() + " (multiclass)";
@@ -342,20 +350,23 @@ final class Dnd5eBuildPlanner {
         grantBlock(prefix, "tools", Dnd5eGrantState.Kind.TOOL, gained.get("toolAlternatives"), source, null);
     }
 
-    private void checkMulticlassRequirements(String className, JsonNode multiclassing) {
+    /** PHB: multiclassing needs both the starting class's and the new class's minimum scores; {@code subject} names which. */
+    private void checkMulticlassRequirements(String subject, JsonNode multiclassing) {
         for (Map.Entry<String, JsonNode> minimum : multiclassing.path("allOf").properties()) {
             if (state.score(minimum.getKey()) < minimum.getValue().asInt()) {
-                problems.add(className + " multiclass requires " + minimum.getKey() + " " + minimum.getValue().asInt());
+                problems.add(subject + " requires " + minimum.getKey() + " " + minimum.getValue().asInt());
             }
         }
         JsonNode anyOf = multiclassing.path("anyOf");
         if (!anyOf.isEmpty()) {
             boolean met = false;
+            List<String> options = new ArrayList<>();
             for (Map.Entry<String, JsonNode> minimum : anyOf.properties()) {
                 met = met || state.score(minimum.getKey()) >= minimum.getValue().asInt();
+                options.add(minimum.getKey() + " " + minimum.getValue().asInt());
             }
             if (!met) {
-                problems.add(className + " multiclass requires one of " + anyOf);
+                problems.add(subject + " requires " + String.join(" or ", options));
             }
         }
     }
@@ -369,15 +380,33 @@ final class Dnd5eBuildPlanner {
         strings(proficiencies.get("weaponItems")).forEach(weapon -> state.grant(Dnd5eGrantState.Kind.WEAPON, weapon, source));
     }
 
-    /** Starting gold at its average, like hit points: "4d4 × 10" gp is 4 × 2.5 × 10 = 100 gp. */
-    private int averageGoldInCopper(String goldText) {
+    /**
+     * Asks for the roll of the class's gold dice, one option per possible total ("12" for 12 on
+     * 5d4), and adds that total times the multiplier in gold pieces once it's answered.
+     */
+    private void planStartingGold(String prefix, String goldText, String className) {
         Optional<DiceNotation.Found> found = DiceNotation.first(goldText);
         if (found.isEmpty()) {
             problems.add("Unreadable starting gold: " + goldText);
-            return 0;
+            return;
         }
         DiceNotation.Found dice = found.get();
-        return dice.count() * (dice.faces() + 1) * goldMultiplier(goldText, dice.end()) * 100 / 2;
+        int multiplier = goldMultiplier(goldText, dice.end());
+        List<CreationChoiceOption> totals = new ArrayList<>();
+        for (int total = dice.count(); total <= dice.count() * dice.faces(); total++) {
+            ObjectNode data = JsonNodeFactory.instance.objectNode()
+                    .put("count", dice.count())
+                    .put("sides", dice.faces())
+                    .put("multiplier", multiplier)
+                    .put("gold", total * multiplier)
+                    .put("rollLabel", "Starting gold, " + className + " (" + goldText + ")");
+            totals.add(new CreationChoiceOption(String.valueOf(total), (total * multiplier) + " gp", null, goldText, data));
+        }
+        List<String> rolled = offer(prefix + ":equipment-gold", "STARTING_GOLD", prefix + ":equipment-method",
+                "Roll your starting gold", className, 1, totals, null, false);
+        if (!rolled.isEmpty()) {
+            outcome.addStartingCopper(Integer.parseInt(rolled.getFirst()) * multiplier * 100);
+        }
     }
 
     /** The "× 10" after the gold dice, or 1 when there is none. */
@@ -670,7 +699,8 @@ final class Dnd5eBuildPlanner {
 
     /** One block of alternatives in the shared grant shape: an alternative pick if there's more than one, then fixed grants, then each choice. */
     private void grantBlock(String prefix, String label, Dnd5eGrantState.Kind kind, JsonNode alternatives, String source, String parentId) {
-        Optional<JsonNode> alternative = chooseAlternative(prefix + ":" + label + "-set", alternatives, label, source, parentId);
+        Optional<JsonNode> alternative = chooseAlternative(prefix + ":" + label + "-set", alternatives, label, source, parentId,
+                set -> grantAlternative(kind, set));
         if (alternative.isEmpty()) {
             return;
         }
@@ -712,7 +742,8 @@ final class Dnd5eBuildPlanner {
         selected.forEach(replacement -> state.grant(kind, replacement, source));
     }
 
-    private Optional<JsonNode> chooseAlternative(String id, JsonNode alternatives, String label, String source, String parentId) {
+    private Optional<JsonNode> chooseAlternative(String id, JsonNode alternatives, String label, String source, String parentId,
+            Function<JsonNode, String> describe) {
         List<JsonNode> all = list(alternatives);
         if (all.isEmpty()) {
             return Optional.empty();
@@ -722,10 +753,30 @@ final class Dnd5eBuildPlanner {
         }
         List<CreationChoiceOption> alternativeOptions = new ArrayList<>();
         for (int index = 0; index < all.size(); index++) {
-            alternativeOptions.add(new CreationChoiceOption(String.valueOf(index), "Option " + (index + 1), null, all.get(index).toString()));
+            String description = describe.apply(all.get(index));
+            alternativeOptions.add(new CreationChoiceOption(String.valueOf(index),
+                    description == null ? "Option " + (index + 1) : Dnd5eChoiceOptions.capitalize(description), null, null));
         }
         List<String> selected = offer(id, "ALTERNATIVE", parentId, "Choose which " + label + " to take", source, 1, alternativeOptions, null, false);
         return selected.isEmpty() ? Optional.empty() : Optional.of(all.get(Integer.parseInt(selected.getFirst())));
+    }
+
+    /** One alternative grant set in words: its fixed grants by name, then each choice's count and pool. */
+    private String grantAlternative(Dnd5eGrantState.Kind kind, JsonNode set) {
+        List<String> parts = new ArrayList<>();
+        strings(set.get("fixed")).forEach(key -> parts.add(grantLabels(kind, List.of(key))));
+        for (JsonNode choice : list(set.get("choices"))) {
+            int count = choice.path("count").asInt(1);
+            parts.add(choice.hasNonNull("from")
+                    ? "choose " + count + " from " + grantLabels(kind, strings(choice.get("from")))
+                    : count + " of your choice");
+        }
+        return parts.isEmpty() ? null : String.join(", ", parts);
+    }
+
+    private String grantLabels(Dnd5eGrantState.Kind kind, List<String> keys) {
+        List<CreationChoiceOption> found = allGrantOptions(kind, keys, null, null);
+        return found.isEmpty() ? String.join(", ", keys) : found.stream().map(CreationChoiceOption::label).collect(Collectors.joining(", "));
     }
 
     /** Options for one grant choice, dropping what another source already granted — except a background grant, which stays offered and labelled. */
@@ -771,7 +822,8 @@ final class Dnd5eBuildPlanner {
     }
 
     private void abilityBlock(String prefix, JsonNode alternatives, String source, String parentId) {
-        Optional<JsonNode> alternative = chooseAlternative(prefix + "-set", alternatives, "ability increase", source, parentId);
+        Optional<JsonNode> alternative = chooseAlternative(prefix + "-set", alternatives, "ability increase", source, parentId,
+                Dnd5eOptionSummaries::abilityIncrease);
         if (alternative.isEmpty()) {
             return;
         }
@@ -784,16 +836,56 @@ final class Dnd5eBuildPlanner {
             JsonNode choice = abilityChoices.get(index);
             int count = choice.path("count").asInt(1);
             List<Integer> weights = list(choice.get("weights")).stream().map(JsonNode::asInt).toList();
-            int amount = choice.path("amount").asInt(1);
-            String prompt = weights.isEmpty()
-                    ? "Increase " + count + (count == 1 ? " ability" : " abilities") + " by " + amount
-                    : "Choose different abilities to increase by " + String.join(", ", weights.stream().map(weight -> "+" + weight).toList())
-                            + ", in that order";
+            if (weights.stream().distinct().count() > 1) {
+                weightedIncreases(prefix + ":" + index, strings(choice.get("from")), weights, maximum, source, parentId);
+                continue;
+            }
+            int amount = weights.isEmpty() ? choice.path("amount").asInt(1) : weights.getFirst();
+            String prompt = "Increase " + count + (count == 1 ? " ability" : " abilities") + " by " + amount;
             List<String> selected = offer(prefix + ":" + index, "ABILITY_SCORE", parentId, prompt, source, count,
                     abilityOptions(strings(choice.get("from")), maximum), null, false);
-            for (int position = 0; position < selected.size(); position++) {
-                state.increase(selected.get(position), weights.isEmpty() ? amount : weights.get(position), source);
-                checkMaximum(selected.get(position), maximum, source);
+            for (String ability : selected) {
+                state.increase(ability, amount, source);
+                checkMaximum(ability, maximum, source);
+            }
+        }
+    }
+
+    /**
+     * Unequal bonuses ("+2 to one ability, +1 to another") as one single pick per bonus, each offering only
+     * abilities the other picks haven't taken. A build saved before the split keeps its answer under
+     * {@code baseId} as an ordered list, read slot by slot until any slot is answered on its own.
+     */
+    private void weightedIncreases(String baseId, List<String> from, List<Integer> weights, Integer maximum, String source, String parentId) {
+        if (answers.containsKey(baseId)) {
+            absorbedAnswers.add(baseId);
+        }
+        boolean answeredBySlot = false;
+        for (int slot = 0; slot < weights.size(); slot++) {
+            answeredBySlot |= answers.containsKey(baseId + ":" + (slot + 1));
+        }
+        List<String> legacy = answeredBySlot ? List.of() : answers.getOrDefault(baseId, List.of());
+        List<List<String>> slotAnswers = new ArrayList<>();
+        for (int slot = 0; slot < weights.size(); slot++) {
+            slotAnswers.add(answers.containsKey(baseId + ":" + (slot + 1)) ? answers.get(baseId + ":" + (slot + 1))
+                    : legacy.size() > slot ? List.of(legacy.get(slot)) : List.of());
+        }
+        for (int slot = 0; slot < weights.size(); slot++) {
+            int current = slot;
+            Set<String> takenElsewhere = new HashSet<>();
+            for (int other = 0; other < slotAnswers.size(); other++) {
+                if (other != current) {
+                    takenElsewhere.addAll(slotAnswers.get(other));
+                }
+            }
+            List<CreationChoiceOption> slotOptions = abilityOptions(from, maximum).stream()
+                    .filter(option -> !takenElsewhere.contains(option.key())).toList();
+            String prompt = "Increase " + (slot == 0 ? "one ability" : "a different ability") + " by " + weights.get(slot);
+            List<String> selected = offer(baseId + ":" + (slot + 1), "ABILITY_SCORE", parentId, prompt, source, 1,
+                    slotOptions, slotAnswers.get(slot), false);
+            for (String ability : selected) {
+                state.increase(ability, weights.get(slot), source);
+                checkMaximum(ability, maximum, source);
             }
         }
     }
@@ -970,15 +1062,18 @@ final class Dnd5eBuildPlanner {
 
     /**
      * One option per level after the first, in the order the materializer reads {@code rolledHitPoints}:
-     * the class level it belongs to ("Warlock lvl 2", with the class key as {@code group}), its hit die
-     * and the average it replaces. Unrolled levels are null.
+     * the class level it belongs to ("Warlock - Level 2", with the class key as {@code group}), its hit die
+     * and the average it replaces. Unrolled levels are null. Fixed hit points get the same rows as a
+     * display-only choice that asks for nothing.
      */
     private void planHitPoints() {
-        if (build.hitPointMethod() != Dnd5eHitPointMethod.ROLLED) {
-            return;
-        }
         List<CreationChoiceOption> levels = rolledHitPointLevels();
         if (levels.isEmpty()) {
+            return;
+        }
+        if (build.hitPointMethod() != Dnd5eHitPointMethod.ROLLED) {
+            choices.add(new CreationChoice("build.fixedHitPoints", "FIXED_HIT_POINTS", null,
+                    "Each level after the first takes the class's fixed hit points", "Hit Points", 0, true, levels, List.of()));
             return;
         }
         List<Integer> rolled = build.rolledHitPoints();
@@ -1004,7 +1099,7 @@ final class Dnd5eBuildPlanner {
                     first = false;
                     continue;
                 }
-                String label = taken.playerClass().name() + " lvl " + classLevel;
+                String label = taken.playerClass().name() + " - Level " + classLevel;
                 ObjectNode data = JsonNodeFactory.instance.objectNode()
                         .put("group", taken.playerClass().slug())
                         .put("classLevel", classLevel)
@@ -1096,7 +1191,7 @@ final class Dnd5eBuildPlanner {
         Set<String> offered = new HashSet<>();
         choices.forEach(choice -> offered.add(choice.id()));
         for (String answered : answers.keySet()) {
-            if (!offered.contains(answered)) {
+            if (!offered.contains(answered) && !absorbedAnswers.contains(answered)) {
                 problems.add("Answer for a choice this build doesn't offer: " + answered);
             }
         }

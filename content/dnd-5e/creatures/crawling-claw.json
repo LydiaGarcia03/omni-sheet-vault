@@ -1,0 +1,67 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "crawling-claw",
+  "name" : "Crawling Claw",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 44,
+  "tags" : [ ],
+  "description" : null,
+  "data" : {
+    "size" : "Tiny",
+    "creatureType" : "Undead",
+    "alignment" : "neutral evil",
+    "armorClass" : 12,
+    "armorClassText" : "12",
+    "hitPoints" : 2,
+    "hitDice" : "1d4",
+    "speed" : 20,
+    "additionalSpeeds" : "Climb 20 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 5,
+      "save" : -3
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 4,
+      "save" : -3
+    } ],
+    "skills" : [ ],
+    "senses" : "blindsight 30 ft. (blind beyond this radius), passive Perception 10",
+    "languages" : "understands Common but can't speak",
+    "challengeRating" : "0",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : "poison",
+    "conditionImmunities" : "charmed, exhaustion, poisoned",
+    "traits" : [ {
+      "name" : "Turn Immunity",
+      "description" : "The claw is immune to effects that turn undead."
+    } ],
+    "actions" : [ {
+      "name" : "Claw",
+      "description" : "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) bludgeoning or slashing damage (claw's choice)."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ ]
+  }
+}

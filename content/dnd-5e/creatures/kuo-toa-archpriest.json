@@ -1,0 +1,91 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "kuo-toa-archpriest",
+  "name" : "Kuo-toa Archpriest",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 200,
+  "tags" : [ "underdark" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (kuo-toa)",
+    "alignment" : "neutral evil",
+    "armorClass" : 13,
+    "armorClassText" : "13 (natural armor)",
+    "hitPoints" : 97,
+    "hitDice" : "13d8 + 39",
+    "speed" : 30,
+    "additionalSpeeds" : "Swim 30 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 14,
+      "save" : 2
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 9
+    }, {
+      "name" : "Religion",
+      "bonus" : 7
+    } ],
+    "senses" : "darkvision 120 ft., passive Perception 19",
+    "languages" : "Undercommon",
+    "challengeRating" : "6",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Amphibious",
+      "description" : "The kuo-toa can breathe air and water."
+    }, {
+      "name" : "Otherworldly Perception",
+      "description" : "The kuo-toa can sense the presence of any creature within 30 feet of it that is invisible or on the Ethereal Plane. It can pinpoint such a creature that is moving."
+    }, {
+      "name" : "Slippery",
+      "description" : "The kuo-toa has advantage on ability checks and saving throws made to escape a grapple."
+    }, {
+      "name" : "Sunlight Sensitivity",
+      "description" : "While in sunlight, the kuo-toa has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+    }, {
+      "name" : "Spellcasting",
+      "description" : "The kuo-toa is a 10th-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 14, +6 to hit with spell attacks). The kuo-toa has the following cleric spells prepared:\nCantrips (at will): guidance, sacred flame, thaumaturgy\n1st level (4 slots): detect magic, sanctuary, shield of faith\n2nd level (3 slots): hold person, spiritual weapon\n3rd level (3 slots): spirit guardians, tongues\n4th level (3 slots): control water, divination\n5th level (2 slots): mass cure wounds, scrying"
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The kuo-toa makes two melee attacks."
+    }, {
+      "name" : "Scepter",
+      "description" : "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) bludgeoning damage plus 14 (4d6) lightning damage."
+    }, {
+      "name" : "Unarmed Strike",
+      "description" : "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 5 (1d4 + 3) bludgeoning damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark" ]
+  }
+}

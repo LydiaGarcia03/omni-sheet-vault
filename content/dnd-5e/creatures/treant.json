@@ -1,0 +1,79 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "treant",
+  "name" : "Treant",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 289,
+  "tags" : [ "forest" ],
+  "description" : null,
+  "data" : {
+    "size" : "Huge",
+    "creatureType" : "Plant",
+    "alignment" : "chaotic good",
+    "armorClass" : 16,
+    "armorClassText" : "16 (natural armor)",
+    "hitPoints" : 138,
+    "hitDice" : "12d12 + 60",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 23,
+      "save" : 6
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 21,
+      "save" : 5
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 12,
+      "save" : 1
+    } ],
+    "skills" : [ ],
+    "senses" : "passive Perception 13",
+    "languages" : "Common, Druidic, Elvish, Sylvan",
+    "challengeRating" : "9",
+    "damageVulnerabilities" : "fire",
+    "damageResistances" : "bludgeoning, piercing",
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "False Appearance",
+      "description" : "While the treant remains motionless, it is indistinguishable from a normal tree."
+    }, {
+      "name" : "Siege Monster",
+      "description" : "The treant deals double damage to objects and structures."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The treant makes two slam attacks."
+    }, {
+      "name" : "Slam",
+      "description" : "Melee Weapon Attack: +10 to hit, reach 5 ft., one target. Hit: 16 (3d6 + 6) bludgeoning damage."
+    }, {
+      "name" : "Rock",
+      "description" : "Ranged Weapon Attack: +10 to hit, range 60/180 ft., one target. Hit: 28 (4d10 + 6) bludgeoning damage."
+    }, {
+      "name" : "Animate Trees (1/Day)",
+      "description" : "The treant magically animates one or two trees it can see within 60 feet of it. These trees have the same statistics as a treant, except they have Intelligence and Charisma scores of 1, they can't speak, and they have only the Slam action option. An animated tree acts as an ally of the treant. The tree remains animate for 1 day or until it dies; until the treant dies or is more than 120 feet from the tree; or until the treant takes a bonus action to turn it back into an inanimate tree. The tree then takes root if possible."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "forest" ]
+  }
+}

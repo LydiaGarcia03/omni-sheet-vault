@@ -1,0 +1,85 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "mezzoloth",
+  "name" : "Mezzoloth",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 313,
+  "tags" : [ ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Fiend (yugoloth)",
+    "alignment" : "neutral evil",
+    "armorClass" : 18,
+    "armorClassText" : "18 (natural armor)",
+    "hitPoints" : 75,
+    "hitDice" : "10d8 + 30",
+    "speed" : 40,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 18,
+      "save" : 4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 7,
+      "save" : -2
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 11,
+      "save" : 0
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 3
+    } ],
+    "senses" : "blindsight 60 ft., darkvision 60 ft., passive Perception 13",
+    "languages" : "Abyssal, Infernal, telepathy 60 ft.",
+    "challengeRating" : "5",
+    "damageVulnerabilities" : null,
+    "damageResistances" : "cold, fire, lightning; bludgeoning, piercing, and slashing from nonmagical attacks",
+    "damageImmunities" : "acid, poison",
+    "conditionImmunities" : "poisoned",
+    "traits" : [ {
+      "name" : "Magic Resistance",
+      "description" : "The mezzoloth has advantage on saving throws against spells and other magical effects."
+    }, {
+      "name" : "Magic Weapons",
+      "description" : "The mezzoloth's weapon attacks are magical."
+    }, {
+      "name" : "Innate Spellcasting",
+      "description" : "The mezzoloth's innate spellcasting ability is Charisma (spell save DC 11). The mezzoloth can innately cast the following spells, requiring no material components:\n1/day: cloudkill\n2/day each: darkness, dispel magic"
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The mezzoloth makes two attacks: one with its claws and one with its trident."
+    }, {
+      "name" : "Claws",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 9 (2d4 + 4) slashing damage."
+    }, {
+      "name" : "Trident",
+      "description" : "Melee Weapon  or Ranged Weapon Attack: +7 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 7 (1d6 + 4) piercing damage, or 8 (1d8 + 4) piercing damage when held with two claws and used to make a melee attack."
+    }, {
+      "name" : "Teleport",
+      "description" : "The mezzoloth magically teleports, along with any equipment it is wearing or carrying, up to 60 feet to an unoccupied space it can see."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ ]
+  }
+}

@@ -40,7 +40,7 @@ class Dnd5eModifiersCalculatorTest {
 
         assertThat(vitals.armorClass().value()).isEqualTo(13 + 2);
         assertThat(vitals.armorClass().contributions()).extracting(Contribution::source)
-                .containsExactly("Base (Draconic Resilience)", "Dexterity modifier");
+                .containsExactly("Base (Draconic Resilience)", "Dexterity mod.");
     }
 
     @Test

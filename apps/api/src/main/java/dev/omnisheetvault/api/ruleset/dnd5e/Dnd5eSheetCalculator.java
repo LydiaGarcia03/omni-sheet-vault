@@ -185,18 +185,21 @@ public class Dnd5eSheetCalculator implements SheetCalculator {
                 .forEach(name -> defenses.add(new DefenseEntry(null, type, name, item.name(), false, null))));
     }
 
-    /** The build's advancement and the character's experience points against the PHB table. */
+    /**
+     * The build's advancement and the character's experience points against the PHB table. A milestone build
+     * marks "milestone reached" by holding the next level's points, so both kinds of build signal a level up
+     * the same way, and taking the level clears it.
+     */
     private static Experience experience(Dnd5eSheet sheet) {
         Dnd5ePreferences.Dnd5eAdvancement advancement = sheet.build() == null
                 ? Dnd5ePreferences.Dnd5eAdvancement.MILESTONE
                 : sheet.build().preferences().advancement();
         int points = sheet.experiencePointsOrDefault();
         int level = sheet.level();
-        boolean experienceBuild = advancement == Dnd5ePreferences.Dnd5eAdvancement.XP;
         Integer nextLevelAt = level < Dnd5eExperience.MAX_LEVEL ? Dnd5eExperience.threshold(level + 1) : null;
         return new Experience(advancement.name(), points, level, Dnd5eExperience.levelFor(points),
                 Dnd5eExperience.threshold(level), nextLevelAt,
-                experienceBuild && Dnd5eExperience.levelUpAvailable(points, level),
+                Dnd5eExperience.levelUpAvailable(points, level),
                 sheet.build() != null && level < Dnd5eExperience.MAX_LEVEL,
                 Dnd5eExperience.THRESHOLDS,
                 sheet.classLevelsOrEmpty().stream()
@@ -353,7 +356,7 @@ public class Dnd5eSheetCalculator implements SheetCalculator {
                 .map(extra -> new Extra(
                         extra.key(), extra.name(), extra.category().name(), extra.armorClass(), extra.maxHitPoints(),
                         extra.currentHitPoints(), extra.temporaryHitPoints(), extra.speed(),
-                        extraStatBlock(extra.statBlock())))
+                        extraStatBlock(extra.statBlock()), extra.source(), extra.notes()))
                 .toList();
     }
 
@@ -373,8 +376,14 @@ public class Dnd5eSheetCalculator implements SheetCalculator {
                 statBlock.hitDiceLabel(), statBlock.additionalSpeeds(), abilityScores,
                 statBlock.skills().stream().map(skill -> new ExtraSkill(skill.name(), skill.bonus())).toList(),
                 statBlock.senses(), statBlock.languages(), statBlock.challengeRating(),
-                statBlock.traits().stream().map(trait -> new ExtraStatEntry(trait.name(), trait.description())).toList(),
-                statBlock.actions().stream().map(action -> new ExtraStatEntry(action.name(), action.description())).toList());
+                statEntries(statBlock.traits()), statEntries(statBlock.actions()),
+                statEntries(statBlock.reactions()), statEntries(statBlock.legendaryActions()),
+                Dnd5eChallengeRatings.experience(statBlock.challengeRating()),
+                Dnd5eChallengeRatings.proficiencyBonus(statBlock.challengeRating()));
+    }
+
+    private static List<ExtraStatEntry> statEntries(List<Dnd5eExtraStatEntry> entries) {
+        return entries.stream().map(entry -> new ExtraStatEntry(entry.name(), entry.description())).toList();
     }
 
     private Background background(Dnd5eSheet sheet) {
@@ -447,7 +456,7 @@ public class Dnd5eSheetCalculator implements SheetCalculator {
                 item.stealthDisadvantage(), item.strengthRequirement(), item.weaponAttackBonus(),
                 item.weaponDamageBonus(), item.armorClassBonus(), item.charges(), item.rechargeTrigger(),
                 item.rechargeFormula(), toItemGrantedSpells(item.grantedSpells()), item.chargesUsed(),
-                item.storageLocation().name(), item.source());
+                item.storageLocation().name(), item.source(), Dnd5eEquippable.of(item));
     }
 
     /** The item's properties as the PHB names them, with the versatile die: "Versatile (1d8)". */
@@ -871,13 +880,13 @@ public class Dnd5eSheetCalculator implements SheetCalculator {
             int base = unarmoredBase == null ? 10 : Dnd5eModifiers.valueOf(unarmoredBase, abilityScores);
             total = base + dexterityModifier;
             contributions.add(new Contribution(unarmoredBase == null ? "Base (unarmored)" : "Base (" + unarmoredBase.source() + ")", base));
-            contributions.add(new Contribution("Dexterity modifier", dexterityModifier));
+            contributions.add(new Contribution("Dexterity mod.", dexterityModifier));
         } else {
             int baseArmorClass = armor.baseArmorClass() != null ? armor.baseArmorClass() : 10;
             int cappedDexterityModifier = cappedDexterityModifier(armor.armorCategory(), dexterityModifier);
             total = baseArmorClass + cappedDexterityModifier;
             contributions.add(new Contribution("Base (" + armor.name() + ")", baseArmorClass));
-            contributions.add(new Contribution("Dexterity modifier", cappedDexterityModifier));
+            contributions.add(new Contribution("Dexterity mod.", cappedDexterityModifier));
             if (armor.armorClassBonus() != null) {
                 contributions.add(new Contribution(armor.name() + " bonus", armor.armorClassBonus()));
                 total += armor.armorClassBonus();
@@ -928,13 +937,18 @@ public class Dnd5eSheetCalculator implements SheetCalculator {
      * has {@code requiresAttunement: false}, matching the actual PHB item — attuned
      * would never be settable for it at all.
      */
+    /** The build's "Ignore coin weight" preference; a sheet without a build counts its coins. */
+    private static boolean ignoresCoinWeight(Dnd5eSheet sheet) {
+        return sheet.build() != null && sheet.build().preferences().ignoreCoinWeight();
+    }
+
     private Encumbrance encumbrance(Dnd5eSheet sheet) {
         boolean bagOfHoldingPresent = sheet.items().stream()
                 .anyMatch(item -> item.equipped() && BAG_OF_HOLDING_NAME.equalsIgnoreCase(item.name()));
 
         double equipmentWeightLb = weightLbInLocation(sheet, Dnd5eStorageLocation.EQUIPMENT);
         double backpackWeightLb = weightLbInLocation(sheet, Dnd5eStorageLocation.BACKPACK);
-        double coinsWeightLb = totalCoins(sheet) / COINS_PER_POUND;
+        double coinsWeightLb = ignoresCoinWeight(sheet) ? 0 : totalCoins(sheet) / COINS_PER_POUND;
         double carriedWeightLb = equipmentWeightLb + backpackWeightLb + coinsWeightLb;
         double capacityLb = sheet.strength() * CARRYING_CAPACITY_LB_PER_STRENGTH_POINT;
 

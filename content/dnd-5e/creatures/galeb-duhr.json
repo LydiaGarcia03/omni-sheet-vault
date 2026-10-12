@@ -1,0 +1,73 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "galeb-duhr",
+  "name" : "Galeb Duhr",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 139,
+  "tags" : [ "mountain", "hill" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Elemental",
+    "alignment" : "neutral",
+    "armorClass" : 16,
+    "armorClassText" : "16 (natural armor)",
+    "hitPoints" : 85,
+    "hitDice" : "9d8 + 45",
+    "speed" : 15,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 20,
+      "save" : 5
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 20,
+      "save" : 5
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 11,
+      "save" : 0
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 60 ft., tremorsense 60 ft., passive Perception 11",
+    "languages" : "Terran",
+    "challengeRating" : "6",
+    "damageVulnerabilities" : null,
+    "damageResistances" : "bludgeoning, piercing, and slashing from nonmagical attacks",
+    "damageImmunities" : "poison",
+    "conditionImmunities" : "exhaustion, paralyzed, petrified, poisoned",
+    "traits" : [ {
+      "name" : "False Appearance",
+      "description" : "While the galeb duhr remains motionless, it is indistinguishable from a normal boulder."
+    }, {
+      "name" : "Rolling Charge",
+      "description" : "If the galeb duhr rolls at least 20 feet straight toward a target and then hits it with a slam attack on the same turn, the target takes an extra 7 (2d6) bludgeoning damage. If the target is a creature, it must succeed on a DC 16 Strength saving throw or be knocked prone."
+    } ],
+    "actions" : [ {
+      "name" : "Slam",
+      "description" : "Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 12 (2d6 + 5) bludgeoning damage."
+    }, {
+      "name" : "Animate Boulders (1/Day)",
+      "description" : "The galeb duhr magically animates up to two boulders it can see within 60 feet of it. A boulder has statistics like those of a galeb duhr, except it has Intelligence 1 and Charisma 1, it can't be charmed or frightened, and it lacks this action option. A boulder remains animated as long as the galeb duhr maintains concentration, up to 1 minute (as if concentrating on a spell)."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "mountain", "hill" ]
+  }
+}

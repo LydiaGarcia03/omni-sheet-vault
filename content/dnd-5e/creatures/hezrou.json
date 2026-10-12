@@ -1,0 +1,76 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "hezrou",
+  "name" : "Hezrou",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 60,
+  "tags" : [ ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Fiend (demon)",
+    "alignment" : "chaotic evil",
+    "armorClass" : 16,
+    "armorClassText" : "16 (natural armor)",
+    "hitPoints" : 136,
+    "hitDice" : "13d10 + 65",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 19,
+      "save" : 7
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 17,
+      "save" : 3
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 20,
+      "save" : 8
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 5,
+      "save" : -3
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 12,
+      "save" : 4
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 13,
+      "save" : 1
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 120 ft., passive Perception 11",
+    "languages" : "Abyssal, telepathy 120 ft.",
+    "challengeRating" : "8",
+    "damageVulnerabilities" : null,
+    "damageResistances" : "cold, fire, lightning; bludgeoning, piercing, and slashing from nonmagical attacks",
+    "damageImmunities" : "poison",
+    "conditionImmunities" : "poisoned",
+    "traits" : [ {
+      "name" : "Magic Resistance",
+      "description" : "The hezrou has advantage on saving throws against spells and other magical effects."
+    }, {
+      "name" : "Stench",
+      "description" : "Any creature that starts its turn within 10 feet of the hezrou must succeed on a DC 14 Constitution saving throw or be poisoned until the start of its next turn. On a successful saving throw, the creature is immune to the hezrou's stench for 24 hours."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The hezrou makes three attacks: one with its bite and two with its claws."
+    }, {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 15 (2d10 + 4) piercing damage."
+    }, {
+      "name" : "Claws",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) slashing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ ]
+  }
+}

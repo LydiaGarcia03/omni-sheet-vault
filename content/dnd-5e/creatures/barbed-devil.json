@@ -1,0 +1,91 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "barbed-devil",
+  "name" : "Barbed Devil",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 70,
+  "tags" : [ ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Fiend (devil)",
+    "alignment" : "lawful evil",
+    "armorClass" : 15,
+    "armorClassText" : "15 (natural armor)",
+    "hitPoints" : 110,
+    "hitDice" : "13d8 + 52",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 16,
+      "save" : 6
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 17,
+      "save" : 3
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 18,
+      "save" : 7
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 14,
+      "save" : 5
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 14,
+      "save" : 5
+    } ],
+    "skills" : [ {
+      "name" : "Deception",
+      "bonus" : 5
+    }, {
+      "name" : "Insight",
+      "bonus" : 5
+    }, {
+      "name" : "Perception",
+      "bonus" : 8
+    } ],
+    "senses" : "darkvision 120 ft., passive Perception 18",
+    "languages" : "Infernal, telepathy 120 ft.",
+    "challengeRating" : "5",
+    "damageVulnerabilities" : null,
+    "damageResistances" : "cold; bludgeoning, piercing, and slashing from nonmagical attacks that aren't silvered",
+    "damageImmunities" : "fire, poison",
+    "conditionImmunities" : "poisoned",
+    "traits" : [ {
+      "name" : "Barbed Hide",
+      "description" : "At the start of each of its turns, the barbed devil deals 5 (1d10) piercing damage to any creature grappling it."
+    }, {
+      "name" : "Devil's Sight",
+      "description" : "Magical darkness doesn't impede the devil's darkvision."
+    }, {
+      "name" : "Magic Resistance",
+      "description" : "The devil has advantage on saving throws against spells and other magical effects."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The devil makes three melee attacks: one with its tail and two with its claws. Alternatively, it can use Hurl Flame twice."
+    }, {
+      "name" : "Claw",
+      "description" : "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) piercing damage."
+    }, {
+      "name" : "Tail",
+      "description" : "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) piercing damage."
+    }, {
+      "name" : "Hurl Flame",
+      "description" : "Ranged Spell Attack: +5 to hit, range 150 ft., one target. Hit: 10 (3d6) fire damage. If the target is a flammable object that isn't being worn or carried, it also catches fire."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ ]
+  }
+}

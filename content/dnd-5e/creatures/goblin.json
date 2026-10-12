@@ -1,0 +1,73 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "goblin",
+  "name" : "Goblin",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 166,
+  "tags" : [ "underdark", "grassland", "forest", "hill" ],
+  "description" : null,
+  "data" : {
+    "size" : "Small",
+    "creatureType" : "Humanoid (goblinoid)",
+    "alignment" : "neutral evil",
+    "armorClass" : 15,
+    "armorClassText" : "15 (leather armor, shield)",
+    "hitPoints" : 7,
+    "hitDice" : "2d6",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 8,
+      "save" : -1
+    } ],
+    "skills" : [ {
+      "name" : "Stealth",
+      "bonus" : 6
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 9",
+    "languages" : "Common, Goblin",
+    "challengeRating" : "1/4",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Nimble Escape",
+      "description" : "The goblin can take the Disengage or Hide action as a bonus action on each of its turns."
+    } ],
+    "actions" : [ {
+      "name" : "Scimitar",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) slashing damage."
+    }, {
+      "name" : "Shortbow",
+      "description" : "Ranged Weapon Attack: +4 to hit, range 80/320 ft., one target. Hit: 5 (1d6 + 2) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark", "grassland", "forest", "hill" ]
+  }
+}

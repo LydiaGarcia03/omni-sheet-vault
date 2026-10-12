@@ -25,6 +25,7 @@
     --frame-paper: #FFFFFF;
     --ink-control: #4A5D6B;
     --ink-light-grey: #CBD5E1;
+    --ink-darkgrey: #232b2f;
 
     --status-positive: #1A7F4E;
     --status-negative: #B3261E;
@@ -87,7 +88,7 @@ body {
     left: 0;
     right: 0;
     height: 14px;
-    background: var(--frame-paper);
+    /*background: var(--frame-paper);*/
     clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%, 0 14px);
 }
 /* Inspiration medallion's own top-corner cutout — traces its two side straps,
@@ -531,7 +532,12 @@ button.saving__abbr { padding: 0; border: 0; background: none; line-height: inhe
 .character-menu__level { font-size: 10px; line-height: 14px; color: #FFFFFF; }
 .character-menu__level + .character-menu__classes { margin-top: 15px; }
 .character-menu__classes { list-style: none; margin: 18px 0 0; padding: 0 25px; text-align: left; }
-.character-menu__class { display: flex; align-items: center; gap: 8px; min-height: 38px; }
+.character-menu__class { display: flex; align-items: center; gap: 8px; min-height: 36px; }
+.character-menu__class + .character-menu__class { margin-top: 10px; }
+.character-menu__class-badge { position: relative; flex: 0 0 auto; display: flex; align-items: center; }
+.character-menu__class-icon { display: block; width: 36px; height: 36px; border-radius: 4px; object-fit: cover; }
+.character-menu__class-icon + .character-menu__class-level { position: absolute; right: -8px; bottom: -6px; border-radius: 3px; }
+.character-menu__class-badge:has(.character-menu__class-icon) { margin-right: 8px; }
 .character-menu__class-level {
     flex: 0 0 auto;
     width: 18px;
@@ -543,8 +549,8 @@ button.saving__abbr { padding: 0; border: 0; background: none; line-height: inhe
     background: #333333;
     font-size: 13px;
 }
-.character-menu__class-name { display: block; font-size: 14px; }
-.character-menu__class-meta { display: block; font-family: var(--font-condensed); font-size: 12px; color: #75838B; }
+.character-menu__class-name { display: block; font-size: 14px; line-height: 14px; }
+.character-menu__class-meta { display: block; font-family: var(--font-condensed); font-size: 12px; line-height: 14px; color: #75838B; }
 .character-menu__appearance {
     display: block;
     width: 284px;
@@ -593,6 +599,13 @@ button.saving__abbr { padding: 0; border: 0; background: none; line-height: inhe
 .character-menu__item:hover, .character-menu__item:focus-visible { background: #1C2327; }
 .character-menu__icon { display: inline-grid; place-items: center; width: 16px; height: 16px; color: var(--theme-accent); }
 .character-menu__icon .rest-button__icon { width: 16px; height: 16px; }
+.character-menu__milestone-box {
+    width: 16px; height: 16px; flex: none; box-sizing: border-box; border: 2px solid var(--theme-accent); border-radius: 3px;
+}
+.character-menu__milestone-box.is-on {
+    background: var(--theme-accent)
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M2 5.2l2 2 4-4.4' fill='none' stroke='%23fff' stroke-width='1.6'/%3E%3C/svg%3E") center / 10px no-repeat;
+}
 .character-menu__xp-glyph { font-family: var(--font-condensed); font-size: 11px; font-weight: 700; color: var(--theme-accent); }
 .character-menu__level-up-row { padding: 8px 15px 12px 41px; border-top: 1px solid #232B2F; }
 .character-menu__level-up {
@@ -1732,6 +1745,9 @@ button.saving__abbr { padding: 0; border: 0; background: none; line-height: inhe
     overflow: hidden;
     box-sizing: border-box;
 }
+/* Unframed (an extra's Hit Points section): the sidebar's width, no frame, no fixed proportions. */
+.hit-points.hit-points--bare { width: 100%; aspect-ratio: auto; overflow: visible; }
+.hit-points--bare .hit-points__content { height: auto; padding: 10px 0 4px; }
 /* Death Saves box: replaces the hit points box at 0 hit points, same frame and size. */
 .death-saves { cursor: pointer; }
 .death-saves__icon {
@@ -1844,6 +1860,11 @@ button.saving__abbr { padding: 0; border: 0; background: none; line-height: inhe
     flex-direction: column;
     align-items: center;
     min-width: 34px;
+}
+/* Temp keeps its edit field's footprint (64 x 31) whether showing the number or the field, so Current/Max never shift. */
+.hit-points__stat--temp { width: 64px; }
+.hit-points__stat--temp > .hit-points__stat-value {
+    display: flex; align-items: center; justify-content: center; width: 64px; height: 31px; line-height: 1;
 }
 .hit-points__stat-label {
     font-family: var(--font-condensed);
@@ -2158,6 +2179,7 @@ button.saving__abbr { padding: 0; border: 0; background: none; line-height: inhe
     font-weight: 700;
     color: var(--text-control-muted);
 }
+.range-display__note { display: block; line-height: 1.1; }
 /* Area-of-effect detail, front of the Notes column (not Range). Not bold, unlike .range-display__primary. */
 .spell-area-tag {
     color: var(--text-primary);
@@ -3371,9 +3393,9 @@ button.saving__abbr { padding: 0; border: 0; background: none; line-height: inhe
     display: flex;
     width: 100%;
     padding: 8px 10px;
-    border: 1px solid #1B9AF0;
+    border: 1px solid var(--theme-accent);
     border-radius: 12px 12px 0 12px;
-    background: #182026;
+    background: var(--ink-darkgrey);
     font-family: inherit;
     text-align: left;
     color: #FFFFFF;
@@ -3707,27 +3729,88 @@ button.background-tab__field {
     padding-top: 8px;
     border-top: 1px dotted var(--border-divider);
 }
-.extra-row__name-cell { flex: 1 1 auto; display: flex; flex-direction: column; align-items: flex-start; gap: 1px; }
+/* Columns measured on D&D Beyond's .ct-extra-row (2026-10-11): name 130px (plus its 35px picture column, which
+   this app folds into the name since it shows no pictures), AC 35, Hit Points 85, Speed 50, Notes the rest, all left
+   aligned. */
+.extra-row { gap: 0; }
+.extra-row__name-cell { flex: 0 0 165px; display: flex; flex-direction: column; align-items: flex-start; gap: 1px; min-width: 0; }
 .extra-row__name {
     text-align: left;
-    font-size: 13px;
-    font-weight: 700;
+    font-family: var(--font-condensed);
+    font-size: 14px;
+    font-weight: 400;
+    color: #000000;
 }
 .extra-row__subtitle {
-    font-size: 11px;
-    font-style: italic;
-    color: var(--text-muted);
+    font-family: var(--font-condensed);
+    font-size: 10px;
+    color: #75838B;
 }
-.extra-row__stat {
-    flex: 0 0 auto;
-    width: 56px;
-    text-align: center;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--text-muted);
+.extra-row__ac { flex: 0 0 35px; font-family: var(--font-condensed); font-size: 16px; font-weight: 700; color: #000000; }
+.extra-row__hp { flex: 0 0 85px; font-size: 13px; color: #000000; }
+.extra-row__hp-value { font-family: var(--font-condensed); font-size: 16px; font-weight: 700; }
+.extra-row__hp-value--max { color: #75838B; }
+.extra-row__hp-sep { margin: 0 2px; }
+.extra-row__speed { flex: 0 0 50px; display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 2px; }
+.extra-row__speed .range-display__primary { font-size: 16px; color: #12181C; }
+.extra-row__speed-callout { flex-basis: 100%; font-family: var(--font-condensed); font-size: 10px; color: #75838B; }
+.extra-row__notes { flex: 1 1 auto; font-family: var(--font-condensed); font-size: 12px; color: #75838B; }
+.extras-tab__empty { font-size: 11px; color: var(--text-muted); }
+/* Manage Extras pane */
+.extras-manage__group { margin-top: 10px; }
+.extras-manage__group-heading {
+    margin: 0 0 4px; padding-bottom: 3px; border-bottom: 1px solid #EAEAEA;
+    font-family: var(--font-condensed); font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--theme-accent);
 }
+.extras-manage__list { margin: 0; padding: 0; list-style: none; }
+.extras-manage__item { display: flex; align-items: center; gap: 8px; min-height: 32px; }
+.extras-manage__item + .extras-manage__item { border-top: 1px solid #EAEAEA; }
+.extras-manage__item-text { display: flex; flex: 1 1 auto; flex-direction: column; align-items: flex-start; min-width: 0; padding: 0; border: 0; background: none; text-align: left; cursor: pointer; }
+.extras-manage__name { font-size: 13px; font-weight: 700; color: #12181C; }
+.extras-manage__meta { font-size: 11px; color: #75838B; }
+.extras-manage__delete {
+    flex: 0 0 auto; padding: 2px 6px; border: 1px solid #A3ADB4; border-radius: 3px; background: #FFFFFF;
+    font-family: var(--font-condensed); font-size: 9px; font-weight: 700; text-transform: uppercase; color: #75838B; cursor: pointer;
+}
+.extras-manage__empty { font-size: 12px; color: #75838B; }
+/* Add an Extra (D&D Beyond's Manage Extras, seen live 2026-10-11) */
+.extras-add__category, .extras-add__search, .extras-add__challenge {
+    box-sizing: border-box; border: 1px solid #D8DDE1; border-radius: 3px; background: #FFFFFF; font-family: inherit; font-size: 13px; color: #12181C;
+}
+.extras-add__category { width: 100%; height: 34px; padding: 0 8px; }
+.extras-add__hint { margin: 10px 0; padding-bottom: 10px; border-bottom: 1px solid #EAEAEA; font-size: 13px; line-height: 18px; color: #12181C; }
+.extras-add__filter-label { margin: 6px 0 4px; font-size: 14px; font-weight: 700; color: #12181C; }
+.extras-add__search { width: 100%; height: 32px; padding: 0 8px; }
+.extras-add__range { display: flex; align-items: center; gap: 8px; margin: 10px 0; font-size: 13px; }
+.extras-add__range-label { font-weight: 700; color: #12181C; }
+.extras-add__challenge { height: 30px; padding: 0 4px; min-width: 60px; }
+.extras-add__list { margin: 0; padding: 0; list-style: none; }
+.extras-add__item { border-top: 1px solid #EAEAEA; }
+.extras-add__row { display: flex; align-items: center; gap: 6px; min-height: 40px; padding: 4px 0; }
+.extras-add__text { display: flex; flex: 1 1 auto; flex-direction: column; min-width: 0; }
+.extras-add__name { font-size: 13px; font-weight: 700; color: #12181C; }
+.extras-add__meta { font-size: 11px; line-height: 14px; color: #75838B; }
+.extras-add__add {
+    flex: 0 0 auto; padding: 3px 7px; border: 0; border-radius: 3px; background: #A3ADB4; color: #FFFFFF;
+    font-family: var(--font-condensed); font-size: 9px; font-weight: 700; text-transform: uppercase; cursor: pointer;
+}
+.extras-add__add:hover { background: var(--theme-accent); }
+.extras-add__toggle { flex: 0 0 20px; border: 0; background: none; color: #75838B; font-size: 14px; cursor: pointer; }
+.extras-add__preview { padding: 0 0 10px; }
+.extras-add__card {
+    padding: 10px 12px; border-top: 4px solid #E69A28; border-bottom: 4px solid #E69A28; background: #FDF1DC;
+    font-family: var(--font-stat-block); font-size: 14px; font-variant-numeric: lining-nums; line-height: 19px; color: #7A200D;
+}
+.extras-add__card b { font-weight: 700; }
+.extras-add__card-name { font-family: var(--font-stat-block-caps); font-size: 18px; font-weight: 700; color: #7A200D; }
+.extras-add__card-meta { font-style: italic; color: #12181C; }
+.extras-add__card-rule { height: 4px; margin: 6px 0; background: linear-gradient(10deg, #A73335, #FDF1DC); }
+.extras-add__quantity { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 8px; font-size: 13px; font-weight: 700; }
+.extras-add__quantity input { width: 48px; height: 26px; text-align: center; border: 1px solid #D8DDE1; border-radius: 3px; }
+.extras-add__quantity > button:not(.extras-add__add) { width: 24px; height: 24px; border: 0; border-radius: 3px; background: #D8DDE1; cursor: pointer; }
+.extras-add__note { padding: 8px 0; font-size: 12px; color: #75838B; }
 /* Extra pane     systems/dnd5e/ExtraRow.tsx, ExtraStatBlockView.tsx (ddbc-collapsible Hit Points, creatureBlock) */
-.entity-detail__actions--section:has(.extra-row__hp-details) { padding-top: 15px; }
+.extra-row__hp-details { margin-top: 15px; }
 .extra-row__hp-details summary {
     display: flex;
     justify-content: space-between;
@@ -3736,29 +3819,58 @@ button.background-tab__field {
     font-size: 13px;
     color: #12181C;
     cursor: pointer;
+    list-style: none;
 }
+.extra-row__hp-details summary::-webkit-details-marker { display: none; }
+.extra-row__hp-summary { display: inline-flex; align-items: center; gap: 8px; }
+.extra-row__hp-chevron { color: #75838B; transition: transform 120ms ease; }
+.extra-row__hp-details[open] .extra-row__hp-chevron { transform: rotate(180deg); }
 .extra-detail__stat-block { margin-top: 15px; }
+/* Measured on D&D Beyond's .creatureBlock (Cat, 2026-10-11): 299px wide in the sidebar, 15px 10px padding, a rule
+   above and below only, two 134px ability tables side by side with tinted score and modifier/save cells. */
 .extra-stat-block {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
     padding: 15px 10px;
-    border: 1px solid #AFA47A;
+    border-top: 1px solid #AFA47A;
+    border-bottom: 1px solid #AFA47A;
     background: #F5F3EE;
-    box-shadow: 0 0 5px 0 #A2ACB2;
-    font-family: 'Scala Sans Offc', Roboto, Helvetica, sans-serif;
+    font-family: var(--font-stat-block);
     font-size: 15px;
+    font-variant-numeric: lining-nums;
     line-height: 18px;
     color: #5B160C;
+    overflow-wrap: anywhere;
 }
-.extra-stat-block__name { margin: 0; padding-bottom: 4px; border-bottom: 1px solid #5B160C; font-size: 20px; font-weight: 700; line-height: 18px; }
+/* D&D Beyond sets stat blocks in Scala Sans (a licensed face) and its small-caps cut; Alegreya Sans and Alegreya
+   Sans SC are the closest open humanist pair, used when Scala isn't installed. */
+:root {
+    --font-stat-block: 'Scala Sans Offc', 'Alegreya Sans', Roboto, Helvetica, sans-serif;
+    --font-stat-block-caps: 'Scala Sans Sc Offc', 'Alegreya Sans SC', Roboto, Helvetica, sans-serif;
+}
+.extra-stat-block__name {
+    margin: 0; padding-bottom: 4px; border-bottom: 1px solid #5B160C;
+    font-family: var(--font-stat-block-caps); font-size: 20px; font-weight: 700; line-height: 18px; color: #5B160C;
+}
 .extra-stat-block__subtitle { margin: 3px 0 15px; font-style: italic; line-height: 16.5px; color: #75838B; }
 .extra-stat-block__attribute { margin: 5px 0; }
-.extra-stat-block__attribute-label { font-weight: 700; }
-.extra-stat-block__abilities { display: flex; gap: 10px; }
-.extra-stat-block__ability-table { flex: 1 1 0; margin: 0 0 8px; border-collapse: collapse; font-size: 14px; line-height: 19.6px; }
-.extra-stat-block__ability-table th, .extra-stat-block__ability-table td { padding: 2px 8px; text-align: center; font-weight: 400; }
-.extra-stat-block__ability-table thead th { padding: 5px 2px 0; font-size: 11px; line-height: 14.3px; text-transform: uppercase; color: #75838B; }
+.extra-stat-block__attribute-label { margin-right: 5px; font-weight: 700; }
+.extra-stat-block__abilities { display: flex; gap: 9px; margin: 10px 0; }
+.extra-stat-block__ability-table {
+    flex: 1 1 0; min-width: 0; width: 100%; table-layout: fixed;
+    margin: 0; border-collapse: separate; border-spacing: 0 1px; font-size: 14px; line-height: 19.6px; color: #5B160C;
+}
+.extra-stat-block__ability-table th, .extra-stat-block__ability-table td { padding: 2px 0; text-align: center; font-weight: 400; }
+.extra-stat-block__ability-table thead th { padding: 5px 0 0; font-size: 11px; line-height: 14.3px; text-transform: uppercase; color: #75838B; }
 .extra-stat-block__ability-table tbody th { font-weight: 700; }
-.extra-stat-block__section-heading { margin: 20px 0 15px; border-bottom: 1px solid #5B160C; font-size: 18px; font-weight: 500; line-height: 25.2px; }
-.extra-stat-block__entry { margin: 0; line-height: 21px; color: #000; }
+.extra-stat-block__ability-table tbody td:nth-of-type(1) { background: #EDE6D9; }
+.extra-stat-block__ability-table tbody td:nth-of-type(n + 2) { background: #DED4CC; }
+.extra-stat-block__section-heading {
+    margin: 20px 0 15px; border-bottom: 1px solid #5B160C;
+    font-family: var(--font-stat-block-caps); font-size: 18px; font-weight: 500; line-height: 25.2px; color: #5B160C;
+}
+.extra-stat-block__entry { margin: 0 0 10px; font-size: 15px; line-height: 21px; color: #000; }
 
 /* ================================================================
    CHARACTER HEADER          see SheetShell.tsx

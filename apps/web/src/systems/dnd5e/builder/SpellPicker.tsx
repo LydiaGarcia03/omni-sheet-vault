@@ -1,6 +1,8 @@
 import { useId, useMemo, useState } from 'react';
 import type { ChoiceOption, CreationChoice } from '../../../builder/draftApi';
+import { PendingMark } from '../../../builder/PendingMark';
 import { SourceBadge } from '../../../builder/SourceSelect';
+import { useSpellDescriptions, type SpellDescription } from './useSpellDescriptions';
 
 /** The spell mechanics the API attaches to each spell option. */
 type SpellData = {
@@ -72,6 +74,7 @@ export function SpellPicker({ choice, onChange }: SpellPickerProps) {
   const filtersId = useId();
   const listId = useId();
   const [showList, setShowList] = useState(() => choice.selected.length < choice.count);
+  const descriptions = useSpellDescriptions(open !== null);
   const spells = useMemo(
     () => choice.options.flatMap((option) => {
       const data = spellData(option);
@@ -116,32 +119,36 @@ export function SpellPicker({ choice, onChange }: SpellPickerProps) {
   const summaryOf = (key: string) => choice.options.find((option) => option.key === key)?.summary ?? null;
 
   return (
-    <div className={`builder-spells${choice.pending ? ' is-pending' : ''}`}>
-      <div className="builder-spells__head">
-        <div className="builder-grow">
-          <div className="builder-choice__label">{choice.prompt}</div>
-          <div className="builder-choice__from">{choice.sourceLabel}</div>
-        </div>
+    <details
+      className={`builder-level builder-spells${choice.pending ? ' is-pending' : ''}`}
+      open={showList}
+      onToggle={(event) => setShowList(event.currentTarget.open)}
+    >
+      <summary className="builder-level__summary" aria-controls={listId}>
+        <span className="builder-spells__title">
+          <span className="builder-choice__label">
+            {choice.prompt}
+            {choice.pending && <PendingMark />}
+          </span>
+          <span className="builder-choice__from">{choice.sourceLabel}</span>
+        </span>
         <span className={`builder-badge ${full ? 'builder-badge--done' : 'builder-badge--pending'}`}>
           {choice.selected.length} of {choice.count} chosen
         </span>
-        <button type="button" className="builder-btn" aria-expanded={showList} aria-controls={listId} onClick={() => setShowList(!showList)}>
-          {showList ? 'Hide spells ▴' : 'Show spells ▾'}
-        </button>
-      </div>
-
-      {choice.selected.length > 0 && (
-        <div className="builder-spells__chosen">
-          {choice.selected.map((key) => (
-            <button key={key} type="button" className="builder-chip" aria-pressed="true" onClick={() => toggle(key)} title={summaryOf(key) ? `${summaryOf(key)} · Remove` : 'Remove'}>
-              {labelOf(key)} ✕
-            </button>
-          ))}
-        </div>
-      )}
+        {choice.selected.length > 0 && <span className="builder-level__features">{choice.selected.map(labelOf).join(', ')}</span>}
+      </summary>
 
       {showList && (
-        <div id={listId} className="builder-spells__body">
+        <div id={listId} className="builder-level__body builder-spells__body">
+          {choice.selected.length > 0 && (
+            <div className="builder-spells__chosen">
+              {choice.selected.map((key) => (
+                <button key={key} type="button" className="builder-chip" aria-pressed="true" onClick={() => toggle(key)} title={summaryOf(key) ? `${summaryOf(key)} · Remove` : 'Remove'}>
+                  {labelOf(key)} ✕
+                </button>
+              ))}
+            </div>
+          )}
           <div className="builder-spells__filters">
             <div className="builder-spells__bar">
               <input
@@ -235,19 +242,14 @@ export function SpellPicker({ choice, onChange }: SpellPickerProps) {
                   </div>
                   {expanded && (
                     <div className="builder-spells__detail">
-                      <span>
-                        <b>Duration</b> {data.duration ?? '—'}
-                      </span>
-                      <span>
-                        <b>Components</b> {data.components ?? '—'}
-                      </span>
-                      {data.saveAbility && (
-                        <span>
-                          <b>Save</b> {capitalize(data.saveAbility)}
-                        </span>
-                      )}
-                      {data.attackRoll && <span>Spell attack</span>}
-                      {data.effectSummary && <span>{data.effectSummary}</span>}
+                      <dl className="builder-spells__facts">
+                        <SpellFact label="Duration" value={durationOf(data)} />
+                        <SpellFact label="Components" value={data.components ?? '—'} />
+                        <SpellFact label="Attack / Save" value={attackOrSaveOf(data)} />
+                        <SpellFact label="Damage / Effect" value={effectOf(data)} />
+                        {data.ritual && <SpellFact label="Ritual" value="Yes" />}
+                      </dl>
+                      <SpellText description={descriptions?.get(option.key)} loading={descriptions === null} />
                     </div>
                   )}
                 </div>
@@ -257,8 +259,51 @@ export function SpellPicker({ choice, onChange }: SpellPickerProps) {
           </div>
         </div>
       )}
+    </details>
+  );
+}
+
+/** The spell's rules text under its facts, with "At Higher Levels." as its own paragraph. */
+function SpellText({ description, loading }: { description: SpellDescription | undefined; loading: boolean }) {
+  if (loading) {
+    return <p className="builder-spells__text builder-muted">Loading description…</p>;
+  }
+  if (!description || description.redacted || !description.text) {
+    return <p className="builder-spells__text builder-muted">{description?.redacted ? 'Description hidden on this server.' : 'No description available.'}</p>;
+  }
+  return (
+    <div className="builder-spells__text">
+      {description.text.split(/\n+/).map((paragraph, index) => (
+        <p key={index}>{paragraph}</p>
+      ))}
+      {description.higherLevels && (
+        <p>
+          <b>At Higher Levels.</b> {description.higherLevels}
+        </p>
+      )}
     </div>
   );
+}
+
+function SpellFact({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="builder-spells__fact">
+      <dt>{label}</dt>
+      <dd>{value}</dd>
+    </div>
+  );
+}
+
+function durationOf(data: SpellData): string {
+  const duration = data.duration ?? '—';
+  return data.concentration && !/concentration/i.test(duration) ? `Concentration, ${duration}` : duration;
+}
+
+function attackOrSaveOf(data: SpellData): string {
+  if (data.saveAbility) {
+    return `${capitalize(data.saveAbility)} save`;
+  }
+  return data.attackRoll ? 'Spell attack' : 'None';
 }
 
 /** How many filters in the collapsible panel are set; the search box isn't counted. */

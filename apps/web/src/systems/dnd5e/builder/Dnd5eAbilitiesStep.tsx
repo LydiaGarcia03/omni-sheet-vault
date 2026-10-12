@@ -95,7 +95,7 @@ export function Dnd5eAbilitiesStep({ characterId, build, choices, problems, prev
 
   return (
     <>
-      <section className="builder-frame">
+      <section className="builder-frame" data-tutorial="ability-method">
         <div className="builder-frame__title">
           <span className="builder-grow">Generation method</span>
           <select
@@ -181,7 +181,7 @@ export function Dnd5eAbilitiesStep({ characterId, build, choices, problems, prev
         ))}
       </section>
 
-      <section className="builder-frame">
+      <section className="builder-frame" data-tutorial="ability-scores">
         <div className="builder-frame__title">Score calculations</div>
         <p className="builder-muted" style={{ marginTop: 0 }}>
           Every number behind each total. Add an extra bonus with Other Modifier, or replace the total with Override Score.

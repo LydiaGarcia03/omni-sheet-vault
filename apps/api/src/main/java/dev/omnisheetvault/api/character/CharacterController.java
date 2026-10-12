@@ -1,6 +1,8 @@
 package dev.omnisheetvault.api.character;
 
 import jakarta.validation.Valid;
+import dev.omnisheetvault.api.catalogue.CatalogueEntryKind;
+import dev.omnisheetvault.api.catalogue.CatalogueEntryResponse;
 import java.util.List;
 import java.util.UUID;
 import org.springframework.http.HttpStatus;
@@ -246,6 +248,27 @@ class CharacterController {
             @Valid @RequestBody HitPointAdjustmentRequest request) {
         return CharacterSheetResponse.from(
                 characterSheetService.setExtraTemporaryHitPoints(jwt, id, extraKey, request.amount()));
+    }
+
+    /** The catalogue entries this character may pick on its sheet, filtered by its build's books. */
+    @GetMapping("/api/characters/{id}/catalogue")
+    List<CatalogueEntryResponse> characterCatalogue(
+            @AuthenticationPrincipal Jwt jwt, @PathVariable UUID id, @RequestParam CatalogueEntryKind kind) {
+        return characterSheetService.catalogueFor(jwt, id, kind);
+    }
+
+    @PostMapping("/api/characters/{id}/extras/catalogue")
+    CharacterSheetResponse addCatalogueExtra(
+            @AuthenticationPrincipal Jwt jwt, @PathVariable UUID id, @Valid @RequestBody AddCatalogueExtraRequest request) {
+        return CharacterSheetResponse.from(characterSheetService.addCatalogueExtra(
+                jwt, id, UUID.fromString(request.catalogueEntryId()), request.category(), request.quantity()));
+    }
+
+    @PutMapping("/api/characters/{id}/extras/{extraKey}")
+    CharacterSheetResponse updateExtra(
+            @AuthenticationPrincipal Jwt jwt, @PathVariable UUID id, @PathVariable String extraKey,
+            @Valid @RequestBody UpdateExtraRequest request) {
+        return CharacterSheetResponse.from(characterSheetService.updateExtra(jwt, id, extraKey, request.name(), request.notes()));
     }
 
     @DeleteMapping("/api/characters/{id}/extras/{extraKey}")

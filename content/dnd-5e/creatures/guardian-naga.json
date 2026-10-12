@@ -1,0 +1,73 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "guardian-naga",
+  "name" : "Guardian Naga",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 234,
+  "tags" : [ "forest", "desert" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Monstrosity",
+    "alignment" : "lawful good",
+    "armorClass" : 18,
+    "armorClassText" : "18 (natural armor)",
+    "hitPoints" : 127,
+    "hitDice" : "15d10 + 45",
+    "speed" : 40,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 19,
+      "save" : 4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 18,
+      "save" : 8
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 16,
+      "save" : 7
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 16,
+      "save" : 7
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 19,
+      "save" : 8
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 18,
+      "save" : 8
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 60 ft., passive Perception 14",
+    "languages" : "Celestial, Common",
+    "challengeRating" : "10",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : "poison",
+    "conditionImmunities" : "charmed, poisoned",
+    "traits" : [ {
+      "name" : "Rejuvenation",
+      "description" : "If it dies, the naga returns to life in 1d6 days and regains all its hit points. Only a wish spell can prevent this trait from functioning."
+    }, {
+      "name" : "Spellcasting",
+      "description" : "The naga is an 11th-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 16, +8 to hit with spell attacks), and it needs only verbal components to cast its spells. It has the following cleric spells prepared:\nCantrips (at will): mending, sacred flame, thaumaturgy\n1st level (4 slots): command, cure wounds, shield of faith\n2nd level (3 slots): calm emotions, hold person\n3rd level (3 slots): bestow curse, clairvoyance\n4th level (3 slots): banishment, freedom of movement\n5th level (2 slots): flame strike, geas\n6th level (1 slot): true seeing"
+    } ],
+    "actions" : [ {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +8 to hit, reach 10 ft., one creature. Hit: 8 (1d8 + 4) piercing damage, and the target must make a DC 15 Constitution saving throw, taking 45 (10d8) poison damage on a failed save, or half as much damage on a successful one."
+    }, {
+      "name" : "Spit Poison",
+      "description" : "Ranged Weapon Attack: +8 to hit, range 15/30 ft., one creature. Hit: The target must make a DC 15 Constitution saving throw, taking 45 (10d8) poison damage on a failed save, or half as much damage on a successful one."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "forest", "desert" ]
+  }
+}

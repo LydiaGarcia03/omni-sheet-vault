@@ -39,5 +39,20 @@ public record Dnd5eExtraStatBlock(
         @NotBlank String languages,
         @NotBlank String challengeRating,
         @NotNull @Valid List<Dnd5eExtraStatEntry> traits,
-        @NotNull @Valid List<Dnd5eExtraStatEntry> actions) {
+        @NotNull @Valid List<Dnd5eExtraStatEntry> actions,
+        @Valid List<Dnd5eExtraStatEntry> reactions,
+        @Valid List<Dnd5eExtraStatEntry> legendaryActions) {
+
+    /** Reactions and legendary actions are empty, not null, on stat blocks written before them. */
+    public Dnd5eExtraStatBlock {
+        reactions = reactions == null ? List.of() : reactions;
+        legendaryActions = legendaryActions == null ? List.of() : legendaryActions;
+    }
+
+    public Dnd5eExtraStatBlock(String size, String creatureType, String alignment, String hitDiceLabel, String additionalSpeeds,
+            List<Dnd5eExtraAbilityScore> abilityScores, List<Dnd5eExtraSkill> skills, String senses, String languages,
+            String challengeRating, List<Dnd5eExtraStatEntry> traits, List<Dnd5eExtraStatEntry> actions) {
+        this(size, creatureType, alignment, hitDiceLabel, additionalSpeeds, abilityScores, skills, senses, languages, challengeRating,
+                traits, actions, List.of(), List.of());
+    }
 }

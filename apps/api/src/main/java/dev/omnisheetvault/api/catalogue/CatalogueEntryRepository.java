@@ -21,6 +21,20 @@ interface CatalogueEntryRepository extends JpaRepository<CatalogueEntry, UUID> {
             GROUP BY e.sourceBook ORDER BY COUNT(e) DESC, e.sourceBook""")
     List<SourceBookCount> countBySourceBook(String systemId);
 
+    /** One row per kind with its entry count and latest change: any import that adds, edits or removes an entry changes it. */
+    @Query("""
+            SELECT e.kind AS kind, COUNT(e) AS entryCount, MAX(e.updatedAt) AS lastUpdated FROM CatalogueEntry e
+            WHERE e.systemId = :systemId GROUP BY e.kind""")
+    List<KindFingerprint> fingerprintByKind(String systemId);
+
+    interface KindFingerprint {
+        CatalogueEntryKind getKind();
+
+        long getEntryCount();
+
+        java.time.Instant getLastUpdated();
+    }
+
     interface SourceBookCount {
         String getSourceBook();
 
