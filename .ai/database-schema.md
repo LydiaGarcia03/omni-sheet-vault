@@ -34,6 +34,7 @@ Local mirror of the authenticated identity. Holds no credentials.
 | `subject` | `text` | Unique. The `sub` claim from the access token |
 | `display_name` | `text` | Shown in the UI |
 | `created_at` | `timestamptz` | |
+| `seen_tutorials` | `text[]` | Ids of the tutorials the player finished or skipped (`builder:dnd-5e`). Default `{}`. Added by V10; written only with `array_append`, so two concurrent marks can't lose one |
 
 `subject` is the only bridge between Keycloak and this schema. Every ownership check
 resolves through it. **Ownership is never derived from an identifier supplied by the

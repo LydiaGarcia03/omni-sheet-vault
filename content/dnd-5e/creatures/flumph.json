@@ -1,0 +1,85 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "flumph",
+  "name" : "Flumph",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 135,
+  "tags" : [ "underdark" ],
+  "description" : null,
+  "data" : {
+    "size" : "Small",
+    "creatureType" : "Aberration",
+    "alignment" : "lawful good",
+    "armorClass" : 12,
+    "armorClassText" : "12",
+    "hitPoints" : 7,
+    "hitDice" : "2d6",
+    "speed" : 5,
+    "additionalSpeeds" : "Fly 30 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 6,
+      "save" : -2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 11,
+      "save" : 0
+    } ],
+    "skills" : [ {
+      "name" : "Arcana",
+      "bonus" : 4
+    }, {
+      "name" : "History",
+      "bonus" : 4
+    }, {
+      "name" : "Religion",
+      "bonus" : 4
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 12",
+    "languages" : "understands Undercommon but can't speak, telepathy 60 ft.",
+    "challengeRating" : "1/8",
+    "damageVulnerabilities" : "psychic",
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Advanced Telepathy",
+      "description" : "The flumph can perceive the content of any telepathic communication used within 60 feet of it, and it can't be surprised by creatures with any form of telepathy."
+    }, {
+      "name" : "Prone Deficiency",
+      "description" : "If the flumph is knocked prone, roll a die. On an odd result, the flumph lands upside-down and is incapacitated. At the end of each of its turns, the flumph can make a DC 10 Dexterity saving throw, righting itself and ending the incapacitated condition if it succeeds."
+    }, {
+      "name" : "Telepathic Shroud",
+      "description" : "The flumph is immune to any effect that would sense its emotions or read its thoughts, as well as all divination spells."
+    } ],
+    "actions" : [ {
+      "name" : "Tendrils",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 4 (1d4 + 2) piercing damage plus 2 (1d4) acid damage. At the end of each of its turns, the target must make a DC 10 Constitution saving throw, taking 2 (1d4) acid damage on a failure or ending the recurring acid damage on a success. A lesser restoration spell cast on the target also ends the recurring acid damage."
+    }, {
+      "name" : "Stench Spray (1/Day)",
+      "description" : "Each creature in a 15-foot cone originating from the flumph must succeed on a DC 10 Dexterity saving throw or be coated in a foul-smelling liquid. A coated creature exudes a horrible stench for 1d4 hours. The coated creature is poisoned as long as the stench lasts, and other creatures are poisoned while with in 5 feet of the coated creature. A creature can remove the stench on itself by using a short rest to bathe in water, alcohol, or vinegar."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark" ]
+  }
+}

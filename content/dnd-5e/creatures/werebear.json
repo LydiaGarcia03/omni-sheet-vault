@@ -1,0 +1,82 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "werebear",
+  "name" : "Werebear",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 208,
+  "tags" : [ "forest", "hill", "arctic" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (human, shapechanger)",
+    "alignment" : "neutral good",
+    "armorClass" : 10,
+    "armorClassText" : "10 in humanoid form, 11 (natural armor) in bear or hybrid form",
+    "hitPoints" : 135,
+    "hitDice" : "18d8 + 54",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 19,
+      "save" : 4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 17,
+      "save" : 3
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 12,
+      "save" : 1
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 7
+    } ],
+    "senses" : "passive Perception 17",
+    "languages" : "Common (can't speak in bear form)",
+    "challengeRating" : "5",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : "bludgeoning, piercing, and slashing from nonmagical attacks that aren't silvered",
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Shapechanger",
+      "description" : "The werebear can use its action to polymorph into a Large bear-humanoid hybrid or into a Large bear, or back into its true form, which is humanoid. Its statistics, other than its size and AC, are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies."
+    }, {
+      "name" : "Keen Smell",
+      "description" : "The werebear has advantage on Wisdom (Perception) checks that rely on smell."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "In bear form, the werebear makes two claw attacks. In humanoid form, it makes two greataxe attacks. In hybrid form, it can attack like a bear or a humanoid."
+    }, {
+      "name" : "Bite (Bear or Hybrid Form Only)",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 15 (2d10 + 4) piercing damage. If the target is a humanoid, it must succeed on a DC 14 Constitution saving throw or be cursed with werebear lycanthropy."
+    }, {
+      "name" : "Claw (Bear or Hybrid Form Only)",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 13 (2d8 + 4) slashing damage."
+    }, {
+      "name" : "Greataxe (Humanoid or Hybrid Form Only)",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 10 (1d12 + 4) slashing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "forest", "hill", "arctic" ]
+  }
+}

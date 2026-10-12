@@ -1,0 +1,82 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "satyr",
+  "name" : "Satyr",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 267,
+  "tags" : [ "forest" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Fey",
+    "alignment" : "chaotic neutral",
+    "armorClass" : 14,
+    "armorClassText" : "14 (leather armor)",
+    "hitPoints" : 31,
+    "hitDice" : "7d8",
+    "speed" : 40,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 14,
+      "save" : 2
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 2
+    }, {
+      "name" : "Performance",
+      "bonus" : 6
+    }, {
+      "name" : "Stealth",
+      "bonus" : 5
+    } ],
+    "senses" : "passive Perception 12",
+    "languages" : "Common, Elvish, Sylvan",
+    "challengeRating" : "1/2",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Magic Resistance",
+      "description" : "The satyr has advantage on saving throws against spells and other magical effects."
+    } ],
+    "actions" : [ {
+      "name" : "Ram",
+      "description" : "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 6 (2d4 + 1) bludgeoning damage."
+    }, {
+      "name" : "Shortsword",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) piercing damage."
+    }, {
+      "name" : "Shortbow",
+      "description" : "Ranged Weapon Attack: +5 to hit, range 80/320 ft., one target. Hit: 6 (1d6 + 3) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "forest" ]
+  }
+}

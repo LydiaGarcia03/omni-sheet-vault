@@ -1,0 +1,82 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "dao",
+  "name" : "Dao",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 143,
+  "tags" : [ "underdark" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Elemental",
+    "alignment" : "neutral evil",
+    "armorClass" : 18,
+    "armorClassText" : "18 (natural armor)",
+    "hitPoints" : 187,
+    "hitDice" : "15d10 + 105",
+    "speed" : 30,
+    "additionalSpeeds" : "Burrow 30 ft., Fly 30 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 23,
+      "save" : 6
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 24,
+      "save" : 7
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 12,
+      "save" : 5
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 13,
+      "save" : 5
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 14,
+      "save" : 6
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 120 ft., passive Perception 11",
+    "languages" : "Terran",
+    "challengeRating" : "11",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : "petrified",
+    "traits" : [ {
+      "name" : "Earth Glide",
+      "description" : "The dao can burrow through nonmagical, unworked earth and stone. While doing so, the dao doesn't disturb the material it moves through."
+    }, {
+      "name" : "Elemental Demise",
+      "description" : "If the dao dies, its body disintegrates into crystalline powder, leaving behind only equipment the dao was wearing or carrying."
+    }, {
+      "name" : "Sure-Footed",
+      "description" : "The dao has advantage on Strength and Dexterity saving throws made against effects that would knock it prone."
+    }, {
+      "name" : "Innate Spellcasting",
+      "description" : "The dao's innate spellcasting ability is Charisma (spell save DC 14, +6 to hit with spell attacks). It can innately cast the following spells, requiring no material components:\nAt will: detect evil and good, detect magic, stone shape\n3/day each: passwall, move earth, tongues\n1/day each: conjure elemental (earth elemental only), gaseous form, invisibility, phantasmal killer, plane shift, wall of stone"
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The Dao makes two fist attacks or two maul attacks."
+    }, {
+      "name" : "Fist",
+      "description" : "Melee Weapon Attack: +10 to hit, reach 5 ft., one target. Hit: 15 (2d8 + 6) bludgeoning damage."
+    }, {
+      "name" : "Maul",
+      "description" : "Melee Weapon Attack: +10 to hit, reach 5 ft., one target. Hit: 20 (4d6 + 6) bludgeoning damage. If the target is a Huge or smaller creature, it must succeed on a DC 18 Strength check or be knocked prone."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark" ]
+  }
+}

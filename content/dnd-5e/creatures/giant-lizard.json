@@ -1,0 +1,64 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "giant-lizard",
+  "name" : "Giant Lizard",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 326,
+  "tags" : [ "underdark", "forest", "swamp", "desert", "coastal" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Beast",
+    "alignment" : "unaligned",
+    "armorClass" : 12,
+    "armorClassText" : "12 (natural armor)",
+    "hitPoints" : 19,
+    "hitDice" : "3d10 + 3",
+    "speed" : 30,
+    "additionalSpeeds" : "Climb 30 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 2,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 5,
+      "save" : -3
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 30 ft., passive Perception 10",
+    "languages" : "—",
+    "challengeRating" : "1/4",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ ],
+    "actions" : [ {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 (1d8 + 2) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark", "forest", "swamp", "desert", "coastal" ]
+  }
+}

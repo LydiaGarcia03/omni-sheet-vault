@@ -1,0 +1,67 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "bandit",
+  "name" : "Bandit",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 343,
+  "tags" : [ "coastal", "hill", "arctic", "urban", "forest", "desert" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (any race)",
+    "alignment" : "any non-lawful alignment",
+    "armorClass" : 12,
+    "armorClassText" : "12 (leather armor)",
+    "hitPoints" : 11,
+    "hitDice" : "2d8 + 2",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 10,
+      "save" : 0
+    } ],
+    "skills" : [ ],
+    "senses" : "passive Perception 10",
+    "languages" : "any one language (usually Common)",
+    "challengeRating" : "1/8",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ ],
+    "actions" : [ {
+      "name" : "Scimitar",
+      "description" : "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) slashing damage."
+    }, {
+      "name" : "Light Crossbow",
+      "description" : "Ranged Weapon Attack: +3 to hit, range 80/320 ft., one target. Hit: 5 (1d8 + 1) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "coastal", "hill", "arctic", "urban", "forest", "desert" ]
+  }
+}

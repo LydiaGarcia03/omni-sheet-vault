@@ -14,7 +14,7 @@ import tools.jackson.databind.JsonNode;
 final class Dnd5eSelectionDetails {
 
     /** Species traits the card's facts already cover, or that only describe lore. */
-    private static final Set<String> COVERED_TRAITS = Set.of("Age", "Alignment", "Size", "Languages");
+    private static final Set<String> COVERED_TRAITS = Set.of("Age", "Alignment", "Size", "Languages", "Creature Type");
 
     private Dnd5eSelectionDetails() {
     }
@@ -22,12 +22,13 @@ final class Dnd5eSelectionDetails {
     /** {@code label} is the species as chosen ("Mountain Dwarf"); {@code mechanics} merges its subspecies and variant. */
     static SelectionDetail species(CatalogueRecord species, String label, JsonNode mechanics, Dnd5eOptionSummaries summaries) {
         List<Entry> facts = new ArrayList<>();
-        fact(facts, "Ability bonuses", Dnd5eOptionSummaries.abilityIncreases(mechanics.get("abilityAlternatives")));
         String speed = Dnd5eOptionSummaries.speed(mechanics.get("speed"));
-        fact(facts, "Speed", speed == null ? null : speed.replaceFirst("^Speed ", ""));
+        fact(facts, "Creature type", creatureType(mechanics.get("creatureTypes")));
         fact(facts, "Size", size(mechanics.get("size")));
-        fact(facts, "Languages", Dnd5eOptionSummaries.languages(mechanics.get("languageAlternatives")));
+        fact(facts, "Speed", speed == null ? null : speed.replaceFirst("^Speed ", ""));
         fact(facts, "Senses", Dnd5eOptionSummaries.senses(mechanics.get("senses")));
+        fact(facts, "Languages", Dnd5eOptionSummaries.languages(mechanics.get("languageAlternatives")));
+        fact(facts, "Ability bonuses", Dnd5eOptionSummaries.abilityIncreases(mechanics.get("abilityAlternatives")));
         List<Entry> traits = new ArrayList<>();
         for (JsonNode trait : mechanics.path("traits")) {
             String name = trait.path("name").asString("");
@@ -60,6 +61,16 @@ final class Dnd5eSelectionDetails {
                 ? StreamSupport.stream(size.spliterator(), false).map(JsonNode::asString).toList()
                 : List.of(size.asString());
         return sizes.stream().map(Dnd5eChoiceOptions::capitalize).collect(Collectors.joining(" or "));
+    }
+
+    /** "Fey", or "Humanoid" for a species that names none (5e tools default); several types join with "or". */
+    private static String creatureType(JsonNode creatureTypes) {
+        if (creatureTypes == null || !creatureTypes.isArray() || creatureTypes.isEmpty()) {
+            return "Humanoid";
+        }
+        return StreamSupport.stream(creatureTypes.spliterator(), false)
+                .map(type -> Dnd5eChoiceOptions.capitalize(type.asString()))
+                .collect(Collectors.joining(" or "));
     }
 
     private static void fact(List<Entry> facts, String label, String value) {

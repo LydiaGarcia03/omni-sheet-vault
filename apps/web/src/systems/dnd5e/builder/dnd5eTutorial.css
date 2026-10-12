@@ -1,0 +1,12 @@
+/* D&D 5e tour: the builder's red accent, condensed headings and a parchment edge on the bubble. */
+.tutorial.tutorial--dnd5e {
+  --tutorial-accent: var(--theme-accent, #C53131);
+  --tutorial-surface: #FFFDF8;
+  --tutorial-text: #242528;
+  --tutorial-muted: #6B7A85;
+  --tutorial-border: #D9CDB8;
+  --tutorial-radius: 4px;
+  --tutorial-heading-font: 'Roboto Condensed', Roboto, Helvetica, sans-serif;
+}
+.tutorial--dnd5e .tutorial__title { text-transform: uppercase; letter-spacing: .04em; font-size: 17px; }
+.tutorial--dnd5e .tutorial__bubble { box-shadow: 0 0 0 1px rgba(197, 49, 49, .15), 0 12px 32px rgba(0, 0, 0, .3); }

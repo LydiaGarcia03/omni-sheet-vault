@@ -1,0 +1,67 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "flying-snake",
+  "name" : "Flying Snake",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 322,
+  "tags" : [ "grassland", "forest", "urban", "desert" ],
+  "description" : null,
+  "data" : {
+    "size" : "Tiny",
+    "creatureType" : "Beast",
+    "alignment" : "unaligned",
+    "armorClass" : 14,
+    "armorClassText" : "14",
+    "hitPoints" : 5,
+    "hitDice" : "2d4",
+    "speed" : 30,
+    "additionalSpeeds" : "Fly 60 ft., Swim 30 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 4,
+      "save" : -3
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 18,
+      "save" : 4
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 2,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 5,
+      "save" : -3
+    } ],
+    "skills" : [ ],
+    "senses" : "blindsight 10 ft., passive Perception 11",
+    "languages" : "—",
+    "challengeRating" : "1/8",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Flyby",
+      "description" : "The snake doesn't provoke opportunity attacks when it flies out of an enemy's reach."
+    } ],
+    "actions" : [ {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 1 piercing damage plus 7 (3d4) poison damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "grassland", "forest", "urban", "desert" ]
+  }
+}

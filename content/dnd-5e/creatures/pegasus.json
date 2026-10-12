@@ -1,0 +1,67 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "pegasus",
+  "name" : "Pegasus",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 250,
+  "tags" : [ "grassland", "forest", "hill" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Celestial",
+    "alignment" : "chaotic good",
+    "armorClass" : 12,
+    "armorClassText" : "12",
+    "hitPoints" : 59,
+    "hitDice" : "7d10 + 21",
+    "speed" : 60,
+    "additionalSpeeds" : "Fly 90 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 18,
+      "save" : 4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 15,
+      "save" : 4
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 15,
+      "save" : 4
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 13,
+      "save" : 3
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 6
+    } ],
+    "senses" : "passive Perception 16",
+    "languages" : "understands Celestial, Common, Elvish, and Sylvan but can't speak",
+    "challengeRating" : "2",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ ],
+    "actions" : [ {
+      "name" : "Hooves",
+      "description" : "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) bludgeoning damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "grassland", "forest", "hill" ]
+  }
+}

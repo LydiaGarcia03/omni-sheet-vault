@@ -28,6 +28,7 @@ class Dnd5eSheetMutatorTest {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
     private final Dnd5eSheetMutator mutator = new Dnd5eSheetMutator(objectMapper);
+    private final Dnd5eSheetCalculator calculator = new Dnd5eSheetCalculator(objectMapper);
 
     @Test
     void damageConsumesTemporaryHitPointsFirst() {
@@ -380,7 +381,7 @@ class Dnd5eSheetMutatorTest {
                         "fireball", "Fireball", 1, 15, 3, "evocation", "1 Action", "150 feet", false, false, false,
                         8, 6, "fire", "V, S, M", "Damage", "A bright streak flashes.", "dexterity", "V, S, M",
                         "a tiny ball of bat guano and sulfur", "Instantaneous")),
-                0, "EQUIPMENT", null);
+                0, "EQUIPMENT", null, false);
     }
 
     @Test
@@ -413,7 +414,7 @@ class Dnd5eSheetMutatorTest {
                 itemKind, null, null, null, null, null, null, null,
                 null, null, null, null, null, List.of(), false, null, null,
                 null, null, false, null, null, null, null,
-                null, null, null, List.of(), 0, "EQUIPMENT", null);
+                null, null, null, List.of(), 0, "EQUIPMENT", null, false);
     }
 
     @Test
@@ -434,19 +435,68 @@ class Dnd5eSheetMutatorTest {
                 "WEAPON", "Melee Weapon", "none", null, 2.0, 15.0, "MARTIAL", "MELEE",
                 1, 8, "bludgeoning", 1, 10, List.of("Versatile"), false, null, null,
                 null, null, false, null, null, null, null,
-                null, null, null, List.of(), 0, "EQUIPMENT", "Player's Handbook, p. 149");
+                null, null, null, List.of(), 0, "EQUIPMENT", "Player's Handbook, p. 149", true);
     }
 
     @Test
     void togglingItemEquippedFlipsItWithoutAffectingOtherItems() {
-        String sheet = mutator.addItem(sheetJson(30, 0), "Shield", 1, "10 gp", "", false, null);
+        String sheet = mutator.addItem(mutator.addCatalogueItem(sheetJson(30, 0), catalogueWeaponItem()), "Rope", 1, "1 gp", "", false, null);
         String itemKey = read(sheet).items().get(0).key();
 
         Dnd5eSheet result = read(mutator.toggleItemEquipped(sheet, itemKey));
 
         assertThat(result.items().get(0).equipped()).isTrue();
+        assertThat(result.items().get(1).equipped()).isFalse();
         assertThat(read(mutator.toggleItemEquipped(mutator.toggleItemEquipped(sheet, itemKey), itemKey))
                 .items().get(0).equipped()).isFalse();
+    }
+
+    @Test
+    void aCatalogueCreatureBecomesExtrasWithItsStatBlockAndAFamiliarTakesFindFamiliarsType() {
+        tools.jackson.databind.JsonNode hound = objectMapper.readTree("""
+                {"size":"Small","creatureType":"Beast","alignment":"unaligned","armorClass":12,"hitPoints":5,"hitDice":"2d4",
+                 "speed":40,"additionalSpeeds":"Climb 30 ft.","abilityScores":[{"abilityKey":"dexterity","score":15,"save":2}],
+                 "skills":[{"name":"Perception","bonus":3}],"senses":"passive Perception 13","languages":"—","challengeRating":"1/8",
+                 "traits":[{"name":"Keen Nose","description":"It smells well."}],
+                 "actions":[{"name":"Bite","description":"It bites."}],"reactions":[{"name":"Dodge","description":"It dodges."}],
+                 "legendaryActions":[]}""");
+
+        Dnd5eSheet familiar = read(mutator.addCatalogueExtra(sheetJson(30, 0), "Test Hound", "Monster Manual", "FAMILIAR", hound, 1));
+        Dnd5eSheet pack = read(mutator.addCatalogueExtra(sheetJson(30, 0), "Test Hound", "Monster Manual", "SUMMONED_CREATURE", hound, 3));
+
+        Dnd5eExtra extra = familiar.extras().getLast();
+        assertThat(extra.name()).isEqualTo("Test Hound");
+        assertThat(extra.source()).isEqualTo("Monster Manual");
+        assertThat(extra.armorClass()).isEqualTo(12);
+        assertThat(extra.currentHitPoints()).isEqualTo(5);
+        assertThat(extra.statBlock().creatureType()).isEqualTo("(Fey, Fiend, or Celestial)");
+        assertThat(extra.statBlock().additionalSpeeds()).isEqualTo("Climb 30 ft.");
+        assertThat(extra.statBlock().actions()).extracting(Dnd5eExtraStatEntry::name).containsExactly("Bite");
+        assertThat(extra.statBlock().reactions()).extracting(Dnd5eExtraStatEntry::name).containsExactly("Dodge");
+        assertThat(pack.extras()).filteredOn(added -> added.name().equals("Test Hound")).hasSize(3)
+                .allSatisfy(added -> assertThat(added.statBlock().creatureType()).isEqualTo("Beast"))
+                .extracting(Dnd5eExtra::key).doesNotHaveDuplicates();
+        assertThatThrownBy(() -> mutator.addCatalogueExtra(sheetJson(30, 0), "Test Hound", null, "DRAGON_FRIEND", hound, 1))
+                .isInstanceOf(dev.omnisheetvault.api.ruleset.InvalidExtraException.class);
+
+        String renamed = mutator.updateExtra(objectMapper.writeValueAsString(familiar), extra.key(), "  Whiskers ", "Scouts ahead");
+        Dnd5eExtra updated = read(renamed).extras().getLast();
+        assertThat(updated.name()).isEqualTo("Whiskers");
+        assertThat(updated.notes()).isEqualTo("Scouts ahead");
+        assertThat(updated.currentHitPoints()).isEqualTo(5);
+        assertThat(read(mutator.updateExtra(renamed, extra.key(), " ", "")).extras().getLast())
+                .satisfies(kept -> assertThat(kept.name()).isEqualTo("Whiskers"))
+                .satisfies(cleared -> assertThat(cleared.notes()).isNull());
+    }
+
+    @Test
+    void mundaneGearAndSingleUseMagicItemsCantBeEquipped() {
+        String sheet = mutator.addItem(sheetJson(30, 0), "Rope", 1, "1 gp", "", false, null);
+        String ropeKey = read(sheet).items().get(0).key();
+
+        assertThat(read(mutator.toggleItemEquipped(sheet, ropeKey)).items().get(0).equipped()).isFalse();
+        assertThat(calculator.calculateVitals(mutator.addCatalogueItem(sheetJson(30, 0), wandOfFireballs())).items().get(0).equippable()).isTrue();
+        assertThat(calculator.calculateVitals(sheet).items().get(0).equippable()).isFalse();
     }
 
     @Test

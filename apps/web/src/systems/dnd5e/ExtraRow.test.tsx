@@ -34,20 +34,29 @@ const cat = {
 } as unknown as Extra;
 
 describe('ExtraRow', () => {
-  it('opens the extra with its category as the parent line, hit points first and Delete last', () => {
+  it('opens the extra with its category over the name, its book, hit points under Customize and no Delete', () => {
     const onOpenDetail = vi.fn();
-    const onMutate = vi.fn();
-    render(<ExtraRow extra={cat} onMutate={onMutate} onOpenDetail={onOpenDetail} />);
+    render(<ExtraRow extra={{ ...cat, source: 'Monster Manual' }} onMutate={vi.fn()} onOpenDetail={onOpenDetail} />);
     fireEvent.click(screen.getByRole('button', { name: 'Open Cat details' }));
     const request: EntityDetailRequest = onOpenDetail.mock.calls[0][0];
 
     render(<EntityDetailPanel {...request} />);
 
     expect(request.parent).toBe('Familiar');
-    expect(request.actionsPosition).toBe('section');
-    expect(screen.getByText('Hit Points 2/2')).toBeTruthy();
+    expect(request.subtitle).toBe('Monster Manual');
+    expect(screen.getByText('2/2').closest('summary')).toHaveTextContent('Hit Points');
     expect(screen.getAllByRole('table')[0].textContent).toContain('STR');
-    fireEvent.click(screen.getByRole('button', { name: 'Delete' }));
-    expect(onMutate).toHaveBeenCalledWith({ type: 'REMOVE_EXTRA', extraKey: 'cat' });
+    expect(screen.queryByRole('button', { name: 'Delete' })).toBeNull();
+  });
+
+  it('shows the notes in the row and reads the challenge with its XP and proficiency bonus', () => {
+    const onOpenDetail = vi.fn();
+    const noted = { ...cat, notes: 'Scouts ahead', statBlock: { ...cat.statBlock, challengeXp: 10, challengeProficiencyBonus: 2 } };
+    render(<ExtraRow extra={noted} onMutate={vi.fn()} onOpenDetail={onOpenDetail} />);
+
+    expect(screen.getByText('Scouts ahead')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Open Cat details' }));
+    render(<EntityDetailPanel {...onOpenDetail.mock.calls[0][0]} />);
+    expect(screen.getByText('0 (XP 10; PB +2)')).toBeInTheDocument();
   });
 });

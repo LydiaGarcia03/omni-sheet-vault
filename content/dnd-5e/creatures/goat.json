@@ -1,0 +1,70 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "goat",
+  "name" : "Goat",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 330,
+  "tags" : [ "familiar", "mountain", "grassland", "hill", "urban" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Beast",
+    "alignment" : "unaligned",
+    "armorClass" : 10,
+    "armorClassText" : "10",
+    "hitPoints" : 4,
+    "hitDice" : "1d8",
+    "speed" : 40,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 2,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 5,
+      "save" : -3
+    } ],
+    "skills" : [ ],
+    "senses" : "passive Perception 10",
+    "languages" : "—",
+    "challengeRating" : "0",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Charge",
+      "description" : "If the goat moves at least 20 feet straight toward a target and then hits it with a ram attack on the same turn, the target takes an extra 2 (1d4) bludgeoning damage. If the target is a creature, it must succeed on a DC 10 Strength saving throw or be knocked prone."
+    }, {
+      "name" : "Sure-Footed",
+      "description" : "The goat has advantage on Strength and Dexterity saving throws made against effects that would knock it prone."
+    } ],
+    "actions" : [ {
+      "name" : "Ram",
+      "description" : "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) bludgeoning damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : true,
+    "environments" : [ "mountain", "grassland", "hill", "urban" ]
+  }
+}

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { CharacterPortrait } from '../characters/CharacterPortrait';
 import type { BackgroundCatalogueEntryData, CatalogueEntry } from '../catalogue/api';
-import { getCatalogue } from '../catalogue/api';
+import { getCharacterCatalogue } from '../catalogue/api';
 import { renameCharacter, type Character } from '../characters/api';
 import { getRollHistory, postManualRoll, postRoll, type DiceGroup, type RollContextMenuHandler, type RollKind, type RollResult } from '../dice/api';
 import { CustomRollPicker } from '../dice/CustomRollPicker';
@@ -14,6 +14,7 @@ import { buildItemDetailRequest, hasBagOfHoldingIn } from '../systems/dnd5e/Item
 import { CONDITIONS } from '../systems/dnd5e/DefensesConditionsPanel';
 import { Dnd5eVitalsColumns } from '../systems/dnd5e/Dnd5eVitalsColumns';
 import { Dnd5eVitalsTopRow } from '../systems/dnd5e/Dnd5eVitalsTopRow';
+import { ClassIcon } from '../systems/dnd5e/ClassIcon';
 import { FrameIcon } from '../systems/dnd5e/FrameIcon';
 import conditionBlindedSvg from '../systems/dnd5e/frames/dnd_icon_condition_blinded.svg?raw';
 import conditionCharmedSvg from '../systems/dnd5e/frames/dnd_icon_condition_charmed.svg?raw';
@@ -189,36 +190,36 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
   }, [character.id]);
 
   useEffect(() => {
-    getCatalogue(character.systemId, 'SPELL')
+    getCharacterCatalogue(character.id, 'SPELL')
       .then(setCatalogueSpells)
       .catch(() => {
         // "Manage spells" degrades to an empty picker rather than blocking the sheet.
       });
-  }, [character.systemId]);
+  }, [character.id]);
 
   useEffect(() => {
-    getCatalogue(character.systemId, 'BACKGROUND')
+    getCharacterCatalogue(character.id, 'BACKGROUND')
       .then(setCatalogueBackgrounds)
       .catch(() => {
         // Personality/Ideals/Bonds/Flaws suggestions degrade to "none" rather than blocking the sheet.
       });
-  }, [character.systemId]);
+  }, [character.id]);
 
   useEffect(() => {
-    getCatalogue(character.systemId, 'FEAT')
+    getCharacterCatalogue(character.id, 'FEAT')
       .then(setCatalogueFeats)
       .catch(() => {
         // "Manage feats" degrades to an empty picker rather than blocking the sheet.
       });
-  }, [character.systemId]);
+  }, [character.id]);
 
   useEffect(() => {
-    getCatalogue(character.systemId, 'ITEM')
+    getCharacterCatalogue(character.id, 'ITEM')
       .then(setCatalogueItems)
       .catch(() => {
         // "Manage Inventory" degrades to custom-item-only rather than blocking the sheet.
       });
-  }, [character.systemId]);
+  }, [character.id]);
 
   // Matched by slug (kebab-cased background name) against the catalogue's backgrounds; a custom
   // background with no catalogue entry just gets no suggestions table.
@@ -447,6 +448,7 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
       subtitle: character.summary.slice(1).map((fact) => fact.value).join(' · ') || null,
       experience: sheet.experience ?? null,
       onManageExperience: () => handleOpenManageExperienceRef.current(),
+      onSetExperience: (points) => handleMutate({ type: 'SET_EXPERIENCE', points }),
       onLevelUp: handleLevelUp,
       onOpenLog: handleOpenLog,
       onOpenShortRest: handleOpenShortRest,
@@ -458,8 +460,9 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
         longRest: <FrameIcon svg={longRestIconSvg} className="rest-button__icon" />,
         gameLog: <FrameIcon svg={gameLogIconSvg} className="rest-button__icon" />,
       },
+      classIcon: (className) => <ClassIcon className={className} />,
     });
-  }, [sheet, character, characterName, handleRename, handleLevelUp, handleOpenLog, handleOpenShortRest, handleOpenLongRest, handleOpenChangeAppearance]);
+  }, [sheet, character, characterName, handleRename, handleMutate, handleLevelUp, handleOpenLog, handleOpenShortRest, handleOpenLongRest, handleOpenChangeAppearance]);
 
   const handleOpenManageExperience = useCallback(() => {
     if (!sheet?.experience) {

@@ -12,6 +12,8 @@ type HitPointsProps = {
   onSetTemporary: (amount: number) => void;
   /** Omitted where there is nothing to open (an Extra's hit points, already inside its own Entity Detail body). */
   onOpenManagement?: () => void;
+  /** False drops the frame, the fixed size and the "Hit Points" title, for a sidebar section that already names it. */
+  framed?: boolean;
 };
 
 function useAmountField() {
@@ -67,6 +69,7 @@ export function HitPoints({
   onHeal,
   onSetTemporary,
   onOpenManagement,
+  framed = true,
 }: HitPointsProps) {
   const hp = useAmountField();
   const temp = useAmountField();
@@ -115,15 +118,15 @@ export function HitPoints({
 
   return (
     <div
-      className="frame-box hit-points"
+      className={framed ? 'frame-box hit-points' : 'hit-points hit-points--bare'}
       role={onOpenManagement ? 'button' : undefined}
       tabIndex={onOpenManagement ? 0 : undefined}
       onClick={onOpenManagement}
       onKeyDown={onOpenManagement ? handleKeyDown : undefined}
       aria-label={`Hit points ${current} of ${max}${temporary > 0 ? `, plus ${temporary} temporary` : ''}${onOpenManagement ? ', open HP management' : ''}`}
     >
-      <FrameLayer svg={paperSvg} layer="paper" />
-      <FrameLayer svg={inkSvg} layer="ink" />
+      {framed && <FrameLayer svg={paperSvg} layer="paper" />}
+      {framed && <FrameLayer svg={inkSvg} layer="ink" />}
       <div className="hit-points__content">
         <div className="hit-points__row">
           <div className="hit-points__left" onClick={stopPropagation}>
@@ -173,7 +176,7 @@ export function HitPoints({
                 {max}
               </div>
             </div>
-            <div className="hit-points__stat">
+            <div className="hit-points__stat hit-points__stat--temp">
               <div className="hit-points__stat-label">Temp</div>
               {isEditingTemp ? (
                 <input
@@ -204,7 +207,7 @@ export function HitPoints({
             </div>
           </div>
         </div>
-        <div className="hit-points__title">Hit Points</div>
+        {framed && <div className="hit-points__title">Hit Points</div>}
       </div>
     </div>
   );

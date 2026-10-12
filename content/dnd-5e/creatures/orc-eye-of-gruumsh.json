@@ -1,0 +1,79 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "orc-eye-of-gruumsh",
+  "name" : "Orc Eye of Gruumsh",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 247,
+  "tags" : [ "underdark", "mountain", "grassland", "forest", "swamp", "hill", "arctic" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (orc)",
+    "alignment" : "chaotic evil",
+    "armorClass" : 16,
+    "armorClassText" : "16 (ring mail, shield)",
+    "hitPoints" : 45,
+    "hitDice" : "6d8 + 18",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 17,
+      "save" : 3
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 9,
+      "save" : -1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 12,
+      "save" : 1
+    } ],
+    "skills" : [ {
+      "name" : "Intimidation",
+      "bonus" : 3
+    }, {
+      "name" : "Religion",
+      "bonus" : 1
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 11",
+    "languages" : "Common, Orc",
+    "challengeRating" : "2",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Aggressive",
+      "description" : "As a bonus action, the orc can move up to its speed toward a hostile creature that it can see."
+    }, {
+      "name" : "Gruumsh's Fury",
+      "description" : "The orc deals an extra 4 (1d8) damage when it hits with a weapon attack (included in the attacks)."
+    }, {
+      "name" : "Spellcasting",
+      "description" : "The orc is a 3rd-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 11, +3 to hit with spell attacks). The orc has the following cleric spells prepared:\nCantrips (at will): guidance, resistance, thaumaturgy\n1st level (4 slots): bless, command\n2nd level (2 slots): augury, spiritual weapon (spear)"
+    } ],
+    "actions" : [ {
+      "name" : "Spear",
+      "description" : "Melee Weapon  or Ranged Weapon Attack: +5 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 11 (1d6 + 3 plus 1d8) piercing damage, or 12 (2d8 + 3) piercing damage if used with two hands to make a melee attack."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark", "mountain", "grassland", "forest", "swamp", "hill", "arctic" ]
+  }
+}

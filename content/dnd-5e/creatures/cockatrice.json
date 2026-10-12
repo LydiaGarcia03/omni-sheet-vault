@@ -1,0 +1,64 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "cockatrice",
+  "name" : "Cockatrice",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 42,
+  "tags" : [ "grassland" ],
+  "description" : null,
+  "data" : {
+    "size" : "Small",
+    "creatureType" : "Monstrosity",
+    "alignment" : "unaligned",
+    "armorClass" : 11,
+    "armorClassText" : "11",
+    "hitPoints" : 27,
+    "hitDice" : "6d6 + 6",
+    "speed" : 20,
+    "additionalSpeeds" : "Fly 40 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 6,
+      "save" : -2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 2,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 5,
+      "save" : -3
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 60 ft., passive Perception 11",
+    "languages" : "—",
+    "challengeRating" : "1/2",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ ],
+    "actions" : [ {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +3 to hit, reach 5 ft., one creature. Hit: 3 (1d4 + 1) piercing damage, and the target must succeed on a DC 11 Constitution saving throw against being magically petrified. On a failed save, the creature begins to turn to stone and is restrained. It must repeat the saving throw at the end of its next turn. On a success, the effect ends. On a failure, the creature is petrified for 24 hours."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "grassland" ]
+  }
+}

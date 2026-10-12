@@ -5,7 +5,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 /**
  * Local mirror of an authenticated identity, keyed by the token subject. Holds no
@@ -26,6 +29,10 @@ public class Player {
 
     @Column(name = "created_at", nullable = false)
     private Instant createdAt;
+
+    @JdbcTypeCode(SqlTypes.ARRAY)
+    @Column(name = "seen_tutorials", nullable = false)
+    private String[] seenTutorials = new String[0];
 
     protected Player() {
     }
@@ -55,5 +62,10 @@ public class Player {
 
     public Instant createdAt() {
         return createdAt;
+    }
+
+    /** Ids of the tutorials this player finished or skipped, e.g. {@code builder:dnd-5e}. */
+    public List<String> seenTutorials() {
+        return List.of(seenTutorials);
     }
 }

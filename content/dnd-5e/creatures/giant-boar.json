@@ -1,0 +1,70 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "giant-boar",
+  "name" : "Giant Boar",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 323,
+  "tags" : [ "grassland", "forest", "hill" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Beast",
+    "alignment" : "unaligned",
+    "armorClass" : 12,
+    "armorClassText" : "12 (natural armor)",
+    "hitPoints" : 42,
+    "hitDice" : "5d10 + 15",
+    "speed" : 40,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 17,
+      "save" : 3
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 2,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 7,
+      "save" : -2
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 5,
+      "save" : -3
+    } ],
+    "skills" : [ ],
+    "senses" : "passive Perception 8",
+    "languages" : "—",
+    "challengeRating" : "2",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Charge",
+      "description" : "If the boar moves at least 20 feet straight toward a target and then hits it with a tusk attack on the same turn, the target takes an extra 7 (2d6) slashing damage. If the target is a creature, it must succeed on a DC 13 Strength saving throw or be knocked prone."
+    }, {
+      "name" : "Relentless (Recharges after a Short or Long Rest)",
+      "description" : "If the boar takes 10 damage or less that would reduce it to 0 hit points, it is reduced to 1 hit point instead."
+    } ],
+    "actions" : [ {
+      "name" : "Tusk",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) slashing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "grassland", "forest", "hill" ]
+  }
+}

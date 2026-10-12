@@ -1,0 +1,79 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "dragon-turtle",
+  "name" : "Dragon Turtle",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 119,
+  "tags" : [ "underwater", "coastal" ],
+  "description" : null,
+  "data" : {
+    "size" : "Gargantuan",
+    "creatureType" : "Dragon",
+    "alignment" : "neutral",
+    "armorClass" : 20,
+    "armorClassText" : "20 (natural armor)",
+    "hitPoints" : 341,
+    "hitDice" : "22d20 + 110",
+    "speed" : 20,
+    "additionalSpeeds" : "Swim 40 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 25,
+      "save" : 7
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 10,
+      "save" : 6
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 20,
+      "save" : 11
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 12,
+      "save" : 7
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 12,
+      "save" : 1
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 120 ft., passive Perception 11",
+    "languages" : "Aquan, Draconic",
+    "challengeRating" : "17",
+    "damageVulnerabilities" : null,
+    "damageResistances" : "fire",
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Amphibious",
+      "description" : "The dragon turtle can breathe air and water."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The dragon turtle makes three attacks: one with its bite and two with its claws. It can make one tail attack in place of its two claw attacks."
+    }, {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +13 to hit, reach 15 ft., one target. Hit: 26 (3d12 + 7) piercing damage."
+    }, {
+      "name" : "Claw",
+      "description" : "Melee Weapon Attack: +13 to hit, reach 10 ft., one target. Hit: 16 (2d8 + 7) slashing damage."
+    }, {
+      "name" : "Tail",
+      "description" : "Melee Weapon Attack: +13 to hit, reach 15 ft., one target. Hit: 26 (3d12 + 7) bludgeoning damage. If the target is a creature, it must succeed on a DC 20 Strength saving throw or be pushed up to 10 feet away from the dragon turtle and knocked prone."
+    }, {
+      "name" : "Steam Breath (Recharge 5–6)",
+      "description" : "The dragon turtle exhales scalding steam in a 60-foot cone. Each creature in that area must make a DC 18 Constitution saving throw, taking 52 (15d6) fire damage on a failed save, or half as much damage on a successful one. Being underwater doesn't grant resistance against this damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underwater", "coastal" ]
+  }
+}

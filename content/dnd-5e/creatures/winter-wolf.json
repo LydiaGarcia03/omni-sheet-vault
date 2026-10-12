@@ -1,0 +1,82 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "winter-wolf",
+  "name" : "Winter Wolf",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 340,
+  "tags" : [ "arctic" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Monstrosity",
+    "alignment" : "neutral evil",
+    "armorClass" : 13,
+    "armorClassText" : "13 (natural armor)",
+    "hitPoints" : 75,
+    "hitDice" : "10d10 + 20",
+    "speed" : 50,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 18,
+      "save" : 4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 7,
+      "save" : -2
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 8,
+      "save" : -1
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 5
+    }, {
+      "name" : "Stealth",
+      "bonus" : 3
+    } ],
+    "senses" : "passive Perception 15",
+    "languages" : "Common, Giant, Winter Wolf",
+    "challengeRating" : "3",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : "cold",
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Keen Hearing and Smell",
+      "description" : "The wolf has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+    }, {
+      "name" : "Pack Tactics",
+      "description" : "The wolf has advantage on an attack roll against a creature if at least one of the wolf's allies is within 5 feet of the creature and the ally isn't incapacitated."
+    }, {
+      "name" : "Snow Camouflage",
+      "description" : "The wolf has advantage on Dexterity (Stealth) checks made to hide in snowy terrain."
+    } ],
+    "actions" : [ {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) piercing damage. If the target is a creature, it must succeed on a DC 14 Strength saving throw or be knocked prone."
+    }, {
+      "name" : "Cold Breath (Recharge 5–6)",
+      "description" : "The wolf exhales a blast of freezing wind in a 15-foot cone. Each creature in that area must make a DC 12 Dexterity saving throw, taking 18 (4d8) cold damage on a failed save, or half as much damage on a successful one."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "arctic" ]
+  }
+}

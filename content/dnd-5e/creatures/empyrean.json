@@ -1,0 +1,94 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "empyrean",
+  "name" : "Empyrean",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 130,
+  "tags" : [ ],
+  "description" : null,
+  "data" : {
+    "size" : "Huge",
+    "creatureType" : "Celestial (titan)",
+    "alignment" : "chaotic good (75%) or neutral evil (25%)",
+    "armorClass" : 22,
+    "armorClassText" : "22 (natural armor)",
+    "hitPoints" : 313,
+    "hitDice" : "19d12 + 190",
+    "speed" : 50,
+    "additionalSpeeds" : "Fly 50 ft., Swim 50 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 30,
+      "save" : 17
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 21,
+      "save" : 5
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 30,
+      "save" : 10
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 21,
+      "save" : 12
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 22,
+      "save" : 13
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 27,
+      "save" : 15
+    } ],
+    "skills" : [ {
+      "name" : "Insight",
+      "bonus" : 13
+    }, {
+      "name" : "Persuasion",
+      "bonus" : 15
+    } ],
+    "senses" : "truesight 120 ft., passive Perception 16",
+    "languages" : "all",
+    "challengeRating" : "23",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : "bludgeoning, piercing, and slashing from nonmagical attacks",
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Legendary Resistance (3/Day)",
+      "description" : "If the empyrean fails a saving throw, it can choose to succeed instead."
+    }, {
+      "name" : "Magic Resistance",
+      "description" : "The empyrean has advantage on saving throws against spells and other magical effects."
+    }, {
+      "name" : "Magic Weapons",
+      "description" : "The empyrean's weapon attacks are magical."
+    }, {
+      "name" : "Innate Spellcasting",
+      "description" : "The empyrean's innate spellcasting ability is Charisma (spell save DC 23, +15 to hit with spell attacks). It can innately cast the following spells, requiring no material components:\nAt will: greater restoration, pass without trace, water breathing, water walk\n1/day each: commune, dispel evil and good, earthquake, fire storm, plane shift (self only)"
+    } ],
+    "actions" : [ {
+      "name" : "Maul",
+      "description" : "Melee Weapon Attack: +17 to hit, reach 10 ft., one target. Hit: 31 (6d6 + 10) bludgeoning damage. If the target is a creature, it must succeed on a DC 15 Constitution saving throw or be stunned until the end of the empyrean's next turn."
+    }, {
+      "name" : "Bolt",
+      "description" : "Ranged Spell Attack: +15 to hit, range 600 ft., one target. Hit: 24 (7d6) damage of one of the following types (empyrean's choice): acid, cold, fire, force, lightning, radiant, or thunder."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ {
+      "name" : "Attack",
+      "description" : "The empyrean makes one attack."
+    }, {
+      "name" : "Bolster",
+      "description" : "The empyrean bolsters all nonhostile creatures within 120 feet of it until the end of its next turn. Bolstered creatures can't be charmed or frightened, and they gain advantage on ability checks and saving throws until the end of the empyrean's next turn."
+    }, {
+      "name" : "Trembling Strike (Costs 2 Actions)",
+      "description" : "The empyrean strikes the ground with its maul, triggering an earth tremor. All other creatures on the ground within 60 feet of the empyrean must succeed on a DC 25 Strength saving throw or be knocked prone."
+    } ],
+    "familiar" : false,
+    "environments" : [ ]
+  }
+}

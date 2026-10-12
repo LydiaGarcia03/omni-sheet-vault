@@ -1,8 +1,12 @@
+import { useEffect, useState } from 'react';
 import type { CreationChoice, StartingEquipment } from '../../../builder/draftApi';
+import { postCreationRoll } from '../../../dice/api';
+import { PendingMark } from '../../../builder/PendingMark';
 import { Segmented } from '../../../builder/Segmented';
 import { SourceSelect } from '../../../builder/SourceSelect';
 
 type Dnd5eEquipmentStepProps = {
+  characterId: string;
   choices: CreationChoice[];
   onAnswer: (choiceId: string, selections: string[]) => void;
   startingEquipment?: StartingEquipment;
@@ -64,7 +68,7 @@ export function StartingInventory({ startingEquipment, onEquip }: { startingEqui
  * buttons, each A-or-B pick as one line per option, and item picks inline under the line
  * that needs them.
  */
-export function Dnd5eEquipmentStep({ choices, onAnswer, startingEquipment, onEquip }: Dnd5eEquipmentStepProps) {
+export function Dnd5eEquipmentStep({ characterId, choices, onAnswer, startingEquipment, onEquip }: Dnd5eEquipmentStepProps) {
   const fromClass = (source: string) => choices.some((choice) => choice.sourceLabel === source && choice.id.startsWith('class:'));
   const sources = [...new Set(choices.map((choice) => choice.sourceLabel))].sort((a, b) => Number(fromClass(b)) - Number(fromClass(a)));
   const inventory = startingEquipment && onEquip ? <StartingInventory startingEquipment={startingEquipment} onEquip={onEquip} /> : null;
@@ -82,14 +86,22 @@ export function Dnd5eEquipmentStep({ choices, onAnswer, startingEquipment, onEqu
   return (
     <>
       {sources.map((source) => (
-        <SourcePackage key={source} source={source} choices={choices.filter((choice) => choice.sourceLabel === source)} onAnswer={onAnswer} />
+        <SourcePackage
+          key={source}
+          characterId={characterId}
+          source={source}
+          choices={choices.filter((choice) => choice.sourceLabel === source)}
+          onAnswer={onAnswer}
+        />
       ))}
       {inventory}
     </>
   );
 }
 
-function SourcePackage({ source, choices, onAnswer }: { source: string; choices: CreationChoice[]; onAnswer: Dnd5eEquipmentStepProps['onAnswer'] }) {
+type SourcePackageProps = { characterId: string; source: string; choices: CreationChoice[]; onAnswer: Dnd5eEquipmentStepProps['onAnswer'] };
+
+function SourcePackage({ characterId, source, choices, onAnswer }: SourcePackageProps) {
   const method = choices.find((choice) => choice.type === 'EQUIPMENT_METHOD');
   const groups = choices.filter((choice) => choice.type === 'EQUIPMENT');
   const groupIds = new Set(groups.map((group) => group.id));
@@ -97,6 +109,7 @@ function SourcePackage({ source, choices, onAnswer }: { source: string; choices:
   const pending = choices.filter((choice) => choice.pending).length;
   const gold = method?.options.find((option) => option.key === 'gold');
   const takesGold = method?.selected[0] === 'gold';
+  const goldRoll = choices.find((choice) => choice.type === 'STARTING_GOLD');
 
   return (
     <section className="builder-frame">
@@ -115,10 +128,11 @@ function SourcePackage({ source, choices, onAnswer }: { source: string; choices:
             onChange={(key) => onAnswer(method.id, [key])}
             ariaLabel={method.prompt}
           />
-          {takesGold && gold?.summary && <span className="builder-muted">Starting gold: {gold.summary}</span>}
+          {takesGold && !goldRoll && gold?.summary && <span className="builder-muted">Starting gold: {gold.summary}</span>}
           {!method.selected.length && <span className="builder-muted">Take the class's equipment, or its gold to buy your own.</span>}
         </div>
       )}
+      {takesGold && goldRoll && <StartingGoldRoll characterId={characterId} choice={goldRoll} onAnswer={onAnswer} />}
       {!takesGold && (
         <>
           {groups.map((group, index) => (
@@ -146,25 +160,129 @@ type EquipmentGroupProps = {
   onAnswer: Dnd5eEquipmentStepProps['onAnswer'];
 };
 
-/** One A-or-B pick: a line per option; choosing one dims the others and opens its item picks below it. */
+const OPTION_LETTER = /^\((\w)\)\s*/;
+
+/** One A-or-B pick: a titled radio list with "or" between options; choosing one dims the others and opens its item picks below it. */
 function EquipmentGroup({ group, label, items, onAnswer }: EquipmentGroupProps) {
   const picked = group.selected[0] ?? null;
   return (
-    <div className="builder-equip-group" role="radiogroup" aria-label={label}>
-      {group.options.map((option) => {
-        const on = option.key === picked;
-        return (
-          <div key={option.key} className={`builder-equip-option${on ? ' is-on' : ''}${picked && !on ? ' is-dim' : ''}`}>
-            <button type="button" role="radio" aria-checked={on} className="builder-equip-option__line" onClick={() => onAnswer(group.id, on ? [] : [option.key])}>
-              <span className="builder-equip-option__box" aria-hidden="true">
-                {on && '✓'}
-              </span>
-              <span>{option.label}</span>
-            </button>
-            {on && items.map((item) => <ItemPick key={item.id} choice={item} onAnswer={onAnswer} />)}
-          </div>
-        );
-      })}
+    <div className="builder-equip-group">
+      <div className="builder-equip-group__head">
+        <span className="builder-equip-group__title">{label}</span>
+        <span className="builder-muted">Pick one of {group.options.length}</span>
+        {group.pending && <PendingMark />}
+      </div>
+      <div role="radiogroup" aria-label={label}>
+        {group.options.map((option, index) => {
+          const on = option.key === picked;
+          const letter = OPTION_LETTER.exec(option.label)?.[1];
+          return (
+            <div key={option.key}>
+              {index > 0 && (
+                <div className="builder-equip-or" aria-hidden="true">
+                  <span>or</span>
+                </div>
+              )}
+              <div className={`builder-equip-option${on ? ' is-on' : ''}${picked && !on ? ' is-dim' : ''}`}>
+                <button type="button" role="radio" aria-checked={on} aria-label={option.label} className="builder-equip-option__line" onClick={() => onAnswer(group.id, on ? [] : [option.key])}>
+                  <span className="builder-equip-option__box" aria-hidden="true" />
+                  {letter && <span className="builder-equip-option__letter">{letter.toUpperCase()}</span>}
+                  <span>{letter ? option.label.replace(OPTION_LETTER, '') : option.label}</span>
+                </button>
+                {on && items.map((item) => <ItemPick key={item.id} choice={item} onAnswer={onAnswer} />)}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+type GoldRules = { count: number; sides: number; multiplier: number; rollLabel: string };
+
+type StartingGoldRollProps = { characterId: string; choice: CreationChoice; onAnswer: Dnd5eEquipmentStepProps['onAnswer'] };
+
+/** The class's gold dice: a typed or rolled total, shown multiplied into gold pieces. */
+function StartingGoldRoll({ characterId, choice, onAnswer }: StartingGoldRollProps) {
+  const rules = choice.options[0]?.data as GoldRules | undefined;
+  const answered = choice.selected[0] ?? null;
+  const [typed, setTyped] = useState<string>(answered ?? '');
+  const [rolling, setRolling] = useState(false);
+  const [rollError, setRollError] = useState<string | null>(null);
+  useEffect(() => {
+    if (answered !== null) {
+      setTyped(answered);
+    }
+  }, [answered]);
+
+  if (!rules) {
+    return null;
+  }
+  const dice = `${rules.count}d${rules.sides}`;
+  const minimum = rules.count;
+  const maximum = rules.count * rules.sides;
+  const offered = (value: string) => choice.options.some((option) => option.key === value);
+
+  const type = (raw: string) => {
+    const digits = raw.replace(/\D/g, '');
+    setTyped(digits);
+    const total = String(Number(digits));
+    onAnswer(choice.id, digits !== '' && offered(total) ? [total] : []);
+  };
+
+  const roll = async () => {
+    setRolling(true);
+    setRollError(null);
+    try {
+      const result = await postCreationRoll(characterId, { sides: rules.sides, count: rules.count, keepHighest: null, context: rules.rollLabel });
+      onAnswer(choice.id, [String(result.total)]);
+    } catch {
+      setRollError('The roll failed. Try again.');
+    } finally {
+      setRolling(false);
+    }
+  };
+
+  const outOfRange = typed !== '' && !offered(String(Number(typed)));
+  const multiplied = rules.multiplier > 1 ? ` × ${rules.multiplier}` : '';
+  return (
+    <div className="builder-equip-gold">
+      <p className="builder-hp__subtitle">
+        {choice.prompt}: {dice}
+        {multiplied} gp
+        {choice.pending && <PendingMark />}
+      </p>
+      <div className="builder-equip-gold__row">
+        <input
+          className="builder-input builder-input--number"
+          type="text"
+          inputMode="numeric"
+          maxLength={3}
+          aria-label={`Starting gold roll (${dice})`}
+          value={typed}
+          onChange={(event) => type(event.target.value)}
+        />
+        <button type="button" className="builder-btn" disabled={rolling} onClick={roll}>
+          {rolling ? 'Rolling…' : `Roll ${dice}`}
+        </button>
+        <span className="builder-equip-gold__result">
+          {answered ? (
+            <>
+              {answered}
+              {multiplied} = <b>{Number(answered) * rules.multiplier} gp</b>
+            </>
+          ) : (
+            <span className="builder-muted">Average would be {Math.floor((rules.count * (rules.sides + 1) * rules.multiplier) / 2)} gp</span>
+          )}
+        </span>
+      </div>
+      {outOfRange && (
+        <p className="builder-problem">
+          {dice} rolls between {minimum} and {maximum}.
+        </p>
+      )}
+      {rollError && <p className="builder-problem">{rollError}</p>}
     </div>
   );
 }
@@ -179,7 +297,10 @@ function ItemPick({ choice, onAnswer }: { choice: CreationChoice; onAnswer: Dnd5
   };
   return (
     <div className={`builder-equip-item${choice.pending ? ' is-pending' : ''}`}>
-      <span className="builder-equip-item__label">{choice.prompt}</span>
+      <span className="builder-equip-item__label">
+        {choice.prompt}
+        {choice.pending && <PendingMark />}
+      </span>
       {slots.map((value, index) => (
         <SourceSelect
           key={index}

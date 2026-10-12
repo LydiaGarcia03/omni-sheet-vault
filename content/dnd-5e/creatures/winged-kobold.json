@@ -1,0 +1,73 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "winged-kobold",
+  "name" : "Winged Kobold",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 195,
+  "tags" : [ "forest", "swamp", "hill", "urban", "desert", "coastal", "arctic", "mountain", "underdark" ],
+  "description" : null,
+  "data" : {
+    "size" : "Small",
+    "creatureType" : "Humanoid (kobold)",
+    "alignment" : "lawful evil",
+    "armorClass" : 13,
+    "armorClassText" : "13",
+    "hitPoints" : 7,
+    "hitDice" : "3d6 - 3",
+    "speed" : 30,
+    "additionalSpeeds" : "Fly 30 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 7,
+      "save" : -2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 9,
+      "save" : -1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 7,
+      "save" : -2
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 8,
+      "save" : -1
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 60 ft., passive Perception 8",
+    "languages" : "Common, Draconic",
+    "challengeRating" : "1/4",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Sunlight Sensitivity",
+      "description" : "While in sunlight, the kobold has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+    }, {
+      "name" : "Pack Tactics",
+      "description" : "The kobold has advantage on an attack roll against a creature if at least one of the kobold's allies is within 5 feet of the creature and the ally isn't incapacitated."
+    } ],
+    "actions" : [ {
+      "name" : "Dagger",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 5 (1d4 + 3) piercing damage."
+    }, {
+      "name" : "Dropped Rock",
+      "description" : "Ranged Weapon Attack: +5 to hit, one target directly below the kobold. Hit: 6 (1d6 + 3) bludgeoning damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "forest", "swamp", "hill", "urban", "desert", "coastal", "arctic", "mountain", "underdark" ]
+  }
+}

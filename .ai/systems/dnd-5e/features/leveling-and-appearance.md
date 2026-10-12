@@ -26,16 +26,21 @@ Status: **approved 2026-09-27, all nine slices; all done (slice 9, desktop
    - A **character sidebar**, opened by clicking the portrait or the name and
      level, laid out like D&D Beyond's. It offers:
      - **Manage experience**: add or remove XP, only for XP builds;
-     - **Level up**: always for milestone builds, and for XP builds once one
-       is available;
+     - **Milestone reached**: a switch, only for milestone builds (since
+       2026-10-11; it stores the next level's XP threshold, so no sheet field
+       was added);
+     - **Level up**: once a level is available, for both kinds of build: XP
+       builds when the points reach the next level, milestone builds once
+       Milestone reached is on. The header's level-up mark follows the same
+       flag, and taking the level clears it;
      - **Change sheet appearance**.
    - A **thin XP bar** next to the name and level, only for XP builds.
 2. **Themes**
-   - **The D&D 5e default theme is DDB Red.**
+   - **The D&D 5e default theme is DND Red.**
    - Every place that uses today's blue-gray (Cleric Silver) turns red: frames
      and borders, buttons, subsection titles. That covers the sheet, the
      **character builder** and the new level up page.
-   - The owner's reference for "where the color goes" is Seyrie (DDB Red)
+   - The owner's reference for "where the color goes" is Seyrie (DND Red)
      compared with Helga (Cleric Silver).
    - Players can choose another theme per character from the sidebar.
 3. **Dark theme for the home:** the landing page and the character list get a
@@ -47,7 +52,7 @@ Status: **approved 2026-09-27, all nine slices; all done (slice 9, desktop
 
 ## Owner decisions (2026-09-27)
 
-- **Default theme for D&D 5e: DDB Red**, for new *and* existing characters,
+- **Default theme for D&D 5e: DND Red**, for new *and* existing characters,
   and for the builder and the level up page too. The blue-gray becomes one
   theme among the others ("Cleric Silver").
 - **After adding XP that crosses a threshold:**
@@ -60,7 +65,7 @@ Status: **approved 2026-09-27, all nine slices; all done (slice 9, desktop
 
 ## What D&D Beyond does (observed 2026-09-27)
 
-Observed on `characters/48929054` (Seyrie: XP advancement, DDB Red, at 0 HP)
+Observed on `characters/48929054` (Seyrie: XP advancement, DND Red, at 0 HP)
 and `characters/50149479` (the reference: milestone, **Cleric Silver**).
 Nothing was changed on either.
 
@@ -105,8 +110,8 @@ Colors that stay the same under every theme:
   the theme color itself.
 
 **D&D Beyond's builder is not themed.** It keeps its own blue (`#1C9AEF`) and
-green (`#96BF6B`), even for a DDB Red character. Ours follows the owner's
-decision and uses DDB Red.
+green (`#96BF6B`), even for a DND Red character. Ours follows the owner's
+decision and uses DND Red.
 
 ### Theme colors
 
@@ -115,7 +120,7 @@ Read from D&D Beyond's theme picker. Each theme is one accent color on a
 
 | Theme | Color | Theme | Color |
 | --- | --- | --- | --- |
-| **DDB Red (default)** | `#C53131` | Paladin Gold | `#b59e54` |
+| **DND Red (default)** | `#C53131` | Paladin Gold | `#b59e54` |
 | Barbarian Fire | `#e5623e` | Ranger Emerald | `#4f7e61` |
 | Bard Rouge | `#aa6dab` | Rogue Ash | `#555752` |
 | Cleric Silver (our look until now) | `#92a2b3` | Sorcerer Blood | `#972e2e` |
@@ -280,13 +285,13 @@ during implementation.
   - Hover and pressed shades come from the accent, measured per role from
     D&D Beyond.
   - They are set by `data-theme="<id>"` on the sheet root.
-- **Theme files:** `themes.css` holds one block per theme (DDB Red plus the
+- **Theme files:** `themes.css` holds one block per theme (DND Red plus the
   13 class themes), and `sheetThemes.ts` holds the list, for the picker and
   the API validation.
 - **Sheet:** every hard-coded use of the blue-gray (`#92A2B3`, and the
   frame-ink blue `#4A5D6B` where D&D Beyond uses the theme color) moves to
   the theme tokens, following the scan table above.
-- **Builder and level up page:** always DDB Red, the D&D 5e system default,
+- **Builder and level up page:** always DND Red, the D&D 5e system default,
   whatever theme the character later picks. `builder.css`'s `--builder-*`
   blue-grays (`--builder-ink`, `--builder-chip-on`, frame borders, buttons,
   step headings) switch to the same theme tokens with `ddb-red`. The builder
@@ -360,9 +365,9 @@ during implementation.
 
 ## Slices
 
-1. **Themes, part 1: DDB Red everywhere.** ✓ Built 2026-09-27.
+1. **Themes, part 1: DND Red everywhere.** ✓ Built 2026-09-27.
    - Scan D&D Beyond's other sheet tabs, sidebar panels and builder.
-   - Add the theme tokens and `themes.css` with DDB Red.
+   - Add the theme tokens and `themes.css` with DND Red.
    - Move every hard-coded blue-gray in the sheet, the builder and the dice
      tray to the tokens.
    - Compare live with Seyrie, and with D&D Beyond's builder.

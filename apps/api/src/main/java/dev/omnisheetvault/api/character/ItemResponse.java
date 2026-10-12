@@ -19,7 +19,8 @@ public record ItemResponse(
         String storageLocation,
         Double weightKg,
         String source,
-        List<String> properties) {
+        List<String> properties,
+        boolean equippable) {
 
     private static final double POUNDS_TO_KILOGRAMS = 0.453592;
 
@@ -28,6 +29,6 @@ public record ItemResponse(
         return new ItemResponse(
                 item.key(), item.name(), item.quantity(), item.cost(), item.notes(), item.equipped(), item.attuned(),
                 item.requiresAttunement(), item.charges(), item.chargesUsed(), item.itemKind(), item.rarity(),
-                item.storageLocation(), weightKg, item.source(), item.properties() == null ? List.of() : item.properties());
+                item.storageLocation(), weightKg, item.source(), item.properties() == null ? List.of() : item.properties(), item.equippable());
     }
 }

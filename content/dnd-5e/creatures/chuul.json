@@ -1,0 +1,79 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "chuul",
+  "name" : "Chuul",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 40,
+  "tags" : [ "underdark" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Aberration",
+    "alignment" : "chaotic evil",
+    "armorClass" : 16,
+    "armorClassText" : "16 (natural armor)",
+    "hitPoints" : 93,
+    "hitDice" : "11d10 + 33",
+    "speed" : 30,
+    "additionalSpeeds" : "Swim 30 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 19,
+      "save" : 4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 5,
+      "save" : -3
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 5,
+      "save" : -3
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 4
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 14",
+    "languages" : "understands Deep Speech but can't speak",
+    "challengeRating" : "4",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : "poison",
+    "conditionImmunities" : "poisoned",
+    "traits" : [ {
+      "name" : "Amphibious",
+      "description" : "The chuul can breathe air and water."
+    }, {
+      "name" : "Sense Magic",
+      "description" : "The chuul senses magic within 120 feet of it at will. This trait otherwise works like the detect magic spell but isn't itself magical."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The chuul makes two pincer attacks. If the chuul is grappling a creature, the chuul can also use its tentacles once."
+    }, {
+      "name" : "Pincer",
+      "description" : "Melee Weapon Attack: +6 to hit, reach 10 ft., one target. Hit: 11 (2d6 + 4) bludgeoning damage. The target is grappled (escape DC 14) if it is a Large or smaller creature and the chuul doesn't have two other creatures grappled."
+    }, {
+      "name" : "Tentacles",
+      "description" : "One creature grappled by the chuul must succeed on a DC 13 Constitution saving throw or be poisoned for 1 minute. Until this poison ends, the target is paralyzed. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark" ]
+  }
+}

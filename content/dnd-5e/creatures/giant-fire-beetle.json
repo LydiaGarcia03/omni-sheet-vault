@@ -1,0 +1,67 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "giant-fire-beetle",
+  "name" : "Giant Fire Beetle",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 325,
+  "tags" : [ "familiar", "underdark" ],
+  "description" : null,
+  "data" : {
+    "size" : "Small",
+    "creatureType" : "Beast",
+    "alignment" : "unaligned",
+    "armorClass" : 13,
+    "armorClassText" : "13 (natural armor)",
+    "hitPoints" : 4,
+    "hitDice" : "1d6 + 1",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 1,
+      "save" : -5
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 7,
+      "save" : -2
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 3,
+      "save" : -4
+    } ],
+    "skills" : [ ],
+    "senses" : "blindsight 30 ft., passive Perception 8",
+    "languages" : "—",
+    "challengeRating" : "0",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Illumination",
+      "description" : "The beetle sheds bright light in a 10-foot radius and dim light for an additional 10 ft.."
+    } ],
+    "actions" : [ {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +1 to hit, reach 5 ft., one target. Hit: 2 (1d6 - 1) slashing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : true,
+    "environments" : [ "underdark" ]
+  }
+}

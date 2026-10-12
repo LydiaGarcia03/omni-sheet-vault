@@ -6,6 +6,556 @@ Format: `## YYYY-MM-DD — short title`, then what changed, why, and anything
 deliberately left out.
 
 ---
+## 2026-10-11 — Creature stat block fonts and order as on D&D Beyond
+
+- Owner report: the creature stat block in the sidebar still looked unlike
+  Beyond, mainly its fonts. Beyond sets it in Scala Sans and Scala Sans SC
+  (licensed, not in the repo, can't be copied); our block fell back to Roboto.
+- Fonts: Alegreya Sans + Alegreya Sans SC (Google Fonts, OFL), the closest open
+  humanist pair, through `--font-stat-block` / `--font-stat-block-caps`
+  (Scala first, in case it's installed); the name and section headings use the
+  small-caps cut, numbers forced to lining figures as on Beyond, 5px after
+  each attribute label. The Manage Extras preview card uses the same fonts
+  (was Libre Baskerville). Recorded in `tech-stack.md`.
+- Order: Beyond's Customize, then Hit Points, then the stat block. The Hit
+  Points control moved from the panel's section action bar into the extra's
+  body (no shared panel change) and gained Beyond's chevron.
+- D&D web tests green (152). Checked live on "Mez test"'s Aboleth before the
+  label-spacing tweak; the tab froze afterwards.
+- Follow-up (owner): the extra's Hit Points section showed the sheet's framed
+  hit points box at its fixed 317px, cut off in the ~299px sidebar.
+  `HitPoints` gains `framed` (default true); the extra passes `false`: no frame
+  layers, no fixed size (`.hit-points--bare`, full width), and no "Hit Points"
+  title since the section's summary already says it. The sheet's own box is
+  unchanged. Not checked live (tab frozen).
+- Follow-up (owner): clicking Temp pushed Current/Max sideways, because the
+  Temp column was 34px at rest and the edit field is 64x31. Temp now keeps the
+  field's footprint in both states (`.hit-points__stat--temp`, the "--" or
+  number centred in a 64x31 box). This applies to the sheet box and the
+  extra's box. The owner confirmed it looks right; D&D web tests green (152).
+
+## 2026-10-11 — Creature stat block fixed; sheet lists follow Basics' books
+
+- Owner report: the creature stat block was cut off and poorly styled.
+  Measured D&D Beyond's `.creatureBlock` live (Cat): 299px, 15px 10px padding,
+  rules above and below only, small-caps name and section headings, two 134px
+  ability tables with tinted cells (#EDE6D9 score, #DED4CC mod/save). Ours
+  overflowed (two 140px tables in 277px, SAVE column cut). Now fixed-layout
+  tables at 135px each, Beyond's tints, small caps, 10px between entries, no
+  side borders or shadow. Checked live on "Mez test"'s Aboleth.
+- Owner decision: no per-list book filter; the sheet's lists just include
+  only the books chosen in Basics. `CharacterCreationFlow.offersCatalogueEntry`
+  (default true; D&D: `Dnd5ePreferences.allows`, the builder's own rule with
+  playtest and partners), `CharacterSheetService.catalogueFor` and
+  `GET /api/characters/{id}/catalogue?kind=` return only allowed entries (a
+  character without a build sees all). Manage spells, Manage feats, Manage
+  Inventory, the background suggestion tables and the level-up class list use
+  it (`getCharacterCatalogue`). Test:
+  `Dnd5eLevelUpTest.theSheetOffersOnlyTheBooksTheBuildAllows`. Left as is: the
+  Proficiencies pane's hand-added language/item pickers, and Manage Extras'
+  creatures (Monster Manual only, always allowed).
+- Web 293 green; affected backend tests green.
+
+## 2026-10-11 — Extras tab E3: the extra's detail as on D&D Beyond
+
+- `Dnd5eExtra` gains `source` (the book a catalogue creature came from) and
+  `notes`; `Dnd5eExtraStatBlock` gains `reactions` and `legendaryActions`
+  (empty on older sheets, so no migration). Catalogue extras now keep those
+  two apart instead of folding them into actions, and record their book.
+- `Dnd5eChallengeRatings` (new): the MM 2014 challenge table, XP and
+  proficiency bonus by rating; `ExtraStatBlock` carries `challengeXp` and
+  `challengeProficiencyBonus`. Test: `Dnd5eChallengeRatingsTest`.
+- `SheetMutator.updateExtra` + `PUT /api/characters/{id}/extras/{key}`
+  (`UpdateExtraRequest`): rename (blank keeps the name) and notes (blank
+  clears them). Tests in `Dnd5eSheetMutatorTest`.
+- Web: the detail shows the category over the name, the book in italics, a
+  Customize section (Name, Notes; the header pencil opens it), the collapsed
+  Hit Points, then the stat block with "CR 0 (XP 10; PB +2)", Reactions and
+  Legendary Actions; it rebuilds from the live sheet (`refresh`). Delete moved
+  to Manage Extras, as on Beyond. Notes show in the tab's Notes column.
+  Tests: `ExtraRow.test.tsx`.
+- Backend tests green except two MinIO Testcontainers that failed to start
+  (infrastructure, unrelated); web Extras tests green. Not checked live (tab
+  hidden).
+
+## 2026-10-11 — Extras tab E2: adding Monster Manual creatures
+
+- Backend: `Dnd5eExtraCategory` gains D&D Beyond's other 2014 categories (PET,
+  SIDEKICK, BEAST_COMPANION, WILD_SHAPE, BATTLE_SMITH_DEFENDER, MISC).
+  `SheetMutator.addCatalogueExtra` + `Dnd5eCatalogueExtras`: copies a
+  catalogue creature into `quantity` extras (1–20, fresh key each, full hit
+  points); a familiar's type becomes "(Fey, Fiend, or Celestial)" as on
+  Beyond; reactions and legendary actions join the actions, suffixed, until E3
+  gives them sections. `POST /api/characters/{id}/extras/catalogue`
+  (`AddCatalogueExtraRequest`), refusing a non-creature entry or unknown
+  category (`InvalidExtraException` → 400). Test in `Dnd5eSheetMutatorTest`.
+- Web: Manage Extras' "Add an Extra" (`AddExtraSection`): category select
+  (Creature / Object groups) with a one-line hint of my own wording, filter by
+  name, type, size, habitat or tag, challenge range, the creature list (first
+  60 matches, "Showing 60 of N") with source, ADD, and a preview card (AC, HP,
+  speed, challenge) with Quantity and "ADD n". `useCreatureCatalogue` loads the
+  creatures once per page. Test: `AddExtraSection.test.tsx`.
+- Multiclass message: a requirement coming from the starting class now reads
+  "Multiclassing out of Sorcerer (the starting class) requires charisma 13",
+  and an "any of" requirement lists its scores instead of raw JSON (owner
+  read the old "Sorcerer multiclass requires…" as a wrong check; the check is
+  PHB's both-classes rule).
+- `:apps:api:test` green (735), D&D web tests green. Not checked live (tab
+  hidden).
+
+## 2026-10-11 — Extras tab E1: D&D Beyond's tab layout and Manage Extras
+
+- Owner request: make Extras match D&D Beyond; no creature pictures, names
+  only, size shown with type as Beyond does. Compared live on character
+  50149479 and measured its `.ct-extra-row` columns.
+- `ExtrasTab`: search "Search Names, Types, or Tags" (name, size + type,
+  category), a Manage Extras button, chips only for categories the character
+  has with singular names (`EXTRA_CATEGORIES`), Name/AC/Hit Points/Speed/Notes
+  columns at Beyond's widths (name 165px = its 130 + the 35px picture column),
+  AC and HP in 16px bold condensed (max HP grey), speed as bold number + small
+  "ft." with the other movements under it ("Climbing", `movementCallout`).
+- `ManageExtrasPanel` (new, opened as a system pane through `onOpenPane`,
+  threaded into `Dnd5eTabbedSection`): Current Extras grouped by category with
+  size/type, the name opening the extra's pane (`extraDetailRequest`), Delete.
+  Adding creatures is E2.
+- Tests: `ExtrasTab.test.tsx`. D&D web tests green. Not compared live on our
+  side yet (the app tab stayed hidden).
+
+## 2026-10-11 — Monster Manual creatures in the catalogue (Extras part 1)
+
+- Owner request: the 2014 Monster Manual from 5etools in the catalogue, for
+  summons, familiars and mounts on the sheet's Extras tab. Part 2 (a creature
+  picker in Extras) is next.
+- `CreatureConverter` (new, registered in `Ingest5eToolsMain`): converts
+  `bestiary/bestiary-mm.json` into `CREATURE` entries whose data matches an
+  extra's stat block (fields in `systems/dnd-5e/features/5etools-ingestion.md`).
+  Handles 5etools' object-shaped type, alignment codes and alternatives, armor
+  class sources, special hit points, speed conditions and hover, saves,
+  skills, senses with tags, nested defense groups with notes ("bludgeoning,
+  piercing, and slashing from nonmagical attacks"), spellcasting blocks (at
+  will, per day, slots per level), recharge names, reactions and legendary
+  actions. Test: `CreatureConverterTest` (fictional creatures, no book text).
+- Ran the ingestion: 450 creatures written to `content/dnd-5e/creatures/`
+  (spot-checked Cat, Adult Red Dragon, Lich, Werewolf, Acolyte, Swarm of
+  Bats), and imported them into the local database (450 entries). The desktop
+  edition's bootstrap imports every kind's folder, so it picks them up too.
+  The running API sees them on the next request (catalogue cache
+  fingerprint). Not checked in the browser (tab hidden).
+
+## 2026-10-11 — Sheet: equippable items first, feat prerequisites on the sheet
+
+- Owner requests: in Inventory, items that can be equipped come first; the
+  equip control only on weapons, armor and shields, with magic items checked
+  for whether they can be equipped; feats taken on the sheet must check their
+  prerequisites.
+- `Dnd5eEquippable` (new): weapons, armor and shields can be equipped; a magic
+  item (a rarity other than "none", or one that needs attunement) can too,
+  unless it's single-use (potion, scroll, ammunition). For magic items the
+  type label decides, since most magic weapons come through as gear. Mundane
+  gear and freeform items can't be equipped. `Item`/`ItemResponse` carry
+  `equippable`; `toggleItemEquipped` leaves a non-equippable item alone
+  unless it's already equipped (so it can still be taken off).
+- Web: `canToggleEquipped` (equippable, or already equipped) gates the row's
+  equip box and the detail panel's Equip button; each Inventory section
+  lists equippable items first (`equippableFirst`, order kept within each
+  group). Tests: `ItemRow.test.tsx`,
+  `Dnd5eSheetMutatorTest.mundaneGearAndSingleUseMagicItemsCantBeEquipped`.
+- Feats on the sheet: `CharacterCreationFlow.featProblems` (default: none);
+  D&D plans the character's build and evaluates the feat's 5etools
+  prerequisites with the planner's own `Dnd5ePrerequisites`, when the build's
+  feat-prerequisites switch is on. `CharacterSheetService.learnFeat` refuses
+  with `FeatNotAllowedException` (409) and the reason ("Ritual Caster
+  requires Intelligence or Wisdom 13 or higher"). A sheet without a build
+  isn't checked. Test: `Dnd5eLevelUpTest.aFeatTakenOnTheSheetIsHeldToItsPrerequisites`.
+- `:apps:api:test` green (731), web green (283). Not checked live.
+
+## 2026-10-11 — Basics preferences on the sheet: audit, fixes, milestone switch
+
+- Owner question: are the Basics choices applied on the sheet and in level
+  up too (books, milestone vs XP, multiclass prerequisites)? Plus: Monster
+  Manual as a core book, the builder footer not reaching the page bottom, and
+  a "milestone reached" trigger for milestone level ups.
+- Audit (what holds): the book filter, feat prerequisites, optional class
+  features and multiclass prerequisites are applied by the planner, which
+  runs in the builder and in level up; a level up that brings a new problem
+  (e.g. an unmet multiclass requirement) is refused. Advancement reaches the
+  sheet (XP builds: Manage experience and the XP bar). Encumbrance seeds the
+  sheet's own tracking switch.
+- Fixed:
+  - Multiclass prerequisites now also check the starting class when a second
+    class is added (PHB: both classes' requirements). Test:
+    `multiclassingChecksTheStartingClassRequirementsToo`.
+  - "Ignore coin weight" was stored but never applied; the calculator now
+    leaves coins out of the carried weight when it is on (a sheet without a
+    build still counts them).
+  - Monster Manual is a locked core book with the PHB and DMG (`LOCKED_SOURCES`
+    in `Dnd5ePreferences` and `dnd5eBuild.ts`; Basics text and tour updated).
+  - Builder footer: the page is a flex column and the layout grows, so a
+    short step (Background) still ends in the footer.
+  - Milestone level up: a milestone build's character menu has a "Milestone
+    reached" switch; on, it sets the next level's XP threshold, which makes
+    `levelUpAvailable` true for both kinds of build (calculator no longer
+    limits it to XP builds), so the menu's Level up button and the header's
+    level-up mark appear; off, it returns to the level's start; taking the
+    level clears it. No sheet field added. Tests:
+    `aMilestoneBuildSignalsALevelUpOnceItHoldsTheNextLevelsPoints`,
+    `CharacterMenuPanel.test.tsx`.
+  - `Dnd5eSheetCalculatorTest`, `Dnd5eModifiersCalculatorTest` and a
+    `CharacterControllerTest` fixture follow the owner's "Dexterity mod."
+    label. `:apps:api:check` otherwise green (729 tests).
+  - Actions tab: a melee weapon's range ("5 ft. Reach") didn't match
+    `parseRange`'s shapes, so it rendered as one bold run. It now parses as a
+    bold distance, a small "ft." like a spell's range, and "Reach" on its own
+    line under it in the same small style (`range-display__note`). Test in
+    `AttackRow.test.tsx`. Not yet compared live against D&D Beyond (tab
+    hidden).
+- Still open (in `open-items.md`): the sheet's own pickers (spells, items,
+  feats, backgrounds, languages) list every imported book, ignoring the
+  build's books, and the sheet's feat picker doesn't check feat
+  prerequisites; no creatures are imported, so the Monster Manual has no
+  stat blocks for Extras yet.
+
+## 2026-10-11 — Builder: Basics dropdowns, creature type, summary groups
+
+- Owner requests: the Basics dropdowns were clipped and looked unlike the
+  others; an extra line sat above the partner dropdown; show the species'
+  creature type itself; give languages their own heading in the summary; drop
+  Ability Score Improvement from the summary's features.
+- `CheckListSelect` (new, `builder/`): a checkbox select in `SourceSelect`'s
+  look (same trigger, popup, group headings, option rows, a filled check box
+  per option), its popup fixed to the trigger through `usePopupDirection`, so
+  a scrolling frame no longer clips it; closes on Escape or an outside click,
+  stays open for several picks. Replaces the `<details>` menus for books and
+  partners in `Dnd5eBasicsStep`; the old `builder-multi*` styles are gone.
+  Encumbrance uses `SourceSelect` instead of a native select. Test:
+  `CheckListSelect.test.tsx`; the Basics tests now open the partner dropdown.
+- The partner dropdown moved inside the Partnered content row (`Setting`'s new
+  `below` slot, full width), so the row's divider no longer sits above it.
+- `Dnd5eSelectionDetails.species`: a "Creature type" fact ("Fey"; "Humanoid"
+  when the species names none, 5etools' default) after Size, and the generic
+  "Creature Type" trait is no longer listed. Tests updated and added.
+- `DraftPreviewResponse`: the summary's features leave out routine ones
+  (`Ability Score Improvement`); the sheet still lists it.
+  `BuilderSummary`: languages are their own "Languages" group instead of a
+  second line under Proficiencies.
+- Web builder/tutorial tests green (105), affected backend tests green. Not
+  checked live: the tab was signed out and hidden.
+- Follow-up (owner requests): the traits grid no longer stretches a short card
+  to its neighbour's height (`.builder-grants` `align-items: start`), so a
+  one-line trait stays small. In the summary's features, a feature that only
+  names a fact the selection cards hold shows that fact's value instead
+  (`DraftPreviewResponse.featureLabel`): "Creature Type" becomes "Fey". Test:
+  `CharacterDraftServiceTest.theSummaryNamesTheCreatureTypeInsteadOfItsTrait`.
+- Follow-up: the traits are laid out in two balanced CSS columns
+  (`column-count: 2`, cards `break-inside: avoid`) instead of a grid row per
+  pair, so each card sits right under the one above it with no gaps. The
+  summary's skills come titled from the API (`DraftPreviewResponse.words`:
+  "sleightOfHand" → "Sleight of Hand", minor words lower-case) and the web no
+  longer title-cases them. Test: `DraftPreviewResponseTest`.
+- Follow-up (owner: the species card looked misaligned; no dividers): the
+  card's facts are a grid of equal cells (`repeat(auto-fill, minmax(130px,
+  1fr))`); a fact longer than 28 characters (languages, ability bonuses)
+  spans the full row (`is-wide`, set in `SelectionCard`). The facts now come
+  short first (creature type, size, speed, senses), then languages and
+  ability bonuses; `Dnd5eSelectionDetailsTest` follows that order. Checked
+  live on the Fairy draft.
+- Fix found live: the feature-to-fact rule also turned the "Languages" trait
+  into the languages text in the summary's features. Now only facts in
+  `VALUE_FEATURES` ("creature type") stand in for their feature; any other
+  feature that just names a card fact ("Languages", "Size") is left out.
+
+## 2026-10-11 — Builder performance: cached catalogue, faster saves, lighter tour
+
+- Owner report: the tutorial felt sluggish, and a select that a pick opens
+  (e.g. a subspecies after a species) took a while to appear.
+- Measured: a draft request took ~400–500 ms, and the builder waited 600 ms
+  after every change before saving, so a new select appeared after ~1.1 s.
+- `CatalogueRecordCache` (new): each system's catalogue is read and parsed once
+  per kind and shared by every request, instead of re-reading and re-parsing
+  every spell, species and feat from Postgres on every request. Each lookup
+  checks a one-query fingerprint (count and latest `updated_at` per kind), so
+  an import run by another process (`--import-catalogue`) is picked up on the
+  next request. `DatabaseCatalogueLookup` reads from a snapshot; the rules
+  engine already copies JSON before editing it. Test:
+  `lookupsShareOneParsedCatalogueUntilAnImportChangesIt`.
+- `CharacterBuilder`: picks save after 120 ms; only typing in the name waits
+  600 ms.
+- `Tutorial`: the 9999px box-shadow spotlight with animated
+  top/left/width/height is replaced by four shade panels and a ring moved with
+  transforms; target measuring is throttled to one per frame and skips
+  unchanged boxes.
+- Tutorial button: now a floating "? Tutorial" button fixed to the page's
+  bottom-right corner (`TutorialLauncher`), for the shared layout and for a
+  system's own `Frame`; the header button and `onOpenTutorial` are gone.
+- Web 273 green, `:apps:api:check` green (724 tests). Needs an API restart to
+  take effect; the speed-up was not re-measured live yet.
+- Follow-up (owner feedback): the spotlight ring now has square corners and
+  whole-pixel coordinates, since a rounded ring over the sharp hole left the
+  four corners undimmed. The D&D tour spotlights each step's first frame (its
+  main choice) instead of the whole middle column, and Ability scores is two
+  stops, the generation method and the score cards (new `data-tutorial`
+  targets `ability-method` / `ability-scores`); 13 steps now. Checked live.
+- Follow-up (owner requests): Finish now also returns the builder to its first
+  step (Basics) through `Tutorial`'s new optional `onFinish`; Skip and Escape
+  still just close. Basics is four stops instead of one, each on its own frame
+  (`basics-identity`, `basics-sources`, `basics-extra`, `basics-rules`):
+  identity, what the book list filters and why the core books stay on,
+  playtest and partnered content, and the table-rule switches (advancement,
+  hit points, optional class features, prerequisites, encumbrance); 16 steps
+  now. Checked live, including Finish from Review landing on Basics.
+
+## 2026-10-11 — Creation tutorial: shared overlay and the D&D 5e tour (slice 1)
+
+- Owner request: a step-by-step tutorial when a character is created, with a
+  skip button, the basics of each part and rule, and a note that the tool
+  doesn't replace the books or a printed sheet; different per system.
+- Backend: `players.seen_tutorials text[]` (V10), `GET /api/me/tutorials` and
+  `PUT /api/me/tutorials/{id}` (`TutorialController`,
+  `PlayerService.markTutorialSeen`, atomic `array_append`, id validated,
+  `InvalidTutorialIdException` → 400). Tests in `PlayerServiceTest` and
+  `TutorialControllerTest`.
+- Web: `tutorial/` (`Tutorial`, `useTutorial`, `tutorialApi`,
+  `tutorialDefinition`, `tutorial.css` with `--tutorial-*` tokens);
+  `BuilderDefinition.tutorial`; `data-tutorial` targets in `CharacterBuilder`.
+  D&D tour (`dnd5eTutorial.tsx`, 12 steps, `tutorial--dnd5e` theme): welcome
+  and disclaimer, progress list, each step, the pending mark, the summary, and
+  how to reopen it. Original text throughout.
+- Live: it opened by itself on the first visit; spotlight checked on the
+  progress list, the Basics and Species steps, and the pending mark. Fixed
+  while checking: a tall target scrolls to its top, the target is searched two
+  frames after the step change, and arrow keys use a functional index update.
+- Docs: `features/creation-tutorial.md` (new), `database-schema.md`.
+
+## 2026-10-11 — Builder: middle-column frames capped at one screen (plan slice 0)
+
+- Owner request: a height limit for the middle column, whose Classes frames
+  grow very long with level and multiclass; framed parts get a scrollbar.
+  Slice 0 of the builder plan in `open-items.md` (approved with every
+  recommendation).
+- `builder.css`: `.builder-layout__main .builder-frame` gets
+  `max-height: calc(100vh - 96px)` with its own scroll (`scrollbar-gutter:
+  stable`); its title is sticky inside the scroll area with a white
+  background, so the frame name and "N left" badge stay in view. Off below
+  780px, where nested scrolling on a phone would be worse than a long page.
+  Side columns and the step header are untouched. Only the D&D builder uses
+  `builder-frame`; VtM's builder has its own layout and is unaffected.
+- `usePopupDirection` now returns the direction and a `position: fixed`
+  style measured from the anchor (re-measured on any scroll or resize), and
+  `SourceSelect` applies it, so a dropdown near the bottom of a scrolling
+  frame floats over it instead of being clipped.
+- Web 267 green. Checked live on the "test" draft: the Sorcerer frame
+  scrolls with its title pinned, and the Metamagic dropdown opens over the
+  frame.
+
+## 2026-10-11 — Builder: rolled starting gold, clearer equipment options
+
+- Owner request: taking a class's gold should offer a roll, show the result
+  multiplied, and feed Currency together with the background's money; the
+  A-or-B equipment picks should read clearly as "one or the other".
+- `Dnd5eBuildPlanner.planStartingGold`: with the gold method chosen, the plan
+  offers `class:<slug>:equipment-gold` (`STARTING_GOLD`, child of the method
+  choice), one option per possible dice total (4–16 for 4d4 × 10), labelled
+  with its gold ("120 gp") and carrying count/sides/multiplier/rollLabel as
+  data. It is pending until answered; the answer × multiplier is added to the
+  starting copper, which already sums the background's coins, so Currency
+  shows both. The old average-gold fallback is gone. No build-schema change:
+  the roll is an ordinary choice answer. Test:
+  `startingGoldAsksForTheDiceRollAndAddsItMultipliedOnceRolled`.
+- `Dnd5eEquipmentStep`: `StartingGoldRoll` under the Equipment/Gold switch —
+  subtitle "Roll your starting gold: 4d4 × 10 gp" with the pending mark, a
+  digits-only input for the dice total, a "Roll 4d4" button (creation roll
+  endpoint), and "12 × 10 = 120 gp" (or the average while unrolled). A typed
+  total the dice can't roll clears the answer and says the range.
+  `characterId` is now a prop. `STARTING_GOLD` counts under the "Starting
+  equipment" checklist line.
+- Equipment groups: a grey header "Choice N · Pick one of M" with the
+  pending mark, round radio dots, the "(a)" prefix turned into a letter
+  badge, and an "or" divider between options.
+- Web 267 green, `:apps:api:check` green. Option layout checked live; the gold
+  roll needs an API restart before it can be seen.
+
+## 2026-10-11 — Builder: spell detail card and stacked hit points section
+
+- Owner request: a better-looking spell description, and the hit points
+  section with its instruction as a small subtitle and the rows under it.
+- `SpellPicker`: an expanded row is now a card (left accent border, light
+  background) with labelled facts — Duration (concentration folded in),
+  Components, Attack / Save, Damage / Effect, Ritual when it is one —
+  above the rules text.
+- `Dnd5eRolledHitPointsField`: no longer the two-column `builder-choice`
+  grid. The prompt ("Roll one hit die per level after the first", or the
+  fixed one) is a muted 12px subtitle with the pending mark, and the level
+  rows, total and Basics hint take the full width below it. Applies to the
+  level-up page too.
+- Web 264 green. Checked live on the "test" draft (rolled mode and Blur's
+  card).
+- Follow-up: in fixed mode the read-only values sit in the last column,
+  flush with the row's right edge (measured live).
+
+## 2026-10-11 — Builder: one pending marker icon, beside what needs deciding
+
+- Owner request: one icon for the "still to choose" marker, always
+  top-aligned beside the component that needs the decision.
+- New `builder/PendingMark.tsx`: a 16px SVG (red disc, white "!") with
+  `role="img"` and the name "Still to choose". It replaces the three CSS
+  `::after` markers (`.builder-choice`, `.builder-spells`,
+  `.builder-equip-item`).
+- Placement: a plain choice (`ChoiceField`, e.g. "Choose which ability
+  increase to take") puts it beside its select, in a reserved 16px column
+  (`.builder-choice__control`), so selects line up whether or not a row is
+  pending. Composite choices put it beside their title: ASI or feat, spell
+  and cantrip sections, equipment item picks, and rolled hit points (while a
+  row has no value).
+- Tests: `ChoiceField.test.tsx` (beside the select, gone once answered).
+  Web 264 green. Not checked live: the Chrome tab was hidden.
+
+## 2026-10-11 — D&D 5e builder: hit point rows for fixed and rolled
+
+- Owner requests on the builder's hit dice rows.
+- Row label: "Sorcerer - Level 2 (d6)" instead of "Sorcerer lvl 2 d6". The
+  planner's option label is now "Sorcerer - Level 2" (also in the roll's
+  context and the out-of-range problem); the web adds "(d6)".
+- Rolled hit points: the "Use fixed (N)" button is gone. A hint under the
+  rows says to set "Hit points on level up" to Fixed in Basics (a link to the
+  Basics step) to take each level's fixed value.
+- Fixed hit points: the planner now offers `build.fixedHitPoints`
+  (`FIXED_HIT_POINTS`), the same rows as a display-only choice (count 0,
+  optional, never pending). The Classes step shows each level's fixed value
+  and a "Fixed total", with a hint pointing to Basics to roll instead. The
+  level up page shows the gained level's row without the Basics hint.
+- Tests: `Dnd5eBuildMaterializerTest` (new labels, fixed rows),
+  `Dnd5eRolledHitPointsField.test.tsx` (no fixed button, Basics link, fixed
+  view). Web 261 green.
+- Owner follow-up: the rolled hit point field is a plain text input
+  (`type="text"`, `inputMode="numeric"`, 2 characters) instead of
+  `type="number"`, so it has no spinner arrows; anything but digits is
+  dropped as it is typed. The planner still reports a value outside 1–die.
+  Web 262 green.
+
+## 2026-10-11 — D&D 5e builder: spell descriptions, collapsible spell choices
+
+- Owner request: see a spell's or cantrip's description in the builder, and
+  make spell and cantrip choices collapsible sub-sections like the levels.
+- `SpellPicker` is now a `<details>` drawn with the level accordion's classes
+  (`builder-level`): the summary holds the prompt, the source, the "N of M
+  chosen" badge and, while closed, the chosen names. It starts open while
+  picks are missing; the list renders only while open. The "Show spells /
+  Hide spells" button is gone.
+- Opening a spell's name (now with a ▾ / ▴ marker) shows its rules text and
+  "At Higher Levels." under the facts. `useSpellDescriptions` loads the
+  SPELL catalogue once per page (only after the first spell is opened) and
+  shares it between pickers; with redaction on, the text reads
+  "Description hidden on this server." The plan payload still carries no
+  prose (`Dnd5eChoiceOptions.SPELL_PICKER_FIELDS` unchanged).
+- Tests: `SpellPicker.test.tsx` (collapsed summary, description on open).
+  Web 260 green.
+- Owner follow-up: the collapse chevron of every builder section (levels and
+  spell choices) now sits at the summary's right edge
+  (`.builder-level__summary::after` absolutely positioned 10px from the
+  right; the summary keeps 30px right padding). Measured live on the
+  Bard 3 / Wizard 2 draft: all five summaries put it at the same spot.
+
+## 2026-10-11 — D&D 5e builder: readable ability increase alternatives
+
+- Bug found by the owner on a Deep Gnome (MPMM) draft: "Choose which ability
+  increase to take" offered "Option 1" / "Option 2" with the raw JSON of each
+  set as the summary, and the species summary read "+1 to 2 abilities of
+  your choice" (only the first set, weights ignored).
+- `Dnd5eOptionSummaries.abilityIncreases` now lists every alternative joined
+  with "or", and a weighted choice reads "+2 and +1 to 2 different abilities
+  of your choice"; equal weights read "+1 to 3 abilities of your choice".
+  `abilityIncrease` describes one set.
+- `Dnd5eBuildPlanner.chooseAlternative` labels each alternative with its
+  description (ability sets through `abilityIncrease`, grant sets — skills,
+  tools, languages… — through `grantAlternative`) and no longer sends the
+  JSON as the summary. "Option N" stays only when a set has nothing to
+  describe.
+- Not changed: MPMM's Deep Gnome stays its own species. The 2014 version is
+  already offered as Gnome → Deep (MTF) and Gnome → Deep/Svirfneblin (SCAG),
+  and the DMG's "Gnome (Deep)" is a separate NPC species, all as 5etools
+  ships them.
+- Tests: `Dnd5eOptionSummariesTest` (weighted alternatives),
+  `Dnd5eBuildPlannerTest` (alternative labels, no summary).
+- **One pick per bonus** (owner question: which ability gets the +2?). An
+  unequal weighted choice used to be one multi-select whose click order
+  decided the bonus, invisible in the UI. `Dnd5eBuildPlanner.weightedIncreases`
+  now offers one single pick per bonus: `…:ability:0:1` "Increase one
+  ability by 2" and `…:ability:0:2` "Increase a different ability by 1";
+  each leaves out the abilities the other picks took. Equal weights ("+1 to
+  3 abilities") stay one multi-select.
+  - Builds saved before (Vex's `content/dnd-5e/builds/vex.json`, answer
+    `species:changeling:ability:0` = `[dexterity, charisma]`) still read:
+    the old ordered list fills the slots until any slot is answered on its
+    own, and the old id isn't reported as an unknown answer.
+  - Web: the builder already draws a count-1 choice as one select.
+    `withoutStaleAnswers` (`dnd5eBuild.ts`) moves an old ordered answer into
+    the `id:1`, `id:2`… slots that replaced it instead of dropping it, and
+    `CharacterBuilder` now prunes once on load too (it used to prune only
+    after a save), so an old draft shows its picks at once. Checked live on
+    the owner's "test" draft: `[strength, dexterity]` became +2 Strength and
+    +1 Dexterity, no plan problems. Web 259 tests green.
+
+## 2026-10-11 — D&D 5e: class emblems in the character menu
+
+- Owner request: show each class's icon beside its row in the character
+  sidebar, as D&D Beyond does. The owner supplied the icons
+  (`Downloads/dnd5e-icons/classes`), copied to
+  `apps/web/src/systems/dnd5e/classes/dnd5e_class_*.{jpeg,png}`.
+- `systems/dnd5e/ClassIcon.tsx` maps the class name to its emblem (15
+  classes, Blood Hunter and Illrigger included); an unknown class shows
+  nothing. `CharacterMenuRequest.classIcon` is optional, so the shared panel
+  stays system-neutral; D&D's `CharacterSheetScreen` passes it.
+- Layout (`frames.css`), measured on Helga (`characters/50149479`, read
+  only): a 36×36 emblem with a 4px radius and no border; the level badge
+  (18×18, 3px radius) at `right: -8px; bottom: -6px`; the name 16px after
+  the emblem, name and subclass at 14px line height; rows 36px tall, 10px
+  apart. Checked live on Vex (Rogue 4 / Sorcerer 3): every offset matches.
+- The emblems are D&D Beyond's art, like the item-kind icons: keep them out
+  of the public remote.
+- Web tests: 258 green (one new test for the emblem slot).
+
+## 2026-10-05 — Daggerheart mockups, round 3
+- after update in v3 for mockup, user says "ok, tem algumas coisas em relação a 
+  escolha de classe no builder que você nao está entendendo. Quero que fique 
+  muito parecido com o que temos no demiplane mas de um jeito que nao fiquei 
+  tao poluido visualmente e ainda na estrutura que estamos usando de 3 colunas, 
+  com a do meio sendo o conteudo. Preciso que você analise o builder do demiplane 
+  e compare para entender como tem que ser usando a extensão" and asks for 
+  a comparison revision. Unfortunatly, the AI credits were over.
+- `dh-v3.css`: one design system for the Daggerheart mocks (shared
+  AppHeader, framed panels with corner ornaments, one title, one button
+  family, explicit text colour per surface).
+- `sheet-v3.html` and `builder-v3.html` rebuilt on it; details in the plan's
+  §5b. Checked with local headless screenshots, not the browser extension.
+- Follow-up: builder step "Basics" with the standard portrait picker; Class
+  step with class art (hero + tiles); sheet weapons column widened, damage
+  types spelled out.
+
+## 2026-10-05 — Daggerheart mockups, round 2
+
+- `design-reference/mockups/daggerheart/sheet-v2.html`: sheet 1's layout
+  with sheet 2's cards, compact sizes, a detail/roll sidebar, built with the
+  Demiplane graphics the owner supplied (`assets/`, styles in `dh-v2.css`).
+- `builder-v2.html`: three columns (progress, choices, summary); hovering a
+  choice previews its effect on the summary.
+- Plan §5a records the feedback, the domain-icon mapping, and that these
+  graphics can't ship in the product.
+
+## 2026-10-05 — Daggerheart: rules reference, plan and mockups
+
+- New `systems/daggerheart/`: `character-rules.md` (SRD 2.0 summary in our
+  own words, covering the Core Set and Hope & Fear, plus DPCGL licence
+  notes) and `features/implementation-plan.md` (Demiplane walkthrough,
+  licence constraints, slices D0–D7, owner questions).
+- `systems/README.md`: Daggerheart row and document table; VtM row now says
+  playable.
+- Mockups in `design-reference/mockups/daggerheart/`: four sheet structures
+  (classic, card table, play dashboard, printed sheet) and four creation
+  structures (three columns, deck building, guided wizard, fill the sheet).
+  Demiplane screenshots in `design-reference/screenshots/daggerheart-demiplane/`.
+- Left out: any code. Waiting for the owner's mock picks and licence answer.
+  Key finding: the DPCGL allows private non-commercial use; a public
+  deployment with SRD content needs Darrington Press's written approval.
 
 ## 2026-10-04 — Paper backdrop for the D&D sheet and builder
 
@@ -32,6 +582,295 @@ deliberately left out.
 - Web 245 tests green.
 - **To check before a public push:** where `old-paper.jpg` came from and its
   licence (it was saved from the web).
+
+## 2026-10-04 — Vampire 5e closed for now
+
+- The owner closed phase 12 for now: `roadmap.md` marks it done, and the VtM
+  plan's status says what is built and what stays open (a browser pass,
+  licence checks before a public push, ideas outside the plan).
+
+## 2026-10-04 — VtM coterie and domain (per character, book rules)
+
+- Owner's decisions: the coterie lives on each character's sheet, like
+  Demiplane (sheets can't be shared, so only the owner edits it); points
+  follow the book.
+- Creation: "Contribute to the coterie" (0–7) in Advantages, paid from the
+  same advantage points (fourth budget tab "Coterie").
+- Sheet: `coterie` (name, type from the 15 coterie types, city, tenets,
+  goals, boons & debts, members by name, domain Chasse / Lien / Portillon
+  with description and resonance, coterie backgrounds). `coterie` action;
+  the server keeps domain + backgrounds within the pool = 1 per member (this
+  character included) + this character's contribution + what the others
+  donated (entered by the owner). `derived.coteriePool` / `coterieSpent`.
+  New Coterie tab on the sheet.
+- Tests: contribution and pool limits (60 VtM API tests green); web tests
+  green.
+
+## 2026-10-04 — VtM thin-blood alchemy, loresheets, inventory; web tests
+
+- Content (`vtm5-content.json`): thin-blood merits and flaws, the three
+  alchemy methods, Thin-Blood Alchemy as a discipline whose powers are the
+  formulas (levels 1–5), and the 37 loresheets (book, clan restriction, the
+  name of each of the five entries; no effect text — read the book).
+- Creation: a thin-blood takes 1–3 thin-blood merits and as many flaws;
+  Thin-blood Alchemist adds Thin-Blood Alchemy 1, a method (Advantages step)
+  and a level-1 formula (Disciplines step). Loresheet entries cost their
+  level in advantage points and respect clan restrictions. The sheet keeps
+  `thinBlood`, `loresheets` and an empty `inventory`.
+- Sheet actions: inventory (`addItem`, `updateItem`, `removeItem`),
+  loresheet entries for level × 3 XP (undoable; `nextCost.loresheet`), only
+  thin-bloods raise Thin-Blood Alchemy (and they can't raise disciplines).
+  Formulas are learned like powers.
+- Web: builder thin-blood picks and alchemy method, a "Loresheets" budget
+  tab; sheet Inventory tab, loresheets and thin-blood traits in Merits &
+  Flaws (add entries for XP), Distill roll (method attribute + Alchemy) in
+  the alchemy sidebar.
+- Bug found by the new web test: VtM default portrait ids took every digit of
+  the file path ("51" for portrait 1, from "vtm5"); now the number after
+  `portrait_`. A portrait chosen before this fix no longer resolves — pick it
+  again.
+- Tests: 58 VtM API tests, 6 new VtM web tests (`vtm5Build.test.ts`,
+  `Vtm5DiceDock.test.tsx`); web 257 and `:apps:api:check` green.
+- Not done: coterie and domain (shared between players; needs a design —
+  see the plan).
+
+## 2026-10-04 — VtM rituals, frenzy and Remorse; VtM footer; developer guide
+
+- Rituals: curated list (levels 1–3, names from the books, summaries in our
+  words) in `vtm5-content.json`. Creation: a character with Blood Sorcery
+  picks one free level-1 ritual (choice "Free ritual"); the sheet keeps
+  `rituals`. Sheet: Blood Sorcery's sidebar learns rituals for level × 3 XP,
+  up to the Blood Sorcery rating (`spendXp` target `ritual`, undoable); the
+  Disciplines tab lists known rituals.
+- Frenzy check (`POST …/rolls/frenzy`): current Willpower + ⌊Humanity / 3⌋,
+  no Hunger dice, against a Difficulty (header "Frenzy" button). Remorse
+  (`POST …/rolls/remorse`, Humanity sidebar): one die per empty unstained
+  box, any success keeps Humanity, none costs a dot; stains clear. Neither
+  can be re-rolled with Willpower.
+- VtM pages (builder and sheet) end with `Vtm5Footer`: `AppFooter` now takes
+  its notice and sources as props; VtM's names Paradox's trademarks and says
+  where its content comes from. Black footer on VtM pages.
+- `developer-guide.md` §2.4.2: the VtM section (seams, stored data, where
+  each rule lives, web files, tests); the template moved to §2.4.3.
+- Tests: free ritual, ritual costs, frenzy and Remorse (53 VtM tests green);
+  web tests green.
+
+## 2026-10-04 — VtM vital box titles at the top
+
+- Health, Willpower, Hunger and Humanity boxes are buttons, which centre
+  their content vertically; they now stack from the top so their titles line
+  up with the attribute boxes' (`.vbox` in `vtm5-sheet.css`). Checked in
+  Chrome.
+
+## 2026-10-04 — VtM Hunger as a blood splatter
+
+- The sheet's Hunger box shows the owner's blood image
+  (`systems/vtm5/vtm5-blood.png`) with the rating over it instead of the
+  red hexagon; at Hunger 0 the splatter fades. Checked in Chrome.
+
+## 2026-10-04 — VtM: sidebar fix, Difficulty on rolls, advantages bought with XP
+
+- Sheet sidebar: it was off-screen (the mockup CSS only shows `.side.open`)
+  and the sheet shifted right for it. It now opens over the sheet's right
+  edge with the `open` class; the sheet doesn't move. Checked in Chrome.
+- Rolls take an optional Difficulty (dock stepper; stored in the roll's
+  expression as `… difficulty N`). `Vtm5Dice` reads win / failure, margin,
+  "Failure · win at a cost" (some successes, short of the Difficulty),
+  bestial failure only on a failed roll, messy critical only on a win. The
+  log shows "vs N · margin M".
+- Merits and backgrounds bought with XP: `spendXp` target `advantage` (3 XP
+  per dot; fixed merits pay their dots at once; flaws can't be bought;
+  max per the content), undo removes them; `derived.nextCost.advantage`.
+  Merits & Flaws tab: "+ Add a merit or background" and "+" on owned ones.
+- Tests: difficulty reading and expression, advantage spends (49 VtM tests
+  green); web tests green.
+
+## 2026-10-04 — VtM tests; name and portrait editable from the sheet
+
+- Tests in `ruleset/vtm5` (46, all green): `Vtm5DiceTest` (successes,
+  critical, messy, bestial, expression), `Vtm5CharacterCreationFlowTest`
+  (complete build, materialized sheet and predator gifts, attribute spread,
+  clan disciplines, power levels, predator restrictions, Blood Sorcery,
+  budgets, ancilla, thin-blood, Caitiff, unknown names, malformed builds, no
+  level up), `Vtm5SheetActionsTest` (damage overflow, ranges, identity,
+  convictions, XP costs, specialties, out-of-clan disciplines, powers,
+  undo order), `Vtm5CharacterSummarizerTest`, `Vtm5ControllersTest`
+  (`@WebMvcTest`: content, sheet + derived, actions, pool, Rouse Check,
+  re-roll, log). Shared fixture `Vtm5TestBuilds`. JaCoCo: 98 % of
+  `ruleset/vtm5` lines; `:apps:api:check` green.
+- Web: the VtM sheet's portrait and name open a "Character" sidebar to
+  rename (the shared rename endpoint) and change the portrait (the shared
+  `PortraitPicker`, with VtM's default portraits). Web tests green.
+
+## 2026-10-04 — VtM default portraits and dice button; footer stop only once
+
+- VtM default portraits: the owner's 23 images (saved from Demiplane) in
+  `systems/vtm5/portraits/vtm5_portrait_<n>.jpg`, registered as
+  `VTM5_PORTRAIT_PRESETS` (preset id = the number) in
+  `characters/portraitPresets.ts`; the builder's portrait section now offers
+  "Pick a default portrait" with a VtM-styled gallery.
+- The sheet's dice toggle is the owner's round dice icon
+  (`systems/vtm5/vtm5-dice-icon.webp`; the file was WebP named `.png`), with
+  the pool size as a badge.
+- Footer stop: re-arms whenever the footer is fully out of view again (on
+  scroll), so every approach from above stops once before showing it.
+- **To check before a public push:** the portraits and the dice icon come
+  from Demiplane (Paradox / Renegade art); keep them out of the remote unless
+  their licence allows it.
+- `tsc` and the portrait preset tests green. Not checked in Chrome (the
+  extension showed an error page for the local app).
+
+## 2026-10-04 — VtM V4: dice pools on the server; footer scroll stop
+
+- API `Vtm5RollController`: `POST /api/vtm5/characters/{id}/rolls` (traits +
+  bonus → pool of d10s, Hunger dice = min(Hunger, pool)),
+  `POST …/rolls/rouse` (one die, 6+ passes, else Hunger +1; at Hunger 5 it
+  only notes the frenzy test), `POST …/rolls/{rollId}/reroll` (up to three
+  failed regular dice, costs one Superficial Willpower, once per roll),
+  `GET …/rolls` (the log, newest first). `Vtm5Dice` reads successes, pairs
+  of 10s (critical), messy critical (a 10 on a Hunger die) and bestial
+  failure (no successes and a 1 on a Hunger die). Every roll is stored
+  through the platform's roll log (`RollService.rollDice` and
+  `recordReadRoll`, new; expression `"<pool>d10 hunger <n>"`), never updated.
+- Web `Vtm5DiceDock`: a trait's number adds it to the pool, discipline
+  headers add their dots, a power's pool button rolls it at once; the dock
+  opens under the header with the pool, bonus dice, Clear / Roll and the roll
+  log (faces, Hunger dice in red, outcome, "Re-roll · 1 WP"); Rouse Check in
+  the header and in the Hunger sidebar.
+- Footer (`shell/useFooterScrollStop.ts`, used by `AppFooter`): the first
+  wheel scroll that would reach the footer stops at the end of the content;
+  a new scroll gesture shows it; scrolling back up arms it again. Wheel only
+  (no keyboard or touch).
+- `tsc`, web tests (251) and API compile green. Not run end to end: the API
+  must be restarted for the new endpoints. VtM tests still deferred.
+
+## 2026-10-04 — VtM V5: play state and the XP panel
+
+- API: `POST /api/vtm5/characters/{id}/actions` applies one action through
+  `Vtm5SheetActions`: health/willpower damage (superficial, aggravated, full
+  track upgrades superficial), hunger, humanity, stains, resonance, notes,
+  editable identity fields (concept, chronicle, sire, ambition, desire),
+  convictions (edit, add up to 3, remove), and experience — `awardXp`,
+  `spendXp` (attribute ×5, skill ×3 / first dot 3, specialty 3, discipline
+  in-clan ×5 / Caitiff ×6 / other ×7, Blood Potency ×10), `undoXp` (only the
+  latest active spend on a trait), `learnPower` (one per dot, level ≤ rating).
+  Rule errors are 400s with a message. The sheet view's `derived.nextCost`
+  carries each trait's next-dot cost, so the web does no cost maths.
+- Shared: `CharacterService.replaceMySheet` (store a new sheet for an active
+  character of mine), used by VtM's own endpoint.
+- Web `Vtm5SheetScreen`: the sidebar manages what it shows — "+" spends XP
+  with the server's cost, specialties added for XP, powers learned per dot,
+  out-of-clan / resonance reminders, tracker buttons, hunger/humanity/stains
+  steppers, resonance select, editable identity and convictions (saved on
+  blur), notes tab (saved on blur), XP panel from the header chip (earned /
+  spent / available, Add XP, history with undo). The header shows the real
+  portrait.
+- Not run end to end: the running API predates the endpoint (404); restart
+  `bootRun` to use it. Read-only view checked in Chrome. VtM tests still
+  deferred.
+
+## 2026-10-04 — VtM look and builder polish; collapsible home sections
+
+- VtM's system colour (character banners) is a darker red, `#7A0A14`, apart
+  from D&D's. On VtM pages the app header is pure black
+  (`.vtm5-page .app-header` in `systems/vtm5/systemMark.css`; exception noted
+  in `ui-design-system.md`), and the document behind a VtM page stays dark.
+- Home: "Start something new" and each system's group of characters
+  collapse and reopen; the choice is remembered in the browser
+  (`useStoredState` in `HomePage.tsx`).
+- VtM builder:
+  - the summary strip uses fixed slots (name and clan line truncate), so
+    nothing moves with long clan names;
+  - portrait: the shared `PortraitPicker` on Basics (portrait now reaches
+    `BuilderFrameProps`) and the real portrait in the strip;
+  - Advantages & flaws as two budget tabs at the top ("Merits &
+    backgrounds 0/7", "Flaws 0/2+"), moving to the unmet one when one is met;
+  - Beliefs fields have placeholders and help text;
+  - sub-section titles get room above them.
+- Checked in Chrome on the test vault (Basics, Clan with Banu Haqim,
+  Advantages, Beliefs). `tsc` green.
+
+## 2026-10-04 — VtM builder draws its own page (matches the mockup)
+
+- Restyling the shared frame couldn't match the mockup: its checklist,
+  summary and buttons are D&D's markup, `builder.css` won on the page
+  background, and one combined CSS let builder and sheet classes collide.
+- `BuilderDefinition.Frame` (replaces the short-lived `Aside`): a system can
+  draw the whole builder page; `CharacterBuilder` keeps the shared draft
+  logic (load, autosave, finish) and passes it as `BuilderFrameProps`.
+- `Vtm5BuilderFrame`: the mockup's markup (progress with steps and "N LEFT",
+  summary strip with portrait, step title and lead, step body, ‹ / Next ›,
+  explanation column that opens on the step's current pick).
+- CSS split and scoped: `vtm5-builder.css` (`.vtm5-builder`, from
+  `mockup.css` + `builder-v2.css`) and `vtm5-sheet.css` (`.vtm5-sheet`, from
+  `mockup.css` + `panels.css` + `sheet-v2.css`); the old `vtm5.css` is gone.
+- Compared in Chrome against `builder-v2-c-aside.html` (Basics, Clan,
+  Attributes): same structure and look. The sheet wasn't compared yet (no
+  finished VtM character in the test vault).
+
+## 2026-10-04 — VtM builder dressed as the chosen mockup
+
+- The shared builder frame on VtM pages (`.builder-page.vtm5-page` in
+  `systems/vtm5/vtm5.css`) now follows builder v2 · C: dark red page, framed
+  boxes with corner diamonds, the progress checklist's bar, steps, dots and
+  badges, the step buttons, column widths 210 / main / 360. D&D's builder is
+  unchanged (the rules only apply under `.vtm5-page`).
+- `Vtm5StepPage` shows each step's title and lead under the summary strip,
+  as in the mockup.
+
+## 2026-10-04 — System picker in the app's own look
+
+- `/characters/new` (`builder/SystemPicker.tsx`) no longer uses the D&D
+  builder's frames: it is an `app-page` with the home's `SystemCards`
+  (available systems, plus "Coming soon"), styles in `home/home.css`
+  (`.system-picker`). Web tests green.
+
+## 2026-10-04 — VtM first deliverable: creation and read-only sheet
+
+- New system `vtm-v5`, creatable from the home page. Backend `ruleset/vtm5`
+  (game system, curated content JSON, creation flow with the core creation
+  rules, summarizer, its own content and sheet endpoints); web
+  `systems/vtm5` (builder on the shared frame with an explanation column,
+  read-only sheet in the sheet-v2 layout, header mark, scoped CSS).
+- Shared code: `BuilderDefinition.Aside` (optional right column);
+  `CharacterDraftService.finish` applies starting gear only when there is some.
+- `index.html` loads Cormorant and EB Garamond (VtM's type).
+- Home/Landing tests pinned to the single-system scenario they cover (the app
+  now has two systems, so "Create character" opens the picker).
+- **Deferred by the owner:** VtM tests; browser check. Details and debt in
+  `systems/vtm-v5/features/implementation-plan.md` §5b.
+- `tsc`, `vite build`, web tests (251) and API compile green.
+
+## 2026-10-04 — VtM V1a, first steps
+
+- Web: `sheet/sheetLayouts.ts` (sheet screen per system id, D&D's is
+  `CharacterSheetScreen`) with `sheetLayouts.test.ts`; `AppShell`'s sheet route
+  uses it and returns to the list for a system without a layout (no fallback
+  to D&D).
+- API: `CharacterCreationFlow.withLevelUp` is now a default method that throws
+  `LevelUpNotAllowedException`, so systems without levels don't implement it.
+- Survey of the shared code still bound to D&D recorded in
+  `systems/vtm-v5/features/implementation-plan.md` §5b "Where it stopped"
+  (the draft flow's starting equipment and vitals preview).
+- Web 251 tests, `tsc` and API tests green.
+
+## 2026-10-04 — adr-0009: shared platform, each system its own sheet
+
+- Owner's direction recorded as `decisions/adr-0009-shared-platform-own-system-structure.md`:
+  common flows (create, system choice, portrait, list, builder frame) shared
+  and routed by system id; each system's sheet, actions and rolls in its own
+  package/folder; D&D's code stays; web reuses D&D's visual components.
+- VtM plan §5b updated to it, with the next steps under "Where it stopped".
+
+## 2026-10-04 — VtM V1 design (no code)
+
+- Reading the ruleset seams for VtM showed `SheetCalculator`, `SheetMutator`,
+  `CharacterCreationFlow` and the sheet endpoints are D&D-shaped. Phase 12's
+  rule says stop and discuss, so the proposed V1 design (new `SheetPresenter`
+  and `SheetActionHandler` seams with generic endpoints, D&D untouched; web
+  sheet-layout registry; content as a curated JSON first) and a revised slice
+  order are in `systems/vtm-v5/features/implementation-plan.md` §5b, with a
+  "Where it stopped" note. Waiting for the owner's OK.
 
 ## 2026-10-04 — PR #8 checks, third round (CI Sonar analysis)
 
@@ -1274,7 +2113,7 @@ and the golden arrow (`features/leveling-and-appearance.md`, slice 8).
   is picked by game system in `levelup/levelUpPages.ts`.
 - **API client:** `levelup/levelUpApi.ts`. `getLevelUp` returns null when no
   level up is in progress.
-- **`Dnd5eLevelUpPage`**, in the builder's look (DDB Red):
+- **`Dnd5eLevelUpPage`**, in the builder's look (DND Red):
   - with no level up in progress, it offers "Class N → N+1" for each class
     the character has, and a select for a new class (multiclass);
   - once started, it shows what the level grants (the progression row's
@@ -1582,9 +2421,9 @@ feature. Level-up's migration moves to V9.
 
 ---
 
-## 2026-09-27 — Leveling and appearance, slice 1: DDB Red everywhere
+## 2026-09-27 — Leveling and appearance, slice 1: DND Red everywhere
 
-Owner request: make DDB Red the D&D 5e default in the sheet, the builder and
+Owner request: make DND Red the D&D 5e default in the sheet, the builder and
 the dice tray (`features/leveling-and-appearance.md`, slice 1).
 - **New `systems/dnd5e/themes.css`:** `--theme-accent: #C53131`. It is
   imported by the sheet, the builder and the system picker.
@@ -1604,7 +2443,7 @@ the dice tray (`features/leveling-and-appearance.md`, slice 1).
   - **Cast buttons** are filled theme buttons (owner request): white text on
     the accent. On hover they turn `--theme-accent-dark` with an inset
     `--theme-accent-darker` shadow, which is D&D Beyond's `#9C2727` and
-    `#731D1D` for DDB Red. Both are mixed from the accent in `themes.css`.
+    `#731D1D` for DND Red. Both are mixed from the accent in `themes.css`.
 - **Dice tray:** the dice button and the Roll button follow the theme.
 - **Builder:**
   - `--builder-ink`, `--builder-chip-on` and `--builder-pending` use the
@@ -1625,10 +2464,10 @@ Left out: the other 13 themes and the per-character choice (slice 6).
 
 ---
 
-## 2026-09-27 — Plan revised: DDB Red default, level up arrow, home dark theme, death saves
+## 2026-09-27 — Plan revised: DND Red default, level up arrow, home dark theme, death saves
 
 The owner decided:
-- **DDB Red** is the D&D 5e default, for the sheet, the builder and the level
+- **DND Red** is the D&D 5e default, for the sheet, the builder and the level
   up page, with the blue-gray becoming "Cleric Silver".
 - **Leveling up** is a Level up button under Manage experience, plus a golden
   up-arrow by the portrait while a level up is pending, with no automatic
@@ -1639,7 +2478,7 @@ They also added:
 - death saving throws in D&D Beyond's style.
 
 `features/leveling-and-appearance.md` was rewritten. It now has:
-- a scan of where D&D Beyond applies the theme color (Seyrie, DDB Red);
+- a scan of where D&D Beyond applies the theme color (Seyrie, DND Red);
 - the death saves box as observed at 0 HP, and the PHB death save rules;
 - nine slices.
 

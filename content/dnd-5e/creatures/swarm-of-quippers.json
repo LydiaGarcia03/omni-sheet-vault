@@ -1,0 +1,73 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "swarm-of-quippers",
+  "name" : "Swarm of Quippers",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 338,
+  "tags" : [ "underwater" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Swarm of Tiny beasts",
+    "alignment" : "unaligned",
+    "armorClass" : 13,
+    "armorClassText" : "13",
+    "hitPoints" : 28,
+    "hitDice" : "8d8 - 8",
+    "speed" : 0,
+    "additionalSpeeds" : "Swim 40 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 9,
+      "save" : -1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 1,
+      "save" : -5
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 7,
+      "save" : -2
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 2,
+      "save" : -4
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 60 ft., passive Perception 8",
+    "languages" : "—",
+    "challengeRating" : "1",
+    "damageVulnerabilities" : null,
+    "damageResistances" : "bludgeoning, piercing, slashing",
+    "damageImmunities" : null,
+    "conditionImmunities" : "charmed, frightened, grappled, paralyzed, petrified, prone, restrained, stunned",
+    "traits" : [ {
+      "name" : "Blood Frenzy",
+      "description" : "The swarm has advantage on melee attack rolls against any creature that doesn't have all its hit points."
+    }, {
+      "name" : "Swarm",
+      "description" : "The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny quipper. The swarm can't regain hit points or gain temporary hit points."
+    }, {
+      "name" : "Water Breathing",
+      "description" : "The swarm can breathe only underwater."
+    } ],
+    "actions" : [ {
+      "name" : "Bites",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 0 ft., one creature in the swarm's space. Hit: 14 (4d6) piercing damage, or 7 (2d6) piercing damage if the swarm has half of its hit points or fewer."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underwater" ]
+  }
+}

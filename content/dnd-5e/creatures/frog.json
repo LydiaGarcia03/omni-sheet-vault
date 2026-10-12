@@ -1,0 +1,73 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "frog",
+  "name" : "Frog",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 322,
+  "tags" : [ "familiar" ],
+  "description" : null,
+  "data" : {
+    "size" : "Tiny",
+    "creatureType" : "Beast",
+    "alignment" : "unaligned",
+    "armorClass" : 11,
+    "armorClassText" : "11",
+    "hitPoints" : 1,
+    "hitDice" : "1d4 - 1",
+    "speed" : 20,
+    "additionalSpeeds" : "Swim 20 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 1,
+      "save" : -5
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 1,
+      "save" : -5
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 3,
+      "save" : -4
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 1
+    }, {
+      "name" : "Stealth",
+      "bonus" : 3
+    } ],
+    "senses" : "darkvision 30 ft., passive Perception 11",
+    "languages" : "—",
+    "challengeRating" : "0",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Amphibious",
+      "description" : "The frog can breathe air and water."
+    }, {
+      "name" : "Standing Leap",
+      "description" : "The frog's long jump is up to 10 feet and its high jump is up to 5 feet, with or without a running start."
+    } ],
+    "actions" : [ ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : true,
+    "environments" : [ ]
+  }
+}

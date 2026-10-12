@@ -1,0 +1,91 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "weretiger",
+  "name" : "Weretiger",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 210,
+  "tags" : [ "grassland", "forest", "desert" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (human, shapechanger)",
+    "alignment" : "neutral",
+    "armorClass" : 12,
+    "armorClassText" : "12",
+    "hitPoints" : 120,
+    "hitDice" : "16d8 + 48",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 17,
+      "save" : 3
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 11,
+      "save" : 0
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 5
+    }, {
+      "name" : "Stealth",
+      "bonus" : 4
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 15",
+    "languages" : "Common (can't speak in tiger form)",
+    "challengeRating" : "4",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : "bludgeoning, piercing, and slashing from nonmagical attacks that aren't silvered",
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Shapechanger",
+      "description" : "The weretiger can use its action to polymorph into a tiger-humanoid hybrid or into a tiger, or back into its true form, which is humanoid. Its statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies."
+    }, {
+      "name" : "Keen Hearing and Smell",
+      "description" : "The weretiger has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+    }, {
+      "name" : "Pounce (Tiger or Hybrid Form Only)",
+      "description" : "If the weretiger moves at least 15 feet straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 14 Strength saving throw or be knocked prone. If the target is prone, the weretiger can make one bite attack against it as a bonus action."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack (Humanoid or Hybrid Form Only)",
+      "description" : "In humanoid form, the weretiger makes two scimitar attacks or two longbow attacks. In hybrid form, it can attack like a humanoid or make two claw attacks."
+    }, {
+      "name" : "Bite (Tiger or Hybrid Form Only)",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 8 (1d10 + 3) piercing damage. If the target is a humanoid, it must succeed on a DC 13 Constitution saving throw or be cursed with weretiger lycanthropy."
+    }, {
+      "name" : "Claw (Tiger or Hybrid Form Only)",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 7 (1d8 + 3) slashing damage."
+    }, {
+      "name" : "Scimitar (Humanoid or Hybrid Form Only)",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) slashing damage."
+    }, {
+      "name" : "Longbow (Humanoid or Hybrid Form Only)",
+      "description" : "Ranged Weapon Attack: +4 to hit, range 150/600 ft., one target. Hit: 6 (1d8 + 2) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "grassland", "forest", "desert" ]
+  }
+}

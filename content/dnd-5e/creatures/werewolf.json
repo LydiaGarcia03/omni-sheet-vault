@@ -1,0 +1,85 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "werewolf",
+  "name" : "Werewolf",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 211,
+  "tags" : [ "forest", "hill" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (human, shapechanger)",
+    "alignment" : "chaotic evil",
+    "armorClass" : 11,
+    "armorClassText" : "11 in humanoid form, 12 (natural armor) in wolf or hybrid form",
+    "hitPoints" : 58,
+    "hitDice" : "9d8 + 18",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 10,
+      "save" : 0
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 4
+    }, {
+      "name" : "Stealth",
+      "bonus" : 3
+    } ],
+    "senses" : "passive Perception 14",
+    "languages" : "Common (can't speak in wolf form)",
+    "challengeRating" : "3",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : "bludgeoning, piercing, and slashing from nonmagical attacks that aren't silvered",
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Shapechanger",
+      "description" : "The werewolf can use its action to polymorph into a wolf-humanoid hybrid or into a wolf, or back into its true form, which is humanoid. Its statistics, other than its AC, are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies."
+    }, {
+      "name" : "Keen Hearing and Smell",
+      "description" : "The werewolf has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack (Humanoid or Hybrid Form Only)",
+      "description" : "The werewolf makes two attacks: two with its spear (humanoid form) or one with its bite and one with its claws (hybrid form)."
+    }, {
+      "name" : "Bite (Wolf or Hybrid Form Only)",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 (1d8 + 2) piercing damage. If the target is a humanoid, it must succeed on a DC 12 Constitution saving throw or be cursed with werewolf lycanthropy."
+    }, {
+      "name" : "Claws (Hybrid Form Only)",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 7 (2d4 + 2) slashing damage."
+    }, {
+      "name" : "Spear (Humanoid Form Only)",
+      "description" : "Melee Weapon  or Ranged Weapon Attack: +4 to hit, reach 5 ft. or range 20/60 ft., one creature. Hit: 5 (1d6 + 2) piercing damage, or 6 (1d8 + 2) piercing damage if used with two hands to make a melee attack."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "forest", "hill" ]
+  }
+}

@@ -28,6 +28,7 @@ import {
 const MAX_CHARACTER_LEVEL = 20;
 const ASI_OR_FEAT = 'ASI_OR_FEAT';
 const ROLLED_HIT_POINTS = 'ROLLED_HIT_POINTS';
+const HIT_POINT_TYPES = new Set([ROLLED_HIT_POINTS, 'FIXED_HIT_POINTS']);
 
 const STEP_LEADS: Record<string, string> = {
   basics: 'Name, portrait, the books this character draws from and the rules it follows.',
@@ -125,6 +126,7 @@ function StepContent(props: StepPageProps) {
     case 'equipment':
       return (
         <Dnd5eEquipmentStep
+          characterId={props.characterId}
           choices={props.choices}
           onAnswer={answer}
           startingEquipment={props.preview.startingEquipment}
@@ -220,7 +222,7 @@ function ClassChoices({ characterId, choices, preview, build, onAnswer, onBuildC
   const stepChoices = choices.filter((choice) => choice.id !== 'build.classes');
   const classSlugs = new Set(build.classes.map((entry) => entry.classSlug));
   const inClass = stepChoices.filter((choice) => choice.group && classSlugs.has(choice.group));
-  const hitPointChoice = stepChoices.find((choice) => choice.type === ROLLED_HIT_POINTS);
+  const hitPointChoice = stepChoices.find((choice) => HIT_POINT_TYPES.has(choice.type));
   const other = stepChoices.filter((choice) => (!choice.group || !classSlugs.has(choice.group)) && choice !== hitPointChoice);
   const hasHitPointRows = (classSlug: string) =>
     hitPointChoice?.options.some((option) => (option.data as { group?: string } | undefined)?.group === classSlug) ?? false;
@@ -261,7 +263,7 @@ export function choiceRenderer({ characterId, choices, build, onAnswer, onBuildC
   const isNested = (choice: CreationChoice) => choice.parentChoiceId !== null && asiOrFeatIds.has(choice.parentChoiceId);
   const renderChoice = (choice: CreationChoice): ReactNode => {
     const onChange = (selected: string[]) => onAnswer(choice.id, selected);
-    if (choice.type === ROLLED_HIT_POINTS) {
+    if (HIT_POINT_TYPES.has(choice.type)) {
       return <Dnd5eRolledHitPointsField key={choice.id} characterId={characterId} choice={choice} build={build} onChange={onBuildChange} />;
     }
     if (choice.type === ASI_OR_FEAT) {

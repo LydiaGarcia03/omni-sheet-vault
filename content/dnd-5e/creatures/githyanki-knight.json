@@ -1,0 +1,70 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "githyanki-knight",
+  "name" : "Githyanki Knight",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 160,
+  "tags" : [ ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (gith)",
+    "alignment" : "lawful evil",
+    "armorClass" : 18,
+    "armorClassText" : "18 (plate armor)",
+    "hitPoints" : 91,
+    "hitDice" : "14d8 + 28",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 15,
+      "save" : 5
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 14,
+      "save" : 5
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 14,
+      "save" : 5
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 15,
+      "save" : 2
+    } ],
+    "skills" : [ ],
+    "senses" : "passive Perception 12",
+    "languages" : "Gith",
+    "challengeRating" : "8",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Innate Spellcasting (Psionics)",
+      "description" : "The githyanki's innate spellcasting ability is Intelligence (spell save DC 13, +5 to hit with spell attacks). It can innately cast the following spells, requiring no components:\nAt will: mage hand (the hand is invisible)\n3/day each: jump, misty step, nondetection (self only), tongues\n1/day each: plane shift, telekinesis"
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The githyanki makes two silver greatsword attacks."
+    }, {
+      "name" : "Silver Greatsword",
+      "description" : "Melee Weapon Attack: +9 to hit, reach 5 ft., one target. Hit: 13 (2d6 + 6) slashing damage plus 10 (3d6) psychic damage. This is a magic weapon attack. On a critical hit against a target in an astral body (as with the astral projection spell), the githyanki can cut the silvery cord that tethers the target to its material body, instead of dealing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ ]
+  }
+}

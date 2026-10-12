@@ -1,0 +1,79 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "troll",
+  "name" : "Troll",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 291,
+  "tags" : [ "underdark", "mountain", "forest", "swamp", "hill", "arctic" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Giant",
+    "alignment" : "chaotic evil",
+    "armorClass" : 15,
+    "armorClassText" : "15 (natural armor)",
+    "hitPoints" : 84,
+    "hitDice" : "8d10 + 40",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 18,
+      "save" : 4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 20,
+      "save" : 5
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 7,
+      "save" : -2
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 9,
+      "save" : -1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 7,
+      "save" : -2
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 2
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 12",
+    "languages" : "Giant",
+    "challengeRating" : "5",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Keen Smell",
+      "description" : "The troll has advantage on Wisdom (Perception) checks that rely on smell."
+    }, {
+      "name" : "Regeneration",
+      "description" : "The troll regains 10 hit points at the start of its turn. If the troll takes acid or fire damage, this trait doesn't function at the start of the troll's next turn. The troll dies only if it starts its turn with 0 hit points and doesn't regenerate."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The troll makes three attacks: one with its bite and two with its claws."
+    }, {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 7 (1d6 + 4) piercing damage."
+    }, {
+      "name" : "Claw",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) slashing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark", "mountain", "forest", "swamp", "hill", "arctic" ]
+  }
+}

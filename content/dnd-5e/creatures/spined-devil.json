@@ -1,0 +1,85 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "spined-devil",
+  "name" : "Spined Devil",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 78,
+  "tags" : [ ],
+  "description" : null,
+  "data" : {
+    "size" : "Small",
+    "creatureType" : "Fiend (devil)",
+    "alignment" : "lawful evil",
+    "armorClass" : 13,
+    "armorClassText" : "13 (natural armor)",
+    "hitPoints" : 22,
+    "hitDice" : "5d6 + 5",
+    "speed" : 20,
+    "additionalSpeeds" : "Fly 40 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 8,
+      "save" : -1
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 120 ft., passive Perception 12",
+    "languages" : "Infernal, telepathy 120 ft.",
+    "challengeRating" : "2",
+    "damageVulnerabilities" : null,
+    "damageResistances" : "cold; bludgeoning, piercing, and slashing from nonmagical attacks that aren't silvered",
+    "damageImmunities" : "fire, poison",
+    "conditionImmunities" : "poisoned",
+    "traits" : [ {
+      "name" : "Devil's Sight",
+      "description" : "Magical darkness doesn't impede the devil's darkvision."
+    }, {
+      "name" : "Flyby",
+      "description" : "The devil doesn't provoke an opportunity attack when it flies out of an enemy's reach."
+    }, {
+      "name" : "Limited Spines",
+      "description" : "The devil has twelve tail spines. Used spines regrow by the time the devil finishes a long rest."
+    }, {
+      "name" : "Magic Resistance",
+      "description" : "The devil has advantage on saving throws against spells and other magical effects."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The devil makes two attacks: one with its bite and one with its fork or two with its tail spines."
+    }, {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 5 (2d4) slashing damage."
+    }, {
+      "name" : "Fork",
+      "description" : "Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 3 (1d6) piercing damage."
+    }, {
+      "name" : "Tail Spine",
+      "description" : "Ranged Weapon Attack: +4 to hit, range 20/80 ft., one target. Hit: 4 (1d4 + 2) piercing damage plus 3 (1d6) fire damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ ]
+  }
+}

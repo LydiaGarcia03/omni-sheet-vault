@@ -56,7 +56,7 @@ export type Dnd5ePreferences = {
   ignoreCoinWeight: boolean;
 };
 
-export const LOCKED_SOURCES = ["Player's Handbook", "Dungeon Master's Guide"];
+export const LOCKED_SOURCES = ["Player's Handbook", "Dungeon Master's Guide", 'Monster Manual'];
 
 /** Source codes of the books listed first among the optional ones, in this order. */
 export const FEATURED_SOURCE_CODES = ['XGE', 'TCE', 'GGR', 'ERLW', 'SCAG'];
@@ -149,12 +149,12 @@ const CHECKLIST_GROUPS: [string, string[]][] = [
   ['Subclass', ['SUBCLASS']],
   ['Background', ['BACKGROUND']],
   ['Ability scores', ['ABILITY_SCORES']],
-  ['Hit points', ['ROLLED_HIT_POINTS']],
+  ['Hit points', ['ROLLED_HIT_POINTS', 'FIXED_HIT_POINTS']],
   ['Ability increases & feats', ['ASI_OR_FEAT', 'ABILITY_SCORE', 'FEAT']],
   ['Proficiencies', ['SKILL', 'TOOL', 'LANGUAGE', 'WEAPON', 'ARMOR', 'SAVING_THROW', 'EXPERTISE', 'SKILL_TOOL_LANGUAGE', 'RESISTANCE']],
   ['Class features', ['FEATURE_OPTION', 'OPTIONAL_FEATURE', 'ALTERNATIVE']],
   ['Spells', ['CANTRIP', 'SPELL', 'SPELLBOOK', 'PREPARED_SPELL', 'SPELL_SET', 'SPELLCASTING_ABILITY']],
-  ['Starting equipment', ['EQUIPMENT_METHOD', 'EQUIPMENT', 'EQUIPMENT_ITEM']],
+  ['Starting equipment', ['EQUIPMENT_METHOD', 'STARTING_GOLD', 'EQUIPMENT', 'EQUIPMENT_ITEM']],
 ];
 const GROUP_BY_TYPE = new Map(CHECKLIST_GROUPS.flatMap(([group, types]) => types.map((type) => [type, group] as const)));
 const GROUP_ORDER = CHECKLIST_GROUPS.map(([group]) => group);
@@ -237,11 +237,27 @@ export function withSelection(build: Dnd5eBuild, choiceId: string, selections: s
   return { ...build, choices: selections.length === 0 ? others : [...others, { id: choiceId, selections }] };
 }
 
-/** Drops answers to choices the plan no longer offers, e.g. after the species or a class changed. */
+/**
+ * Drops answers to choices the plan no longer offers, e.g. after the species or a class changed. An ordered
+ * answer the plan now splits into one pick per slot (`id:1`, `id:2`…) moves into those slots instead.
+ */
 export function withoutStaleAnswers(build: Dnd5eBuild, plan: BuildPlan): Dnd5eBuild {
   const offered = new Set(plan.choices.map((choice) => choice.id));
-  const kept = build.choices.filter((choice) => offered.has(choice.id));
-  return kept.length === build.choices.length ? build : { ...build, choices: kept };
+  const answered = new Set(build.choices.map((choice) => choice.id));
+  const kept: Dnd5eBuild['choices'] = [];
+  let changed = false;
+  for (const choice of build.choices) {
+    if (offered.has(choice.id)) {
+      kept.push(choice);
+      continue;
+    }
+    changed = true;
+    const slots = choice.selections.map((selection, index) => ({ id: `${choice.id}:${index + 1}`, selections: [selection] }));
+    if (slots.length > 0 && slots.every((slot) => offered.has(slot.id) && !answered.has(slot.id))) {
+      kept.push(...slots);
+    }
+  }
+  return changed ? { ...build, choices: kept } : build;
 }
 
 export function withClassAdded(build: Dnd5eBuild, classSlug: string): Dnd5eBuild {

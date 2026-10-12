@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { BackgroundCatalogueEntryData } from '../../catalogue/api';
 import type { RollContextMenuHandler, RollHandler } from '../../dice/api';
-import type { BackgroundField, CharacterSheet, EntityDetailHandler, MutationHandler, TextFieldRequest } from '../../sheet/api';
+import type { BackgroundField, CharacterSheet, EntityDetailHandler, MutationHandler, PaneHandler, TextFieldRequest } from '../../sheet/api';
 import { TabBar } from '../../sheet/TabBar';
 import { ActionsTab } from './ActionsTab';
 import { BackgroundTab } from './BackgroundTab';
@@ -36,6 +36,7 @@ type Dnd5eTabbedSectionProps = {
   onRollContextMenu: RollContextMenuHandler;
   onMutate: MutationHandler;
   onOpenDetail: EntityDetailHandler;
+  onOpenPane: PaneHandler;
   onOpenSpellManagement: () => void;
   onOpenManageCustomActions: () => void;
   onOpenManageInventory: () => void;
@@ -99,6 +100,7 @@ export function Dnd5eTabbedSection({
   onRollContextMenu,
   onMutate,
   onOpenDetail,
+  onOpenPane,
   onOpenSpellManagement,
   onOpenManageCustomActions,
   onOpenManageInventory,
@@ -160,7 +162,7 @@ export function Dnd5eTabbedSection({
               onOpenTextField={onOpenTextField}
             />
           )}
-          {effectiveTab === 'extras' && <ExtrasTab sheet={sheet} onMutate={onMutate} onOpenDetail={onOpenDetail} />}
+          {effectiveTab === 'extras' && <ExtrasTab sheet={sheet} onMutate={onMutate} onOpenDetail={onOpenDetail} onOpenPane={onOpenPane} />}
         </div>
       </div>
     </div>

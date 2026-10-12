@@ -1,0 +1,85 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "scout",
+  "name" : "Scout",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 349,
+  "tags" : [ "coastal", "mountain", "grassland", "hill", "arctic", "forest", "swamp", "underdark", "desert" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (any race)",
+    "alignment" : "any alignment",
+    "armorClass" : 13,
+    "armorClassText" : "13 (leather armor)",
+    "hitPoints" : 16,
+    "hitDice" : "3d8 + 3",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 11,
+      "save" : 0
+    } ],
+    "skills" : [ {
+      "name" : "Nature",
+      "bonus" : 4
+    }, {
+      "name" : "Perception",
+      "bonus" : 5
+    }, {
+      "name" : "Stealth",
+      "bonus" : 6
+    }, {
+      "name" : "Survival",
+      "bonus" : 5
+    } ],
+    "senses" : "passive Perception 15",
+    "languages" : "any one language (usually Common)",
+    "challengeRating" : "1/2",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Keen Hearing and Sight",
+      "description" : "The scout has advantage on Wisdom (Perception) checks that rely on hearing or sight."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The scout makes two melee attacks or two ranged attacks."
+    }, {
+      "name" : "Shortsword",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage."
+    }, {
+      "name" : "Longbow",
+      "description" : "Ranged Weapon Attack: +4 to hit, ranged 150/600 ft., one target. Hit: 6 (1d8 + 2) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "coastal", "mountain", "grassland", "hill", "arctic", "forest", "swamp", "underdark", "desert" ]
+  }
+}

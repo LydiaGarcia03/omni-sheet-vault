@@ -1,0 +1,76 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "owl",
+  "name" : "Owl",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 333,
+  "tags" : [ "familiar", "forest", "arctic" ],
+  "description" : null,
+  "data" : {
+    "size" : "Tiny",
+    "creatureType" : "Beast",
+    "alignment" : "unaligned",
+    "armorClass" : 11,
+    "armorClassText" : "11",
+    "hitPoints" : 1,
+    "hitDice" : "1d4 - 1",
+    "speed" : 5,
+    "additionalSpeeds" : "Fly 60 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 3,
+      "save" : -4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 2,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 7,
+      "save" : -2
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 3
+    }, {
+      "name" : "Stealth",
+      "bonus" : 3
+    } ],
+    "senses" : "darkvision 120 ft., passive Perception 13",
+    "languages" : "—",
+    "challengeRating" : "0",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Flyby",
+      "description" : "The owl doesn't provoke opportunity attacks when it flies out of an enemy's reach."
+    }, {
+      "name" : "Keen Hearing and Sight",
+      "description" : "The owl has advantage on Wisdom (Perception) checks that rely on hearing or sight."
+    } ],
+    "actions" : [ {
+      "name" : "Talons",
+      "description" : "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 1 slashing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : true,
+    "environments" : [ "forest", "arctic" ]
+  }
+}

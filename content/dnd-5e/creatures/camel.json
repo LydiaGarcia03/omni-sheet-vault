@@ -1,0 +1,64 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "camel",
+  "name" : "Camel",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 320,
+  "tags" : [ "desert" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Beast",
+    "alignment" : "unaligned",
+    "armorClass" : 9,
+    "armorClassText" : "9",
+    "hitPoints" : 15,
+    "hitDice" : "2d10 + 4",
+    "speed" : 50,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 2,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 5,
+      "save" : -3
+    } ],
+    "skills" : [ ],
+    "senses" : "passive Perception 9",
+    "languages" : "—",
+    "challengeRating" : "1/8",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ ],
+    "actions" : [ {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 2 (1d4) bludgeoning damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "desert" ]
+  }
+}

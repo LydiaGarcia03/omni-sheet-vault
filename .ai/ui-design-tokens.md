@@ -85,7 +85,7 @@ used at the table gets the emphasis — keep that hierarchy.
 
 | Token | Value | Purpose |
 | --- | --- | --- |
-| `--theme-accent` | `#C53131` (DDB Red) | The D&D 5e theme color, in `systems/dnd5e/themes.css` |
+| `--theme-accent` | `#C53131` (DND Red) | The D&D 5e theme color, in `systems/dnd5e/themes.css` |
 | `--theme-accent-dark` | accent 79% + black (`#9C2727`) | Filled theme button on hover (Cast) |
 | `--theme-accent-darker` | accent 58.5% + black (`#731D1D`) | Inset shadow of a hovered filled theme button |
 | `--theme-accent-strong` | `var(--theme-accent)`; `#2B69AB` under Cleric Silver | Solid fills (Roll, remaining slots) through `--accent-control-saturated` |
@@ -95,7 +95,7 @@ used at the table gets the emphasis — keep that hierarchy.
   Beyond theme. Each sets `--theme-accent`, and Cleric Silver also sets
   `--theme-accent-strong`.
 - `useSheetTheme` sets the attribute on the root element while a sheet is
-  open, and clears it on leaving, so the builder is always DDB Red.
+  open, and clears it on leaving, so the builder is always DND Red.
 - The list of theme ids lives in `systems/dnd5e/sheetThemes.ts` for the web,
   and in `Dnd5eAppearance.THEMES` for the API.
 | `--frame-ink` | `var(--theme-accent)` | Frame outline |
@@ -129,7 +129,7 @@ The sheet maps each of these to `--theme-accent`, directly or through
 | `--roll-bg-hover` | `rgba(57, 75, 89, 0.10)` |
 | Hover transition | `background-color 120ms ease` |
 | `--accent-control` | `var(--theme-accent)` — active filter chip fill, active tab underline, headings, links, outlined buttons |
-| `--accent-control-hover` | `#525C63` — inactive filter chip on hover; the same under every theme (measured on DDB Red and Cleric Silver). Outlined "Manage" buttons have no hover color change |
+| `--accent-control-hover` | `#525C63` — inactive filter chip on hover; the same under every theme (measured on DND Red and Cleric Silver). Outlined "Manage" buttons have no hover color change |
 | `--accent-control-saturated` | `var(--theme-accent)` — solid button fill (Roll, remaining-slot badge). A light theme such as Cleric Silver needs a darker value here (`#2B69AB`, the same hue at 60%/42%), because its accent is too low-contrast to read as a filled button |
 | `--surface-control` | `#ECEDEE` — inactive filter chip fill (also its hover text color) |
 | `--text-control-muted` | `#75838B` — inactive filter chip text (also an active chip's hover fill) |

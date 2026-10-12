@@ -1,0 +1,67 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "zombie",
+  "name" : "Zombie",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 316,
+  "tags" : [ "urban" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Undead",
+    "alignment" : "neutral evil",
+    "armorClass" : 8,
+    "armorClassText" : "8",
+    "hitPoints" : 22,
+    "hitDice" : "3d8 + 9",
+    "speed" : 20,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 6,
+      "save" : -2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 3,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 6,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 5,
+      "save" : -3
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 60 ft., passive Perception 8",
+    "languages" : "understands all languages it spoke in life but can't speak",
+    "challengeRating" : "1/4",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : "poison",
+    "conditionImmunities" : "poisoned",
+    "traits" : [ {
+      "name" : "Undead Fortitude",
+      "description" : "If damage reduces the zombie to 0 hit points, it must make a Constitution saving throw with a DC of 5 + the damage taken, unless the damage is radiant or from a critical hit. On a success, the zombie drops to 1 hit point instead."
+    } ],
+    "actions" : [ {
+      "name" : "Slam",
+      "description" : "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) bludgeoning damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "urban" ]
+  }
+}

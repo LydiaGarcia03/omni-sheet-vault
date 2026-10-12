@@ -1,0 +1,76 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "giant-eagle",
+  "name" : "Giant Eagle",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 324,
+  "tags" : [ "mountain", "grassland", "hill", "coastal" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Beast",
+    "alignment" : "neutral good",
+    "armorClass" : 13,
+    "armorClassText" : "13",
+    "hitPoints" : 26,
+    "hitDice" : "4d10 + 4",
+    "speed" : 10,
+    "additionalSpeeds" : "Fly 80 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 17,
+      "save" : 3
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 10,
+      "save" : 0
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 4
+    } ],
+    "senses" : "passive Perception 14",
+    "languages" : "Giant Eagle, understands Common and Auran but can't speak them",
+    "challengeRating" : "1",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Keen Sight",
+      "description" : "The eagle has advantage on Wisdom (Perception) checks that rely on sight."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The eagle makes two attacks: one with its beak and one with its talons."
+    }, {
+      "name" : "Beak",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) piercing damage."
+    }, {
+      "name" : "Talons",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) slashing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "mountain", "grassland", "hill", "coastal" ]
+  }
+}

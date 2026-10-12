@@ -1,0 +1,73 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "myconid-sprout",
+  "name" : "Myconid Sprout",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 230,
+  "tags" : [ "underdark" ],
+  "description" : null,
+  "data" : {
+    "size" : "Small",
+    "creatureType" : "Plant",
+    "alignment" : "lawful neutral",
+    "armorClass" : 10,
+    "armorClassText" : "10",
+    "hitPoints" : 7,
+    "hitDice" : "2d6",
+    "speed" : 10,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 5,
+      "save" : -3
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 120 ft., passive Perception 10",
+    "languages" : "—",
+    "challengeRating" : "0",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Distress Spores",
+      "description" : "When the myconid takes damage, all other myconids within 240 feet of it can sense its pain."
+    }, {
+      "name" : "Sun Sickness",
+      "description" : "While in sunlight, the myconid has disadvantage on ability checks, attack rolls, and saving throws. The myconid dies if it spends more than 1 hour in direct sunlight."
+    } ],
+    "actions" : [ {
+      "name" : "Fist",
+      "description" : "Melee Weapon Attack: +1 to hit, reach 5 ft., one target. Hit: 1 (1d4 - 1) bludgeoning damage plus 2 (1d4) poison damage."
+    }, {
+      "name" : "Rapport Spores (3/Day)",
+      "description" : "A 10-foot radius of spores extends from the myconid. These spores can go around corners and affect only creatures with an Intelligence of 2 or higher that aren't undead, constructs, or elementals. Affected creatures can communicate telepathically with one another while they are within 30 feet of each other. The effect lasts for 1 hour."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark" ]
+  }
+}

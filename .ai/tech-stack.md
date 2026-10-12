@@ -99,6 +99,7 @@ tests are.
 | Vite | 6.4.x | Dev server on 5173 |
 | @vitejs/plugin-react | 4.7.x | |
 | Google Fonts: Cormorant, EB Garamond | — | Added 2026-10-04 for VtM 5e's sheet and header mark (link in `index.html`, beside Roboto). Offline (desktop) falls back to Georgia/serif |
+| Google Fonts: Alegreya Sans, Alegreya Sans SC | — | Added 2026-10-11 for D&D 5e creature stat blocks (`--font-stat-block`, `--font-stat-block-caps` in `frames.css`): the closest open humanist pair to D&D Beyond's licensed Scala Sans / Scala Sans SC, which can't be copied. Same `index.html` link. Offline (desktop) falls back to Roboto |
 | react-router | 7.x | Approved by the owner 2026-09-24 (D2). `BrowserRouter` in `App.tsx`; routes `/`, `/credits`, `/characters/:id`, `/characters/:id/build/:step?` in `AppShell.tsx`. |
 
 `oidc-client-ts` was removed on 2026-09-26 (ADR-0008, stage 3). The API runs

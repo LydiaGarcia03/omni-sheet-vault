@@ -1,5 +1,6 @@
 import { useState, type ReactNode } from 'react';
 import type { CreationChoice } from '../../../builder/draftApi';
+import { PendingMark } from '../../../builder/PendingMark';
 import { Segmented } from '../../../builder/Segmented';
 import { SourceSelect } from '../../../builder/SourceSelect';
 import { CatalogueSourceLabel } from '../../../sheet/CatalogueSourceLabel';
@@ -43,7 +44,10 @@ export function Dnd5eAsiOrFeatField({ choice, nested, answerFor, onAnswer, rende
   return (
     <div className={`builder-choice${pending ? ' is-pending' : ''}`}>
       <div>
-        <div className="builder-choice__label">{choice.prompt}</div>
+        <div className="builder-choice__label">
+          {choice.prompt}
+          {pending && <PendingMark />}
+        </div>
         <div className="builder-choice__from">{choice.sourceLabel}</div>
       </div>
       <div className="builder-asi-feat">

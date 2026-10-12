@@ -1,0 +1,76 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "wolf",
+  "name" : "Wolf",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 341,
+  "tags" : [ "grassland", "forest", "hill" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Beast",
+    "alignment" : "unaligned",
+    "armorClass" : 13,
+    "armorClassText" : "13 (natural armor)",
+    "hitPoints" : 11,
+    "hitDice" : "2d8 + 2",
+    "speed" : 40,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 3,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 6,
+      "save" : -2
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 3
+    }, {
+      "name" : "Stealth",
+      "bonus" : 4
+    } ],
+    "senses" : "passive Perception 13",
+    "languages" : "—",
+    "challengeRating" : "1/4",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Keen Hearing and Smell",
+      "description" : "The wolf has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+    }, {
+      "name" : "Pack Tactics",
+      "description" : "The wolf has advantage on an attack roll against a creature if at least one of the wolf's allies is within 5 feet of the creature and the ally isn't incapacitated."
+    } ],
+    "actions" : [ {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) piercing damage. If the target is a creature, it must succeed on a DC 11 Strength saving throw or be knocked prone."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "grassland", "forest", "hill" ]
+  }
+}

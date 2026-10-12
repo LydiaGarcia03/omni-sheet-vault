@@ -5,9 +5,11 @@ import dev.omnisheetvault.api.character.BuildNotReadyException;
 import dev.omnisheetvault.api.character.CharacterIsDraftException;
 import dev.omnisheetvault.api.character.CharacterNotDraftException;
 import dev.omnisheetvault.api.character.CharacterNotFoundException;
+import dev.omnisheetvault.api.character.FeatNotAllowedException;
 import dev.omnisheetvault.api.character.InvalidPortraitException;
 import dev.omnisheetvault.api.character.LevelUpNotStartedException;
 import dev.omnisheetvault.api.character.NotDyingException;
+import dev.omnisheetvault.api.identity.InvalidTutorialIdException;
 import dev.omnisheetvault.api.ruleset.LevelUpNotAllowedException;
 import dev.omnisheetvault.api.ruleset.InvalidBuildException;
 import dev.omnisheetvault.api.dice.IneligibleRollModeException;
@@ -18,6 +20,7 @@ import dev.omnisheetvault.api.ruleset.InvalidHitDiceRecoveryException;
 import dev.omnisheetvault.api.ruleset.InvalidCoinDenominationException;
 import dev.omnisheetvault.api.ruleset.InvalidConditionException;
 import dev.omnisheetvault.api.ruleset.InvalidCustomizationException;
+import dev.omnisheetvault.api.ruleset.InvalidExtraException;
 import dev.omnisheetvault.api.ruleset.InvalidSheetThemeException;
 import dev.omnisheetvault.api.ruleset.InvalidBackgroundFieldException;
 import dev.omnisheetvault.api.ruleset.InvalidCustomActionFieldException;
@@ -45,9 +48,19 @@ class ApiExceptionHandler {
     }
 
     @ExceptionHandler({CharacterIsDraftException.class, CharacterNotDraftException.class, BuildNotReadyException.class,
-            NotDyingException.class, LevelUpNotStartedException.class, LevelUpNotAllowedException.class})
+            NotDyingException.class, LevelUpNotStartedException.class, LevelUpNotAllowedException.class, FeatNotAllowedException.class})
     ProblemDetail handleWrongCreationState(RuntimeException exception) {
         return ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, exception.getMessage());
+    }
+
+    @ExceptionHandler(InvalidExtraException.class)
+    ProblemDetail handleInvalidExtra(InvalidExtraException exception) {
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, exception.getMessage());
+    }
+
+    @ExceptionHandler(InvalidTutorialIdException.class)
+    ProblemDetail handleInvalidTutorialId(InvalidTutorialIdException exception) {
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, exception.getMessage());
     }
 
     @ExceptionHandler(InvalidBuildException.class)

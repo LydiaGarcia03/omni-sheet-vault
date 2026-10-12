@@ -21,6 +21,9 @@ export function HomePage({ userName }: { userName: string }) {
   const [error, setError] = useState<string | null>(null);
   const [toDelete, setToDelete] = useState<Character | null>(null);
   const [deleting, setDeleting] = useState(false);
+  const [collapsed, setCollapsed] = useStoredState<string[]>('osv.home.collapsed', []);
+  const toggleGroup = (systemId: string) =>
+    setCollapsed(collapsed.includes(systemId) ? collapsed.filter((id) => id !== systemId) : [...collapsed, systemId]);
 
   const { create, creating, error: createError } = useCreateCharacter();
   /** "Create character" without a system: straight into the only one, or the system picker once there are several. */
@@ -113,16 +116,18 @@ export function HomePage({ userName }: { userName: string }) {
               const inSystem = characters.filter((character) => character.systemId === systemId);
               return (
                 <section key={systemId} className="home-group" aria-label={systemLabel(systemId)}>
-                  <div className="home-group__head">
-                    <h2 className="app-heading">{systemLabel(systemId)}</h2>
+                  <button type="button" className="home-group__head home-toggle" aria-expanded={!collapsed.includes(systemId)} onClick={() => toggleGroup(systemId)}>
+                    <h2 className="app-heading">{collapsed.includes(systemId) ? '▸' : '▾'} {systemLabel(systemId)}</h2>
                     <span className="app-muted">{inSystem.length}</span>
                     <div className="home-group__line" />
-                  </div>
+                  </button>
+                  {!collapsed.includes(systemId) && (
                   <div className="home-banners">
                     {inSystem.map((character) => (
                       <CharacterBanner key={character.id} character={character} onDelete={setToDelete} />
                     ))}
                   </div>
+                  )}
                 </section>
               );
             })}
@@ -149,4 +154,25 @@ function systemsWithCharacters(characters: Character[]): string[] {
 
 function countLabel(count: number): string {
   return count === 1 ? '1 character' : `${count} characters`;
+}
+
+/** A small UI preference kept in this browser; falls back to the default when storage is unavailable. */
+function useStoredState<T>(key: string, initial: T): [T, (value: T) => void] {
+  const [value, setValue] = useState<T>(() => {
+    try {
+      const stored = localStorage.getItem(key);
+      return stored === null ? initial : (JSON.parse(stored) as T);
+    } catch {
+      return initial;
+    }
+  });
+  const store = (next: T) => {
+    setValue(next);
+    try {
+      localStorage.setItem(key, JSON.stringify(next));
+    } catch {
+      // Storage unavailable: the choice lasts for this visit only.
+    }
+  };
+  return [value, store];
 }

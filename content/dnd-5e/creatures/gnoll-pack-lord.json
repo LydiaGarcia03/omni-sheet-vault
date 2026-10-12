@@ -1,0 +1,79 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "gnoll-pack-lord",
+  "name" : "Gnoll Pack Lord",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 163,
+  "tags" : [ "grassland", "forest", "hill", "desert" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (gnoll)",
+    "alignment" : "chaotic evil",
+    "armorClass" : 15,
+    "armorClassText" : "15 (chain shirt)",
+    "hitPoints" : 49,
+    "hitDice" : "9d8 + 9",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 9,
+      "save" : -1
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 60 ft., passive Perception 10",
+    "languages" : "Gnoll",
+    "challengeRating" : "2",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Rampage",
+      "description" : "When the gnoll reduces a creature to 0 hit points with a melee attack on its turn, the gnoll can take a bonus action to move up to half its speed and make a bite attack."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The gnoll makes two attacks, either with its glaive or its longbow, and uses its Incite Rampage if it can."
+    }, {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one creature. Hit: 5 (1d4 + 3) piercing damage."
+    }, {
+      "name" : "Glaive",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 10 ft., one target. Hit: 8 (1d10 + 3) slashing damage."
+    }, {
+      "name" : "Longbow",
+      "description" : "Ranged Weapon Attack: +4 to hit, range 150/600 ft., one target. Hit: 6 (1d8 + 2) piercing damage."
+    }, {
+      "name" : "Incite Rampage (Recharge 5–6)",
+      "description" : "One creature the gnoll can see within 30 feet of it can use its reaction to make a melee attack if it can hear the gnoll and has the Rampage trait."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "grassland", "forest", "hill", "desert" ]
+  }
+}

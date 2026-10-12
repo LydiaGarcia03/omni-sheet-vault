@@ -1,0 +1,76 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "black-dragon-wyrmling",
+  "name" : "Black Dragon Wyrmling",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 88,
+  "tags" : [ ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Dragon",
+    "alignment" : "chaotic evil",
+    "armorClass" : 17,
+    "armorClassText" : "17 (natural armor)",
+    "hitPoints" : 33,
+    "hitDice" : "6d8 + 6",
+    "speed" : 30,
+    "additionalSpeeds" : "Fly 60 ft., Swim 30 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 4
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 13,
+      "save" : 3
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 11,
+      "save" : 2
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 13,
+      "save" : 3
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 4
+    }, {
+      "name" : "Stealth",
+      "bonus" : 4
+    } ],
+    "senses" : "blindsight 10 ft., darkvision 60 ft., passive Perception 14",
+    "languages" : "Draconic",
+    "challengeRating" : "2",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : "acid",
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Amphibious",
+      "description" : "The dragon can breathe air and water."
+    } ],
+    "actions" : [ {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (1d10 + 2) piercing damage plus 2 (1d4) acid damage."
+    }, {
+      "name" : "Acid Breath (Recharge 5–6)",
+      "description" : "The dragon exhales acid in a 15-foot line that is 5 feet wide. Each creature in that line must make a DC 11 Dexterity saving throw, taking 22 (5d8) acid damage on a failed save, or half as much damage on a successful one."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ ]
+  }
+}

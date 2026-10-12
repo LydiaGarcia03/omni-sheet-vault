@@ -1,0 +1,67 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "warhorse",
+  "name" : "Warhorse",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 340,
+  "tags" : [ "urban" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Beast",
+    "alignment" : "unaligned",
+    "armorClass" : 11,
+    "armorClassText" : "11",
+    "hitPoints" : 19,
+    "hitDice" : "3d10 + 3",
+    "speed" : 60,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 18,
+      "save" : 4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 2,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 7,
+      "save" : -2
+    } ],
+    "skills" : [ ],
+    "senses" : "passive Perception 11",
+    "languages" : "—",
+    "challengeRating" : "1/2",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Trampling Charge",
+      "description" : "If the horse moves at least 20 feet straight toward a creature and then hits it with a hooves attack on the same turn, that target must succeed on a DC 14 Strength saving throw or be knocked prone. If the target is prone, the horse can make another attack with its hooves against it as a bonus action."
+    } ],
+    "actions" : [ {
+      "name" : "Hooves",
+      "description" : "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) bludgeoning damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "urban" ]
+  }
+}

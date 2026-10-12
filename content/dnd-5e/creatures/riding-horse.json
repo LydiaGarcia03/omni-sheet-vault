@@ -1,0 +1,64 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "riding-horse",
+  "name" : "Riding Horse",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 336,
+  "tags" : [ "grassland", "urban" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Beast",
+    "alignment" : "unaligned",
+    "armorClass" : 10,
+    "armorClassText" : "10",
+    "hitPoints" : 13,
+    "hitDice" : "2d10 + 2",
+    "speed" : 60,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 2,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 7,
+      "save" : -2
+    } ],
+    "skills" : [ ],
+    "senses" : "passive Perception 10",
+    "languages" : "—",
+    "challengeRating" : "1/4",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ ],
+    "actions" : [ {
+      "name" : "Hooves",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 8 (2d4 + 3) bludgeoning damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "grassland", "urban" ]
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "vulture",
+  "name" : "Vulture",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 339,
+  "tags" : [ "familiar", "grassland", "hill", "desert" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Beast",
+    "alignment" : "unaligned",
+    "armorClass" : 10,
+    "armorClassText" : "10",
+    "hitPoints" : 5,
+    "hitDice" : "1d8 + 1",
+    "speed" : 10,
+    "additionalSpeeds" : "Fly 50 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 7,
+      "save" : -2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 2,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 4,
+      "save" : -3
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 3
+    } ],
+    "senses" : "passive Perception 13",
+    "languages" : "—",
+    "challengeRating" : "0",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Keen Sight and Smell",
+      "description" : "The vulture has advantage on Wisdom (Perception) checks that rely on sight or smell."
+    }, {
+      "name" : "Pack Tactics",
+      "description" : "The vulture has advantage on an attack roll against a creature if at least one of the vulture's allies is within 5 feet of the creature and the ally isn't incapacitated."
+    } ],
+    "actions" : [ {
+      "name" : "Beak",
+      "description" : "Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 2 (1d4) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : true,
+    "environments" : [ "grassland", "hill", "desert" ]
+  }
+}

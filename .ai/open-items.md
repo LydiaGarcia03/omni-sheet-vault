@@ -18,6 +18,68 @@ answer in the relevant `.ai/` document and in `changelog.md`.
   and where XP is spent. Also confirm Ruins of Carthage's dot layout on
   Anarch p. 196 (`systems/vtm-v5/character-rules.md` §12).
 
+- **Builder plan: creation tutorial + middle-column height limit (2026-10-11).**
+  Approved 2026-10-11 with every recommendation below (one height for every
+  frame, "seen" stored server-side, once per system, original short rules
+  text). Slices 0 and 1 are done; the tutorial now lives in
+  `features/creation-tutorial.md`, which tracks the remaining slices. Kept
+  here only as the record of the proposal.
+  - *Slice 0, builder layout (done):* the middle column's framed sections (the Classes
+    step's per-class level accordion, spell lists, equipment packages) get a
+    maximum height with their own scrollbar, so a high-level multiclass
+    doesn't turn the page into one long strip. The frame title and badge stay
+    visible as a sticky header inside the scroll area; the step header, the
+    progress column and the summary column don't scroll with it. The spell
+    picker's own 420px list keeps its inner scroll. Open point: one height
+    for every frame (recommended: about the viewport minus the header, so
+    one frame fills the screen at most) or a scroll only on the Classes
+    step's frames.
+  - *Slices 1–4, tutorial:* a platform coach-mark component (dimmed page,
+    spotlight on one builder part, bubble with what to fill and the rule
+    basics, Back/Next, "3 of 9", "Skip tutorial", reopen from a "?" button),
+    the first step carrying the disclaimer that the tool helps with maths
+    and visualization but doesn't replace the books or the printed sheet.
+    Each system registers its own steps and theme through the builder
+    registry (no system `if`); D&D first, then VtM, Daggerheart once its
+    builder exists; docs in `features/creation-tutorial.md`. No new library.
+  - Questions: where "already seen" lives (recommended: server-side user
+    preference, needs a migration; alternative: browser storage only); once
+    per system (recommended) or once overall; rules text written as short
+    original English summaries, never copied from the books or Beyond.
+
+- **Basics preferences on the sheet (2026-10-11).** Done 2026-10-11: the
+  sheet's lists include only the build's books (see changelog). Original note:
+  the build's books applied in the builder and level up only. Proposed: the sheet's pickers (Manage
+  spells, items, feats, backgrounds, languages) ask the API for entries
+  through the character, which filters them with the character's own
+  preferences (books, playtest, partners) through the system's seam. The
+  feat prerequisite part is done (2026-10-11). Owner asked for a clearer
+  explanation of the book filter before deciding.
+- **Monster Manual creatures for Extras (2026-10-11).** MM is a locked core
+  book, but no creatures are imported (the `CREATURE` kind exists, Extras has
+  only seed data). Owner confirmed the source: the 2014 MM from 5etools.
+  Slice 1 done 2026-10-11 (450 MM creatures converted and imported). The
+  picker grew into an Extras tab rebuild, compared live against D&D Beyond
+  (character 50149479, 2026-10-11). E1–E3 built 2026-10-11 (see changelog;
+  owner chose no pictures and Beyond's familiar type); still to do: a live
+  comparison of our tab against Beyond. The original slices:
+  - E1 tab: search "Names, Types, or Tags", a Manage Extras button, chips
+    only for categories the character has (singular labels), Notes column,
+    speed with its movement word ("40 ft. Climbing").
+  - E2 Manage Extras panel: Add an Extra (category select with a one-line
+    description, filter by name/type/tag/environment, challenge range, MM list
+    with source, ADD, expandable preview card with Quantity and "ADD n");
+    Current Extras grouped by category with Delete.
+  - E3 detail: rename (pencil), source line, Customize, collapsed Hit Points,
+    D&D Beyond's stat-block card (initiative, MOD/SAVE table, skills, senses,
+    languages, CR with XP and proficiency bonus, traits, actions, reactions,
+    legendary actions); Delete moves to Manage Extras.
+  - Categories: Familiar, Mount, Pet, Summoned, Sidekick, Beast Companion,
+    Wild Shape, Battle Smith Defender, Misc, Vehicle (2024-only ones left out).
+  - Questions: creature pictures (D&D Beyond's art can't be copied; a
+    type icon instead?), and whether a familiar keeps the book's creature type
+    or shows "Fey, Fiend, or Celestial" like Beyond's Find Familiar.
+
 ## Known gaps, not yet scheduled
 
 - **`POST /api/characters` creates a sheet that can't render.** Found

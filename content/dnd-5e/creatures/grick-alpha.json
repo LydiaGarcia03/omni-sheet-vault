@@ -1,0 +1,76 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "grick-alpha",
+  "name" : "Grick Alpha",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 173,
+  "tags" : [ "underdark", "forest" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Monstrosity",
+    "alignment" : "neutral",
+    "armorClass" : 18,
+    "armorClassText" : "18 (natural armor)",
+    "hitPoints" : 75,
+    "hitDice" : "10d10 + 20",
+    "speed" : 30,
+    "additionalSpeeds" : "Climb 30 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 18,
+      "save" : 4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 4,
+      "save" : -3
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 9,
+      "save" : -1
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 60 ft., passive Perception 12",
+    "languages" : "—",
+    "challengeRating" : "7",
+    "damageVulnerabilities" : null,
+    "damageResistances" : "bludgeoning, piercing, and slashing from nonmagical attacks",
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Stone Camouflage",
+      "description" : "The grick has advantage on Dexterity (Stealth) checks made to hide in rocky terrain."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The grick makes two attacks: one with its tail and one with its tentacles. If it hits with its tentacles, the grick can make one beak attack against the same target."
+    }, {
+      "name" : "Tail",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 10 ft., one target. Hit: 11 (2d6 + 4) bludgeoning damage."
+    }, {
+      "name" : "Tentacles",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 10 ft., one target. Hit: 22 (4d8 + 4) slashing damage."
+    }, {
+      "name" : "Beak",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 10 ft., one target. Hit: 13 (2d8 + 4) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark", "forest" ]
+  }
+}

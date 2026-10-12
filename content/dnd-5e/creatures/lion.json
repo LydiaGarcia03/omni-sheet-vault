@@ -1,0 +1,85 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "lion",
+  "name" : "Lion",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 331,
+  "tags" : [ "mountain", "grassland", "hill", "desert" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Beast",
+    "alignment" : "unaligned",
+    "armorClass" : 12,
+    "armorClassText" : "12",
+    "hitPoints" : 26,
+    "hitDice" : "4d10 + 4",
+    "speed" : 50,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 17,
+      "save" : 3
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 3,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 8,
+      "save" : -1
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 3
+    }, {
+      "name" : "Stealth",
+      "bonus" : 6
+    } ],
+    "senses" : "passive Perception 13",
+    "languages" : "—",
+    "challengeRating" : "1",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Keen Smell",
+      "description" : "The lion has advantage on Wisdom (Perception) checks that rely on smell."
+    }, {
+      "name" : "Pack Tactics",
+      "description" : "The lion has advantage on an attack roll against a creature if at least one of the lion's allies is within 5 feet of the creature and the ally isn't incapacitated."
+    }, {
+      "name" : "Pounce",
+      "description" : "If the lion moves at least 20 feet straight toward a creature and then hits it with a claw attack on the same turn, that target must succeed on a DC 13 Strength saving throw or be knocked prone. If the target is prone, the lion can make one bite attack against it as a bonus action."
+    }, {
+      "name" : "Running Leap",
+      "description" : "With a 10-foot running start, the lion can long jump up to 25 feet."
+    } ],
+    "actions" : [ {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 7 (1d8 + 3) piercing damage."
+    }, {
+      "name" : "Claw",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) slashing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "mountain", "grassland", "hill", "desert" ]
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "yuan-ti-malison-type-3",
+  "name" : "Yuan-ti Malison (Type 3)",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 309,
+  "tags" : [ "forest", "swamp", "desert" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Monstrosity (shapechanger, yuan-ti)",
+    "alignment" : "neutral evil",
+    "armorClass" : 12,
+    "armorClassText" : "12",
+    "hitPoints" : 66,
+    "hitDice" : "12d8 + 12",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 16,
+      "save" : 3
+    } ],
+    "skills" : [ {
+      "name" : "Deception",
+      "bonus" : 5
+    }, {
+      "name" : "Stealth",
+      "bonus" : 4
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 11",
+    "languages" : "Abyssal, Common, Draconic",
+    "challengeRating" : "3",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : "poison",
+    "conditionImmunities" : "poisoned",
+    "traits" : [ {
+      "name" : "Shapechanger",
+      "description" : "The yuan-ti can use its action to polymorph into a Medium snake, or back into its true form. Its statistics are the same in each form. Any equipment it is wearing or carrying isn't transformed. It doesn't change form if it dies."
+    }, {
+      "name" : "Magic Resistance",
+      "description" : "The yuan-ti has advantage on saving throws against spells and other magical effects."
+    }, {
+      "name" : "Malison Type",
+      "description" : "The yuan-ti has one of the following types: Type 1:. Human body with snake head Type 2:. Human head and body with snakes for arms Type 3:. Human head and upper body with a serpentine lower body instead of legs"
+    }, {
+      "name" : "Innate Spellcasting (Yuan-ti Form Only)",
+      "description" : "The yuan-ti's innate spellcasting ability is Charisma (spell save DC 13). The yuan-ti can innately cast the following spells, requiring no material components:\nAt will: animal friendship (snakes only)\n3/day: suggestion"
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack (Yuan-ti Form Only)",
+      "description" : "The yuan-ti makes two ranged attacks or two melee attacks, but can constrict only once."
+    }, {
+      "name" : "Bite (Snake Form Only)",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one creature. Hit: 5 (1d4 + 3) piercing damage plus 7 (2d6) poison damage."
+    }, {
+      "name" : "Constrict",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) bludgeoning damage, and the target is grappled (escape DC 13). Until this grapple ends, the target is restrained, and the yuan-ti can't constrict another target."
+    }, {
+      "name" : "Scimitar (Yuan-ti Form Only)",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) slashing damage."
+    }, {
+      "name" : "Longbow (Yuan-ti Form Only)",
+      "description" : "Ranged Weapon Attack: +4 to hit, range 150/600 ft., one target. Hit: 6 (1d8 + 2) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "forest", "swamp", "desert" ]
+  }
+}

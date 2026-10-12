@@ -1,0 +1,73 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "giant-weasel",
+  "name" : "Giant Weasel",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 329,
+  "tags" : [ "grassland", "forest", "hill" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Beast",
+    "alignment" : "unaligned",
+    "armorClass" : 13,
+    "armorClassText" : "13",
+    "hitPoints" : 9,
+    "hitDice" : "2d8",
+    "speed" : 40,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 4,
+      "save" : -3
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 5,
+      "save" : -3
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 3
+    }, {
+      "name" : "Stealth",
+      "bonus" : 5
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 13",
+    "languages" : "—",
+    "challengeRating" : "1/8",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Keen Hearing and Smell",
+      "description" : "The weasel has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+    } ],
+    "actions" : [ {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 5 (1d4 + 3) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "grassland", "forest", "hill" ]
+  }
+}

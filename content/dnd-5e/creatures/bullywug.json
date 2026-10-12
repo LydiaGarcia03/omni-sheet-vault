@@ -1,0 +1,85 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "bullywug",
+  "name" : "Bullywug",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 35,
+  "tags" : [ "swamp" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (bullywug)",
+    "alignment" : "neutral evil",
+    "armorClass" : 15,
+    "armorClassText" : "15 (hide armor, shield)",
+    "hitPoints" : 11,
+    "hitDice" : "2d8 + 2",
+    "speed" : 20,
+    "additionalSpeeds" : "Swim 40 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 7,
+      "save" : -2
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 7,
+      "save" : -2
+    } ],
+    "skills" : [ {
+      "name" : "Stealth",
+      "bonus" : 3
+    } ],
+    "senses" : "passive Perception 10",
+    "languages" : "Bullywug",
+    "challengeRating" : "1/4",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Amphibious",
+      "description" : "The bullywug can breathe air and water."
+    }, {
+      "name" : "Speak with Frogs and Toads",
+      "description" : "The bullywug can communicate simple concepts to frogs and toads when it speaks in Bullywug."
+    }, {
+      "name" : "Swamp Camouflage",
+      "description" : "The bullywug has advantage on Dexterity (Stealth) checks made to hide in swampy terrain."
+    }, {
+      "name" : "Standing Leap",
+      "description" : "The bullywug's long jump is up to 20 feet and its high jump is up to 10 feet, with or without a running start."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The bullywug makes two melee attacks: one with its bite and one with its spear."
+    }, {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) bludgeoning damage."
+    }, {
+      "name" : "Spear",
+      "description" : "Melee Weapon  or Ranged Weapon Attack: +3 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (1d6 + 1) piercing damage, or 5 (1d8 + 1) piercing damage if used with two hands to make a melee attack."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "swamp" ]
+  }
+}

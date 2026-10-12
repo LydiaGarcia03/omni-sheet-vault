@@ -1,0 +1,85 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "iron-golem",
+  "name" : "Iron Golem",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 170,
+  "tags" : [ ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Construct",
+    "alignment" : "unaligned",
+    "armorClass" : 20,
+    "armorClassText" : "20 (natural armor)",
+    "hitPoints" : 210,
+    "hitDice" : "20d10 + 100",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 24,
+      "save" : 7
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 9,
+      "save" : -1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 20,
+      "save" : 5
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 3,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 1,
+      "save" : -5
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 120 ft., passive Perception 10",
+    "languages" : "understands the languages of its creator but can't speak",
+    "challengeRating" : "16",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : "fire, poison, psychic; bludgeoning, piercing, and slashing from nonmagical attacks that aren't adamantine",
+    "conditionImmunities" : "charmed, exhaustion, frightened, paralyzed, petrified, poisoned",
+    "traits" : [ {
+      "name" : "Fire Absorption",
+      "description" : "Whenever the golem is subjected to fire damage, it takes no damage and instead regains a number of hit points equal to the fire damage dealt."
+    }, {
+      "name" : "Immutable Form",
+      "description" : "The golem is immune to any spell or effect that would alter its form."
+    }, {
+      "name" : "Magic Resistance",
+      "description" : "The golem has advantage on saving throws against spells and other magical effects."
+    }, {
+      "name" : "Magic Weapons",
+      "description" : "The golem's weapon attacks are magical."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The golem makes two melee attacks."
+    }, {
+      "name" : "Slam",
+      "description" : "Melee Weapon Attack: +13 to hit, reach 5 ft., one target. Hit: 20 (3d8 + 7) bludgeoning damage."
+    }, {
+      "name" : "Sword",
+      "description" : "Melee Weapon Attack: +13 to hit, reach 10 ft., one target. Hit: 23 (3d10 + 7) slashing damage."
+    }, {
+      "name" : "Poison Breath (Recharge 5–6)",
+      "description" : "The golem exhales poisonous gas in a 15-foot cone. Each creature in that area must make a DC 19 Constitution saving throw, taking 45 (10d8) poison damage on a failed save, or half as much damage on a successful one."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ ]
+  }
+}

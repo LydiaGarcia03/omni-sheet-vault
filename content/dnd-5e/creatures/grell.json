@@ -1,0 +1,76 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "grell",
+  "name" : "Grell",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 172,
+  "tags" : [ "underdark" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Aberration",
+    "alignment" : "neutral evil",
+    "armorClass" : 12,
+    "armorClassText" : "12",
+    "hitPoints" : 55,
+    "hitDice" : "10d8 + 10",
+    "speed" : 10,
+    "additionalSpeeds" : "Fly 30 ft. (hover)",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 9,
+      "save" : -1
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 4
+    }, {
+      "name" : "Stealth",
+      "bonus" : 6
+    } ],
+    "senses" : "blindsight 60 ft. (blind beyond this radius), passive Perception 14",
+    "languages" : "Grell",
+    "challengeRating" : "3",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : "lightning",
+    "conditionImmunities" : "blinded, prone",
+    "traits" : [ ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The grell makes two attacks: one with its tentacles and one with its beak."
+    }, {
+      "name" : "Tentacles",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 10 ft., one creature. Hit: 7 (1d10 + 2) piercing damage, and the target must succeed on a DC 11 Constitution saving throw or be poisoned for 1 minute. The poisoned target is paralyzed, and it can repeat the saving throw at the end of each of its turns, ending the effect on a success. The target is also grappled (escape DC 15). If the target is Medium or smaller, it is also restrained until this grapple ends. While grappling the target, the grell has advantage on attack rolls against it and can't use this attack against other targets. When the grell moves, any Medium or smaller target it is grappling moves with it."
+    }, {
+      "name" : "Beak",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark" ]
+  }
+}

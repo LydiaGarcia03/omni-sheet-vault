@@ -1,0 +1,85 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "thri-kreen",
+  "name" : "Thri-kreen",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 288,
+  "tags" : [ "grassland", "desert" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (thri-kreen)",
+    "alignment" : "chaotic neutral",
+    "armorClass" : 15,
+    "armorClassText" : "15 (natural armor)",
+    "hitPoints" : 33,
+    "hitDice" : "6d8 + 6",
+    "speed" : 40,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 7,
+      "save" : -2
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 3
+    }, {
+      "name" : "Stealth",
+      "bonus" : 4
+    }, {
+      "name" : "Survival",
+      "bonus" : 3
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 13",
+    "languages" : "Thri-kreen",
+    "challengeRating" : "1",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Chameleon Carapace",
+      "description" : "The thri-kreen can change the color of its carapace to match the color and texture of its surroundings. As a result, it has advantage on Dexterity (Stealth) checks made to hide."
+    }, {
+      "name" : "Standing Leap",
+      "description" : "The thri-kreen's long jump is up to 30 feet and its high jump is up to 15 feet, with or without a running start."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The thri-kreen makes two attacks: one with its bite and one with its claws."
+    }, {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +3 to hit, reach 5 ft., one creature. Hit: 4 (1d6 + 1) piercing damage, and the target must succeed on a DC 11 Constitution saving throw or be poisoned for 1 minute. If the saving throw fails by 5 or more, the target is also paralyzed while poisoned in this way. The poisoned target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+    }, {
+      "name" : "Claws",
+      "description" : "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 6 (2d4 + 1) slashing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "grassland", "desert" ]
+  }
+}

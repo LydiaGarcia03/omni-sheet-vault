@@ -1,0 +1,82 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "bone-devil",
+  "name" : "Bone Devil",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 71,
+  "tags" : [ ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Fiend (devil)",
+    "alignment" : "lawful evil",
+    "armorClass" : 19,
+    "armorClassText" : "19 (natural armor)",
+    "hitPoints" : 142,
+    "hitDice" : "15d10 + 60",
+    "speed" : 40,
+    "additionalSpeeds" : "Fly 40 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 18,
+      "save" : 4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 18,
+      "save" : 4
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 13,
+      "save" : 5
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 14,
+      "save" : 6
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 16,
+      "save" : 7
+    } ],
+    "skills" : [ {
+      "name" : "Deception",
+      "bonus" : 7
+    }, {
+      "name" : "Insight",
+      "bonus" : 6
+    } ],
+    "senses" : "darkvision 120 ft., passive Perception 12",
+    "languages" : "Infernal, telepathy 120 ft.",
+    "challengeRating" : "9",
+    "damageVulnerabilities" : null,
+    "damageResistances" : "cold; bludgeoning, piercing, and slashing from nonmagical attacks that aren't silvered",
+    "damageImmunities" : "fire, poison",
+    "conditionImmunities" : "poisoned",
+    "traits" : [ {
+      "name" : "Devil's Sight",
+      "description" : "Magical darkness doesn't impede the devil's darkvision."
+    }, {
+      "name" : "Magic Resistance",
+      "description" : "The devil has advantage on saving throws against spells and other magical effects."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The devil makes three attacks: two with its claws and one with its sting."
+    }, {
+      "name" : "Claw",
+      "description" : "Melee Weapon Attack: +8 to hit, reach 10 ft., one target. Hit: 8 (1d8 + 4) slashing damage."
+    }, {
+      "name" : "Sting",
+      "description" : "Melee Weapon Attack: +8 to hit, reach 10 ft., one target. Hit: 13 (2d8 + 4) piercing damage plus 17 (5d6) poison damage, and the target must succeed on a DC 14 Constitution saving throw or become poisoned for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ ]
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "ogre",
+  "name" : "Ogre",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 237,
+  "tags" : [ "grassland", "forest", "swamp", "hill", "desert", "coastal", "arctic", "underdark", "mountain" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Giant",
+    "alignment" : "chaotic evil",
+    "armorClass" : 11,
+    "armorClassText" : "11 (hide armor)",
+    "hitPoints" : 59,
+    "hitDice" : "7d10 + 21",
+    "speed" : 40,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 19,
+      "save" : 4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 5,
+      "save" : -3
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 7,
+      "save" : -2
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 7,
+      "save" : -2
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 60 ft., passive Perception 8",
+    "languages" : "Common, Giant",
+    "challengeRating" : "2",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ ],
+    "actions" : [ {
+      "name" : "Greatclub",
+      "description" : "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 13 (2d8 + 4) bludgeoning damage."
+    }, {
+      "name" : "Javelin",
+      "description" : "Melee Weapon  or Ranged Weapon Attack: +6 to hit, reach 5 ft. or range 30/120 ft., one target. Hit: 11 (2d6 + 4) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "grassland", "forest", "swamp", "hill", "desert", "coastal", "arctic", "underdark", "mountain" ]
+  }
+}

@@ -3,7 +3,7 @@ import { ListRow } from '../../sheet/ListRow';
 import { MarkBox } from '../../sheet/MarkBox';
 import { MoveButton } from '../../sheet/MoveButton';
 import { STORAGE_LOCATIONS } from '../../sheet/ManageInventoryPanel';
-import type { CharacterSheet, EntityDetailHandler, EntityDetailRequest, Item, MutationHandler } from '../../sheet/api';
+import { canToggleEquipped, type CharacterSheet, type EntityDetailHandler, type EntityDetailRequest, type Item, type MutationHandler } from '../../sheet/api';
 import { customizationsOf, EMPTY_ITEM_CUSTOMIZATION, type ItemCustomization } from './customizations';
 import { EntityCustomizeEditor, type CustomizeField } from './EntityCustomize';
 import { FrameIcon } from './FrameIcon';
@@ -88,13 +88,16 @@ function ItemQuantityControl({ item, onMutate }: { item: Item; onMutate: Mutatio
  */
 function itemActionBar(item: Item, onMutate: MutationHandler, hasBagOfHolding: boolean) {
   const moveTargets = STORAGE_LOCATIONS.filter((location) => location.id !== 'BAG_OF_HOLDING' || hasBagOfHolding);
+  const equipButton = (
+    <button type="button" className="mutate sidebar-action-button" onClick={() => onMutate({ type: 'TOGGLE_ITEM_EQUIPPED', itemKey: item.key })}>
+      {item.equipped ? 'Unequip' : 'Equip'}
+    </button>
+  );
   return (
     <div className="item-action-bar">
       {item.requiresAttunement ? (
         <>
-          <button type="button" className="mutate sidebar-action-button" onClick={() => onMutate({ type: 'TOGGLE_ITEM_EQUIPPED', itemKey: item.key })}>
-            {item.equipped ? 'Unequip' : 'Equip'}
-          </button>
+          {canToggleEquipped(item) && equipButton}
           <button type="button" className="mutate sidebar-action-button" onClick={() => onMutate({ type: 'TOGGLE_ITEM_ATTUNED', itemKey: item.key })}>
             {item.attuned ? 'Unattune' : 'Attune'}
           </button>
@@ -102,9 +105,7 @@ function itemActionBar(item: Item, onMutate: MutationHandler, hasBagOfHolding: b
       ) : (
         <>
           <ItemQuantityControl item={item} onMutate={onMutate} />
-          <button type="button" className="mutate sidebar-action-button" onClick={() => onMutate({ type: 'TOGGLE_ITEM_EQUIPPED', itemKey: item.key })}>
-            {item.equipped ? 'Unequip' : 'Equip'}
-          </button>
+          {canToggleEquipped(item) && equipButton}
         </>
       )}
       <MoveButton
@@ -239,18 +240,22 @@ export function ItemRow({ item, onMutate, onOpenDetail, hasBagOfHolding }: ItemR
 
   return (
     <ListRow className="item-row reveal" ariaLabel={`Open ${item.name} details`} onOpen={openDetail}>
-      <button
-        type="button"
-        className="mutate item-row__flag"
-        aria-pressed={item.equipped}
-        aria-label={`${item.name} equipped: ${item.equipped ? 'yes' : 'no'}`}
-        onClick={(event) => {
-          event.stopPropagation();
-          onMutate({ type: 'TOGGLE_ITEM_EQUIPPED', itemKey: item.key });
-        }}
-      >
-        <MarkBox marked={item.equipped} />
-      </button>
+      {canToggleEquipped(item) ? (
+        <button
+          type="button"
+          className="mutate item-row__flag"
+          aria-pressed={item.equipped}
+          aria-label={`${item.name} equipped: ${item.equipped ? 'yes' : 'no'}`}
+          onClick={(event) => {
+            event.stopPropagation();
+            onMutate({ type: 'TOGGLE_ITEM_EQUIPPED', itemKey: item.key });
+          }}
+        >
+          <MarkBox marked={item.equipped} />
+        </button>
+      ) : (
+        <span className="item-row__flag" aria-hidden="true" />
+      )}
       <span className={`reveal item-row__name${raritySuffix ? ` item-row__name--${raritySuffix}` : ''}`}>
         {item.name}
         {item.attuned && <span className="item-row__attuned" aria-label="Attuned"> ✦</span>}

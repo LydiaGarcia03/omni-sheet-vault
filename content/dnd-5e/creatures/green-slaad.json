@@ -1,0 +1,94 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "green-slaad",
+  "name" : "Green Slaad",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 277,
+  "tags" : [ ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Aberration (shapechanger)",
+    "alignment" : "chaotic neutral",
+    "armorClass" : 16,
+    "armorClassText" : "16 (natural armor)",
+    "hitPoints" : 127,
+    "hitDice" : "15d10 + 45",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 18,
+      "save" : 4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 12,
+      "save" : 1
+    } ],
+    "skills" : [ {
+      "name" : "Arcana",
+      "bonus" : 3
+    }, {
+      "name" : "Perception",
+      "bonus" : 2
+    } ],
+    "senses" : "blindsight 30 ft., darkvision 60 ft., passive Perception 12",
+    "languages" : "Slaad, telepathy 60 ft.",
+    "challengeRating" : "8",
+    "damageVulnerabilities" : null,
+    "damageResistances" : "acid, cold, fire, lightning, thunder",
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Shapechanger",
+      "description" : "The slaad can use its action to polymorph into a Small or Medium humanoid, or back into its true form. Its statistics, other than its size, are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies."
+    }, {
+      "name" : "Magic Resistance",
+      "description" : "The slaad has advantage on saving throws against spells and other magical effects."
+    }, {
+      "name" : "Regeneration",
+      "description" : "The slaad regains 10 hit points at the start of its turn if it has at least 1 hit point."
+    }, {
+      "name" : "Innate Spellcasting",
+      "description" : "The slaad's innate spellcasting ability is Charisma (spell save DC 12). The slaad can innately cast the following spells, requiring no material components:\nAt will: detect magic, detect thoughts, mage hand\n1/day: fireball\n2/day each: fear, invisibility (self only)"
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The slaad makes three attacks: one with its bite and two with its claws or staff. Alternatively, it uses its Hurl Flame twice."
+    }, {
+      "name" : "Bite (Slaad Form Only)",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) piercing damage."
+    }, {
+      "name" : "Claw (Slaad Form Only)",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 7 (1d6 + 4) slashing damage."
+    }, {
+      "name" : "Staff",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) bludgeoning damage."
+    }, {
+      "name" : "Hurl Flame",
+      "description" : "Ranged Spell Attack: +4 to hit, range 60 ft., one target. Hit: 10 (3d6) fire damage. The fire ignites flammable objects that aren't being worn or carried."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ ]
+  }
+}

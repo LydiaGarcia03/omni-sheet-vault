@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -186,8 +187,18 @@ final class Dnd5eOptionSummaries {
         return first.length() > MAX_SENTENCE ? first.substring(0, MAX_SENTENCE - 1).strip() + "…" : first;
     }
 
+    /** Every alternative set of ability increases, joined with "or". */
     static String abilityIncreases(JsonNode alternatives) {
-        JsonNode alternative = alternatives != null && alternatives.isArray() ? first(alternatives) : alternatives;
+        if (alternatives == null || alternatives.isMissingNode() || alternatives.isNull()) {
+            return null;
+        }
+        List<JsonNode> all = alternatives.isArray() ? StreamSupport.stream(alternatives.spliterator(), false).toList() : List.of(alternatives);
+        List<String> described = all.stream().map(Dnd5eOptionSummaries::abilityIncrease).filter(Objects::nonNull).toList();
+        return described.isEmpty() ? null : String.join(" or ", described);
+    }
+
+    /** One alternative set of ability increases: its fixed bonuses, then each choice. */
+    static String abilityIncrease(JsonNode alternative) {
         if (alternative == null || alternative.isMissingNode() || alternative.isNull()) {
             return null;
         }
@@ -195,15 +206,29 @@ final class Dnd5eOptionSummaries {
         alternative.path("fixed").properties().forEach(entry ->
                 parts.add(ABILITY_ABBREVIATIONS.getOrDefault(entry.getKey(), entry.getKey()) + " " + signed(entry.getValue().asInt())));
         for (JsonNode choice : alternative.path("choices")) {
-            int amount = choice.path("amount").asInt(1);
-            int count = choice.path("count").asInt(1);
-            List<String> from = strings(choice.get("from"));
-            String target = from.isEmpty() || from.size() == 6
-                    ? (count == 1 ? "one ability" : count + " abilities") + " of your choice"
-                    : (count == 1 ? "one of " : count + " of ") + from.stream().map(ability -> ABILITY_ABBREVIATIONS.getOrDefault(ability, ability)).collect(Collectors.joining(", "));
-            parts.add(signed(amount) + " to " + target);
+            parts.add(abilityChoice(choice));
         }
         return listOrNull(parts);
+    }
+
+    private static String abilityChoice(JsonNode choice) {
+        List<Integer> weights = StreamSupport.stream(choice.path("weights").spliterator(), false).map(JsonNode::asInt).toList();
+        int count = weights.isEmpty() ? choice.path("count").asInt(1) : weights.size();
+        List<String> from = strings(choice.get("from"));
+        boolean anyAbility = from.isEmpty() || from.size() == 6;
+        if (weights.stream().distinct().count() > 1) {
+            String bonuses = weights.stream().map(Dnd5eOptionSummaries::signed).collect(Collectors.joining(" and "));
+            return bonuses + " to " + count + " different " + (anyAbility ? "abilities of your choice" : "of " + abbreviations(from));
+        }
+        int amount = weights.isEmpty() ? choice.path("amount").asInt(1) : weights.getFirst();
+        String target = anyAbility
+                ? (count == 1 ? "one ability" : count + " abilities") + " of your choice"
+                : (count == 1 ? "one of " : count + " of ") + abbreviations(from);
+        return signed(amount) + " to " + target;
+    }
+
+    private static String abbreviations(List<String> abilities) {
+        return abilities.stream().map(ability -> ABILITY_ABBREVIATIONS.getOrDefault(ability, ability)).collect(Collectors.joining(", "));
     }
 
     static String speed(JsonNode speed) {

@@ -10,6 +10,7 @@ import {
   type Dnd5eBuild,
 } from './dnd5eBuild';
 import { Dnd5eStepPage } from './Dnd5eStepPage';
+import { DND5E_TUTORIAL } from './dnd5eTutorial';
 
 export const DND5E_BUILDER: BuilderDefinition = {
   steps: DND5E_STEPS,
@@ -22,4 +23,5 @@ export const DND5E_BUILDER: BuilderDefinition = {
   checklistGroupOf: dnd5eChecklistGroupOf,
   checklistGroupRank: dnd5eChecklistGroupRank,
   pageClassName: 'parchment-page',
+  tutorial: DND5E_TUTORIAL,
 };

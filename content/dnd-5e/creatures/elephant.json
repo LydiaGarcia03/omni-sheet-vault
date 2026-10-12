@@ -1,0 +1,70 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "elephant",
+  "name" : "Elephant",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 322,
+  "tags" : [ "grassland" ],
+  "description" : null,
+  "data" : {
+    "size" : "Huge",
+    "creatureType" : "Beast",
+    "alignment" : "unaligned",
+    "armorClass" : 12,
+    "armorClassText" : "12 (natural armor)",
+    "hitPoints" : 76,
+    "hitDice" : "8d12 + 24",
+    "speed" : 40,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 22,
+      "save" : 6
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 9,
+      "save" : -1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 17,
+      "save" : 3
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 3,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 6,
+      "save" : -2
+    } ],
+    "skills" : [ ],
+    "senses" : "passive Perception 10",
+    "languages" : "—",
+    "challengeRating" : "4",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Trampling Charge",
+      "description" : "If the elephant moves at least 20 feet straight toward a creature and then hits it with a gore attack on the same turn, that target must succeed on a DC 12 Strength saving throw or be knocked prone. If the target is prone, the elephant can make one stomp attack against it as a bonus action."
+    } ],
+    "actions" : [ {
+      "name" : "Gore",
+      "description" : "Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 19 (3d8 + 6) piercing damage."
+    }, {
+      "name" : "Stomp",
+      "description" : "Melee Weapon Attack: +8 to hit, reach 5 ft., one prone creature. Hit: 22 (3d10 + 6) bludgeoning damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "grassland" ]
+  }
+}

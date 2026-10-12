@@ -53,21 +53,32 @@ class Dnd5eBuildMaterializerTest {
 
         CreationChoice choice = plan.choices().stream().filter(candidate -> candidate.id().equals("build.rolledHitPoints")).findFirst().orElseThrow();
         assertThat(choice.options()).extracting(CreationChoiceOption::label)
-                .containsExactly("Fighter lvl 2", "Fighter lvl 3", "Wizard lvl 1", "Wizard lvl 2", "Wizard lvl 3");
+                .containsExactly("Fighter - Level 2", "Fighter - Level 3", "Wizard - Level 1", "Wizard - Level 2", "Wizard - Level 3");
         assertThat(choice.options()).extracting(option -> option.data().path("sides").asInt(), option -> option.data().path("average").asInt())
                 .containsExactly(tuple(10, 6), tuple(10, 6), tuple(6, 4), tuple(6, 4), tuple(6, 4));
         assertThat(choice.options()).extracting(option -> option.data().path("group").asString())
                 .containsExactly("fighter", "fighter", "wizard", "wizard", "wizard");
-        assertThat(choice.options().get(2).data().path("rollLabel").asString()).isEqualTo("Hit points, Wizard lvl 1 (d6)");
+        assertThat(choice.options().get(2).data().path("rollLabel").asString()).isEqualTo("Hit points, Wizard - Level 1 (d6)");
         assertThat(choice.selected()).containsExactly("7");
         assertThat(choice.isPending()).isTrue();
+    }
+
+    @Test
+    void fixedHitPointsShowTheSameRowsWithoutAskingForAnything() {
+        BuildPlan plan = new Dnd5eBuildPlanner(eldritchKnightWizard(), Dnd5eBuildFixtures.catalogue()).plan();
+
+        CreationChoice choice = plan.choices().stream().filter(candidate -> candidate.id().equals("build.fixedHitPoints")).findFirst().orElseThrow();
+        assertThat(choice.type()).isEqualTo("FIXED_HIT_POINTS");
+        assertThat(choice.options()).extracting(option -> option.data().path("average").asInt()).containsExactly(6, 6, 4, 4, 4);
+        assertThat(choice.isPending()).isFalse();
+        assertThat(plan.choices()).noneMatch(candidate -> candidate.id().equals("build.rolledHitPoints"));
     }
 
     @Test
     void aRolledHitPointAboveItsDieIsAProblem() {
         BuildPlan plan = new Dnd5eBuildPlanner(rolled(eldritchKnightWizard(), List.of(7, 6, 7, 1, 1)), Dnd5eBuildFixtures.catalogue()).plan();
 
-        assertThat(plan.problems()).contains("Hit points for Wizard lvl 1 must be between 1 and 6");
+        assertThat(plan.problems()).contains("Hit points for Wizard - Level 1 must be between 1 and 6");
     }
 
     @Test

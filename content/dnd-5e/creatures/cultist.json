@@ -1,0 +1,73 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "cultist",
+  "name" : "Cultist",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 345,
+  "tags" : [ "urban" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (any race)",
+    "alignment" : "any non-good alignment",
+    "armorClass" : 12,
+    "armorClassText" : "12 (leather armor)",
+    "hitPoints" : 9,
+    "hitDice" : "2d8",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 10,
+      "save" : 0
+    } ],
+    "skills" : [ {
+      "name" : "Deception",
+      "bonus" : 2
+    }, {
+      "name" : "Religion",
+      "bonus" : 2
+    } ],
+    "senses" : "passive Perception 10",
+    "languages" : "any one language (usually Common)",
+    "challengeRating" : "1/8",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Dark Devotion",
+      "description" : "The cultist has advantage on saving throws against being charmed or frightened."
+    } ],
+    "actions" : [ {
+      "name" : "Scimitar",
+      "description" : "Melee Weapon Attack: +3 to hit, reach 5 ft., one creature. Hit: 4 (1d6 + 1) slashing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "urban" ]
+  }
+}

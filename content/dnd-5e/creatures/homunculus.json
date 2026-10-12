@@ -1,0 +1,67 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "homunculus",
+  "name" : "Homunculus",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 188,
+  "tags" : [ ],
+  "description" : null,
+  "data" : {
+    "size" : "Tiny",
+    "creatureType" : "Construct",
+    "alignment" : "neutral",
+    "armorClass" : 13,
+    "armorClassText" : "13 (natural armor)",
+    "hitPoints" : 5,
+    "hitDice" : "2d4",
+    "speed" : 20,
+    "additionalSpeeds" : "Fly 40 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 4,
+      "save" : -3
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 7,
+      "save" : -2
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 60 ft., passive Perception 10",
+    "languages" : "understands the languages of its creator but can't speak",
+    "challengeRating" : "0",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : "poison",
+    "conditionImmunities" : "charmed, poisoned",
+    "traits" : [ {
+      "name" : "Telepathic Bond",
+      "description" : "While the homunculus is on the same plane of existence as its master, it can magically convey what it senses to its master, and the two can communicate telepathically."
+    } ],
+    "actions" : [ {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 1 piercing damage, and the target must succeed on a DC 10 Constitution saving throw or be poisoned for 1 minute. If the saving throw fails by 5 or more, the target is instead poisoned for 5 (1d10) minutes and unconscious while poisoned in this way."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ ]
+  }
+}

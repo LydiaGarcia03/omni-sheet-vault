@@ -1,0 +1,70 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "worg",
+  "name" : "Worg",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 341,
+  "tags" : [ "grassland", "forest", "hill" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Monstrosity",
+    "alignment" : "neutral evil",
+    "armorClass" : 13,
+    "armorClassText" : "13 (natural armor)",
+    "hitPoints" : 26,
+    "hitDice" : "4d10 + 4",
+    "speed" : 50,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 7,
+      "save" : -2
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 8,
+      "save" : -1
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 4
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 14",
+    "languages" : "Goblin, Worg",
+    "challengeRating" : "1/2",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Keen Hearing and Smell",
+      "description" : "The worg has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+    } ],
+    "actions" : [ {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) piercing damage. If the target is a creature, it must succeed on a DC 13 Strength saving throw or be knocked prone."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "grassland", "forest", "hill" ]
+  }
+}

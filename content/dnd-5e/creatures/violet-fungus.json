@@ -1,0 +1,70 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "violet-fungus",
+  "name" : "Violet Fungus",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 138,
+  "tags" : [ "underdark" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Plant",
+    "alignment" : "unaligned",
+    "armorClass" : 5,
+    "armorClassText" : "5",
+    "hitPoints" : 18,
+    "hitDice" : "4d8",
+    "speed" : 5,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 3,
+      "save" : -4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 1,
+      "save" : -5
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 1,
+      "save" : -5
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 3,
+      "save" : -4
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 1,
+      "save" : -5
+    } ],
+    "skills" : [ ],
+    "senses" : "blindsight 30 ft. (blind beyond this radius), passive Perception 6",
+    "languages" : "—",
+    "challengeRating" : "1/4",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : "blinded, deafened, frightened",
+    "traits" : [ {
+      "name" : "False Appearance",
+      "description" : "While the violet fungus remains motionless, it is indistinguishable from an ordinary fungus."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The fungus makes 1d4 Rotting Touch attacks."
+    }, {
+      "name" : "Rotting Touch",
+      "description" : "Melee Weapon Attack: +2 to hit, reach 10 ft., one creature. Hit: 4 (1d8) necrotic damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark" ]
+  }
+}

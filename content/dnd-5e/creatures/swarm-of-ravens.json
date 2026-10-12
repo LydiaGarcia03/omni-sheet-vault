@@ -1,0 +1,70 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "swarm-of-ravens",
+  "name" : "Swarm of Ravens",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 339,
+  "tags" : [ "forest", "swamp", "hill", "urban" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Swarm of Tiny beasts",
+    "alignment" : "unaligned",
+    "armorClass" : 12,
+    "armorClassText" : "12",
+    "hitPoints" : 24,
+    "hitDice" : "7d8 - 7",
+    "speed" : 10,
+    "additionalSpeeds" : "Fly 50 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 6,
+      "save" : -2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 3,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 6,
+      "save" : -2
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 5
+    } ],
+    "senses" : "passive Perception 15",
+    "languages" : "—",
+    "challengeRating" : "1/4",
+    "damageVulnerabilities" : null,
+    "damageResistances" : "bludgeoning, piercing, slashing",
+    "damageImmunities" : null,
+    "conditionImmunities" : "charmed, frightened, grappled, paralyzed, petrified, prone, restrained, stunned",
+    "traits" : [ {
+      "name" : "Swarm",
+      "description" : "The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny raven. The swarm can't regain hit points or gain temporary hit points."
+    } ],
+    "actions" : [ {
+      "name" : "Beaks",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target in the swarm's space. Hit: 7 (2d6) piercing damage, or 3 (1d6) piercing damage if the swarm has half of its hit points or fewer."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "forest", "swamp", "hill", "urban" ]
+  }
+}

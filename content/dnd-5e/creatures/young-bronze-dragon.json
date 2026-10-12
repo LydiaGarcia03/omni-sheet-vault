@@ -1,0 +1,85 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "young-bronze-dragon",
+  "name" : "Young Bronze Dragon",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 108,
+  "tags" : [ "coastal" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Dragon",
+    "alignment" : "lawful good",
+    "armorClass" : 18,
+    "armorClassText" : "18 (natural armor)",
+    "hitPoints" : 142,
+    "hitDice" : "15d10 + 60",
+    "speed" : 40,
+    "additionalSpeeds" : "Fly 80 ft., Swim 40 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 21,
+      "save" : 5
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 10,
+      "save" : 3
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 19,
+      "save" : 7
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 13,
+      "save" : 4
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 17,
+      "save" : 6
+    } ],
+    "skills" : [ {
+      "name" : "Insight",
+      "bonus" : 4
+    }, {
+      "name" : "Perception",
+      "bonus" : 7
+    }, {
+      "name" : "Stealth",
+      "bonus" : 3
+    } ],
+    "senses" : "blindsight 30 ft., darkvision 120 ft., passive Perception 17",
+    "languages" : "Common, Draconic",
+    "challengeRating" : "8",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : "lightning",
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Amphibious",
+      "description" : "The dragon can breathe air and water."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The dragon makes three attacks: one with its bite and two with its claws."
+    }, {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +8 to hit, reach 10 ft., one target. Hit: 16 (2d10 + 5) piercing damage."
+    }, {
+      "name" : "Claw",
+      "description" : "Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 12 (2d6 + 5) slashing damage."
+    }, {
+      "name" : "Breath Weapons (Recharge 5–6)",
+      "description" : "The dragon uses one of the following breath weapons. Lightning Breath. The dragon exhales lightning in a 60-foot line that is 5 feet wide. Each creature in that line must make a DC 15 Dexterity saving throw, taking 55 (10d10) lightning damage on a failed save, or half as much damage on a successful one. Repulsion Breath. The dragon exhales repulsion energy in a 30-foot cone. Each creature in that area must succeed on a DC 15 Strength saving throw. On a failed save, the creature is pushed 40 feet away from the dragon."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "coastal" ]
+  }
+}

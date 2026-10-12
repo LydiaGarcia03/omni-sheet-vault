@@ -1,10 +1,10 @@
-/** D&D Beyond's sheet themes (campaign themes left out), as the API accepts them; DDB Red is the default. */
+/** D&D Beyond's sheet themes (campaign themes left out), as the API accepts them; DND Red is the default. */
 export type SheetTheme = { id: string; label: string; color: string };
 
 export const DEFAULT_SHEET_THEME = 'ddb-red';
 
 export const SHEET_THEMES: SheetTheme[] = [
-  { id: 'ddb-red', label: 'DDB Red', color: '#C53131' },
+  { id: 'ddb-red', label: 'DND Red', color: '#C53131' },
   { id: 'barbarian-fire', label: 'Barbarian Fire', color: '#E5623E' },
   { id: 'bard-rouge', label: 'Bard Rouge', color: '#AA6DAB' },
   { id: 'cleric-silver', label: 'Cleric Silver', color: '#92A2B3' },

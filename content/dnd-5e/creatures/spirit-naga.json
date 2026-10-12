@@ -1,0 +1,70 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "spirit-naga",
+  "name" : "Spirit Naga",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 234,
+  "tags" : [ "underdark" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Monstrosity",
+    "alignment" : "chaotic evil",
+    "armorClass" : 15,
+    "armorClassText" : "15 (natural armor)",
+    "hitPoints" : 75,
+    "hitDice" : "10d10 + 20",
+    "speed" : 40,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 18,
+      "save" : 4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 17,
+      "save" : 6
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 14,
+      "save" : 5
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 15,
+      "save" : 5
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 16,
+      "save" : 6
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 60 ft., passive Perception 12",
+    "languages" : "Abyssal, Common",
+    "challengeRating" : "8",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : "poison",
+    "conditionImmunities" : "charmed, poisoned",
+    "traits" : [ {
+      "name" : "Rejuvenation",
+      "description" : "If it dies, the naga returns to life in 1d6 days and regains all its hit points. Only a wish spell can prevent this trait from functioning."
+    }, {
+      "name" : "Spellcasting",
+      "description" : "The naga is a 10th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks), and it needs only verbal components to cast its spells. It has the following wizard spells prepared:\nCantrips (at will): mage hand, minor illusion, ray of frost\n1st level (4 slots): charm person, detect magic, sleep\n2nd level (3 slots): detect thoughts, hold person\n3rd level (3 slots): lightning bolt, water breathing\n4th level (3 slots): blight, dimension door\n5th level (2 slots): dominate person"
+    } ],
+    "actions" : [ {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 10 ft., one creature. Hit: 7 (1d6 + 4) piercing damage, and the target must make a DC 13 Constitution saving throw, taking 31 (7d8) poison damage on a failed save, or half as much damage on a successful one."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark" ]
+  }
+}

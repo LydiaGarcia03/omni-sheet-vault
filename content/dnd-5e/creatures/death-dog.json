@@ -1,0 +1,76 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "death-dog",
+  "name" : "Death Dog",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 321,
+  "tags" : [ "desert" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Monstrosity",
+    "alignment" : "neutral evil",
+    "armorClass" : 12,
+    "armorClassText" : "12",
+    "hitPoints" : 39,
+    "hitDice" : "6d8 + 12",
+    "speed" : 40,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 3,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 6,
+      "save" : -2
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 5
+    }, {
+      "name" : "Stealth",
+      "bonus" : 4
+    } ],
+    "senses" : "darkvision 120 ft., passive Perception 15",
+    "languages" : "—",
+    "challengeRating" : "1",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Two-Headed",
+      "description" : "The dog has advantage on Wisdom (Perception) checks and on saving throws against being blinded, charmed, deafened, frightened, stunned, or knocked unconscious."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The dog makes two bite attacks."
+    }, {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage. If the target is a creature, it must succeed on a DC 12 Constitution saving throw against disease or become poisoned until the disease is cured. Every 24 hours that elapse, the creature must repeat the saving throw, reducing its hit point maximum by 5 (1d10) on a failure. This reduction lasts until the disease is cured. The creature dies if the disease reduces its hit point maximum to 0."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "desert" ]
+  }
+}

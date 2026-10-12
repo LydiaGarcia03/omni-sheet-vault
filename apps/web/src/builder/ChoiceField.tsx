@@ -1,5 +1,6 @@
 import { CatalogueSourceLabel } from '../sheet/CatalogueSourceLabel';
 import type { CreationChoice } from './draftApi';
+import { PendingMark } from './PendingMark';
 import { SourceSelect } from './SourceSelect';
 
 type ChoiceFieldProps = {
@@ -18,28 +19,31 @@ export function ChoiceField({ choice, onChange }: ChoiceFieldProps) {
           {choice.count > 1 && ` · choose ${choice.count}`}
         </div>
       </div>
-      <div>
-        {choice.count === 1 ? (
-          <SourceSelect
-            options={choice.options}
-            value={choice.selected[0] ?? null}
-            onChange={(key) => onChange(key ? [key] : [])}
-            placeholder="— choose —"
-            ariaLabel={choice.prompt}
-            clearable
-          />
-        ) : (
-          <SourceSelect
-            multiple
-            options={choice.options}
-            values={choice.selected}
-            max={choice.count}
-            onChange={onChange}
-            placeholder={`— choose ${choice.count} —`}
-            ariaLabel={choice.prompt}
-          />
-        )}
-        <SelectedSummaries choice={choice} />
+      <div className="builder-choice__control">
+        <div>
+          {choice.count === 1 ? (
+            <SourceSelect
+              options={choice.options}
+              value={choice.selected[0] ?? null}
+              onChange={(key) => onChange(key ? [key] : [])}
+              placeholder="— choose —"
+              ariaLabel={choice.prompt}
+              clearable
+            />
+          ) : (
+            <SourceSelect
+              multiple
+              options={choice.options}
+              values={choice.selected}
+              max={choice.count}
+              onChange={onChange}
+              placeholder={`— choose ${choice.count} —`}
+              ariaLabel={choice.prompt}
+            />
+          )}
+          <SelectedSummaries choice={choice} />
+        </div>
+        {choice.pending && <PendingMark />}
       </div>
     </div>
   );

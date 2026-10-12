@@ -1,0 +1,67 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "quaggoth-spore-servant",
+  "name" : "Quaggoth Spore Servant",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 230,
+  "tags" : [ "underdark" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Plant",
+    "alignment" : "unaligned",
+    "armorClass" : 13,
+    "armorClassText" : "13 (natural armor)",
+    "hitPoints" : 45,
+    "hitDice" : "6d8 + 18",
+    "speed" : 20,
+    "additionalSpeeds" : "Climb 20 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 17,
+      "save" : 3
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 2,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 6,
+      "save" : -2
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 1,
+      "save" : -5
+    } ],
+    "skills" : [ ],
+    "senses" : "blindsight 30 ft. (blind beyond this radius), passive Perception 8",
+    "languages" : "—",
+    "challengeRating" : "1",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : "poison",
+    "conditionImmunities" : "blinded, charmed, frightened, paralyzed, poisoned",
+    "traits" : [ ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The spore servant makes two claw attacks."
+    }, {
+      "name" : "Claw",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) slashing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark" ]
+  }
+}

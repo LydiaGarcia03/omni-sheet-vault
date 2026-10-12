@@ -1,0 +1,70 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "giant-rat",
+  "name" : "Giant Rat",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 327,
+  "tags" : [ "underdark", "forest", "swamp", "urban" ],
+  "description" : null,
+  "data" : {
+    "size" : "Small",
+    "creatureType" : "Beast",
+    "alignment" : "unaligned",
+    "armorClass" : 12,
+    "armorClassText" : "12",
+    "hitPoints" : 7,
+    "hitDice" : "2d6",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 7,
+      "save" : -2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 2,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 4,
+      "save" : -3
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 60 ft., passive Perception 10",
+    "languages" : "—",
+    "challengeRating" : "1/8",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Keen Smell",
+      "description" : "The rat has advantage on Wisdom (Perception) checks that rely on smell."
+    }, {
+      "name" : "Pack Tactics",
+      "description" : "The rat has advantage on an attack roll against a creature if at least one of the rat's allies is within 5 feet of the creature and the ally isn't incapacitated."
+    } ],
+    "actions" : [ {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark", "forest", "swamp", "urban" ]
+  }
+}

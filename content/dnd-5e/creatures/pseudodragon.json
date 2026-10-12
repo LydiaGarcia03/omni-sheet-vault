@@ -1,0 +1,82 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "pseudodragon",
+  "name" : "Pseudodragon",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 254,
+  "tags" : [ "familiar", "mountain", "forest", "hill", "urban", "desert", "coastal" ],
+  "description" : null,
+  "data" : {
+    "size" : "Tiny",
+    "creatureType" : "Dragon",
+    "alignment" : "neutral good",
+    "armorClass" : 13,
+    "armorClassText" : "13",
+    "hitPoints" : 7,
+    "hitDice" : "2d4 + 2",
+    "speed" : 15,
+    "additionalSpeeds" : "Fly 60 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 6,
+      "save" : -2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 10,
+      "save" : 0
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 3
+    }, {
+      "name" : "Stealth",
+      "bonus" : 4
+    } ],
+    "senses" : "blindsight 10 ft., darkvision 60 ft., passive Perception 13",
+    "languages" : "understands Common and Draconic but can't speak",
+    "challengeRating" : "1/4",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Keen Senses",
+      "description" : "The pseudodragon has advantage on Wisdom (Perception) checks that rely on sight, hearing, or smell."
+    }, {
+      "name" : "Magic Resistance",
+      "description" : "The pseudodragon has advantage on saving throws against spells and other magical effects."
+    }, {
+      "name" : "Limited Telepathy",
+      "description" : "The pseudodragon can magically communicate simple ideas, emotions, and images telepathically with any creature within 100 feet of it that can understand a language."
+    } ],
+    "actions" : [ {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage."
+    }, {
+      "name" : "Sting",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 4 (1d4 + 2) piercing damage, and the target must succeed on a DC 11 Constitution saving throw or become poisoned for 1 hour. If the saving throw fails by 5 or more, the target falls unconscious for the same duration, or until it takes damage or another creature uses an action to shake it awake."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : true,
+    "environments" : [ "mountain", "forest", "hill", "urban", "desert", "coastal" ]
+  }
+}

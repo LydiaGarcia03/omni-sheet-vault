@@ -1,0 +1,82 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "cloud-giant",
+  "name" : "Cloud Giant",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 154,
+  "tags" : [ "mountain" ],
+  "description" : null,
+  "data" : {
+    "size" : "Huge",
+    "creatureType" : "Giant",
+    "alignment" : "neutral good (50%) or neutral evil (50%)",
+    "armorClass" : 14,
+    "armorClassText" : "14 (natural armor)",
+    "hitPoints" : 200,
+    "hitDice" : "16d12 + 96",
+    "speed" : 40,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 27,
+      "save" : 8
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 22,
+      "save" : 10
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 16,
+      "save" : 7
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 16,
+      "save" : 7
+    } ],
+    "skills" : [ {
+      "name" : "Insight",
+      "bonus" : 7
+    }, {
+      "name" : "Perception",
+      "bonus" : 7
+    } ],
+    "senses" : "passive Perception 17",
+    "languages" : "Common, Giant",
+    "challengeRating" : "9",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Keen Smell",
+      "description" : "The giant has advantage on Wisdom (Perception) checks that rely on smell."
+    }, {
+      "name" : "Innate Spellcasting",
+      "description" : "The giant's innate spellcasting ability is Charisma. It can innately cast the following spells, requiring no material components:\nAt will: detect magic, fog cloud, light\n3/day each: feather fall, fly, misty step, telekinesis\n1/day each: control weather, gaseous form"
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The giant makes two morningstar attacks."
+    }, {
+      "name" : "Morningstar",
+      "description" : "Melee Weapon Attack: +12 to hit, reach 10 ft., one target. Hit: 21 (3d8 + 8) piercing damage."
+    }, {
+      "name" : "Rock",
+      "description" : "Ranged Weapon Attack: +12 to hit, range 60/240 ft., one target. Hit: 30 (4d10 + 8) bludgeoning damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "mountain" ]
+  }
+}

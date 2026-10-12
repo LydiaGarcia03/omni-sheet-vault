@@ -8,6 +8,7 @@ import dev.omnisheetvault.api.ruleset.InvalidBackgroundFieldException;
 import dev.omnisheetvault.api.ruleset.InvalidCoinDenominationException;
 import dev.omnisheetvault.api.ruleset.InvalidConditionException;
 import dev.omnisheetvault.api.ruleset.InvalidCustomActionFieldException;
+import dev.omnisheetvault.api.ruleset.InvalidExtraException;
 import dev.omnisheetvault.api.ruleset.InvalidItemFieldException;
 import dev.omnisheetvault.api.ruleset.InvalidSheetThemeException;
 import dev.omnisheetvault.api.ruleset.Item;
@@ -43,6 +44,7 @@ import tools.jackson.databind.ObjectMapper;
 public class Dnd5eSheetMutator implements SheetMutator {
 
     private static final int ATTUNEMENT_LIMIT = 3;
+    private static final int MAX_EXTRAS_PER_ADD = 20;
     private static final String EXHAUSTION = "exhaustion";
     private static final String ALLY_EFFECT_SUFFIX = "-ally";
 
@@ -359,11 +361,12 @@ public class Dnd5eSheetMutator implements SheetMutator {
         return write(sheet.withItems(items));
     }
 
+    /** An item that can't be equipped (see {@link Dnd5eEquippable}) is left alone, unless it's already equipped and is being taken off. */
     @Override
     public String toggleItemEquipped(String sheetJson, String itemKey) {
         Dnd5eSheet sheet = read(sheetJson);
         List<Dnd5eItem> items = sheet.items().stream()
-                .map(item -> item.key().equals(itemKey) ? withEquipped(item, !item.equipped()) : item)
+                .map(item -> item.key().equals(itemKey) && (item.equipped() || Dnd5eEquippable.of(item)) ? withEquipped(item, !item.equipped()) : item)
                 .toList();
         return write(sheet.withItems(items));
     }
@@ -520,6 +523,24 @@ public class Dnd5eSheetMutator implements SheetMutator {
                 extra -> withHitPoints(extra, extra.currentHitPoints(), Math.max(extra.temporaryHitPoints(), amount))));
     }
 
+    /** Adds {@code quantity} copies of a catalogue creature under {@code category}; an unknown category is rejected. */
+    @Override
+    public String addCatalogueExtra(String sheetJson, String name, String source, String category, JsonNode creature, int quantity) {
+        Dnd5eExtraCategory extraCategory;
+        try {
+            extraCategory = Dnd5eExtraCategory.valueOf(category);
+        } catch (IllegalArgumentException | NullPointerException e) {
+            throw new InvalidExtraException("Unknown extra category: " + category);
+        }
+        if (quantity < 1 || quantity > MAX_EXTRAS_PER_ADD) {
+            throw new InvalidExtraException("Add between 1 and " + MAX_EXTRAS_PER_ADD + " at a time.");
+        }
+        Dnd5eSheet sheet = read(sheetJson);
+        List<Dnd5eExtra> extras = new ArrayList<>(sheet.extras());
+        extras.addAll(Dnd5eCatalogueExtras.fromCreature(name, source, extraCategory, creature, quantity));
+        return write(sheet.withExtras(extras));
+    }
+
     @Override
     public String removeExtra(String sheetJson, String extraKey) {
         Dnd5eSheet sheet = read(sheetJson);
@@ -537,9 +558,15 @@ public class Dnd5eSheetMutator implements SheetMutator {
     }
 
     private Dnd5eExtra withHitPoints(Dnd5eExtra extra, int currentHitPoints, int temporaryHitPoints) {
-        return new Dnd5eExtra(
-                extra.key(), extra.name(), extra.category(), extra.armorClass(), extra.maxHitPoints(),
-                currentHitPoints, temporaryHitPoints, extra.speed(), extra.statBlock());
+        return extra.withHitPoints(currentHitPoints, temporaryHitPoints);
+    }
+
+    /** Renames the extra and sets its notes; a blank name keeps the old one, blank notes clear them. */
+    @Override
+    public String updateExtra(String sheetJson, String extraKey, String name, String notes) {
+        return write(mutateExtra(sheetJson, extraKey, extra -> extra.withNameAndNotes(
+                name == null || name.isBlank() ? extra.name() : name.trim(),
+                notes == null || notes.isBlank() ? null : notes.trim())));
     }
 
     /** An unknown {@code featureKey} is a no-op, same treatment as an unknown item key; a trait-linked action spends its trait. */

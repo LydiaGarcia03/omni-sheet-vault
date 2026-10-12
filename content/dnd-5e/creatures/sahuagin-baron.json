@@ -1,0 +1,85 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "sahuagin-baron",
+  "name" : "Sahuagin Baron",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 264,
+  "tags" : [ "underwater", "coastal" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Humanoid (sahuagin)",
+    "alignment" : "lawful evil",
+    "armorClass" : 16,
+    "armorClassText" : "16 (breastplate)",
+    "hitPoints" : 76,
+    "hitDice" : "9d10 + 27",
+    "speed" : 30,
+    "additionalSpeeds" : "Swim 50 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 19,
+      "save" : 4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 15,
+      "save" : 5
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 16,
+      "save" : 6
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 14,
+      "save" : 5
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 13,
+      "save" : 4
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 17,
+      "save" : 3
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 7
+    } ],
+    "senses" : "darkvision 120 ft., passive Perception 17",
+    "languages" : "Sahuagin",
+    "challengeRating" : "5",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Blood Frenzy",
+      "description" : "The sahuagin has advantage on melee attack rolls against any creature that doesn't have all its hit points."
+    }, {
+      "name" : "Limited Amphibiousness",
+      "description" : "The sahuagin can breathe air and water, but it needs to be submerged at least once every 4 hours to avoid suffocating."
+    }, {
+      "name" : "Shark Telepathy",
+      "description" : "The sahuagin can magically command any shark within 120 feet of it, using a limited telepathy."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The sahuagin makes three attacks: one with his bite and two with his claws or trident."
+    }, {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 9 (2d4 + 4) piercing damage."
+    }, {
+      "name" : "Claws",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) slashing damage."
+    }, {
+      "name" : "Trident",
+      "description" : "Melee Weapon  or Ranged Weapon Attack: +7 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 11 (2d6 + 4) piercing damage, or 13 (2d8 + 4) piercing damage if used with two hands to make a melee attack."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underwater", "coastal" ]
+  }
+}

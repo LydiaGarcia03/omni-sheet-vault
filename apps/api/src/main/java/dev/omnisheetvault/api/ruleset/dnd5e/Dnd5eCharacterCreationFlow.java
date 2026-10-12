@@ -58,6 +58,28 @@ public class Dnd5eCharacterCreationFlow implements CharacterCreationFlow {
         return new Dnd5eBuildPlanner(read(buildJson, Default.class), catalogue).plan();
     }
 
+    /** The build's books, playtest and partner switches, the same rule the builder applies. */
+    @Override
+    public boolean offersCatalogueEntry(String buildJson, CatalogueRecord entry) {
+        return read(buildJson, Default.class).preferences().allows(entry);
+    }
+
+    /** The feat's prerequisites against the planned character, when the build checks feat prerequisites at all. */
+    @Override
+    public List<String> featProblems(String buildJson, CatalogueRecord feat, CatalogueLookup catalogue) {
+        Dnd5eCharacterBuild build = read(buildJson, Default.class);
+        if (!build.preferences().featPrerequisites()) {
+            return List.of();
+        }
+        Dnd5eBuildPlanner planner = new Dnd5eBuildPlanner(build, catalogue);
+        planner.plan();
+        if (Dnd5ePrerequisites.evaluate(feat.data().get("prerequisites"), planner.state()).met()) {
+            return List.of();
+        }
+        String requirement = feat.data().path("prerequisiteText").asString("");
+        return List.of(feat.name() + " requires " + (requirement.isBlank() ? "a prerequisite this character doesn't meet" : requirement));
+    }
+
     @Override
     public CreationPreview preview(String buildJson, CatalogueLookup catalogue) {
         Dnd5eCharacterBuild build = read(buildJson, Default.class);

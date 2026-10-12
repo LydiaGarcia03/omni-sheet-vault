@@ -1,0 +1,76 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "owlbear",
+  "name" : "Owlbear",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 249,
+  "tags" : [ "forest" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Monstrosity",
+    "alignment" : "unaligned",
+    "armorClass" : 13,
+    "armorClassText" : "13 (natural armor)",
+    "hitPoints" : 59,
+    "hitDice" : "7d10 + 21",
+    "speed" : 40,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 20,
+      "save" : 5
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 17,
+      "save" : 3
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 3,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 7,
+      "save" : -2
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 3
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 13",
+    "languages" : "—",
+    "challengeRating" : "3",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Keen Sight and Smell",
+      "description" : "The owlbear has advantage on Wisdom (Perception) checks that rely on sight or smell."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The owlbear makes two attacks: one with its beak and one with its claws."
+    }, {
+      "name" : "Beak",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 5 ft., one creature. Hit: 10 (1d10 + 5) piercing damage."
+    }, {
+      "name" : "Claws",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 14 (2d8 + 5) slashing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "forest" ]
+  }
+}

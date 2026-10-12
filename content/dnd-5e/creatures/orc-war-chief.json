@@ -1,0 +1,82 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "orc-war-chief",
+  "name" : "Orc War Chief",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 246,
+  "tags" : [ "underdark", "mountain", "grassland", "forest", "swamp", "hill", "arctic" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (orc)",
+    "alignment" : "chaotic evil",
+    "armorClass" : 16,
+    "armorClassText" : "16 (chain mail)",
+    "hitPoints" : 93,
+    "hitDice" : "11d8 + 44",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 18,
+      "save" : 6
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 18,
+      "save" : 6
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 11,
+      "save" : 2
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 16,
+      "save" : 3
+    } ],
+    "skills" : [ {
+      "name" : "Intimidation",
+      "bonus" : 5
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 10",
+    "languages" : "Common, Orc",
+    "challengeRating" : "4",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Aggressive",
+      "description" : "As a bonus action, the orc can move up to its speed toward a hostile creature that it can see."
+    }, {
+      "name" : "Gruumsh's Fury",
+      "description" : "The orc deals an extra 4 (1d8) damage when it hits with a weapon attack (included in the attacks)."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The orc makes two attacks with its greataxe or its spear."
+    }, {
+      "name" : "Greataxe",
+      "description" : "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 15 (1d12 + 4 plus 1d8) slashing damage."
+    }, {
+      "name" : "Spear",
+      "description" : "Melee Weapon  or Ranged Weapon Attack: +6 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 12 (1d6 + 4 plus 1d8) piercing damage, or 13 (2d8 + 4) piercing damage if used with two hands to make a melee attack."
+    }, {
+      "name" : "Battle Cry (1/Day)",
+      "description" : "Each creature of the war chief's choice that is within 30 feet of it, can hear it, and not already affected by Battle Cry gains advantage on attack rolls until the start of the war chief's next turn. The war chief can then make one attack as a bonus action."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark", "mountain", "grassland", "forest", "swamp", "hill", "arctic" ]
+  }
+}

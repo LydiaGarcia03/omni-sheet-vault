@@ -1,0 +1,76 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "druid",
+  "name" : "Druid",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 346,
+  "tags" : [ "coastal", "mountain", "grassland", "hill", "arctic", "forest", "swamp", "underdark", "desert" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (any race)",
+    "alignment" : "any alignment",
+    "armorClass" : 11,
+    "armorClassText" : "11, 16 with barkskin",
+    "hitPoints" : 27,
+    "hitDice" : "5d8 + 5",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 11,
+      "save" : 0
+    } ],
+    "skills" : [ {
+      "name" : "Medicine",
+      "bonus" : 4
+    }, {
+      "name" : "Nature",
+      "bonus" : 3
+    }, {
+      "name" : "Perception",
+      "bonus" : 4
+    } ],
+    "senses" : "passive Perception 14",
+    "languages" : "Druidic plus any two languages",
+    "challengeRating" : "2",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Spellcasting",
+      "description" : "The druid is a 4th-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 12, +4 to hit with spell attacks). It has the following druid spells prepared:\nCantrips (at will): druidcraft, produce flame, shillelagh\n1st level (4 slots): entangle, longstrider, speak with animals, thunderwave\n2nd level (3 slots): animal messenger, barkskin"
+    } ],
+    "actions" : [ {
+      "name" : "Quarterstaff",
+      "description" : "Melee Weapon Attack: +2 to hit (+4 to hit with shillelagh), reach 5 ft., one target. Hit: 3 (1d6) bludgeoning damage, 4 (1d8) bludgeoning damage if wielded with two hands, or 6 (1d8 + 2) bludgeoning damage with shillelagh."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "coastal", "mountain", "grassland", "hill", "arctic", "forest", "swamp", "underdark", "desert" ]
+  }
+}

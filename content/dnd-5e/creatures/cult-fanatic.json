@@ -1,0 +1,82 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "cult-fanatic",
+  "name" : "Cult Fanatic",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 345,
+  "tags" : [ "urban" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (any race)",
+    "alignment" : "any non-good alignment",
+    "armorClass" : 13,
+    "armorClassText" : "13 (leather armor)",
+    "hitPoints" : 33,
+    "hitDice" : "6d8 + 6",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 14,
+      "save" : 2
+    } ],
+    "skills" : [ {
+      "name" : "Deception",
+      "bonus" : 4
+    }, {
+      "name" : "Persuasion",
+      "bonus" : 4
+    }, {
+      "name" : "Religion",
+      "bonus" : 2
+    } ],
+    "senses" : "passive Perception 11",
+    "languages" : "any one language (usually Common)",
+    "challengeRating" : "2",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Dark Devotion",
+      "description" : "The fanatic has advantage on saving throws against being charmed or frightened."
+    }, {
+      "name" : "Spellcasting",
+      "description" : "The fanatic is a 4th-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 11, +3 to hit with spell attacks). The fanatic has the following cleric spells prepared:\nCantrips (at will): light, sacred flame, thaumaturgy\n1st level (4 slots): command, inflict wounds, shield of faith\n2nd level (3 slots): hold person, spiritual weapon"
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The fanatic makes two melee attacks."
+    }, {
+      "name" : "Dagger",
+      "description" : "Melee Weapon  or Ranged Weapon Attack: +4 to hit, reach 5 ft. or range 20/60 ft., one creature. Hit: 4 (1d4 + 2) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "urban" ]
+  }
+}

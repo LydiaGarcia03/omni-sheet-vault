@@ -1,0 +1,73 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "animated-armor",
+  "name" : "Animated Armor",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 19,
+  "tags" : [ ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Construct",
+    "alignment" : "unaligned",
+    "armorClass" : 18,
+    "armorClassText" : "18 (natural armor)",
+    "hitPoints" : 33,
+    "hitDice" : "6d8 + 6",
+    "speed" : 25,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 1,
+      "save" : -5
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 3,
+      "save" : -4
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 1,
+      "save" : -5
+    } ],
+    "skills" : [ ],
+    "senses" : "blindsight 60 ft. (blind beyond this radius), passive Perception 6",
+    "languages" : "—",
+    "challengeRating" : "1",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : "poison, psychic",
+    "conditionImmunities" : "blinded, charmed, deafened, exhaustion, frightened, paralyzed, petrified, poisoned",
+    "traits" : [ {
+      "name" : "Antimagic Susceptibility",
+      "description" : "The armor is incapacitated while in the area of an antimagic field. If targeted by dispel magic, the armor must succeed on a Constitution saving throw against the caster's spell save DC or fall unconscious for 1 minute."
+    }, {
+      "name" : "False Appearance",
+      "description" : "While the armor remains motionless, it is indistinguishable from a normal suit of armor."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The armor makes two melee attacks."
+    }, {
+      "name" : "Slam",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) bludgeoning damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ ]
+  }
+}

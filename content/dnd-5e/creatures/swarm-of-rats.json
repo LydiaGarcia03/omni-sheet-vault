@@ -1,0 +1,70 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "swarm-of-rats",
+  "name" : "Swarm of Rats",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 339,
+  "tags" : [ "swamp", "urban" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Swarm of Tiny beasts",
+    "alignment" : "unaligned",
+    "armorClass" : 10,
+    "armorClassText" : "10",
+    "hitPoints" : 24,
+    "hitDice" : "7d8 - 7",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 9,
+      "save" : -1
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 9,
+      "save" : -1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 2,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 3,
+      "save" : -4
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 30 ft., passive Perception 10",
+    "languages" : "—",
+    "challengeRating" : "1/4",
+    "damageVulnerabilities" : null,
+    "damageResistances" : "bludgeoning, piercing, slashing",
+    "damageImmunities" : null,
+    "conditionImmunities" : "charmed, frightened, grappled, paralyzed, petrified, prone, restrained, stunned",
+    "traits" : [ {
+      "name" : "Keen Smell",
+      "description" : "The swarm has advantage on Wisdom (Perception) checks that rely on smell."
+    }, {
+      "name" : "Swarm",
+      "description" : "The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny rat. The swarm can't regain hit points or gain temporary hit points."
+    } ],
+    "actions" : [ {
+      "name" : "Bites",
+      "description" : "Melee Weapon Attack: +2 to hit, reach 0 ft., one target in the swarm's space. Hit: 7 (2d6) piercing damage, or 3 (1d6) piercing damage if the swarm has half of its hit points or fewer."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "swamp", "urban" ]
+  }
+}

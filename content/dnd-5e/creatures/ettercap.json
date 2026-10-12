@@ -1,0 +1,91 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "ettercap",
+  "name" : "Ettercap",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 131,
+  "tags" : [ "forest" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Monstrosity",
+    "alignment" : "neutral evil",
+    "armorClass" : 13,
+    "armorClassText" : "13 (natural armor)",
+    "hitPoints" : 44,
+    "hitDice" : "8d8 + 8",
+    "speed" : 30,
+    "additionalSpeeds" : "Climb 30 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 7,
+      "save" : -2
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 8,
+      "save" : -1
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 3
+    }, {
+      "name" : "Stealth",
+      "bonus" : 4
+    }, {
+      "name" : "Survival",
+      "bonus" : 3
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 13",
+    "languages" : "—",
+    "challengeRating" : "2",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Spider Climb",
+      "description" : "The ettercap can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check."
+    }, {
+      "name" : "Web Sense",
+      "description" : "While in contact with a web, the ettercap knows the exact location of any other creature in contact with the same web."
+    }, {
+      "name" : "Web Walker",
+      "description" : "The ettercap ignores movement restrictions caused by webbing."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The ettercap makes two attacks: one with its bite and one with its claws."
+    }, {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 6 (1d8 + 2) piercing damage plus 4 (1d8) poison damage. The target must succeed on a DC 11 Constitution saving throw or be poisoned for 1 minute. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success."
+    }, {
+      "name" : "Claws",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) slashing damage."
+    }, {
+      "name" : "Web (Recharge 5–6)",
+      "description" : "Ranged Weapon Attack: +4 to hit, range 30/60 ft., one Large or smaller creature. Hit: The creature is restrained by webbing. As an action, the restrained creature can make a DC 11 Strength check, escaping from the webbing on a success. The effect ends if the webbing is destroyed. The webbing has AC 10, 5 hit points, is vulnerable to fire damage and immune to bludgeoning, poison and psychic damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "forest" ]
+  }
+}

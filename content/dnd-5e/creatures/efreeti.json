@@ -1,0 +1,76 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "efreeti",
+  "name" : "Efreeti",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 145,
+  "tags" : [ "desert" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Elemental",
+    "alignment" : "lawful evil",
+    "armorClass" : 17,
+    "armorClassText" : "17 (natural armor)",
+    "hitPoints" : 200,
+    "hitDice" : "16d10 + 112",
+    "speed" : 40,
+    "additionalSpeeds" : "Fly 60 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 22,
+      "save" : 6
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 24,
+      "save" : 7
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 16,
+      "save" : 7
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 15,
+      "save" : 6
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 16,
+      "save" : 7
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 120 ft., passive Perception 12",
+    "languages" : "Ignan",
+    "challengeRating" : "11",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : "fire",
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Elemental Demise",
+      "description" : "If the efreeti dies, its body disintegrates in a flash of fire and puff of smoke, leaving behind only equipment the efreeti was wearing or carrying."
+    }, {
+      "name" : "Innate Spellcasting",
+      "description" : "The efreeti's innate spellcasting ability is Charisma (spell save DC 15, +7 to hit with spell attacks). It can innately cast the following spells, requiring no material components:\nAt will: detect magic\n3/day each: enlarge/reduce, tongues\n1/day each: conjure elemental (fire elemental only), gaseous form, invisibility, major image, plane shift, wall of fire"
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The efreeti makes two scimitar attacks or uses its Hurl Flame twice."
+    }, {
+      "name" : "Scimitar",
+      "description" : "Melee Weapon Attack: +10 to hit, reach 5 ft., one target. Hit: 13 (2d6 + 6) slashing damage plus 7 (2d6) fire damage."
+    }, {
+      "name" : "Hurl Flame",
+      "description" : "Ranged Spell Attack: +7 to hit, range 120 ft., one target. Hit: 17 (5d6) fire damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "desert" ]
+  }
+}

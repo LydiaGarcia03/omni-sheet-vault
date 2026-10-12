@@ -58,7 +58,8 @@ public final class Ingest5eToolsMain {
                 new SpeciesConverter(objectMapper, overlay),
                 new BackgroundConverter(objectMapper),
                 new LanguageConverter(objectMapper),
-                new ConditionConverter(objectMapper, overlay));
+                new ConditionConverter(objectMapper, overlay),
+                new CreatureConverter(objectMapper));
     }
 
     private static Map<String, String> parseArgs(String[] args) {

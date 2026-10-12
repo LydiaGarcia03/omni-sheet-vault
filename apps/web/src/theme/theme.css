@@ -100,7 +100,7 @@
 .app-page > .app-wrap { width: 100%; box-sizing: border-box; }
 .app-page > .app-footer { margin-top: auto; }
 .app-wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
-.app-heading { font-family: var(--app-heading-font); text-transform: uppercase; letter-spacing: .05em; margin: 0; }
+.app-heading { font-family: var(--app-heading-font); text-transform: uppercase; letter-spacing: .05em; margin: 15px 0; }
 .app-muted { color: var(--app-muted); }
 
 /* Footer on every page: the fan content notice and the credits link */

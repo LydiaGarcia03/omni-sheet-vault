@@ -1,0 +1,70 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "crab",
+  "name" : "Crab",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 320,
+  "tags" : [ "familiar", "coastal" ],
+  "description" : null,
+  "data" : {
+    "size" : "Tiny",
+    "creatureType" : "Beast",
+    "alignment" : "unaligned",
+    "armorClass" : 11,
+    "armorClassText" : "11 (natural armor)",
+    "hitPoints" : 2,
+    "hitDice" : "1d4",
+    "speed" : 20,
+    "additionalSpeeds" : "Swim 20 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 2,
+      "save" : -4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 1,
+      "save" : -5
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 2,
+      "save" : -4
+    } ],
+    "skills" : [ {
+      "name" : "Stealth",
+      "bonus" : 2
+    } ],
+    "senses" : "blindsight 30 ft., passive Perception 9",
+    "languages" : "—",
+    "challengeRating" : "0",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Amphibious",
+      "description" : "The crab can breathe air and water."
+    } ],
+    "actions" : [ {
+      "name" : "Claw",
+      "description" : "Melee Weapon Attack: +0 to hit, reach 5 ft., one target. Hit: 1 bludgeoning damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : true,
+    "environments" : [ "coastal" ]
+  }
+}

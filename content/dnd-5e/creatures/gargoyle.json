@@ -1,0 +1,73 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "gargoyle",
+  "name" : "Gargoyle",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 140,
+  "tags" : [ "underdark", "urban" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Elemental",
+    "alignment" : "chaotic evil",
+    "armorClass" : 15,
+    "armorClassText" : "15 (natural armor)",
+    "hitPoints" : 52,
+    "hitDice" : "7d8 + 21",
+    "speed" : 30,
+    "additionalSpeeds" : "Fly 60 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 6,
+      "save" : -2
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 7,
+      "save" : -2
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 60 ft., passive Perception 10",
+    "languages" : "Terran",
+    "challengeRating" : "2",
+    "damageVulnerabilities" : null,
+    "damageResistances" : "bludgeoning, piercing, and slashing from nonmagical attacks that aren't adamantine",
+    "damageImmunities" : "poison",
+    "conditionImmunities" : "exhaustion, petrified, poisoned",
+    "traits" : [ {
+      "name" : "False Appearance",
+      "description" : "While the gargoyle remains motionless, it is indistinguishable from an inanimate statue."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The gargoyle makes two attacks: one with its bite and one with its claws."
+    }, {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage."
+    }, {
+      "name" : "Claws",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) slashing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark", "urban" ]
+  }
+}

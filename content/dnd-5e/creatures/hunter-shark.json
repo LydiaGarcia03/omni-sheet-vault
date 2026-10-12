@@ -1,0 +1,73 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "hunter-shark",
+  "name" : "Hunter Shark",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 330,
+  "tags" : [ "underwater" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Beast",
+    "alignment" : "unaligned",
+    "armorClass" : 12,
+    "armorClassText" : "12 (natural armor)",
+    "hitPoints" : 45,
+    "hitDice" : "6d10 + 12",
+    "speed" : 0,
+    "additionalSpeeds" : "Swim 40 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 18,
+      "save" : 4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 1,
+      "save" : -5
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 4,
+      "save" : -3
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 2
+    } ],
+    "senses" : "blindsight 30 ft., passive Perception 12",
+    "languages" : "—",
+    "challengeRating" : "2",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Blood Frenzy",
+      "description" : "The shark has advantage on melee attack rolls against any creature that doesn't have all its hit points."
+    }, {
+      "name" : "Water Breathing",
+      "description" : "The shark can breathe only underwater."
+    } ],
+    "actions" : [ {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 13 (2d8 + 4) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underwater" ]
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "giant-badger",
+  "name" : "Giant Badger",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 323,
+  "tags" : [ "forest" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Beast",
+    "alignment" : "unaligned",
+    "armorClass" : 10,
+    "armorClassText" : "10",
+    "hitPoints" : 13,
+    "hitDice" : "2d8 + 4",
+    "speed" : 30,
+    "additionalSpeeds" : "Burrow 10 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 2,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 5,
+      "save" : -3
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 30 ft., passive Perception 11",
+    "languages" : "—",
+    "challengeRating" : "1/4",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Keen Smell",
+      "description" : "The badger has advantage on Wisdom (Perception) checks that rely on smell."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The badger makes two attacks: one with its bite and one with its claws."
+    }, {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) piercing damage."
+    }, {
+      "name" : "Claws",
+      "description" : "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 6 (2d4 + 1) slashing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "forest" ]
+  }
+}

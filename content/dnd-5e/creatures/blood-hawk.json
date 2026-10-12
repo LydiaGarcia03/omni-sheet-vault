@@ -1,0 +1,73 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "blood-hawk",
+  "name" : "Blood Hawk",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 319,
+  "tags" : [ "mountain", "grassland", "forest", "hill", "coastal", "arctic" ],
+  "description" : null,
+  "data" : {
+    "size" : "Small",
+    "creatureType" : "Beast",
+    "alignment" : "unaligned",
+    "armorClass" : 12,
+    "armorClassText" : "12",
+    "hitPoints" : 7,
+    "hitDice" : "2d6",
+    "speed" : 10,
+    "additionalSpeeds" : "Fly 60 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 6,
+      "save" : -2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 3,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 5,
+      "save" : -3
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 4
+    } ],
+    "senses" : "passive Perception 14",
+    "languages" : "—",
+    "challengeRating" : "1/8",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Keen Sight",
+      "description" : "The hawk has advantage on Wisdom (Perception) checks that rely on sight."
+    }, {
+      "name" : "Pack Tactics",
+      "description" : "The hawk has advantage on an attack roll against a creature if at least one of the hawk's allies is within 5 feet of the creature and the ally isn't incapacitated."
+    } ],
+    "actions" : [ {
+      "name" : "Beak",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "mountain", "grassland", "forest", "hill", "coastal", "arctic" ]
+  }
+}

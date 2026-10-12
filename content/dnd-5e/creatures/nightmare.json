@@ -1,0 +1,73 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "nightmare",
+  "name" : "Nightmare",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 235,
+  "tags" : [ ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Fiend",
+    "alignment" : "neutral evil",
+    "armorClass" : 13,
+    "armorClassText" : "13 (natural armor)",
+    "hitPoints" : 68,
+    "hitDice" : "8d10 + 24",
+    "speed" : 60,
+    "additionalSpeeds" : "Fly 90 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 18,
+      "save" : 4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 15,
+      "save" : 2
+    } ],
+    "skills" : [ ],
+    "senses" : "passive Perception 11",
+    "languages" : "understands Abyssal, Common, and Infernal but can't speak ",
+    "challengeRating" : "3",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : "fire",
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Confer Fire Resistance",
+      "description" : "The nightmare can grant resistance to fire damage to anyone riding it."
+    }, {
+      "name" : "Illumination",
+      "description" : "The nightmare sheds bright light in a 10-foot radius and dim light for an additional 10 feet."
+    } ],
+    "actions" : [ {
+      "name" : "Hooves",
+      "description" : "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 13 (2d8 + 4) bludgeoning damage plus 7 (2d6) fire damage."
+    }, {
+      "name" : "Ethereal Stride",
+      "description" : "The nightmare and up to three willing creatures within 5 feet of it magically enter the Ethereal Plane from the Material Plane, or vice versa."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ ]
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "needle-blight",
+  "name" : "Needle Blight",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 32,
+  "tags" : [ "forest" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Plant",
+    "alignment" : "neutral evil",
+    "armorClass" : 12,
+    "armorClassText" : "12 (natural armor)",
+    "hitPoints" : 11,
+    "hitDice" : "2d8 + 2",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 4,
+      "save" : -3
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 3,
+      "save" : -4
+    } ],
+    "skills" : [ ],
+    "senses" : "blindsight 60 ft. (blind beyond this radius), passive Perception 9",
+    "languages" : "understands Common but can't speak",
+    "challengeRating" : "1/4",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : "blinded, deafened",
+    "traits" : [ ],
+    "actions" : [ {
+      "name" : "Claws",
+      "description" : "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 6 (2d4 + 1) piercing damage."
+    }, {
+      "name" : "Needles",
+      "description" : "Ranged Weapon Attack: +3 to hit, range 30/60 ft., one target. Hit: 8 (2d6 + 1) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "forest" ]
+  }
+}

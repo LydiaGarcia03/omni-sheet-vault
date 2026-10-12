@@ -1,0 +1,79 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "fomorian",
+  "name" : "Fomorian",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 136,
+  "tags" : [ "underdark" ],
+  "description" : null,
+  "data" : {
+    "size" : "Huge",
+    "creatureType" : "Giant",
+    "alignment" : "chaotic evil",
+    "armorClass" : 14,
+    "armorClassText" : "14 (natural armor)",
+    "hitPoints" : 149,
+    "hitDice" : "13d12 + 65",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 23,
+      "save" : 6
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 20,
+      "save" : 5
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 9,
+      "save" : -1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 6,
+      "save" : -2
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 8
+    }, {
+      "name" : "Stealth",
+      "bonus" : 3
+    } ],
+    "senses" : "darkvision 120 ft., passive Perception 18",
+    "languages" : "Giant, Undercommon",
+    "challengeRating" : "8",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The fomorian attacks twice with its greatclub or makes one greatclub attack and uses Evil Eye once."
+    }, {
+      "name" : "Greatclub",
+      "description" : "Melee Weapon Attack: +9 to hit, reach 15 ft., one target. Hit: 19 (3d8 + 6) bludgeoning damage."
+    }, {
+      "name" : "Evil Eye",
+      "description" : "The fomorian magically forces a creature it can see within 60 feet of it to make a DC 14 Charisma saving throw. The creature takes 27 (6d8) psychic damage on a failed save, or half as much damage on a successful one."
+    }, {
+      "name" : "Curse of the Evil Eye (Recharges after a Short or Long Rest)",
+      "description" : "With a stare, the fomorian uses Evil Eye, but on a failed save, the creature is also cursed with magical deformities. While deformed, the creature has its speed halved and has disadvantage on ability checks, saving throws, and attacks based on Strength or Dexterity. The transformed creature can repeat the saving throw whenever it finishes a long rest, ending the effect on a success."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark" ]
+  }
+}

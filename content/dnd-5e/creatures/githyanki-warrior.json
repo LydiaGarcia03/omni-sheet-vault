@@ -1,0 +1,70 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "githyanki-warrior",
+  "name" : "Githyanki Warrior",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 160,
+  "tags" : [ ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (gith)",
+    "alignment" : "lawful evil",
+    "armorClass" : 17,
+    "armorClassText" : "17 (half plate armor)",
+    "hitPoints" : 49,
+    "hitDice" : "9d8 + 9",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 12,
+      "save" : 3
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 13,
+      "save" : 3
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 13,
+      "save" : 3
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 10,
+      "save" : 0
+    } ],
+    "skills" : [ ],
+    "senses" : "passive Perception 11",
+    "languages" : "Gith",
+    "challengeRating" : "3",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Innate Spellcasting (Psionics)",
+      "description" : "The githyanki's innate spellcasting ability is Intelligence. It can innately cast the following spells, requiring no components:\nAt will: mage hand (the hand is invisible)\n3/day each: jump, misty step, nondetection (self only)"
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The githyanki makes two greatsword attacks."
+    }, {
+      "name" : "Greatsword",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 9 (2d6 + 2) slashing damage plus 7 (2d6) psychic damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ ]
+  }
+}

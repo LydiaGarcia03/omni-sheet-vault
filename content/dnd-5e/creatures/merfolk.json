@@ -1,0 +1,70 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "merfolk",
+  "name" : "Merfolk",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 218,
+  "tags" : [ "underwater", "coastal" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (merfolk)",
+    "alignment" : "neutral",
+    "armorClass" : 11,
+    "armorClassText" : "11",
+    "hitPoints" : 11,
+    "hitDice" : "2d8 + 2",
+    "speed" : 10,
+    "additionalSpeeds" : "Swim 40 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 12,
+      "save" : 1
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 2
+    } ],
+    "senses" : "passive Perception 12",
+    "languages" : "Aquan, Common",
+    "challengeRating" : "1/8",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Amphibious",
+      "description" : "The merfolk can breathe air and water."
+    } ],
+    "actions" : [ {
+      "name" : "Spear",
+      "description" : "Melee Weapon  or Ranged Weapon Attack: +2 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 3 (1d6) piercing damage, or 4 (1d8) piercing damage if used with two hands to make a melee attack."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underwater", "coastal" ]
+  }
+}

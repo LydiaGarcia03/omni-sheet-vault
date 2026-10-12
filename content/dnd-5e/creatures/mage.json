@@ -1,0 +1,73 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "mage",
+  "name" : "Mage",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 347,
+  "tags" : [ "urban" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (any race)",
+    "alignment" : "any alignment",
+    "armorClass" : 12,
+    "armorClassText" : "12, 15 with mage armor",
+    "hitPoints" : 40,
+    "hitDice" : "9d8",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 9,
+      "save" : -1
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 17,
+      "save" : 6
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 12,
+      "save" : 4
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 11,
+      "save" : 0
+    } ],
+    "skills" : [ {
+      "name" : "Arcana",
+      "bonus" : 6
+    }, {
+      "name" : "History",
+      "bonus" : 6
+    } ],
+    "senses" : "passive Perception 11",
+    "languages" : "any four languages",
+    "challengeRating" : "6",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Spellcasting",
+      "description" : "The mage is a 9th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks). The mage has the following wizard spells prepared:\nCantrips (at will): fire bolt, light, mage hand, prestidigitation\n1st level (4 slots): detect magic, mage armor, magic missile, shield\n2nd level (3 slots): misty step, suggestion\n3rd level (3 slots): counterspell, fireball, fly\n4th level (3 slots): greater invisibility, ice storm\n5th level (1 slot): cone of cold"
+    } ],
+    "actions" : [ {
+      "name" : "Dagger",
+      "description" : "Melee Weapon  or Ranged Weapon Attack: +5 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (1d4 + 2) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "urban" ]
+  }
+}

@@ -361,6 +361,8 @@ export type CharacterMenuRequest = {
   subtitle: string | null;
   experience: Experience | null;
   onManageExperience: () => void;
+  /** Sets the experience points a milestone build's "Milestone reached" switch stands for. */
+  onSetExperience?: (points: number) => void;
   onLevelUp: () => void;
   onOpenLog: () => void;
   onOpenShortRest: () => void;
@@ -369,6 +371,8 @@ export type CharacterMenuRequest = {
   /** Renames the character; without it the name isn't editable. */
   onRename?: (name: string) => void;
   icons: { shortRest: ReactNode; longRest: ReactNode; gameLog: ReactNode };
+  /** The emblem beside a class row; without it the rows show only the level. */
+  classIcon?: (className: string) => ReactNode;
 };
 
 /** Manage experience: set a level or a total, or add or remove points, then apply the new total. */
@@ -629,7 +633,14 @@ export type Item = {
   source: string | null;
   /** The weapon's properties, plus Silvered / Adamantine when customized; absent on an older API. */
   properties?: string[];
+  /** Whether the system lets this item be equipped (D&D 5e: weapons, armor, shields, non-single-use magic items); absent on an older API. */
+  equippable?: boolean;
 };
+
+/** An item shows its equip control when it can be equipped, or is equipped already and so can be taken off. */
+export function canToggleEquipped(item: Item): boolean {
+  return item.equipped || item.equippable !== false;
+}
 
 /** One of a character's storage buckets — see `Encumbrance`. */
 export type StorageSection = {
@@ -692,6 +703,12 @@ export type ExtraStatBlock = {
   challengeRating: string;
   traits: ExtraStatEntry[];
   actions: ExtraStatEntry[];
+  /** Absent on an older API, like the fields below. */
+  reactions?: ExtraStatEntry[];
+  legendaryActions?: ExtraStatEntry[];
+  /** The challenge rating's experience points and proficiency bonus; null for a rating the server doesn't know. */
+  challengeXp?: number | null;
+  challengeProficiencyBonus?: number | null;
 };
 
 export type Extra = {
@@ -704,6 +721,10 @@ export type Extra = {
   temporaryHitPoints: number;
   speed: number;
   statBlock: ExtraStatBlock;
+  /** The book a catalogue creature came from; null when written by hand. */
+  source?: string | null;
+  /** The player's own line, shown in the Notes column. */
+  notes?: string | null;
 };
 
 /** One pool per die size (largest first); dieSize/max/used summarise them. longRestRecoveryMax is how many spent dice a long rest returns. */
@@ -890,7 +911,7 @@ export type DefenseEntry = {
 /**
  * The character's advancement: `currentLevelAt`/`nextLevelAt` bound the progress bar (`nextLevelAt`
  * is null at the top level); `levelUpAvailable` means the points reached a level not yet taken
- * (experience builds only); `canLevelUp` means a level up may be started at all.
+ * (a milestone build reaches it by marking its milestone); `canLevelUp` means a level up may be started at all.
  */
 export type Experience = {
   advancement: 'XP' | 'MILESTONE';
@@ -984,6 +1005,8 @@ export type MutationAction =
   | { type: 'EXTRA_HEAL'; extraKey: string; amount: number }
   | { type: 'EXTRA_TEMPORARY_HIT_POINTS'; extraKey: string; amount: number }
   | { type: 'REMOVE_EXTRA'; extraKey: string }
+  | { type: 'ADD_CATALOGUE_EXTRA'; catalogueEntryId: string; category: string; quantity: number }
+  | { type: 'UPDATE_EXTRA'; extraKey: string; name: string; notes: string }
   | { type: 'USE_FEATURE_ACTION'; featureKey: string }
   | { type: 'RESTORE_FEATURE_ACTION'; featureKey: string }
   | { type: 'USE_FEATURE_TRAIT'; featureKey: string }
@@ -1061,6 +1084,14 @@ export function postMutationAction(characterId: string, action: MutationAction):
       return postExtraTemporaryHitPoints(characterId, action.extraKey, action.amount);
     case 'REMOVE_EXTRA':
       return deleteExtra(characterId, action.extraKey);
+    case 'UPDATE_EXTRA':
+      return putExtra(characterId, action.extraKey, action.name, action.notes);
+    case 'ADD_CATALOGUE_EXTRA':
+      return postJson(characterId, '/extras/catalogue', {
+        catalogueEntryId: action.catalogueEntryId,
+        category: action.category,
+        quantity: action.quantity,
+      });
     case 'USE_FEATURE_ACTION':
       return postUseFeatureAction(characterId, action.featureKey);
     case 'RESTORE_FEATURE_ACTION':
@@ -1171,6 +1202,18 @@ export async function deleteItem(characterId: string, itemKey: string): Promise<
   });
   if (!response.ok) {
     throw new Error(`Failed to remove item: ${response.status}`);
+  }
+  return response.json() as Promise<CharacterSheet>;
+}
+
+async function putExtra(characterId: string, extraKey: string, name: string, notes: string): Promise<CharacterSheet> {
+  const response = await apiFetch(`/api/characters/${characterId}/extras/${encodeURIComponent(extraKey)}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, notes }),
+  });
+  if (!response.ok) {
+    throw new Error(`Failed to update extra: ${response.status}`);
   }
   return response.json() as Promise<CharacterSheet>;
 }

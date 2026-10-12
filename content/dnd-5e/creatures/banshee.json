@@ -1,0 +1,76 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "banshee",
+  "name" : "Banshee",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 23,
+  "tags" : [ "forest", "coastal" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Undead",
+    "alignment" : "chaotic evil",
+    "armorClass" : 12,
+    "armorClassText" : "12",
+    "hitPoints" : 58,
+    "hitDice" : "13d8",
+    "speed" : 0,
+    "additionalSpeeds" : "Fly 40 ft. (hover)",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 1,
+      "save" : -5
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 11,
+      "save" : 2
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 17,
+      "save" : 5
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 60 ft., passive Perception 10",
+    "languages" : "Common, Elvish",
+    "challengeRating" : "4",
+    "damageVulnerabilities" : null,
+    "damageResistances" : "acid, fire, lightning, thunder; bludgeoning, piercing, and slashing from nonmagical attacks",
+    "damageImmunities" : "cold, necrotic, poison",
+    "conditionImmunities" : "charmed, exhaustion, frightened, grappled, paralyzed, petrified, poisoned, prone, restrained",
+    "traits" : [ {
+      "name" : "Detect Life",
+      "description" : "The banshee can magically sense the presence of living creatures up to 5 miles away that aren't undead or constructs. She knows the general direction they're in but not their exact locations."
+    }, {
+      "name" : "Incorporeal Movement",
+      "description" : "The banshee can move through other creatures and objects as if they were difficult terrain. She takes 5 (1d10) force damage if she ends her turn inside an object."
+    } ],
+    "actions" : [ {
+      "name" : "Corrupting Touch",
+      "description" : "Melee Spell Attack: +4 to hit, reach 5 ft., one target. Hit: 12 (3d6 + 2) necrotic damage."
+    }, {
+      "name" : "Horrifying Visage",
+      "description" : "Each non-undead creature within 60 feet of the banshee that can see her must succeed on a DC 13 Wisdom saving throw or be frightened for 1 minute. A frightened target can repeat the saving throw at the end of each of its turns, with disadvantage if the banshee is within line of sight, ending the effect on itself on a success. If a target's saving throw is successful or the effect ends for it, the target is immune to the banshee's Horrifying Visage for the next 24 hours."
+    }, {
+      "name" : "Wail (1/Day)",
+      "description" : "The banshee releases a mournful wail, provided that she isn't in sunlight. This wail has no effect on constructs and undead. All other creatures within 30 feet of her that can hear her must make a DC 13 Constitution saving throw. On a failure, a creature drops to 0 hit points. On a success, a creature takes 10 (3d6) psychic damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "forest", "coastal" ]
+  }
+}

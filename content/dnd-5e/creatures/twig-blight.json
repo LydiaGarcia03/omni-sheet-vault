@@ -1,0 +1,70 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "twig-blight",
+  "name" : "Twig Blight",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 32,
+  "tags" : [ "forest" ],
+  "description" : null,
+  "data" : {
+    "size" : "Small",
+    "creatureType" : "Plant",
+    "alignment" : "neutral evil",
+    "armorClass" : 13,
+    "armorClassText" : "13 (natural armor)",
+    "hitPoints" : 4,
+    "hitDice" : "1d6 + 1",
+    "speed" : 20,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 6,
+      "save" : -2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 4,
+      "save" : -3
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 3,
+      "save" : -4
+    } ],
+    "skills" : [ {
+      "name" : "Stealth",
+      "bonus" : 3
+    } ],
+    "senses" : "blindsight 60 ft. (blind beyond this radius), passive Perception 9",
+    "languages" : "understands Common but can't speak",
+    "challengeRating" : "1/8",
+    "damageVulnerabilities" : "fire",
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : "blinded, deafened",
+    "traits" : [ {
+      "name" : "False Appearance",
+      "description" : "While the blight remains motionless, it is indistinguishable from a dead shrub."
+    } ],
+    "actions" : [ {
+      "name" : "Claws",
+      "description" : "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "forest" ]
+  }
+}

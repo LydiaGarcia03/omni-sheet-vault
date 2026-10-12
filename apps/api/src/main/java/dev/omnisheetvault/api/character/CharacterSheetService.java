@@ -6,11 +6,15 @@ import dev.omnisheetvault.api.catalogue.CatalogueEntryResponse;
 import dev.omnisheetvault.api.catalogue.CatalogueService;
 import dev.omnisheetvault.api.dice.Roll;
 import dev.omnisheetvault.api.dice.RollService;
+import dev.omnisheetvault.api.ruleset.CatalogueLookup;
+import dev.omnisheetvault.api.ruleset.CatalogueRecord;
+import dev.omnisheetvault.api.ruleset.CharacterCreationFlow;
 import dev.omnisheetvault.api.ruleset.CustomAction;
 import dev.omnisheetvault.api.ruleset.DeathSaves;
 import dev.omnisheetvault.api.ruleset.FeatureTrait;
 import dev.omnisheetvault.api.ruleset.HitDice;
 import dev.omnisheetvault.api.ruleset.InsufficientHitDiceException;
+import dev.omnisheetvault.api.ruleset.InvalidExtraException;
 import dev.omnisheetvault.api.ruleset.Item;
 import dev.omnisheetvault.api.ruleset.ItemGrantedSpell;
 import dev.omnisheetvault.api.ruleset.ResolvedRoll;
@@ -19,12 +23,16 @@ import dev.omnisheetvault.api.ruleset.SheetMutator;
 import dev.omnisheetvault.api.ruleset.Spell;
 import dev.omnisheetvault.api.ruleset.StartingItem;
 import dev.omnisheetvault.api.ruleset.VitalsZone;
+import dev.omnisheetvault.api.ruleset.registry.CharacterCreationFlowRegistry;
 import dev.omnisheetvault.api.ruleset.registry.MechanicResolverRegistry;
 import dev.omnisheetvault.api.ruleset.registry.SheetCalculatorRegistry;
 import dev.omnisheetvault.api.ruleset.registry.SheetMutatorRegistry;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
 import java.util.function.BiFunction;
 import java.util.function.IntUnaryOperator;
@@ -65,6 +73,7 @@ public class CharacterSheetService {
     private final MechanicResolverRegistry mechanicResolverRegistry;
     private final RollService rollService;
     private final CatalogueService catalogueService;
+    private final CharacterCreationFlowRegistry creationFlows;
     private final ObjectMapper objectMapper;
 
     public CharacterSheetService(
@@ -74,6 +83,7 @@ public class CharacterSheetService {
             MechanicResolverRegistry mechanicResolverRegistry,
             RollService rollService,
             CatalogueService catalogueService,
+            CharacterCreationFlowRegistry creationFlows,
             ObjectMapper objectMapper) {
         this.characterService = characterService;
         this.sheetCalculatorRegistry = sheetCalculatorRegistry;
@@ -81,6 +91,7 @@ public class CharacterSheetService {
         this.mechanicResolverRegistry = mechanicResolverRegistry;
         this.rollService = rollService;
         this.catalogueService = catalogueService;
+        this.creationFlows = creationFlows;
         this.objectMapper = objectMapper;
     }
 
@@ -228,6 +239,20 @@ public class CharacterSheetService {
         return mutate(jwt, characterId, (mutator, sheetJson) -> mutator.setExtraTemporaryHitPoints(sheetJson, extraKey, amount));
     }
 
+    /** Copies a catalogue creature into the character's extras, {@code quantity} times. Never redacted: it becomes the character's own data. */
+    public VitalsZone addCatalogueExtra(Jwt jwt, UUID characterId, UUID catalogueEntryId, String category, int quantity) {
+        CatalogueEntryResponse entry = catalogueService.getUnredacted(catalogueEntryId);
+        if (entry.kind() != CatalogueEntryKind.CREATURE) {
+            throw new InvalidExtraException("Not a creature: " + entry.name());
+        }
+        return mutate(jwt, characterId,
+                (mutator, sheetJson) -> mutator.addCatalogueExtra(sheetJson, entry.name(), entry.sourceBook(), category, entry.data(), quantity));
+    }
+
+    public VitalsZone updateExtra(Jwt jwt, UUID characterId, String extraKey, String name, String notes) {
+        return mutate(jwt, characterId, (mutator, sheetJson) -> mutator.updateExtra(sheetJson, extraKey, name, notes));
+    }
+
     public VitalsZone removeExtra(Jwt jwt, UUID characterId, String extraKey) {
         return mutate(jwt, characterId, (mutator, sheetJson) -> mutator.removeExtra(sheetJson, extraKey));
     }
@@ -330,11 +355,50 @@ public class CharacterSheetService {
 
     /**
      * Copies a catalogue feat into the character's own feature traits. Same
-     * "always read unredacted" reasoning as {@link #learnSpell}.
+     * "always read unredacted" reasoning as {@link #learnSpell}. A character with a build
+     * is held to that build's feat rules (D&D 5e: prerequisites, when its switch is on).
      */
     public VitalsZone learnFeat(Jwt jwt, UUID characterId, UUID catalogueEntryId) {
-        FeatureTrait feat = toFeatureTrait(catalogueService.getUnredacted(catalogueEntryId));
+        CatalogueEntryResponse entry = catalogueService.getUnredacted(catalogueEntryId);
+        checkFeatAllowed(characterService.getMineActive(jwt, characterId), entry);
+        FeatureTrait feat = toFeatureTrait(entry);
         return mutate(jwt, characterId, (mutator, sheetJson) -> mutator.learnFeat(sheetJson, feat));
+    }
+
+    /**
+     * The catalogue entries of {@code kind} this character may pick on its sheet: only the books (and playtest and
+     * partner content) its build allows. A character without a build sees every entry.
+     */
+    public List<CatalogueEntryResponse> catalogueFor(Jwt jwt, UUID characterId, CatalogueEntryKind kind) {
+        Character character = characterService.getMineActive(jwt, characterId);
+        List<CatalogueEntryResponse> entries = catalogueService.list(character.systemId(), kind);
+        CharacterCreationFlow flow = creationFlows.forSystem(character.systemId());
+        Optional<String> build = flow.buildOf(character.sheet());
+        if (build.isEmpty()) {
+            return entries;
+        }
+        Set<String> offered = new HashSet<>();
+        for (CatalogueRecord record : catalogueService.lookup(character.systemId()).list(kind.name())) {
+            if (flow.offersCatalogueEntry(build.get(), record)) {
+                offered.add(record.slug());
+            }
+        }
+        return entries.stream().filter(entry -> offered.contains(entry.slug())).toList();
+    }
+
+    private void checkFeatAllowed(Character character, CatalogueEntryResponse entry) {
+        CharacterCreationFlow flow = creationFlows.forSystem(character.systemId());
+        Optional<String> build = flow.buildOf(character.sheet());
+        if (build.isEmpty()) {
+            return;
+        }
+        CatalogueLookup catalogue = catalogueService.lookup(character.systemId());
+        catalogue.find("FEAT", entry.slug()).ifPresent(feat -> {
+            List<String> problems = flow.featProblems(build.get(), feat, catalogue);
+            if (!problems.isEmpty()) {
+                throw new FeatNotAllowedException(String.join("; ", problems));
+            }
+        });
     }
 
     public VitalsZone removeFeat(Jwt jwt, UUID characterId, String featureKey) {
@@ -454,7 +518,7 @@ public class CharacterSheetService {
                 data.strengthRequirement(), data.weaponAttackBonus(), data.weaponDamageBonus(),
                 data.armorClassBonus(), data.charges(), data.rechargeTrigger(), data.rechargeFormula(),
                 data.grantedSpells().stream().map(granted -> toItemGrantedSpell(entry.systemId(), granted)).toList(),
-                0, "EQUIPMENT", formatSource(entry.sourceBook(), entry.sourcePage()));
+                0, "EQUIPMENT", formatSource(entry.sourceBook(), entry.sourcePage()), false);
     }
 
     /** {@code sourceBook} is never null for a real catalogue entry; {@code sourcePage} is, for the rare entry 5etools gives no page. */

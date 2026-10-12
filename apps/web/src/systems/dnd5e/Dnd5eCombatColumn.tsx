@@ -94,6 +94,7 @@ export function Dnd5eCombatColumn({
         onRollContextMenu={onRollContextMenu}
         onMutate={onMutate}
         onOpenDetail={onOpenDetail}
+        onOpenPane={onOpenPane}
         onOpenSpellManagement={onOpenSpellManagement}
         onOpenManageCustomActions={onOpenManageCustomActions}
         onOpenManageInventory={onOpenManageInventory}

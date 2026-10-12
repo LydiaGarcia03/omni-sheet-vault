@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import dev.omnisheetvault.api.ruleset.BuildPlan;
 import dev.omnisheetvault.api.ruleset.CatalogueLookup;
+import dev.omnisheetvault.api.ruleset.CatalogueRecord;
 import dev.omnisheetvault.api.ruleset.CreationChoice;
 import dev.omnisheetvault.api.ruleset.LevelUp;
 import dev.omnisheetvault.api.ruleset.LevelUpNotAllowedException;
@@ -22,6 +23,34 @@ class Dnd5eLevelUpTest {
 
     private final Dnd5eCharacterCreationFlow flow =
             new Dnd5eCharacterCreationFlow(MAPPER, Validation.buildDefaultValidatorFactory().getValidator());
+
+    @Test
+    void aFeatTakenOnTheSheetIsHeldToItsPrerequisites() {
+        CatalogueRecord ritualCaster = new CatalogueRecord("FEAT", "ritual-caster", "Ritual Caster", "Player's Handbook", 169, "",
+                MAPPER.readTree("""
+                        {"prerequisites":[{"ability":[{"int":13},{"wis":13}]}],"prerequisiteText":"Intelligence or Wisdom 13 or higher"}"""));
+
+        assertThat(flow.featProblems(json(fighter(1, null, 8)), ritualCaster, CATALOGUE))
+                .containsExactly("Ritual Caster requires Intelligence or Wisdom 13 or higher");
+        assertThat(flow.featProblems(json(fighter(1, null, 13)), ritualCaster, CATALOGUE)).isEmpty();
+    }
+
+    @Test
+    void theSheetOffersOnlyTheBooksTheBuildAllows() {
+        Dnd5eCharacterBuild everyBook = fighter(1, null, 13);
+        Dnd5eCharacterBuild coreOnly = new Dnd5eCharacterBuild(everyBook.speciesSlug(), everyBook.subspeciesName(), null,
+                everyBook.backgroundSlug(), everyBook.classes(), everyBook.abilityScoreMethod(), everyBook.baseAbilityScores(),
+                everyBook.hitPointMethod(), everyBook.rolledHitPoints(), everyBook.choices(), null,
+                new Dnd5ePreferences(java.util.Set.of(), null, null, null, null, null, null));
+        CatalogueRecord phbSpell = new CatalogueRecord("SPELL", "shield", "Shield", "Player's Handbook", 275, "", MAPPER.readTree("{}"));
+        CatalogueRecord xgeSpell = new CatalogueRecord("SPELL", "ice-knife", "Ice Knife", "Xanathar's Guide to Everything", 157, "", MAPPER.readTree("{}"));
+        CatalogueRecord mmCreature = new CatalogueRecord("CREATURE", "cat", "Cat", "Monster Manual", 320, "", MAPPER.readTree("{}"));
+
+        assertThat(flow.offersCatalogueEntry(json(everyBook), xgeSpell)).isTrue();
+        assertThat(flow.offersCatalogueEntry(json(coreOnly), phbSpell)).isTrue();
+        assertThat(flow.offersCatalogueEntry(json(coreOnly), mmCreature)).isTrue();
+        assertThat(flow.offersCatalogueEntry(json(coreOnly), xgeSpell)).isFalse();
+    }
 
     @Test
     void levelsAClassTheCharacterHas() {

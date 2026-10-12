@@ -1,0 +1,73 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "orc",
+  "name" : "Orc",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 246,
+  "tags" : [ "underdark", "mountain", "grassland", "forest", "swamp", "hill", "arctic" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (orc)",
+    "alignment" : "chaotic evil",
+    "armorClass" : 13,
+    "armorClassText" : "13 (hide armor)",
+    "hitPoints" : 15,
+    "hitDice" : "2d8 + 6",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 7,
+      "save" : -2
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 10,
+      "save" : 0
+    } ],
+    "skills" : [ {
+      "name" : "Intimidation",
+      "bonus" : 2
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 10",
+    "languages" : "Common, Orc",
+    "challengeRating" : "1/2",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Aggressive",
+      "description" : "As a bonus action, the orc can move up to its speed toward a hostile creature that it can see."
+    } ],
+    "actions" : [ {
+      "name" : "Greataxe",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 9 (1d12 + 3) slashing damage."
+    }, {
+      "name" : "Javelin",
+      "description" : "Melee Weapon  or Ranged Weapon Attack: +5 to hit, reach 5 ft. or range 30/120 ft., one target. Hit: 6 (1d6 + 3) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark", "mountain", "grassland", "forest", "swamp", "hill", "arctic" ]
+  }
+}

@@ -52,7 +52,7 @@ export function SourceSelect(props: SourceSelectProps) {
   const search = useRef<HTMLInputElement>(null);
   const list = useRef<HTMLUListElement>(null);
   const popup = useRef<HTMLDivElement>(null);
-  const direction = usePopupDirection(open, trigger, popup);
+  const { direction, style: popupStyle } = usePopupDirection(open, trigger, popup);
   const codeOf = useSourceCode();
   const leading = useLeadingSources();
   const searchable = options.length > SEARCH_THRESHOLD;
@@ -184,7 +184,7 @@ export function SourceSelect(props: SourceSelectProps) {
         </svg>
       </button>
       {open && (
-        <div ref={popup} className={`source-select__popup${direction === 'up' ? ' is-up' : ''}`}>
+        <div ref={popup} className={`source-select__popup${direction === 'up' ? ' is-up' : ''}`} style={popupStyle}>
           {searchable && (
             <div className="source-select__search">
               <input

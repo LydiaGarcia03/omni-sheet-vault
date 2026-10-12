@@ -1,0 +1,79 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "carrion-crawler",
+  "name" : "Carrion Crawler",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 37,
+  "tags" : [ "underdark" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Monstrosity",
+    "alignment" : "unaligned",
+    "armorClass" : 13,
+    "armorClassText" : "13 (natural armor)",
+    "hitPoints" : 51,
+    "hitDice" : "6d10 + 18",
+    "speed" : 30,
+    "additionalSpeeds" : "Climb 30 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 1,
+      "save" : -5
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 5,
+      "save" : -3
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 3
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 13",
+    "languages" : "—",
+    "challengeRating" : "2",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Keen Smell",
+      "description" : "The carrion crawler has advantage on Wisdom (Perception) checks that rely on smell."
+    }, {
+      "name" : "Spider Climb",
+      "description" : "The carrion crawler can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The carrion crawler makes two attacks: one with its tentacles and one with its bite."
+    }, {
+      "name" : "Tentacles",
+      "description" : "Melee Weapon Attack: +8 to hit, reach 10 ft., one creature. Hit: 4 (1d4 + 2) poison damage, and the target must succeed on a DC 13 Constitution saving throw or be poisoned for 1 minute. Until this poison ends, the target is paralyzed. The target can repeat the saving throw at the end of each of its turns, ending the poison on itself on a success."
+    }, {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark" ]
+  }
+}

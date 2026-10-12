@@ -267,13 +267,15 @@ corner.
   component): D&D 5e is the ampersand logo (a PNG used as a CSS mask) and
   "Dungeons & Dragons" in Modesto Bold Condensed (not bundled: commercial, so
   it falls back to the heading font where it isn't installed), both in the
-  muted brand red `--dnd5e-brand-red-muted` (`#C53131`, the sheet's DDB Red), at 15 px so it stays smaller than the app's name;
+  muted brand red `--dnd5e-brand-red-muted` (`#C53131`, the sheet's DND Red), at 15 px so it stays smaller than the app's name;
   "5th edition · 2014" muted, centred on the name.
 - **Rule (owner, 2026-10-04):** the bar is the same for every system: its
   black background, the app's logo and name, their font and size, the back
   link and the user pill. A system only adds its mark after the divider
   (logo, name and edition in its own theme), never restyles the bar. The
   mark stays smaller than the app's name. Below 1280 px the edition hides; below 640 px the whole mark does.
+  Exception (owner, 2026-10-04): on VtM pages (`.vtm5-page`) the header's
+  background is pure black to match the sheet; everything else stays.
 - On the sheet it sits above the character header, the way D&D Beyond's site
   bar sits above its own. The sheet header no longer carries a back button or
   the user name.

@@ -1,0 +1,64 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "sea-horse",
+  "name" : "Sea Horse",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 337,
+  "tags" : [ "familiar" ],
+  "description" : null,
+  "data" : {
+    "size" : "Tiny",
+    "creatureType" : "Beast",
+    "alignment" : "unaligned",
+    "armorClass" : 11,
+    "armorClassText" : "11",
+    "hitPoints" : 1,
+    "hitDice" : "1d4 - 1",
+    "speed" : 0,
+    "additionalSpeeds" : "Swim 20 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 1,
+      "save" : -5
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 1,
+      "save" : -5
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 2,
+      "save" : -4
+    } ],
+    "skills" : [ ],
+    "senses" : "passive Perception 10",
+    "languages" : "—",
+    "challengeRating" : "0",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Water Breathing",
+      "description" : "The sea horse can breathe only underwater."
+    } ],
+    "actions" : [ ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : true,
+    "environments" : [ ]
+  }
+}

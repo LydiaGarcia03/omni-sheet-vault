@@ -1,0 +1,76 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "shadow-demon",
+  "name" : "Shadow Demon",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 64,
+  "tags" : [ ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Fiend (demon)",
+    "alignment" : "chaotic evil",
+    "armorClass" : 13,
+    "armorClassText" : "13",
+    "hitPoints" : 66,
+    "hitDice" : "12d8 + 12",
+    "speed" : 30,
+    "additionalSpeeds" : "Fly 30 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 1,
+      "save" : -5
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 17,
+      "save" : 5
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 14,
+      "save" : 4
+    } ],
+    "skills" : [ {
+      "name" : "Stealth",
+      "bonus" : 7
+    } ],
+    "senses" : "darkvision 120 ft., passive Perception 11",
+    "languages" : "Abyssal, telepathy 120 ft.",
+    "challengeRating" : "4",
+    "damageVulnerabilities" : "radiant",
+    "damageResistances" : "acid, fire, necrotic, thunder; bludgeoning, piercing, and slashing from nonmagical attacks",
+    "damageImmunities" : "cold, lightning, poison",
+    "conditionImmunities" : "exhaustion, grappled, paralyzed, petrified, poisoned, prone, restrained",
+    "traits" : [ {
+      "name" : "Incorporeal Movement",
+      "description" : "The demon can move through other creatures and objects as if they were difficult terrain. It takes 5 (1d10) force damage if it ends its turn inside an object."
+    }, {
+      "name" : "Light Sensitivity",
+      "description" : "While in bright light, the demon has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+    }, {
+      "name" : "Shadow Stealth",
+      "description" : "While in dim light or darkness, the demon can take the Hide action as a bonus action."
+    } ],
+    "actions" : [ {
+      "name" : "Claws",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one creature. Hit: 10 (2d6 + 3) psychic damage or, if the demon had advantage on the attack roll, 17 (4d6 + 3) psychic damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ ]
+  }
+}

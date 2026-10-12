@@ -1,0 +1,88 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "jackalwere",
+  "name" : "Jackalwere",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 193,
+  "tags" : [ "grassland", "desert" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (shapechanger)",
+    "alignment" : "chaotic evil",
+    "armorClass" : 12,
+    "armorClassText" : "12",
+    "hitPoints" : 18,
+    "hitDice" : "4d8",
+    "speed" : 40,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 10,
+      "save" : 0
+    } ],
+    "skills" : [ {
+      "name" : "Deception",
+      "bonus" : 4
+    }, {
+      "name" : "Perception",
+      "bonus" : 2
+    }, {
+      "name" : "Stealth",
+      "bonus" : 4
+    } ],
+    "senses" : "passive Perception 12",
+    "languages" : "Common (can't speak in jackal form)",
+    "challengeRating" : "1/2",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : "bludgeoning, piercing, and slashing from nonmagical attacks that aren't silvered",
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Shapechanger",
+      "description" : "The jackalwere can use its action to polymorph into a specific Medium human or a jackal-humanoid hybrid, or back into its true form (that of a Small jackal). Other than its size, its statistics are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies."
+    }, {
+      "name" : "Keen Hearing and Smell",
+      "description" : "The jackalwere has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+    }, {
+      "name" : "Pack Tactics",
+      "description" : "The jackalwere has advantage on an attack roll against a creature if at least one of the jackalwere's allies is within 5 feet of the creature and the ally isn't incapacitated."
+    } ],
+    "actions" : [ {
+      "name" : "Bite (Jackal or Hybrid Form Only)",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage."
+    }, {
+      "name" : "Scimitar (Human or Hybrid Form Only)",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) slashing damage."
+    }, {
+      "name" : "Sleep Gaze",
+      "description" : "The jackalwere gazes at one creature it can see within 30 feet of it. The target must make a DC 10 Wisdom saving throw. On a failed save, the target succumbs to a magical slumber, falling unconscious for 10 minutes or until someone uses an action to shake the target awake. A creature that successfully saves against the effect is immune to this jackalwere's gaze for the next 24 hours. Undead and creatures immune to being charmed aren't affected by it."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "grassland", "desert" ]
+  }
+}

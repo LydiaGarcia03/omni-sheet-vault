@@ -56,10 +56,8 @@ export function BuilderSummary({ name, description, pendingCount, preview, portr
           <Stat label="Passive Perception" value={vitals.passivePerception} />
           <Group title="Attacks" lines={vitals.attacks.map((attack) => `${attack.name} ${signed(attack.toHit)} · ${attack.damage}`)} />
           <Group title="Features" lines={[vitals.features.join(' · ')]} />
-          <Group
-            title="Proficiencies"
-            lines={[[...vitals.skills.map(titleCase), ...vitals.armor, ...vitals.weapons, ...vitals.tools].join(' · '), vitals.languages.join(', ')]}
-          />
+          <Group title="Proficiencies" lines={[[...vitals.skills, ...vitals.armor, ...vitals.weapons, ...vitals.tools].join(' · ')]} />
+          <Group title="Languages" lines={[vitals.languages.join(', ')]} />
           <Group title="Defenses & senses" lines={[[...vitals.resistances.map((type) => `${titleCase(type)} resistance`), ...vitals.senses].join(' · ')]} />
         </>
       ) : (

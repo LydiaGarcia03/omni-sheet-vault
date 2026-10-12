@@ -1,0 +1,79 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "veteran",
+  "name" : "Veteran",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 350,
+  "tags" : [ "coastal", "mountain", "grassland", "hill", "arctic", "urban", "forest", "underdark" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Humanoid (any race)",
+    "alignment" : "any alignment",
+    "armorClass" : 17,
+    "armorClassText" : "17 (splint armor)",
+    "hitPoints" : 58,
+    "hitDice" : "9d8 + 18",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 10,
+      "save" : 0
+    } ],
+    "skills" : [ {
+      "name" : "Athletics",
+      "bonus" : 5
+    }, {
+      "name" : "Perception",
+      "bonus" : 2
+    } ],
+    "senses" : "passive Perception 12",
+    "languages" : "any one language (usually Common)",
+    "challengeRating" : "3",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The veteran makes two longsword attacks. If it has a shortsword drawn, it can also make a shortsword attack."
+    }, {
+      "name" : "Longsword",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 7 (1d8 + 3) slashing damage, or 8 (1d10 + 3) slashing damage if used with two hands."
+    }, {
+      "name" : "Shortsword",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) piercing damage."
+    }, {
+      "name" : "Heavy Crossbow",
+      "description" : "Ranged Weapon Attack: +3 to hit, range 100/400 ft., one target. Hit: 6 (1d10 + 1) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "coastal", "mountain", "grassland", "hill", "arctic", "urban", "forest", "underdark" ]
+  }
+}

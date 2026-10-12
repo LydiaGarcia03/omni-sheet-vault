@@ -1,0 +1,76 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "manticore",
+  "name" : "Manticore",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 213,
+  "tags" : [ "mountain", "grassland", "hill", "coastal", "arctic" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Monstrosity",
+    "alignment" : "lawful evil",
+    "armorClass" : 14,
+    "armorClassText" : "14 (natural armor)",
+    "hitPoints" : 68,
+    "hitDice" : "8d10 + 24",
+    "speed" : 30,
+    "additionalSpeeds" : "Fly 50 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 17,
+      "save" : 3
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 16,
+      "save" : 3
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 17,
+      "save" : 3
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 7,
+      "save" : -2
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 8,
+      "save" : -1
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 60 ft., passive Perception 11",
+    "languages" : "Common",
+    "challengeRating" : "3",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Tail Spike Regrowth",
+      "description" : "The manticore has twenty-four tail spikes. Used spikes regrow when the manticore finishes a long rest."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The manticore makes three attacks: one with its bite and two with its claws or three with its tail spikes."
+    }, {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 7 (1d8 + 3) piercing damage."
+    }, {
+      "name" : "Claw",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) slashing damage."
+    }, {
+      "name" : "Tail Spike",
+      "description" : "Ranged Weapon Attack: +5 to hit, range 100/200 ft., one target. Hit: 7 (1d8 + 3) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "mountain", "grassland", "hill", "coastal", "arctic" ]
+  }
+}

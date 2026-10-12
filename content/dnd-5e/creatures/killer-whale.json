@@ -1,0 +1,76 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "killer-whale",
+  "name" : "Killer Whale",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 331,
+  "tags" : [ "underwater" ],
+  "description" : null,
+  "data" : {
+    "size" : "Huge",
+    "creatureType" : "Beast",
+    "alignment" : "unaligned",
+    "armorClass" : 12,
+    "armorClassText" : "12 (natural armor)",
+    "hitPoints" : 90,
+    "hitDice" : "12d12 + 12",
+    "speed" : 0,
+    "additionalSpeeds" : "Swim 60 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 19,
+      "save" : 4
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 13,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 3,
+      "save" : -4
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 7,
+      "save" : -2
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 3
+    } ],
+    "senses" : "blindsight 120 ft., passive Perception 13",
+    "languages" : "—",
+    "challengeRating" : "3",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Echolocation",
+      "description" : "The whale can't use its blindsight while deafened."
+    }, {
+      "name" : "Hold Breath",
+      "description" : "The whale can hold its breath for 30 minutes."
+    }, {
+      "name" : "Keen Hearing",
+      "description" : "The whale has advantage on Wisdom (Perception) checks that rely on hearing."
+    } ],
+    "actions" : [ {
+      "name" : "Bite",
+      "description" : "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 21 (5d6 + 4) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underwater" ]
+  }
+}

@@ -71,4 +71,18 @@ describe('ChoiceField', () => {
     const lines = [...container.querySelectorAll('.builder-choice__desc > div')].map((line) => line.textContent);
     expect(lines).toEqual(['Dueling · You gain a +2 bonus to damage rolls.', "Smith's Tools · Player's Handbook"]);
   });
+
+  it('marks a pending choice beside its select, not beside its prompt', () => {
+    const { container } = render(<ChoiceField choice={skills([], 1)} onChange={vi.fn()} />);
+
+    const mark = screen.getByRole('img', { name: 'Still to choose' });
+    expect(container.querySelector('.builder-choice__control')).toContainElement(mark);
+    expect(container.querySelector('.builder-choice__label')).not.toContainElement(mark);
+  });
+
+  it('drops the mark once the choice is answered', () => {
+    render(<ChoiceField choice={skills(['athletics'], 1)} onChange={vi.fn()} />);
+
+    expect(screen.queryByRole('img', { name: 'Still to choose' })).toBeNull();
+  });
 });

@@ -1,0 +1,67 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "skeleton",
+  "name" : "Skeleton",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 272,
+  "tags" : [ "urban" ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Undead",
+    "alignment" : "lawful evil",
+    "armorClass" : 13,
+    "armorClassText" : "13 (armor scraps)",
+    "hitPoints" : 13,
+    "hitDice" : "2d8 + 4",
+    "speed" : 30,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 2
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 6,
+      "save" : -2
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 5,
+      "save" : -3
+    } ],
+    "skills" : [ ],
+    "senses" : "darkvision 60 ft., passive Perception 9",
+    "languages" : "understands all languages it spoke in life but can't speak",
+    "challengeRating" : "1/4",
+    "damageVulnerabilities" : "bludgeoning",
+    "damageResistances" : null,
+    "damageImmunities" : "poison",
+    "conditionImmunities" : "exhaustion, poisoned",
+    "traits" : [ ],
+    "actions" : [ {
+      "name" : "Shortsword",
+      "description" : "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage."
+    }, {
+      "name" : "Shortbow",
+      "description" : "Ranged Weapon Attack: +4 to hit, range 80/320 ft., one target. Hit: 5 (1d6 + 2) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "urban" ]
+  }
+}

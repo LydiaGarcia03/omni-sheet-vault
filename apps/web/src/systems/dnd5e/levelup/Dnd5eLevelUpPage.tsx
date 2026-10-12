@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
-import { getCatalogue, type CatalogueEntry } from '../../../catalogue/api';
+import { getCharacterCatalogue, type CatalogueEntry } from '../../../catalogue/api';
 import { SourceCodesProvider } from '../../../catalogue/SourceCodes';
 import type { ProgressionTable } from '../../../builder/draftApi';
 import { ProgressionPanel } from '../../../builder/ProgressionPanel';
@@ -15,7 +15,7 @@ import '../themes.css';
 import '../../../builder/builder.css';
 
 const AUTOSAVE_DELAY_MS = 400;
-const ROLLED_HIT_POINTS = 'ROLLED_HIT_POINTS';
+const HIT_POINT_TYPES = new Set(['ROLLED_HIT_POINTS', 'FIXED_HIT_POINTS']);
 
 type Dnd5eLevelUpPageProps = { characterId: string; characterName: string; userName: string };
 
@@ -40,7 +40,7 @@ export function Dnd5eLevelUpPage({ characterId, characterName, userName }: Dnd5e
   const saveTimer = useRef<number | undefined>(undefined);
 
   useEffect(() => {
-    Promise.all([getLevelUp(characterId), getCharacterSheet(characterId), getCatalogue('dnd-5e', 'CLASS')])
+    Promise.all([getLevelUp(characterId), getCharacterSheet(characterId), getCharacterCatalogue(characterId, 'CLASS')])
       .then(([current, sheet, catalogueClasses]) => {
         setLevelUp(current);
         setExperience(sheet.experience ?? null);
@@ -252,7 +252,7 @@ function LevelUpEditor({ levelUp, classes, busy, onBuildChange, onFinish, onChan
           choices
             .filter((choice) => !isNested(choice))
             .map((choice) =>
-              choice.type === ROLLED_HIT_POINTS ? (
+              HIT_POINT_TYPES.has(choice.type) ? (
                 <Dnd5eRolledHitPointsField
                   key={choice.id}
                   characterId={levelUp.id}
@@ -261,6 +261,7 @@ function LevelUpEditor({ levelUp, classes, busy, onBuildChange, onFinish, onChan
                   onChange={onBuildChange}
                   group={levelUp.classSlug}
                   classLevel={levelUp.classLevel}
+                  showMethodHint={false}
                 />
               ) : (
                 renderChoice(choice)

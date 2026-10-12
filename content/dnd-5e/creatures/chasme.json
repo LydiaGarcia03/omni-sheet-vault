@@ -1,0 +1,76 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "chasme",
+  "name" : "Chasme",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 57,
+  "tags" : [ ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Fiend (demon)",
+    "alignment" : "chaotic evil",
+    "armorClass" : 15,
+    "armorClassText" : "15 (natural armor)",
+    "hitPoints" : 84,
+    "hitDice" : "13d10 + 13",
+    "speed" : 20,
+    "additionalSpeeds" : "Fly 60 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 15,
+      "save" : 5
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 12,
+      "save" : 1
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 11,
+      "save" : 0
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 14,
+      "save" : 5
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 10,
+      "save" : 0
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 5
+    } ],
+    "senses" : "blindsight 10 ft., darkvision 120 ft., passive Perception 15",
+    "languages" : "Abyssal, telepathy 120 ft.",
+    "challengeRating" : "6",
+    "damageVulnerabilities" : null,
+    "damageResistances" : "cold, fire, lightning",
+    "damageImmunities" : "poison",
+    "conditionImmunities" : "poisoned",
+    "traits" : [ {
+      "name" : "Drone",
+      "description" : "The chasme produces a horrid droning sound to which demons are immune. Any other creature that starts its turn within 30 feet of the chasme must succeed on a DC 12 Constitution saving throw or fall unconscious for 10 minutes. A creature that can't hear the drone automatically succeeds on the save. The effect on the creature ends if it takes damage or if another creature takes an action to splash it with holy water. If a creature's saving throw is successful or the effect ends for it, it is immune to the drone for the next 24 hours."
+    }, {
+      "name" : "Magic Resistance",
+      "description" : "The chasme has advantage on saving throws against spells and other magical effects."
+    }, {
+      "name" : "Spider Climb",
+      "description" : "The chasme can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check."
+    } ],
+    "actions" : [ {
+      "name" : "Proboscis",
+      "description" : "Melee Weapon Attack: +5 to hit, reach 5 ft., one creature. Hit: 16 (4d6 + 2) piercing damage plus 24 (7d6) necrotic damage, and the target's hit point maximum is reduced by an amount equal to the necrotic damage taken. If this effect reduces a creature's hit point maximum to 0, the creature dies. This reduction to a creature's hit point maximum lasts until the creature finishes a long rest or until it is affected by a spell like greater restoration."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ ]
+  }
+}

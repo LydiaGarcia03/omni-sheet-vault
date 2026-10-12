@@ -290,11 +290,22 @@ notes field each open individually with no suggestions.
 
 ### Extras
 
-Familiars, mounts, summoned creatures and vehicles linked to the character. A row
-shows name, armor class, hit points and speed; opening it shows the full stat block
-in the sidebar, with editable hit points for that instance and a Delete button —
-D&D Beyond's own Extras sidebar has no action beyond hit points and removal, so
-that's the entire action bar here too.
+Familiars, mounts, pets, summoned creatures, sidekicks, beast companions, wild
+shapes, Battle Smith defenders, misc creatures and vehicles linked to the character
+(D&D Beyond's 2014 categories, rebuilt against its live tab on 2026-10-11):
+
+- **Tab:** search by name, type or category, Manage Extras, a chip per category the
+  character has (singular names), one section per category with Name (size and
+  type under it), AC, Hit Points (current / max), Speed (other movements under it)
+  and Notes, at Beyond's measured widths. No creature pictures (owner's choice).
+- **Manage Extras:** Add an Extra (category with a hint, filter by name, type,
+  size, habitat or tag, challenge range, the Monster Manual list with ADD and a
+  preview card with Quantity) and Current Extras grouped with Delete. A familiar
+  added this way reads "(Fey, Fiend, or Celestial)", as Find Familiar on Beyond.
+- **Detail:** category over the name, the book in italics, Customize (name,
+  notes), collapsed Hit Points, then the stat block (AC, initiative, HP, speed,
+  MOD/SAVE tables, skills, senses, languages, CR with XP and proficiency bonus,
+  traits, actions, reactions, legendary actions). Delete is in Manage Extras.
 
 ## Sidebar panels
 
@@ -361,8 +372,8 @@ Deliberate. Do not "fix" these back toward the original.
 - **Sidebar panes leave out what the app has no data or concept for**
   (slices 9d–9g, each listed in
   `systems/dnd-5e/features/sidebar-fidelity-and-customization.md`):
-  - an extra's source line, Customize and art; class art beside the
-    character panel's classes;
+  - an extra's source line, Customize and art (the character panel's class
+    rows have their emblems since 2026-10-11, `systems/dnd5e/ClassIcon.tsx`);
   - the rest checkboxes ("Reset Maximum HP changes", "Automatically apply
     healing") and the 2024 "Long Rest Rules" choice;
   - the game log's dice-set preview, and pinning it to the pane bottom (our

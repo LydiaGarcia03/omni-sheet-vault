@@ -1,0 +1,79 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "ettin",
+  "name" : "Ettin",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 132,
+  "tags" : [ "underdark", "mountain", "hill" ],
+  "description" : null,
+  "data" : {
+    "size" : "Large",
+    "creatureType" : "Giant",
+    "alignment" : "chaotic evil",
+    "armorClass" : 12,
+    "armorClassText" : "12 (natural armor)",
+    "hitPoints" : 85,
+    "hitDice" : "10d10 + 30",
+    "speed" : 40,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 21,
+      "save" : 5
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 17,
+      "save" : 3
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 6,
+      "save" : -2
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 10,
+      "save" : 0
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 8,
+      "save" : -1
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 4
+    } ],
+    "senses" : "darkvision 60 ft., passive Perception 14",
+    "languages" : "Giant, Orc",
+    "challengeRating" : "4",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ {
+      "name" : "Two Heads",
+      "description" : "The ettin has advantage on Wisdom (Perception) checks and on saving throws against being blinded, charmed, deafened, frightened, stunned, and knocked unconscious."
+    }, {
+      "name" : "Wakeful",
+      "description" : "When one of the ettin's heads is asleep, its other head is awake."
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The ettin makes two attacks: one with its battleaxe and one with its morningstar."
+    }, {
+      "name" : "Battleaxe",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 14 (2d8 + 5) slashing damage."
+    }, {
+      "name" : "Morningstar",
+      "description" : "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 14 (2d8 + 5) piercing damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "underdark", "mountain", "hill" ]
+  }
+}

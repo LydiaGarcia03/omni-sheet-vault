@@ -1,0 +1,73 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "hill-giant",
+  "name" : "Hill Giant",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 155,
+  "tags" : [ "hill" ],
+  "description" : null,
+  "data" : {
+    "size" : "Huge",
+    "creatureType" : "Giant",
+    "alignment" : "chaotic evil",
+    "armorClass" : 13,
+    "armorClassText" : "13 (natural armor)",
+    "hitPoints" : 105,
+    "hitDice" : "10d12 + 40",
+    "speed" : 40,
+    "additionalSpeeds" : null,
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 21,
+      "save" : 5
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 8,
+      "save" : -1
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 19,
+      "save" : 4
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 5,
+      "save" : -3
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 9,
+      "save" : -1
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 6,
+      "save" : -2
+    } ],
+    "skills" : [ {
+      "name" : "Perception",
+      "bonus" : 2
+    } ],
+    "senses" : "passive Perception 12",
+    "languages" : "Giant",
+    "challengeRating" : "5",
+    "damageVulnerabilities" : null,
+    "damageResistances" : null,
+    "damageImmunities" : null,
+    "conditionImmunities" : null,
+    "traits" : [ ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The giant makes two greatclub attacks."
+    }, {
+      "name" : "Greatclub",
+      "description" : "Melee Weapon Attack: +8 to hit, reach 10 ft., one target. Hit: 18 (3d8 + 5) bludgeoning damage."
+    }, {
+      "name" : "Rock",
+      "description" : "Ranged Weapon Attack: +8 to hit, range 60/240 ft., one target. Hit: 21 (3d10 + 5) bludgeoning damage."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ "hill" ]
+  }
+}

@@ -1,6 +1,9 @@
 import type { SelectionDetail } from './draftApi';
 import { SourceBadge } from './SourceSelect';
 
+/** A fact longer than this takes a full row instead of a grid cell. */
+const WIDE_FACT_LENGTH = 28;
+
 /** The chosen option's name, book and facts as a card, then what it grants under {@code grantsTitle}. */
 export function SelectionCard({ detail, grantsTitle }: { detail: SelectionDetail; grantsTitle: string }) {
   return (
@@ -14,7 +17,7 @@ export function SelectionCard({ detail, grantsTitle }: { detail: SelectionDetail
           </div>
           <dl className="builder-facts">
             {detail.facts.map((fact) => (
-              <div key={fact.label} className="builder-facts__item">
+              <div key={fact.label} className={`builder-facts__item${fact.text.length > WIDE_FACT_LENGTH ? ' is-wide' : ''}`}>
                 <dt className="builder-label">{fact.label}</dt>
                 <dd>{fact.text}</dd>
               </div>

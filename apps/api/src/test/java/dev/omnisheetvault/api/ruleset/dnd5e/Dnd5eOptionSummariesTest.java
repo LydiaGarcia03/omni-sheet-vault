@@ -57,6 +57,18 @@ class Dnd5eOptionSummariesTest {
     }
 
     @Test
+    void weightedIncreasesListEveryAlternative() {
+        JsonNode deepGnome = json("""
+                {"abilityAlternatives":[
+                   {"fixed":{},"choices":[{"from":["strength","dexterity","constitution","intelligence","wisdom","charisma"],"weights":[2,1],"count":2,"amount":null}]},
+                   {"fixed":{},"choices":[{"from":["strength","dexterity","constitution","intelligence","wisdom","charisma"],"weights":[1,1,1],"count":3,"amount":null}]}],
+                 "speed":{"walk":30}}""");
+
+        assertThat(summaries.species(deepGnome))
+                .isEqualTo("+2 and +1 to 2 different abilities of your choice or +1 to 3 abilities of your choice · Speed 30 ft");
+    }
+
+    @Test
     void backgroundListsSkillsToolsLanguagesAndItsFeature() {
         CatalogueRecord soldier = record("BACKGROUND", "Soldier", "", """
                 {"skillAlternatives":[{"fixed":["athletics","intimidation"],"choices":[]}],

@@ -1,0 +1,91 @@
+{
+  "systemId" : "dnd-5e",
+  "kind" : "CREATURE",
+  "slug" : "yochlol",
+  "name" : "Yochlol",
+  "sourceBook" : "Monster Manual",
+  "sourceCode" : "MM",
+  "sourcePage" : 65,
+  "tags" : [ ],
+  "description" : null,
+  "data" : {
+    "size" : "Medium",
+    "creatureType" : "Fiend (demon, shapechanger)",
+    "alignment" : "chaotic evil",
+    "armorClass" : 15,
+    "armorClassText" : "15 (natural armor)",
+    "hitPoints" : 136,
+    "hitDice" : "16d8 + 64",
+    "speed" : 30,
+    "additionalSpeeds" : "Climb 30 ft.",
+    "abilityScores" : [ {
+      "abilityKey" : "strength",
+      "score" : 15,
+      "save" : 2
+    }, {
+      "abilityKey" : "dexterity",
+      "score" : 14,
+      "save" : 6
+    }, {
+      "abilityKey" : "constitution",
+      "score" : 18,
+      "save" : 4
+    }, {
+      "abilityKey" : "intelligence",
+      "score" : 13,
+      "save" : 5
+    }, {
+      "abilityKey" : "wisdom",
+      "score" : 15,
+      "save" : 6
+    }, {
+      "abilityKey" : "charisma",
+      "score" : 15,
+      "save" : 6
+    } ],
+    "skills" : [ {
+      "name" : "Deception",
+      "bonus" : 10
+    }, {
+      "name" : "Insight",
+      "bonus" : 6
+    } ],
+    "senses" : "darkvision 120 ft., passive Perception 12",
+    "languages" : "Abyssal, Elvish, Undercommon",
+    "challengeRating" : "10",
+    "damageVulnerabilities" : null,
+    "damageResistances" : "cold, fire, lightning; bludgeoning, piercing, and slashing from nonmagical attacks",
+    "damageImmunities" : "poison",
+    "conditionImmunities" : "poisoned",
+    "traits" : [ {
+      "name" : "Shapechanger",
+      "description" : "The yochlol can use its action to polymorph into a form that resembles a female drow or giant spider, or back into its true form. Its statistics are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies."
+    }, {
+      "name" : "Magic Resistance",
+      "description" : "The yochlol has advantage on saving throws against spells and other magical effects."
+    }, {
+      "name" : "Spider Climb",
+      "description" : "The yochlol can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check."
+    }, {
+      "name" : "Web Walker",
+      "description" : "The yochlol ignores movement restrictions caused by webbing."
+    }, {
+      "name" : "Innate Spellcasting",
+      "description" : "The yochlol's spellcasting ability is Charisma (spell save DC 14). The yochlol can innately cast the following spells, requiring no material components:\nAt will: detect thoughts, web\n1/day: dominate person"
+    } ],
+    "actions" : [ {
+      "name" : "Multiattack",
+      "description" : "The yochlol makes two melee attacks."
+    }, {
+      "name" : "Slam (Bite in Spider Form)",
+      "description" : "Melee Weapon Attack: +6 to hit, reach 5 ft. (10 feet in demon form), one target. Hit: 5 (1d6 + 2) bludgeoning (piercing in spider form) damage plus 21 (6d6) poison damage."
+    }, {
+      "name" : "Mist Form",
+      "description" : "The yochlol transforms into toxic mist or reverts to its true form. Any equipment it is wearing or carrying is also transformed. It reverts to its true form if it dies. While in mist form, the yochlol is incapacitated and can't speak. It has a flying speed of 30 feet, can hover, and can pass through any space that isn't airtight. It has advantage on Strength, Dexterity, and Constitution saving throws, and it is immune to nonmagical damage. While in mist form, the yochlol can enter a creature's space and stop there. Each time that creature starts its turn with the yochlol in its space, the creature must succeed on a DC 14 Constitution saving throw or be poisoned until the start of its next turn. While poisoned in this way, the target is incapacitated."
+    } ],
+    "reactions" : [ ],
+    "legendaryActions" : [ ],
+    "familiar" : false,
+    "environments" : [ ]
+  }
+}
