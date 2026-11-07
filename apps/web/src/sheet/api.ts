@@ -254,6 +254,8 @@ export type TextFieldEntry = {
   suggestions?: string[];
   /** Turns the field into a select with these choices (plus "--"). */
   options?: string[];
+  /** How an option reads, when its stored value is a key (an alignment in English); the value itself otherwise. */
+  optionLabel?: (option: string) => string;
   /** The die the suggestions table is headed with, e.g. "d8". */
   suggestionDie?: string;
 };

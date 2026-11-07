@@ -6,9 +6,11 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Set;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
 
 /** Synthetic fixtures only — see SpellConverterTest's own note on why. */
@@ -46,14 +48,14 @@ class Ingest5eToolsRunnerTest {
                 new FiveEToolsSourceClassifier(Set.of()),
                 outputDirectory);
 
-        assertThat(Files.readString(outputDirectory.resolve("book-bolt.json"))).contains("\"sourceBook\" : \"Plane Shift: Kaladesh\"");
-        assertThat(Files.readString(outputDirectory.resolve("adventure-bolt.json"))).contains("\"sourceBook\" : \"Lost Mine of Phandelver\"");
-        assertThat(Files.readString(outputDirectory.resolve("unlisted-bolt.json"))).contains("\"sourceBook\" : \"Elemental Evil: Trinkets\"");
-        assertThat(Files.readString(outputDirectory.resolve("companion-bolt.json"))).contains("\"sourceBook\" : \"Elemental Evil Player's Companion\"");
+        assertThat(entryText(outputDirectory, "book-bolt")).contains("\"sourceBook\" : \"Plane Shift: Kaladesh\"");
+        assertThat(entryText(outputDirectory, "adventure-bolt")).contains("\"sourceBook\" : \"Lost Mine of Phandelver\"");
+        assertThat(entryText(outputDirectory, "unlisted-bolt")).contains("\"sourceBook\" : \"Elemental Evil: Trinkets\"");
+        assertThat(entryText(outputDirectory, "companion-bolt")).contains("\"sourceBook\" : \"Elemental Evil Player's Companion\"");
     }
 
     @Test
-    void convertsOnlyInScopeSpellsAndWritesOneFilePerSlug() throws IOException {
+    void convertsOnlyInScopeSpellsIntoTheKindsEnglishFile() throws IOException {
         writeSpellFile("spells-phb.json", """
                 {"spell":[
                     {"name":"Test Bolt","source":"PHB","page":1,"level":0,"school":"V",
@@ -75,9 +77,9 @@ class Ingest5eToolsRunnerTest {
         int count = runner.run(converter, dataSource, classifier, outputDirectory);
 
         assertThat(count).isEqualTo(1);
-        assertThat(outputDirectory.resolve("test-bolt.json")).exists();
-        assertThat(outputDirectory.resolve("test-revision.json")).doesNotExist();
-        assertThat(Files.readString(outputDirectory.resolve("test-bolt.json"))).contains("\"name\" : \"Test Bolt\"");
+        assertThat(slugs(outputDirectory)).contains("test-bolt");
+        assertThat(slugs(outputDirectory)).doesNotContain("test-revision");
+        assertThat(entryText(outputDirectory, "test-bolt")).contains("\"name\" : \"Test Bolt\"");
     }
 
     @Test
@@ -94,10 +96,10 @@ class Ingest5eToolsRunnerTest {
         SpellConverter converter = new SpellConverter(objectMapper);
 
         runner.run(converter, dataSource, classifier, outputDirectory);
-        String firstRun = Files.readString(outputDirectory.resolve("test-bolt.json"));
+        String firstRun = Files.readString(CatalogueEntryFiles.englishFile(outputDirectory));
 
         runner.run(converter, dataSource, classifier, outputDirectory);
-        String secondRun = Files.readString(outputDirectory.resolve("test-bolt.json"));
+        String secondRun = Files.readString(CatalogueEntryFiles.englishFile(outputDirectory));
 
         assertThat(secondRun).isEqualTo(firstRun);
     }
@@ -119,11 +121,11 @@ class Ingest5eToolsRunnerTest {
                 missingOutputDirectory);
 
         assertThat(count).isEqualTo(1);
-        assertThat(missingOutputDirectory.resolve("test-bolt.json")).exists();
+        assertThat(slugs(missingOutputDirectory)).contains("test-bolt");
     }
 
     @Test
-    void keepsSameNamedEntriesFromDifferentSourcesAsSeparateSourceSuffixedFiles() throws IOException {
+    void keepsSameNamedEntriesFromDifferentSourcesAsSeparateSourceSuffixedEntries() throws IOException {
         Files.writeString(outputDirectory.resolve("test-bolt.json"), "stale merged entry");
         writeSpellFile("spells-a.json", spellFile("Test Bolt", "ERLW"));
         writeSpellFile("spells-b.json", spellFile("Test Bolt", "EFA"));
@@ -135,14 +137,14 @@ class Ingest5eToolsRunnerTest {
                 outputDirectory);
 
         assertThat(count).isEqualTo(2);
-        assertThat(outputDirectory.resolve("test-bolt-erlw.json")).exists();
-        assertThat(outputDirectory.resolve("test-bolt-efa.json")).exists();
-        assertThat(outputDirectory.resolve("test-bolt.json")).doesNotExist();
-        assertThat(Files.readString(outputDirectory.resolve("test-bolt-efa.json"))).contains("\"slug\" : \"test-bolt-efa\"");
+        assertThat(slugs(outputDirectory)).contains("test-bolt-erlw");
+        assertThat(slugs(outputDirectory)).contains("test-bolt-efa");
+        assertThat(slugs(outputDirectory)).doesNotContain("test-bolt");
+        assertThat(entryText(outputDirectory, "test-bolt-efa")).contains("\"slug\" : \"test-bolt-efa\"");
     }
 
     @Test
-    void deletesFilesOfEntriesItNoLongerProduces() throws IOException {
+    void dropsEntriesItNoLongerProducesAndOlderPerEntryFiles() throws IOException {
         Files.writeString(outputDirectory.resolve("dropped-bolt.json"), "an entry from a source now out of scope");
         writeSpellFile("spells-phb.json", spellFile("Test Bolt", "PHB"));
 
@@ -150,7 +152,7 @@ class Ingest5eToolsRunnerTest {
                 new FiveEToolsSourceClassifier(Set.of()), outputDirectory);
 
         assertThat(outputDirectory.resolve("dropped-bolt.json")).doesNotExist();
-        assertThat(Files.readString(outputDirectory.resolve("test-bolt.json"))).contains("\"sourceBook\" : \"Player's Handbook\"");
+        assertThat(entryText(outputDirectory, "test-bolt")).contains("\"sourceBook\" : \"Player's Handbook\"");
     }
 
     @Test
@@ -160,7 +162,7 @@ class Ingest5eToolsRunnerTest {
         runner.run(new SpellConverter(objectMapper), new FiveEToolsDataSource(dataRoot, objectMapper),
                 new FiveEToolsSourceClassifier(Set.of()), outputDirectory);
 
-        assertThat(Files.readString(outputDirectory.resolve("test-bolt.json"))).contains("\"sourceCode\" : \"PHB\"");
+        assertThat(entryText(outputDirectory, "test-bolt")).contains("\"sourceCode\" : \"PHB\"");
     }
 
     @Test
@@ -193,6 +195,34 @@ class Ingest5eToolsRunnerTest {
                 outputDirectory))
                 .isInstanceOf(FiveEToolsIngestException.class)
                 .hasMessageContaining("test-bolt-phb");
+    }
+
+    @Test
+    void keepsTranslationFiles() throws IOException {
+        Path translation = outputDirectory.resolve("spells.pt-BR.json");
+        Files.writeString(translation, "{}");
+        writeSpellFile("spells-phb.json", spellFile("Test Bolt", "PHB"));
+
+        runner.run(new SpellConverter(objectMapper), new FiveEToolsDataSource(dataRoot, objectMapper),
+                new FiveEToolsSourceClassifier(Set.of()), outputDirectory);
+
+        assertThat(translation).exists();
+    }
+
+    /** The slugs in the directory's English file, in file order. */
+    private List<String> slugs(Path directory) throws IOException {
+        return CatalogueEntryFiles.entries(CatalogueEntryFiles.englishFile(directory), objectMapper).stream()
+                .map(entry -> entry.get("slug").asString())
+                .toList();
+    }
+
+    /** One entry of the directory's English file, pretty-printed as the runner writes it. */
+    private String entryText(Path directory, String slug) throws IOException {
+        JsonNode entry = CatalogueEntryFiles.entries(CatalogueEntryFiles.englishFile(directory), objectMapper).stream()
+                .filter(candidate -> slug.equals(candidate.get("slug").asString()))
+                .findFirst()
+                .orElseThrow();
+        return objectMapper.writer().withDefaultPrettyPrinter().writeValueAsString(entry);
     }
 
     private static String spellFile(String name, String source) {

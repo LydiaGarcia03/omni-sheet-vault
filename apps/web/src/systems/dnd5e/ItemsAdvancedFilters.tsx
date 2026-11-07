@@ -1,4 +1,5 @@
 import type { Item } from '../../sheet/api';
+import { useDnd5eText } from './locales/dnd5eMessages';
 
 export type ItemAdvancedFilterState = {
   equippedOnly: boolean;
@@ -44,10 +45,11 @@ type ItemsAdvancedFiltersProps = {
  * left out rather than guessed.
  */
 export function ItemsAdvancedFilters({ filters, onChange }: ItemsAdvancedFiltersProps) {
+  const t = useDnd5eText();
   return (
     <div className="inventory-advanced-filters">
       <div className="inventory-advanced-filters__group">
-        <h4 className="inventory-advanced-filters__label">Show Only</h4>
+        <h4 className="inventory-advanced-filters__label">{t('inventory.showOnly')}</h4>
         <div className="filter-chips">
           <button
             type="button"
@@ -55,7 +57,7 @@ export function ItemsAdvancedFilters({ filters, onChange }: ItemsAdvancedFilters
             aria-pressed={filters.equippedOnly}
             onClick={() => onChange({ ...filters, equippedOnly: !filters.equippedOnly })}
           >
-            Equipped
+            {t('inventory.equipped')}
           </button>
           <button
             type="button"
@@ -63,7 +65,7 @@ export function ItemsAdvancedFilters({ filters, onChange }: ItemsAdvancedFilters
             aria-pressed={filters.attunedOnly}
             onClick={() => onChange({ ...filters, attunedOnly: !filters.attunedOnly })}
           >
-            Attuned
+            {t('inventory.attuned')}
           </button>
           <button
             type="button"
@@ -71,13 +73,13 @@ export function ItemsAdvancedFilters({ filters, onChange }: ItemsAdvancedFilters
             aria-pressed={filters.requiresAttunementOnly}
             onClick={() => onChange({ ...filters, requiresAttunementOnly: !filters.requiresAttunementOnly })}
           >
-            Requires Attunement
+            {t('inventory.requiresAttunement')}
           </button>
         </div>
       </div>
       {hasActiveItemAdvancedFilters(filters) && (
         <button type="button" className="reveal inventory-advanced-filters__clear" onClick={() => onChange(EMPTY_ITEM_ADVANCED_FILTERS)}>
-          Clear Filters
+          {t('spellsTab.clearFilters')}
         </button>
       )}
     </div>

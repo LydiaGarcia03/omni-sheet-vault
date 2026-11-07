@@ -12,6 +12,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import dev.omnisheetvault.api.catalogue.CatalogueEntryKind;
+import dev.omnisheetvault.api.catalogue.CatalogueEntryResponse;
+import dev.omnisheetvault.api.catalogue.RedactableText;
 import dev.omnisheetvault.api.dice.Roll;
 import dev.omnisheetvault.api.ruleset.AttackRow;
 import dev.omnisheetvault.api.ruleset.AttunementLimitExceededException;
@@ -974,6 +977,78 @@ class CharacterControllerTest {
     }
 
     /** A minimal, otherwise-empty vitals fixture for asserting a mutation's session-state fields. */
+    @Test
+    void listsTheCatalogueEntriesTheCharacterMayPick() throws Exception {
+        UUID id = UUID.randomUUID();
+        CatalogueEntryResponse alert = new CatalogueEntryResponse(UUID.randomUUID().toString(), "dnd-5e", CatalogueEntryKind.FEAT,
+                "alert", "Alert", "PHB", 165, List.of(), new RedactableText("Stay alert.", false), objectMapper.createObjectNode());
+        when(characterSheetService.catalogueFor(any(Jwt.class), eq(id), eq(CatalogueEntryKind.FEAT))).thenReturn(List.of(alert));
+
+        mockMvc.perform(get("/api/characters/" + id + "/catalogue").param("kind", "FEAT").with(jwt()))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].slug").value("alert"));
+    }
+
+    @Test
+    void addsACatalogueCreatureAsAnExtra() throws Exception {
+        UUID id = UUID.randomUUID();
+        UUID entryId = UUID.randomUUID();
+        when(characterSheetService.addCatalogueExtra(any(Jwt.class), eq(id), eq(entryId), eq("COMPANION"), eq(2)))
+                .thenReturn(vitalsWithSpellSlots(List.of()));
+
+        mockMvc.perform(post("/api/characters/" + id + "/extras/catalogue")
+                        .with(jwt())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(new AddCatalogueExtraRequest(entryId.toString(), "COMPANION", 2))))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    void rejectsAddingTooManyCopiesOfACreature() throws Exception {
+        mockMvc.perform(post("/api/characters/" + UUID.randomUUID() + "/extras/catalogue")
+                        .with(jwt())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(new AddCatalogueExtraRequest(UUID.randomUUID().toString(), "COMPANION", 21))))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void updatesAnExtrasNameAndNotes() throws Exception {
+        UUID id = UUID.randomUUID();
+        when(characterSheetService.updateExtra(any(Jwt.class), eq(id), eq("extra-1"), eq("Rex"), eq("Loyal")))
+                .thenReturn(vitalsWithSpellSlots(List.of()));
+
+        mockMvc.perform(put("/api/characters/" + id + "/extras/extra-1")
+                        .with(jwt())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(new UpdateExtraRequest("Rex", "Loyal"))))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    void rejectsAnExtraNameThatIsTooLong() throws Exception {
+        mockMvc.perform(put("/api/characters/" + UUID.randomUUID() + "/extras/extra-1")
+                        .with(jwt())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(new UpdateExtraRequest("x".repeat(129), null))))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    void aFeatTheBuildRejectsIsAConflict() throws Exception {
+        UUID id = UUID.randomUUID();
+        UUID entryId = UUID.randomUUID();
+        when(characterSheetService.learnFeat(any(Jwt.class), eq(id), eq(entryId)))
+                .thenThrow(new FeatNotAllowedException("Needs Dexterity 13"));
+
+        mockMvc.perform(post("/api/characters/" + id + "/feats/learn")
+                        .with(jwt())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("{\"catalogueEntryId\":\"" + entryId + "\"}"))
+                .andExpect(status().isConflict())
+                .andExpect(jsonPath("$.detail").value("Needs Dexterity 13"));
+    }
+
     private VitalsZone vitalsWithSessionState(
             int currentHitPoints, int temporaryHitPoints, boolean heroicInspiration, Set<String> activeConditions) {
         CalculatedValue zero = new CalculatedValue(0, List.of());

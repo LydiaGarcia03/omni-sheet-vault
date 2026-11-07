@@ -3,6 +3,7 @@ import type { CharacterSheet, MutationHandler, PaneHandler } from '../../sheet/a
 import { AllSkillsPane, CustomSkillPane, CustomSkillRows, SkillPane, SkillRows, type SkillEntry, type SkillPaneNavigation } from './Dnd5eSkillPanes';
 import frameSvg from './frames/dnd_frame_skills.svg?raw';
 import frameInkSvg from './frames/dnd_frame_skills_ink.svg?raw';
+import { useDnd5eText } from './locales/dnd5eMessages';
 import { SectionPanel } from './SectionPanel';
 
 type SkillsPanelProps = {
@@ -15,6 +16,7 @@ type SkillsPanelProps = {
 
 /** The sheet's skills box: the eighteen skills, the custom ones, "Additional Skills" and the gear opening All Skills. */
 export function SkillsPanel({ sheet, onRoll, onRollContextMenu, onMutate, onOpenPane }: SkillsPanelProps) {
+  const t = useDnd5eText();
   const navigation: SkillPaneNavigation = {
     openAllSkills: () =>
       onOpenPane({
@@ -38,19 +40,19 @@ export function SkillsPanel({ sheet, onRoll, onRollContextMenu, onMutate, onOpen
   }
 
   return (
-    <SectionPanel frameClass="skills-panel" svg={frameSvg} inkSvg={frameInkSvg} title="Skills" onSettings={navigation.openAllSkills}>
+    <SectionPanel frameClass="skills-panel" svg={frameSvg} inkSvg={frameInkSvg} title={t('terms.labels.skills')} onSettings={navigation.openAllSkills}>
       <div className="skill-row skill-row--header" aria-hidden="true">
-        <div className="skill-row__prof-cell">Prof</div>
-        <div className="skill-row__ability">Mod</div>
-        <div className="skill-row__name">Skill</div>
-        <div className="skill-row__mod">Bonus</div>
+        <div className="skill-row__prof-cell">{t('skills.profColumn')}</div>
+        <div className="skill-row__ability">{t('skills.modColumn')}</div>
+        <div className="skill-row__name">{t('skills.skillColumn')}</div>
+        <div className="skill-row__mod">{t('skills.bonusColumn')}</div>
       </div>
       <div className="panel__rows">
         <SkillRows sheet={sheet} onRoll={onRoll} onRollContextMenu={onRollContextMenu} onOpenEntry={openEntry} />
         <CustomSkillRows sheet={sheet} onRoll={onRoll} onRollContextMenu={onRollContextMenu} onOpenEntry={openEntry} />
       </div>
       <button type="button" className="reveal skills-panel__additional" onClick={navigation.openAllSkills}>
-        Additional Skills
+        {t('skills.additional')}
       </button>
     </SectionPanel>
   );

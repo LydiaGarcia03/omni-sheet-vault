@@ -291,7 +291,9 @@ All resolved 2026-09-17 except the last, which stays deferred (see "Out of scope
      project already applies to `ruleset`.
    - One `main()` entry point selecting a converter by a `--kind=spells` argument (or
      running every registered one), orchestrating load → classify/filter → strip → map →
-     emit `content/dnd-5e/<kind>/<slug>.json`.
+     emit `content/dnd-5e/<kind>/<slug>.json` (since 2026-10-15, every entry goes to
+     one `content/dnd-5e/<kind>/<kind>.en.json` array instead; see
+     `features/localization.md`, "D2").
 5. **`entriesHigherLevel` ("At Higher Levels" scaling text) — resolved and built,
    2026-09-17.** New nullable `higherLevelsDescription` field threaded end to end:
    `SpellCatalogueData` → `Spell`/`Dnd5eSpell` → `SpellResponse` → frontend `Spell`

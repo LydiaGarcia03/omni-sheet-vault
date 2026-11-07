@@ -1,26 +1,29 @@
 import { useMemo, useState } from 'react';
 import type { MutationHandler } from '../../sheet/api';
-import { EXTRA_CATEGORIES } from './ExtraRow';
+import { extraCategoriesOf } from './ExtraRow';
+import { useDnd5eTerms } from './locales/dnd5eMessages';
 import { challengeValue, useCreatureCatalogue, type Creature } from './useCreatureCatalogue';
 
 /** How many matches the list draws at once; the filter narrows the rest. */
 const SHOWN_LIMIT = 60;
 const MAX_QUANTITY = 20;
 const CHALLENGE_RATINGS = ['0', '1/8', '1/4', '1/2', ...Array.from({ length: 30 }, (_, index) => String(index + 1))];
-const FAMILIAR_TYPE = '(Fey, Fiend, or Celestial)';
 
 /**
  * D&D Beyond's "Add an Extra": choose a category (with its hint), filter the catalogue's creatures by name, type, size,
  * environment or tag and by challenge range, then ADD one, or open its preview to add several.
  */
 export function AddExtraSection({ onMutate }: { onMutate: MutationHandler }) {
+  const terms = useDnd5eTerms();
+  const { t } = terms;
+  const categories = extraCategoriesOf(terms);
   const creatures = useCreatureCatalogue();
   const [categoryId, setCategoryId] = useState('');
   const [query, setQuery] = useState('');
   const [minimum, setMinimum] = useState('');
   const [maximum, setMaximum] = useState('');
   const [open, setOpen] = useState<string | null>(null);
-  const category = EXTRA_CATEGORIES.find((entry) => entry.id === categoryId);
+  const category = categories.find((entry) => entry.id === categoryId);
 
   const matches = useMemo(() => {
     if (!creatures) {
@@ -48,17 +51,17 @@ export function AddExtraSection({ onMutate }: { onMutate: MutationHandler }) {
 
   return (
     <div className="extras-add">
-      <select className="extras-add__category" aria-label="Choose a category" value={categoryId} onChange={(event) => setCategoryId(event.target.value)}>
-        <option value="">-- Choose a Category --</option>
-        <optgroup label="Creature">
-          {EXTRA_CATEGORIES.filter((entry) => entry.creatures).map((entry) => (
+      <select className="extras-add__category" aria-label={t('extras.chooseCategoryAria')} value={categoryId} onChange={(event) => setCategoryId(event.target.value)}>
+        <option value="">{t('extras.chooseCategory')}</option>
+        <optgroup label={t('extras.creature')}>
+          {categories.filter((entry) => entry.creatures).map((entry) => (
             <option key={entry.id} value={entry.id}>
               {entry.label}
             </option>
           ))}
         </optgroup>
-        <optgroup label="Object">
-          {EXTRA_CATEGORIES.filter((entry) => !entry.creatures).map((entry) => (
+        <optgroup label={t('extras.object')}>
+          {categories.filter((entry) => !entry.creatures).map((entry) => (
             <option key={entry.id} value={entry.id}>
               {entry.label}
             </option>
@@ -68,23 +71,23 @@ export function AddExtraSection({ onMutate }: { onMutate: MutationHandler }) {
       {category && <p className="extras-add__hint">{category.hint}</p>}
       {category?.creatures && (
         <>
-          <div className="extras-add__filter-label">Filter</div>
+          <div className="extras-add__filter-label">{t('extras.filter')}</div>
           <input
             className="extras-add__search"
             type="search"
-            placeholder="Name, Type, Size, Habitat, Tag, etc."
-            aria-label="Filter creatures"
+            placeholder={t('extras.searchPlaceholder')}
+            aria-label={t('extras.filterAria')}
             value={query}
             onChange={(event) => setQuery(event.target.value)}
           />
           <div className="extras-add__range">
-            <span className="extras-add__range-label">Challenge Range</span>
-            <ChallengeSelect label="Lowest challenge" value={minimum} onChange={setMinimum} />
+            <span className="extras-add__range-label">{t('extras.challengeRange')}</span>
+            <ChallengeSelect label={t('extras.lowest')} value={minimum} onChange={setMinimum} />
             <span>–</span>
-            <ChallengeSelect label="Highest challenge" value={maximum} onChange={setMaximum} />
+            <ChallengeSelect label={t('extras.highest')} value={maximum} onChange={setMaximum} />
           </div>
           {creatures === null ? (
-            <p className="extras-add__note">Loading creatures…</p>
+            <p className="extras-add__note">{t('extras.loading')}</p>
           ) : (
             <ul className="extras-add__list">
               {matches.slice(0, SHOWN_LIMIT).map((creature) => (
@@ -97,10 +100,10 @@ export function AddExtraSection({ onMutate }: { onMutate: MutationHandler }) {
                   onAdd={(quantity) => add(creature, quantity)}
                 />
               ))}
-              {matches.length === 0 && <li className="extras-add__note">No creature matches this filter.</li>}
+              {matches.length === 0 && <li className="extras-add__note">{t('extras.noMatch')}</li>}
               {matches.length > SHOWN_LIMIT && (
                 <li className="extras-add__note">
-                  Showing {SHOWN_LIMIT} of {matches.length}. Narrow the filter to see the rest.
+                  {t('extras.showing', { shown: SHOWN_LIMIT, total: matches.length })}
                 </li>
               )}
             </ul>
@@ -127,9 +130,11 @@ function ChallengeSelect({ label, value, onChange }: { label: string; value: str
 type CreatureRowProps = { creature: Creature; familiar: boolean; open: boolean; onToggle: () => void; onAdd: (quantity: number) => void };
 
 function CreatureRow({ creature, familiar, open, onToggle, onAdd }: CreatureRowProps) {
+  const terms = useDnd5eTerms();
+  const { t } = terms;
   const [quantity, setQuantity] = useState(1);
   const { data } = creature;
-  const type = familiar ? FAMILIAR_TYPE : data.creatureType;
+  const type = familiar ? t('extras.familiarType') : data.creatureType;
   return (
     <li className="extras-add__item">
       <div className="extras-add__row">
@@ -140,10 +145,10 @@ function CreatureRow({ creature, familiar, open, onToggle, onAdd }: CreatureRowP
             {creature.sourceBook && <i> • {creature.sourceBook}</i>}
           </span>
         </div>
-        <button type="button" className="mutate extras-add__add" aria-label={`Add ${creature.name}`} onClick={() => onAdd(1)}>
-          Add
+        <button type="button" className="mutate extras-add__add" aria-label={t('extras.addName', { name: creature.name })} onClick={() => onAdd(1)}>
+          {t('extras.add')}
         </button>
-        <button type="button" className="extras-add__toggle" aria-expanded={open} aria-label={`Preview ${creature.name}`} onClick={onToggle}>
+        <button type="button" className="extras-add__toggle" aria-expanded={open} aria-label={t('extras.preview', { name: creature.name })} onClick={onToggle}>
           {open ? '⌃' : '⌄'}
         </button>
       </div>
@@ -156,35 +161,36 @@ function CreatureRow({ creature, familiar, open, onToggle, onAdd }: CreatureRowP
             </div>
             <div className="extras-add__card-rule" />
             <div>
-              <b>Armor Class</b> {data.armorClassText}
+              <b>{t('terms.labels.armorClass')}</b> {data.armorClassText}
             </div>
             <div>
-              <b>Hit Points</b> {data.hitPoints}
+              <b>{t('terms.labels.hitPoints')}</b> {data.hitPoints}
               {data.hitDice && ` (${data.hitDice})`}
             </div>
             <div>
-              <b>Speed</b> {data.speed} ft.{data.additionalSpeeds && `, ${data.additionalSpeeds}`}
+              <b>{t('terms.labels.speed')}</b> {terms.feet(data.speed)}
+              {data.additionalSpeeds && `, ${data.additionalSpeeds}`}
             </div>
             <div>
-              <b>Challenge</b> {data.challengeRating}
+              <b>{t('terms.labels.challenge')}</b> {data.challengeRating}
             </div>
           </div>
           <div className="extras-add__quantity">
-            <span>Quantity</span>
-            <button type="button" aria-label="Fewer" onClick={() => setQuantity(Math.max(1, quantity - 1))}>
+            <span>{t('item.quantity')}</span>
+            <button type="button" aria-label={t('extras.fewer')} onClick={() => setQuantity(Math.max(1, quantity - 1))}>
               −
             </button>
             <input
-              aria-label="Quantity"
+              aria-label={t('item.quantity')}
               inputMode="numeric"
               value={quantity}
               onChange={(event) => setQuantity(Math.min(MAX_QUANTITY, Math.max(1, Number(event.target.value.replace(/\D/g, '')) || 1)))}
             />
-            <button type="button" aria-label="More" onClick={() => setQuantity(Math.min(MAX_QUANTITY, quantity + 1))}>
+            <button type="button" aria-label={t('extras.more')} onClick={() => setQuantity(Math.min(MAX_QUANTITY, quantity + 1))}>
               +
             </button>
             <button type="button" className="mutate extras-add__add" onClick={() => onAdd(quantity)}>
-              Add {quantity}
+              {t('extras.addCount', { count: quantity })}
             </button>
           </div>
         </div>

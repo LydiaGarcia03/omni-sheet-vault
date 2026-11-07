@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useSheetText } from '../locales/platformMessages';
 import type { EntityDetailRequest } from './api';
 import { Customize } from './sidebarParts';
 import { PencilIcon } from './sidebarIcons';
@@ -38,6 +39,7 @@ export function EntityDetailPanel({
   actionsPosition = 'bottom',
   customize,
 }: EntityDetailRequest) {
+  const t = useSheetText();
   const [customizeOpen, setCustomizeOpen] = useState(false);
   const [focusName, setFocusName] = useState(false);
   const customizeRef = useRef<HTMLDivElement>(null);
@@ -71,7 +73,7 @@ export function EntityDetailPanel({
           {marker}
         </h3>
         {customize && (
-          <button type="button" className="entity-detail__pencil" aria-label={`Rename ${name}`} onClick={toggleFromPencil}>
+          <button type="button" className="entity-detail__pencil" aria-label={t('common.rename', { name: String(name) })} onClick={toggleFromPencil}>
             <PencilIcon />
           </button>
         )}
@@ -81,7 +83,7 @@ export function EntityDetailPanel({
       {actionsPosition === 'section' && actionBar && <div className="entity-detail__actions entity-detail__actions--section">{actionBar}</div>}
       {customize && (
         <div ref={customizeRef} className="entity-detail__customize">
-          <Customize label={`${customize.label ?? 'Customize'}${marker}`} open={customizeOpen} onToggle={setCustomizeOpen}>
+          <Customize label={`${customize.label ?? t('sidebar.customize')}${marker}`} open={customizeOpen} onToggle={setCustomizeOpen}>
             {customize.editor}
           </Customize>
         </div>

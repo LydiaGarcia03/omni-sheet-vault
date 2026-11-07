@@ -112,6 +112,9 @@ English. Conversation with the owner is in Brazilian Portuguese. These never mix
   D&D Beyond's own sheet** — see `systems/dnd-5e/sheet-ui.md`'s "Verifying
   fidelity against D&D Beyond" for the reference URL and how to apply it. Do not
   call sheet UI work done without it.
+- **Every screen works at 1280 x 720 and up** with no horizontal page scroll,
+  including every new game system's sheet and builder from their first slice.
+  See `ui-design-system.md`, "Screen sizes".
 
 ## Testing
 

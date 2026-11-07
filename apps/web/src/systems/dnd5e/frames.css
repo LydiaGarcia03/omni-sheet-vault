@@ -2619,6 +2619,9 @@ button.saving__abbr { padding: 0; border: 0; background: none; line-height: inhe
     background: var(--theme-accent-dark);
     box-shadow: inset 0 0 10px 2px var(--theme-accent-darker);
 }
+/* Portuguese "Conjurar" and "À vontade" need a wider column than "Cast" and "At will". */
+:root:lang(pt-BR) .spell-row__cast { width: 60px; }
+:root:lang(pt-BR) .spell-row__cast-button { width: 54px; }
 /* The spell's own level on a row listed at its Pact Magic level (D&D Beyond's ct-spells-spell__scaled) */
 .spell-row__cast-button { position: relative; }
 .spell-row__scaled {
@@ -3979,6 +3982,9 @@ button.background-tab__field {
     font-size: 13px;
     font-weight: 400;
     color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .sheet-header__actions {
     display: flex;

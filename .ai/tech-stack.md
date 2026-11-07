@@ -99,13 +99,15 @@ tests are.
 | Vite | 6.4.x | Dev server on 5173 |
 | @vitejs/plugin-react | 4.7.x | |
 | Google Fonts: Cormorant, EB Garamond | — | Added 2026-10-04 for VtM 5e's sheet and header mark (link in `index.html`, beside Roboto). Offline (desktop) falls back to Georgia/serif |
+| Google Fonts: Cinzel, Inter | — | Added 2026-10-12 for Daggerheart's builder (the v3 mockups' display and body fonts; same `index.html` link). Offline (desktop) falls back to Georgia / Segoe UI |
+| Google Fonts: Material Symbols Outlined (`language` icon only) | — | Added 2026-10-14 for the header's language button (second `index.html` link, subset with `icon_names=language`, `display=block`). Offline (desktop) shows no icon; the `EN` / `PT-BR` code stays |
 | Google Fonts: Alegreya Sans, Alegreya Sans SC | — | Added 2026-10-11 for D&D 5e creature stat blocks (`--font-stat-block`, `--font-stat-block-caps` in `frames.css`): the closest open humanist pair to D&D Beyond's licensed Scala Sans / Scala Sans SC, which can't be copied. Same `index.html` link. Offline (desktop) falls back to Roboto |
 | react-router | 7.x | Approved by the owner 2026-09-24 (D2). `BrowserRouter` in `App.tsx`; routes `/`, `/credits`, `/characters/:id`, `/characters/:id/build/:step?` in `AppShell.tsx`. |
 
 `oidc-client-ts` was removed on 2026-09-26 (ADR-0008, stage 3). The API runs
-the login now, and the web app only holds a session cookie. The only web env
-variable left is the optional `VITE_KEYCLOAK_ACCOUNT_URL`, for the "Account"
-link.
+the login now, and the web app only holds a session cookie. The web app has no
+env variables since the "Account" link gave way to the profile page
+(2026-10-15).
 | Vitest | 3.2.x | Dev dependency, approved by the owner 2026-09-24. `npm test` runs `vitest run`. Configured in `vite.config.ts` (`test` block, jsdom). |
 | @testing-library/react | 16.3.x | Dev dependency; component tests render real components into jsdom |
 | @testing-library/jest-dom | 7.0.x | Dev dependency; DOM matchers, loaded by `src/test/setup.ts` |
@@ -117,6 +119,15 @@ reported 2 moderate-severity advisories in the dev tree on 2026-09-24. `npm audi
 
 No SSR framework: the application lives entirely behind a login, so server rendering
 and SEO would add complexity with no benefit.
+
+## Content tools
+
+Run by hand to regenerate `content/`; nothing here ships with the app.
+
+| Item | Version | Notes |
+| --- | --- | --- |
+| Node.js | 22+ (24.16 on the dev machine) | Runs `tools/daggerheart-import/` (plain ES modules, no npm dependencies; uses `Object.groupBy`). Tests: `node --test tools/daggerheart-import/importer.test.mjs` |
+| `pdftotext` (Xpdf 4.00) | 4.00 | Text extraction from the Daggerheart SRD PDF, `-layout` for prose and `-table` for equipment tables. It is the copy bundled with Git for Windows (`E:\Git\mingw64\bin\pdftotext.exe`), Glyph & Cog's Xpdf, not Poppler: it has no `-bbox` or cropping options. Added 2026-10-12 (Daggerheart D1) |
 
 ## Infrastructure
 
@@ -187,6 +198,7 @@ independently of `JAVA_HOME`, which is the whole reason it exists.
 
 | Folder | Populated from | Notes |
 | --- | --- | --- |
+| `tools/daggerheart-srd/` | Manually, by the owner, copying `DH_SRD_2_2026_08_25.pdf` (the Daggerheart SRD 2.0) here | Gitignored (adr-0010). Read by `tools/daggerheart-import/import.mjs`, which writes `content/daggerheart/` |
 | `tools/5etools-data/` | Manually, by the owner, extracting a [5etools-mirror-3/5etools-src](https://github.com/5etools-mirror-3/5etools-src) release zip's full contents here (the whole repo checkout, not just `data/` — its own `data/` subdirectory lands at `tools/5etools-data/data/`) | Gitignored, matching `.env` — never committed. The ingestion tool's default `--data` path is `tools/5etools-data/data`, not this folder's own root — confirmed 2026-09-17 against a real extraction. Not fetched from GitHub by the tool itself. |
 
 ## Versioning policy

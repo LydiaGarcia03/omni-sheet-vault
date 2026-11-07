@@ -1,0 +1,75 @@
+{
+  "home": {
+    "title": "Seus personagens",
+    "characterCount": { "one": "{count} personagem", "other": "{count} personagens" },
+    "create": "＋ Criar personagem",
+    "creating": "Criando…",
+    "startNew": "Comece algo novo",
+    "loadFailed": "Não foi possível carregar seus personagens.",
+    "deleteFailed": "Não foi possível excluir {name}.",
+    "createFailed": "Não foi possível criar o personagem: {error}",
+    "empty": "Seu cofre está vazio. Todo herói começa em algum lugar.",
+    "createFirst": "Criar seu primeiro personagem",
+    "filterLabel": "Filtrar por sistema de jogo",
+    "all": "Todos",
+    "deleteTitle": "Excluir personagem?",
+    "deleteConfirm": "Excluir",
+    "deleteBody": "{name} será removido do seu cofre. Isso não pode ser desfeito."
+  },
+  "landing": {
+    "titleLine1": "Todos os sistemas.",
+    "titleLine2": "Um cofre para os seus heróis.",
+    "lead": "Crie personagens com regras que explicam cada escolha, jogue com uma ficha que conhece as próprias mecânicas e role dados com um histórico que ninguém consegue forjar.",
+    "createCharacter": "Criar personagem",
+    "createAccount": "Criar conta",
+    "haveAccount": "Já tenho uma conta",
+    "featuresTitle": "O que você pode fazer",
+    "pickGame": "Escolha o seu jogo",
+    "moreSoon": "Mais sistemas estão a caminho.",
+    "features": {
+      "guided": { "title": "Criação guiada", "text": "Cada escolha mostra o que muda antes de você decidir: atributos, proficiências, magias." },
+      "play": { "title": "Fichas que jogam", "text": "Conjure uma magia, gaste um espaço, role o dano. Descansos, condições e dados de vida simplesmente funcionam." },
+      "dice": { "title": "Dados honestos", "text": "Rolados no servidor e guardados para sempre num histórico que a sua mesa pode conferir." },
+      "roster": { "title": "Todo o seu elenco", "text": "Retratos, histórias e todos os personagens que você joga, em todos os jogos, num só lugar." }
+    }
+  },
+  "systemCards": {
+    "available": "Disponível",
+    "comingSoon": "Em breve",
+    "create": "Criar personagem",
+    "creating": "Criando…",
+    "previous": "Sistemas anteriores",
+    "next": "Próximos sistemas",
+    "taglines": {
+      "dnd-5e": "Dungeons & Dragons · regras de 2014",
+      "vtm-v5": "Vampiro: A Máscara",
+      "daggerheart": "Esperança, medo e dados de dualidade",
+      "Pathfinder 2e": "Três ações por turno",
+      "Call of Cthulhu": "Sanidade é um recurso",
+      "Tormenta20": "Arton aguarda",
+      "Candela Obscura": "Junte-se a uma ordem esotérica"
+    }
+  },
+  "banner": {
+    "draft": "Rascunho · continuar criando",
+    "continueNamed": "Continuar criando {name}",
+    "openNamed": "Abrir {name}",
+    "moreActions": "Mais ações para {name}",
+    "continue": "Continuar criando",
+    "open": "Abrir ficha",
+    "delete": "Excluir"
+  },
+  "dialog": {
+    "cancel": "Cancelar"
+  },
+  "picker": {
+    "title": "Criar um personagem",
+    "lead": "Escolha primeiro o sistema de jogo. Ele decide quais regras, escolhas e ficha o seu personagem terá.",
+    "back": "← Voltar aos seus personagens"
+  },
+  "create": {
+    "creating": "Criando o seu personagem de {system}…",
+    "failed": "Não foi possível criar o personagem: {error}",
+    "back": "Voltar aos seus personagens"
+  }
+}

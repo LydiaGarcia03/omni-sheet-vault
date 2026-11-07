@@ -129,6 +129,9 @@ export function withHitPointMethod(build: Dnd5eBuild, method: 'FIXED' | 'ROLLED'
   return { ...build, hitPointMethod: method };
 }
 
+/** The API's class progression always lists the features third (level, proficiency bonus, features). */
+export const PROGRESSION_FEATURES_COLUMN = 2;
+
 export const ABILITIES = ['strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma'] as const;
 
 export const DND5E_STEPS: BuilderStep[] = [
@@ -301,15 +304,15 @@ export function withAbilityScore(build: Dnd5eBuild, ability: string, score: numb
   return { ...build, baseAbilityScores: scores };
 }
 
-/** "Mountain Dwarf · Fighter 3 / Rogue 1 · Folk Hero", from whatever is chosen so far. */
+/** "Mountain Dwarf · Fighter 3 / Rogue 1 · Folk Hero", from whatever is chosen so far; the unnamed default subspecies ("") adds nothing. */
 export function describeBuild(build: Dnd5eBuild, plan: BuildPlan): string {
   const label = (choiceId: string, key: string | null) =>
     key === null ? null : (plan.choices.find((choice) => choice.id === choiceId)?.options.find((option) => option.key === key)?.label ?? key);
   const species = label('build.species', build.speciesSlug);
-  const subspecies = label('build.subspecies', build.subspeciesName);
+  const subspecies = build.subspeciesName ? label('build.subspecies', build.subspeciesName) : null;
   const classes = build.classes.map((entry) => `${label('build.classes', entry.classSlug)} ${entry.level}`).join(' / ');
   const parts = [
-    species && (subspecies && subspecies !== 'Standard' ? `${subspecies} ${species}` : species),
+    species && (subspecies ? `${subspecies} ${species}` : species),
     classes,
     label('build.background', build.backgroundSlug),
   ];

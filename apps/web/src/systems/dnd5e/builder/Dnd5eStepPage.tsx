@@ -5,6 +5,7 @@ import { ChoiceField } from '../../../builder/ChoiceField';
 import { SelectionCard } from '../../../builder/SelectionCard';
 import { SourceBadge, SourceSelect } from '../../../builder/SourceSelect';
 import type { CreationChoice, SelectionDetail } from '../../../builder/draftApi';
+import { useDnd5eText } from '../locales/dnd5eMessages';
 import { Dnd5eAbilitiesStep } from './Dnd5eAbilitiesStep';
 import { Dnd5eBasicsStep } from './Dnd5eBasicsStep';
 import { Dnd5eClassLevels } from './Dnd5eClassLevels';
@@ -30,32 +31,17 @@ const ASI_OR_FEAT = 'ASI_OR_FEAT';
 const ROLLED_HIT_POINTS = 'ROLLED_HIT_POINTS';
 const HIT_POINT_TYPES = new Set([ROLLED_HIT_POINTS, 'FIXED_HIT_POINTS']);
 
-const STEP_LEADS: Record<string, string> = {
-  basics: 'Name, portrait, the books this character draws from and the rules it follows.',
-  species: 'Ability bonuses, speed, senses and a few proficiencies.',
-  classes: 'Pick a class and its level. Add more classes to multiclass.',
-  background: 'Where your character comes from. Personality and backstory are written on the sheet later.',
-  abilities: 'Pick a method and set your base scores.',
-  equipment: 'Take your starting equipment or its gold.',
-  review: 'Check your choices, then finish to turn this draft into a character.',
-};
-
-const STEP_TITLES: Record<string, string> = {
-  basics: 'Basics',
-  species: 'Species',
-  classes: 'Classes',
-  background: 'Background',
-  abilities: 'Ability scores',
-  equipment: 'Equipment',
-  review: 'Review',
-};
+/** The step's heading key; Abilities is titled by its full name. */
+const STEP_TITLE_KEYS: Record<string, string> = { abilities: 'abilityScores' };
 
 export function Dnd5eStepPage(props: StepPageProps) {
+  const t = useDnd5eText();
+  const titleKey = STEP_TITLE_KEYS[props.stepId] ?? props.stepId;
   return (
     <>
       <div className="builder-step-head">
-        <h1>{STEP_TITLES[props.stepId]}</h1>
-        <p>{STEP_LEADS[props.stepId]}</p>
+        <h1>{t.dynamic(`terms.builderSteps.${titleKey}`, props.stepId)}</h1>
+        <p>{t.dynamic(`builder.leads.${props.stepId}`, '')}</p>
       </div>
       <StepContent {...props} />
     </>
@@ -63,6 +49,7 @@ export function Dnd5eStepPage(props: StepPageProps) {
 }
 
 function StepContent(props: StepPageProps) {
+  const t = useDnd5eText();
   const build = props.build as Dnd5eBuild;
   const change = (next: Dnd5eBuild) => props.onBuildChange(next);
   const answer = (choiceId: string, selected: string[]) => change(withSelection(build, choiceId, selected));
@@ -95,7 +82,7 @@ function StepContent(props: StepPageProps) {
           build={build}
           structuralIds={['build.species', 'build.subspecies', 'build.variant']}
           detail={props.preview.selections?.species}
-          grantsTitle="Traits"
+          grantsTitle={t('terms.builder.traits')}
           onAnswer={answer}
           onBuildChange={change}
         />
@@ -107,7 +94,7 @@ function StepContent(props: StepPageProps) {
           build={build}
           structuralIds={['build.background']}
           detail={props.preview.selections?.background}
-          grantsTitle="What you get"
+          grantsTitle={t('builder.whatYouGet')}
           onAnswer={answer}
           onBuildChange={change}
         />
@@ -136,7 +123,7 @@ function StepContent(props: StepPageProps) {
     case 'review':
       return <Review {...props} />;
     default:
-      return <ChoicesFrame title="Choices" characterId={props.characterId} choices={props.choices} build={build} onAnswer={answer} onBuildChange={change} />;
+      return <ChoicesFrame title={t('builder.choices')} characterId={props.characterId} choices={props.choices} build={build} onAnswer={answer} onBuildChange={change} />;
   }
 }
 
@@ -153,11 +140,12 @@ function Frame({ title, children, badge }: { title: string; children: ReactNode;
 }
 
 function PendingBadge({ choices }: { choices: CreationChoice[] }) {
+  const t = useDnd5eText();
   const pending = choices.filter((choice) => choice.pending).length;
   return pending > 0 ? (
-    <span className="builder-badge builder-badge--pending">{pending} left</span>
+    <span className="builder-badge builder-badge--pending">{t('builder.left', { count: pending })}</span>
   ) : (
-    <span className="builder-badge builder-badge--done">done</span>
+    <span className="builder-badge builder-badge--done">{t('builder.done')}</span>
   );
 }
 
@@ -171,10 +159,11 @@ type ChoicesFrameProps = {
 };
 
 function ChoicesFrame({ title, characterId, choices, build, onAnswer, onBuildChange }: ChoicesFrameProps) {
+  const t = useDnd5eText();
   if (choices.length === 0) {
     return (
       <Frame title={title}>
-        <p className="builder-muted">Nothing to choose here yet.</p>
+        <p className="builder-muted">{t('builder.nothingYet')}</p>
       </Frame>
     );
   }
@@ -199,14 +188,19 @@ type DetailStepProps = Omit<StepPageProps, 'build' | 'onBuildChange'> & {
 
 /** The round-3 Species and Background layout: the selects, the chosen entry's card and grants, then its own choices. */
 function DetailStep({ characterId, choices, build, structuralIds, detail, grantsTitle, onAnswer, onBuildChange }: DetailStepProps) {
+  const t = useDnd5eText();
   const structural = choices.filter((choice) => structuralIds.includes(choice.id));
   const own = choices.filter((choice) => !structuralIds.includes(choice.id));
   const { renderChoice } = choiceRenderer({ characterId, choices, build, onAnswer, onBuildChange });
+  const labelOf = (label: string) => {
+    const feature = /^Feature: (.*)$/.exec(label);
+    return feature ? `${t('terms.selectionLabels.Feature')}: ${feature[1]}` : t.dynamic(`terms.selectionLabels.${label}`, label);
+  };
   return (
     <>
-      <Frame title="Choose">{structural.map(renderChoice)}</Frame>
-      {detail && <SelectionCard detail={detail} grantsTitle={grantsTitle} />}
-      {own.length > 0 && <ChoicesFrame title="Choices" characterId={characterId} choices={own} build={build} onAnswer={onAnswer} onBuildChange={onBuildChange} />}
+      <Frame title={t('builder.choose')}>{structural.map(renderChoice)}</Frame>
+      {detail && <SelectionCard detail={detail} grantsTitle={grantsTitle} labelOf={labelOf} />}
+      {own.length > 0 && <ChoicesFrame title={t('builder.choices')} characterId={characterId} choices={own} build={build} onAnswer={onAnswer} onBuildChange={onBuildChange} />}
     </>
   );
 }
@@ -219,6 +213,7 @@ type ClassChoicesProps = Omit<StepPageProps, 'build' | 'onBuildChange'> & {
 
 /** The Classes step's choices: each class's by level with its own rolled hit points, and anything no class owns in its own frame. */
 function ClassChoices({ characterId, choices, preview, build, onAnswer, onBuildChange }: ClassChoicesProps) {
+  const t = useDnd5eText();
   const stepChoices = choices.filter((choice) => choice.id !== 'build.classes');
   const classSlugs = new Set(build.classes.map((entry) => entry.classSlug));
   const inClass = stepChoices.filter((choice) => choice.group && classSlugs.has(choice.group));
@@ -236,7 +231,7 @@ function ClassChoices({ characterId, choices, preview, build, onAnswer, onBuildC
   const { renderChoice, isNested } = choiceRenderer({ characterId, choices: stepChoices, build, onAnswer, onBuildChange });
   const otherFrame =
     other.length > 0 ? (
-      <ChoicesFrame title="Other class choices" characterId={characterId} choices={other} build={build} onAnswer={onAnswer} onBuildChange={onBuildChange} />
+      <ChoicesFrame title={t('builder.otherClassChoices')} characterId={characterId} choices={other} build={build} onAnswer={onAnswer} onBuildChange={onBuildChange} />
     ) : null;
 
   if (build.classes.length === 0) {
@@ -293,18 +288,19 @@ function ClassesEditor({ build, choices, onChange }: { build: Dnd5eBuild; choice
   const optionOf = (slug: string) => options.find((candidate) => candidate.key === slug);
   const addable = options.filter((option) => !build.classes.some((entry) => entry.classSlug === option.key));
   const total = characterLevel(build);
+  const t = useDnd5eText();
 
   return (
-    <Frame title="Your classes" badge={build.classes.length === 0 ? <span className="builder-badge builder-badge--pending">1 left</span> : undefined}>
+    <Frame title={t('builder.yourClasses')} badge={build.classes.length === 0 ? <span className="builder-badge builder-badge--pending">{t('builder.left', { count: 1 })}</span> : undefined}>
       {build.classes.map((entry, index) => (
         <div key={entry.classSlug} className="builder-row" style={{ padding: '6px 0' }}>
           <div className="builder-grow">
             <b>{optionOf(entry.classSlug)?.label ?? entry.classSlug}</b> <SourceBadge sourceBook={optionOf(entry.classSlug)?.sourceBook ?? null} />
-            {index === 0 && <span className="builder-muted"> · starting class</span>}
+            {index === 0 && <span className="builder-muted">{t('builder.startingClass')}</span>}
             {optionOf(entry.classSlug)?.summary && <div className="builder-choice__from">{optionOf(entry.classSlug)?.summary}</div>}
           </div>
           <label className="builder-muted" htmlFor={`level-${entry.classSlug}`}>
-            Level
+            {t('builder.level')}
           </label>
           <input
             id={`level-${entry.classSlug}`}
@@ -316,7 +312,7 @@ function ClassesEditor({ build, choices, onChange }: { build: Dnd5eBuild; choice
             onChange={(event) => onChange(withClassLevel(build, entry.classSlug, Math.max(1, Number(event.target.value) || 1)))}
           />
           <button type="button" className="builder-btn" onClick={() => onChange(withClassRemoved(build, entry.classSlug))}>
-            Remove
+            {t('builder.remove')}
           </button>
         </div>
       ))}
@@ -326,12 +322,12 @@ function ClassesEditor({ build, choices, onChange }: { build: Dnd5eBuild; choice
             options={addable}
             value={null}
             onChange={(key) => key && onChange(withClassAdded(build, key))}
-            placeholder={build.classes.length === 0 ? '— choose a class —' : '+ add another class'}
-            ariaLabel={build.classes.length === 0 ? 'Choose a class' : 'Add another class'}
+            placeholder={build.classes.length === 0 ? t('builder.chooseClass') : t('builder.addClass')}
+            ariaLabel={build.classes.length === 0 ? t('builder.chooseClassAria') : t('builder.addClassAria')}
             disabled={total >= MAX_CHARACTER_LEVEL}
           />
         </div>
-        <span className="builder-muted">Character level {total}</span>
+        <span className="builder-muted">{t('builder.characterLevel', { level: total })}</span>
       </div>
     </Frame>
   );
@@ -340,16 +336,17 @@ function ClassesEditor({ build, choices, onChange }: { build: Dnd5eBuild; choice
 function Review({ characterId, plan, onFinish, finishing, build, name, preview }: StepPageProps) {
   const pending = plan.choices.filter((choice) => choice.pending);
   const ready = pending.length === 0 && plan.problems.length === 0;
+  const t = useDnd5eText();
   return (
     <>
-      <Frame title={ready ? 'Ready to finish' : `${pending.length} choices left`}>
+      <Frame title={ready ? t('builder.readyToFinish') : t('builder.choicesLeft', { count: pending.length })}>
         {pending.map((choice) => (
           <div key={choice.id} className="builder-pending-item">
             <span className="builder-grow">
               <b>{choice.prompt}</b> <span className="builder-muted">{choice.sourceLabel}</span>
             </span>
             <Link className="builder-btn" to={`/characters/${characterId}/build/${dnd5eStepOf(choice)}`}>
-              Choose →
+              {t('builder.chooseLink')}
             </Link>
           </div>
         ))}
@@ -358,12 +355,12 @@ function Review({ characterId, plan, onFinish, finishing, build, name, preview }
             {problem}
           </p>
         ))}
-        {ready && <p className="builder-muted">Level {characterLevel(build as Dnd5eBuild)} · every choice is made.</p>}
+        {ready && <p className="builder-muted">{t('builder.everyChoiceMade', { level: characterLevel(build as Dnd5eBuild) })}</p>}
       </Frame>
       <Dnd5eReviewCards characterId={characterId} name={name} build={build as Dnd5eBuild} plan={plan} preview={preview} />
       <div className="builder-row" style={{ justifyContent: 'flex-end', marginBottom: 14 }}>
         <button type="button" className="builder-btn builder-btn--primary builder-btn--big" disabled={!ready || finishing} onClick={onFinish}>
-          {finishing ? 'Finishing…' : 'Finish character'}
+          {finishing ? t('builder.finishing') : t('builder.finish')}
         </button>
       </div>
     </>

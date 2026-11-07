@@ -1,0 +1,31 @@
+{
+  "title": "Meu perfil",
+  "picture": {
+    "heading": "Foto de perfil",
+    "upload": "Enviar uma foto",
+    "replace": "Trocar foto",
+    "remove": "Remover foto",
+    "hint": "PNG ou JPEG, até 3 MB. Ela é recortada em formato quadrado.",
+    "wrongType": "Escolha uma imagem PNG ou JPEG.",
+    "tooLarge": "A imagem é grande demais: a foto pode ter no máximo 3 MB.",
+    "failed": "Não foi possível salvar a foto. Tente de novo."
+  },
+  "details": {
+    "heading": "Seus dados",
+    "displayName": "Nome exibido",
+    "displayNameHint": "O nome mostrado no app. Deixe em branco para usar seu nome de usuário.",
+    "username": "Nome de usuário",
+    "usernameHint": "Usado para entrar; não pode ser alterado.",
+    "email": "E-mail",
+    "save": "Salvar",
+    "saving": "Salvando…",
+    "saved": "Salvo.",
+    "failed": "Não foi possível salvar o nome. Tente de novo."
+  },
+  "security": {
+    "heading": "Acesso e segurança",
+    "intro": "Sua senha e seu e-mail ficam guardados no serviço de login, não neste app. Estes botões abrem a página segura dele e trazem você de volta para cá.",
+    "changePassword": "Trocar senha",
+    "changeEmail": "Trocar e-mail"
+  }
+}

@@ -4,6 +4,7 @@ import type { FeatureAction, MutationHandler } from '../../sheet/api';
 import { UsePoolStepper } from '../../sheet/UsePoolStepper';
 import { FrameIcon } from './FrameIcon';
 import minusIconSvg from './frames/dnd_icon_minus.svg?raw';
+import { ENGLISH_TERMS, useDnd5eTerms, type Dnd5eTerms } from './locales/dnd5eMessages';
 import plusIconSvg from './frames/dnd_icon_plus.svg?raw';
 
 type FeatureActionRowProps = {
@@ -15,12 +16,12 @@ type FeatureActionRowProps = {
 // D&D Beyond's own inline-row threshold (FeatureSnippetLimitedUse.tsx's largeLimitedUseAmount) for BoxTrack vs UsePoolStepper.
 export const LARGE_POOL_THRESHOLD = 8;
 
-export function rechargeTriggerLabel(trigger: string | null): string | null {
+export function rechargeTriggerLabel(trigger: string | null, terms: Dnd5eTerms = ENGLISH_TERMS): string | null {
   switch (trigger) {
     case 'SHORT_OR_LONG_REST':
-      return 'Short or long rest';
+      return terms.t('feature.shortOrLongRest');
     case 'LONG_REST':
-      return 'Long rest';
+      return terms.t('feature.longRest');
     default:
       return null;
   }
@@ -40,8 +41,9 @@ export function rechargeTriggerLabel(trigger: string | null): string | null {
  * é maior e embaixo da ação."
  */
 export function FeatureActionRow({ feature, onMutate, onOpenDetail }: FeatureActionRowProps) {
+  const terms = useDnd5eTerms();
   return (
-    <ListRow className="action-feature reveal" ariaLabel={`Open ${feature.name} details`} onOpen={onOpenDetail}>
+    <ListRow className="action-feature reveal" ariaLabel={terms.t('actionsTab.openDetails', { name: feature.name })} onOpen={onOpenDetail}>
       <div className="action-feature__body">
         <h3 className="reveal actions-tab__heading">{feature.name}</h3>
         <p className="action-feature__description">{feature.description}</p>
@@ -52,7 +54,7 @@ export function FeatureActionRow({ feature, onMutate, onOpenDetail }: FeatureAct
             <UsePoolStepper
               maxUses={feature.maxUses}
               usedCount={feature.usedCount}
-              rechargeLabel={rechargeTriggerLabel(feature.rechargeTrigger)}
+              rechargeLabel={rechargeTriggerLabel(feature.rechargeTrigger, terms)}
               onUse={() => onMutate({ type: 'USE_FEATURE_ACTION', featureKey: feature.key })}
               onRestore={() => onMutate({ type: 'RESTORE_FEATURE_ACTION', featureKey: feature.key })}
               useIcon={<FrameIcon svg={minusIconSvg} className="stepper-icon" aria-hidden />}
@@ -62,7 +64,7 @@ export function FeatureActionRow({ feature, onMutate, onOpenDetail }: FeatureAct
             <BoxTrack
               maxUses={feature.maxUses}
               usedCount={feature.usedCount}
-              rechargeLabel={rechargeTriggerLabel(feature.rechargeTrigger)}
+              rechargeLabel={rechargeTriggerLabel(feature.rechargeTrigger, terms)}
               onUse={() => onMutate({ type: 'USE_FEATURE_ACTION', featureKey: feature.key })}
               onRestore={() => onMutate({ type: 'RESTORE_FEATURE_ACTION', featureKey: feature.key })}
             />

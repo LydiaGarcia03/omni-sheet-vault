@@ -19,5 +19,10 @@ public enum CatalogueEntryKind {
     OPTIONAL_FEATURE,
     SPECIES,
     LANGUAGE,
-    CONDITION
+    CONDITION,
+    ANCESTRY,
+    COMMUNITY,
+    TRANSFORMATION,
+    DOMAIN,
+    DOMAIN_CARD
 }

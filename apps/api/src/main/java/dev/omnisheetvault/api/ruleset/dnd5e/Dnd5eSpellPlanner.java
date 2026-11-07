@@ -45,6 +45,7 @@ final class Dnd5eSpellPlanner {
     private final Offer offer;
     private final Function<String, List<String>> answers;
     private final List<String> problems;
+    private final Dnd5eText text;
     private final Map<String, List<JsonNode>> expandedByClass = new HashMap<>();
     private final Set<String> claimed = new HashSet<>();
     private String sourceText;
@@ -81,13 +82,14 @@ final class Dnd5eSpellPlanner {
     }
 
     Dnd5eSpellPlanner(CatalogueLookup catalogue, Dnd5eGrantState state, Dnd5eBuildOutcome outcome, Offer offer,
-            Function<String, List<String>> answers, List<String> problems) {
+            Function<String, List<String>> answers, List<String> problems, Dnd5eText text) {
         this.lists = new Dnd5eSpellLists(catalogue);
         this.state = state;
         this.outcome = outcome;
         this.offer = offer;
         this.answers = answers;
         this.problems = problems;
+        this.text = text;
     }
 
     /** A class's own spellcasting, or its subclass's when the subclass is the caster (Eldritch Knight, Arcane Trickster). */
@@ -148,7 +150,7 @@ final class Dnd5eSpellPlanner {
         JsonNode cantripTable = spellcasting.get("cantripsKnownByLevel");
         int cantrips = atLevel(cantripTable, level);
         if (cantrips > 0) {
-            choose(pooledId(playerClass, "cantrips"), "CANTRIP", "Choose " + cantrips + " " + className + " cantrip(s)",
+            choose(pooledId(playerClass, "cantrips"), "CANTRIP", text.text("spell.chooseCantrips", cantrips, className),
                     gainSource(className, increaseLevels(cantripTable, level)), cantrips,
                     classOptions(playerClass, subclass, level, 0, 0), className, false);
         }
@@ -157,7 +159,7 @@ final class Dnd5eSpellPlanner {
                 JsonNode knownTable = spellcasting.get("spellsKnownByLevel");
                 int known = atLevel(knownTable, level);
                 if (known > 0 && maxLevel > 0) {
-                    choose(pooledId(playerClass, "spells"), "SPELL", "Choose " + known + " " + className + " spell(s)",
+                    choose(pooledId(playerClass, "spells"), "SPELL", text.text("spell.chooseSpells", known, className),
                             gainSource(className, increaseLevels(knownTable, level)), known,
                             classOptions(playerClass, subclass, level, 1, maxLevel), className, false);
                 }
@@ -166,14 +168,14 @@ final class Dnd5eSpellPlanner {
                 JsonNode addedTable = spellcasting.get("spellbookSpellsAddedByLevel");
                 int added = total(addedTable, level);
                 List<String> book = added > 0 && maxLevel > 0
-                        ? offer.offer(pooledId(playerClass, "spellbook"), "SPELLBOOK", null, "Add " + added + " spell(s) to your spellbook",
+                        ? offer.offer(pooledId(playerClass, "spellbook"), "SPELLBOOK", null, text.text("spell.addToSpellbook", added),
                                 gainSource(className, additionLevels(addedTable, level)), added,
                                 classOptions(playerClass, subclass, level, 1, maxLevel))
                         : List.of();
                 List<CreationChoiceOption> options = book.stream().map(lists::bySlug).flatMap(Optional::stream)
                         .map(Dnd5eChoiceOptions::option).toList();
                 List<String> prepared = options.isEmpty() ? List.of()
-                        : offer.offer(id, "PREPARED_SPELL", null, "Choose " + Math.min(prepareMax, book.size()) + " spell(s) to prepare",
+                        : offer.offer(id, "PREPARED_SPELL", null, text.text("spell.choosePrepared", Math.min(prepareMax, book.size())),
                                 className, Math.min(prepareMax, book.size()), options);
                 for (String slug : book) {
                     lists.bySlug(slug).ifPresent(spell -> state.addSpell(spell.name()));
@@ -182,7 +184,7 @@ final class Dnd5eSpellPlanner {
             }
             case PREPARED_FROM_LIST -> {
                 if (maxLevel > 0) {
-                    choose(id, "PREPARED_SPELL", "Choose " + prepareMax + " spell(s) to prepare", className, prepareMax,
+                    choose(id, "PREPARED_SPELL", text.text("spell.choosePrepared", prepareMax), className, prepareMax,
                             classOptions(playerClass, subclass, level, 1, maxLevel), className, true);
                 }
             }
@@ -215,9 +217,9 @@ final class Dnd5eSpellPlanner {
         if (alternatives.size() > 1) {
             List<CreationChoiceOption> sets = new ArrayList<>();
             for (int index = 0; index < alternatives.size(); index++) {
-                sets.add(new CreationChoiceOption(String.valueOf(index), alternatives.get(index).path("name").asString("Option " + (index + 1)), null, null));
+                sets.add(new CreationChoiceOption(String.valueOf(index), alternatives.get(index).path("name").asString(text.text("plan.optionNumber", index + 1)), null, null));
             }
-            List<String> selected = offer.offer(prefix + ":spell-set", "SPELL_SET", null, "Choose your spells", source, 1, sets);
+            List<String> selected = offer.offer(prefix + ":spell-set", "SPELL_SET", null, text.text("spell.chooseSet"), source, 1, sets);
             if (selected.isEmpty()) {
                 return;
             }
@@ -254,7 +256,7 @@ final class Dnd5eSpellPlanner {
             options.add(new CreationChoiceOption(key, Dnd5eChoiceOptions.capitalize(key), null, null));
         }
         List<String> selected = offer.offer(prefix + ":spell-ability", "SPELLCASTING_ABILITY", null,
-                "Choose the spellcasting ability for these spells", source, 1, options);
+                text.text("spell.chooseAbility"), source, 1, options);
         if (selected.isEmpty()) {
             return false;
         }
@@ -320,7 +322,7 @@ final class Dnd5eSpellPlanner {
         List<CreationChoiceOption> options = candidates.stream()
                 .filter(spell -> !state.knowsSpell(spell.name()))
                 .map(Dnd5eChoiceOptions::option).toList();
-        List<String> selected = offer.offer(id, "SPELL", null, "Choose " + count + " spell(s)", source, count, options);
+        List<String> selected = offer.offer(id, "SPELL", null, text.text("spell.chooseCount", count), source, count, options);
         selected.forEach(slug -> lists.bySlug(slug).ifPresent(spell ->
                 record(spell, owner, false, prepared, usage, slotless(kind, frequency, spell, null))));
     }

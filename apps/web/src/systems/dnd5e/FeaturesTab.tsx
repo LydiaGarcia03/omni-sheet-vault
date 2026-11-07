@@ -3,13 +3,14 @@ import type { CharacterSheet, EntityDetailHandler, FeatureTrait, MutationHandler
 import { FilterChips } from '../../sheet/FilterChips';
 import { featureTraitDetailRequest } from './featureDetail';
 import { FeatureTraitRow } from './FeatureTraitRow';
+import { useDnd5eTerms } from './locales/dnd5eMessages';
 
 const CHIPS = [
-  { id: 'all', label: 'All' },
-  { id: 'CLASS_FEATURE', label: 'Class Features' },
-  { id: 'SPECIES_TRAIT', label: 'Species Traits' },
-  { id: 'FEAT', label: 'Feats' },
-];
+  { id: 'all', label: 'actionsTab.all' },
+  { id: 'CLASS_FEATURE', label: 'terms.featureCategories.CLASS_FEATURE' },
+  { id: 'SPECIES_TRAIT', label: 'terms.featureCategories.SPECIES_TRAIT' },
+  { id: 'FEAT', label: 'terms.featureCategories.FEAT' },
+] as const;
 
 type CategoryHeadingProps = {
   title: string;
@@ -17,6 +18,7 @@ type CategoryHeadingProps = {
 };
 
 function CategoryHeading({ title, onManageFeats }: CategoryHeadingProps) {
+  const { t } = useDnd5eTerms();
   return (
     <>
       <div className="actions-tab__section-heading">
@@ -25,7 +27,7 @@ function CategoryHeading({ title, onManageFeats }: CategoryHeadingProps) {
       {onManageFeats && (
         <div className="features-tab__manage-feats-row">
           <button type="button" className="features-tab__manage-feats-button" onClick={onManageFeats}>
-            Manage Feats
+            {t('featuresTab.manageFeats')}
           </button>
         </div>
       )}
@@ -63,6 +65,8 @@ type FeaturesTabProps = {
  * from its own category.
  */
 export function FeaturesTab({ sheet, onMutate, onOpenDetail, onOpenManageFeats }: FeaturesTabProps) {
+  const terms = useDnd5eTerms();
+  const { t } = terms;
   const [activeCategory, setActiveCategory] = useState('all');
 
   const visible = sheet.featureTraits.filter(
@@ -85,19 +89,19 @@ export function FeaturesTab({ sheet, onMutate, onOpenDetail, onOpenManageFeats }
       key={feature.key}
       feature={feature}
       onMutate={onMutate}
-      onOpenDetail={() => onOpenDetail(featureTraitDetailRequest(feature, sheet, onMutate, onOpenDetail))}
+      onOpenDetail={() => onOpenDetail(featureTraitDetailRequest(feature, sheet, onMutate, onOpenDetail, terms))}
     />
   );
 
   return (
     <div>
-      <FilterChips chips={CHIPS} activeChip={activeCategory} onSelect={setActiveCategory} />
+      <FilterChips chips={CHIPS.map(({ id, label }) => ({ id, label: t(label) }))} activeChip={activeCategory} onSelect={setActiveCategory} />
       {categories.map(({ id: category, label: categoryTitle }) => {
         const inCategory = visible.filter((feature) => feature.category === category);
         const sources = Array.from(new Set(inCategory.map((feature) => feature.source)));
         return (
           <section key={category}>
-            <CategoryHeading title={categoryTitle} onManageFeats={category === 'FEAT' ? onOpenManageFeats : undefined} />
+            <CategoryHeading title={t(categoryTitle)} onManageFeats={category === 'FEAT' ? onOpenManageFeats : undefined} />
             {category === 'FEAT' ? (
               <div className="action-list">{inCategory.map(renderFeature)}</div>
             ) : (

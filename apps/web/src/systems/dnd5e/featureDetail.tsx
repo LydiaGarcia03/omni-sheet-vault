@@ -8,15 +8,16 @@ import type {
 } from '../../sheet/api';
 import { BoxTrack } from '../../sheet/BoxTrack';
 import { rechargeTriggerLabel } from './FeatureActionRow';
+import { ENGLISH_TERMS, type Dnd5eTerms } from './locales/dnd5eMessages';
 
 /** "1 Action" / "1 Bonus Action" / "1 Reaction" — D&D Beyond's activation wording. */
-export function actionTypeLabel(actionType: string): string {
+export function actionTypeLabel(actionType: string, terms: Dnd5eTerms = ENGLISH_TERMS): string {
   const words = actionType
     .toLowerCase()
     .split('_')
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
-  return `1 ${words}`;
+  return terms.t('feature.oneAction', { type: terms.t.dynamic(`terms.activations.${actionType}`, words) });
 }
 
 type LimitedUseProps = {
@@ -38,13 +39,13 @@ function LimitedUse({ label, maxUses, usedCount, rechargeLabel, onUse, onRestore
   );
 }
 
-function actionLimitedUse(feature: FeatureAction, onMutate: MutationHandler) {
+function actionLimitedUse(feature: FeatureAction, onMutate: MutationHandler, terms: Dnd5eTerms) {
   if (feature.maxUses == null) {
     return undefined;
   }
   return (
     <LimitedUse
-      label="Limited Use"
+      label={terms.t('feature.limitedUse')}
       maxUses={feature.maxUses}
       usedCount={feature.usedCount}
       onUse={() => onMutate({ type: 'USE_FEATURE_ACTION', featureKey: feature.key })}
@@ -59,6 +60,7 @@ export function featureActionDetailRequest(
   sheet: CharacterSheet,
   onMutate: MutationHandler,
   onOpenDetail: EntityDetailHandler,
+  terms: Dnd5eTerms = ENGLISH_TERMS,
 ): EntityDetailRequest {
   const parentTrait = sheet.featureTraits.find((trait) => trait.key === feature.parentKey);
   return {
@@ -66,19 +68,19 @@ export function featureActionDetailRequest(
     entityKey: `feature-action:${feature.key}`,
     name: feature.name,
     parent: feature.parentName ?? undefined,
-    onOpenParent: parentTrait ? () => onOpenDetail(featureTraitDetailRequest(parentTrait, sheet, onMutate, onOpenDetail)) : undefined,
-    metadata: [{ label: 'Action Type', value: actionTypeLabel(feature.actionType) }],
+    onOpenParent: parentTrait ? () => onOpenDetail(featureTraitDetailRequest(parentTrait, sheet, onMutate, onOpenDetail, terms)) : undefined,
+    metadata: [{ label: terms.t('feature.actionType'), value: actionTypeLabel(feature.actionType, terms) }],
     description: feature.description,
-    actionBar: actionLimitedUse(feature, onMutate),
+    actionBar: actionLimitedUse(feature, onMutate, terms),
     actionsPosition: 'section',
     refreshActionBar: (latestSheet) => {
       const latest = latestSheet.featureActions.find((candidate) => candidate.key === feature.key);
-      return latest ? actionLimitedUse(latest, onMutate) : undefined;
+      return latest ? actionLimitedUse(latest, onMutate, terms) : undefined;
     },
   };
 }
 
-function traitBody(trait: FeatureTrait, sheet: CharacterSheet, onMutate: MutationHandler) {
+function traitBody(trait: FeatureTrait, sheet: CharacterSheet, onMutate: MutationHandler, terms: Dnd5eTerms) {
   const actions = sheet.featureActions.filter((action) => action.parentKey === trait.key);
   return (
     <div className="feature-detail__body">
@@ -91,14 +93,14 @@ function traitBody(trait: FeatureTrait, sheet: CharacterSheet, onMutate: Mutatio
       {actions.map((action) => (
         <div key={action.key} className="feature-detail__extra">
           <p className="feature-detail__extra-line">
-            <span className="feature-detail__extra-name">{action.name}:</span> {actionTypeLabel(action.actionType)}
+            <span className="feature-detail__extra-name">{action.name}:</span> {actionTypeLabel(action.actionType, terms)}
           </p>
           {action.maxUses != null && (
             <LimitedUse
-              label="Uses"
+              label={terms.t('feature.uses')}
               maxUses={action.maxUses}
               usedCount={action.usedCount}
-              rechargeLabel={rechargeTriggerLabel(action.rechargeTrigger)}
+              rechargeLabel={rechargeTriggerLabel(action.rechargeTrigger, terms)}
               onUse={() => onMutate({ type: 'USE_FEATURE_ACTION', featureKey: action.key })}
               onRestore={() => onMutate({ type: 'RESTORE_FEATURE_ACTION', featureKey: action.key })}
             />
@@ -108,10 +110,10 @@ function traitBody(trait: FeatureTrait, sheet: CharacterSheet, onMutate: Mutatio
       {trait.maxUses != null && !actions.some((action) => action.maxUses != null) && (
         <div className="feature-detail__extra">
           <LimitedUse
-            label="Uses"
+            label={terms.t('feature.uses')}
             maxUses={trait.maxUses}
             usedCount={trait.usedCount}
-            rechargeLabel={rechargeTriggerLabel(trait.rechargeTrigger)}
+            rechargeLabel={rechargeTriggerLabel(trait.rechargeTrigger, terms)}
             onUse={() => onMutate({ type: 'USE_FEATURE_TRAIT', featureKey: trait.key })}
             onRestore={() => onMutate({ type: 'RESTORE_FEATURE_TRAIT', featureKey: trait.key })}
           />
@@ -127,6 +129,7 @@ export function featureTraitDetailRequest(
   sheet: CharacterSheet,
   onMutate: MutationHandler,
   onOpenDetail: EntityDetailHandler,
+  terms: Dnd5eTerms = ENGLISH_TERMS,
 ): EntityDetailRequest {
   return {
     kind: 'entityDetail',
@@ -135,10 +138,10 @@ export function featureTraitDetailRequest(
     parent: trait.source,
     metadata: [],
     description: trait.description,
-    body: traitBody(trait, sheet, onMutate),
+    body: traitBody(trait, sheet, onMutate, terms),
     refresh: (latestSheet) => {
       const latest = latestSheet.featureTraits.find((candidate) => candidate.key === trait.key);
-      return latest ? featureTraitDetailRequest(latest, latestSheet, onMutate, onOpenDetail) : null;
+      return latest ? featureTraitDetailRequest(latest, latestSheet, onMutate, onOpenDetail, terms) : null;
     },
   };
 }

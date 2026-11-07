@@ -11,7 +11,7 @@ import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
 
 /**
- * A D&D 5e card: each class with its own level ("Rogue 4 / Sorcerer 3"), then the species.
+ * A D&D 5e card: each class with its own level ("Rogue 4 · Sorcerer 3"), then the species.
  * Never a total level. Reads only the nodes it needs, so older sheets still summarize.
  */
 @Component
@@ -52,7 +52,7 @@ class Dnd5eCharacterSummarizer implements CharacterSummarizer {
     private static List<SummaryFact> facts(List<String> classes, String species) {
         List<SummaryFact> facts = new ArrayList<>();
         if (!classes.isEmpty()) {
-            facts.add(new SummaryFact(CLASSES, String.join(" / ", classes)));
+            facts.add(new SummaryFact(CLASSES, String.join(" · ", classes)));
         }
         if (species != null) {
             facts.add(new SummaryFact(SPECIES, species));

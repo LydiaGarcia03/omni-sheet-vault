@@ -6,6 +6,7 @@ import { onlySystemId, SUPPORTED_SYSTEMS, systemLabel } from '../characters/supp
 import { AppFooter } from '../shell/AppFooter';
 import { AppHeader } from '../shell/AppHeader';
 import { AppPage } from '../theme/AppPage';
+import { useHomeText } from '../locales/platformMessages';
 import { CharacterBanner } from './CharacterBanner';
 import { ConfirmDialog } from './ConfirmDialog';
 import { SystemCards } from './SystemCards';
@@ -15,6 +16,7 @@ const ALL = 'all';
 
 /** The signed-in home: start a character in any system, and every character the player has, grouped by system. */
 export function HomePage({ userName }: { userName: string }) {
+  const t = useHomeText();
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const [characters, setCharacters] = useState<Character[] | null>(null);
@@ -39,8 +41,8 @@ export function HomePage({ userName }: { userName: string }) {
   const refresh = useCallback(() => {
     listCharacters()
       .then(setCharacters)
-      .catch(() => setError('Could not load your characters.'));
-  }, []);
+      .catch(() => setError(t('home.loadFailed')));
+  }, [t]);
 
   useEffect(refresh, [refresh]);
 
@@ -60,7 +62,7 @@ export function HomePage({ userName }: { userName: string }) {
       setToDelete(null);
       refresh();
     } catch {
-      setError(`Could not delete ${toDelete.name}.`);
+      setError(t('home.deleteFailed', { name: toDelete.name }));
       setToDelete(null);
     } finally {
       setDeleting(false);
@@ -72,38 +74,38 @@ export function HomePage({ userName }: { userName: string }) {
       <AppHeader userName={userName} />
       <main className="app-wrap home-main">
         <div className="home-head">
-          <h1 className="app-heading">Your characters</h1>
-          {characters && <span className="app-muted">{countLabel(characters.length)}</span>}
+          <h1 className="app-heading">{t('home.title')}</h1>
+          {characters && <span className="app-muted">{t('home.characterCount', { count: characters.length })}</span>}
           <button type="button" className="app-btn app-btn--primary" disabled={creating !== null} onClick={startCharacter}>
-            {creating ? 'Creating…' : '＋ Create character'}
+            {creating ? t('home.creating') : t('home.create')}
           </button>
         </div>
 
-        <section className="home-new" aria-label="Start something new">
-          <div className="home-label">Start something new</div>
+        <section className="home-new" aria-label={t('home.startNew')}>
+          <div className="home-label">{t('home.startNew')}</div>
           <SystemCards compact creating={creating} onCreate={(systemId) => void create(systemId)} />
         </section>
 
         {(error ?? createError) && (
           <div className="home-error" role="alert">
-            {error ?? `Could not create the character: ${createError}`}
+            {error ?? t('home.createFailed', { error: createError ?? '' })}
           </div>
         )}
 
         {characters && characters.length === 0 && (
           <div className="home-empty">
-            <p>Your vault is empty. Every hero starts somewhere.</p>
+            <p>{t('home.empty')}</p>
             <button type="button" className="app-btn app-btn--primary" disabled={creating !== null} onClick={startCharacter}>
-              Create your first character
+              {t('home.createFirst')}
             </button>
           </div>
         )}
 
         {characters && characters.length > 0 && (
           <>
-            <div className="home-filters" role="group" aria-label="Filter by game system">
+            <div className="home-filters" role="group" aria-label={t('home.filterLabel')}>
               <button type="button" className="app-chip" aria-pressed={filter === ALL} onClick={() => choose(ALL)}>
-                All<small>{characters.length}</small>
+                {t('home.all')}<small>{characters.length}</small>
               </button>
               {systems.map((systemId) => (
                 <button key={systemId} type="button" className="app-chip" aria-pressed={filter === systemId} onClick={() => choose(systemId)}>
@@ -137,8 +139,8 @@ export function HomePage({ userName }: { userName: string }) {
       <AppFooter />
 
       {toDelete && (
-        <ConfirmDialog title="Delete character?" confirmLabel="Delete" busy={deleting} onConfirm={confirmDelete} onCancel={() => setToDelete(null)}>
-          {toDelete.name} will be removed from your vault. This can't be undone.
+        <ConfirmDialog title={t('home.deleteTitle')} confirmLabel={t('home.deleteConfirm')} busy={deleting} onConfirm={confirmDelete} onCancel={() => setToDelete(null)}>
+          {t('home.deleteBody', { name: toDelete.name })}
         </ConfirmDialog>
       )}
     </AppPage>
@@ -150,10 +152,6 @@ function systemsWithCharacters(characters: Character[]): string[] {
   const present = [...new Set(characters.map((character) => character.systemId))];
   const known = SUPPORTED_SYSTEMS.map((system) => system.id).filter((id) => present.includes(id));
   return [...known, ...present.filter((id) => !known.includes(id))];
-}
-
-function countLabel(count: number): string {
-  return count === 1 ? '1 character' : `${count} characters`;
 }
 
 /** A small UI preference kept in this browser; falls back to the default when storage is unavailable. */

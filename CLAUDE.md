@@ -63,6 +63,8 @@ for every task.
 | `ui-design-system.md` | Building or restyling any UI | Design tokens or component patterns change |
 | `glossary.md` | You hit an unfamiliar RPG or project term | A new term enters the codebase |
 | `developer-guide.md` | Updating the editions (server, desktop), or looking for where a process lives in `apps/api` / `apps/web` | A key class moves, a process changes, a release step changes, or a game system is added |
+| `deployment-options.md` | Choosing how to put the app online for other people (free hosting options compared) | A provider's free tier changes, or an option is added |
+| `deployment-oracle-guide.md` | Deploying to, or operating, the Oracle Cloud Always Free server | A deployment step, file or command changes |
 | `changelog.md` | Rarely — for recent history | **After every completed change** |
 | `roadmap.md` | **When asked to plan work or start a phase** | A phase is finished, or the plan changes |
 | `open-items.md` | Starting a session, or when the owner asks what's pending | A decision is deferred to the owner, or one is answered |

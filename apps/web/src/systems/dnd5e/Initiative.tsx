@@ -1,5 +1,6 @@
 import type { ForcedRollMode } from '../../sheet/api';
 import { FrameLayer } from './FrameLayer';
+import { useDnd5eText } from './locales/dnd5eMessages';
 import paperSvg from './frames/dnd_frame_initiative.svg?raw';
 import inkSvg from './frames/dnd_frame_initiative_ink.svg?raw';
 import { RollModeMarker } from './RollModeMarker';
@@ -18,12 +19,13 @@ function formatModifier(modifier: number): string {
 }
 
 export function Initiative({ modifier, rollMode, onRoll, onRollContextMenu, onOpenPane }: InitiativeProps) {
+  const t = useDnd5eText();
   const formattedModifier = formatModifier(modifier);
 
   return (
     <div className="initiative-wrap">
-      <button type="button" className="reveal initiative-wrap__caption" aria-label="Initiative, open details" onClick={onOpenPane}>
-        Initiative
+      <button type="button" className="reveal initiative-wrap__caption" aria-label={t('vitals.initiativeAria')} onClick={onOpenPane}>
+        {t('terms.labels.initiative')}
       </button>
       <div className="frame-box initiative">
         <FrameLayer svg={paperSvg} layer="paper" />
@@ -31,7 +33,7 @@ export function Initiative({ modifier, rollMode, onRoll, onRollContextMenu, onOp
         <button
           type="button"
           className="roll roll--modifier initiative__value"
-          aria-label={`Roll initiative, ${formattedModifier}`}
+          aria-label={t('vitals.initiativeRoll', { modifier: formattedModifier })}
           onClick={onRoll}
           onContextMenu={(event) => {
             event.preventDefault();

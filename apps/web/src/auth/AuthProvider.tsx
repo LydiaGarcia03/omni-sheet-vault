@@ -7,9 +7,16 @@ export type AuthStatus = 'loading' | 'signed-in' | 'signed-out';
 export type CurrentUser = {
   id: string;
   subject: string;
+  /** The name shown in the app: the one the player chose, else their username. */
   displayName: string;
+  /** The Keycloak login name, which never changes. */
+  username?: string;
   email: string;
   roles: string[];
+  /** The interface language and theme the player saved; null where they haven't chosen. */
+  preferences?: { locale: string | null; theme: string | null };
+  /** A short-lived link to the profile picture; null without one. */
+  avatarUrl?: string | null;
 };
 
 type AuthContextValue = {
@@ -20,6 +27,8 @@ type AuthContextValue = {
   /** Goes to the account registration page and comes back signed in to `returnTo` (default: `/`). */
   signUp: (returnTo?: string) => void;
   signOut: () => void;
+  /** Replaces the player after the profile page changed them. */
+  updateUser: (user: CurrentUser) => void;
 };
 
 const AuthContext = createContext<AuthContextValue | null>(null);
@@ -42,7 +51,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const signIn = useCallback((returnTo?: string) => redirectToLogin(returnTo), []);
   const signUp = useCallback((returnTo?: string) => redirectToRegistration(returnTo), []);
   const signOut = useCallback(() => signOutOfSession(), []);
-  const value = useMemo<AuthContextValue>(() => ({ status, user, signIn, signUp, signOut }), [status, user, signIn, signUp, signOut]);
+  const updateUser = useCallback((next: CurrentUser) => setUser(next), []);
+  const value = useMemo<AuthContextValue>(
+    () => ({ status, user, signIn, signUp, signOut, updateUser }),
+    [status, user, signIn, signUp, signOut, updateUser],
+  );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
@@ -53,4 +66,9 @@ export function useAuth(): AuthContextValue {
     throw new Error('useAuth must be used within an AuthProvider');
   }
   return context;
+}
+
+/** The session state where there may be no AuthProvider above (e.g. a provider rendered in isolation); null then. */
+export function useOptionalAuth(): AuthContextValue | null {
+  return useContext(AuthContext);
 }

@@ -1,3 +1,4 @@
+import { useBuilderText } from '../locales/platformMessages';
 import { CatalogueSourceLabel } from '../sheet/CatalogueSourceLabel';
 import type { CreationChoice } from './draftApi';
 import { PendingMark } from './PendingMark';
@@ -10,13 +11,14 @@ type ChoiceFieldProps = {
 
 /** Renders any plan choice as a source select: a single pick, or several up to the choice's count. */
 export function ChoiceField({ choice, onChange }: ChoiceFieldProps) {
+  const tb = useBuilderText();
   return (
     <div className={`builder-choice${choice.pending ? ' is-pending' : ''}`}>
       <div>
         <div className="builder-choice__label">{choice.prompt}</div>
         <div className="builder-choice__from">
           {choice.sourceLabel}
-          {choice.count > 1 && ` · choose ${choice.count}`}
+          {choice.count > 1 && tb('select.chooseCountNote', { count: choice.count })}
         </div>
       </div>
       <div className="builder-choice__control">
@@ -26,7 +28,7 @@ export function ChoiceField({ choice, onChange }: ChoiceFieldProps) {
               options={choice.options}
               value={choice.selected[0] ?? null}
               onChange={(key) => onChange(key ? [key] : [])}
-              placeholder="— choose —"
+              placeholder={tb('select.choose')}
               ariaLabel={choice.prompt}
               clearable
             />
@@ -37,7 +39,7 @@ export function ChoiceField({ choice, onChange }: ChoiceFieldProps) {
               values={choice.selected}
               max={choice.count}
               onChange={onChange}
-              placeholder={`— choose ${choice.count} —`}
+              placeholder={tb('select.chooseCount', { count: choice.count })}
               ariaLabel={choice.prompt}
             />
           )}

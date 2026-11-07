@@ -1,4 +1,5 @@
 import type { CSSProperties, ReactNode } from 'react';
+import { useSheetText } from '../locales/platformMessages';
 
 type UsePoolStepperProps = {
   maxUses: number;
@@ -30,6 +31,7 @@ const buttonStyle: CSSProperties = {
 // Immediate mutation per click, no staged edit — matches BoxTrack's own convention.
 // Each button stops propagation — see BoxTrack.tsx's own doc comment.
 export function UsePoolStepper({ maxUses, usedCount, rechargeLabel, onUse, onRestore, useIcon, restoreIcon }: UsePoolStepperProps) {
+  const t = useSheetText();
   const remaining = maxUses - usedCount;
 
   return (
@@ -37,7 +39,7 @@ export function UsePoolStepper({ maxUses, usedCount, rechargeLabel, onUse, onRes
       <button
         type="button"
         className="mutate"
-        aria-label="Spend a use"
+        aria-label={t('pool.spend')}
         disabled={usedCount >= maxUses}
         onClick={(event) => {
           event.stopPropagation();
@@ -48,12 +50,12 @@ export function UsePoolStepper({ maxUses, usedCount, rechargeLabel, onUse, onRes
         {useIcon ?? '−'}
       </button>
       <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--text-primary, #242528)', minWidth: '52px', textAlign: 'center' }}>
-        {remaining} of {maxUses}
+        {t('pool.remaining', { remaining, max: maxUses })}
       </span>
       <button
         type="button"
         className="mutate"
-        aria-label="Restore a use"
+        aria-label={t('pool.restore')}
         disabled={usedCount <= 0}
         onClick={(event) => {
           event.stopPropagation();

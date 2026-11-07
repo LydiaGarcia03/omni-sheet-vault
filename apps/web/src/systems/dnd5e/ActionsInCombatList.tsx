@@ -1,4 +1,5 @@
 import type { EntityDetailHandler } from '../../sheet/api';
+import { useDnd5eTerms } from './locales/dnd5eMessages';
 import type { StandardAction } from './standardActions';
 
 type ActionsInCombatListProps = {
@@ -18,12 +19,19 @@ type ActionsInCombatListProps = {
  * section's own list.
  */
 export function ActionsInCombatList({ actions, onOpenDetail }: ActionsInCombatListProps) {
+  const terms = useDnd5eTerms();
+  const { t } = terms;
+  const named = actions.map((action) => ({
+    key: action.key,
+    name: t(`terms.actions.${action.key}`),
+    description: t(`standardActions.${action.key}`, { distance: terms.feet(5) }),
+  }));
   return (
     <>
-      <h3 className="actions-tab__heading">Actions in Combat</h3>
+      <h3 className="actions-tab__heading">{t('actionsTab.actionsInCombat')}</h3>
       <p className="actions-tab__standard-list">
-        {actions.map((action, index) => (
-          <span key={action.name}>
+        {named.map((action, index) => (
+          <span key={action.key}>
             <button
               type="button"
               className="reveal"

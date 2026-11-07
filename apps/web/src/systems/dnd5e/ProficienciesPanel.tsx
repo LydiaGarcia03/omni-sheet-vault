@@ -2,6 +2,7 @@ import type { CharacterSheet, MutationHandler, PaneHandler } from '../../sheet/a
 import { Dnd5eProficienciesPane } from './Dnd5eProficienciesPane';
 import frameSvg from './frames/dnd_frame_proficiencies_training.svg?raw';
 import frameInkSvg from './frames/dnd_frame_proficiencies_training_ink.svg?raw';
+import { useDnd5eText } from './locales/dnd5eMessages';
 import { SectionPanel } from './SectionPanel';
 
 type ProficienciesPanelProps = {
@@ -17,18 +18,19 @@ function sourcesByLabel(sheet: CharacterSheet): Map<string, string> {
 
 /** The sheet's proficiencies box; its gear opens D&D Beyond's Proficiencies & Training pane. */
 export function ProficienciesPanel({ sheet, onMutate, onOpenPane }: ProficienciesPanelProps) {
+  const t = useDnd5eText();
   const sources = sourcesByLabel(sheet);
   const openPane = () =>
     onOpenPane({ kind: 'pane', render: (liveSheet) => <Dnd5eProficienciesPane sheet={liveSheet} onMutate={onMutate} /> });
   const categories = [
-    { label: 'Armor', items: sheet.armorProficiencies },
-    { label: 'Weapons', items: sheet.weaponProficiencies },
-    { label: 'Tools', items: sheet.toolProficiencies },
-    { label: 'Languages', items: sheet.languages },
+    { label: t('terms.proficiencyGroups.ARMOR'), items: sheet.armorProficiencies },
+    { label: t('terms.proficiencyGroups.WEAPON'), items: sheet.weaponProficiencies },
+    { label: t('terms.proficiencyGroups.TOOL'), items: sheet.toolProficiencies },
+    { label: t('terms.proficiencyGroups.LANGUAGE'), items: sheet.languages },
   ].filter((category) => category.items.length > 0);
 
   return (
-    <SectionPanel frameClass="proficiencies-panel" svg={frameSvg} inkSvg={frameInkSvg} title="Proficiencies and Training" onSettings={openPane}>
+    <SectionPanel frameClass="proficiencies-panel" svg={frameSvg} inkSvg={frameInkSvg} title={t('terms.labels.proficienciesAndTraining')} onSettings={openPane}>
       {/* Plain divs, not a <dl> — the browser's own default margin on <dl>
           isn't cleared anywhere in frames.css. */}
       <div className="panel__list" role="list">
@@ -37,7 +39,7 @@ export function ProficienciesPanel({ sheet, onMutate, onOpenPane }: Proficiencie
             <div className="panel__list-label">{label}</div>
             <div className="panel__list-value">
               {items.map((item, index) => (
-                <span key={item} title={sources.has(item) ? `From ${sources.get(item)}` : undefined}>
+                <span key={item} title={sources.has(item) ? t('proficiencies.fromSource', { source: sources.get(item) ?? '' }) : undefined}>
                   {item}
                   {index < items.length - 1 && ', '}
                 </span>

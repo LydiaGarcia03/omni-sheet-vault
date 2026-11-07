@@ -1,0 +1,19 @@
+{
+  "title": "Créditos e licenças",
+  "intro": "O Omni Sheet Vault é um projeto de fã sem fins comerciais. O código e a arte próprios estão licenciados sob a PolyForm Noncommercial License 1.0.0. Tudo o que está abaixo pertence aos seus donos e é usado sob os termos deles.",
+  "fanContent": "Conteúdo de fã",
+  "gameContent": "Conteúdo de jogo",
+  "gameContentText": "Os textos e dados de regras (magias, classes, espécies, antecedentes, talentos, itens) vêm dos livros de D&D de 2014, por meio dos arquivos de dados do 5etools. O conteúdo pertence à Wizards of the Coast.",
+  "graphics": "Gráficos",
+  "graphicsDdb": "Os retratos padrão de personagem, os ícones de itens, as molduras da ficha e vários ícones da interface são arte do D&D Beyond / Wizards of the Coast. Os ícones de dados são ícones do Font Awesome, como servidos pelo D&D Beyond. O layout se inspira na ficha e no criador de personagens do D&D Beyond.",
+  "gameIconsBefore": "Ícones de",
+  "gameIconsUnder": "sob a licença",
+  "iconsBy": "por {author}: {icons}",
+  "flaticonBefore": "Ícones de",
+  "flaticonAfter": "sob a Flaticon License: \"Fire\" por meaicon e \"Bullet\" por Magnific.",
+  "fonts": "Fontes",
+  "fontsText": "Roboto e Roboto Condensed, do Google, sob a SIL Open Font License 1.1. Material Symbols, do Google, sob a Apache License 2.0.",
+  "software": "Software",
+  "component": "Componente",
+  "license": "Licença"
+}

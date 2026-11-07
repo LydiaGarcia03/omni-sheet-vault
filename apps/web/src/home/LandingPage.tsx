@@ -3,6 +3,7 @@ import { portraitPresetsFor } from '../characters/portraitPresets';
 import { onlySystemId } from '../characters/supportedSystems';
 import { AppFooter } from '../shell/AppFooter';
 import { AppHeader } from '../shell/AppHeader';
+import { useHomeText } from '../locales/platformMessages';
 import { AppPage } from '../theme/AppPage';
 import { SystemCards } from './SystemCards';
 import './home.css';
@@ -16,15 +17,16 @@ const HERO_PORTRAITS: { presetId: string; left: number; top: number; tilt: numbe
 ];
 
 const FEATURES = [
-  { icon: '🧭', title: 'Guided creation', text: 'Every choice shows what it changes before you make it: scores, proficiencies, spells.' },
-  { icon: '📜', title: 'Sheets that play', text: 'Cast a spell, spend a slot, roll its damage. Rests, conditions and hit dice just work.' },
-  { icon: '🎲', title: 'Honest dice', text: 'Rolled on the server and kept forever in a roll history your table can check.' },
-  { icon: '🖼️', title: 'Your whole roster', text: 'Portraits, backstories and every character you play, across every game, in one place.' },
-];
+  { id: 'guided', icon: '🧭' },
+  { id: 'play', icon: '📜' },
+  { id: 'dice', icon: '🎲' },
+  { id: 'roster', icon: '🖼️' },
+] as const;
 
 /** What a visitor sees before signing in: what the vault does and which games it plays. */
 export function LandingPage() {
   const { signIn, signUp } = useAuth();
+  const t = useHomeText();
   const presets = portraitPresetsFor('dnd-5e');
   const heroArt = HERO_PORTRAITS.flatMap((spot) => {
     const preset = presets.find((candidate) => candidate.id === spot.presetId);
@@ -39,23 +41,20 @@ export function LandingPage() {
         <div className="app-wrap">
           <div>
             <h1 className="app-heading">
-              Every system.
+              {t('landing.titleLine1')}
               <br />
-              One vault for your heroes.
+              {t('landing.titleLine2')}
             </h1>
-            <p>
-              Build characters with rules that explain every choice, play them on a sheet that knows its mechanics, and roll dice with a
-              history nobody can fake.
-            </p>
+            <p>{t('landing.lead')}</p>
             <div className="landing-hero__cta">
               <button type="button" className="app-btn app-btn--primary" onClick={() => signIn(onlySystemId() ? `/characters/new/${onlySystemId()}` : '/characters/new')}>
-                Create character
+                {t('landing.createCharacter')}
               </button>
               <button type="button" className="app-btn" onClick={() => signUp('/')}>
-                Create account
+                {t('landing.createAccount')}
               </button>
               <button type="button" className="app-btn" onClick={() => signIn('/')}>
-                I already have an account
+                {t('landing.haveAccount')}
               </button>
             </div>
           </div>
@@ -70,16 +69,16 @@ export function LandingPage() {
       <section className="landing-section">
         <div className="app-wrap">
           <div className="landing-section__head">
-            <h2 className="app-heading">What you can do</h2>
+            <h2 className="app-heading">{t('landing.featuresTitle')}</h2>
           </div>
           <div className="landing-features">
             {FEATURES.map((feature) => (
-              <div key={feature.title} className="landing-feature">
+              <div key={feature.id} className="landing-feature">
                 <div className="landing-feature__icon" aria-hidden="true">
                   {feature.icon}
                 </div>
-                <h3 className="app-heading">{feature.title}</h3>
-                <p>{feature.text}</p>
+                <h3 className="app-heading">{t(`landing.features.${feature.id}.title`)}</h3>
+                <p>{t(`landing.features.${feature.id}.text`)}</p>
               </div>
             ))}
           </div>
@@ -89,8 +88,8 @@ export function LandingPage() {
       <section className="landing-section" style={{ paddingTop: 0 }}>
         <div className="app-wrap">
           <div className="landing-section__head">
-            <h2 className="app-heading">Pick your game</h2>
-            <span className="app-muted">More systems are on the way.</span>
+            <h2 className="app-heading">{t('landing.pickGame')}</h2>
+            <span className="app-muted">{t('landing.moreSoon')}</span>
           </div>
           <SystemCards onCreate={(systemId) => signIn(`/characters/new/${systemId}`)} />
         </div>

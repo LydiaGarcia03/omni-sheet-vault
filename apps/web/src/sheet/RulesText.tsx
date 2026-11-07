@@ -1,4 +1,5 @@
 import { Fragment, type ReactNode } from 'react';
+import { useSheetText } from '../locales/platformMessages';
 
 const INLINE_MARK = /(\*\*\*[^*]+\*\*\*|\*\*[^*]+\*\*|\*[^*\s][^*]*\*)/g;
 const HEADING = /^(#{1,6})\s+(.*)$/;
@@ -121,7 +122,8 @@ function parseLines(lines: string[]): Block[] {
 
 /** A table cell; the word "checkbox" alone draws D&D Beyond's (display only) checkbox. */
 function Cell({ text }: { text: string }) {
-  return text.toLowerCase() === 'checkbox' ? <input type="checkbox" disabled aria-label="Applied" /> : <>{inline(text)}</>;
+  const t = useSheetText();
+  return text.toLowerCase() === 'checkbox' ? <input type="checkbox" disabled aria-label={t('conditions.applied')} /> : <>{inline(text)}</>;
 }
 
 function render(block: Block, index: number): ReactNode {

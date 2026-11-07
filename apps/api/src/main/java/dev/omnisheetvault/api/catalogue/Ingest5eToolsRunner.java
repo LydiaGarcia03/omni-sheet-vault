@@ -1,19 +1,17 @@
 package dev.omnisheetvault.api.catalogue;
 
 import java.io.IOException;
-import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.Comparator;
 import java.util.List;
-import java.util.Set;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
 
 /**
  * Runs one {@link FiveEToolsConverter} end to end: load its raw entries, drop
- * out-of-scope sources (pipeline stage 2), convert, write one file per entry. Kept
+ * out-of-scope sources (pipeline stage 2), convert, write every entry to the kind's English file. Kept
  * separate from {@link Ingest5eToolsMain} so it's testable against a scratch
  * directory instead of the real {@code content/dnd-5e/} — {@code main()} stays a thin
  * CLI wrapper (arg parsing, default paths, the converter registry).
@@ -27,9 +25,9 @@ final class Ingest5eToolsRunner {
     }
 
     /**
-     * Safe to re-run — every output file is overwritten by its own deterministic slug,
-     * and a file this run no longer produces (a source now out of scope, a plain slug
-     * retired because several sources share it) is deleted.
+     * Safe to re-run: the English file is rewritten whole, in slug order, so an entry this run no longer produces
+     * (a source now out of scope, a plain slug retired because several sources share it) is gone. Older
+     * one-file-per-entry files are deleted; translation files stay.
      */
     int run(FiveEToolsConverter converter, FiveEToolsDataSource dataSource, FiveEToolsSourceClassifier classifier, Path outputDirectory) {
         try {
@@ -51,19 +49,19 @@ final class Ingest5eToolsRunner {
         }
 
         FiveEToolsSlugs.Disambiguated disambiguated = FiveEToolsSlugs.disambiguate(converted);
-        Set<String> written = new HashSet<>();
-        for (CatalogueEntryImport entry : disambiguated.entries()) {
-            writeEntry(outputDirectory, entry);
-            written.add(entry.slug() + ".json");
-        }
-        deleteFilesNotIn(outputDirectory, written);
-        return disambiguated.entries().size();
+        List<CatalogueEntryImport> entries = disambiguated.entries().stream()
+                .sorted(Comparator.comparing(CatalogueEntryImport::slug))
+                .toList();
+        Path englishFile = CatalogueEntryFiles.englishFile(outputDirectory);
+        deleteEntryFilesOtherThan(outputDirectory, englishFile);
+        writeEntries(englishFile, entries);
+        return entries.size();
     }
 
-    private static void deleteFilesNotIn(Path outputDirectory, Set<String> written) {
-        try (DirectoryStream<Path> files = Files.newDirectoryStream(outputDirectory, "*.json")) {
-            for (Path file : files) {
-                if (!written.contains(file.getFileName().toString())) {
+    private static void deleteEntryFilesOtherThan(Path outputDirectory, Path englishFile) {
+        try {
+            for (Path file : CatalogueEntryFiles.entryFiles(outputDirectory)) {
+                if (!file.equals(englishFile)) {
                     Files.delete(file);
                 }
             }
@@ -72,13 +70,12 @@ final class Ingest5eToolsRunner {
         }
     }
 
-    private void writeEntry(Path outputDirectory, CatalogueEntryImport imported) {
-        Path file = outputDirectory.resolve(imported.slug() + ".json");
+    private void writeEntries(Path file, List<CatalogueEntryImport> entries) {
         try {
-            String json = objectMapper.writer().withDefaultPrettyPrinter().writeValueAsString(imported);
+            String json = objectMapper.writer().withDefaultPrettyPrinter().writeValueAsString(entries);
             Files.writeString(file, json + System.lineSeparator());
         } catch (IOException e) {
-            throw new FiveEToolsIngestException("Could not write catalogue entry: " + file, e);
+            throw new FiveEToolsIngestException("Could not write catalogue entries: " + file, e);
         }
     }
 }

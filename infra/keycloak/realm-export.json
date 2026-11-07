@@ -67,13 +67,7 @@
           "realm": [
             "offline_access",
             "uma_authorization"
-          ],
-          "client": {
-            "account": [
-              "manage-account",
-              "view-profile"
-            ]
-          }
+          ]
         },
         "clientRole": false,
         "containerId": "b56d7493-7bde-48fb-a5c3-6708e0e40b2a",
@@ -534,7 +528,7 @@
       "rootUrl": "${authBaseUrl}",
       "baseUrl": "/realms/omni-sheet-vault/account/",
       "surrogateAuthRequired": false,
-      "enabled": true,
+      "enabled": false,
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
@@ -1717,7 +1711,12 @@
       }
     ]
   },
-  "internationalizationEnabled": false,
+  "internationalizationEnabled": true,
+  "supportedLocales": [
+    "en",
+    "pt-BR"
+  ],
+  "defaultLocale": "en",
   "authenticationFlows": [
     {
       "id": "6570703f-0e67-4896-9870-b1063981804c",
@@ -2463,7 +2462,7 @@
       "alias": "UPDATE_EMAIL",
       "name": "Update Email",
       "providerId": "UPDATE_EMAIL",
-      "enabled": false,
+      "enabled": true,
       "defaultAction": false,
       "priority": 70,
       "config": {}

@@ -50,6 +50,29 @@ public class PlayerService {
         playerRepository.markTutorialSeen(currentPlayer(jwt).id(), tutorialId);
     }
 
+    /** Saves the player's interface preferences; a null one keeps its current value. */
+    @Transactional
+    public Player choosePreferences(Jwt jwt, String locale, String theme) {
+        Player player = currentPlayer(jwt);
+        player.choosePreferences(locale, theme);
+        return playerRepository.save(player);
+    }
+
+    /** Saves the name the player wants shown; a blank one goes back to the username. */
+    @Transactional
+    public Player rename(Jwt jwt, String name) {
+        Player player = currentPlayer(jwt);
+        player.rename(name);
+        return playerRepository.save(player);
+    }
+
+    /** Points the player's profile picture at another stored object, or at none. */
+    @Transactional
+    public Player changeAvatar(Player player, String key) {
+        player.changeAvatar(key);
+        return playerRepository.save(player);
+    }
+
     /** Players by their Keycloak username, for command-line tools that act on a named local account. */
     public List<Player> playersNamed(String displayName) {
         return playerRepository.findByDisplayName(displayName);

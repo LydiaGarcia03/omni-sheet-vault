@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { useBuilderText } from '../locales/platformMessages';
 import type { ProgressionTable } from './draftApi';
 
 type ProgressionPanelProps = {
@@ -11,9 +12,10 @@ type ProgressionPanelProps = {
 
 /** A class's table, collapsed until opened: the current level is marked, the levels after it preview what comes next. */
 export function ProgressionPanel({ table, defaultOpen = false, caption }: ProgressionPanelProps) {
+  const tb = useBuilderText();
   return (
     <details className="builder-frame builder-progression" open={defaultOpen || undefined}>
-      <summary className="builder-frame__title builder-progression__summary">Class progression · {table.name}</summary>
+      <summary className="builder-frame__title builder-progression__summary">{tb('progression', { name: table.name })}</summary>
       {caption && <p className="builder-progression__caption">{caption}</p>}
       <div className="builder-progression__scroll">
         <table className="builder-progression__table">

@@ -1,0 +1,32 @@
+{
+  "header": {
+    "logIn": "Log in",
+    "backToCharacters": "← Your characters",
+    "myCharacters": "My characters",
+    "darkTheme": "Dark theme",
+    "profile": "My profile",
+    "logOut": "Log out"
+  },
+  "language": {
+    "button": "Language: {name}",
+    "menu": "Interface language"
+  },
+  "footer": {
+    "sources": "A non-commercial fan project · Rules content from 5etools · Art from D&D Beyond, game-icons.net and Flaticon",
+    "credits": "Credits and licenses",
+    "aiTranslation": "Rules text on this page was translated by AI from the English original and may differ from the official books in this language."
+  },
+  "loading": {
+    "page": "Loading…",
+    "language": "Changing the language…"
+  },
+  "tutorial": {
+    "open": "Open the tutorial",
+    "launcher": "Tutorial",
+    "count": "{step} of {total}",
+    "skip": "Skip tutorial",
+    "back": "Back",
+    "next": "Next",
+    "finish": "Finish"
+  }
+}

@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { formatDecimal } from '../../language/format';
+import { useSheetText } from '../../locales/platformMessages';
+import { storageLocations } from '../../sheet/ManageInventoryPanel';
 import { canToggleEquipped, type CharacterSheet, type EntityDetailHandler, type Item, type MutationHandler, type StorageSection } from '../../sheet/api';
 import { FilterChips } from '../../sheet/FilterChips';
 import { GridHeaderRow, GridScroll } from '../../sheet/ListGrid';
@@ -12,25 +15,17 @@ import { rarityClassSuffix } from './itemRarity';
 import { ItemRow } from './ItemRow';
 import { EMPTY_ITEM_ADVANCED_FILTERS, hasActiveItemAdvancedFilters, ItemsAdvancedFilters, matchesItemAdvancedFilters } from './ItemsAdvancedFilters';
 import { OtherPossessionsQuickAdd } from './OtherPossessionsQuickAdd';
+import { useDnd5eTerms, type Dnd5eText } from './locales/dnd5eMessages';
 
-const SECTION_LABELS: Record<string, string> = {
-  EQUIPMENT: 'Equipment',
-  BACKPACK: 'Backpack',
-  BAG_OF_HOLDING: 'Bag of Holding',
-  OTHER_POSSESSIONS: 'Other Possessions',
-};
-
-const GRID_COLUMNS = [
-  { key: 'flag', className: 'item-row__flag' },
-  { key: 'name', className: 'item-row__name grid-header-cell', content: 'Name' },
-  { key: 'weight', className: 'item-row__weight grid-header-cell', content: 'Weight' },
-  { key: 'quantity', className: 'item-row__quantity grid-header-cell', content: 'Qty' },
-  { key: 'cost', className: 'item-row__cost grid-header-cell', content: 'Cost (gp)' },
-  { key: 'notes', className: 'item-row__notes grid-header-cell', content: 'Notes' },
-];
-
-function sectionLabel(location: string): string {
-  return SECTION_LABELS[location] ?? location;
+function gridColumns(t: Dnd5eText) {
+  return [
+    { key: 'flag', className: 'item-row__flag' },
+    { key: 'name', className: 'item-row__name grid-header-cell', content: t('spellsTab.nameColumn') },
+    { key: 'weight', className: 'item-row__weight grid-header-cell', content: t('item.weight') },
+    { key: 'quantity', className: 'item-row__quantity grid-header-cell', content: t('inventory.qtyColumn') },
+    { key: 'cost', className: 'item-row__cost grid-header-cell', content: t('inventory.costColumn') },
+    { key: 'notes', className: 'item-row__notes grid-header-cell', content: t('actionsTab.notesColumn') },
+  ];
 }
 
 /** Items that can be equipped come first, each group keeping its own order. */
@@ -76,6 +71,12 @@ type InventoryTabProps = {
  * height so only the row list scrolls, same fix `.spells-tab` already has.
  */
 export function InventoryTab({ sheet, onMutate, onOpenDetail, onOpenManageInventory }: InventoryTabProps) {
+  const terms = useDnd5eTerms();
+  const { t, locale } = terms;
+  const sheetText = useSheetText();
+  const locationNames = new Map(storageLocations(sheetText).map(({ id, label }) => [id, label]));
+  const sectionLabel = (location: string) => locationNames.get(location) ?? location;
+  const kg = (weight: number) => formatDecimal(weight, 1, locale);
   const [activeSection, setActiveSection] = useState('all');
   const [search, setSearch] = useState('');
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
@@ -86,12 +87,12 @@ export function InventoryTab({ sheet, onMutate, onOpenDetail, onOpenManageInvent
   const hasBagOfHolding = sectionByLocation.has('BAG_OF_HOLDING');
 
   const chips = [
-    { id: 'all', label: 'All' },
-    { id: 'EQUIPMENT', label: 'Equipment' },
-    { id: 'BACKPACK', label: 'Backpack' },
-    ...(hasBagOfHolding ? [{ id: 'BAG_OF_HOLDING', label: 'Bag of Holding' }] : []),
-    { id: 'ATTUNEMENT', label: 'Attunement' },
-    { id: 'OTHER_POSSESSIONS', label: 'Other Possessions' },
+    { id: 'all', label: t('actionsTab.all') },
+    { id: 'EQUIPMENT', label: sectionLabel('EQUIPMENT') },
+    { id: 'BACKPACK', label: sectionLabel('BACKPACK') },
+    ...(hasBagOfHolding ? [{ id: 'BAG_OF_HOLDING', label: sectionLabel('BAG_OF_HOLDING') }] : []),
+    { id: 'ATTUNEMENT', label: t('terms.labels.attunement') },
+    { id: 'OTHER_POSSESSIONS', label: sectionLabel('OTHER_POSSESSIONS') },
   ];
 
   const visibleItems = sheet.items.filter((item) => {
@@ -106,7 +107,7 @@ export function InventoryTab({ sheet, onMutate, onOpenDetail, onOpenManageInvent
   const openOtherPossessions = () =>
     onOpenDetail({
       kind: 'entityDetail',
-      name: 'Other Possessions',
+      name: sectionLabel('OTHER_POSSESSIONS'),
       metadata: [],
       description: '',
       actionBar: <OtherPossessionsQuickAdd onMutate={onMutate} />,
@@ -130,13 +131,14 @@ export function InventoryTab({ sheet, onMutate, onOpenDetail, onOpenManageInvent
           </h3>
           {showWeight && (
             <span className="inventory-section-heading__weight">
-              {section.weightKg.toFixed(1)} kg{section.capacityKg != null ? ` (${section.capacityKg.toFixed(1)} kg max)` : ''}
+              {t('inventory.sectionWeight', { weight: kg(section.weightKg) })}
+              {section.capacityKg != null ? t('inventory.sectionCapacity', { capacity: kg(section.capacityKg) }) : ''}
             </span>
           )}
         </div>
         {!isOtherPossessions || hasOtherPossessionsItems ? (
           <>
-            <GridHeaderRow rowClassName="item-row" columns={GRID_COLUMNS} />
+            <GridHeaderRow rowClassName="item-row" columns={gridColumns(t)} />
             <div className="action-list">
               {items.map((item) => (
                 <ItemRow key={item.key} item={item} onMutate={onMutate} onOpenDetail={onOpenDetail} hasBagOfHolding={hasBagOfHolding} />
@@ -146,7 +148,7 @@ export function InventoryTab({ sheet, onMutate, onOpenDetail, onOpenManageInvent
         ) : null}
         {isOtherPossessions && (
           <button type="button" className="reveal inventory-empty-prompt" onClick={openOtherPossessions}>
-            + Add other possessions, treasure, or holdings for your character in this section.
+            {t('inventory.addOtherPossessions')}
           </button>
         )}
       </section>
@@ -156,7 +158,7 @@ export function InventoryTab({ sheet, onMutate, onOpenDetail, onOpenManageInvent
   const openCoins = () =>
     onOpenDetail({
       kind: 'entityDetail',
-      name: 'Coins',
+      name: t('terms.labels.coins'),
       metadata: [],
       description: '',
       actionBar: <CoinsPanel coins={sheet.coins} onMutate={onMutate} />,
@@ -168,29 +170,29 @@ export function InventoryTab({ sheet, onMutate, onOpenDetail, onOpenManageInvent
       <div className="inventory-overview">
         {encumbrance.trackWeight && (
           <div className={`inventory-weight-bar${encumbrance.overloaded ? ' inventory-weight-bar--overloaded' : ''}`}>
-            <span className="inventory-weight-bar__label">Weight Carried:</span>
+            <span className="inventory-weight-bar__label">{t('inventory.weightCarried')}</span>
             <span className="inventory-weight-bar__value">
-              {encumbrance.carriedWeightKg.toFixed(1)} / {encumbrance.capacityKg.toFixed(1)} kg
+              {t('inventory.carried', { weight: kg(encumbrance.carriedWeightKg), capacity: kg(encumbrance.capacityKg) })}
             </span>
-            {encumbrance.overloaded && <span className="inventory-weight-bar__status">Overloaded</span>}
+            {encumbrance.overloaded && <span className="inventory-weight-bar__status">{t('inventory.overloaded')}</span>}
           </div>
         )}
         <CoinChips coins={sheet.coins} onOpenCoins={openCoins} />
       </div>
 
       <div className="tab-actions-row inventory-actions-row">
-        <SearchField value={search} onChange={setSearch} placeholder="Search items" />
+        <SearchField value={search} onChange={setSearch} placeholder={t('inventory.search')} />
         <button
           type="button"
           className={`mutate inventory-filter-button${hasActiveItemAdvancedFilters(advancedFilters) ? ' inventory-filter-button--active' : ''}`}
-          aria-label="Advanced filters"
+          aria-label={t('spellsTab.advancedFilters')}
           aria-pressed={showAdvancedFilters}
           onClick={() => setShowAdvancedFilters((current) => !current)}
         >
           <FrameIcon className="inventory-filter-button__icon" svg={filterIcon} aria-hidden />
         </button>
         <button type="button" className="mutate inventory-manage-button" onClick={onOpenManageInventory}>
-          Manage Inventory
+          {t('inventory.manage')}
         </button>
       </div>
 
@@ -211,7 +213,7 @@ export function InventoryTab({ sheet, onMutate, onOpenDetail, onOpenManageInvent
             {showSection('ATTUNEMENT') && (
               <section>
                 <div className="inventory-section-heading">
-                  <h3 className="inventory-section-heading__label">Attunement</h3>
+                  <h3 className="inventory-section-heading__label">{t('terms.labels.attunement')}</h3>
                 </div>
                 <AttunementSection items={sheet.items} onMutate={onMutate} />
               </section>

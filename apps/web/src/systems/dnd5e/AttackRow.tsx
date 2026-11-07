@@ -1,11 +1,12 @@
 import type { AttackRow as AttackRowData } from '../../sheet/api';
 import { ListRow } from '../../sheet/ListRow';
-import { DAMAGE_TYPE_ICONS, damageTypeLabel } from './damageTypes';
+import { DAMAGE_TYPE_ICONS } from './damageTypes';
 import { FrameIcon } from './FrameIcon';
 import meleeIcon from './frames/dnd_icon_attack_melee.svg?raw';
 import rangedIcon from './frames/dnd_icon_attack_ranged.svg?raw';
 import spellIcon from './frames/dnd_icon_attack_spell.svg?raw';
 import unarmedIcon from './frames/dnd_icon_attack_unarmed.svg?raw';
+import { useDnd5eTerms } from './locales/dnd5eMessages';
 import { RangeDisplay } from './RangeDisplay';
 
 type AttackRowProps = {
@@ -57,6 +58,9 @@ export function AttackRow({
   onRollVersatileDamage,
   onOpenDetail,
 }: AttackRowProps) {
+  const terms = useDnd5eTerms();
+  const { t } = terms;
+  const damageType = terms.damageType(attack.damageType);
   const hitLabel = formatModifier(attack.toHit.value);
   // 0 dice (e.g. Unarmed Strike): flat modifier only, not "0d1+3".
   const damageLabel =
@@ -69,7 +73,7 @@ export function AttackRow({
       : null;
 
   return (
-    <ListRow className="action-row reveal" ariaLabel={`Open ${attack.name} details`} onOpen={onOpenDetail}>
+    <ListRow className="action-row reveal" ariaLabel={t('actionsTab.openDetails', { name: attack.name })} onOpen={onOpenDetail}>
       <FrameIcon className="action-row__icon" svg={attackIcon(attack.category, unarmed)} aria-hidden />
       <div className="action-row__name-cell">
         <span className="reveal action-row__name">{attack.name}</span>
@@ -82,7 +86,7 @@ export function AttackRow({
         <button
           type="button"
           className="roll action-row__value action-row__value--prominent"
-          aria-label={`Roll ${attack.name} attack, ${hitLabel}`}
+          aria-label={t('attack.rollHit', { name: attack.name, hit: hitLabel })}
           onClick={(event) => {
             event.stopPropagation();
             onRollHit();
@@ -100,7 +104,7 @@ export function AttackRow({
         <button
           type="button"
           className="roll action-row__value action-row__value--damage"
-          aria-label={`Roll ${attack.name} damage, ${damageLabel} ${attack.damageType}`}
+          aria-label={t('attack.rollDamage', { name: attack.name, damage: damageLabel, type: damageType.toLowerCase() })}
           onClick={(event) => {
             event.stopPropagation();
             onRollDamage();
@@ -111,7 +115,7 @@ export function AttackRow({
             <FrameIcon
               className="action-row__damage-type"
               svg={DAMAGE_TYPE_ICONS[attack.damageType]}
-              title={damageTypeLabel(attack.damageType)}
+              title={damageType}
               aria-hidden
             />
           )}
@@ -120,8 +124,8 @@ export function AttackRow({
           <button
             type="button"
             className="roll action-row__value action-row__value--damage action-row__value--versatile"
-            aria-label={`Roll ${attack.name} two-handed damage, ${versatileLabel} ${attack.damageType}`}
-            title="Two-handed"
+            aria-label={t('attack.rollTwoHanded', { name: attack.name, damage: versatileLabel, type: damageType.toLowerCase() })}
+            title={t('attack.twoHanded')}
             onClick={(event) => {
               event.stopPropagation();
               onRollVersatileDamage();

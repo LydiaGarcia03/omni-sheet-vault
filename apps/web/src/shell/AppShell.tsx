@@ -10,6 +10,8 @@ import { HomePage } from '../home/HomePage';
 import { levelUpPageFor } from '../levelup/levelUpPages';
 import { LandingPage } from '../home/LandingPage';
 import { sheetLayoutFor } from '../sheet/sheetLayouts';
+import { Spinner } from '../loading/Spinner';
+import { ProfilePage } from '../profile/ProfilePage';
 import { CreditsPage } from './CreditsPage';
 
 export function AppShell() {
@@ -59,6 +61,14 @@ export function AppShell() {
           </RequireSession>
         }
       />
+      <Route
+        path="/profile"
+        element={
+          <RequireSession>
+            {user && <ProfilePage user={user} />}
+          </RequireSession>
+        }
+      />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
@@ -104,7 +114,7 @@ function SheetPage({ userLabel }: { userLabel: string }) {
     return <Navigate to="/" replace />;
   }
   if (!character) {
-    return <p>Loading…</p>;
+    return <Spinner className="is-centred" />;
   }
   if (character.status === 'DRAFT') {
     return <Navigate to={`/characters/${character.id}/build`} replace />;
@@ -132,7 +142,7 @@ function LevelUpRoute({ userLabel }: { userLabel: string }) {
     return <Navigate to="/" replace />;
   }
   if (!character) {
-    return <p>Loading…</p>;
+    return <Spinner className="is-centred" />;
   }
   const Page = levelUpPageFor(character.systemId);
   return Page ? <Page characterId={character.id} characterName={character.name} userName={userLabel} /> : <Navigate to={`/characters/${character.id}`} replace />;

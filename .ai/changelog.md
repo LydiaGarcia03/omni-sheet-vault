@@ -6,6 +6,1238 @@ Format: `## YYYY-MM-DD — short title`, then what changed, why, and anything
 deliberately left out.
 
 ---
+## 2026-11-07 — PR 11: SonarCloud coverage and maintainability issues
+
+- **Owner:** take PR 11 forward. Its quality gate failed on new-code coverage
+  (74.8% against 80%), and SonarCloud listed 37 open issues.
+- **Tests:** new `CharacterSheetServiceTest` (catalogue extras, `learnFeat`,
+  `catalogueFor`, with the ruleset seams mocked) and
+  `CharacterCreationFlowTest`. New cases in `CreatureConverterTest`,
+  `CharacterControllerTest` (catalogue, extras, the feat conflict) and
+  `Dnd5eBuildPlannerTest` (`anyOf` multiclassing, unreadable starting gold,
+  grant alternatives, equal weights, a source's maximum). All fixtures are
+  fictional.
+- **Refactors, same behaviour:** `CreatureConverter`'s armor class, speeds,
+  defenses and spellcasting, and `Dnd5eBuildPlanner.weightedIncreases`, split
+  into small methods. Nested ternaries extracted there and in
+  `Dnd5eOptionSummaries`.
+- **Small fixes:** constants for repeated literals, unnamed catch parameters,
+  `Boolean.TRUE.equals` on the boxed preferences, a stream in `catalogueFor`,
+  `options` renamed where it hid the field, and `ignoresCoinWeight` moved so
+  `encumbrance` keeps its Javadoc.
+- **Left out:** the three "Monster Class" issues (`CharacterController`,
+  `Dnd5eSheetCalculator`, `Dnd5eSheetMutator`). Splitting them is a refactor of
+  its own, and they do not fail the gate.
+- **Commit scope:** the PR 11 commit carries D&D and shared work only. Daggerheart
+  (adr-0010: not on the public remote), the pending VtM changes and the
+  translation worksheets stay local for their own PRs. Six web files
+  (`builderDefinitions`, `portraitPresets`, `levelUpPages`, `sheetLayouts` and its
+  test, `systemMarks`) are committed without their Daggerheart lines, so the working
+  copy keeps those lines as a pending change for the Daggerheart PR.
+- **Not verified:** `:apps:api:check` did not run green, because Docker was
+  off. In the exported commit, 733 of 743 API tests pass, and the other 10 are
+  Testcontainers classes that could not start. The web build and its 310 tests
+  pass there. SonarCloud has not re-analysed this code.
+
+## 2026-10-19 — Localization L6 / D2, slice 3c: class progression tables
+
+- **Owner:** go on with 3c.
+- **API:** `Dnd5eClassProgression` translates the class's and subclass's
+  column labels and feature names with `CatalogueRecord.texts`, and the
+  table's title with `localizedName`, in the request's language.
+- **Worksheet:** `merge.mjs` `names` groups take an optional `field`
+  (default `name`). Worksheet 02 gained `class-progression-columns`: 18
+  empty labels matched by `label`, written by index into
+  `classes.pt-BR.json` / `subclasses.pt-BR.json`. Nothing else in the
+  worksheet changed, and nothing was merged.
+- **Tests:** a `Dnd5eClassProgressionTest` case with a pt-BR translation
+  (title, first column, first feature). `:apps:api:check` green.
+- **Not checked on screen:** no class name, feature name or column label is
+  translated until the owner's worksheet 02 is filled, merged and the two
+  kinds reimported, so the tables still read in English.
+
+## 2026-10-19 — Localization L6 / D2, slice 3b: the default subspecies' label
+
+- **Owner:** go on with 3b.
+- **API:** `Dnd5eBuildPlanner.subspeciesLabel` words the unnamed default
+  subspecies with `plan.standardSubspecies` ("Standard" / "Padrão"); its key
+  stays `""`, which is what the build stores.
+- **Web:** `describeBuild` drops the default subspecies by its empty key
+  instead of comparing its label with "Standard".
+- **Tests:** planner test for the key and both labels; two `describeBuild`
+  tests. `:apps:api:check` green, web `tsc` clean.
+- **Checked live:** `POST …/draft/preview` (nothing saved) with a human build
+  answers `"" = Standard` in English and `"" = Padrão` in Portuguese.
+
+## 2026-10-19 — Localization L6 / D2, slice 3a: option summaries and card values in Portuguese
+
+- **Owner:** option 1 (the API gets its own D&D term file, fed by the same
+  worksheet), starting with 3a.
+- **API:** `Dnd5eText` gains `term(group, key, english)` and
+  `distance(feet)`. `Dnd5eMessages` reads terms from
+  `ruleset/dnd5e/locales/dnd5e-terms.pt-BR.json` (new, empty until a merge)
+  through `TranslationOverlay`. `Dnd5eOptionSummaries` takes a `Dnd5eText`
+  (its English constructor stays for tests) and words species, background,
+  class, subclass, feat and optional-feature summaries with `summary.*`
+  messages, terms and metres; feature names and feat prose come from the
+  catalogue's translation. `Dnd5eSelectionDetails` words size, creature type,
+  speed, senses, languages and ability bonuses the same way.
+  `Dnd5eChoiceOptions`, the planner and the creation flow pass the request's
+  text down.
+- **Worksheet:** `merge.mjs` accepts a list of targets.
+  `01-sheet-labels.pt-BR.json`: six groups the API reads now target both
+  files; six API-only groups added (sizes, creature types, armor, weapon and
+  tool categories, vehicles: 23 empty terms). The owner's filled values were
+  not touched and nothing was merged.
+- **Tests:** two Portuguese cases in `Dnd5eOptionSummariesTest`; every
+  English expectation unchanged. `:apps:api:check` green.
+- **Checked live (1280x720, pt-BR):** Species ("Speed 9 m", "Darkvision
+  18 m", "1 idioma à sua escolha"), Classes ("Resistências: DEX, CHA ·
+  Armaduras light · Armas simple") and Background. Game terms stay English
+  until the owner fills and merges them.
+- **Left out:** spell and language summaries (D3, D4), language and item
+  names, known species spells; slices 3b and 3c.
+
+## 2026-10-19 — Localization L6 / D1: 1280x720 check in Portuguese
+
+- **Owner:** do the D1 check left open (1280x720, Portuguese).
+- **Checked:** Vex's sheet (every tab, the spell panel), the draft builder's
+  seven steps, the level up start page and the 16-step builder tour, in a
+  1280x720 frame (the Chrome window would not resize).
+- **Fixed:**
+  - Header: the back link ran under the language button.
+    `.app-header__column` keeps 260 px clear of each edge instead of 200
+    (`theme.css`, and the copies in `vtm5-sheet.css` / `vtm5-builder.css`).
+  - Spell rows: "Conjurar" was cut to "CONJ" and "À vontade" spilled into
+    the name. Under `:root:lang(pt-BR)` the column is 60 px and the button
+    54 px (`frames.css`); English keeps D&D Beyond's 35 / 30 px.
+  - Builder Basics: the portrait column took the whole row and the name
+    field shrank to nothing. `.builder-identity` gives the name
+    `minmax(220px, 1fr)` (`builder.css`).
+  - Tour: bubbles were placed with guessed heights (260 / 220 px), and
+    Portuguese bubbles (up to 358 px) went off screen on four steps.
+    `Tutorial` now measures the bubble, places it only where it fits whole,
+    scrolls the target to the top when target and bubble fit together, and
+    otherwise keeps it inside the window.
+- **Tests:** new `Tutorial` test for a tall bubble at 1280x720; web 324
+  green, `tsc` clean.
+- **Left out:** level-up steps after choosing a class (opening them starts a
+  level up); coin abbreviations ("gp") and game-term labels, which wait for
+  the owner's term worksheet; option summaries ("Speed 30 ft"), already
+  listed for D2.
+
+## 2026-10-19 — Localization L6 / D2: stage 3 to 5 texts reimported and checked
+
+- **Owner:** start with the reimport left out by stages 3 to 5.
+- **Catalogue:** `classes` (14), `species` (134), `subclasses` (130),
+  `feats` (108) and `backgrounds` (101) reimported locally; every entry of
+  those kinds has a pt-BR translation in `catalogue_entries.translations`.
+- **Checked live in pt-BR:** catalogue texts from each stage (MotM, Volo's,
+  Eberron, Strixhaven, Plane Shift, Tortle Package, Locathah, Grung, UA
+  Mystic) and Vex's sheet (Changeling traits, Shapechanger action). The test
+  player's language was set back to English afterwards.
+- **Left out:** content names (owner's worksheet 02, not merged yet); the
+  `"Skill Proficiencies:. …"` punctuation in background descriptions, which
+  comes from the English text as well, not from the translation.
+
+## 2026-10-18 — Localization L6 / D2, stage 5: Plane Shift, small packages and UA in Brazilian Portuguese
+
+- **Owner:** go on with stage 5.
+- **Content:** the six Plane Shift books, the Tortle Package, Locathah Rising,
+  One Grung Above, Adventure with Muk and UA: The Mystic Class: 488
+  placements in `content/dnd-5e/{classes,subclasses,species,backgrounds,feats}/*.pt-BR.json`.
+  Texts already translated in earlier books were reused. D2's long texts are
+  now complete for every book in the catalogue.
+- **Tests:** `:apps:api:check` green.
+- **Left out:** the reimport (Docker still down) and the screen check.
+
+## 2026-10-18 — Localization L6 / D2, stage 4: setting books in Brazilian Portuguese
+
+- **Owner:** go on with the plan while the owner edits the worksheets.
+- **Content:** every long text of the 17 setting books (Ravnica, Avernus,
+  Sword Coast, Eberron, Wildemount, Ravenloft, Theros, Strixhaven,
+  Dragonlance, Spelljammer, Witchlight, Bigby, Sigil, Book of Many Things,
+  Saltmarsh, Acquisitions Inc., Tomb of Annihilation): 1,951 placements in
+  `content/dnd-5e/{subclasses,species,backgrounds,feats}/*.pt-BR.json`.
+  Working files `<book>-<kind>` in `translation-worksheets/dnd-5e/_ai/`;
+  species via `atoms`/`compose`. Avernus reuses the PHB background texts.
+- **Tests:** `:apps:api:check` green.
+- **Left out:** the reimport (Docker was down), so stage 3 and stage 4
+  texts are not in the local database yet; stage 5.
+
+## 2026-10-15 — Localization L6 / D2, stage 3: Volo's species in Brazilian Portuguese
+
+- **Owner:** do Volo's, no tests.
+- **Content:** 83 base texts and 53 trait labels translated and composed
+  into all 101 texts of the 13 Volo's species; 113 placements in
+  `content/dnd-5e/species/species.pt-BR.json`. Working files
+  `vgm-species*` in `translation-worksheets/dnd-5e/_ai/`. Stage 3 complete.
+- **Left out:** the catalogue reimport, the check and any screen test
+  (owner's call).
+
+## 2026-10-15 — Localization L6 / D2, stage 3: Elemental Evil, Tome of Foes and Fizban's in Brazilian Portuguese
+
+- **Owner:** do Elemental Evil, Tome of Foes and Fizban's; only the changes
+  and the docs, no screen or code tests.
+- **Content:** species (aarakocra, genasi, gith, Fizban's dragonborn) via
+  `atoms`/`compose`; Way of the Ascendant Dragon, Drakewarden and four
+  feats translated directly. 155 placements in
+  `content/dnd-5e/{species,subclasses,feats}/*.pt-BR.json`; working files
+  `eepc-*`, `mtf-*`, `ftd-*` in `translation-worksheets/dnd-5e/_ai/`.
+- **Left out:** the catalogue reimport, the check and any screen test (owner's
+  call); Volo's.
+
+## 2026-10-15 — Localization L6 / D2, stage 3 (first book): Monsters of the Multiverse species in Brazilian Portuguese
+
+- **Owner:** do only one book of stage 3 for now; Monsters of the
+  Multiverse was chosen (largest, 30 species).
+- **Content:** 120 base texts and 112 trait labels translated, composed into
+  all 165 texts (`motm-species*` in `translation-worksheets/dnd-5e/_ai/`),
+  275 placements in `content/dnd-5e/species/species.pt-BR.json`. Species
+  reimported locally; all 30 MotM species carry a translation.
+- **Tests:** `:apps:api:check` green.
+- **Left out:** Volo's, Fizban's, Tome of Foes, Elemental Evil.
+
+## 2026-10-15 — Localization L6 / D2, stage 2: Xanathar's, Tasha's and DMG texts in Brazilian Portuguese
+
+- **Owner:** go on with the plan (stage 2 after the profile page).
+- **Content:** every long text of the artificer, the XGE/TCE/DMG
+  subclasses, feats, optional features and species translated and applied
+  to `content/dnd-5e/<kind>/<kind>.pt-BR.json` (594 placements across 10
+  book/kind files). Working files `xge-*`, `tce-*`, `dmg-*` in
+  `translation-worksheets/dnd-5e/_ai/`.
+- **Catalogue:** classes, subclasses, species, feats and optional features
+  reimported locally; 186 more entries carry a pt-BR translation (PHB 205,
+  Tasha's 94, Xanathar's 68, DMG 19).
+- **Conventions:** as stage 1 (metres, PHB-BR terms). Names of features,
+  spells and subclasses inside the prose are the assistant's best match for
+  the Brazilian books; the owner's worksheet 02 still sets the titles.
+- **Tests:** `:apps:api:check` green.
+- **Left out:** stages 3–5; spells (D3) and items (D5).
+
+## 2026-10-15 — User menu hover stays inside the dropdown
+
+- **Owner:** the hover highlight in the user menu ran past the dropdown.
+- **Fix:** `.app-user__menu a, button` get `box-sizing: border-box`; the links
+  ("My characters", "My profile") were `width: 100%` plus padding.
+
+## 2026-10-15 — "My profile" page replaces Keycloak's account console
+
+- **Owner:** players should not reach Keycloak's settings through "Account"
+  in the user menu; a profile page with a form instead (email, password reset,
+  display name, profile picture).
+- **Keycloak:** the `account-console` client is disabled and `manage-account`
+  / `view-profile` left the realm's default roles (export and running realm).
+  The `UPDATE_EMAIL` required action is enabled.
+- **API:** V13 adds `players.profile_name` and `players.avatar_key`.
+  `ProfileService` and new endpoints on `CurrentUserController`:
+  `PUT /api/me/profile` (`displayName`, max 40, blank = username),
+  `POST`/`DELETE /api/me/avatar`. `GET /api/me` now returns `displayName`
+  (shown name), `username` and `avatarUrl`. `PortraitImage` and
+  `InvalidPortraitException` moved to `storage` so both portraits and
+  profile pictures use them. The desktop file controller serves
+  `avatars/…` too. `BrowserLoginRequestResolver` maps `?action=password|email`
+  to `kc_action=UPDATE_PASSWORD|UPDATE_EMAIL`: the app never sees either.
+- **Web:** `ProfilePage` at `/profile` (picture, display name, read-only
+  username and email, buttons to Keycloak's change-password and change-email
+  screens, hidden on desktop). The user menu links to it and shows the
+  picture; `AuthProvider.updateUser`; texts in `profile.{en,pt-BR}.json`.
+- **Tests:** web 323 green; `:apps:api:check` green.
+- **Checked live:** picture upload and removal (the image loads from MinIO),
+  "Change password" and "Change email" open Keycloak's `UPDATE_PASSWORD` /
+  `UPDATE_EMAIL` screens and Cancel returns to `/profile`. A first owner
+  attempt failed only because the running API predated the change; restart
+  the API after pulling it (V13 must run).
+- **Left out:** `apps/web/.env.example` and the
+  `VITE_KEYCLOAK_ACCOUNT_URL` line in `src/vite-env.d.ts` are no longer used
+  but were left in place (deleting them was blocked); they can be removed.
+
+## 2026-10-15 — Localization L6 / D2, part 3: the sheet and builder cards show translated content
+
+- **Owner:** go on (the display pass came before stage 2 so the PHB work
+  shows).
+- **API:** `CatalogueTextMemory` (English text → translation, from the
+  catalogue's translations), `CharacterSheetLocalizationAdvice` applying it
+  to every sheet response, `SheetTextLocalizer`, `CatalogueRecord.texts`,
+  `TranslationOverlay.textPairs`. Two repository queries
+  (`findTranslated`, `fingerprint`). Species and background cards translate
+  their traits and features.
+- **Web:** `SelectionCard` takes `labelOf`; D&D labels in
+  `terms.selectionLabels`, added to the owner's worksheet 01
+  (`selectionLabels` group).
+- **Tests:** web 316 green; `:apps:api:check` green (the advice takes its
+  memory through an `ObjectProvider`, so web slice tests still start).
+- **Left out:** option summaries in the builder's selects; the live check.
+
+## 2026-10-15 — Localization L6 / D2, part 2: Player's Handbook texts in Brazilian Portuguese
+
+- **Owner:** translate the long texts in stages by source book, starting
+  with the PHB.
+- **Stages:** five, by book, listed in `features/localization.md` ("D2").
+- **Stage 1 (PHB):** descriptions, class and subclass features, species
+  traits (with subspecies and variants), background features and
+  personality tables, feats and optional features, translated by the
+  assistant into `content/dnd-5e/<kind>/<kind>.pt-BR.json` for six kinds
+  (1,810 placed texts from 1,268 distinct ones). The local catalogue was
+  reimported.
+- **Tool:** `tools/translation-worksheet/content-texts.mjs` (`extract`,
+  `apply`, and `atoms` / `compose` for texts that restate each other).
+  Working files in `translation-worksheets/dnd-5e/_ai/`.
+- **Left out:** the sheet and the builder's selection cards still show
+  English until the serve-time pass; stages 2–5.
+
+## 2026-10-15 — Localization L6 / D2, part 1: D&D content per kind, translations in the catalogue
+
+- **Owner:** go on to D2, the app can be run (Docker up).
+- **Content layout:** the 3,551 D&D entry files were merged into one
+  `content/dnd-5e/<kind>/<kind>.en.json` per kind (arrays in slug order,
+  content unchanged). New `CatalogueEntryFiles` reads array or single-entry
+  files and skips `<kind>.<tag>.json` translations; the importer,
+  `ContentDirectoryCatalogue` and `Ingest5eToolsRunner` use it. Daggerheart's
+  one-file-per-entry layout still reads as before.
+- **Database:** V12 adds `catalogue_entries.translations` (jsonb, `{}`); the
+  import fills it from the kind's translation files. Local catalogue
+  reimported (all 11 kinds).
+- **API:** `CatalogueRecord` carries the translations (`localizedName`,
+  `localizedDescription`); catalogue browsing lays them over name,
+  description and data in the request's language; the D&D builder's option
+  labels use the localized name. Rules, stored sheets and copies into a
+  sheet stay English. `TranslationOverlay.overlay` is public and now
+  applies to every same-named array element.
+- **Merge script:** worksheet groups with `names` place each translated name
+  in every entry of the listed kinds that carries it.
+- **Owner's worksheet:** `translation-worksheets/dnd-5e/02-character-option-names.pt-BR.json`
+  (2,092 names).
+- **Tests:** `Ingest5eToolsRunnerTest` reads the English file (plus a test
+  that translation files survive a run); `DesktopEditionTest` bundles three
+  conditions from `conditions.en.json`. `:apps:api:check` is green.
+- **Left out:** the long texts (waiting for the owner's go on the token
+  cost), the sheet's serve-time translation, selection cards and option
+  summaries.
+
+## 2026-10-15 — Localization L6 / D1 (API): D&D creation prompts and problems in Brazilian Portuguese
+
+- **Owner:** "go on" with the API side of D1.
+- **API:** new `Dnd5eText` (English default) and `Dnd5eMessages` (request
+  language) over `locales/dnd5e-messages_{en,pt_BR}.properties`. The build
+  planner, spell planner, class progression and creation flow word their
+  prompts, option labels, player-fixable problems, progression headers and
+  ordinals with it; the level 20 limit too. English output is unchanged, so
+  every existing API test passes as it was.
+- **Kept English on purpose:** grant sources, roll labels and spell usage
+  notes (stored, and matched by the web), and problems naming internal ids.
+- **Web:** the features column is read by position, the Abilities step's
+  problem filter knows the Portuguese words, and the level up page refetches
+  on a language switch.
+- **Translated by the assistant, terms to confirm:** Aumento de Valor de
+  Atributo, Especialização, Bônus de Proficiência, Habilidades (features),
+  Sequência padrão, Compra de pontos, grimório, truque, po.
+- **Left out:** selection-card facts and grants, option summaries and
+  content names (D2); the live check (the servers were down).
+
+## 2026-10-15 — Localization L6 / D1 (web): the D&D interface in Brazilian Portuguese
+
+- **Owner:** move D&D ahead of Daggerheart (2026-10-14), approved the D1–D6
+  layer plan, asked for a small hand-edit file like VtM's; then "continue
+  where we stopped, and tell me which file to edit".
+- **Sheet:** every D&D pane and tab reads `dnd5e.{en,pt-BR}.json` through
+  `useDnd5eText` / `useDnd5eTerms`; distances show in metres in Portuguese.
+  Finished the pieces the previous session left half-done (the Prepared
+  Spells heading in `SpellManagementPanel`, an unused table in
+  `ExtraStatBlockView`, `ThemeSample`).
+- **Builder and level up:** every D&D step, the review cards, the spell
+  picker, rolled hit points, ASI or feat, starting equipment and the level up
+  page; the D&D builder tour, now read from the bundle.
+- **Shared builder:** checklist, summary, portrait picker, source and
+  checklist selects, progression and pending mark in `builder.*.json`; a
+  definition's new optional `useLabels()` names its steps, checklist lines
+  and summary terms. Tour chrome in `shell.*.json`; `TutorialStep.title`
+  became a `ReactNode`.
+- **Kept as before in English:** roll contexts (stored), and the summary's
+  weight format now uses `formatFixed` so "5.0 kg" keeps its decimal.
+- **Worksheet:** `translation-worksheets/dnd-5e/01-sheet-labels.pt-BR.json`
+  (339 terms) for the owner; `terms` stay out of the Portuguese files until
+  the merge.
+- **Tests:** the Abilities step's label is now `CON` (abbreviation term);
+  attack aria labels keep the damage type in lower case. 316 web tests pass.
+- **Left out:** the API's plan prompts and problems (next, see
+  `features/localization.md` "D&D (L6)"), the 1280x720 Portuguese check, and
+  the Daggerheart tour.
+
+## 2026-10-14 — Localization L4: Vampire: The Masquerade in Brazilian Portuguese
+
+- **Owner:** go on with L4 (VtM first), and say which file to edit by hand.
+- **API:**
+  - `vtm5-content.json` was renamed to `vtm5-content.en.json`.
+  - `Vtm5Content.localized` serves `/api/vtm5/content` and the sheet's
+    `derived.clan` in the request's language: the assistant-translated text
+    overlay `locales/vtm5-content.pt-BR.json`, plus a `terms` map from
+    `locales/vtm5-terms.pt-BR.json` (empty until the owner's merge).
+  - New `Vtm5Messages` + `locales/vtm5-messages_{en,pt_BR}.properties`:
+    creation checklist prompts and problems, sheet action errors, XP labels,
+    the starting-XP note, roll errors, and roll labels and outcomes.
+    `Vtm5RollController.view` translates the stored (English) roll contexts
+    when serving.
+  - `Vtm5CharacterSummarizer` shows terms.
+  - `InterfaceLocaleConfig.messageSource` now picks up every
+    `locales/*_en.properties` bundle, so a system adds messages without
+    platform changes.
+  - New `shared/InterfaceLocale.current()`: English outside a request, never
+    the machine's locale (the development machine is pt-BR).
+- **Web:**
+  - `systems/vtm5/locales/vtm5.{en,pt-BR}.json` + `useVtm5Text` across the
+    builder frame and steps, the explanation column, the sheet, the dice dock
+    and the footer.
+  - Game names go through `termOf`.
+  - Content, sheet and roll log reload on a language switch.
+  - The shared builder's save labels and draft badge moved to
+    `locales/builder.*.json`, and it refetches the plan on a switch.
+  - Generations show as `13ª geração` in pt-BR.
+- **Owner worksheets:** `translation-worksheets/vtm-v5/02-sheet-labels.pt-BR.json`
+  (55 labels) joins `01-content-terms.pt-BR.json` (568 terms).
+- **Verified live:**
+  - content, sheet, roll log and builder plan in pt-BR via the API;
+  - sheet and builder pages switched PT-BR ↔ EN with no console errors.
+  - Game terms show in English until the owner's merge, as agreed.
+- **Tests:** existing VtM tests updated for the new constructors; `check` and
+  the 316 web tests pass. New tests wait for the last slice.
+- **Left out:**
+  - book names and the "Distill" roll label stay English;
+  - rouse, frenzy and remorse log translations weren't exercised live,
+    because rolling would add permanent records to the owner's character.
+
+## 2026-10-14 — Localization L3: API language, translation overlay, worksheets, AI notice
+
+- **API:**
+  - `InterfaceLocaleConfig`: an `Accept-Language` `LocaleResolver` (`en`,
+    `pt-BR`, default `en`) and a `MessageSource` over
+    `locales/messages_{en,pt_BR}.properties`.
+  - New `shared/LocalizedProblem`; `ApiExceptionHandler` resolves its code in
+    the request's language, else keeps the English message.
+  - Converted the player-facing exceptions: character not found / draft /
+    not draft, not dying, level up not started, attunement / spell /
+    preparation limits, hit dice, and portrait size. Their English wording is
+    now friendlier ("This character doesn't exist, or isn't yours.").
+  - New `shared/TranslationOverlay`: lays a classpath
+    `<base>.<language>.json` over English content. Only non-empty strings
+    replace English; array elements are matched by `name` / `id` or index.
+    Ready for VtM in L4.
+- **Web:**
+  - `apiFetch` sends `Accept-Language` (`language/currentLocale.ts`).
+  - `AppFooter rulesText` shows the fine-print AI translation notice outside
+    English, on the builder, the sheets and the level-up pages.
+- **Worksheets:**
+  - `tools/translation-worksheet/merge.mjs <system-id>` moves filled `pt`
+    values into each group's target file. Flat or dotted-path keys; empty
+    entries stay; a finished batch is deleted.
+  - First batch for the owner: `translation-worksheets/vtm-v5/01-content-terms.pt-BR.json`,
+    568 VtM terms in 20 groups. The target is
+    `ruleset/vtm5/locales/vtm5-terms.pt-BR.json`.
+- **Verified live:**
+  - `GET /api/characters/<unknown>` answers in Portuguese with
+    `Accept-Language: pt-BR`, and in English otherwise;
+  - the AI notice appears on a D&D sheet in PT-BR and disappears in EN.
+- **Left out:**
+  - free-text rule errors and card summaries wait for each system's slice;
+  - new unit tests come in the last slice (the existing 316 web tests and
+    `check` pass).
+
+## 2026-10-14 — Localization L2: login pages follow the app's theme and language
+
+- **Owner:** the login page ignored the dark theme chosen on the landing page
+  and had no language button.
+- **Why:** the login is Keycloak, on another origin (`localhost:8081`), and
+  can't read the app's `localStorage`.
+- **Fix:** shared cookies, which belong to the host, not the port:
+  - `osv_theme` and `osv_locale` are written by the app;
+  - `osv_locale_picked` is written by the login page's language menu.
+- **API:** `BrowserLoginRequestResolver` sends `ui_locales` from
+  `osv_locale` (new `InterfaceLocaleCookie`; English when missing or
+  unsupported).
+- **Keycloak:**
+  - realm i18n on (`en`, `pt-BR`, default `en`) in `realm-export.json` and,
+    via `kcadm`, on the running local realm;
+  - theme: `template.ftl` copied from `keycloak.v2`, with the header
+    `<select>` replaced by the app's language pill below the card;
+  - new `js/osv-preferences.js` applies the dark theme before paint and runs
+    the dropdown;
+  - dark palette and pill styles in `omni-sheet-vault.css`;
+  - new `messages_pt_BR.properties`; `locale_en` / `locale_pt-BR` show each
+    language in its own name.
+- **Web:**
+  - the language choice now lives in the `osv_locale` cookie (the old
+    `localStorage` entry is still read);
+  - the theme is mirrored to `osv_theme`;
+  - a language picked on the login page beats the saved preference once, and
+    is saved to the server.
+- **Verified live:**
+  - signed-out dark + PT-BR → the login page opens dark and in Portuguese,
+    with the pill below the card;
+  - picking EN there → after logging in, the app is in English and the server
+    preference is `en`.
+  - Visual check by screenshot wasn't possible (hidden Chrome tab; headless
+    Edge didn't render the Keycloak page).
+- **Left out:** production cookie `Domain` for a separate `auth.` hostname,
+  recorded in `features/localization.md`.
+
+## 2026-10-14 — Localization L1: language button, preferences, loading overlay
+
+- **Owner:** a language button with a dropdown (EN / PT-BR) next to the user
+  menu on every page.
+  - The choice is saved on the player together with the dark theme.
+  - Changing language shows a blurred overlay with D&D Beyond's ring
+    spinner, in gold.
+  - Translation folders are named `locales`, and English files carry `.en`.
+- **API:**
+  - Migration `V11__add_player_preferences.sql` adds `players.preferred_locale`
+    and `preferred_theme`, nullable and check-constrained.
+  - `PUT /api/me/preferences` (`PreferencesController`) saves them;
+    `GET /api/me` returns `preferences`.
+- **Web:**
+  - New in-house i18n (`language/language.tsx`): typed keys from the English
+    JSON, `{param}` interpolation, `Intl.PluralRules` plurals, English
+    fallback, and pt-BR bundles loaded on demand. No new dependency.
+  - Platform texts moved to `locales/{shell,home,credits}.{en,pt-BR}.json`;
+    the pt-BR versions were translated by the assistant. This covers the
+    header, user menu, footer, landing, home, system cards, banners, delete
+    dialog, system picker, create-character page and credits.
+  - The theme provider follows the server preference and saves to it.
+  - `AuthProvider` moved up to `main.tsx`, so the theme and language
+    providers can read the player.
+  - New `loading/Spinner` and `LoadingOverlay`. Page-level "Loading…" texts
+    now show the spinner.
+  - Material Symbols (`language` icon only) added to `index.html`; recorded
+    in `tech-stack.md`.
+- **Left out:**
+  - The legal notices stay in English.
+  - System taglines translate, system names don't.
+  - Inline loading texts inside system panels wait for their system's slice.
+  - New unit tests wait for the last slice, as agreed; the existing 316 pass.
+
+## 2026-10-14 — Localization plan (English + Brazilian Portuguese)
+
+- **Owner:** English by default, with Brazilian Portuguese as an option.
+  - The language button sits next to the user menu and below the login form.
+  - Content is translated by AI, with a fine-print notice in the builder and
+    on the sheet.
+- New `.ai/features/localization.md`:
+  - Decisions: one file per kind per language, English included (renamed, not
+    duplicated); `locales` folders; English fallback; ft→m in pt-BR.
+  - No i18n library.
+  - Language and theme saved in `players`.
+  - Material Symbols icon, and a blurred loading overlay with a gold ring
+    spinner.
+  - The owner's temporary translation worksheet, with a merge script.
+  - Slices L1–L6+, VtM first; unit tests last.
+- Left out: no code yet.
+
+## 2026-10-13 — Oracle guide: 1 OCPU / 6 GB variant and wizard details
+
+- **Owner**, while creating the VM: the shape showed only "1 core OCPU,
+  6 GB memory", with no OCPU field in sight. Asked to record the 1 OCPU /
+  6 GB variant.
+- Phase 2 of `.ai/deployment-oracle-guide.md`:
+  - follows the create wizard's steps (Basic information → Security →
+    Networking → Storage → Review);
+  - explains that the OCPU and memory fields appear only after expanding the
+    A1.Flex row;
+  - shows how to read the tenancy's A1 limit;
+  - details the Networking fields, and that the private SSH key can only be
+    downloaded before *Create*.
+- **1 OCPU / 6 GB variant:**
+  - swap required (Phase 4);
+  - Keycloak at `mem_limit: 1536m` and the API at `-Xmx768m` (Phase 6.2),
+    with the memory estimate;
+  - a "Resize the VM" row in Day to day.
+- **Owner** could not turn on the public IPv4 toggle. The wizard's "Create
+  new public subnet" leaves the subnet prefix empty and blocks the toggle.
+  Phase 2 now creates the network first with the *Create VCN with Internet
+  Connectivity* wizard, then selects its public subnet. As a fallback, the
+  instance is created without the IP and an ephemeral public IP is added on
+  its VNIC.
+
+## 2026-10-13 — Separate Oracle deployment guide
+
+- **Owner:** a separate document focused on the free Oracle deployment,
+  guiding step by step until the app opens from a link.
+- New `.ai/deployment-oracle-guide.md`:
+  - 14 phases (0–13) with a progress checklist and an architecture sketch;
+  - a "Check" after every phase;
+  - exact console clicks, all deployment files, a day-to-day table and
+    troubleshooting.
+- `deployment-options.md` section 4 now points to the guide, and option A
+  reuses its phases. The A1 Quick Tunnel steps were simplified: no `Host`
+  rewrite, which would break MinIO's presigned URLs.
+- Indexed in `CLAUDE.md`.
+- Left out: the deployment files are still not created.
+
+## 2026-10-13 — Deployment guide: Oracle option detailed for this project
+
+- **Owner:** describe step by step how to set up option B (Oracle Cloud
+  Always Free) for this project.
+- `.ai/deployment-options.md` rewritten around this repository's real
+  configuration:
+  - Caddy serves the web build and proxies the same paths as Vite's dev
+    proxy, so production needs no Java change.
+  - Keycloak and MinIO get their own hostnames (`auth.`, `files.`); the
+    browser uses public URLs, the API the internal ones, as
+    `application.yml` already spells each endpoint out.
+- Section 4 now covers the whole setup: VM, both firewalls, Docker, sslip.io
+  or a domain, the new files to create (`application-prod.yml`,
+  `deploy/oracle/` compose, Caddyfile, `.env.example`, packaging script),
+  shipping by `scp`, Keycloak client setup, catalogue import, tests, backups,
+  updates, troubleshooting and a pre-share checklist.
+- Option A now reuses the same layout; option C lists the code changes it
+  would need.
+- Left out: none of the named files was created.
+
+## 2026-10-13 — Free deployment options documented
+
+- **Owner:** research how to put an app with this structure online for free,
+  reachable through a browser link instead of the desktop download; uptime
+  24/7 is not required. Documents go in `.ai/`.
+- New `.ai/deployment-options.md`: three options compared (own PC + Cloudflare
+  Tunnel, Oracle Cloud Always Free VM, Render + Neon + managed services), the
+  shared production preparation (Dockerfile, `prod` profile, Caddy, Keycloak
+  behind a proxy, MinIO hostname) and step-by-step setup for each option.
+- Indexed in `CLAUDE.md`.
+- Left out: no code, Dockerfile or compose file was created; the guide is a
+  plan only.
+
+## 2026-10-12 — Daggerheart sheet: stat row laid out like Demiplane's
+
+- **Owner:** bring the traits closer together and align them right, and use
+  the room for Demiplane-style Armor Slots. After a first pass that went too
+  far: "deixe parecido com demiplane".
+- **Measured on Demiplane** (owner's sheet), in a 1008 px row:
+  - Evasion and Armor at 84 px, 16 px apart;
+  - an Armor Slots block of 184 px;
+  - six 96 px trait boxes, 8 px apart, to the right;
+  - everything top-aligned.
+- **Armor Slots now:**
+  - a pointed title plate with the "0/3" count;
+  - − at the left edge, small 13 px light-blue squares, + at the right
+    edge;
+  - the armor's name, and its feature, left-aligned below.
+- The trait and defence frames grew a little (62 × 66, 70 × 74) to match.
+- Checked live against Demiplane side by side, and at 1280 × 720 (no
+  horizontal scroll).
+
+## 2026-10-12 — Daggerheart dice tray, round 3: closable results, smaller
+
+- **Owner:** the history still showed when opening the tray. Each result
+  should have an ✕, and a closed one never comes back to the tray, only to
+  the game log. Everything in the tray was too big (the extra dice above
+  all) and crowded the sheet.
+- The tray now shows only the rolls made in this session, up to three.
+  Each has an ✕, and closed ones stay closed. The sidebar's game log keeps
+  every roll.
+- **Scaled down:**
+  - width 350 → 264 px;
+  - toggle 48 → 40 px;
+  - Duality 46 → 30 px tall;
+  - dice 28 → 20 px;
+  - the extra dice are a 3 × 2 grid of 26 px;
+  - the pool's toggles are 20 px, the modifier 18 / 22 px, the Roll bar
+    26 px;
+  - result cards are about 30 px collapsed.
+  - `-disadv` no longer wraps.
+- Checked live: a trait pool with +adv and a d4 rolled 30 with Fear, then
+  2d6 + 3 damage. Closing a result and reopening the tray keeps it closed,
+  and the game log lists every roll.
+
+## 2026-10-12 — Daggerheart dice tray, round 2: matched to Demiplane
+
+- **Owner:** the first tray behaved and looked different from Demiplane's;
+  match it, interacting with Demiplane as needed. Also asked for a game-log
+  button with D&D's icon beside Short rest.
+- **Measured live on Demiplane** (owner's sheet; DOM and computed styles):
+  - **Closed:** a 48 px round button (black, 1 px gold border).
+  - **Open:**
+    - the button turns purple with a chevron;
+    - "Duality" is 86 × 46, a gold→blue gradient;
+    - `>>` is a 32 px purple circle opening a black 3 × 2 grid of +d4…+d20.
+  - **Nothing rolls on click.** Every source builds a **pool**:
+    - traits → "Agility / Trait Roll";
+    - weapon chips → "Crossbow / Attack Roll" (the trait in the modifier) or
+      "Crossbow / Damage Roll" (the weapon's dice and bonus);
+    - an Experience adds its +2;
+    - +dX adds a die, and clicking a die removes it.
+  - **The pool:**
+    - the header has the source and the kind, plus "Clear";
+    - `+adv` is green and `-disadv` red;
+    - the − modifier + sits beside them;
+    - a full-width purple "Roll" bar closes it.
+  - **Results stack above.** The newest is expanded (source, kind, Reroll,
+    total in a black box, dice) and the older ones are collapsed. Gold
+    gradient with Hope, blue with Fear.
+- **Now (`DaggerheartDiceTray`):** the same structure, colours and sizes,
+  with:
+  - **reaction** as a third toggle beside ±adv (the owner's request);
+  - our own icon on the closed button;
+  - D&D's die icons tinted per die: Hope gold, Fear blue, advantage green,
+    disadvantage red;
+  - Experiences shown as chips with their Hope cost;
+  - after a critical attack, the weapon's next damage pool is marked
+    critical (the dice's maximum is added).
+- **Game log:** D&D's `dnd_icon_game_log.svg` button beside Short rest opens
+  every roll in the sidebar. The tray keeps the last three.
+- **API:**
+  - Duality takes extra `dice` from the pool (`duality action +2 adv 1d4`).
+  - The custom roll takes `critical` and a label.
+  - Each roll in the history carries `sides` for its dice.
+- **Tests:**
+  - `DaggerheartDiceTest` (+2).
+  - Web: a trait pool with an Experience and +adv, then Roll; a damage pool,
+    then a reaction from the Duality pool.
+
+## 2026-10-12 — Daggerheart: Demiplane-style dice tray, sidebar below the header
+
+- **Owner:**
+  - The sheet's sidebar covered the AppHeader. It now starts at `top: 58px`,
+    as VtM's does.
+  - The custom roll was a sidebar form that mixed attacks into it, which made
+    the attack buttons pointless. The owner prefers Demiplane's tray and asked
+    for a reaction roll on it.
+  - Asked for the `>>` mini tray of dice, using D&D's dice icons.
+- **Compared with Demiplane** (owner's sheet, read only): a compact tray in
+  the corner. "Duality" rolls in one click, `>>` opens +d4…+d20, and the last
+  result floats above with Reroll. Rolls start from the sheet's own buttons.
+- **Now (`sheet/DaggerheartDiceTray.tsx`, `useDaggerheartDice`):**
+  - Bottom-left tray:
+    - the dice icon toggles the history;
+    - **Duality** and **Reaction**;
+    - **+d6 / −d6** (advantage / disadvantage);
+    - `»` opens the mini tray: D&D's d4–d20 icons, click to add,
+      right-click to remove, a ± modifier, and Roll.
+  - The last result floats above, with the Hope and Fear dice, the total, the
+    outcome and what it did, plus Reroll and History.
+  - From the sheet:
+    - a trait's number rolls it (its name opens the details);
+    - each weapon's attack and damage chips roll straight away. After a
+      critical attack, its damage roll is critical;
+    - unarmed has Str / Fin attack chips and [Proficiency]d4 damage;
+    - an Experience click marks it for the next roll (1 Hope each, shown on
+      the tray).
+  - The sidebar keeps the details. Its buttons roll straight away: action or
+    reaction, attack or damage, Spellcast.
+  - `DaggerheartRollPanel` was removed.
+- **API:** `POST …/rolls/custom` (any mix of d4–d20 plus a modifier, stored as
+  `dice 2d6 1d20 -1`, kind `custom` in the history).
+- **Tests:**
+  - `DaggerheartRollControllerTest.aCustomRollMixesDiceAndAModifier`.
+  - Two web tests: a trait roll with an Experience and advantage, and weapon
+    chips plus a reaction from the tray.
+  - Web 316/316; `:apps:api:check` green.
+- **Left out:** the Difficulty field. Rolls read as "N with Hope/Fear", as on
+  Demiplane; the API still takes a `difficulty`.
+
+## 2026-10-12 — Character cards: four lines at most
+
+- Owner: Boromir Ven (VtM) showed Neonate and Alleycat on separate lines. As a
+  draft, the card would have grown past its size.
+- Cause: `Vtm5CharacterSummarizer` returned three facts (clan, age,
+  predator), and `CharacterBanner` drew every fact on its own line.
+- Rule (owner) is now in `ui-design-system.md`, "Rules that do not bend":
+  - at most four lines: name, draft tag, main fact, second fact;
+  - each line is one line, with an ellipsis when too long.
+- Code:
+  - `CharacterSummarizer.MAX_FACTS` (2) and its contract.
+  - VtM now returns the clan, then "Neonate · Alleycat".
+  - `CharacterBanner` shows two facts at most.
+  - `home.css` keeps each fact on one line.
+- Daggerheart card (owner, same day):
+  - purple stripe (`#6A42B8`) instead of gold;
+  - the level next to the class, "Ranger (Wayfinder) 1"; the separate Level
+    fact is gone.
+- Multiclass separator (owner liked the dot): D&D cards now read
+  "Rogue 4 · Sorcerer 3" (was " / "). A multiclassed Daggerheart card reads
+  "Ranger (Wayfinder) 6 · Wizard". The D&D sheet header is unchanged.
+- Checked live: every card on the home page has three or four lines.
+- Tests: `Vtm5CharacterSummarizerTest`, `DaggerheartCharacterSummarizerTest`,
+  `HomePage.test.tsx` (a third fact is not shown).
+
+## 2026-10-12 — Daggerheart D7: level up
+
+- **Sources:**
+  - SRD pp. 53–54: tiers, tier achievements at 2 / 5 / 8, two
+    advancements, +1 to the thresholds, a new card, multiclassing from
+    level 5.
+  - The official character sheet's advancement grid, which the SRD doesn't
+    print. Read from Darrington Press's sheet PDF
+    (`CharacterGuidesAndSheetsTile_HF_2026-07-23.pdf` on daggerheart.com):
+
+    | Advancement | T2 | T3 | T4 |
+    | --- | --- | --- | --- |
+    | +1 to two unmarked traits | 3 | 3 | 3 |
+    | +1 HP slot | 2 | 2 | 2 |
+    | +1 Stress slot | 2 | 2 | 2 |
+    | +1 to two Experiences | 1 | 1 | 1 |
+    | Extra domain card (up to level 4 / 7 / any) | 1 | 1 | 1 |
+    | +1 Evasion | 1 | 1 | 1 |
+    | Upgraded subclass card | – | 1 | 1 |
+    | +1 Proficiency (both picks) | – | 1 | 1 |
+    | Multiclass (both picks) | – | 1 | 1 |
+
+  - Demiplane (owner's account, read only): level up lives in its builder
+    behind the Level select. We keep a separate page, as D&D does.
+- **API:**
+  - `DaggerheartLevels` holds the rules. The build's `levels[]` holds one
+    entry per level after the first (`experience`, `advancements`,
+    `domainCard`). The rules:
+    - slots per tier, from your tier or below;
+    - Proficiency and multiclassing take both picks;
+    - traits stay marked until levels 5 and 8;
+    - the upgraded subclass and the multiclass cross each other out in a
+      tier, and multiclassing happens once;
+    - cards at or below the level (the extra-card cap per tier), from the
+      class's domains, or from the multiclass domain up to half the level;
+    - Experiences +1;
+    - HP and Stress capped at 12.
+  - The assembler applies the levels:
+    - level and Proficiency;
+    - `advancements` bonuses, shown as "Level N advancement" contributions;
+    - new Experiences;
+    - cards;
+    - specialization and mastery features;
+    - the multiclass class feature, foundation and `identity.multiclass`.
+  - Re-materializing keeps play state (`DaggerheartSheetAssembler.carryPlayState`).
+  - `DaggerheartLevelUpController`: `GET/PUT/DELETE …/level-up` (the draft
+    stays on the sheet as `levelUpDraft`) and `POST …/level-up/finish`.
+  - The platform's `CharacterLevelUpService` was not used: it is D&D-shaped
+    (class levels, `SheetCalculator` vitals, healing). This follows
+    adr-0009.
+- **Web:**
+  - `levelup/DaggerheartLevelUpPage`, registered in `levelUpPages`. The four
+    steps sit on the left:
+    - the achievement's new Experience;
+    - the official grid, with marked, picked and crossed-out slots, and each
+      pick's choices (traits, Experiences, card, multiclass class, domain and
+      foundation);
+    - the thresholds;
+    - the new card.
+  - On the right, before → after, the new features, what's missing, and
+    "Become level N". The draft autosaves.
+  - The sheet's Level box opens "Level up to N".
+  - New feature sources on the sheet: specialization, mastery, multiclass.
+- **Checked live in Chrome:** Ilsa 1 → 2:
+  - Quiet Steps +2;
+  - Strength 0 → 1 and Instinct 1 → 2;
+  - HP 6 → 7, thresholds 8 / 15, Proficiency 2;
+  - Conjure Swarm;
+  - Hope 3 and Hidden kept.
+  - Fixed on the way: the side panel's inner scroll showed a horizontal bar
+    from the frame corners.
+- **Tests:** `DaggerheartLevelsTest` (10), `DaggerheartLevelUpControllerTest`
+  (3), `DaggerheartLevelUpPage.test.tsx` (1). Web 315/315;
+  `:apps:api:check` green.
+- **Left out:**
+  - Exchanging an acquired card for another at level up.
+  - Choosing between two Spellcast traits after multiclassing.
+  - Companion level-ups (Beastbound).
+  - Picking loadout or vault for the new card (it goes to the loadout when
+    there's room).
+
+## 2026-10-12 — Daggerheart D6: server rolls
+
+- **API:** `DaggerheartRollController`, with the rules in `DaggerheartDice`
+  (SRD pp. 47–50). Dice and the history go through the platform `RollService`
+  (`rollDice`, `recordReadRoll`), as for VtM.
+  - `POST …/rolls/duality`:
+    - Hope and Fear d12s;
+    - a trait, or `spellcast` for the subclass's trait;
+    - Experiences at 1 Hope each, refused when the Hope isn't there;
+    - a flat modifier;
+    - one advantage or disadvantage d6;
+    - an optional Difficulty.
+    The outcome is success or failure, with Hope or with Fear; without a
+    Difficulty, "N with Hope". Matching dice are a critical. An action roll
+    with Hope gains a Hope, and a critical also clears a Stress. A reaction
+    roll gains nothing. Returns the roll and the changed sheet.
+  - `POST …/rolls/damage`: an equipped weapon ([Proficiency] dice of its die
+    plus its bonus), unarmed ([Proficiency]d4), or custom dice (d4–d20). A
+    critical adds the dice's maximum.
+  - `GET …/rolls`: the history read back by kind (duality, reaction, damage,
+    rest).
+  - Rests now log their 1d4 + Tier dice (`DaggerheartSheetController`).
+- **Sheet (web):**
+  - The dice button in the bottom-left corner (owner's icon
+    `dh-dice-open.webp`, resized to 160 px, 7 KB) opens the custom roll in
+    the sidebar: trait, advantage, Experiences, modifier and Difficulty; the
+    Duality Dice or a reaction roll; then damage. The result shows above the
+    form and the history below it.
+  - Shortcuts: "Roll Agility" from a trait, "Attack roll" from a weapon,
+    unarmed from its row, "Roll with it" from an Experience, and "Spellcast
+    Roll" from features that call for one.
+  - The custom-roll form's buttons were squeezed by the builder's CSS, which
+    stays loaded after visiting the builder; fixed in the sheet's CSS.
+- **Checked live in Chrome:** Agility + Bounty Hunter rolled 10 / 7, 21 with
+  Hope; Hope went 3 → 2 for the Experience → 3 for the Hope. Shortbow damage
+  rolled 4 + 3 = 7. A short rest's dice show in the history.
+- **Tests:** `DaggerheartDiceTest` (7), `DaggerheartRollControllerTest` (7),
+  sheet controller (+1 rest log), web screen (+1). Web 314/314;
+  `:apps:api:check` green.
+- **Left out:**
+  - Help an Ally and group action rolls.
+  - Re-roll features (e.g. Ranger's Focus).
+  - Applying damage dealt to adversaries (GM-side).
+  - The GM's Fear pool.
+  - Feature-specific dice (Rally, Prayer Dice): roll them as custom damage
+    dice for now.
+
+## 2026-10-12 — Daggerheart D5: play state and actions
+
+- **API:** `POST /api/daggerheart/characters/{id}/actions`
+  (`DaggerheartSheetActions`, returns the sheet with `derived`). Rules from
+  SRD pp. 50–53:
+  - `track`: HP, Stress, Armor Slots, Hope within their slots. Stress that
+    can't be marked marks 1 HP. Marking the last Stress adds Vulnerable until
+    one clears (`vulnerableFromStress`, so only that Vulnerable is removed).
+    No Armor Slots with an Armor Score of 0.
+  - `damage`: 1, 2 or 3 HP by the thresholds; an optional Armor Slot drops it
+    one threshold. `lastDamage` keeps the result.
+  - `rest` (short / long): up to two downtime moves, the same one allowed
+    twice. Short-rest moves roll 1d4 + Tier on the server. Moves for an ally
+    leave the sheet alone. Prepare gives 1 Hope, or 2 with the party. After
+    three short rests in a row, the next must be long (`shortRestsInARow`).
+    The result is kept in `lastRest`.
+  - `moveCard`: the loadout holds 5. Recalling from the vault costs the
+    Recall Cost in Stress, or is free during a rest.
+  - `conditions` (no duplicates), `gold` (10 handfuls = 1 bag, 10 bags = 1
+    chest, carried over), `addItem` / `updateItem` / `removeItem`, `notes`.
+  - `counter`: the player's own counters with an optional maximum, for class
+    resources (Prayer Dice, Favor…) and project countdowns.
+- **Sheet (web):**
+  - clickable slots and ± on HP, Stress, Armor Slots and Hope;
+  - a damage row that previews the severity;
+  - a death-move notice when the last HP is marked;
+  - Short / Long rest panels and a conditions panel;
+  - card moves in the card and vault panels;
+  - counters, inventory and gold editing, notes;
+  - rename and portrait from the name or portrait (platform `PortraitPicker`).
+- **CSS:** the button family and `.field` moved to `dh-theme.css`.
+- **Checked live in Chrome:** 9 damage → 2 HP (Major), Stress and Hope,
+  a short rest (rolled 1 + 1 and 4 + 1), a card to the vault and back,
+  Hidden, a counter, gold, the portrait gallery.
+- **Tests:** `DaggerheartSheetActionsTest` (12), controller (+2), web screen
+  (+2), `daggerheartSheet.test.ts` (2). Web 313/313; `:apps:api:check` green.
+- **Left out:**
+  - Rolls and their history (D6). The rest dice are rolled but not logged.
+  - Automatic per-class resources: counters are generic, so the player
+    names them.
+  - Optional rules (massive damage), resistance, the GM's Fear.
+  - Level up (D7).
+
+## 2026-10-12 — Daggerheart D4: read-only sheet
+
+- **Sheet v3** in `apps/web/src/systems/daggerheart/sheet/`, registered in
+  `sheetLayouts` under `daggerheart`:
+  - header: portrait, name, heritage and class line with domains, the class
+    banner, conditions, level;
+  - stat row: Evasion, Armor, Armor Slots, six traits with their verbs;
+  - vitals: thresholds strip, HP and Stress tracks, active weapons with
+    Proficiency pips (plus the SRD's unarmed attack), Hope diamonds,
+    Experiences;
+  - tabs: Cards & Features (loadout of 5 with empty slots, vault, class,
+    subclass and heritage features as cards), Equipment (armor, weapons,
+    inventory, gold), Details (pronouns, description, background and
+    connections under the class's questions, notes).
+- **Sidebar:** every element opens its full text and the contributions behind
+  its number, from the API's `derived` values. Rules text checked against the
+  SRD (thresholds, Armor Slots, Stress overflow, vault and Recall Cost, gold
+  units).
+- **Daggerheart is now a supported system:** moved from `UPCOMING_SYSTEMS`
+  to `SUPPORTED_SYSTEMS` (owner: visible once the sheet ships).
+- **CSS:** the shared design system moved from `dh-builder.css` to
+  `dh-theme.css` (tokens, frame, titles, stat frames, plates, domain icons,
+  cards); `dh-sheet.css` holds the sheet layout.
+- **Checked live in Chrome:** the test draft finished into a character and
+  opened on the sheet; sidebar, tabs, and 1280 × 720 (iframe: no horizontal
+  scroll).
+- **Tests:** `DaggerheartSheetScreen.test.tsx` (3), `sheetLayouts.test.ts`
+  (+1). Web 309/309; `:apps:api:check` green (no API change).
+- **Left out (D5–D7):** marking HP, Stress, Armor Slots and Hope, conditions,
+  rests, gold and inventory edits, loadout ↔ vault moves, renaming and the
+  portrait from the sheet (D5); Duality and damage rolls, the dice button
+  (D6); level up (D7).
+
+## 2026-10-12 — Daggerheart D3: builder
+
+- **Builder v3** in `apps/web/src/systems/daggerheart/`, drawn through
+  `BuilderDefinition.Frame`:
+  - progress rail, choices panel with (i) explanations, summary column;
+  - nine steps, Story optional;
+  - mixed ancestry, "GM allows transformations" toggle, trait pool, physical
+    and magic weapons, potion, class item, domain cards as cards, Purposeful
+    Design's boosted Experience.
+- **Hover preview (owner: "pre-visualizar sem salvar").** New platform
+  endpoint `POST /api/characters/{id}/draft/preview`
+  (`CharacterDraftService.hypothetical`, `DraftPreviewOnlyResponse`). It plans
+  and previews a build without saving it. The frame calls it after 180 ms on
+  an option, and the summary shows the differences in purple.
+- **Art (owner: use the mockups' graphics).** Demiplane's class art, plates,
+  banners, frames, stat frames, domain sprite and logo, resized to WebP
+  (21 MB → 1.1 MB). The 33 Demiplane portraits are presets. adr-0010
+  decision 4 is amended: they stay out of the public remote and any public
+  deployment until cleared.
+- **Footer:** DPCGL attribution, on deep navy.
+- **Tutorial:** `builder:daggerheart` (11 steps).
+  - Owner: the launcher looked like D&D's. `TutorialLauncher` now carries the
+    tour's theme class, so each system styles its own button. Daggerheart's
+    is navy and gold; D&D's is unchanged.
+- **Platform:**
+  - `BuilderFrameProps` gains `preview` and `previewBuild`.
+  - `draftApi.previewDraft`.
+  - Fonts Cinzel and Inter in `index.html`.
+- **API:** the creation flow's options are sorted by name.
+- **Checked live in Chrome:** every step, hover deltas, and the 1280 × 720 fit
+  (in an iframe: no horizontal scroll; the sticky summary scrolls inside its
+  frame).
+- **Tests:**
+  - `daggerheartBuild.test.ts` (5), `TutorialLauncher.test.tsx` (2).
+  - `CharacterDraftServiceTest.previewsAHypotheticalBuildWithoutStoringIt`.
+  - `offersOptionsInAlphabeticalOrder`.
+  - Web 305/305; `:apps:api:check` green.
+- **Left out:**
+  - Finishing a Daggerheart character (the sheet is D4); Daggerheart stays
+    "Coming soon".
+  - Class and subclass feature selections at creation (Warlock patron,
+    companion, element).
+
+## 2026-10-12 — Daggerheart D2: backend
+
+- **`ruleset.daggerheart`** (new subpackage, no existing class edited):
+  - `DaggerheartGameSystem` (`daggerheart`).
+  - `DaggerheartCharacterCreationFlow`: plan, preview, materialize, buildOf.
+  - `DaggerheartCharacterSummarizer`: class (subclass), heritage, level.
+  - `DaggerheartSheetController`: `GET /api/daggerheart/characters/{id}/sheet`,
+    the sheet with `derived`.
+  - Helpers: `DaggerheartBuild`, `DaggerheartCatalogue`,
+    `DaggerheartSheetAssembler`, `DaggerheartDerivedStats`, `DaggerheartPreview`.
+- **Rules checked** (SRD pp. 4–6):
+  - the subclass belongs to the class;
+  - a mixed ancestry uses two different ancestries;
+  - a transformation counts only when the GM allows it;
+  - traits use +2, +1, +1, +0, +0, −1 once each;
+  - starting weapons and armor are Tier 1;
+  - a two-handed primary leaves no hand for a secondary, and a one-handed
+    primary asks for one;
+  - magic weapons need a Spellcast trait; the Brawler may go unarmed;
+  - the potion is a Minor Health or Minor Stamina Potion;
+  - the class item is one of the class's two;
+  - two different Experiences, plus Purposeful Design's +1;
+  - two level-1 cards from the class's domains.
+- **Derived values** carry their contributions:
+  - traits, Evasion, Armor Score (capped at 12);
+  - thresholds: armor base + level, unarmored level / 2 × level;
+  - HP and Stress slots, attack lines (Proficiency dice, Spellcast trait for
+    Spellcast weapons).
+- **Importer.** New `modifiers.mjs` reads always-on bonuses from the SRD's
+  fixed phrasing ("−1 to Evasion", "Gain a permanent +1 bonus to your…",
+  "Gain an additional Stress slot") into `modifiers` on features. 105
+  entries carry them. Content regenerated and re-imported into Postgres.
+- **Live builder summary.** It goes through the draft's generic `selections`
+  cards. The platform's `abilities`/`vitals` preview is D&D-shaped
+  ((score − 10) / 2), so no platform class was changed.
+- **Tests.**
+  - 30 JUnit tests in `ruleset/daggerheart/` (creation flow, derived stats,
+    summarizer, controller), with the synthetic fixture
+    `DaggerheartTestCatalogue`.
+  - Importer `modifiersOf` test (10 importer tests in total).
+  - A throwaway test against the real 928 entries confirmed a full Ranger
+    build; it was deleted.
+  - `:apps:api:check` green.
+- **Left out:**
+  - Creation-time selections asked by class or subclass features (Warlock
+    patron, Beastbound companion, element), for D3.
+  - Play state (D5), rolls (D6), level-up (D7), web (D3/D4).
+
+## 2026-10-12 — Daggerheart D1: SRD content import
+
+- **Tool** `tools/daggerheart-import/` (Node ES modules, no dependencies).
+  `import.mjs` reads `tools/daggerheart-srd/DH_SRD_2_2026_08_25.pdf`, which is
+  now gitignored, and rewrites `content/daggerheart/` with 928 entries:
+  - 13 classes, 26 subclasses, 10 domains, 210 domain cards;
+  - 24 ancestries, 15 communities, 6 transformations;
+  - 624 items: 315 weapons (12 of them combat wheelchairs), 69 armor,
+    120 loot, 120 consumables.
+- **Extraction.** Prose uses `pdftotext -layout`, split at the column gutter;
+  this fixes the earlier heritage parse that swapped features between
+  neighbours. Equipment uses `-table`, with columns taken from each row.
+- **Checks.** `validate.mjs` fails the import on any count or cross-reference
+  that differs from the SRD (implementation plan §7).
+- **Verification.** Every generated string was checked against the PDF's raw
+  text in six-word windows: 14,541 windows, and only the five expected
+  differences (page-break joins and two rebuilt roll tables). Weapon and armor
+  numbers match a second, independent extraction.
+- **API.** `CatalogueEntryKind` gains `ANCESTRY`, `COMMUNITY`,
+  `TRANSFORMATION`, `DOMAIN` and `DOMAIN_CARD`. `CatalogueContentLayout` maps
+  them to `ancestries/` and `communities/`; the others use the regular plural.
+  Weapons, armor, loot and consumables stay `ITEM`, with `data.category`.
+  No migration: `kind` is unconstrained text.
+- **Tests.**
+  - `tools/daggerheart-import/importer.test.mjs`: 9 `node:test` cases on
+    synthetic text (column split, tokenizer, features, roll tables, weapon
+    and side-by-side roll tables, slugs, validation).
+  - `ContentDirectoryCatalogueTest.readsDaggerheartKindsFromTheirPluralDirectories`.
+  - Both pass.
+- **Docs.**
+  - `tech-stack.md`: content tools (Node, and Xpdf's `pdftotext` 4.00 from
+    Git for Windows; it is not Poppler as the plan assumed), plus the
+    local-only folder.
+  - `developer-guide.md` §1.3: regenerate and import.
+  - `database-schema.md`: the kinds.
+  - Daggerheart plan §7, `character-rules.md` §8, `systems/README.md`.
+- **Imported** into the local Postgres with `--import-catalogue`, one kind per
+  run: 928 `daggerheart` rows, D&D's 3,551 untouched. `:apps:api:check` is
+  green.
+- **Left out:**
+  - Mixed Ancestry stays a rule for D3, not an entry.
+  - Adversaries, environments and campaign frames are out of scope.
+
+## 2026-10-12 — Daggerheart D0 closed
+
+- Owner answers (implementation plan §6):
+  1. Licence: D&D's posture with footer attribution, written as **adr-0010**
+     (SRD 2.0 under the DPCGL: private use, out of the public remote until
+     Darrington Press approves, no official art in the product).
+  2. v3 mocks are the base.
+  3. Transformations go behind a "GM allows" toggle, since the SRD makes
+     them optional.
+  4. Mixed ancestry at creation.
+  5. Starting equipment and gold in the builder, since the SRD sets them at
+     creation.
+- Owner correction on the mock: the class icons were composed wrong.
+  `builder-v3.html` now uses Demiplane's crest in the class hero and the
+  summary: the plate on top, the banner hanging from behind its left half.
+  The summary's name and domains moved beside it. Checked with headless
+  Edge screenshots.
+  - Follow-up (owner): only the selected class gets the crest. The class
+    list tiles show the class name large in text with a small banner holding
+    the two class symbols. The "Hope & Fear" badge moved bottom-right.
+  - Second follow-up (owner):
+    - Every tile's meta is two fixed rows: the domains (no wrap), then
+      Evasion and HP. Wizard and Sorcerer used to stack their domains.
+    - The summary's trait values sit centred in their frames: the selector
+      `.sum-traits div` had also hit the frame itself.
+    - "Hope & Fear" shows only on the selected class, on its tile and in the
+      hero.
+  - Third follow-up (owner): the hero's crest now touches the panel's top
+    border. The banner hangs from the border and the plate's flourish
+    crosses it, as on Demiplane; the hero no longer clips its overflow.
+  - Fifth follow-up (owner screenshot `design-reference/frames/img.png`):
+    the hero redrawn to match it.
+    - The banner (80 x 160) hangs from the top border.
+    - The plate is enlarged to 300px with its name band centred on the
+      banner.
+    - The flourishes run out of the panel, which clips them again.
+  - Sixth follow-up (owner): the progress count and bar moved to the top of
+    the progress rail, above the steps.
+  - Seventh follow-up (owner: the summary's background read as white): the
+    summary column is navy like the other two.
+    - The name is white and the lineage gold; domains, trait labels and gear
+      are light.
+    - The domain icons use the light sprite.
+    - The thresholds strip, empty slots and the last-change note are recoloured
+      for navy.
+    - Stat frames and the card hand stay paper.
+  - Eighth follow-up (owner): the summary's crest copies the hero's at 80%.
+    - The banner (64 x 128) hangs from the top border.
+    - The 240px plate is centred on it.
+    - A `clip-path` clips the flourishes on the left and top only.
+    - Ninth follow-up (owner): `.sum-side` sits right beside the banner,
+      under the plate's flourish and within the banner's height.
+      - Portrait and name are on one row, the lineage under the name, the
+        domains below.
+      - The crest column narrowed to 104px.
+      - The first, centred stack used more height and was rejected.
+      - Tenth follow-up (owner): the portrait grew to 48px (56px was too
+        big). The name tried 19px, but the owner found it huge, so it is back
+        to 14px.
+  - Fourth follow-up (owner): the AppHeader's Daggerheart mark uses the
+    dagger-in-flame emblem in place of the diamond, on both v3 mocks.
+    - First cut from the card back's medallion; it looked off.
+    - Replaced with the owner's `Daggerheart_logo.png`, recoloured to the
+      system name's gold `#f2c55c` (near-white details kept transparent) as
+      `assets/dh-logo-gold.png`. It is Daggerheart's
+    official symbol, so per adr-0010 it stays in the mocks. The product's
+    system mark needs our own emblem in that spirit.
+- A Daggerheart creation tutorial is now part of D3
+  (`features/creation-tutorial.md` slice 3).
+- D1 (SRD import) is next.
+- The owner approved the final v3 mocks as the D3/D4 reference.
+
+## 2026-10-11 — Sheet header: classes under the name
+
+- Owner report: the D&D sheet showed the level twice under the name: "Level
+  7", then the XP bar's "LVL 7".
+- The line under the name now lists each class with its level ("Warlock 4 /
+  Fighter 3"), from `experience.classes`, ellipsized with the full text as
+  its title. It falls back to "Level N" only when no class is known.
+- `SheetShell`'s `level` prop became `summary`.
+- Sheet web tests green. Checked live on "Mez test".
+
+## 2026-10-11 — Laptop responsiveness plan
+
+- Owner request: adapt the character list, the D&D and VtM builders, and both
+  sheets to slightly smaller screens (laptops), and keep that in mind for
+  future systems.
+- New `features/laptop-responsiveness.md`:
+  - targets: 1280 x 720 (the minimum), 1366 x 768, 1440 x 900, 1536 x 864;
+  - approach per screen; the D&D sheet scales with CSS `zoom` (floor 0.85,
+    owner-approved), and everything else reflows;
+  - slices R0–R5.
+- Made the rule durable:
+  - "Screen sizes" section in `ui-design-system.md`;
+  - Frontend bullet in `ground-rules.md`;
+  - note in Daggerheart's implementation plan (D3/D4).
+- No code yet; R0 (measuring) is next.
+- R0 done: findings in the plan.
+  - The home page, the D&D builder, both sheets with the panel closed, and
+    the VtM sheet all fit at 1280.
+  - The VtM builder was cut off.
+  - The D&D sidebar covers 175–303px of the sheet below 1920. That R3
+    question went to `open-items.md`.
+- R2, VtM builder: fixed.
+  - Removed `.vtm5-page { min-width: fit-content }` from `systemMark.css`,
+    which made the page as wide as its 1500px layout; the global
+    `overflow-x: hidden` then cut it off.
+  - The step column shrinks (`flex: 0 1 auto; min-width: 0`).
+  - At 1500px and below, the side columns narrow to 260 / 300 and the
+    summary strip's slots compress.
+  - Verified in iframes: all nine steps fit at 1280 and 1366. At 1536 and
+    1920 the widths are unchanged.
+- R2–R5 finished after the owner approved the R3 recommendation.
+  - D&D builder spell tables: a container query drops Effect, Range, then
+    Casting time as the table narrows. No sideways scroll at any width (it
+    used to scroll even at 1920).
+  - D&D sheet (R3):
+    - `SheetShell` gains `reserveRight`, `overlay`, `useFitScale` and the
+      `.sheet-column` class.
+    - `CharacterSheetScreen` passes a 352px reserve while the sidebar is
+      locked and shown, and moves the sidebar, dice tray, custom roll picker
+      and roll mode menu into `overlay`, so they aren't zoomed.
+    - `Sidebar` gains `onLockedChange`.
+    - Measured: zoom 0.85 at 1280 (111px still covered), 0.85 at 1366 (25px),
+      0.88 at 1440 and 0.96 at 1536 (both fit), 1 at 1920. The roll mode
+      menu still opens at the click point.
+  - VtM sheet (R4):
+    - `side-open` (360px reserve) is applied while the detail panel is open;
+      the class existed in CSS but was never set.
+    - The sheet is a size container. At 1060px or less, the vitals drop
+      under the attributes and the tabs span under the two columns. Nothing
+      is covered with the panel open at 1280, 1366, 1536 or 1920.
+  - Height (R5): already viewport-based; no change.
+  - The R3 open item is removed. `ui-design-system.md` documents the locked
+    sidebar's reserve and container queries.
+  - Tests: new `SheetShell.test.tsx` (3) and a lock callback test in
+    `Sidebar.test.tsx`. Full web suite green (67 files / 293 tests, before
+    the new ones).
+  - The owner's sidebar lock preference (`false`) was restored after
+    measuring.
+  - Not done: the D&D Beyond fidelity pass at 100% isn't affected (≥1440
+    with the sidebar unlocked is unchanged).
+
 ## 2026-10-11 — Creature stat block fonts and order as on D&D Beyond
 
 - Owner report: the creature stat block in the sidebar still looked unlike

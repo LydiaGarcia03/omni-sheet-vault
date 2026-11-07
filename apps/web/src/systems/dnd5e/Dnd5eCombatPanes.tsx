@@ -7,15 +7,15 @@ import { DamageTypeIcon } from './DamageTypeIcon';
 import immunitySvg from './frames/dnd_icon_immunity.svg?raw';
 import resistanceSvg from './frames/dnd_icon_resistance.svg?raw';
 import vulnerabilitySvg from './frames/dnd_icon_vulnerability.svg?raw';
+import { ENGLISH_TERMS, useDnd5eTerms, type Dnd5eTerms } from './locales/dnd5eMessages';
 import { ARMOR_CLASS_RULES_TEXT, INITIATIVE_RULES_TEXT, SPEED_RULES_TEXT } from './rulesText';
 
-export const MOVEMENTS: { key: string; label: string }[] = [
-  { key: 'burrowing', label: 'Burrowing' },
-  { key: 'climbing', label: 'Climbing' },
-  { key: 'flying', label: 'Flying' },
-  { key: 'swimming', label: 'Swimming' },
-  { key: 'walking', label: 'Walking' },
-];
+export const MOVEMENT_KEYS = ['burrowing', 'climbing', 'flying', 'swimming', 'walking'];
+
+/** The movement modes, named in the player's language. */
+export function movementsOf(terms: Dnd5eTerms): { key: string; label: string }[] {
+  return MOVEMENT_KEYS.map((key) => ({ key, label: terms.t.dynamic(`terms.movements.${key}`, key) }));
+}
 
 /** PHB 2014 damage types, the same list the API accepts. */
 export const DAMAGE_TYPES = [
@@ -29,14 +29,15 @@ const IMMUNE_CONDITIONS = [
   'petrified', 'poisoned', 'prone', 'restrained', 'stunned', 'unconscious',
 ];
 
-const CUSTOM_DEFENSE_TYPES: { key: StoredCustomDefense['type']; label: string; plural: string }[] = [
-  { key: 'RESISTANCE', label: 'Resistance', plural: 'Resistances' },
-  { key: 'IMMUNITY', label: 'Immunity', plural: 'Immunities' },
-  { key: 'VULNERABILITY', label: 'Vulnerability', plural: 'Vulnerabilities' },
-];
+const CUSTOM_DEFENSE_TYPES = [
+  { key: 'RESISTANCE', label: 'terms.defenses.resistance', plural: 'terms.defenses.resistances' },
+  { key: 'IMMUNITY', label: 'terms.defenses.immunity', plural: 'terms.defenses.immunities' },
+  { key: 'VULNERABILITY', label: 'terms.defenses.vulnerability', plural: 'terms.defenses.vulnerabilities' },
+] as const;
 
-function capitalize(text: string): string {
-  return text.charAt(0).toUpperCase() + text.slice(1);
+/** A custom defense's subtype: a damage type, or a condition for a condition immunity. */
+function subtypeName(subtype: string, terms: Dnd5eTerms): string {
+  return DAMAGE_TYPES.includes(subtype) ? terms.damageType(subtype) : terms.condition(subtype);
 }
 
 function signed(amount: number): string {
@@ -44,19 +45,23 @@ function signed(amount: number): string {
 }
 
 /** The movement the sheet shows and its speed: the chosen display when it has a speed, otherwise walking. */
-export function displayedMovement(sheet: CharacterSheet): { label: string; speed: number } {
+export function displayedMovement(sheet: CharacterSheet, terms: Dnd5eTerms = ENGLISH_TERMS): { label: string; speed: number } {
   const { movementDisplay, speeds } = customizationsOf(sheet);
-  const chosen = MOVEMENTS.find((movement) => movement.key === movementDisplay);
+  const movements = movementsOf(terms);
+  const chosen = movements.find((movement) => movement.key === movementDisplay);
   const chosenSpeed = chosen && chosen.key !== 'walking' ? speeds[chosen.key]?.value : null;
-  return chosen && chosenSpeed != null ? { label: chosen.label, speed: chosenSpeed } : { label: 'Walking', speed: sheet.speed };
+  return chosen && chosenSpeed != null ? { label: chosen.label, speed: chosenSpeed } : { label: movements[movements.length - 1].label, speed: sheet.speed };
 }
 
 type PaneProps = { sheet: CharacterSheet; onMutate: MutationHandler };
 
 /** D&D Beyond's Speed pane: each movement with a speed, then Override Speeds and Set Movement Display, then the rules text. */
 export function Dnd5eSpeedPane({ sheet, onMutate }: PaneProps) {
+  const terms = useDnd5eTerms();
+  const { t } = terms;
+  const movements = movementsOf(terms);
   const { speeds, movementDisplay } = customizationsOf(sheet);
-  const rows = MOVEMENTS.filter(({ key }) => key !== 'walking' && speeds[key]?.value != null);
+  const rows = movements.filter(({ key }) => key !== 'walking' && speeds[key]?.value != null);
   const save = (key: string, next: NotedValue) => onMutate({ type: 'CUSTOMIZE', group: 'speeds', target: key, value: next });
   const setDisplay = (key: string) =>
     key === 'walking'
@@ -65,21 +70,21 @@ export function Dnd5eSpeedPane({ sheet, onMutate }: PaneProps) {
 
   return (
     <div className="combat-pane">
-      <SidebarHeader title="Speed" />
+      <SidebarHeader title={t('terms.labels.speed')} />
       <div className="combat-pane__list">
         <div className="combat-pane__line">
-          <span className="combat-pane__line-label">Walking</span> <span className="combat-pane__line-value">{sheet.speed} ft.</span>
+          <span className="combat-pane__line-label">{movements[movements.length - 1].label}</span> <span className="combat-pane__line-value">{terms.feet(sheet.speed)}</span>
         </div>
         {rows.map(({ key, label }) => (
           <div key={key} className="combat-pane__line">
-            <span className="combat-pane__line-label">{label}</span> <span className="combat-pane__line-value">{speeds[key].value} ft.</span>
+            <span className="combat-pane__line-label">{label}</span> <span className="combat-pane__line-value">{terms.feet(speeds[key].value ?? 0)}</span>
           </div>
         ))}
       </div>
       <Customize>
-        <div className="combat-pane__editor-heading">Override Speeds</div>
+        <div className="combat-pane__editor-heading">{t('combat.overrideSpeeds')}</div>
         <EditorBox>
-          {MOVEMENTS.map(({ key, label }) => (
+          {movements.map(({ key, label }) => (
             <ValueEditorRow
               key={key}
               label={label}
@@ -89,14 +94,14 @@ export function Dnd5eSpeedPane({ sheet, onMutate }: PaneProps) {
             />
           ))}
         </EditorBox>
-        <div className="combat-pane__editor-heading">Set Movement Display</div>
+        <div className="combat-pane__editor-heading">{t('combat.setMovementDisplay')}</div>
         <select
           className="sidebar-value-editor__input combat-pane__select"
-          aria-label="Set Movement Display"
+          aria-label={t('combat.setMovementDisplay')}
           value={movementDisplay ?? 'walking'}
           onChange={(event) => setDisplay(event.target.value)}
         >
-          {MOVEMENTS.map(({ key, label }) => (
+          {movements.map(({ key, label }) => (
             <option key={key} value={key}>
               {label}
             </option>
@@ -110,15 +115,16 @@ export function Dnd5eSpeedPane({ sheet, onMutate }: PaneProps) {
 
 /** D&D Beyond's Initiative pane: the initiative score, the passive score with advantage or disadvantage, the rules text. */
 export function Dnd5eInitiativePane({ sheet }: { sheet: CharacterSheet }) {
+  const { t } = useDnd5eTerms();
   const score = 10 + sheet.initiative.value;
   const rows = [
-    { label: 'Initiative Score', value: score },
-    { label: 'With Advantage (+5)', value: score + 5 },
-    { label: 'With Disadvantage (−5)', value: score - 5 },
+    { label: t('combat.initiativeScore'), value: score },
+    { label: t('combat.withAdvantage'), value: score + 5 },
+    { label: t('combat.withDisadvantage'), value: score - 5 },
   ];
   return (
     <div className="combat-pane">
-      <SidebarHeader title="Initiative" modifier={sheet.initiative.value} modifierFormat="parens" />
+      <SidebarHeader title={t('terms.labels.initiative')} modifier={sheet.initiative.value} modifierFormat="parens" />
       <div className="combat-pane__list">
         {rows.map(({ label, value }) => (
           <div key={label} className="combat-pane__line">
@@ -131,19 +137,21 @@ export function Dnd5eInitiativePane({ sheet }: { sheet: CharacterSheet }) {
   );
 }
 
-const ARMOR_CLASS_FIELDS: { key: string; label: string }[] = [
-  { key: 'override', label: 'Override AC' },
-  { key: 'baseArmorDex', label: 'Override Base Armor + DEX' },
-  { key: 'magicBonus', label: 'Additional Magic Bonus' },
-  { key: 'miscBonus', label: 'Additional Misc Bonus' },
-];
+const ARMOR_CLASS_FIELDS = [
+  { key: 'override', label: 'combat.overrideAc' },
+  { key: 'baseArmorDex', label: 'combat.overrideBaseArmorDex' },
+  { key: 'magicBonus', label: 'combat.magicBonus' },
+  { key: 'miscBonus', label: 'combat.miscBonus' },
+] as const;
 
 /** D&D Beyond's Armor Class pane: each contribution to the total, its four-field Customize, then the rules text. */
 export function Dnd5eArmorClassPane({ sheet, onMutate }: PaneProps) {
+  const terms = useDnd5eTerms();
+  const { t } = terms;
   const { armorClass } = customizationsOf(sheet);
   return (
     <div className="combat-pane">
-      <SidebarHeader title={`Armor Class: ${sheet.armorClass.value}`} />
+      <SidebarHeader title={`${t('terms.labels.armorClass')}: ${sheet.armorClass.value}`} />
       <div className="combat-pane__list">
         {sheet.armorClass.contributions.map((contribution, index) => (
           <div key={`${contribution.source}-${index}`} className="combat-pane__contribution">
@@ -157,7 +165,7 @@ export function Dnd5eArmorClassPane({ sheet, onMutate }: PaneProps) {
           {ARMOR_CLASS_FIELDS.map(({ key, label }) => (
             <ValueEditorRow
               key={key}
-              label={label}
+              label={t(label, { dex: terms.abilityAbbreviation('dexterity') })}
               value={armorClass[key]?.value ?? null}
               notes={armorClass[key]?.notes ?? ''}
               onCommit={(value, notes) =>
@@ -179,10 +187,10 @@ const DEFENSE_ICONS: Record<DefenseType, { svg: string; variant: 'resistance' | 
   VULNERABILITY: { svg: vulnerabilitySvg, variant: 'vulnerability' },
 };
 
-const DEFENSE_GROUPS: { heading: string; types: DefenseType[] }[] = [
-  { heading: 'Resistances', types: ['RESISTANCE'] },
-  { heading: 'Immunities', types: ['IMMUNITY', 'CONDITION_IMMUNITY'] },
-  { heading: 'Vulnerabilities', types: ['VULNERABILITY'] },
+const DEFENSE_GROUPS: { heading: 'terms.defenses.resistances' | 'terms.defenses.immunities' | 'terms.defenses.vulnerabilities'; types: DefenseType[] }[] = [
+  { heading: 'terms.defenses.resistances', types: ['RESISTANCE'] },
+  { heading: 'terms.defenses.immunities', types: ['IMMUNITY', 'CONDITION_IMMUNITY'] },
+  { heading: 'terms.defenses.vulnerabilities', types: ['VULNERABILITY'] },
 ];
 
 /** The sheet's defenses of one type as the Defenses box names them; a hand-added one is marked "*". */
@@ -202,11 +210,12 @@ export function defenseLabels(sheet: CharacterSheet, type: DefenseType, fallback
 }
 
 function DefenseLine({ defense }: { defense: DefenseEntry }) {
+  const { t } = useDnd5eTerms();
   const icon = DEFENSE_ICONS[defense.type];
-  const source = defense.custom ? 'Custom' : defense.source;
+  const source = defense.custom ? t('combat.custom') : defense.source;
   return (
     <div className="defenses-pane__defense">
-      <DamageTypeIcon svg={icon.svg} variant={icon.variant} label={capitalize(icon.variant)} />
+      <DamageTypeIcon svg={icon.svg} variant={icon.variant} label={t(`terms.defenses.${icon.variant}`)} />
       <span>
         {defense.name}
         {defense.custom && '*'}
@@ -217,6 +226,9 @@ function DefenseLine({ defense }: { defense: DefenseEntry }) {
 }
 
 function CustomDefenseRow({ defense, onMutate }: { defense: StoredCustomDefense; onMutate: MutationHandler }) {
+  const terms = useDnd5eTerms();
+  const { t } = terms;
+  const subtype = subtypeName(defense.subtype, terms);
   const [notes, setNotes] = useState(defense.notes ?? '');
   const commit = () => {
     const next = notes.trim() === '' ? null : notes;
@@ -231,13 +243,13 @@ function CustomDefenseRow({ defense, onMutate }: { defense: StoredCustomDefense;
         className="sidebar-remove-button"
         onClick={() => onMutate({ type: 'REMOVE_CUSTOMIZATION', group: 'defenses', target: defense.key })}
       >
-        Delete
+        {t('combat.delete')}
       </button>
-      <span className="defenses-pane__custom-name">{capitalize(defense.subtype)}</span>
+      <span className="defenses-pane__custom-name">{subtype}</span>
       <input
         className="sidebar-value-editor__input defenses-pane__custom-notes"
-        placeholder="Enter Source Note..."
-        aria-label={`${capitalize(defense.subtype)} source note`}
+        placeholder={t('combat.sourceNote')}
+        aria-label={t('combat.sourceNoteOf', { name: subtype })}
         value={notes}
         onChange={(event) => setNotes(event.target.value)}
         onBlur={commit}
@@ -248,9 +260,12 @@ function CustomDefenseRow({ defense, onMutate }: { defense: StoredCustomDefense;
 
 /** D&D Beyond's Defenses pane: every defense grouped by type with its source, and the Customize that adds more. */
 export function Dnd5eDefensesPane({ sheet, onMutate }: PaneProps) {
+  const terms = useDnd5eTerms();
+  const { t } = terms;
   const { defenses: custom } = customizationsOf(sheet);
   const [type, setType] = useState<StoredCustomDefense['type']>('RESISTANCE');
-  const typeLabel = CUSTOM_DEFENSE_TYPES.find((entry) => entry.key === type)?.label ?? '';
+  const typeEntry = CUSTOM_DEFENSE_TYPES.find((entry) => entry.key === type);
+  const typeLabel = typeEntry ? t(typeEntry.label) : '';
   const all = sheet.defenses ?? [];
 
   const add = (subtype: string) => {
@@ -261,12 +276,12 @@ export function Dnd5eDefensesPane({ sheet, onMutate }: PaneProps) {
 
   return (
     <div className="combat-pane">
-      <SidebarHeader title="Defenses" />
+      <SidebarHeader title={t('terms.defenses.defenses')} />
       {DEFENSE_GROUPS.map(({ heading, types }) => {
         const entries = all.filter((defense) => types.includes(defense.type)).sort((a, b) => a.name.localeCompare(b.name));
         return entries.length === 0 ? null : (
           <section key={heading} className="defenses-pane__group">
-            <h2 className="defenses-pane__heading">{heading}</h2>
+            <h2 className="defenses-pane__heading">{t(heading)}</h2>
             {entries.map((defense, index) => (
               <DefenseLine key={`${defense.key ?? defense.name}-${defense.source}-${index}`} defense={defense} />
             ))}
@@ -276,32 +291,32 @@ export function Dnd5eDefensesPane({ sheet, onMutate }: PaneProps) {
       <Customize>
         <div className="defenses-pane__pickers">
           <label className="defenses-pane__picker">
-            <span className="sidebar-value-editor__label">Defense Type</span>
+            <span className="sidebar-value-editor__label">{t('combat.defenseType')}</span>
             <select className="sidebar-value-editor__input" value={type} onChange={(event) => setType(event.target.value as StoredCustomDefense['type'])}>
               {CUSTOM_DEFENSE_TYPES.map(({ key, label }) => (
                 <option key={key} value={key}>
-                  {label}
+                  {t(label)}
                 </option>
               ))}
             </select>
           </label>
           <label className="defenses-pane__picker">
-            <span className="sidebar-value-editor__label">Defense Sub-Type</span>
+            <span className="sidebar-value-editor__label">{t('combat.defenseSubType')}</span>
             <select className="sidebar-value-editor__input" value="" onChange={(event) => add(event.target.value)}>
-              <option value="">Choose a {typeLabel}</option>
+              <option value="">{t('combat.chooseA', { type: typeLabel })}</option>
               {type === 'IMMUNITY' ? (
                 <>
-                  <optgroup label="Damage">
+                  <optgroup label={t('combat.damageGroup')}>
                     {DAMAGE_TYPES.map((damage) => (
                       <option key={damage} value={damage}>
-                        {capitalize(damage)}
+                        {terms.damageType(damage)}
                       </option>
                     ))}
                   </optgroup>
-                  <optgroup label="Conditions">
+                  <optgroup label={t('combat.conditionsGroup')}>
                     {IMMUNE_CONDITIONS.map((condition) => (
                       <option key={condition} value={condition}>
-                        {capitalize(condition)}
+                        {terms.condition(condition)}
                       </option>
                     ))}
                   </optgroup>
@@ -309,7 +324,7 @@ export function Dnd5eDefensesPane({ sheet, onMutate }: PaneProps) {
               ) : (
                 DAMAGE_TYPES.map((damage) => (
                   <option key={damage} value={damage}>
-                    {capitalize(damage)}
+                    {terms.damageType(damage)}
                   </option>
                 ))
               )}
@@ -320,7 +335,7 @@ export function Dnd5eDefensesPane({ sheet, onMutate }: PaneProps) {
           const entries = custom.filter((defense) => defense.type === key);
           return entries.length === 0 ? null : (
             <section key={key} className="defenses-pane__custom-group">
-              <h3 className="defenses-pane__custom-heading">{plural}</h3>
+              <h3 className="defenses-pane__custom-heading">{t(plural)}</h3>
               {entries.map((defense) => (
                 <CustomDefenseRow key={defense.key} defense={defense} onMutate={onMutate} />
               ))}

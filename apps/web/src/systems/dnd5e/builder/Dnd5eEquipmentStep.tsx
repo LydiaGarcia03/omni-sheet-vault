@@ -4,6 +4,7 @@ import { postCreationRoll } from '../../../dice/api';
 import { PendingMark } from '../../../builder/PendingMark';
 import { Segmented } from '../../../builder/Segmented';
 import { SourceSelect } from '../../../builder/SourceSelect';
+import { useDnd5eText } from '../locales/dnd5eMessages';
 
 type Dnd5eEquipmentStepProps = {
   characterId: string;
@@ -15,20 +16,21 @@ type Dnd5eEquipmentStepProps = {
 
 /** The starting items, with Wear/Wield toggles for what can start equipped, and the starting money, read-only. */
 export function StartingInventory({ startingEquipment, onEquip }: { startingEquipment: StartingEquipment; onEquip: (lineKey: string, equipped: boolean) => void }) {
+  const t = useDnd5eText();
   const { inventory, gold, silver, copper } = startingEquipment;
   const coins = [
-    [gold, 'gp'],
-    [silver, 'sp'],
-    [copper, 'cp'],
+    [gold, t('terms.coins.gold').toLowerCase()],
+    [silver, t('terms.coins.silver').toLowerCase()],
+    [copper, t('terms.coins.copper').toLowerCase()],
   ].filter(([amount]) => Number(amount) > 0);
   return (
     <>
       <section className="builder-frame">
         <div className="builder-frame__title">
-          <span>Current inventory ({inventory.length})</span>
+          <span>{t('builder.equipment.currentInventory', { count: inventory.length })}</span>
         </div>
         {inventory.length === 0 ? (
-          <p className="builder-muted">Nothing yet. Choose your starting equipment above.</p>
+          <p className="builder-muted">{t('builder.equipment.nothingYet')}</p>
         ) : (
           <>
             {inventory.map((item, index) => (
@@ -44,20 +46,24 @@ export function StartingInventory({ startingEquipment, onEquip }: { startingEqui
                     aria-pressed={item.equipped}
                     onClick={() => onEquip(item.key as string, !item.equipped)}
                   >
-                    {item.equipped ? `✓ ${item.equipAction === 'WEAR' ? 'Worn' : 'Wielded'}` : item.equipAction === 'WEAR' ? 'Wear' : 'Wield'}
+                    {item.equipped
+                      ? `✓ ${item.equipAction === 'WEAR' ? t('terms.builder.worn') : t('terms.builder.wielded')}`
+                      : item.equipAction === 'WEAR'
+                        ? t('terms.builder.wear')
+                        : t('terms.builder.wield')}
                   </button>
                 )}
               </div>
             ))}
-            <p className="builder-muted">What you wear or wield starts equipped on the sheet. The summary's armor class and attacks follow it.</p>
+            <p className="builder-muted">{t('builder.equipment.equippedNote')}</p>
           </>
         )}
       </section>
       <section className="builder-frame">
         <div className="builder-frame__title">
-          <span>Currency</span>
+          <span>{t('terms.builder.currency')}</span>
         </div>
-        <p style={{ margin: 0 }}>{coins.length === 0 ? 'No starting money.' : coins.map(([amount, unit]) => `${amount} ${unit}`).join(' · ')}</p>
+        <p style={{ margin: 0 }}>{coins.length === 0 ? t('builder.equipment.noMoney') : coins.map(([amount, unit]) => `${amount} ${unit}`).join(' · ')}</p>
       </section>
     </>
   );
@@ -69,6 +75,7 @@ export function StartingInventory({ startingEquipment, onEquip }: { startingEqui
  * that needs them.
  */
 export function Dnd5eEquipmentStep({ characterId, choices, onAnswer, startingEquipment, onEquip }: Dnd5eEquipmentStepProps) {
+  const t = useDnd5eText();
   const fromClass = (source: string) => choices.some((choice) => choice.sourceLabel === source && choice.id.startsWith('class:'));
   const sources = [...new Set(choices.map((choice) => choice.sourceLabel))].sort((a, b) => Number(fromClass(b)) - Number(fromClass(a)));
   const inventory = startingEquipment && onEquip ? <StartingInventory startingEquipment={startingEquipment} onEquip={onEquip} /> : null;
@@ -76,8 +83,8 @@ export function Dnd5eEquipmentStep({ characterId, choices, onAnswer, startingEqu
     return (
       <>
         <section className="builder-frame">
-          <div className="builder-frame__title">Starting equipment</div>
-          <p className="builder-muted">Choose a class and a background to see their starting equipment.</p>
+          <div className="builder-frame__title">{t('terms.builder.startingEquipment')}</div>
+          <p className="builder-muted">{t('builder.equipment.chooseFirst')}</p>
         </section>
         {inventory}
       </>
@@ -102,6 +109,7 @@ export function Dnd5eEquipmentStep({ characterId, choices, onAnswer, startingEqu
 type SourcePackageProps = { characterId: string; source: string; choices: CreationChoice[]; onAnswer: Dnd5eEquipmentStepProps['onAnswer'] };
 
 function SourcePackage({ characterId, source, choices, onAnswer }: SourcePackageProps) {
+  const t = useDnd5eText();
   const method = choices.find((choice) => choice.type === 'EQUIPMENT_METHOD');
   const groups = choices.filter((choice) => choice.type === 'EQUIPMENT');
   const groupIds = new Set(groups.map((group) => group.id));
@@ -114,22 +122,26 @@ function SourcePackage({ characterId, source, choices, onAnswer }: SourcePackage
   return (
     <section className="builder-frame">
       <div className="builder-frame__title">
-        <span>{source} starting equipment</span>
-        {pending > 0 ? <span className="builder-badge builder-badge--pending">{pending} left</span> : <span className="builder-badge builder-badge--done">done</span>}
+        <span>{t('builder.equipment.sourcePackage', { source })}</span>
+        {pending > 0 ? (
+          <span className="builder-badge builder-badge--pending">{t('builder.left', { count: pending })}</span>
+        ) : (
+          <span className="builder-badge builder-badge--done">{t('builder.done')}</span>
+        )}
       </div>
       {method && (
         <div className="builder-equip-method">
           <Segmented
             value={(method.selected[0] as 'equipment' | 'gold' | undefined) ?? null}
             options={[
-              ['equipment', 'Equipment'],
-              ['gold', 'Gold'],
+              ['equipment', t('terms.builder.equipment')],
+              ['gold', t('terms.builder.gold')],
             ]}
             onChange={(key) => onAnswer(method.id, [key])}
             ariaLabel={method.prompt}
           />
-          {takesGold && !goldRoll && gold?.summary && <span className="builder-muted">Starting gold: {gold.summary}</span>}
-          {!method.selected.length && <span className="builder-muted">Take the class's equipment, or its gold to buy your own.</span>}
+          {takesGold && !goldRoll && gold?.summary && <span className="builder-muted">{t('builder.equipment.startingGold', { amount: gold.summary })}</span>}
+          {!method.selected.length && <span className="builder-muted">{t('builder.equipment.takeEquipmentOrGold')}</span>}
         </div>
       )}
       {takesGold && goldRoll && <StartingGoldRoll characterId={characterId} choice={goldRoll} onAnswer={onAnswer} />}
@@ -139,7 +151,7 @@ function SourcePackage({ characterId, source, choices, onAnswer }: SourcePackage
             <EquipmentGroup
               key={group.id}
               group={group}
-              label={`Choice ${index + 1}`}
+              label={t('builder.equipment.choiceNumber', { number: index + 1 })}
               items={choices.filter((choice) => choice.parentChoiceId === group.id)}
               onAnswer={onAnswer}
             />
@@ -164,12 +176,13 @@ const OPTION_LETTER = /^\((\w)\)\s*/;
 
 /** One A-or-B pick: a titled radio list with "or" between options; choosing one dims the others and opens its item picks below it. */
 function EquipmentGroup({ group, label, items, onAnswer }: EquipmentGroupProps) {
+  const t = useDnd5eText();
   const picked = group.selected[0] ?? null;
   return (
     <div className="builder-equip-group">
       <div className="builder-equip-group__head">
         <span className="builder-equip-group__title">{label}</span>
-        <span className="builder-muted">Pick one of {group.options.length}</span>
+        <span className="builder-muted">{t('builder.equipment.pickOneOf', { count: group.options.length })}</span>
         {group.pending && <PendingMark />}
       </div>
       <div role="radiogroup" aria-label={label}>
@@ -180,7 +193,7 @@ function EquipmentGroup({ group, label, items, onAnswer }: EquipmentGroupProps) 
             <div key={option.key}>
               {index > 0 && (
                 <div className="builder-equip-or" aria-hidden="true">
-                  <span>or</span>
+                  <span>{t('builder.equipment.or')}</span>
                 </div>
               )}
               <div className={`builder-equip-option${on ? ' is-on' : ''}${picked && !on ? ' is-dim' : ''}`}>
@@ -205,6 +218,7 @@ type StartingGoldRollProps = { characterId: string; choice: CreationChoice; onAn
 
 /** The class's gold dice: a typed or rolled total, shown multiplied into gold pieces. */
 function StartingGoldRoll({ characterId, choice, onAnswer }: StartingGoldRollProps) {
+  const t = useDnd5eText();
   const rules = choice.options[0]?.data as GoldRules | undefined;
   const answered = choice.selected[0] ?? null;
   const [typed, setTyped] = useState<string>(answered ?? '');
@@ -238,7 +252,7 @@ function StartingGoldRoll({ characterId, choice, onAnswer }: StartingGoldRollPro
       const result = await postCreationRoll(characterId, { sides: rules.sides, count: rules.count, keepHighest: null, context: rules.rollLabel });
       onAnswer(choice.id, [String(result.total)]);
     } catch {
-      setRollError('The roll failed. Try again.');
+      setRollError(t('builder.rollFailed'));
     } finally {
       setRolling(false);
     }
@@ -250,7 +264,7 @@ function StartingGoldRoll({ characterId, choice, onAnswer }: StartingGoldRollPro
     <div className="builder-equip-gold">
       <p className="builder-hp__subtitle">
         {choice.prompt}: {dice}
-        {multiplied} gp
+        {multiplied} {t('terms.coins.gold').toLowerCase()}
         {choice.pending && <PendingMark />}
       </p>
       <div className="builder-equip-gold__row">
@@ -259,27 +273,29 @@ function StartingGoldRoll({ characterId, choice, onAnswer }: StartingGoldRollPro
           type="text"
           inputMode="numeric"
           maxLength={3}
-          aria-label={`Starting gold roll (${dice})`}
+          aria-label={t('builder.equipment.goldRollAria', { dice })}
           value={typed}
           onChange={(event) => type(event.target.value)}
         />
         <button type="button" className="builder-btn" disabled={rolling} onClick={roll}>
-          {rolling ? 'Rolling…' : `Roll ${dice}`}
+          {rolling ? t('builder.rolling') : t('builder.rollDice', { dice })}
         </button>
         <span className="builder-equip-gold__result">
           {answered ? (
             <>
               {answered}
-              {multiplied} = <b>{Number(answered) * rules.multiplier} gp</b>
+              {multiplied} = <b>{Number(answered) * rules.multiplier} {t('terms.coins.gold').toLowerCase()}</b>
             </>
           ) : (
-            <span className="builder-muted">Average would be {Math.floor((rules.count * (rules.sides + 1) * rules.multiplier) / 2)} gp</span>
+            <span className="builder-muted">
+              {t('builder.averageWouldBe', { value: `${Math.floor((rules.count * (rules.sides + 1) * rules.multiplier) / 2)} ${t('terms.coins.gold').toLowerCase()}` })}
+            </span>
           )}
         </span>
       </div>
       {outOfRange && (
         <p className="builder-problem">
-          {dice} rolls between {minimum} and {maximum}.
+          {t('builder.equipment.rollRange', { dice, min: minimum, max: maximum })}
         </p>
       )}
       {rollError && <p className="builder-problem">{rollError}</p>}
@@ -289,6 +305,7 @@ function StartingGoldRoll({ characterId, choice, onAnswer }: StartingGoldRollPro
 
 /** "Choose 2 martial weapons": one select per item, so the same weapon can be taken twice. */
 function ItemPick({ choice, onAnswer }: { choice: CreationChoice; onAnswer: Dnd5eEquipmentStepProps['onAnswer'] }) {
+  const t = useDnd5eText();
   const slots: (string | null)[] = Array.from({ length: choice.count }, (_, index) => choice.selected[index] ?? null);
   const set = (index: number, key: string | null) => {
     const next = [...slots];
@@ -307,7 +324,7 @@ function ItemPick({ choice, onAnswer }: { choice: CreationChoice; onAnswer: Dnd5
           options={choice.options}
           value={value}
           onChange={(key) => set(index, key)}
-          placeholder="— choose —"
+          placeholder={t('builder.chooseDash')}
           ariaLabel={choice.count > 1 ? `${choice.prompt} (${index + 1})` : choice.prompt}
           clearable
         />

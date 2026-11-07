@@ -134,6 +134,18 @@ export async function saveDraft(id: string, name: string, build: unknown): Promi
   return readJson<Draft>(response, 'save the draft');
 }
 
+/** What a build the player is only considering would plan and preview as; the draft itself is not changed. */
+export type HypotheticalDraft = { plan: BuildPlan; preview: DraftPreview };
+
+export async function previewDraft(id: string, build: unknown): Promise<HypotheticalDraft> {
+  const response = await apiFetch(`/api/characters/${id}/draft/preview`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(build),
+  });
+  return readJson<HypotheticalDraft>(response, 'preview the option');
+}
+
 export async function finishDraft(id: string): Promise<Character> {
   return readJson<Character>(await apiFetch(`/api/characters/${id}/draft/finish`, { method: 'POST' }), 'finish the character');
 }

@@ -23,7 +23,7 @@ function character(overrides: Partial<Character>): Character {
     createdAt: '2026-09-23T00:00:00Z',
     portrait: null,
     summary: [
-      { label: 'Classes', value: 'Rogue 4 / Sorcerer 3' },
+      { label: 'Classes', value: 'Rogue 4 · Sorcerer 3' },
       { label: 'Species', value: 'Changeling' },
     ],
     ...overrides,
@@ -48,14 +48,25 @@ describe('HomePage', () => {
   it('lists characters as banners grouped by system, with each class level and the species', async () => {
     api.listCharacters.mockResolvedValue([
       character({}),
-      character({ id: 'c2', name: 'New character', status: 'DRAFT', summary: [{ label: 'Classes', value: 'Bard 3' }] }),
+      character({
+        id: 'c2',
+        name: 'New character',
+        status: 'DRAFT',
+        summary: [
+          { label: 'Classes', value: 'Bard 3' },
+          { label: 'Species', value: 'High Elf' },
+          { label: 'Background', value: 'Sage' },
+        ],
+      }),
     ]);
     renderHome();
 
     const group = await screen.findByRole('region', { name: 'D&D 5e' });
-    expect(within(group).getByText('Rogue 4 / Sorcerer 3')).toBeInTheDocument();
+    expect(within(group).getByText('Rogue 4 · Sorcerer 3')).toBeInTheDocument();
     expect(within(group).getByText('Changeling')).toBeInTheDocument();
     expect(within(group).getByText('Draft · continue creating')).toBeInTheDocument();
+    expect(within(group).getByText('High Elf')).toBeInTheDocument();
+    expect(within(group).queryByText('Sage')).not.toBeInTheDocument();
     expect(within(group).getByRole('link', { name: 'Open Vex' })).toHaveAttribute('href', '/characters/c1');
     expect(within(group).getByRole('link', { name: 'Continue creating New character' })).toHaveAttribute('href', '/characters/c2/build');
   });

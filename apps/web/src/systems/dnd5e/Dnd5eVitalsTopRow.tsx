@@ -1,5 +1,6 @@
 import type { RollContextMenuHandler, RollHandler } from '../../dice/api';
 import type { CharacterSheet, ExplainHandler, MutationHandler, PaneHandler } from '../../sheet/api';
+import { ABILITIES } from './abilities';
 import { AbilityBox } from './AbilityBox';
 import { Dnd5eAbilityPane } from './Dnd5eAbilityPane';
 import { displayedMovement, Dnd5eSpeedPane } from './Dnd5eCombatPanes';
@@ -9,20 +10,13 @@ import { FrameIcon } from './FrameIcon';
 import { HeroicInspiration } from './HeroicInspiration';
 import { HitPoints } from './HitPoints';
 import { ABILITY_RULES_TEXT, PROFICIENCY_BONUS_RULES_TEXT } from './rulesText';
+import { useDnd5eTerms } from './locales/dnd5eMessages';
 import { StatBadge } from './StatBadge';
 
 function formatSigned(amount: number): string {
   return amount >= 0 ? `+${amount}` : `−${Math.abs(amount)}`;
 }
 
-const ABILITIES: { key: string; label: string }[] = [
-  { key: 'strength', label: 'Strength' },
-  { key: 'dexterity', label: 'Dexterity' },
-  { key: 'constitution', label: 'Constitution' },
-  { key: 'intelligence', label: 'Intelligence' },
-  { key: 'wisdom', label: 'Wisdom' },
-  { key: 'charisma', label: 'Charisma' },
-];
 
 type Dnd5eVitalsTopRowProps = {
   sheet: CharacterSheet;
@@ -95,10 +89,12 @@ export function Dnd5eVitalsTopRow({
   onOpenHpManagement,
   onRollDeathSave,
 }: Dnd5eVitalsTopRowProps) {
-  const movement = displayedMovement(sheet);
+  const terms = useDnd5eTerms();
+  const { t } = terms;
+  const movement = displayedMovement(sheet, terms);
   return (
     <div style={{ display: 'flex', gap: '5px', justifyContent: 'space-between', alignItems: 'flex-start', margin: '-8px 0 10px' }}>
-      {ABILITIES.map(({ key, label }) => (
+      {ABILITIES.map(({ key }) => ({ key, label: terms.ability(key) })).map(({ key, label }) => (
         <AbilityBox
           key={key}
           name={label}
@@ -124,15 +120,15 @@ export function Dnd5eVitalsTopRow({
         />
       ))}
       <StatBadge
-        heading="Proficiency"
+        heading={t('terms.labels.proficiencyTop')}
         headingClassName="text-bold-uppercase"
         value={sheet.proficiencyBonus.value >= 0 ? `+${sheet.proficiencyBonus.value}` : `${sheet.proficiencyBonus.value}`}
-        caption="Bonus"
-        ariaLabel={`Proficiency bonus ${sheet.proficiencyBonus.value}, open details`}
+        caption={t('terms.labels.proficiencyBottom')}
+        ariaLabel={t('vitals.proficiencyAria', { value: sheet.proficiencyBonus.value })}
         onOpenExplainer={() =>
           onExplain({
             kind: 'explainer',
-            title: 'Proficiency Bonus',
+            title: t('terms.labels.proficiencyBonus'),
             formattedValue: formatSigned(sheet.proficiencyBonus.value),
             contributions: sheet.proficiencyBonus.contributions,
             rulesText: PROFICIENCY_BONUS_RULES_TEXT,
@@ -141,9 +137,9 @@ export function Dnd5eVitalsTopRow({
       />
       <StatBadge
         heading={movement.label}
-        value={`${movement.speed} ft.`}
-        caption="Speed"
-        ariaLabel={`${movement.label} speed ${movement.speed} feet, open details`}
+        value={terms.feet(movement.speed)}
+        caption={t('terms.labels.speed')}
+        ariaLabel={t('vitals.speedAria', { movement: movement.label, distance: terms.feet(movement.speed) })}
         onOpenExplainer={() =>
           onOpenPane({ kind: 'pane', render: (liveSheet) => <Dnd5eSpeedPane sheet={liveSheet} onMutate={onMutate} /> })
         }

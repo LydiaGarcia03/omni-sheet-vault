@@ -23,6 +23,25 @@ function renderTour(onNavigate = vi.fn(), onClose = vi.fn()) {
   return { onNavigate, onClose };
 }
 
+/** A 1280 x 720 window whose tutorial bubbles render 356 px tall; returns the undo. */
+function stubLaptopWindow(): () => void {
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+  Object.defineProperty(window, 'innerWidth', { configurable: true, value: 1280 });
+  Object.defineProperty(window, 'innerHeight', { configurable: true, value: 720 });
+  Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
+    configurable: true,
+    get(this: HTMLElement) {
+      return this.classList.contains('tutorial__bubble') ? 356 : 0;
+    },
+  });
+  return () => {
+    Object.defineProperty(window, 'innerWidth', { configurable: true, value: width });
+    Object.defineProperty(window, 'innerHeight', { configurable: true, value: height });
+    delete (HTMLElement.prototype as { offsetHeight?: number }).offsetHeight;
+  };
+}
+
 describe('Tutorial', () => {
   it('starts on the first step with its count, themed by the system class', () => {
     renderTour();
@@ -57,6 +76,25 @@ describe('Tutorial', () => {
     expect(screen.queryByRole('button', { name: 'Skip tutorial' })).toBeNull();
     fireEvent.click(screen.getByRole('button', { name: 'Finish' }));
     expect(onClose).toHaveBeenCalledTimes(3);
+  });
+
+  it('keeps a bubble taller than the room around its target inside the window, and scrolls so both fit', async () => {
+    const restore = stubLaptopWindow();
+    const scrollBy = vi.spyOn(window, 'scrollBy').mockImplementation(() => {});
+    try {
+      renderTour();
+      const target = document.querySelector<HTMLElement>('[data-tutorial="checklist"]')!;
+      target.getBoundingClientRect = () => DOMRect.fromRect({ x: 314, y: 228, width: 607, height: 262 });
+
+      fireEvent.click(screen.getByRole('button', { name: 'Next' }));
+
+      await waitFor(() => expect(scrollBy).toHaveBeenCalledWith({ top: 206 }));
+      const bubble = screen.getByRole('dialog', { name: 'Progress' });
+      expect(bubble.style.top).toBe('348px');
+    } finally {
+      scrollBy.mockRestore();
+      restore();
+    }
   });
 
   it('calls onFinish, not onClose, when Finish is clicked on the last step', () => {

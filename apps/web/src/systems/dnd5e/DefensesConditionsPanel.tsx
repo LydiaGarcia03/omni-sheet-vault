@@ -6,6 +6,7 @@ import frameInkSvg from './frames/dnd_frame_defenses_conditions_ink.svg?raw';
 import immunitySvg from './frames/dnd_icon_immunity.svg?raw';
 import resistanceSvg from './frames/dnd_icon_resistance.svg?raw';
 import vulnerabilitySvg from './frames/dnd_icon_vulnerability.svg?raw';
+import { useDnd5eTerms } from './locales/dnd5eMessages';
 import { SectionPanel } from './SectionPanel';
 
 export const CONDITIONS: { key: string; label: string }[] = [
@@ -67,20 +68,22 @@ type DefensesConditionsPanelProps = {
  * lists them above the conditions, each with an End button.
  */
 export function DefensesConditionsPanel({ sheet, onOpenConditions, onOpenDefenses }: DefensesConditionsPanelProps) {
+  const terms = useDnd5eTerms();
+  const { t } = terms;
   const resistances = defenseLabels(sheet, 'RESISTANCE', sheet.damageResistances);
   const immunities = defenseLabels(sheet, 'IMMUNITY', sheet.damageImmunities);
   const vulnerabilities = defenseLabels(sheet, 'VULNERABILITY', sheet.damageVulnerabilities);
   const plainCategories = [
-    { label: 'Condition Immunities', items: defenseLabels(sheet, 'CONDITION_IMMUNITY', sheet.conditionImmunities) },
+    { label: t('terms.defenses.conditionImmunities'), items: defenseLabels(sheet, 'CONDITION_IMMUNITY', sheet.conditionImmunities) },
   ].filter((category) => category.items.length > 0);
 
   const activeLabels = CONDITIONS.filter((condition) => sheet.activeConditions.includes(condition.key)).map(
-    (condition) => condition.label,
+    (condition) => terms.condition(condition.key),
   );
   if (sheet.exhaustionLevel > 0) {
-    activeLabels.push(`Exhaustion (Level ${sheet.exhaustionLevel})`);
+    activeLabels.push(t('combat.exhaustionLevel', { exhaustion: terms.condition('exhaustion'), level: sheet.exhaustionLevel }));
   }
-  activeLabels.push(...sheet.activeEffects.map((effect) => (effect.onSelf ? effect.name : `${effect.name} (Ally)`)));
+  activeLabels.push(...sheet.activeEffects.map((effect) => (effect.onSelf ? effect.name : t('combat.ally', { name: effect.name }))));
 
   return (
     <SectionPanel frameClass="defenses-conditions-panel" svg={frameSvg} inkSvg={frameInkSvg} contentClassName="defenses-conditions">
@@ -88,7 +91,7 @@ export function DefensesConditionsPanel({ sheet, onOpenConditions, onOpenDefense
         className="defenses-conditions__col defenses-conditions__defenses reveal"
         role="button"
         tabIndex={0}
-        aria-label="Defenses, open details"
+        aria-label={t('combat.defensesAria')}
         onClick={onOpenDefenses}
         onKeyDown={(event) => {
           if (event.key === 'Enter' || event.key === ' ') {
@@ -97,11 +100,11 @@ export function DefensesConditionsPanel({ sheet, onOpenConditions, onOpenDefense
           }
         }}
       >
-        <div className="panel__title">Defenses</div>
+        <div className="panel__title">{t('terms.defenses.defenses')}</div>
         {resistances.length > 0 && (
           <div className="panel__rows">
             <div className="damage-item-row">
-              <DamageTypeIcon svg={resistanceSvg} variant="resistance" label="Resistance" />
+              <DamageTypeIcon svg={resistanceSvg} variant="resistance" label={t('terms.defenses.resistance')} />
               <span>{resistances.join(', ')}</span>
             </div>
           </div>
@@ -109,7 +112,7 @@ export function DefensesConditionsPanel({ sheet, onOpenConditions, onOpenDefense
         {immunities.length > 0 && (
           <div className="panel__rows">
             <div className="damage-item-row">
-              <DamageTypeIcon svg={immunitySvg} variant="immunity" label="Immunity" />
+              <DamageTypeIcon svg={immunitySvg} variant="immunity" label={t('terms.defenses.immunity')} />
               <span>{immunities.join(', ')}</span>
             </div>
           </div>
@@ -117,7 +120,7 @@ export function DefensesConditionsPanel({ sheet, onOpenConditions, onOpenDefense
         {vulnerabilities.length > 0 && (
           <div className="panel__rows">
             <div className="damage-item-row">
-              <DamageTypeIcon svg={vulnerabilitySvg} variant="vulnerability" label="Vulnerability" />
+              <DamageTypeIcon svg={vulnerabilitySvg} variant="vulnerability" label={t('terms.defenses.vulnerability')} />
               <span>{vulnerabilities.join(', ')}</span>
             </div>
           </div>
@@ -135,9 +138,9 @@ export function DefensesConditionsPanel({ sheet, onOpenConditions, onOpenDefense
       </div>
       <div className="defenses-conditions__divider" aria-hidden="true" />
       <div className="defenses-conditions__col">
-        <div className="panel__title">Conditions</div>
+        <div className="panel__title">{t('combat.conditionsGroup')}</div>
         <button type="button" className="reveal defenses-conditions__trigger" onClick={onOpenConditions}>
-          {activeLabels.length > 0 ? activeLabels.join(', ') : 'Add Active Conditions'}
+          {activeLabels.length > 0 ? activeLabels.join(', ') : t('combat.addActiveConditions')}
         </button>
       </div>
     </SectionPanel>

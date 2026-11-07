@@ -1,19 +1,21 @@
 import { useState } from 'react';
 import type { CatalogueEntry, SpellCatalogueEntryData } from '../catalogue/api';
 import type { Spell, SpellcastingClassInfo, SpellManagementRequest, SpellSlotLevel } from './api';
+import { formatOrdinal } from '../language/format';
+import { useLanguage } from '../language/language';
+import { useSheetText } from '../locales/platformMessages';
 import { catalogueEntryLabel } from './CatalogueSourceLabel';
 import { SidebarCollapsible, SidebarHeader } from './sidebarParts';
 
-function ordinal(level: number): string {
-  if (level === 1) return '1st';
-  if (level === 2) return '2nd';
-  if (level === 3) return '3rd';
-  return `${level}th`;
+function useSpellLevels() {
+  const t = useSheetText();
+  const { locale } = useLanguage();
+  const ordinal = (level: number) => formatOrdinal(level, locale);
+  return { t, ordinal, levelLabel: (level: number) => (level === 0 ? t('terms.cantrip') : ordinal(level)) };
 }
 
-const levelLabel = (level: number) => (level === 0 ? 'Cantrip' : ordinal(level));
-
 function SpellName({ name, level }: { name: string; level: number }) {
+  const { levelLabel } = useSpellLevels();
   return (
     <span className="spell-manage__spell-name">
       {name}
@@ -24,6 +26,7 @@ function SpellName({ name, level }: { name: string; level: number }) {
 
 /** The Spell Slots header: D&D Beyond's per-level "1st / 4" callout, the slots themselves inside. */
 function SpellSlotsSection({ slots }: { slots: SpellSlotLevel[] }) {
+  const { t, ordinal } = useSpellLevels();
   const regular = slots.filter((slot) => !slot.pact && slot.maxSlots > 0);
   if (regular.length === 0) {
     return null;
@@ -40,11 +43,11 @@ function SpellSlotsSection({ slots }: { slots: SpellSlotLevel[] }) {
   );
   return (
     <div className="spell-manage__slots">
-      <SidebarCollapsible heading="Spell Slots" callout={callout}>
+      <SidebarCollapsible heading={t('terms.spellSlots')} callout={callout}>
         <ul className="spell-manage__slot-list">
           {regular.map((slot) => (
             <li key={slot.level}>
-              {ordinal(slot.level)} Level: {slot.maxSlots - slot.usedSlots} of {slot.maxSlots} available
+              {t('spells.slotLevel', { level: ordinal(slot.level), available: slot.maxSlots - slot.usedSlots, max: slot.maxSlots })}
             </li>
           ))}
         </ul>
@@ -68,6 +71,7 @@ type ClassSectionProps = {
  * with Learn or Delete) and Prepared Spells (the known ones, with Prepare / Unprepare, Always Prepared or Delete).
  */
 function ClassSection({ classInfo, knownSpells, catalogue, onLearn, onRemove, onPrepare, onUnprepare }: ClassSectionProps) {
+  const { t, ordinal } = useSpellLevels();
   const [search, setSearch] = useState('');
   const [levels, setLevels] = useState<number[]>([]);
   const classSpells = knownSpells.filter((spell) => spell.className === classInfo.className);
@@ -90,39 +94,39 @@ function ClassSection({ classInfo, knownSpells, catalogue, onLearn, onRemove, on
   return (
     <section className="spell-manage__class">
       <h2 className="spell-manage__class-heading">{classInfo.className}</h2>
-      <SidebarCollapsible heading="Known Spells">
+      <SidebarCollapsible heading={t('terms.knownSpells')}>
         <div className="spell-manage__info">
           {classInfo.cantripsKnownMax > 0 && (
             <div className={`spell-manage__info-entry${exceeded(cantripsKnown, classInfo.cantripsKnownMax)}`}>
-              Cantrips: {cantripsKnown}/{classInfo.cantripsKnownMax}
+              {t('spells.cantripsCount', { count: cantripsKnown, max: classInfo.cantripsKnownMax })}
             </div>
           )}
           {preparedCaster ? (
             <div className={`spell-manage__info-entry${exceeded(prepared, classInfo.spellsPreparedMax)}`}>
-              Prepared Spells: {prepared}
+              {t('spells.preparedCount', { count: prepared })}
               {classInfo.spellsPreparedMax != null ? `/${classInfo.spellsPreparedMax}` : ''}
-              <span className="spell-manage__info-extra">({leveledKnown} Known)</span>
+              <span className="spell-manage__info-extra">{t('spells.knownExtra', { count: leveledKnown })}</span>
             </div>
           ) : (
             <div className={`spell-manage__info-entry${exceeded(leveledKnown, classInfo.spellsKnownMax)}`}>
-              Spells Known: {leveledKnown}
+              {t('spells.knownCount', { count: leveledKnown })}
               {classInfo.spellsKnownMax != null ? `/${classInfo.spellsKnownMax}` : ''}
             </div>
           )}
         </div>
         <div className="inventory-manage__filter-group">
-          <div className="inventory-manage__filter-label">Filter</div>
+          <div className="inventory-manage__filter-label">{t('common.filter')}</div>
           <input
             className="inventory-manage__search"
             type="search"
-            aria-label={`Filter ${classInfo.className} spells`}
-            placeholder="Enter Spell Name"
+            aria-label={t('spells.filterLabel', { className: classInfo.className })}
+            placeholder={t('spells.namePlaceholder')}
             value={search}
             onChange={(event) => setSearch(event.target.value)}
           />
         </div>
         <div className="inventory-manage__filter-group">
-          <div className="inventory-manage__filter-label">Filter By Spell Level</div>
+          <div className="inventory-manage__filter-label">{t('spells.filterByLevel')}</div>
           <div className="inventory-manage__chips">
             {offeredLevels.map((level) => (
               <button
@@ -130,7 +134,7 @@ function ClassSection({ classInfo, knownSpells, catalogue, onLearn, onRemove, on
                 type="button"
                 className={levels.includes(level) ? 'inventory-manage__chip is-active' : 'inventory-manage__chip'}
                 aria-pressed={levels.includes(level)}
-                aria-label={level === 0 ? 'Cantrips' : `${ordinal(level)} level`}
+                aria-label={level === 0 ? t('terms.cantrips') : t('spells.levelChip', { level: ordinal(level) })}
                 onClick={() => toggleLevel(level)}
               >
                 {level === 0 ? '- 0 -' : ordinal(level)}
@@ -146,12 +150,12 @@ function ClassSection({ classInfo, knownSpells, catalogue, onLearn, onRemove, on
               <li key={entry.id} className="spell-manage__spell">
                 <SpellName name={entry.name} level={levelOf(entry)} />
                 {known ? (
-                  <button type="button" className="mutate spell-manage__button spell-manage__button--filled" aria-label={`Remove ${known.name}`} onClick={() => onRemove(known.key)}>
-                    Delete
+                  <button type="button" className="mutate spell-manage__button spell-manage__button--filled" aria-label={t('common.removeName', { name: known.name })} onClick={() => onRemove(known.key)}>
+                    {t('common.delete')}
                   </button>
                 ) : (
-                  <button type="button" className="mutate spell-manage__button" aria-label={`Learn ${label}`} onClick={() => onLearn(entry.id, classInfo.className)}>
-                    Learn
+                  <button type="button" className="mutate spell-manage__button" aria-label={t('common.learnName', { name: label })} onClick={() => onLearn(entry.id, classInfo.className)}>
+                    {t('common.learn')}
                   </button>
                 )}
               </li>
@@ -159,7 +163,7 @@ function ClassSection({ classInfo, knownSpells, catalogue, onLearn, onRemove, on
           })}
         </ul>
       </SidebarCollapsible>
-      <SidebarCollapsible heading={`${preparedCaster ? 'Prepared Spells' : 'Spells Known'} (${preparedCaster ? cantripsKnown + prepared : classSpells.length})`}>
+      <SidebarCollapsible heading={`${preparedCaster ? t('terms.preparedSpells') : t('terms.spellsKnown')} (${preparedCaster ? cantripsKnown + prepared : classSpells.length})`}>
         <ul className="spell-manage__spells">
           {classSpells
             .filter((spell) => !preparedCaster || spell.level === 0 || spell.prepared || spell.alwaysPrepared)
@@ -168,19 +172,19 @@ function ClassSection({ classInfo, knownSpells, catalogue, onLearn, onRemove, on
               <li key={spell.key} className="spell-manage__spell">
                 <SpellName name={spell.name} level={spell.level} />
                 {spell.alwaysPrepared ? (
-                  <span className="spell-manage__always">Always Prepared</span>
+                  <span className="spell-manage__always">{t('terms.alwaysPrepared')}</span>
                 ) : preparedCaster && spell.level > 0 ? (
                   <button
                     type="button"
                     className="mutate spell-manage__button"
-                    aria-label={spell.prepared ? `Unprepare ${spell.name}` : `Prepare ${spell.name}`}
+                    aria-label={t(spell.prepared ? 'spells.unprepareName' : 'spells.prepareName', { name: spell.name })}
                     onClick={() => (spell.prepared ? onUnprepare(spell.key) : onPrepare(spell.key))}
                   >
-                    {spell.prepared ? 'Unprepare' : 'Prepare'}
+                    {spell.prepared ? t('spells.unprepare') : t('spells.prepare')}
                   </button>
                 ) : (
-                  <button type="button" className="mutate spell-manage__button spell-manage__button--filled" aria-label={`Remove ${spell.name}`} onClick={() => onRemove(spell.key)}>
-                    Delete
+                  <button type="button" className="mutate spell-manage__button spell-manage__button--filled" aria-label={t('common.removeName', { name: spell.name })} onClick={() => onRemove(spell.key)}>
+                    {t('common.delete')}
                   </button>
                 )}
               </li>
@@ -194,8 +198,8 @@ function ClassSection({ classInfo, knownSpells, catalogue, onLearn, onRemove, on
               .map((spell) => (
                 <li key={spell.key} className="spell-manage__spell">
                   <SpellName name={spell.name} level={spell.level} />
-                  <button type="button" className="mutate spell-manage__button" aria-label={`Prepare ${spell.name}`} onClick={() => onPrepare(spell.key)}>
-                    Prepare
+                  <button type="button" className="mutate spell-manage__button" aria-label={t('spells.prepareName', { name: spell.name })} onClick={() => onPrepare(spell.key)}>
+                    {t('spells.prepare')}
                   </button>
                 </li>
               ))}
@@ -211,9 +215,10 @@ function ClassSection({ classInfo, knownSpells, catalogue, onLearn, onRemove, on
  * spellcasting class (see SpellManagementRequest for why this is not the Collection editor mold).
  */
 export function SpellManagementPanel({ classes, knownSpells, catalogue, slots = [], onLearn, onRemove, onPrepare, onUnprepare }: SpellManagementRequest) {
+  const t = useSheetText();
   return (
     <div className="spell-manage">
-      <SidebarHeader title="Manage Spells" />
+      <SidebarHeader title={t('spells.title')} />
       <SpellSlotsSection slots={slots} />
       {classes.map((classInfo) => (
         <ClassSection

@@ -2,6 +2,7 @@ package dev.omnisheetvault.api.catalogue;
 
 import dev.omnisheetvault.api.ruleset.CatalogueLookup;
 import dev.omnisheetvault.api.ruleset.registry.GameSystemRegistry;
+import dev.omnisheetvault.api.shared.InterfaceLocale;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -108,6 +109,6 @@ public class CatalogueService {
     }
 
     private CatalogueEntryResponse toResponse(CatalogueEntry entry) {
-        return CatalogueEntryResponse.from(entry, redactionEnabled, objectMapper);
+        return CatalogueEntryResponse.from(entry, redactionEnabled, objectMapper, InterfaceLocale.current());
     }
 }

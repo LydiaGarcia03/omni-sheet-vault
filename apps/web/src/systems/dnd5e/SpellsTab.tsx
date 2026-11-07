@@ -9,6 +9,7 @@ import { FrameIcon } from './FrameIcon';
 import filterIcon from './frames/dnd_icon_filter.svg?raw';
 import concentrationIcon from './frames/dnd_icon_marker_concentration.svg?raw';
 import ritualIcon from './frames/dnd_icon_marker_ritual.svg?raw';
+import { useDnd5eTerms } from './locales/dnd5eMessages';
 import { groupHeaderValues, type HeaderValue } from './spellcastingHeader';
 import { levelAbbreviation, levelLabel } from './SpellCast';
 import { SpellRow } from './SpellRow';
@@ -80,6 +81,8 @@ type SpellsTabProps = {
  * Entity Detail panel for the same spell.
  */
 export function SpellsTab({ sheet, onRoll, onRollContextMenu, onMutate, onOpenDetail, onOpenSpellManagement }: SpellsTabProps) {
+  const terms = useDnd5eTerms();
+  const { t } = terms;
   const [activeFilter, setActiveFilter] = useState('all');
   const [search, setSearch] = useState('');
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
@@ -94,13 +97,13 @@ export function SpellsTab({ sheet, onRoll, onRollContextMenu, onMutate, onOpenDe
   const hasConcentrationSpells = sheet.spells.some((spell) => spell.concentration);
   const hasRitualSpells = sheet.spells.some((spell) => spell.ritual);
   const chips = [
-    { id: 'all', label: 'All' },
-    ...levels.map((level) => ({ id: String(level), label: levelAbbreviation(level) })),
+    { id: 'all', label: t('actionsTab.all') },
+    ...levels.map((level) => ({ id: String(level), label: levelAbbreviation(level, terms) })),
     ...(hasConcentrationSpells
-      ? [{ id: 'concentration', label: <FrameIcon className="filter-chip__icon" svg={concentrationIcon} aria-hidden />, ariaLabel: 'Concentration' }]
+      ? [{ id: 'concentration', label: <FrameIcon className="filter-chip__icon" svg={concentrationIcon} aria-hidden />, ariaLabel: t('terms.labels.concentration') }]
       : []),
     ...(hasRitualSpells
-      ? [{ id: 'ritual', label: <FrameIcon className="filter-chip__icon" svg={ritualIcon} aria-hidden />, ariaLabel: 'Ritual' }]
+      ? [{ id: 'ritual', label: <FrameIcon className="filter-chip__icon" svg={ritualIcon} aria-hidden />, ariaLabel: t('terms.labels.ritual') }]
       : []),
   ];
 
@@ -135,27 +138,27 @@ export function SpellsTab({ sheet, onRoll, onRollContextMenu, onMutate, onOpenDe
   return (
     <div className="spells-tab">
       {sheet.spellcasting.length === 0 ? (
-        <p style={{ fontSize: '11px', color: 'var(--text-muted, #6B7A85)' }}>This character has no spellcasting.</p>
+        <p style={{ fontSize: '11px', color: 'var(--text-muted, #6B7A85)' }}>{t('spellsTab.noSpellcasting')}</p>
       ) : (
         <>
           <div className="spellcasting-header">
-            <HeaderStat label="Modifier" values={groupHeaderValues(sheet.spellcasting, (info) => info.spellcastingModifier.value)} signed />
-            <HeaderStat label="Spell Attack" values={groupHeaderValues(sheet.spellcasting, (info) => info.spellAttackBonus.value)} signed />
-            <HeaderStat label="Save DC" values={groupHeaderValues(sheet.spellcasting, (info) => info.spellSaveDc.value)} />
+            <HeaderStat label={t('spellsTab.modifier')} values={groupHeaderValues(sheet.spellcasting, (info) => info.spellcastingModifier.value)} signed />
+            <HeaderStat label={t('spellsTab.spellAttack')} values={groupHeaderValues(sheet.spellcasting, (info) => info.spellAttackBonus.value)} signed />
+            <HeaderStat label={t('spellsTab.saveDc')} values={groupHeaderValues(sheet.spellcasting, (info) => info.spellSaveDc.value)} />
           </div>
           <div className="tab-actions-row spells-actions-row">
-            <SearchField value={search} onChange={setSearch} placeholder="Search spells" />
+            <SearchField value={search} onChange={setSearch} placeholder={t('spellsTab.search')} />
             <button
               type="button"
               className={`mutate spells-filter-button${hasActiveAdvancedFilters(advancedFilters) ? ' spells-filter-button--active' : ''}`}
-              aria-label="Advanced filters"
+              aria-label={t('spellsTab.advancedFilters')}
               aria-pressed={showAdvancedFilters}
               onClick={() => setShowAdvancedFilters((current) => !current)}
             >
               <FrameIcon className="spells-filter-button__icon" svg={filterIcon} aria-hidden />
             </button>
             <button type="button" className="mutate spells-manage-button" onClick={onOpenSpellManagement}>
-              Manage Spells
+              {t('spellsTab.manage')}
             </button>
           </div>
         </>
@@ -179,7 +182,7 @@ export function SpellsTab({ sheet, onRoll, onRollContextMenu, onMutate, onOpenDe
               return (
               <section key={level}>
                 <div className="spells-level__heading">
-                  <div className="spells-level__heading-label">{levelLabel(level)}</div>
+                  <div className="spells-level__heading-label">{levelLabel(level, terms)}</div>
                   {pools.length > 0 && (
                     <div className="spells-level__slot-groups">
                       {pools.map((slot) => (
@@ -190,7 +193,7 @@ export function SpellsTab({ sheet, onRoll, onRollContextMenu, onMutate, onOpenDe
                             onUse={() => onMutate({ type: 'CONSUME_SPELL_SLOT', level, pact: slot.pact })}
                             onRestore={() => onMutate({ type: 'RESTORE_SPELL_SLOT', level, pact: slot.pact })}
                           />
-                          <span className="spells-level__slot-label">{slot.pact ? 'Pact' : 'Slots'}</span>
+                          <span className="spells-level__slot-label">{slot.pact ? t('spellsTab.pact') : t('spellsTab.slots')}</span>
                         </div>
                       ))}
                     </div>
@@ -200,12 +203,12 @@ export function SpellsTab({ sheet, onRoll, onRollContextMenu, onMutate, onOpenDe
                   rowClassName="spell-row"
                   columns={[
                     { key: 'cast', className: 'spell-row__cast' },
-                    { key: 'name', className: 'spell-row__name-cell grid-header-cell', content: 'Name' },
-                    { key: 'time', className: 'spell-row__time grid-header-cell', content: 'Time' },
-                    { key: 'range', className: 'spell-row__range grid-header-cell', content: 'Range' },
-                    { key: 'hit-dc', className: 'spell-row__hit-dc grid-header-cell', content: 'Hit / DC' },
-                    { key: 'effect', className: 'spell-row__effect grid-header-cell', content: 'Effect' },
-                    { key: 'notes', className: 'spell-row__notes grid-header-cell', content: 'Notes' },
+                    { key: 'name', className: 'spell-row__name-cell grid-header-cell', content: t('spellsTab.nameColumn') },
+                    { key: 'time', className: 'spell-row__time grid-header-cell', content: t('spellsTab.timeColumn') },
+                    { key: 'range', className: 'spell-row__range grid-header-cell', content: t('terms.labels.range') },
+                    { key: 'hit-dc', className: 'spell-row__hit-dc grid-header-cell', content: t('actionsTab.hitDcColumn') },
+                    { key: 'effect', className: 'spell-row__effect grid-header-cell', content: t('spellsTab.effectColumn') },
+                    { key: 'notes', className: 'spell-row__notes grid-header-cell', content: t('actionsTab.notesColumn') },
                   ]}
                 />
                 <div className="action-list">
@@ -217,7 +220,7 @@ export function SpellsTab({ sheet, onRoll, onRollContextMenu, onMutate, onOpenDe
                       spellcasting={sheet.spellcasting.find((info) => info.className === spell.className)}
                       onRoll={onRoll}
                       onRollContextMenu={onRollContextMenu}
-                      onOpenDetail={() => onOpenDetail(buildSpellDetailRequest(spell, sheet, onMutate, onRoll))}
+                      onOpenDetail={() => onOpenDetail(buildSpellDetailRequest(spell, sheet, onMutate, onRoll, terms))}
                     />
                   ))}
                 </div>

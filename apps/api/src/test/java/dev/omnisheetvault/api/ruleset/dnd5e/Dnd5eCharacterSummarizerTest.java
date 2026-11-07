@@ -20,7 +20,7 @@ class Dnd5eCharacterSummarizerTest {
                  "build":{"speciesSlug":"elf","subspeciesName":"High","classes":[]}}""";
 
         assertThat(summarizer.summarize(sheet, null, Dnd5eBuildFixtures.catalogue())).containsExactly(
-                new SummaryFact("Classes", "Fighter 4 / Wizard 3"),
+                new SummaryFact("Classes", "Fighter 4 · Wizard 3"),
                 new SummaryFact("Species", "High Elf"));
     }
 

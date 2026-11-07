@@ -27,6 +27,20 @@ interface CatalogueEntryRepository extends JpaRepository<CatalogueEntry, UUID> {
             WHERE e.systemId = :systemId GROUP BY e.kind""")
     List<KindFingerprint> fingerprintByKind(String systemId);
 
+    /** Every entry that carries at least one translation. */
+    @Query(value = "SELECT * FROM catalogue_entries WHERE translations <> '{}'::jsonb", nativeQuery = true)
+    List<CatalogueEntry> findTranslated();
+
+    /** The whole catalogue's entry count and latest change, across systems. */
+    @Query("SELECT COUNT(e) AS entryCount, MAX(e.updatedAt) AS lastUpdated FROM CatalogueEntry e")
+    CatalogueFingerprint fingerprint();
+
+    interface CatalogueFingerprint {
+        long getEntryCount();
+
+        java.time.Instant getLastUpdated();
+    }
+
     interface KindFingerprint {
         CatalogueEntryKind getKind();
 

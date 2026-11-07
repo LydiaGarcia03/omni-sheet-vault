@@ -1,6 +1,7 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import { CharacterPortrait } from '../characters/CharacterPortrait';
 import type { Portrait } from '../characters/portrait';
+import { useSheetText } from '../locales/platformMessages';
 import { AppFooter } from '../shell/AppFooter';
 import { AppHeader } from '../shell/AppHeader';
 
@@ -8,7 +9,8 @@ type SheetShellProps = {
   characterName: string;
   portrait: Portrait | null;
   systemId: string;
-  level: number;
+  /** The line under the name (D&D 5e: each class with its level). */
+  summary: string;
   userLabel: string;
   onOpenLog: () => void;
   onOpenShortRest: () => void;
@@ -24,8 +26,15 @@ type SheetShellProps = {
   portraitBadge?: ReactNode;
   /** The system's page backdrop (D&D 5e: the parchment). */
   pageClassName?: string;
+  /** Px kept free on the right (a locked sidebar); the sheet then scales down to fit beside it, to MIN_SCALE at most. */
+  reserveRight?: number;
+  /** Rendered beside the sheet at real size, never scaled: the sidebar, the dice tray, menus. */
+  overlay?: ReactNode;
   children: ReactNode;
 };
+
+const PAGE_GUTTER = 24;
+const MIN_SCALE = 0.85;
 
 /**
  * Shared shell every game system renders inside — see ui-design-system.md.
@@ -37,7 +46,7 @@ export function SheetShell({
   characterName,
   portrait,
   systemId,
-  level,
+  summary,
   userLabel,
   onOpenLog,
   onOpenShortRest,
@@ -49,23 +58,37 @@ export function SheetShell({
   onOpenCharacter,
   portraitBadge,
   pageClassName,
+  reserveRight = 0,
+  overlay,
   children,
 }: SheetShellProps) {
+  const t = useSheetText();
+  const [page, setPage] = useState<HTMLDivElement | null>(null);
   const [column, setColumn] = useState<HTMLDivElement | null>(null);
   const columnWidth = useElementWidth(column);
+  const pageWidth = useElementWidth(page);
+  const scale = useFitScale(column, columnWidth, pageWidth - PAGE_GUTTER - (reserveRight > 0 ? reserveRight : PAGE_GUTTER), reserveRight > 0);
   return (
     <>
       <AppHeader userName={userLabel} backToListWithin={columnWidth > 0 ? columnWidth : undefined} compact systemId={systemId} />
-      <div className={pageClassName} style={{ position: 'relative', padding: '0 24px 24px', fontFamily: 'var(--font-body, Roboto, Helvetica, sans-serif)' }}>
-        <div ref={setColumn} style={{ width: 'fit-content', margin: '0 auto' }}>
+      <div
+        ref={setPage}
+        className={pageClassName}
+        style={{
+          position: 'relative',
+          padding: `0 ${reserveRight > 0 ? reserveRight : PAGE_GUTTER}px ${PAGE_GUTTER}px ${PAGE_GUTTER}px`,
+          fontFamily: 'var(--font-body, Roboto, Helvetica, sans-serif)',
+        }}
+      >
+        <div ref={setColumn} className="sheet-column" style={{ width: 'fit-content', margin: '0 auto', zoom: scale < 1 ? scale : undefined }}>
           <header className="sheet-header">
             <div className="sheet-header__identity">
               {onOpenCharacter ? (
-                <button type="button" className="sheet-header__portrait-button" onClick={onOpenCharacter} aria-label={`Open ${characterName}'s character menu`}>
+                <button type="button" className="sheet-header__portrait-button" onClick={onOpenCharacter} aria-label={t('header.openMenu', { name: characterName })}>
                   <CharacterPortrait portrait={portrait} systemId={systemId} className="sheet-header__portrait" alt="" />
                 </button>
               ) : (
-                <CharacterPortrait portrait={portrait} systemId={systemId} className="sheet-header__portrait" alt={`${characterName}'s portrait`} />
+                <CharacterPortrait portrait={portrait} systemId={systemId} className="sheet-header__portrait" alt={t('header.portrait', { name: characterName })} />
               )}
               {portraitBadge}
             </div>
@@ -74,24 +97,24 @@ export function SheetShell({
               onClick={onOpenCharacter}
             >
               <div className="sheet-header__name">{characterName}</div>
-              <div className="sheet-header__level">Level {level}</div>
+              <div className="sheet-header__level" title={summary}>{summary}</div>
               {progress}
             </div>
             <div className="sheet-header__actions">
               <button type="button" className="sheet-header__button" onClick={onOpenShortRest}>
                 <span className="sheet-header__button-icon">{shortRestIcon}</span>
-                Short Rest
+                {t('terms.shortRest')}
               </button>
               <button type="button" className="sheet-header__button" onClick={onOpenLongRest}>
                 <span className="sheet-header__button-icon">{longRestIcon}</span>
-                Long Rest
+                {t('terms.longRest')}
               </button>
               <button
                 type="button"
                 className="sheet-header__button sheet-header__button--icon-only"
                 onClick={onOpenLog}
-                aria-label="Game log"
-                title="Game log"
+                aria-label={t('header.gameLog')}
+                title={t('header.gameLog')}
               >
                 <span className="sheet-header__button-icon">{gameLogIcon}</span>
               </button>
@@ -101,10 +124,27 @@ export function SheetShell({
               centered sheet at normal desktop widths. */}
           <main>{children}</main>
         </div>
+        {overlay}
       </div>
-      <AppFooter />
+      <AppFooter rulesText />
     </>
   );
+}
+
+/** The zoom that fits the column into `available` px (between MIN_SCALE and 1), or 1 when fitting is off. */
+function useFitScale(column: HTMLElement | null, renderedWidth: number, available: number, enabled: boolean): number {
+  const [scale, setScale] = useState(1);
+  useEffect(() => {
+    if (!enabled || !column || renderedWidth <= 0 || available <= 0) {
+      setScale(1);
+      return;
+    }
+    setScale((current) => {
+      const natural = renderedWidth / current;
+      return Math.max(MIN_SCALE, Math.min(1, Math.floor((available / natural) * 100) / 100));
+    });
+  }, [column, renderedWidth, available, enabled]);
+  return scale;
 }
 
 /** The element's rendered width in px, kept current as the layout changes; 0 before it mounts. */

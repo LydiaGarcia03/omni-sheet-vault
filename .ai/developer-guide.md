@@ -62,19 +62,46 @@ The catalogue is generated, never hand-written (adr-0006):
    .\gradlew.bat :apps:api:ingest5etools --args="--kind=spell" # one kind
    ```
 
-   Output: `content/dnd-5e/<kind>/<slug>.json`.
+   Output: `content/dnd-5e/<kind>/<kind>.en.json`, every entry of the kind
+   as one JSON array in slug order. Translation files next to it
+   (`<kind>.pt-BR.json`) are kept.
 
 2. **Import it into the server's database.** `--import-catalogue` takes one
-   kind directory per run and exits when done. To import every kind:
+   kind directory per run and exits when done. It reads the English entries
+   and the translation files beside them (into `catalogue_entries.translations`).
+   To import every kind (the path is relative to `apps/api`, because a path
+   with spaces breaks the `--args` split):
 
    ```powershell
    Get-ChildItem content\dnd-5e -Directory |
      Where-Object { $_.Name -notin 'builds', 'mechanics' } |
-     ForEach-Object { .\gradlew.bat :apps:api:bootRun --args="--import-catalogue=$($_.FullName)" }
+     ForEach-Object { .\gradlew.bat :apps:api:bootRun --args="--import-catalogue=../../content/dnd-5e/$($_.Name) --server.port=0" }
    ```
 
    `builds/` holds character build files and `mechanics/` the adr-0007
    overlay, which is read during ingestion; neither is a catalogue kind.
+   A file holding one JSON object is still read as one entry (Daggerheart's
+   layout until L5).
+
+3. **Daggerheart** comes from the SRD 2.0 PDF, not from 5etools. Copy
+   `DH_SRD_2_2026_08_25.pdf` into `tools/daggerheart-srd/` (gitignored), then:
+
+   ```powershell
+   node tools/daggerheart-import/import.mjs        # rewrites content/daggerheart/
+   node --test tools/daggerheart-import/importer.test.mjs
+   ```
+
+   The script fails if any count or cross-reference differs from the SRD
+   (`validate.mjs`). Import it like D&D, one kind directory per run, with a
+   path relative to `apps/api` because Gradle's `--args` splits on the spaces
+   in the repository path:
+
+   ```powershell
+   'classes','subclasses','domains','domain_cards','ancestries','communities','transformations','items' |
+     ForEach-Object { .\gradlew.bat :apps:api:bootRun --args="--import-catalogue=../../content/daggerheart/$_ --server.port=0" }
+   ```
+
+   The content stays out of the public remote (adr-0010).
 
 The desktop edition needs neither step by hand: it imports `content/` on its
 own whenever the content's fingerprint changes (2.3, "Catalogue import").
@@ -246,6 +273,7 @@ return; they carry no system name. `VitalsZone` is the whole computed sheet.
 | `DesktopCatalogueBootstrap` | Desktop: imports all of `content/` on start when its SHA-256 changed |
 | `DatabaseCatalogueLookup` / `ContentDirectoryCatalogue` | The `CatalogueLookup` port over Postgres / over `content/` files |
 | `Ingest5eToolsMain` / `Ingest5eToolsRunner` + `*Converter` + `FiveETools*` | The 5etools → `content/` tool (`ingest5etools` Gradle task). D&D 5e only |
+| `tools/daggerheart-import/*.mjs` (outside `apps/api`) | The Daggerheart SRD PDF → `content/daggerheart/` tool: `columns` (two-column split), `text` (headings, paragraphs, features), `classes` / `heritage` / `domains` / `equipment` (one parser per chapter), `validate`, `entries`, `import` |
 | `PlanBuildMain` | `planBuild` Gradle task: prints a build file's choices |
 
 #### `identity`, `storage`, `desktop`, `shared`
@@ -428,8 +456,17 @@ backgrounds; pool checked by `Vtm5SheetActions.coterie`),
 `predatorExtras`, `convictions`, `humanity`, `stains`, `bloodPotency`,
 `hunger`, `health` / `willpower` (superficial, aggravated), `resonance`,
 `notes`, `xpLog` (awards and spends, undone spends flagged) and `build`.
-Content is `resources/ruleset/vtm5/vtm5-content.json` (owner-curated
-summaries), served at `GET /api/vtm5/content`; not the catalogue.
+Content is `resources/ruleset/vtm5/vtm5-content.en.json` (owner-curated
+summaries); it does not come from the catalogue.
+- `GET /api/vtm5/content` serves it in the request's language: the texts
+  overlay `locales/vtm5-content.pt-BR.json`, plus a `terms` map (English name →
+  shown name) from `locales/vtm5-terms.pt-BR.json`.
+- The rules always read the English file; English names are the identifiers.
+- Player-facing API texts (creation checklist and problems, XP log labels,
+  action errors, roll log labels and outcomes) come from
+  `locales/vtm5-messages_{en,pt_BR}.properties` through `Vtm5Messages`.
+- Stored roll contexts stay English; `Vtm5RollController.view` translates them
+  for display. See `features/localization.md`.
 
 **Where each rule lives:**
 
@@ -452,10 +489,105 @@ summaries), served at `GET /api/vtm5/content`; not the catalogue.
 **Tests:** `apps/api/src/test/java/…/ruleset/vtm5/` (dice, creation flow,
 actions, summarizer, controllers; fixture `Vtm5TestBuilds`).
 
-#### 2.4.3 Next system — template
+#### 2.4.3 Daggerheart (daggerheart) — ruleset.daggerheart
 
-Copy this heading for each new system (e.g. `2.4.2 Daggerheart
-(daggerheart) — ruleset.daggerheart`) and fill the same three tables:
+Like VtM (adr-0009), Daggerheart shares only the platform and owns its sheet
+and endpoints. Specs and status: `systems/daggerheart/`. Backend since D2,
+builder since D3, sheet since D4, play state since D5, rolls since D6, level up since D7 (2026-10-12).
+
+**Strategy implementations (registered by system id):**
+
+| Seam | Class |
+| --- | --- |
+| `GameSystem` | `DaggerheartGameSystem` (`daggerheart`) |
+| `CharacterCreationFlow` | `DaggerheartCharacterCreationFlow` (no `withLevelUp` yet: D7) |
+| `CharacterSummarizer` | `DaggerheartCharacterSummarizer` (class with subclass, heritage, level) |
+
+No `SheetCalculator` or `SheetMutator`: the draft preview has no `sheetJson`,
+so the platform never asks for D&D-shaped vitals.
+
+**Stored data:** the build document (`DaggerheartBuild`, fields in
+`systems/daggerheart/features/implementation-plan.md` §8) and the sheet JSON
+(`schemaVersion` 1): `level`, `proficiency`, `identity` (class, subclass with
+Spellcast trait, domains, ancestry or mixed ancestry, community,
+transformation), `base` (class Evasion and HP, 6 Stress), `traits`,
+`features` (copied with text and `modifiers`), `experiences`,
+`domainCards`, `weapons` (primary, secondary), `armor`, `inventory`, `gold`,
+`trackers` (HP, Stress and Armor Slots marked, Hope), `conditions`, `notes`
+and `build`. Play adds:
+- `counters` (`name`, `value`, `max`);
+- `lastDamage` and `lastRest`;
+- `shortRestsInARow`;
+- `vulnerableFromStress`. Content is the catalogue (`content/daggerheart/`, D1), read
+through `CatalogueLookup` with `DaggerheartCatalogue`.
+
+**Where each rule lives:**
+
+| Rule | Where |
+| --- | --- |
+| Creation choices and problems (subclass of the class, mixed ancestry, GM-allowed transformation, trait array, Tier 1 gear, hands, magic weapons need a Spellcast trait, Brawler unarmed, potion, class item, two Experiences, Purposeful Design, two level-1 cards from the class's domains) | `DaggerheartCharacterCreationFlow.plan` |
+| The sheet a build becomes (also the preview's partial sheet) | `DaggerheartSheetAssembler` |
+| Derived values (traits, Evasion, Armor Score capped at 12, thresholds with level, HP and Stress slots, attack lines) with contributions | `DaggerheartDerivedStats`, served by `GET /api/daggerheart/characters/{id}/sheet` (`derived`) |
+| Play-state actions (`track`, `damage`, `rest`, `moveCard`, `conditions`, `gold`, `addItem` / `updateItem` / `removeItem`, `notes`, `counter`): thresholds, Armor Slots, Stress overflow and Vulnerable, downtime moves with 1d4 + Tier, three short rests, loadout of 5 and Recall Cost, gold carry-over | `DaggerheartSheetActions`, served by `POST /api/daggerheart/characters/{id}/actions` |
+| Duality rolls (trait or Spellcast, Experiences at 1 Hope, advantage d6, Difficulty, Hope / Fear / critical, reaction rolls), damage rolls by Proficiency with critical damage, roll history | `DaggerheartDice` (reading and expressions: `duality action\|reaction ±m [adv\|dis] [dc N]`, `damage NdS±b [crit]`, `rest 1d4+T`), `DaggerheartRollController` (`POST …/rolls/duality`, `POST …/rolls/damage`, `POST …/rolls/custom` with `dice NdS… ±b`, `GET …/rolls`) over the platform `RollService` |
+| Leveling: tier achievements, the official sheet's advancement grid (slots per tier, both-pick options, crossed-out options), trait marks, level-up cards, multiclassing, subclass upgrades | `DaggerheartLevels` (replays `build.levels`), applied by `DaggerheartSheetAssembler` (`advancements`, `identity.multiclass`, `carryPlayState`), served by `DaggerheartLevelUpController` (`GET/PUT/DELETE …/level-up`, `POST …/level-up/finish`; draft in `sheet.levelUpDraft`). Not the platform `CharacterLevelUpService`, which is D&D-shaped |
+| The builder's live summary | `DaggerheartPreview` (the draft's `selections`: `summary`, `class`, `subclass`, `ancestry`, `community`, `transformation`) |
+| Always-on bonuses read from SRD feature text | `tools/daggerheart-import/modifiers.mjs` (`modifiers` on catalogue features) |
+
+**Web (`src/systems/daggerheart/`):**
+- `daggerheartCatalogue.ts`: loads every kind once, typed by kind.
+- `daggerheartArt.ts`: class art, plate and banner by slug; domain colours.
+- `builder/`:
+  - `DaggerheartBuilderFrame`: rail, choices, summary, and the hover preview
+    through `previewBuild`.
+  - `DaggerheartSteps`: one body per step.
+  - `DaggerheartParts`: tile, crest, domain icon, feature list.
+  - `DaggerheartSummary`: reads the preview's `summary` card and shows hover
+    deltas.
+  - `daggerheartBuild.ts`: build type, steps, helpers.
+  - `daggerheartTutorial`.
+- `sheet/`:
+  - `DaggerheartSheetScreen`: sheet v3 (header, stat row, vitals, tabs),
+    registered in `sheet/sheetLayouts.ts`; reads
+    `GET /api/daggerheart/characters/{id}/sheet`.
+  - `DaggerheartSheetDetail`: the sidebar, with full text, contributions and
+    actions. It holds the rest, conditions, card-move and character
+    (rename, portrait) panels.
+  - `daggerheartSheet.ts`: sheet type and display helpers.
+  - `DaggerheartDiceTray` (`useDaggerheartDice`) and `daggerheartRolls.ts`:
+    the Demiplane-style tray in the bottom-left. It holds:
+    - Duality and Reaction;
+    - ±d6;
+    - the Experiences marked for the next roll;
+    - the `»` mini tray of dice;
+    - the last result, with Reroll and History.
+
+    Traits, weapon chips and sidebar buttons roll straight into it.
+- `levelup/`: `DaggerheartLevelUpPage` (registered in `levelup/levelUpPages.ts`) and
+  `daggerheartLevelUpApi.ts`; styles in `dh-levelup.css`.
+- `dh-theme.css`: the shared design system (tokens, frame, titles, stat
+  frames, domain icons, cards); `dh-builder.css` and `dh-sheet.css`: each
+  page's layout. All scoped to `.dh-page`.
+- `assets/`: Demiplane art resized to WebP.
+- `portraits/`: 33 presets.
+- `DaggerheartSystemMark`, `DaggerheartFooter`: the DPCGL notice.
+
+The shared `POST /api/characters/{id}/draft/preview`
+(`CharacterDraftService.hypothetical`) plans and previews a build without
+saving it. Any system's `Frame` gets it as `previewBuild`.
+
+**Tests:**
+- `apps/api/src/test/java/…/ruleset/daggerheart/`: creation flow, derived
+  stats, summarizer, controller, sheet actions, dice, roll controller, levels,
+  level-up controller. Fixture
+  `DaggerheartTestCatalogue`, with synthetic texts.
+- `daggerheartBuild.test.ts`, `daggerheartSheet.test.ts`,
+  `DaggerheartSheetScreen.test.tsx`, `DaggerheartLevelUpPage.test.tsx`.
+
+#### 2.4.4 Next system — template
+
+Copy this heading for each new system (e.g. `2.4.4 <System>
+(<system-id>) — ruleset.<system>`) and fill the same three tables:
 strategy implementations, stored data, and where each rule lives.
 
 ---

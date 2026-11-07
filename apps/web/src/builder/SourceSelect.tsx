@@ -2,11 +2,12 @@ import { useEffect, useId, useMemo, useRef, useState, type KeyboardEvent, type R
 import { createPortal } from 'react-dom';
 import { useLeadingSources, useSourceCode } from '../catalogue/SourceCodes';
 import { catalogueEntryLabel } from '../sheet/CatalogueSourceLabel';
+import { useBuilderText } from '../locales/platformMessages';
 import { usePopupDirection } from './usePopupDirection';
 
 /** Above this many options the popup gets a filter box. */
 const SEARCH_THRESHOLD = 8;
-const OTHER_GROUP = 'Other';
+const OTHER_GROUP = '';
 
 /** `summary` says what the option gives; it shows under the name and is searchable. */
 export type SourceSelectOption = { key: string; label: string; sourceBook: string | null; summary?: string | null };
@@ -43,6 +44,7 @@ type Group = { book: string; rows: Row[] };
  */
 export function SourceSelect(props: SourceSelectProps) {
   const { options, placeholder, ariaLabel, disabled = false } = props;
+  const tb = useBuilderText();
   const id = useId();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
@@ -190,8 +192,8 @@ export function SourceSelect(props: SourceSelectProps) {
               <input
                 ref={search}
                 type="text"
-                placeholder="Filter…"
-                aria-label={`Filter ${ariaLabel}`}
+                placeholder={tb('select.filter')}
+                aria-label={tb('select.filterAria', { label: ariaLabel })}
                 aria-controls={listId}
                 aria-activedescendant={activeDescendant}
                 autoComplete="off"
@@ -207,11 +209,12 @@ export function SourceSelect(props: SourceSelectProps) {
           {props.multiple && (
             <div className="source-select__status">
               <span role="status">
-                {props.values.length} of {props.max} chosen{full && ' · remove one to pick another'}
+                {tb('select.chosen', { count: props.values.length, max: props.max })}
+                {full && tb('select.full')}
               </span>
               {selected.length > 0 && (
                 <button type="button" className="source-select__status-clear" onMouseDown={(event) => event.preventDefault()} onClick={clear}>
-                  Clear
+                  {tb('select.clear')}
                 </button>
               )}
             </div>
@@ -227,11 +230,11 @@ export function SourceSelect(props: SourceSelectProps) {
           >
             {clearRow && (
               <li className="source-select__clear" role="option" aria-selected={false} onClick={clear}>
-                Clear selection
+                {tb('select.clearSelection')}
               </li>
             )}
             {groups.map((group) => (
-              <GroupRows key={group.book} label={grouped ? group.book : null}>
+              <GroupRows key={group.book} label={grouped ? group.book || tb('select.other') : null}>
                 {group.rows.map(({ option, index }) => (
                   <li
                     key={option.key}
@@ -256,7 +259,7 @@ export function SourceSelect(props: SourceSelectProps) {
                 ))}
               </GroupRows>
             ))}
-            {visible.length === 0 && <li className="source-select__empty">No match for “{query}”</li>}
+            {visible.length === 0 && <li className="source-select__empty">{tb('select.noMatch', { query })}</li>}
           </ul>
         </div>
       )}

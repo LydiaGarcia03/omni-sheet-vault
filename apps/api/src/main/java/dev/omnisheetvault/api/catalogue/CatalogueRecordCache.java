@@ -61,7 +61,8 @@ class CatalogueRecordCache {
             for (CatalogueEntry entry : repository.findBySystemIdAndKind(systemId, kind)) {
                 entries.put(entry.slug(), new CatalogueRecord(kind.name(), entry.slug(), entry.name(), entry.sourceBook(),
                         entry.sourcePage(), entry.description(), objectMapper.readTree(entry.data()),
-                        PlaytestSources.isPlaytest(entry.sourceCode()), PartneredSources.partnerOf(entry.sourceCode())));
+                        PlaytestSources.isPlaytest(entry.sourceCode()), PartneredSources.partnerOf(entry.sourceCode()),
+                        objectMapper.readTree(entry.translations())));
             }
             return Collections.unmodifiableMap(entries);
         }

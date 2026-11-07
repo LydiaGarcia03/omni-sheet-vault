@@ -17,7 +17,7 @@ systems/<system-id>/
 | --- | --- | --- | --- | --- |
 | Dungeons & Dragons 5e (2014) | `dnd-5e` | Playable: sheet, builder, level up | `ruleset.dnd5e`, `apps/web/src/systems/dnd5e` | `dnd-5e/sheet-build.md`, then `dnd-5e/sheet-ui.md` |
 | Vampire: The Masquerade 5e | `vtm-v5` | Playable: builder, sheet, play state, rolls (closed for now) | `ruleset.vtm5`, `apps/web/src/systems/vtm5` | `vtm-v5/features/implementation-plan.md`, then `vtm-v5/character-rules.md` |
-| Daggerheart (SRD 2.0, incl. Hope & Fear) | `daggerheart` | Planned: mockups awaiting the owner's pick | — | `daggerheart/features/implementation-plan.md`, then `daggerheart/character-rules.md` |
+| Daggerheart (SRD 2.0, incl. Hope & Fear) | `daggerheart` | Playable: SRD content, builder, sheet, play state, server rolls, level up 1–10 (D0–D7 done) | `ruleset.daggerheart`, `apps/web/src/systems/daggerheart`, `content/daggerheart/` (from `tools/daggerheart-import/`) | `daggerheart/features/implementation-plan.md`, then `daggerheart/character-rules.md` |
 
 ## D&D 5e — `dnd-5e/`
 

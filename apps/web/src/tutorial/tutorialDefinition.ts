@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 
 export type TutorialStep = {
-  title: string;
+  title: ReactNode;
   body: ReactNode;
   /** CSS selector of the part to spotlight; the bubble sits centred when unset or not on the page. */
   target?: string;

@@ -8,6 +8,7 @@ import { BackgroundTab } from './BackgroundTab';
 import { ExtrasTab } from './ExtrasTab';
 import { FeaturesTab } from './FeaturesTab';
 import { FrameLayer } from './FrameLayer';
+import { useDnd5eText } from './locales/dnd5eMessages';
 import paperSvg from './frames/dnd_frame_actions.svg?raw';
 import inkSvg from './frames/dnd_frame_actions_ink.svg?raw';
 import { InventoryTab } from './InventoryTab';
@@ -21,14 +22,8 @@ import { SpellsTab } from './SpellsTab';
  * scope); "Background" alone still reads correctly for the combined tab.
  * "Spells" is the one entry left out here — it's conditional, see below.
  */
-const BASE_TABS = [
-  { id: 'actions', label: 'Actions' },
-  { id: 'inventory', label: 'Inventory' },
-  { id: 'features', label: 'Features' },
-  { id: 'background', label: 'Background' },
-  { id: 'extras', label: 'Extras' },
-];
-const SPELLS_TAB = { id: 'spells', label: 'Spells' };
+const BASE_TABS = ['actions', 'inventory', 'features', 'background', 'extras'] as const;
+const SPELLS_TAB = 'spells' as const;
 
 type Dnd5eTabbedSectionProps = {
   sheet: CharacterSheet;
@@ -109,11 +104,13 @@ export function Dnd5eTabbedSection({
   onUpdateBackgroundField,
   onOpenTextField,
 }: Dnd5eTabbedSectionProps) {
+  const t = useDnd5eText();
   const [activeTab, setActiveTab] = useState('actions');
   const hasSpellcasting = sheet.spellcasting.length > 0;
-  const tabs = hasSpellcasting
-    ? [BASE_TABS[0], SPELLS_TAB, ...BASE_TABS.slice(1)]
-    : BASE_TABS;
+  const tabs = (hasSpellcasting ? [BASE_TABS[0], SPELLS_TAB, ...BASE_TABS.slice(1)] : [...BASE_TABS]).map((id) => ({
+    id,
+    label: t(`terms.tabs.${id}`),
+  }));
   const effectiveTab = activeTab === 'spells' && !hasSpellcasting ? 'actions' : activeTab;
 
   return (

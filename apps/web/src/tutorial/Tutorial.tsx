@@ -1,5 +1,6 @@
-import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState, type CSSProperties } from 'react';
+import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState, type CSSProperties, type RefObject } from 'react';
 import { createPortal } from 'react-dom';
+import { useShellText } from '../locales/platformMessages';
 import type { TutorialDefinition } from './tutorialDefinition';
 import './tutorial.css';
 
@@ -8,6 +9,10 @@ const SPOT_PADDING = 6;
 /** Gap between the spotlit part and the bubble. */
 const BUBBLE_GAP = 12;
 const BUBBLE_WIDTH = 360;
+/** The bubble's assumed height until its first render is measured. */
+const BUBBLE_HEIGHT_GUESS = 260;
+/** Space kept between the bubble and the window's edges. */
+const EDGE_MARGIN = 16;
 /** How long a step waits for its target to appear after a page change. */
 const TARGET_WAIT_MS = 1500;
 /** A target taller than this share of the window scrolls to its top instead of its middle. */
@@ -27,12 +32,21 @@ type TutorialProps = {
 
 /** A guided tour over the page: dims everything but one part, and explains it in a bubble with Back, Next and Skip. */
 export function Tutorial({ definition, onNavigate, onClose, onFinish = onClose }: TutorialProps) {
+  const t = useShellText();
   const [index, setIndex] = useState(0);
   const step = definition.steps[index];
   const last = index === definition.steps.length - 1;
   const rect = useTargetRect(step.target, index);
   const bubble = useRef<HTMLDivElement>(null);
+  const bubbleHeight = useBubbleHeight(bubble, index);
   const titleId = useId();
+
+  useEffect(() => {
+    const offset = scrollToFitBubble(rect, bubbleHeight);
+    if (offset) {
+      window.scrollBy({ top: offset });
+    }
+  }, [rect, bubbleHeight]);
 
   useEffect(() => {
     if (step.builderStep) {
@@ -67,9 +81,9 @@ export function Tutorial({ definition, onNavigate, onClose, onFinish = onClose }
     <div className={`tutorial ${definition.className}`}>
       <div className="tutorial__blocker" />
       {rect ? <Spotlight rect={rect} /> : <div className="tutorial__shade" />}
-      <div ref={bubble} className="tutorial__bubble" role="dialog" aria-modal="true" aria-labelledby={titleId} tabIndex={-1} style={bubbleStyle(rect)}>
+      <div ref={bubble} className="tutorial__bubble" role="dialog" aria-modal="true" aria-labelledby={titleId} tabIndex={-1} style={bubbleStyle(rect, bubbleHeight)}>
         <div className="tutorial__count">
-          {index + 1} of {definition.steps.length}
+          {t('tutorial.count', { step: index + 1, total: definition.steps.length })}
         </div>
         <h2 id={titleId} className="tutorial__title">
           {step.title}
@@ -78,17 +92,17 @@ export function Tutorial({ definition, onNavigate, onClose, onFinish = onClose }
         <div className="tutorial__actions">
           {!last && (
             <button type="button" className="tutorial__skip" onClick={onClose}>
-              Skip tutorial
+              {t('tutorial.skip')}
             </button>
           )}
           <span className="tutorial__grow" />
           {index > 0 && (
             <button type="button" className="tutorial__btn" onClick={() => move(-1)}>
-              Back
+              {t('tutorial.back')}
             </button>
           )}
           <button type="button" className="tutorial__btn tutorial__btn--primary" onClick={() => (last ? onFinish() : move(1))}>
-            {last ? 'Finish' : 'Next'}
+            {last ? t('tutorial.finish') : t('tutorial.next')}
           </button>
         </div>
       </div>
@@ -182,25 +196,62 @@ function useTargetRect(selector: string | undefined, stepIndex: number): Rect | 
   return rect;
 }
 
-/** Beside the spotlit part where there's room (right, left, below, above), else centred on screen. */
-function bubbleStyle(rect: Rect | null): CSSProperties {
-  const width = Math.min(BUBBLE_WIDTH, window.innerWidth - 32);
+/** The bubble's rendered height, measured again whenever the step changes. */
+function useBubbleHeight(bubble: RefObject<HTMLDivElement | null>, stepIndex: number): number {
+  const [height, setHeight] = useState(BUBBLE_HEIGHT_GUESS);
+
+  useLayoutEffect(() => {
+    const measured = bubble.current?.offsetHeight;
+    if (measured) {
+      setHeight(measured);
+    }
+  }, [bubble, stepIndex]);
+
+  return height;
+}
+
+/** How far to scroll so the spotlit part sits at the top with the bubble below it; 0 when it already fits or never can. */
+function scrollToFitBubble(rect: Rect | null, height: number): number {
+  if (!rect) {
+    return 0;
+  }
+  const width = Math.min(BUBBLE_WIDTH, window.innerWidth - EDGE_MARGIN * 2);
+  const fitsBeside =
+    rect.left + rect.width + SPOT_PADDING + BUBBLE_GAP + width + EDGE_MARGIN <= window.innerWidth ||
+    rect.left - SPOT_PADDING - BUBBLE_GAP - width >= EDGE_MARGIN;
+  const roomBelow = window.innerHeight - (rect.top + rect.height + SPOT_PADDING + BUBBLE_GAP) - EDGE_MARGIN;
+  const roomAbove = rect.top - SPOT_PADDING - BUBBLE_GAP - EDGE_MARGIN;
+  const needed = rect.height + SPOT_PADDING * 2 + BUBBLE_GAP + height + EDGE_MARGIN * 2;
+  if (fitsBeside || height <= roomBelow || height <= roomAbove || needed > window.innerHeight) {
+    return 0;
+  }
+  return Math.round(rect.top - SPOT_PADDING - EDGE_MARGIN);
+}
+
+/** Beside the spotlit part where the whole bubble fits (right, left, below, above), else kept inside the window. */
+function bubbleStyle(rect: Rect | null, height: number): CSSProperties {
+  const width = Math.min(BUBBLE_WIDTH, window.innerWidth - EDGE_MARGIN * 2);
   if (!rect) {
     return { width, top: '50%', left: '50%', transform: 'translate(-50%, -50%)' };
   }
-  const clampTop = (top: number) => Math.max(16, Math.min(top, window.innerHeight - 260));
-  const clampLeft = (left: number) => Math.max(16, Math.min(left, window.innerWidth - width - 16));
+  const clampTop = (top: number) => Math.max(EDGE_MARGIN, Math.min(top, window.innerHeight - height - EDGE_MARGIN));
+  const clampLeft = (left: number) => Math.max(EDGE_MARGIN, Math.min(left, window.innerWidth - width - EDGE_MARGIN));
   const right = rect.left + rect.width + SPOT_PADDING + BUBBLE_GAP;
-  if (right + width + 16 <= window.innerWidth) {
+  if (right + width + EDGE_MARGIN <= window.innerWidth) {
     return { width, top: clampTop(rect.top), left: right };
   }
   const left = rect.left - SPOT_PADDING - BUBBLE_GAP - width;
-  if (left >= 16) {
+  if (left >= EDGE_MARGIN) {
     return { width, top: clampTop(rect.top), left };
   }
   const below = rect.top + rect.height + SPOT_PADDING + BUBBLE_GAP;
-  if (below + 220 <= window.innerHeight) {
+  const roomBelow = window.innerHeight - below - EDGE_MARGIN;
+  const roomAbove = rect.top - SPOT_PADDING - BUBBLE_GAP - EDGE_MARGIN;
+  if (height <= roomBelow) {
     return { width, top: below, left: clampLeft(rect.left) };
   }
-  return { width, bottom: window.innerHeight - rect.top + SPOT_PADDING + BUBBLE_GAP, left: clampLeft(rect.left) };
+  if (height <= roomAbove) {
+    return { width, top: rect.top - SPOT_PADDING - BUBBLE_GAP - height, left: clampLeft(rect.left) };
+  }
+  return { width, top: clampTop(roomBelow >= roomAbove ? below : rect.top - SPOT_PADDING - BUBBLE_GAP - height), left: clampLeft(rect.left) };
 }

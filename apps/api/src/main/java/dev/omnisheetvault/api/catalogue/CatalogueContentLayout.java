@@ -7,7 +7,10 @@ import java.util.Map;
 /** Where each catalogue kind's JSON files live under {@code content/<system>/}: the kind's plural, lower-cased. */
 final class CatalogueContentLayout {
 
-    private static final Map<CatalogueEntryKind, String> IRREGULAR_PLURALS = Map.of(CatalogueEntryKind.SPECIES, "species");
+    private static final Map<CatalogueEntryKind, String> IRREGULAR_PLURALS = Map.of(
+            CatalogueEntryKind.SPECIES, "species",
+            CatalogueEntryKind.ANCESTRY, "ancestries",
+            CatalogueEntryKind.COMMUNITY, "communities");
 
     private CatalogueContentLayout() {
     }

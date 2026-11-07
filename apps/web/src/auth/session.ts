@@ -16,6 +16,11 @@ export function redirectToRegistration(returnTo: string = DEFAULT_RETURN_PATH): 
   window.location.assign(`${loginUrl(returnTo)}&signup`);
 }
 
+/** Sends the browser to Keycloak's own change-password or change-email screen, then back to `returnTo`. */
+export function redirectToAccountAction(action: 'password' | 'email', returnTo: string): void {
+  window.location.assign(`${loginUrl(returnTo)}&action=${action}`);
+}
+
 /** Ends the API session and the Keycloak session, then lands on the home page: a form post, so the browser follows the redirects. */
 export function signOutOfSession(): void {
   const form = document.createElement('form');

@@ -1,4 +1,5 @@
 import { useState, type ReactNode } from 'react';
+import { useSheetText, type SheetText } from '../locales/platformMessages';
 import type { ActiveEffect, ConditionsRequest } from './api';
 import { RulesText } from './RulesText';
 import { ChevronDown, SidebarHeader } from './sidebarParts';
@@ -20,20 +21,27 @@ export function ConditionsPanel({
   activeEffects,
   onEndEffect,
 }: ConditionsRequest) {
+  const t = useSheetText();
+  const exhaustion = t('terms.exhaustion');
   return (
     <div className="conditions-pane">
       <SidebarHeader title={title} />
       {activeEffects.length > 0 && (
-        <section className="active-effects" aria-label="Active effects">
-          <h3 className="active-effects__title">Active Effects</h3>
+        <section className="active-effects" aria-label={t('conditions.activeEffects')}>
+          <h3 className="active-effects__title">{t('conditions.activeEffects')}</h3>
           {activeEffects.map((effect) => (
             <div key={effect.key} className="active-effect-row">
               <div className="active-effect-row__text">
                 <span className="active-effect-row__name">{effect.name}</span>
-                <span className="active-effect-row__detail">{effectDetail(effect)}</span>
+                <span className="active-effect-row__detail">{effectDetail(effect, t)}</span>
               </div>
-              <button type="button" className="mutate active-effect-row__end" aria-label={`End ${effect.name} ${effect.onSelf ? 'on you' : 'on an ally'}`} onClick={() => onEndEffect(effect.key)}>
-                End
+              <button
+                type="button"
+                className="mutate active-effect-row__end"
+                aria-label={t(effect.onSelf ? 'conditions.endOnYou' : 'conditions.endOnAlly', { name: effect.name })}
+                onClick={() => onEndEffect(effect.key)}
+              >
+                {t('conditions.end')}
               </button>
             </div>
           ))}
@@ -48,15 +56,15 @@ export function ConditionsPanel({
       </div>
       <div className="conditions-pane__list conditions-pane__list--special">
         <ConditionItem
-          name="Exhaustion"
+          name={exhaustion}
           rulesText={exhaustionRulesText}
           footer={<ExhaustionLevels level={exhaustionLevel} onChange={onExhaustionChange} />}
         >
           <div className="condition-row">
             {exhaustionIcon && <span className="condition-row__icon">{exhaustionIcon}</span>}
-            <span className={exhaustionLevel > 0 ? 'condition-row__name condition-row__name--active' : 'condition-row__name'}>Exhaustion</span>
+            <span className={exhaustionLevel > 0 ? 'condition-row__name condition-row__name--active' : 'condition-row__name'}>{exhaustion}</span>
             <span className={exhaustionLevel > 0 ? 'condition-row__level condition-row__level--active' : 'condition-row__level'}>
-              Level {exhaustionLevel > 0 ? exhaustionLevel : '--'}
+              {t('common.level', { level: exhaustionLevel > 0 ? exhaustionLevel : '--' })}
             </span>
           </div>
         </ConditionItem>
@@ -66,24 +74,25 @@ export function ConditionsPanel({
 }
 
 /** "On you · 8 hours · Concentration · Ends on a long rest" — only the parts the effect has. */
-function effectDetail(effect: ActiveEffect): string {
-  const parts: string[] = [effect.onSelf ? 'On you' : 'On an ally'];
+function effectDetail(effect: ActiveEffect, t: SheetText): string {
+  const parts: string[] = [t(effect.onSelf ? 'conditions.onYou' : 'conditions.onAlly')];
   if (effect.durationText) {
     parts.push(effect.durationText);
   }
   if (effect.concentration) {
-    parts.push('Concentration');
+    parts.push(t('terms.concentration'));
   }
   if (effect.endsOnRests.includes('SHORT_OR_LONG_REST')) {
-    parts.push('Ends on a short or long rest');
+    parts.push(t('conditions.endsOnShortOrLongRest'));
   } else if (effect.endsOnRests.includes('LONG_REST')) {
-    parts.push('Ends on a long rest');
+    parts.push(t('conditions.endsOnLongRest'));
   }
   return parts.join(' · ');
 }
 
 /** A condition's row with its rules text, which a chevron beside the row shows and hides; no chevron without text. */
 function ConditionItem({ name, rulesText = '', footer, children }: { name: string; rulesText?: string; footer?: ReactNode; children: ReactNode }) {
+  const t = useSheetText();
   const [open, setOpen] = useState(false);
   const hasText = rulesText.trim() !== '';
   return (
@@ -96,7 +105,7 @@ function ConditionItem({ name, rulesText = '', footer, children }: { name: strin
               type="button"
               className="condition-item__chevron"
               aria-expanded={open}
-              aria-label={`${open ? 'Hide' : 'Show'} ${name} rules`}
+              aria-label={t(open ? 'conditions.hideRules' : 'conditions.showRules', { name })}
               onClick={() => setOpen(!open)}
             >
               <ChevronDown />
@@ -111,6 +120,7 @@ function ConditionItem({ name, rulesText = '', footer, children }: { name: strin
 }
 
 function ConditionToggleRow({ name, active, icon, onToggle }: { name: string; active: boolean; icon?: ReactNode; onToggle: () => void }) {
+  const t = useSheetText();
   return (
     <div className="condition-row">
       {icon && <span className="condition-row__icon">{icon}</span>}
@@ -119,7 +129,7 @@ function ConditionToggleRow({ name, active, icon, onToggle }: { name: string; ac
         type="button"
         className={active ? 'mutate condition-row__toggle condition-row__toggle--on' : 'mutate condition-row__toggle'}
         aria-pressed={active}
-        aria-label={`${name}: ${active ? 'active' : 'inactive'}`}
+        aria-label={t(active ? 'conditions.active' : 'conditions.inactive', { name })}
         onClick={onToggle}
       />
     </div>
@@ -128,8 +138,9 @@ function ConditionToggleRow({ name, active, icon, onToggle }: { name: string; ac
 
 /** D&D Beyond's exhaustion bar: "--" clears it, a level sets it; from level 1 the levels below it (and "--") are shaded. */
 function ExhaustionLevels({ level, onChange }: { level: number; onChange: (level: number) => void }) {
+  const t = useSheetText();
   return (
-    <div className="exhaustion-levels" role="group" aria-label="Exhaustion level">
+    <div className="exhaustion-levels" role="group" aria-label={t('conditions.exhaustionLevel')}>
       {EXHAUSTION_LEVELS.map((value) => {
         const active = level > 0 && value === level;
         const state = active ? ' exhaustion-levels__level--active' : level > 0 && value < level ? ' exhaustion-levels__level--implied' : '';
@@ -139,7 +150,7 @@ function ExhaustionLevels({ level, onChange }: { level: number; onChange: (level
             type="button"
             className={`mutate exhaustion-levels__level${state}`}
             aria-pressed={active}
-            aria-label={value === 0 ? 'No exhaustion' : `Exhaustion level ${value}`}
+            aria-label={value === 0 ? t('conditions.noExhaustion') : t('conditions.exhaustionLevelOf', { level: value })}
             onClick={() => onChange(value)}
           >
             {value === 0 ? '--' : value}

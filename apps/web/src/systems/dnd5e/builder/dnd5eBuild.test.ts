@@ -4,6 +4,7 @@ import { checklistLines, withLocalAnswers } from '../../../builder/builderDefini
 import { DND5E_BUILDER } from './dnd5eBuilderDefinition';
 import {
   answerOf,
+  describeBuild,
   dnd5eStepOf,
   orderOptionalSources,
   preferencesOf,
@@ -36,6 +37,25 @@ function choice(id: string): CreationChoice {
 function plan(...ids: string[]): BuildPlan {
   return { choices: ids.map(choice), problems: [], pendingCount: 0 };
 }
+
+describe('describeBuild', () => {
+  function withOptions(id: string, options: [string, string][]): CreationChoice {
+    return { ...choice(id), options: options.map(([key, label]) => ({ key, label, sourceBook: null, summary: null })) };
+  }
+  const speciesPlan: BuildPlan = {
+    choices: [withOptions('build.species', [['elf', 'Elf']]), withOptions('build.subspecies', [['', 'Padrão'], ['High', 'High']])],
+    problems: [],
+    pendingCount: 0,
+  };
+
+  it('leaves out the unnamed default subspecies whatever its label says', () => {
+    expect(describeBuild({ ...EMPTY, speciesSlug: 'elf', subspeciesName: '' }, speciesPlan)).toBe('Elf');
+  });
+
+  it('puts a named subspecies before its species', () => {
+    expect(describeBuild({ ...EMPTY, speciesSlug: 'elf', subspeciesName: 'High' }, speciesPlan)).toBe('High Elf');
+  });
+});
 
 describe('answerOf', () => {
   it('reads every pick back the way withSelection wrote it', () => {

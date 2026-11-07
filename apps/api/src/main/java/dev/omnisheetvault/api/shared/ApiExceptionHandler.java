@@ -6,7 +6,7 @@ import dev.omnisheetvault.api.character.CharacterIsDraftException;
 import dev.omnisheetvault.api.character.CharacterNotDraftException;
 import dev.omnisheetvault.api.character.CharacterNotFoundException;
 import dev.omnisheetvault.api.character.FeatNotAllowedException;
-import dev.omnisheetvault.api.character.InvalidPortraitException;
+import dev.omnisheetvault.api.storage.InvalidPortraitException;
 import dev.omnisheetvault.api.character.LevelUpNotStartedException;
 import dev.omnisheetvault.api.character.NotDyingException;
 import dev.omnisheetvault.api.identity.InvalidTutorialIdException;
@@ -29,6 +29,7 @@ import dev.omnisheetvault.api.ruleset.SpellLimitExceededException;
 import dev.omnisheetvault.api.ruleset.SpellPreparationLimitExceededException;
 import dev.omnisheetvault.api.ruleset.UnresolvableRollException;
 import dev.omnisheetvault.api.ruleset.UnsupportedGameSystemException;
+import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -42,124 +43,143 @@ import org.springframework.web.multipart.MaxUploadSizeExceededException;
 @RestControllerAdvice
 class ApiExceptionHandler {
 
+    private final MessageSource messageSource;
+
+    ApiExceptionHandler(MessageSource messageSource) {
+        this.messageSource = messageSource;
+    }
+
+    /** The player-facing text in the request's language for a {@link LocalizedProblem}, else the English message. */
+    private String detail(RuntimeException exception) {
+        if (exception instanceof LocalizedProblem problem) {
+            return messageSource.getMessage(
+                    problem.messageCode(), problem.messageArguments(), exception.getMessage(), InterfaceLocale.current());
+        }
+        return exception.getMessage();
+    }
+
+    private String message(String code, String english) {
+        return messageSource.getMessage(code, null, english, InterfaceLocale.current());
+    }
+
     @ExceptionHandler(CharacterNotFoundException.class)
     ProblemDetail handleCharacterNotFound(CharacterNotFoundException exception) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, exception.getMessage());
+        return ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, detail(exception));
     }
 
     @ExceptionHandler({CharacterIsDraftException.class, CharacterNotDraftException.class, BuildNotReadyException.class,
             NotDyingException.class, LevelUpNotStartedException.class, LevelUpNotAllowedException.class, FeatNotAllowedException.class})
     ProblemDetail handleWrongCreationState(RuntimeException exception) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, exception.getMessage());
+        return ProblemDetail.forStatusAndDetail(HttpStatus.CONFLICT, detail(exception));
     }
 
     @ExceptionHandler(InvalidExtraException.class)
     ProblemDetail handleInvalidExtra(InvalidExtraException exception) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, exception.getMessage());
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, detail(exception));
     }
 
     @ExceptionHandler(InvalidTutorialIdException.class)
     ProblemDetail handleInvalidTutorialId(InvalidTutorialIdException exception) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, exception.getMessage());
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, detail(exception));
     }
 
     @ExceptionHandler(InvalidBuildException.class)
     ProblemDetail handleInvalidBuild(InvalidBuildException exception) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, exception.getMessage());
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, detail(exception));
     }
 
     @ExceptionHandler(UnsupportedGameSystemException.class)
     ProblemDetail handleUnsupportedGameSystem(UnsupportedGameSystemException exception) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, exception.getMessage());
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, detail(exception));
     }
 
     @ExceptionHandler(UnresolvableRollException.class)
     ProblemDetail handleUnresolvableRoll(UnresolvableRollException exception) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, exception.getMessage());
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, detail(exception));
     }
 
     @ExceptionHandler(IneligibleRollModeException.class)
     ProblemDetail handleIneligibleRollMode(IneligibleRollModeException exception) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, exception.getMessage());
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, detail(exception));
     }
 
     @ExceptionHandler(InvalidCustomizationException.class)
     ProblemDetail handleInvalidCustomization(InvalidCustomizationException exception) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, exception.getMessage());
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, detail(exception));
     }
 
     @ExceptionHandler(InvalidSheetThemeException.class)
     ProblemDetail handleInvalidSheetTheme(InvalidSheetThemeException exception) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, exception.getMessage());
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, detail(exception));
     }
 
     @ExceptionHandler(InvalidConditionException.class)
     ProblemDetail handleInvalidCondition(InvalidConditionException exception) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, exception.getMessage());
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, detail(exception));
     }
 
     @ExceptionHandler(InvalidCoinDenominationException.class)
     ProblemDetail handleInvalidCoinDenomination(InvalidCoinDenominationException exception) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, exception.getMessage());
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, detail(exception));
     }
 
     @ExceptionHandler(AttunementLimitExceededException.class)
     ProblemDetail handleAttunementLimitExceeded(AttunementLimitExceededException exception) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, exception.getMessage());
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, detail(exception));
     }
 
     @ExceptionHandler(AttunementNotAllowedException.class)
     ProblemDetail handleAttunementNotAllowed(AttunementNotAllowedException exception) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, exception.getMessage());
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, detail(exception));
     }
 
     @ExceptionHandler(InsufficientHitDiceException.class)
     ProblemDetail handleInsufficientHitDice(InsufficientHitDiceException exception) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, exception.getMessage());
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, detail(exception));
     }
 
     @ExceptionHandler(InvalidHitDiceRecoveryException.class)
     ProblemDetail handleInvalidHitDiceRecovery(InvalidHitDiceRecoveryException exception) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, exception.getMessage());
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, detail(exception));
     }
 
     @ExceptionHandler(CatalogueEntryNotFoundException.class)
     ProblemDetail handleCatalogueEntryNotFound(CatalogueEntryNotFoundException exception) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, exception.getMessage());
+        return ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, detail(exception));
     }
 
     @ExceptionHandler(SpellLimitExceededException.class)
     ProblemDetail handleSpellLimitExceeded(SpellLimitExceededException exception) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, exception.getMessage());
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, detail(exception));
     }
 
     @ExceptionHandler(SpellPreparationLimitExceededException.class)
     ProblemDetail handleSpellPreparationLimitExceeded(SpellPreparationLimitExceededException exception) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, exception.getMessage());
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, detail(exception));
     }
 
     @ExceptionHandler(InvalidBackgroundFieldException.class)
     ProblemDetail handleInvalidBackgroundField(InvalidBackgroundFieldException exception) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, exception.getMessage());
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, detail(exception));
     }
 
     @ExceptionHandler(InvalidCustomActionFieldException.class)
     ProblemDetail handleInvalidCustomActionField(InvalidCustomActionFieldException exception) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, exception.getMessage());
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, detail(exception));
     }
 
     @ExceptionHandler(InvalidPortraitException.class)
     ProblemDetail handleInvalidPortrait(InvalidPortraitException exception) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, exception.getMessage());
+        return ProblemDetail.forStatusAndDetail(HttpStatus.BAD_REQUEST, detail(exception));
     }
 
     @ExceptionHandler(MaxUploadSizeExceededException.class)
     ProblemDetail handleUploadTooLarge(MaxUploadSizeExceededException exception) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.CONTENT_TOO_LARGE, "The file is too large: a portrait can be at most 3 MB.");
+        return ProblemDetail.forStatusAndDetail(HttpStatus.CONTENT_TOO_LARGE, message("error.portraitTooLarge", "The file is too large: a portrait can be at most 3 MB."));
     }
 
     @ExceptionHandler(InvalidItemFieldException.class)
     ProblemDetail handleInvalidItemField(InvalidItemFieldException exception) {
-        return ProblemDetail.forStatusAndDetail(HttpStatus.INTERNAL_SERVER_ERROR, exception.getMessage());
+        return ProblemDetail.forStatusAndDetail(HttpStatus.INTERNAL_SERVER_ERROR, detail(exception));
     }
 }

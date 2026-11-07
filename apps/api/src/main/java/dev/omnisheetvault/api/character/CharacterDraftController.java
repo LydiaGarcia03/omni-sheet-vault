@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
 
 @RestController
@@ -46,6 +47,13 @@ class CharacterDraftController {
     DraftResponse save(@AuthenticationPrincipal Jwt jwt, @PathVariable UUID id, @Valid @RequestBody SaveDraftRequest request) {
         String buildJson = objectMapper.writeValueAsString(request.build());
         return respond(draftService.save(jwt, id, request.name(), buildJson));
+    }
+
+    /** The plan and preview of a build the player is only considering (hovering an option); the draft is not changed. */
+    @PostMapping("/api/characters/{id}/draft/preview")
+    DraftPreviewOnlyResponse preview(@AuthenticationPrincipal Jwt jwt, @PathVariable UUID id, @RequestBody JsonNode build) {
+        CharacterDraftService.DraftView view = draftService.hypothetical(jwt, id, objectMapper.writeValueAsString(build));
+        return new DraftPreviewOnlyResponse(DraftResponse.PlanResponse.from(view.plan()), DraftPreviewResponse.from(view.preview(), view.vitals()));
     }
 
     @PostMapping("/api/characters/{id}/draft/finish")

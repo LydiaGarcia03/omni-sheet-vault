@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { MutationHandler } from '../../sheet/api';
+import { useDnd5eText } from './locales/dnd5eMessages';
 
 type OtherPossessionsQuickAddProps = {
   onMutate: MutationHandler;
@@ -16,6 +17,7 @@ type OtherPossessionsQuickAddProps = {
  * next one.
  */
 export function OtherPossessionsQuickAdd({ onMutate }: OtherPossessionsQuickAddProps) {
+  const t = useDnd5eText();
   const [name, setName] = useState('');
 
   const commit = () => {
@@ -46,8 +48,8 @@ export function OtherPossessionsQuickAdd({ onMutate }: OtherPossessionsQuickAddP
           (event.target as HTMLInputElement).blur();
         }
       }}
-      placeholder="Item name"
-      aria-label="New other possession name"
+      placeholder={t('inventory.itemName')}
+      aria-label={t('inventory.newOtherPossession')}
       className="other-possessions-quick-add"
     />
   );

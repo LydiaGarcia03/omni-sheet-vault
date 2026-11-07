@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { CatalogueEntry } from '../catalogue/api';
+import { useSheetText } from '../locales/platformMessages';
 import type { FeatManagementRequest, FeatureTrait } from './api';
 import { catalogueEntryLabel } from './CatalogueSourceLabel';
 import { ChevronDown, SidebarHeader } from './sidebarParts';
@@ -14,6 +15,7 @@ type SourceGroupProps = {
 
 /** One source book's feats, open by default, each with Add or (when taken) Remove. */
 function SourceGroup({ source, entries, knownBySlug, onLearn, onRemove }: SourceGroupProps) {
+  const t = useSheetText();
   const [open, setOpen] = useState(true);
   return (
     <section className={open ? 'feat-manage__group is-open' : 'feat-manage__group'}>
@@ -33,12 +35,12 @@ function SourceGroup({ source, entries, knownBySlug, onLearn, onRemove }: Source
                   <span className="feat-manage__feat-source">{entry.sourceBook}</span>
                 </span>
                 {known ? (
-                  <button type="button" className="mutate spell-manage__button spell-manage__button--filled" aria-label={`Remove ${known.name}`} onClick={() => onRemove(known.key)}>
-                    Remove
+                  <button type="button" className="mutate spell-manage__button spell-manage__button--filled" aria-label={t('common.removeName', { name: known.name })} onClick={() => onRemove(known.key)}>
+                    {t('common.remove')}
                   </button>
                 ) : (
-                  <button type="button" className="mutate spell-manage__button feat-manage__add" aria-label={`Learn ${label}`} onClick={() => onLearn(entry.id)}>
-                    Add
+                  <button type="button" className="mutate spell-manage__button feat-manage__add" aria-label={t('common.learnName', { name: label })} onClick={() => onLearn(entry.id)}>
+                    {t('common.add')}
                   </button>
                 )}
               </li>
@@ -55,17 +57,19 @@ function SourceGroup({ source, entries, knownBySlug, onLearn, onRemove }: Source
  * without a catalogue entry is listed at the top so it can still be removed.
  */
 export function FeatManagementPanel({ knownFeats, catalogue, onLearn, onRemove }: FeatManagementRequest) {
+  const t = useSheetText();
+  const other = t('common.other');
   const knownBySlug = new Map(knownFeats.map((feat) => [feat.key, feat]));
   const catalogued = new Set(catalogue.map((entry) => entry.slug));
   const orphans = knownFeats.filter((feat) => !catalogued.has(feat.key));
-  const groups = [...new Set(catalogue.map((entry) => entry.sourceBook ?? 'Other'))].map((source) => ({
+  const groups = [...new Set(catalogue.map((entry) => entry.sourceBook ?? other))].map((source) => ({
     source,
-    entries: catalogue.filter((entry) => (entry.sourceBook ?? 'Other') === source).sort((a, b) => a.name.localeCompare(b.name)),
+    entries: catalogue.filter((entry) => (entry.sourceBook ?? other) === source).sort((a, b) => a.name.localeCompare(b.name)),
   }));
 
   return (
     <div className="feat-manage">
-      <SidebarHeader title="Manage Feats" />
+      <SidebarHeader title={t('feats.title')} />
       {orphans.length > 0 && (
         <ul className="feat-manage__feats feat-manage__feats--orphans">
           {orphans.map((feat) => (
@@ -73,8 +77,8 @@ export function FeatManagementPanel({ knownFeats, catalogue, onLearn, onRemove }
               <span className="feat-manage__feat-text">
                 <span className="feat-manage__feat-name">{feat.name}</span>
               </span>
-              <button type="button" className="mutate spell-manage__button spell-manage__button--filled" aria-label={`Remove ${feat.name}`} onClick={() => onRemove(feat.key)}>
-                Remove
+              <button type="button" className="mutate spell-manage__button spell-manage__button--filled" aria-label={t('common.removeName', { name: feat.name })} onClick={() => onRemove(feat.key)}>
+                {t('common.remove')}
               </button>
             </li>
           ))}

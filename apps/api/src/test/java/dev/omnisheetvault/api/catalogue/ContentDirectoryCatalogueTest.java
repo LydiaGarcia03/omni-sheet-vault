@@ -42,4 +42,28 @@ class ContentDirectoryCatalogueTest {
 
         assertThat(catalogue.find("CLASS", "mystic").orElseThrow().playtest()).isTrue();
     }
+
+    @Test
+    void readsDaggerheartKindsFromTheirPluralDirectories() throws IOException {
+        Path root = Files.createTempDirectory("content-directory-catalogue-test");
+        writeEntry(root, "ancestries", "ANCESTRY", "stonefolk");
+        writeEntry(root, "communities", "COMMUNITY", "hillborne");
+        writeEntry(root, "transformations", "TRANSFORMATION", "wraith");
+        writeEntry(root, "domains", "DOMAIN", "ember");
+        writeEntry(root, "domain_cards", "DOMAIN_CARD", "spark");
+        ContentDirectoryCatalogue catalogue = new ContentDirectoryCatalogue(root, new ObjectMapper());
+
+        assertThat(catalogue.find("ANCESTRY", "stonefolk")).isPresent();
+        assertThat(catalogue.find("COMMUNITY", "hillborne")).isPresent();
+        assertThat(catalogue.find("TRANSFORMATION", "wraith")).isPresent();
+        assertThat(catalogue.find("DOMAIN", "ember")).isPresent();
+        assertThat(catalogue.find("DOMAIN_CARD", "spark")).isPresent();
+    }
+
+    private static void writeEntry(Path root, String directory, String kind, String slug) throws IOException {
+        Files.createDirectories(root.resolve(directory));
+        Files.writeString(root.resolve(directory).resolve(slug + ".json"), """
+                {"systemId":"daggerheart","kind":"%s","slug":"%s","name":"%s","sourceBook":"Test","sourceCode":"TEST",
+                 "tags":[],"description":"","data":{}}""".formatted(kind, slug, slug));
+    }
 }

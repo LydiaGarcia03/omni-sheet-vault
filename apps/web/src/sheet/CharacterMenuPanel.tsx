@@ -1,4 +1,5 @@
 import { useRef, useState, type ReactNode } from 'react';
+import { useSheetText } from '../locales/platformMessages';
 import type { CharacterMenuRequest, Experience } from './api';
 import { PencilIcon } from './sidebarIcons';
 import { XpBar } from './XpBar';
@@ -7,6 +8,7 @@ const MAX_NAME_LENGTH = 128;
 
 /** The name with D&D Beyond's pencil: a click opens an inline field, and leaving it saves a non-blank change. */
 function EditableName({ name, onRename }: { name: string; onRename: (name: string) => void }) {
+  const t = useSheetText();
   const [draft, setDraft] = useState<string | null>(null);
   const cancelled = useRef(false);
 
@@ -27,7 +29,7 @@ function EditableName({ name, onRename }: { name: string; onRename: (name: strin
       <div className="character-menu__name-row">
         <input
           className="character-menu__name-input"
-          aria-label="Character name"
+          aria-label={t('menu.characterName')}
           autoFocus
           maxLength={MAX_NAME_LENGTH}
           value={draft}
@@ -46,7 +48,7 @@ function EditableName({ name, onRename }: { name: string; onRename: (name: strin
   return (
     <div className="character-menu__name-row is-editable" onClick={start}>
       <h1 className="character-menu__name">{name}</h1>
-      <button type="button" className="character-menu__rename" aria-label={`Rename ${name}`}>
+      <button type="button" className="character-menu__rename" aria-label={t('common.rename', { name })}>
         <PencilIcon className="character-menu__pencil" />
       </button>
     </div>
@@ -68,13 +70,14 @@ function MenuItem({ icon, label, onClick }: { icon: ReactNode; label: string; on
 
 /** Marks the table's milestone as reached, which makes the next level available; unmarking takes it back. */
 function MilestoneSwitch({ experience, onSetExperience }: { experience: Experience; onSetExperience: (points: number) => void }) {
+  const t = useSheetText();
   const reached = experience.levelUpAvailable;
   const toggle = () => onSetExperience(reached ? experience.currentLevelAt : (experience.nextLevelAt ?? experience.currentLevelAt));
   return (
     <li>
       <button type="button" role="switch" aria-checked={reached} className="character-menu__item character-menu__milestone" onClick={toggle}>
         <span className={`character-menu__milestone-box${reached ? ' is-on' : ''}`} aria-hidden="true" />
-        Milestone reached
+        {t('menu.milestoneReached')}
       </button>
     </li>
   );
@@ -102,6 +105,7 @@ export function CharacterMenuPanel({
   icons,
   classIcon,
 }: CharacterMenuRequest) {
+  const t = useSheetText();
   const experienceBuild = experience?.advancement === 'XP';
   return (
     <div className="character-menu">
@@ -122,7 +126,7 @@ export function CharacterMenuPanel({
         )}
         {experience && !experienceBuild && experience.classes.length > 0 && (
           <div className="character-menu__level">
-            Level {experience.classes.reduce((sum, classLevel) => sum + classLevel.level, 0)}
+            {t('common.level', { level: experience.classes.reduce((sum, classLevel) => sum + classLevel.level, 0) })}
           </div>
         )}
         {experience && experience.classes.length > 0 && (
@@ -143,14 +147,14 @@ export function CharacterMenuPanel({
         )}
         {onChangeAppearance && (
           <button type="button" className="character-menu__appearance" onClick={onChangeAppearance}>
-            Change sheet appearance
+            {t('menu.changeAppearance')}
           </button>
         )}
       </div>
       <ul className="character-menu__menu">
-        <li className="character-menu__group">My character</li>
+        <li className="character-menu__group">{t('menu.myCharacter')}</li>
         {experienceBuild && (
-          <MenuItem icon={<span className="character-menu__xp-glyph">XP</span>} label="Manage experience" onClick={onManageExperience} />
+          <MenuItem icon={<span className="character-menu__xp-glyph">XP</span>} label={t('menu.manageExperience')} onClick={onManageExperience} />
         )}
         {!experienceBuild && experience?.canLevelUp && experience.nextLevelAt !== null && onSetExperience && (
           <MilestoneSwitch experience={experience} onSetExperience={onSetExperience} />
@@ -158,14 +162,14 @@ export function CharacterMenuPanel({
         {experience?.levelUpAvailable && (
           <li className="character-menu__level-up-row">
             <button type="button" className="character-menu__level-up" onClick={onLevelUp}>
-              Level up
+              {t('menu.levelUp')}
             </button>
           </li>
         )}
-        <li className="character-menu__group">Play</li>
-        <MenuItem icon={icons.gameLog} label="Game log" onClick={onOpenLog} />
-        <MenuItem icon={icons.shortRest} label="Short rest" onClick={onOpenShortRest} />
-        <MenuItem icon={icons.longRest} label="Long rest" onClick={onOpenLongRest} />
+        <li className="character-menu__group">{t('menu.play')}</li>
+        <MenuItem icon={icons.gameLog} label={t('header.gameLog')} onClick={onOpenLog} />
+        <MenuItem icon={icons.shortRest} label={t('terms.shortRest')} onClick={onOpenShortRest} />
+        <MenuItem icon={icons.longRest} label={t('terms.longRest')} onClick={onOpenLongRest} />
       </ul>
     </div>
   );

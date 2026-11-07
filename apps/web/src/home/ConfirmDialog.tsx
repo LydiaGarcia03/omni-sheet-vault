@@ -1,4 +1,5 @@
 import { useEffect, useRef, type ReactNode } from 'react';
+import { useHomeText } from '../locales/platformMessages';
 
 type ConfirmDialogProps = {
   title: string;
@@ -11,6 +12,7 @@ type ConfirmDialogProps = {
 
 /** A small modal that asks before a destructive action; Escape or a click outside cancels. */
 export function ConfirmDialog({ title, children, confirmLabel, busy = false, onConfirm, onCancel }: ConfirmDialogProps) {
+  const t = useHomeText();
   const cancel = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -29,7 +31,7 @@ export function ConfirmDialog({ title, children, confirmLabel, busy = false, onC
         <p>{children}</p>
         <div className="app-dialog__actions">
           <button ref={cancel} type="button" className="app-btn" onClick={onCancel} disabled={busy}>
-            Cancel
+            {t('dialog.cancel')}
           </button>
           <button type="button" className="app-btn app-btn--danger" onClick={onConfirm} disabled={busy}>
             {busy ? `${confirmLabel}…` : confirmLabel}

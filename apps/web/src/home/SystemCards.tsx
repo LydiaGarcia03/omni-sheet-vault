@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { SUPPORTED_SYSTEMS, UPCOMING_SYSTEMS } from '../characters/supportedSystems';
+import { useHomeText } from '../locales/platformMessages';
 
 type SystemCardsProps = {
   /** Smaller cards: the home's "Start something new" strip. */
@@ -11,6 +12,7 @@ type SystemCardsProps = {
 
 /** Every game system the vault offers: the playable ones with "Create character", the rest marked "Coming soon". */
 export function SystemCards({ compact = false, creating = null, onCreate }: SystemCardsProps) {
+  const t = useHomeText();
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: 'left' | 'right') => {
@@ -32,7 +34,7 @@ export function SystemCards({ compact = false, creating = null, onCreate }: Syst
             type="button"
             className="system-carousel__arrow system-carousel__arrow--left"
             onClick={() => scroll('left')}
-            aria-label="Previous systems"
+            aria-label={t('systemCards.previous')}
         >
           ‹
         </button>
@@ -48,7 +50,7 @@ export function SystemCards({ compact = false, creating = null, onCreate }: Syst
                   style={{ background: system.cardBackground }}
               >
             <span className="system-card__badge is-live">
-              Available
+              {t('systemCards.available')}
             </span>
 
                 <div className="system-card__name">
@@ -56,7 +58,7 @@ export function SystemCards({ compact = false, creating = null, onCreate }: Syst
                 </div>
 
                 <div className="system-card__tag">
-                  {system.tagline}
+                  {t.dynamic(`systemCards.taglines.${system.id}`, system.tagline)}
                 </div>
 
                 <button
@@ -66,8 +68,8 @@ export function SystemCards({ compact = false, creating = null, onCreate }: Syst
                     onClick={() => onCreate(system.id)}
                 >
                   {creating === system.id
-                      ? 'Creating…'
-                      : 'Create character'}
+                      ? t('systemCards.creating')
+                      : t('systemCards.create')}
                 </button>
               </div>
           ))}
@@ -79,7 +81,7 @@ export function SystemCards({ compact = false, creating = null, onCreate }: Syst
                   style={{ background: system.cardBackground }}
               >
             <span className="system-card__badge">
-              Coming soon
+              {t('systemCards.comingSoon')}
             </span>
 
                 <div className="system-card__name">
@@ -87,7 +89,7 @@ export function SystemCards({ compact = false, creating = null, onCreate }: Syst
                 </div>
 
                 <div className="system-card__tag">
-                  {system.tagline}
+                  {t.dynamic(`systemCards.taglines.${system.label}`, system.tagline)}
                 </div>
               </div>
           ))}
@@ -97,7 +99,7 @@ export function SystemCards({ compact = false, creating = null, onCreate }: Syst
             type="button"
             className="system-carousel__arrow system-carousel__arrow--right"
             onClick={() => scroll('right')}
-            aria-label="Next systems"
+            aria-label={t('systemCards.next')}
         >
           ›
         </button>

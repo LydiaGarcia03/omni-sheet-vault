@@ -2,6 +2,7 @@ import { useEffect, useState, type ReactNode } from 'react';
 import type { AbilityBreakdown, Contribution } from '../../sheet/api';
 import { RulesText } from '../../sheet/RulesText';
 import { SidebarHeader } from '../../sheet/sidebarParts';
+import { useDnd5eText } from './locales/dnd5eMessages';
 
 function Signed({ value }: { value: number }) {
   return (
@@ -86,34 +87,35 @@ type Dnd5eAbilityPaneProps = {
  * Stacking Bonus), then the player's Other Modifier and Override Score, then the rules text.
  */
 export function Dnd5eAbilityPane({ label, icon, breakdown, onCustomize, rulesText }: Dnd5eAbilityPaneProps) {
+  const t = useDnd5eText();
   return (
     <div className="ability-pane">
       <SidebarHeader icon={icon} title={`${label} ${breakdown.total}`} modifier={breakdown.modifier} modifierFormat="parens" />
-      <div className="ability-pane__table" role="table" aria-label={`${label} breakdown`}>
-        <Row label="Total Score">{breakdown.total}</Row>
-        <Row label="Modifier">
+      <div className="ability-pane__table" role="table" aria-label={t('abilityPane.breakdown', { label })}>
+        <Row label={t('abilityPane.totalScore')}>{breakdown.total}</Row>
+        <Row label={t('abilityPane.modifier')}>
           <Signed value={breakdown.modifier} />
         </Row>
-        <Row label="Base Score">{breakdown.base}</Row>
-        <Row label="Bonus">
+        <Row label={t('abilityPane.baseScore')}>{breakdown.base}</Row>
+        <Row label={t('abilityPane.bonus')}>
           <Signed value={breakdown.bonus} />
         </Row>
         {breakdown.bonusSources.map((source, index) => (
           <SupplierRow key={index} source={source} />
         ))}
-        <Row label="Set Score">{breakdown.setScore}</Row>
-        <Row label="Stacking Bonus">
+        <Row label={t('abilityPane.setScore')}>{breakdown.setScore}</Row>
+        <Row label={t('abilityPane.stackingBonus')}>
           <Signed value={breakdown.stackingBonus} />
         </Row>
       </div>
       <div className="ability-pane__overrides">
         <OverrideField
-          label="Other Modifier"
+          label={t('abilityPane.otherModifier')}
           value={breakdown.otherModifier}
           onCommit={(otherModifier) => onCustomize({ otherModifier, overrideScore: breakdown.overrideScore })}
         />
         <OverrideField
-          label="Override Score"
+          label={t('abilityPane.overrideScore')}
           value={breakdown.overrideScore}
           onCommit={(overrideScore) => onCustomize({ otherModifier: breakdown.otherModifier, overrideScore })}
         />

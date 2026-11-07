@@ -1,7 +1,8 @@
 import type { RollHandler } from '../../dice/api';
 import type { CharacterSheet, MutationHandler, Spell } from '../../sheet/api';
-import { DAMAGE_TYPE_ICONS, damageTypeLabel } from './damageTypes';
+import { DAMAGE_TYPE_ICONS } from './damageTypes';
 import { FrameIcon } from './FrameIcon';
+import { useDnd5eTerms } from './locales/dnd5eMessages';
 
 type ItemSpellCastProps = {
   spell: Spell;
@@ -23,6 +24,8 @@ type ItemSpellCastProps = {
  * that field.
  */
 export function ItemSpellCast({ spell, sheet, onMutate, onRoll }: ItemSpellCastProps) {
+  const terms = useDnd5eTerms();
+  const { t } = terms;
   const item = sheet.items.find((candidate) => candidate.key === spell.grantedByItemKey);
   if (!item || spell.chargeCost == null) {
     return null;
@@ -49,16 +52,16 @@ export function ItemSpellCast({ spell, sheet, onMutate, onRoll }: ItemSpellCastP
           type="button"
           className="mutate spell-cast__button"
           disabled={remaining < spell.chargeCost}
-          aria-label={`Cast ${spell.name} using ${spell.chargeCost} charge${spell.chargeCost === 1 ? '' : 's'}`}
+          aria-label={t('spell.castCharges', { name: spell.name, count: spell.chargeCost })}
           onClick={handleCast}
         >
           <span className="spell-cast__remaining">{remaining}</span>
-          Cast
+          {t('spell.cast')}
         </button>
         <div className="spell-cast__level">
-          <span className="spell-cast__level-label">Cost</span>
+          <span className="spell-cast__level-label">{t('spell.cost')}</span>
           <span className="spell-cast__level-current">
-            {spell.chargeCost} Charge{spell.chargeCost === 1 ? '' : 's'}
+            {t('spell.charges', { count: spell.chargeCost })}
           </span>
         </div>
       </div>
@@ -69,11 +72,11 @@ export function ItemSpellCast({ spell, sheet, onMutate, onRoll }: ItemSpellCastP
             <FrameIcon
               className="spell-cast__preview-icon"
               svg={DAMAGE_TYPE_ICONS[spell.damageType]}
-              title={damageTypeLabel(spell.damageType)}
+              title={terms.damageType(spell.damageType)}
               aria-hidden
             />
           )}
-          <span className="spell-cast__preview-label">Damage</span>
+          <span className="spell-cast__preview-label">{t('spell.damage')}</span>
         </div>
       )}
     </div>

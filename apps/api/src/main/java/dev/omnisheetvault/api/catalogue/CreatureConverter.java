@@ -6,6 +6,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -26,6 +27,10 @@ import tools.jackson.databind.node.ObjectNode;
 final class CreatureConverter implements FiveEToolsConverter {
 
     private static final String MONSTER_MANUAL_FILE = "bestiary/bestiary-mm.json";
+    private static final String ALIGNMENT = "alignment";
+    private static final String FAMILIAR = "familiar";
+    private static final String SPECIAL = "special";
+    private static final int DEFAULT_ARMOR_CLASS = 10;
     private static final Map<String, String> SIZES = Map.of(
             "T", "Tiny", "S", "Small", "M", "Medium", "L", "Large", "H", "Huge", "G", "Gargantuan");
     private static final List<String> ABILITIES = List.of("str", "dex", "con", "int", "wis", "cha");
@@ -66,7 +71,7 @@ final class CreatureConverter implements FiveEToolsConverter {
         ObjectNode data = objectMapper.createObjectNode();
         data.put("size", sizes(monster.get("size")));
         data.put("creatureType", creatureType(monster.get("type")));
-        data.put("alignment", Alignments.text(monster.get("alignment")));
+        data.put(ALIGNMENT, Alignments.text(monster.get(ALIGNMENT)));
         putArmorClass(data, monster.get("ac"));
         putHitPoints(data, monster.get("hp"));
         putSpeeds(data, monster.get("speed"));
@@ -86,7 +91,7 @@ final class CreatureConverter implements FiveEToolsConverter {
         data.set("actions", actions);
         data.set("reactions", statEntries(monster.get("reaction")));
         data.set("legendaryActions", statEntries(monster.get("legendary")));
-        data.put("familiar", monster.path("familiar").asBoolean(false));
+        data.put(FAMILIAR, monster.path(FAMILIAR).asBoolean(false));
         ArrayNode environments = data.putArray("environments");
         monster.path("environment").forEach(environment -> environments.add(environment.asString()));
         return new CatalogueEntryImport(
@@ -118,10 +123,7 @@ final class CreatureConverter implements FiveEToolsConverter {
         if (type.isString()) {
             return capitalize(type.asString());
         }
-        JsonNode base = type.get("type");
-        String typeName = base != null && base.isObject() && base.has("choose")
-                ? stream(base.get("choose")).map(JsonNode::asString).collect(Collectors.joining(" or "))
-                : base == null ? "" : base.asString();
+        String typeName = baseTypeName(type.get("type"));
         if (type.has("swarmSize")) {
             return "Swarm of " + SIZES.getOrDefault(type.get("swarmSize").asString(), "") + " " + typeName + "s";
         }
@@ -131,32 +133,52 @@ final class CreatureConverter implements FiveEToolsConverter {
         return capitalize(typeName) + (tags.isEmpty() ? "" : " (" + String.join(", ", tags) + ")");
     }
 
+    private static String baseTypeName(JsonNode base) {
+        if (base == null) {
+            return "";
+        }
+        if (base.isObject() && base.has("choose")) {
+            return stream(base.get("choose")).map(JsonNode::asString).collect(Collectors.joining(" or "));
+        }
+        return base.asString();
+    }
+
     /** The first armor class is the number; the text keeps every alternative with its source ("15 (natural armor)"). */
     private static void putArmorClass(ObjectNode data, JsonNode ac) {
-        int armorClass = 10;
-        List<String> parts = new ArrayList<>();
-        if (ac != null && ac.isArray()) {
-            for (JsonNode entry : ac) {
-                if (entry.isNumber()) {
-                    parts.add(String.valueOf(entry.asInt()));
-                } else if (entry.has("ac")) {
-                    String from = entry.has("from") ? " (" + stream(entry.get("from")).map(node -> TagMarkupStripper.strip(node.asString()))
-                            .collect(Collectors.joining(", ")) + ")" : "";
-                    String condition = entry.has("condition") ? " " + TagMarkupStripper.strip(entry.get("condition").asString()) : "";
-                    parts.add(entry.get("ac").asInt() + from + condition);
-                } else if (entry.has("special")) {
-                    parts.add(TagMarkupStripper.strip(entry.get("special").asString()));
-                }
-            }
-            JsonNode first = ac.isEmpty() ? null : ac.get(0);
-            if (first != null && first.isNumber()) {
-                armorClass = first.asInt();
-            } else if (first != null && first.has("ac")) {
-                armorClass = first.get("ac").asInt();
-            }
-        }
+        List<JsonNode> entries = ac != null && ac.isArray() ? stream(ac).toList() : List.of();
+        int armorClass = entries.isEmpty() ? DEFAULT_ARMOR_CLASS : armorClassNumber(entries.getFirst());
+        List<String> parts = entries.stream().map(CreatureConverter::armorClassPart).filter(Objects::nonNull).toList();
         data.put("armorClass", armorClass);
         data.put("armorClassText", parts.isEmpty() ? String.valueOf(armorClass) : String.join(", ", parts));
+    }
+
+    private static int armorClassNumber(JsonNode entry) {
+        if (entry.isNumber()) {
+            return entry.asInt();
+        }
+        return entry.has("ac") ? entry.get("ac").asInt() : DEFAULT_ARMOR_CLASS;
+    }
+
+    private static String armorClassPart(JsonNode entry) {
+        if (entry.isNumber()) {
+            return String.valueOf(entry.asInt());
+        }
+        if (entry.has("ac")) {
+            return entry.get("ac").asInt() + armorSources(entry) + spacedNote(entry, "condition");
+        }
+        return entry.has(SPECIAL) ? TagMarkupStripper.strip(entry.get(SPECIAL).asString()) : null;
+    }
+
+    private static String armorSources(JsonNode entry) {
+        if (!entry.has("from")) {
+            return "";
+        }
+        return " (" + stream(entry.get("from")).map(node -> TagMarkupStripper.strip(node.asString())).collect(Collectors.joining(", ")) + ")";
+    }
+
+    /** The field's text after a space, or nothing when the node lacks it. */
+    private static String spacedNote(JsonNode node, String field) {
+        return node.has(field) ? " " + TagMarkupStripper.strip(node.get(field).asString()) : "";
     }
 
     private static void putHitPoints(ObjectNode data, JsonNode hp) {
@@ -165,26 +187,23 @@ final class CreatureConverter implements FiveEToolsConverter {
             data.put("hitDice", hp.path("formula").asString(""));
         } else {
             data.put("hitPoints", 0);
-            data.put("hitDice", hp == null ? "" : TagMarkupStripper.strip(hp.path("special").asString("")));
+            data.put("hitDice", hp == null ? "" : TagMarkupStripper.strip(hp.path(SPECIAL).asString("")));
         }
     }
 
     /** The walking speed as a number; every other speed as text ("Climb 30 ft., Fly 60 ft. (hover)"). */
     private static void putSpeeds(ObjectNode data, JsonNode speed) {
         data.put("speed", speed == null ? 0 : speedFeet(speed.get("walk")));
-        List<String> others = new ArrayList<>();
-        if (speed != null) {
-            for (String mode : EXTRA_SPEEDS) {
-                JsonNode value = speed.get(mode);
-                if (value == null) {
-                    continue;
-                }
-                String condition = value.isObject() && value.has("condition") ? " " + TagMarkupStripper.strip(value.get("condition").asString()) : "";
-                String hover = "fly".equals(mode) && speed.path("canHover").asBoolean(false) && condition.isEmpty() ? " (hover)" : "";
-                others.add(capitalize(mode) + " " + speedFeet(value) + " ft." + condition + hover);
-            }
-        }
+        List<String> others = speed == null ? List.of()
+                : EXTRA_SPEEDS.stream().filter(speed::has).map(mode -> extraSpeed(speed, mode)).toList();
         data.put("additionalSpeeds", others.isEmpty() ? null : String.join(", ", others));
+    }
+
+    private static String extraSpeed(JsonNode speed, String mode) {
+        JsonNode value = speed.get(mode);
+        String condition = spacedNote(value, "condition");
+        String hover = "fly".equals(mode) && speed.path("canHover").asBoolean(false) && condition.isEmpty() ? " (hover)" : "";
+        return capitalize(mode) + " " + speedFeet(value) + " ft." + condition + hover;
     }
 
     private static int speedFeet(JsonNode value) {
@@ -248,28 +267,25 @@ final class CreatureConverter implements FiveEToolsConverter {
         if (list == null || list.isEmpty()) {
             return null;
         }
-        List<String> plain = new ArrayList<>();
-        List<String> groups = new ArrayList<>();
-        for (JsonNode entry : list) {
-            if (entry.isString()) {
-                plain.add(TagMarkupStripper.strip(entry.asString()));
-            } else if (entry.has("special")) {
-                groups.add(TagMarkupStripper.strip(entry.get("special").asString()));
-            } else if (entry.has(innerField)) {
-                String inner = joinedWithAnd(entry.get(innerField));
-                String preNote = entry.has("preNote") ? TagMarkupStripper.strip(entry.get("preNote").asString()) + " " : "";
-                String note = entry.has("note") ? " " + TagMarkupStripper.strip(entry.get("note").asString()) : "";
-                if (inner != null) {
-                    groups.add(preNote + inner + note);
-                }
-            }
-        }
+        List<String> plain = stream(list).filter(JsonNode::isString).map(entry -> TagMarkupStripper.strip(entry.asString())).toList();
         List<String> all = new ArrayList<>();
         if (!plain.isEmpty()) {
             all.add(String.join(", ", plain));
         }
-        all.addAll(groups);
+        stream(list).filter(entry -> !entry.isString()).map(entry -> defenseGroup(entry, innerField)).filter(Objects::nonNull).forEach(all::add);
         return all.isEmpty() ? null : String.join("; ", all);
+    }
+
+    private static String defenseGroup(JsonNode entry, String innerField) {
+        if (entry.has(SPECIAL)) {
+            return TagMarkupStripper.strip(entry.get(SPECIAL).asString());
+        }
+        String inner = entry.has(innerField) ? joinedWithAnd(entry.get(innerField)) : null;
+        if (inner == null) {
+            return null;
+        }
+        String preNote = entry.has("preNote") ? TagMarkupStripper.strip(entry.get("preNote").asString()) + " " : "";
+        return preNote + inner + spacedNote(entry, "note");
     }
 
     /** A noted group reads as a phrase: "bludgeoning, piercing, and slashing". */
@@ -302,34 +318,48 @@ final class CreatureConverter implements FiveEToolsConverter {
             return;
         }
         for (JsonNode block : spellcasting) {
-            List<String> lines = new ArrayList<>();
-            String header = TagMarkupStripper.strip(FiveEToolsEntries.flatten(block.get("headerEntries")));
-            if (!header.isBlank()) {
-                lines.add(header);
-            }
-            if (block.has("will")) {
-                lines.add("At will: " + spellNames(block.get("will")));
-            }
-            for (Map.Entry<String, JsonNode> daily : block.path("daily").properties()) {
-                String key = daily.getKey();
-                boolean each = key.endsWith("e");
-                lines.add(key.replace("e", "") + "/day" + (each ? " each" : "") + ": " + spellNames(daily.getValue()));
-            }
-            for (Map.Entry<String, JsonNode> level : block.path("spells").properties()) {
-                int levelNumber = Integer.parseInt(level.getKey());
-                JsonNode spells = level.getValue();
-                String slots = spells.has("slots") ? " (" + spells.get("slots").asInt() + " slot" + (spells.get("slots").asInt() == 1 ? "" : "s") + ")"
-                        : levelNumber == 0 ? " (at will)" : "";
-                lines.add(SPELL_LEVEL_NAMES.get(levelNumber) + slots + ": " + spellNames(spells.get("spells")));
-            }
-            String footer = TagMarkupStripper.strip(FiveEToolsEntries.flatten(block.get("footerEntries")));
-            if (!footer.isBlank()) {
-                lines.add(footer);
-            }
             ObjectNode entry = ("action".equals(block.path("displayAs").asString("")) ? actions : traits).addObject();
             entry.put("name", TagMarkupStripper.strip(block.path("name").asString("Spellcasting")));
-            entry.put("description", String.join("\n", lines));
+            entry.put("description", String.join("\n", spellcastingLines(block)));
         }
+    }
+
+    private static List<String> spellcastingLines(JsonNode block) {
+        List<String> lines = new ArrayList<>();
+        addFlattened(lines, block.get("headerEntries"));
+        if (block.has("will")) {
+            lines.add("At will: " + spellNames(block.get("will")));
+        }
+        block.path("daily").properties().forEach(daily -> lines.add(dailySpellsLine(daily)));
+        block.path("spells").properties().forEach(level -> lines.add(spellLevelLine(level)));
+        addFlattened(lines, block.get("footerEntries"));
+        return lines;
+    }
+
+    private static void addFlattened(List<String> lines, JsonNode entries) {
+        String text = TagMarkupStripper.strip(FiveEToolsEntries.flatten(entries));
+        if (!text.isBlank()) {
+            lines.add(text);
+        }
+    }
+
+    private static String dailySpellsLine(Map.Entry<String, JsonNode> daily) {
+        String key = daily.getKey();
+        return key.replace("e", "") + "/day" + (key.endsWith("e") ? " each" : "") + ": " + spellNames(daily.getValue());
+    }
+
+    private static String spellLevelLine(Map.Entry<String, JsonNode> level) {
+        int levelNumber = Integer.parseInt(level.getKey());
+        JsonNode spells = level.getValue();
+        return SPELL_LEVEL_NAMES.get(levelNumber) + slotsNote(spells, levelNumber) + ": " + spellNames(spells.get("spells"));
+    }
+
+    private static String slotsNote(JsonNode spells, int levelNumber) {
+        if (spells.has("slots")) {
+            int slots = spells.get("slots").asInt();
+            return " (" + slots + (slots == 1 ? " slot)" : " slots)");
+        }
+        return levelNumber == 0 ? " (at will)" : "";
     }
 
     private static String spellNames(JsonNode spells) {
@@ -343,8 +373,8 @@ final class CreatureConverter implements FiveEToolsConverter {
     /** "familiar" for the ones Find Familiar can summon, plus each environment the creature lives in. */
     private static List<String> tags(JsonNode monster) {
         Set<String> tags = new LinkedHashSet<>();
-        if (monster.path("familiar").asBoolean(false)) {
-            tags.add("familiar");
+        if (monster.path(FAMILIAR).asBoolean(false)) {
+            tags.add(FAMILIAR);
         }
         monster.path("environment").forEach(environment -> tags.add(environment.asString()));
         return List.copyOf(tags);
@@ -354,7 +384,7 @@ final class CreatureConverter implements FiveEToolsConverter {
     private static int signedNumber(String text, int fallback) {
         try {
             return Integer.parseInt(text.trim().replace("+", ""));
-        } catch (NumberFormatException e) {
+        } catch (NumberFormatException _) {
             return fallback;
         }
     }
@@ -374,8 +404,10 @@ final class CreatureConverter implements FiveEToolsConverter {
     /** 5etools' alignment codes as words: "chaotic evil", "unaligned", "any non-good alignment". */
     static final class Alignments {
 
+        private static final String NEUTRAL = "neutral";
+        private static final String ALIGNMENT_SUFFIX = " " + ALIGNMENT;
         private static final Map<String, String> WORDS = Map.of(
-                "L", "lawful", "N", "neutral", "NX", "neutral", "NY", "neutral", "C", "chaotic", "G", "good", "E", "evil");
+                "L", "lawful", "N", NEUTRAL, "NX", NEUTRAL, "NY", NEUTRAL, "C", "chaotic", "G", "good", "E", "evil");
         private static final Set<String> LAW_AXIS = Set.of("L", "NX", "C");
         private static final Set<String> MORAL_AXIS = Set.of("G", "NY", "E");
 
@@ -397,10 +429,10 @@ final class CreatureConverter implements FiveEToolsConverter {
         }
 
         private static String alternative(JsonNode entry) {
-            if (entry.has("special")) {
-                return TagMarkupStripper.strip(entry.get("special").asString());
+            if (entry.has(SPECIAL)) {
+                return TagMarkupStripper.strip(entry.get(SPECIAL).asString());
             }
-            String text = codes(stream(entry.path("alignment")).map(JsonNode::asString).toList());
+            String text = codes(stream(entry.path(ALIGNMENT)).map(JsonNode::asString).toList());
             return entry.has("chance") ? text + " (" + entry.get("chance").asInt() + "%)" : text;
         }
 
@@ -413,17 +445,17 @@ final class CreatureConverter implements FiveEToolsConverter {
                 return "unaligned";
             }
             if (set.size() == 4 && set.containsAll(LAW_AXIS)) {
-                return "any " + WORDS.get(outside(set, LAW_AXIS)) + " alignment";
+                return "any " + WORDS.get(outside(set, LAW_AXIS)) + ALIGNMENT_SUFFIX;
             }
             if (set.size() == 4 && set.containsAll(MORAL_AXIS)) {
-                return "any " + WORDS.get(outside(set, MORAL_AXIS)) + " alignment";
+                return "any " + WORDS.get(outside(set, MORAL_AXIS)) + ALIGNMENT_SUFFIX;
             }
             if (set.size() == 5) {
                 String missing = List.of("L", "C", "G", "E").stream().filter(code -> !set.contains(code)).findFirst().orElse("");
-                return "any non-" + WORDS.getOrDefault(missing, "") + " alignment";
+                return "any non-" + WORDS.getOrDefault(missing, "") + ALIGNMENT_SUFFIX;
             }
             if (set.equals(Set.of("N"))) {
-                return "neutral";
+                return NEUTRAL;
             }
             return codes.stream().map(code -> WORDS.getOrDefault(code, code)).distinct().collect(Collectors.joining(" "));
         }

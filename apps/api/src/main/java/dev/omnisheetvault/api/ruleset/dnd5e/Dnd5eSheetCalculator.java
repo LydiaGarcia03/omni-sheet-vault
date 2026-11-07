@@ -924,6 +924,11 @@ public class Dnd5eSheetCalculator implements SheetCalculator {
     private static final double COINS_PER_POUND = 50;
     private static final String BAG_OF_HOLDING_NAME = "Bag of Holding";
 
+    /** The build's "Ignore coin weight" preference; a sheet without a build counts its coins. */
+    private static boolean ignoresCoinWeight(Dnd5eSheet sheet) {
+        return sheet.build() != null && sheet.build().preferences().ignoreCoinWeight();
+    }
+
     /**
      * Weight/encumbrance initiative: {@code carriedWeightKg} sums Equipment, Backpack
      * and coins (50 coins = 1 lb, PHB) only — a Bag of Holding's own contents and
@@ -937,11 +942,6 @@ public class Dnd5eSheetCalculator implements SheetCalculator {
      * has {@code requiresAttunement: false}, matching the actual PHB item — attuned
      * would never be settable for it at all.
      */
-    /** The build's "Ignore coin weight" preference; a sheet without a build counts its coins. */
-    private static boolean ignoresCoinWeight(Dnd5eSheet sheet) {
-        return sheet.build() != null && sheet.build().preferences().ignoreCoinWeight();
-    }
-
     private Encumbrance encumbrance(Dnd5eSheet sheet) {
         boolean bagOfHoldingPresent = sheet.items().stream()
                 .anyMatch(item -> item.equipped() && BAG_OF_HOLDING_NAME.equalsIgnoreCase(item.name()));

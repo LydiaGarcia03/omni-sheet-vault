@@ -305,7 +305,17 @@ details.builder-spells { padding: 0; border-bottom: 1px solid var(--builder-bord
 details.builder-spells:last-child { border-bottom: 1px solid var(--builder-border); }
 .builder-spells__title { display: flex; flex-direction: column; min-width: 0; }
 details.builder-spells > .builder-level__body { padding-top: 8px; }
-@media (max-width: 900px) {
+/* The table follows its own width, not the viewport's: Range and Effect go first, then Casting time */
+.builder-spells__list { container-type: inline-size; }
+@container (max-width: 720px) {
+  .builder-spells__row { grid-template-columns: 34px minmax(130px, 2fr) 56px 90px 100px minmax(80px, 1fr); }
+  .builder-spells__row > span:nth-child(n + 7) { display: none; }
+}
+@container (max-width: 560px) {
+  .builder-spells__row { grid-template-columns: 34px minmax(130px, 2fr) 56px 90px minmax(90px, 1fr); }
+  .builder-spells__row > span:nth-child(n + 6) { display: none; }
+}
+@container (max-width: 440px) {
   .builder-spells__row { grid-template-columns: 34px 1fr 64px 1fr; }
   .builder-spells__row > span:nth-child(n + 5) { display: none; }
 }
@@ -452,7 +462,7 @@ details.builder-spells > .builder-level__body { padding-top: 8px; }
 .builder-portrait__gallery .builder-portrait__presets { max-height: none; }
 
 /* Basics identity: the name on the left, the portrait right-aligned on the same line, the default-portrait grid below both */
-.builder-identity { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 24px; align-items: start; }
+.builder-identity { display: grid; grid-template-columns: minmax(220px, 1fr) auto; column-gap: 24px; align-items: start; }
 .builder-identity .builder-portrait { display: contents; }
 .builder-identity .builder-portrait__main { grid-column: 2; grid-row: 1; justify-self: end; }
 .builder-identity .builder-portrait__gallery { grid-column: 1 / -1; }

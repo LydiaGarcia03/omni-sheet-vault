@@ -529,7 +529,7 @@ public class Dnd5eSheetMutator implements SheetMutator {
         Dnd5eExtraCategory extraCategory;
         try {
             extraCategory = Dnd5eExtraCategory.valueOf(category);
-        } catch (IllegalArgumentException | NullPointerException e) {
+        } catch (IllegalArgumentException | NullPointerException _) {
             throw new InvalidExtraException("Unknown extra category: " + category);
         }
         if (quantity < 1 || quantity > MAX_EXTRAS_PER_ADD) {

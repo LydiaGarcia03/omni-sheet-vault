@@ -28,7 +28,6 @@ import dev.omnisheetvault.api.ruleset.registry.MechanicResolverRegistry;
 import dev.omnisheetvault.api.ruleset.registry.SheetCalculatorRegistry;
 import dev.omnisheetvault.api.ruleset.registry.SheetMutatorRegistry;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -36,6 +35,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.function.BiFunction;
 import java.util.function.IntUnaryOperator;
+import java.util.stream.Collectors;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Service;
 import tools.jackson.databind.ObjectMapper;
@@ -377,12 +377,10 @@ public class CharacterSheetService {
         if (build.isEmpty()) {
             return entries;
         }
-        Set<String> offered = new HashSet<>();
-        for (CatalogueRecord record : catalogueService.lookup(character.systemId()).list(kind.name())) {
-            if (flow.offersCatalogueEntry(build.get(), record)) {
-                offered.add(record.slug());
-            }
-        }
+        Set<String> offered = catalogueService.lookup(character.systemId()).list(kind.name()).stream()
+                .filter(catalogueRecord -> flow.offersCatalogueEntry(build.get(), catalogueRecord))
+                .map(CatalogueRecord::slug)
+                .collect(Collectors.toSet());
         return entries.stream().filter(entry -> offered.contains(entry.slug())).toList();
     }
 

@@ -1,0 +1,19 @@
+{
+  "title": "Credits and licenses",
+  "intro": "Omni Sheet Vault is a non-commercial fan project. Its own code and art are licensed under the PolyForm Noncommercial License 1.0.0. Everything below belongs to its owners and is used under their terms.",
+  "fanContent": "Fan content",
+  "gameContent": "Game content",
+  "gameContentText": "Rules text and data (spells, classes, species, backgrounds, feats, items) come from the 2014 D&D books through the 5etools data files. The content belongs to Wizards of the Coast.",
+  "graphics": "Graphics",
+  "graphicsDdb": "The default character portraits, item icons, sheet frames and several interface icons are D&D Beyond / Wizards of the Coast art. The dice icons are Font Awesome icons as served by D&D Beyond. The layout takes inspiration from the D&D Beyond character sheet and builder.",
+  "gameIconsBefore": "Icons from",
+  "gameIconsUnder": "under",
+  "iconsBy": "by {author}: {icons}",
+  "flaticonBefore": "Icons from",
+  "flaticonAfter": "under the Flaticon License: \"Fire\" by meaicon and \"Bullet\" by Magnific.",
+  "fonts": "Fonts",
+  "fontsText": "Roboto and Roboto Condensed, by Google, under the SIL Open Font License 1.1. Material Symbols, by Google, under the Apache License 2.0.",
+  "software": "Software",
+  "component": "Component",
+  "license": "License"
+}

@@ -115,6 +115,17 @@ class CharacterDraftServiceTest {
     }
 
     @Test
+    void previewsAHypotheticalBuildWithoutStoringIt() {
+        UUID id = draftService.create(jwt, "Thorin", "dnd-5e").character().id();
+
+        CharacterDraftService.DraftView hypothetical = draftService.hypothetical(jwt, id, build(false));
+
+        assertThat(hypothetical.preview().abilityScores().get("strength").value()).isEqualTo(15);
+        assertThat(hypothetical.plan().pending()).extracting(CreationChoice::id).containsExactly("class:fighter:skills:0");
+        assertThat(draftService.get(jwt, id).character().creationDraft()).doesNotContain("fighter");
+    }
+
+    @Test
     void anEmptyDraftPreviewsItsScoresButNoSheetYet() {
         CharacterDraftService.DraftView draft = draftService.create(jwt, "Thorin", "dnd-5e");
 

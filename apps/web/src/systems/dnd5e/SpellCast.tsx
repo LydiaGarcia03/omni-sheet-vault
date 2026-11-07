@@ -2,10 +2,11 @@ import { useState } from 'react';
 import type { RollHandler } from '../../dice/api';
 import type { MutationHandler, Spell, SpellSlotLevel, SpellUsage } from '../../sheet/api';
 import { FilterChips } from '../../sheet/FilterChips';
-import { DAMAGE_TYPE_ICONS, damageTypeLabel } from './damageTypes';
+import { DAMAGE_TYPE_ICONS } from './damageTypes';
 import { FrameIcon } from './FrameIcon';
 import healingIcon from './frames/dnd_icon_healing.svg?raw';
 import { useHasLastingEffect } from './lastingEffectSpells';
+import { ENGLISH_TERMS, useDnd5eTerms, type Dnd5eTerms } from './locales/dnd5eMessages';
 import { isHealingSpell, scaleDiceCount } from './spellCombat';
 
 type SpellCastProps = {
@@ -15,20 +16,8 @@ type SpellCastProps = {
   onRoll: RollHandler;
 };
 
-export function levelLabel(level: number): string {
-  if (level === 0) {
-    return 'Cantrip';
-  }
-  if (level === 1) {
-    return '1st Level';
-  }
-  if (level === 2) {
-    return '2nd Level';
-  }
-  if (level === 3) {
-    return '3rd Level';
-  }
-  return `${level}th Level`;
+export function levelLabel(level: number, terms: Dnd5eTerms = ENGLISH_TERMS): string {
+  return level === 0 ? terms.t('terms.labels.cantrip') : terms.t('spell.levelLabel', { ordinal: terms.ordinal(level) });
 }
 
 /**
@@ -36,20 +25,8 @@ export function levelLabel(level: number): string {
  * each level tab with just an abbreviation, keeping `levelLabel`'s full text
  * for the section heading above the level's own spell list instead.
  */
-export function levelAbbreviation(level: number): string {
-  if (level === 0) {
-    return 'Cantrip';
-  }
-  if (level === 1) {
-    return '1st';
-  }
-  if (level === 2) {
-    return '2nd';
-  }
-  if (level === 3) {
-    return '3rd';
-  }
-  return `${level}th`;
+export function levelAbbreviation(level: number, terms: Dnd5eTerms = ENGLISH_TERMS): string {
+  return level === 0 ? terms.t('terms.labels.cantrip') : terms.ordinal(level);
 }
 
 /** A cast button with its remaining-uses badge, as D&D Beyond's ct-theme-button with its count. */
@@ -92,13 +69,14 @@ function CastButton({ label, remaining, ariaLabel, onCast }: { label: string; re
  * Pact Magic one included; at a level the button reads "Spell Slot" or "Pact Slot"
  * after the pool it spends (both when a regular and the pact pool share it).
  */
-const USE_COUNTS: Record<number, string> = { 1: 'Once', 2: 'Twice' };
-const RECHARGE_LABELS: Record<string, string> = { LONG_REST: 'Long Rest', SHORT_OR_LONG_REST: 'Short Rest' };
 
 /** D&D Beyond's limited-use line under the Cast control, e.g. "Once per Long Rest". */
-export function limitedUseLabel(usage: SpellUsage): string {
-  const count = USE_COUNTS[usage.maxUses] ?? `${usage.maxUses} times`;
-  return usage.recharge ? `${count} per ${RECHARGE_LABELS[usage.recharge]}` : count;
+export function limitedUseLabel(usage: SpellUsage, terms: Dnd5eTerms = ENGLISH_TERMS): string {
+  const { t } = terms;
+  const count = usage.maxUses === 1 ? t('spell.once') : usage.maxUses === 2 ? t('spell.twice') : t('spell.times', { count: usage.maxUses });
+  const rest =
+    usage.recharge === 'LONG_REST' ? t('terms.labels.longRest') : usage.recharge === 'SHORT_OR_LONG_REST' ? t('terms.labels.shortRest') : null;
+  return rest ? t('spell.perRest', { count, rest }) : count;
 }
 
 export function SpellCast(props: SpellCastProps) {
@@ -112,6 +90,8 @@ export function SpellCast(props: SpellCastProps) {
 function SlotlessSpellCast({ spell, onMutate, onRoll, usage }: SpellCastProps & { usage: SpellUsage }) {
   const [target, setTarget] = useState<'self' | 'ally'>('self');
   const hasLastingEffect = useHasLastingEffect(spell.key);
+  const terms = useDnd5eTerms();
+  const { t } = terms;
   const castLevel = usage.castLevel ?? spell.level;
   const remaining = usage.maxUses - usage.usedUses;
 
@@ -123,28 +103,28 @@ function SlotlessSpellCast({ spell, onMutate, onRoll, usage }: SpellCastProps & 
   return (
     <div className="spell-cast">
       <div className="spell-cast__top-row">
-        <span className="spell-cast__label">Cast</span>
+        <span className="spell-cast__label">{t('spell.cast')}</span>
         {usage.mode === 'AT_WILL' ? (
-          <button type="button" className="mutate spell-cast__button" aria-label={`Cast ${spell.name} at will`} onClick={cast}>
-            At Will
+          <button type="button" className="mutate spell-cast__button" aria-label={t('spell.castAtWill', { name: spell.name })} onClick={cast}>
+            {t('spell.atWill')}
           </button>
         ) : (
           <button
             type="button"
             className="mutate spell-cast__button spell-cast__button--limited"
             disabled={remaining <= 0}
-            aria-label={`Use ${spell.name}, ${remaining} of ${usage.maxUses} left`}
+            aria-label={t('spell.useAria', { name: spell.name, remaining, max: usage.maxUses })}
             onClick={cast}
           >
-            Use
+            {t('spell.use')}
           </button>
         )}
         <div className="spell-cast__level">
-          <span className="spell-cast__label">Level</span>
-          <span className="spell-cast__level-current spell-cast__level-current--fixed">{levelAbbreviation(castLevel)}</span>
+          <span className="spell-cast__label">{t('spell.level')}</span>
+          <span className="spell-cast__level-current spell-cast__level-current--fixed">{levelAbbreviation(castLevel, terms)}</span>
         </div>
       </div>
-      {usage.mode === 'LIMITED' && <div className="spell-cast__limited">{limitedUseLabel(usage)}</div>}
+      {usage.mode === 'LIMITED' && <div className="spell-cast__limited">{limitedUseLabel(usage, terms)}</div>}
       {hasLastingEffect && !usage.selfOnly && <TargetChoice target={target} onSelect={setTarget} />}
       <CastPreview spell={spell} level={castLevel} />
     </div>
@@ -160,13 +140,14 @@ function rollOnCast(spell: Spell, level: number, onRoll: RollHandler) {
 }
 
 function TargetChoice({ target, onSelect }: { target: 'self' | 'ally'; onSelect: (target: 'self' | 'ally') => void }) {
+  const { t } = useDnd5eTerms();
   return (
     <div className="spell-cast__target">
-      <span className="spell-cast__label">Target</span>
+      <span className="spell-cast__label">{t('spell.target')}</span>
       <FilterChips
         chips={[
-          { id: 'self', label: 'Self', ariaLabel: 'Cast on myself' },
-          { id: 'ally', label: 'Ally', ariaLabel: 'Cast on an ally' },
+          { id: 'self', label: t('spell.self'), ariaLabel: t('spell.castOnSelf') },
+          { id: 'ally', label: t('spell.ally'), ariaLabel: t('spell.castOnAlly') },
         ]}
         activeChip={target}
         onSelect={(id) => onSelect(id as 'self' | 'ally')}
@@ -176,6 +157,8 @@ function TargetChoice({ target, onSelect }: { target: 'self' | 'ally'; onSelect:
 }
 
 function CastPreview({ spell, level }: { spell: Spell; level: number }) {
+  const terms = useDnd5eTerms();
+  const { t } = terms;
   const isHealing = isHealingSpell(spell);
   const scaledDiceCount = scaleDiceCount(spell, level);
   if (scaledDiceCount == null || spell.damageDiceSides == null) {
@@ -185,19 +168,19 @@ function CastPreview({ spell, level }: { spell: Spell; level: number }) {
     <div className="spell-cast__preview">
       <span className="spell-cast__preview-amount">{`${scaledDiceCount}d${spell.damageDiceSides}`}</span>
       {isHealing ? (
-        <FrameIcon className="spell-cast__preview-icon" svg={healingIcon} title="Healing" aria-hidden />
+        <FrameIcon className="spell-cast__preview-icon" svg={healingIcon} title={t('spell.healing')} aria-hidden />
       ) : (
         spell.damageType &&
         DAMAGE_TYPE_ICONS[spell.damageType] && (
           <FrameIcon
             className="spell-cast__preview-icon"
             svg={DAMAGE_TYPE_ICONS[spell.damageType]}
-            title={damageTypeLabel(spell.damageType)}
+            title={terms.damageType(spell.damageType)}
             aria-hidden
           />
         )
       )}
-      <span className="spell-cast__preview-label">{isHealing ? 'Healing' : 'Damage'}</span>
+      <span className="spell-cast__preview-label">{isHealing ? t('spell.healing') : t('spell.damage')}</span>
     </div>
   );
 }
@@ -208,6 +191,8 @@ function SlotSpellCast({ spell, spellSlots, onMutate, onRoll }: SpellCastProps) 
   const [selectedLevel, setSelectedLevel] = useState(levels[0] ?? spell.level);
   const [target, setTarget] = useState<'self' | 'ally'>('self');
   const hasLastingEffect = useHasLastingEffect(spell.key);
+  const terms = useDnd5eTerms();
+  const { t } = terms;
 
   if (levels.length === 0) {
     return null;
@@ -226,39 +211,39 @@ function SlotSpellCast({ spell, spellSlots, onMutate, onRoll }: SpellCastProps) 
   return (
     <div className="spell-cast">
       <div className="spell-cast__top-row">
-        <span className="spell-cast__label">Cast</span>
+        <span className="spell-cast__label">{t('spell.cast')}</span>
         {selectedSlot && (
           <CastButton
-            label="Spell Slot"
+            label={t('terms.labels.spellSlot')}
             remaining={selectedSlot.maxSlots - selectedSlot.usedSlots}
-            ariaLabel={`Cast ${spell.name} using a ${levelLabel(selectedSlot.level)} slot`}
+            ariaLabel={t('spell.castSlot', { name: spell.name, level: levelLabel(selectedSlot.level, terms) })}
             onCast={() => cast(selectedSlot.level, false)}
           />
         )}
         {pactSlot && (
           <CastButton
-            label="Pact Slot"
+            label={t('terms.labels.pactSlot')}
             remaining={pactSlot.maxSlots - pactSlot.usedSlots}
-            ariaLabel={`Cast ${spell.name} using a ${levelLabel(pactSlot.level)} Pact Magic slot`}
+            ariaLabel={t('spell.castPact', { name: spell.name, level: levelLabel(pactSlot.level, terms) })}
             onCast={() => cast(pactSlot.level, true)}
           />
         )}
         <div className="spell-cast__level">
-          <span className="spell-cast__label">Level</span>
+          <span className="spell-cast__label">{t('spell.level')}</span>
           <button
             type="button"
             className="spell-cast__level-step spell-cast__level-step--decrease"
-            aria-label="Decrease cast level"
+            aria-label={t('spell.decreaseLevel')}
             disabled={levelIndex <= 0}
             onClick={() => setSelectedLevel(levels[levelIndex - 1])}
           >
             −
           </button>
-          <span className="spell-cast__level-current">{levelAbbreviation(displayedLevel)}</span>
+          <span className="spell-cast__level-current">{levelAbbreviation(displayedLevel, terms)}</span>
           <button
             type="button"
             className="spell-cast__level-step spell-cast__level-step--increase"
-            aria-label="Increase cast level"
+            aria-label={t('spell.increaseLevel')}
             disabled={levelIndex >= levels.length - 1}
             onClick={() => setSelectedLevel(levels[levelIndex + 1])}
           >

@@ -1,0 +1,55 @@
+{
+  "save": {
+    "saved": "All changes saved",
+    "saving": "Saving…",
+    "unsaved": "Unsaved changes",
+    "error": "Not saved"
+  },
+  "draft": "Draft",
+  "backToCharacters": "Back to your characters",
+  "stepOf": "Step {step} of {total} · saved automatically",
+  "checklist": {
+    "aria": "Creation steps",
+    "progress": "Progress",
+    "count": "{done} of {total}",
+    "left": "{count} left"
+  },
+  "summary": {
+    "aria": "Character summary",
+    "title": "Your character",
+    "level": "Level {level} · ",
+    "nothingYet": "Nothing chosen yet",
+    "choicesLeft": { "one": "{count} choice left", "other": "{count} choices left" },
+    "empty": "Choose a class and set your ability scores to see hit points, armor class and attacks.",
+    "attacks": "Attacks"
+  },
+  "portrait": {
+    "label": "Portrait",
+    "current": "Current portrait",
+    "upload": "Upload image",
+    "pickDefault": "Pick a default portrait",
+    "remove": "Remove",
+    "saving": "Saving…",
+    "hint": "PNG or JPEG, up to 3 MB. It's cropped to a square from the centre.",
+    "fileAria": "Portrait image file",
+    "defaults": "Default portraits",
+    "close": "Close",
+    "defaultNumber": "Default portrait {number}"
+  },
+  "select": {
+    "other": "Other",
+    "filter": "Filter…",
+    "filterAria": "Filter {label}",
+    "chosen": "{count} of {max} chosen",
+    "full": " · remove one to pick another",
+    "clear": "Clear",
+    "clearSelection": "Clear selection",
+    "noMatch": "No match for “{query}”",
+    "choose": "— choose —",
+    "chooseCount": "— choose {count} —",
+    "chooseCountNote": " · choose {count}"
+  },
+  "pending": "Still to choose",
+  "rolled": "Rolled {dice}",
+  "progression": "Class progression · {name}"
+}

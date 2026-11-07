@@ -32,6 +32,14 @@ describe('Sidebar', () => {
     expect(screen.queryByRole('button', { name: 'Unlocked' })).toBeNull();
   });
 
+  it('reports the lock state on mount and when it changes', () => {
+    const onLockedChange = vi.fn();
+    renderSidebar({ onLockedChange });
+    expect(onLockedChange).toHaveBeenLastCalledWith(false);
+    fireEvent.click(screen.getByRole('button', { name: 'Unlocked' }));
+    expect(onLockedChange).toHaveBeenLastCalledWith(true);
+  });
+
   it('hides on Escape and on a click outside while unlocked', () => {
     const props = renderSidebar();
     fireEvent.keyDown(document, { key: 'Escape' });

@@ -1,6 +1,8 @@
 package dev.omnisheetvault.api.catalogue;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import java.util.List;
 import org.junit.jupiter.api.Test;
@@ -95,5 +97,154 @@ class CreatureConverterTest {
         assertThat(CreatureConverter.Alignments.codes(List.of("L", "G"))).isEqualTo("lawful good");
         assertThat(CreatureConverter.Alignments.codes(List.of("L", "NX", "C", "E"))).isEqualTo("any evil alignment");
         assertThat(CreatureConverter.Alignments.codes(List.of("NX", "C", "G", "NY", "E"))).isEqualTo("any non-lawful alignment");
+        assertThat(CreatureConverter.Alignments.codes(List.of("U"))).isEqualTo("unaligned");
+        assertThat(CreatureConverter.Alignments.codes(List.of("L", "G", "NY", "E"))).isEqualTo("any lawful alignment");
+    }
+
+    @Test
+    void alignmentAlternativesKeepTheirChanceAndSpecialText() {
+        assertThat(CreatureConverter.Alignments.text(null)).isEqualTo("unaligned");
+        assertThat(CreatureConverter.Alignments.text(MAPPER.readTree("[]"))).isEqualTo("unaligned");
+        assertThat(CreatureConverter.Alignments.text(MAPPER.readTree("""
+                [{"alignment":["C","E"],"chance":70},{"alignment":["N"]},{"special":"as its creator"}]""")))
+                .isEqualTo("chaotic evil (70%) or neutral or as its creator");
+    }
+
+    @Test
+    void readsTheMonsterManualFileOnlyWhenItExists() {
+        FiveEToolsDataSource dataSource = mock(FiveEToolsDataSource.class);
+        when(dataSource.hasDataFile("bestiary/bestiary-mm.json")).thenReturn(true);
+        when(dataSource.readDataFile("bestiary/bestiary-mm.json")).thenReturn(MAPPER.readTree("""
+                {"monster":[{"name":"Test Hound"},{"name":"Test Drake"}]}"""));
+        FiveEToolsDataSource withoutMonsters = mock(FiveEToolsDataSource.class);
+        when(withoutMonsters.hasDataFile("bestiary/bestiary-mm.json")).thenReturn(true);
+        when(withoutMonsters.readDataFile("bestiary/bestiary-mm.json")).thenReturn(MAPPER.readTree("{}"));
+
+        assertThat(converter.kind()).isEqualTo(CatalogueEntryKind.CREATURE);
+        assertThat(converter.loadRawEntries(dataSource)).hasSize(2);
+        assertThat(converter.loadRawEntries(withoutMonsters)).isEmpty();
+        assertThat(converter.loadRawEntries(mock(FiveEToolsDataSource.class))).isEmpty();
+    }
+
+    @Test
+    void missingFieldsFallBackToNeutralValues() {
+        CatalogueEntryImport entry = converter.convert(MAPPER.readTree("""
+                {"name":"Test Blob","source":"MM","page":"unnumbered"}"""));
+        JsonNode data = entry.data();
+
+        assertThat(entry.sourcePage()).isNull();
+        assertThat(data.get("size").asString()).isEqualTo("Medium");
+        assertThat(data.get("creatureType").asString()).isEmpty();
+        assertThat(data.get("armorClass").asInt()).isEqualTo(10);
+        assertThat(data.get("armorClassText").asString()).isEqualTo("10");
+        assertThat(data.get("hitPoints").asInt()).isZero();
+        assertThat(data.get("hitDice").asString()).isEmpty();
+        assertThat(data.get("speed").asInt()).isZero();
+        assertThat(data.get("additionalSpeeds").isNull()).isTrue();
+        assertThat(data.get("skills")).isEmpty();
+        assertThat(data.get("challengeRating").asString()).isEqualTo("—");
+        assertThat(data.get("damageResistances").isNull()).isTrue();
+    }
+
+    @Test
+    void severalSizesAndUnreadableBonusesAreKept() {
+        JsonNode data = converter.convert(MAPPER.readTree("""
+                {"name":"Test Shifter","source":"MM","size":["S","M"],"str":14,
+                 "save":{"str":"see below"},"skill":{"stealth":"special","perception":["+3"]},
+                 "hp":{"special":"equal to its summoner's"}}""")).data();
+
+        assertThat(data.get("size").asString()).isEqualTo("Small or Medium");
+        assertThat(data.get("abilityScores").get(0).get("save").asInt()).isEqualTo(2);
+        assertThat(data.get("skills")).hasSize(1);
+        assertThat(data.get("skills").get(0).get("bonus").asInt()).isZero();
+        assertThat(data.get("hitPoints").asInt()).isZero();
+        assertThat(data.get("hitDice").asString()).isEqualTo("equal to its summoner's");
+    }
+
+    @Test
+    void creatureTypesReadAsWords() {
+        assertThat(CreatureConverter.creatureType(MAPPER.readTree("\"undead\""))).isEqualTo("Undead");
+        assertThat(CreatureConverter.creatureType(MAPPER.readTree("""
+                {"type":{"choose":["celestial","fiend"]}}"""))).isEqualTo("Celestial or fiend");
+        assertThat(CreatureConverter.creatureType(MAPPER.readTree("""
+                {"type":"beast","swarmSize":"T"}"""))).isEqualTo("Swarm of Tiny beasts");
+        assertThat(CreatureConverter.creatureType(MAPPER.readTree("""
+                {"type":"humanoid","tags":["elf",{"prefix":"any","tag":"race"}]}"""))).isEqualTo("Humanoid (elf, any race)");
+        assertThat(CreatureConverter.creatureType(MAPPER.readTree("{}"))).isEmpty();
+    }
+
+    @Test
+    void armorClassTextKeepsEveryAlternative() {
+        JsonNode data = armor("""
+                [{"ac":15,"from":["natural armor","shield"],"condition":"while enraged"},12,{"special":"varies"},{"unknown":true}]""");
+
+        assertThat(data.get("armorClass").asInt()).isEqualTo(15);
+        assertThat(data.get("armorClassText").asString()).isEqualTo("15 (natural armor, shield) while enraged, 12, varies");
+    }
+
+    @Test
+    void armorClassWithoutANumberStaysAtTheDefault() {
+        JsonNode special = armor("""
+                [{"special":"varies"}]""");
+        JsonNode notAList = armor("14");
+
+        assertThat(special.get("armorClass").asInt()).isEqualTo(10);
+        assertThat(special.get("armorClassText").asString()).isEqualTo("varies");
+        assertThat(notAList.get("armorClass").asInt()).isEqualTo(10);
+    }
+
+    @Test
+    void speedsKeepTheirConditionsAndHoverOnlyWithoutOne() {
+        JsonNode conditional = speed("""
+                {"walk":{"number":20,"condition":"in bear form"},"burrow":5,"fly":{"number":30,"condition":"in bat form"},"swim":15,"canHover":true}""");
+        JsonNode withoutWalk = speed("""
+                {"fly":30}""");
+
+        assertThat(conditional.get("speed").asInt()).isEqualTo(20);
+        assertThat(conditional.get("additionalSpeeds").asString()).isEqualTo("Burrow 5 ft., Fly 30 ft. in bat form, Swim 15 ft.");
+        assertThat(withoutWalk.get("speed").asInt()).isZero();
+        assertThat(withoutWalk.get("additionalSpeeds").asString()).isEqualTo("Fly 30 ft.");
+    }
+
+    @Test
+    void defensesListPlainNamesFirstThenEachGroup() {
+        assertThat(CreatureConverter.defenses(null, "resist")).isNull();
+        assertThat(CreatureConverter.defenses(MAPPER.readTree("[]"), "resist")).isNull();
+        assertThat(CreatureConverter.defenses(MAPPER.readTree("""
+                [{"resist":[]},{"other":true}]"""), "resist")).isNull();
+        assertThat(CreatureConverter.defenses(MAPPER.readTree("""
+                [{"special":"damage from spells"},"poison","acid",
+                 {"preNote":"while raging","resist":["cold","fire"],"note":"only"},{"resist":["thunder"]}]"""), "resist"))
+                .isEqualTo("poison, acid; damage from spells; while raging cold and fire only; thunder");
+    }
+
+    @Test
+    void spellcastingListsItsDailySpellsAndSlotsAsAnActionWhenDisplayedSo() {
+        JsonNode data = converter.convert(MAPPER.readTree("""
+                {"name":"Test Mage","source":"MM","spellcasting":[{"displayAs":"action",
+                  "headerEntries":["It casts spells."],"footerEntries":["It rests afterwards."],
+                  "daily":{"2":["{@spell light}"]},
+                  "spells":{"0":{"spells":["{@spell light}"]},"1":{"slots":1,"spells":["{@spell shield}"]},
+                            "2":{"slots":3,"spells":[{"entry":"{@spell web}"}]},"3":{"spells":["{@spell fly}"]},"4":{"slots":2}}}]}""")).data();
+
+        assertThat(data.get("traits")).isEmpty();
+        assertThat(data.get("actions").get(0).get("name").asString()).isEqualTo("Spellcasting");
+        assertThat(data.get("actions").get(0).get("description").asString()).isEqualTo("""
+                It casts spells.
+                2/day: light
+                Cantrips (at will): light
+                1st level (1 slot): shield
+                2nd level (3 slots): web
+                3rd level: fly
+                4th level (2 slots):\s
+                It rests afterwards.""");
+    }
+
+    private JsonNode armor(String ac) {
+        return converter.convert(MAPPER.readTree("{\"name\":\"Test Knight\",\"source\":\"MM\",\"ac\":" + ac + "}")).data();
+    }
+
+    private JsonNode speed(String speed) {
+        return converter.convert(MAPPER.readTree("{\"name\":\"Test Runner\",\"source\":\"MM\",\"speed\":" + speed + "}")).data();
     }
 }
