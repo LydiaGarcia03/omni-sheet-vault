@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "dagginaes-obsidian-slate",
+  "name": "Dagginae’s Obsidian Slate",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 78,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "This wafer-thin sheet of volcanic glass is used by archivists to keep notes. Any information etched onto its surface disappears but can be recalled via a command you set.",
+  "data": {
+    "category": "loot",
+    "roll": 32
+  }
+}

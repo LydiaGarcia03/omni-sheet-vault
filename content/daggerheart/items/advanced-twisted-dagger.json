@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "advanced-twisted-dagger",
+  "name": "Advanced Twisted Dagger",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 61,
+  "tags": [],
+  "description": "Piercing: Damage dealt with this weapon treats the target’s Major threshold as having a −2 penalty.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 3,
+    "trait": "Knowledge",
+    "range": "Melee",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d8",
+      "bonus": 6,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Piercing",
+      "text": "Damage dealt with this weapon treats the target’s Major threshold as having a −2 penalty."
+    }
+  }
+}

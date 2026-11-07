@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "gore-and-glory",
+  "name": "Gore and Glory",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 209,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When you critically succeed on a weapon attack, gain an additional Hope or clear an additional Stress. Additionally, when you deal enough damage to defeat an enemy, gain a Hope or clear a Stress.",
+  "data": {
+    "domain": "blade",
+    "level": 9,
+    "type": "ability",
+    "recallCost": 2
+  }
+}

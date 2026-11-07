@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "snakeskin-spirit",
+  "name": "Snakeskin Spirit",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 83,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "You can drink this potion to slough off your outer layer of skin and heal a scar.",
+  "data": {
+    "category": "consumable",
+    "roll": 51
+  }
+}

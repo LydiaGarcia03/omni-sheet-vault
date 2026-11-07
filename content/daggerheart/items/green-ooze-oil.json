@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "green-ooze-oil",
+  "name": "Green Ooze Oil",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 83,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "You can coat your weapon in this oil. The next successful attack you make with this weapon deals an extra 1d8 magic damage and temporarily Corrodes the target. While Corroded, the target gains a −2 penalty to their damage thresholds.",
+  "data": {
+    "category": "consumable",
+    "roll": 29
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "systemId": "daggerheart",
+  "kind": "SUBCLASS",
+  "slug": "vengeance",
+  "name": "Vengeance",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 19,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Play the Vengeance if you want to strike down enemies who harm you or your allies.",
+  "data": {
+    "classSlug": "guardian",
+    "spellcastTrait": null,
+    "foundation": [
+      {
+        "name": "At Ease",
+        "text": "Gain an additional Stress slot.",
+        "modifiers": [
+          {
+            "target": "stressSlots",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "name": "Revenge",
+        "text": "When an adversary within Melee range succeeds on an attack against you, you can mark 2 Stress to force the attacker to mark a Hit Point."
+      }
+    ],
+    "specialization": [
+      {
+        "name": "Act of Reprisal",
+        "text": "When an adversary damages an ally within Melee range, you gain a +1 bonus to your Proficiency for the next successful attack you make against that adversary."
+      }
+    ],
+    "mastery": [
+      {
+        "name": "Nemesis",
+        "text": "Spend 2 Hope to Prioritize an adversary until your next rest. When you make an attack against your Prioritized adversary, you can swap the results of your Hope and Fear Dice. You can only Prioritize one adversary at a time."
+      }
+    ]
+  }
+}

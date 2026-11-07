@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "collapsible-baton",
+  "name": "Collapsible Baton",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 67,
+  "tags": [],
+  "description": "Nonlethal: When a target would mark any number of Hit Points from an attack with this weapon, they mark an equal number of Stress instead.",
+  "data": {
+    "category": "weapon",
+    "slot": "secondary",
+    "tier": 2,
+    "trait": "Strength",
+    "range": "Melee",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d8",
+      "bonus": 0,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Nonlethal",
+      "text": "When a target would mark any number of Hit Points from an attack with this weapon, they mark an equal number of Stress instead."
+    }
+  }
+}

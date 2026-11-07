@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "arcane-reflection",
+  "name": "Arcane Reflection",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 207,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When you would take magic damage, you can spend any number of Hope to roll that many d6s. If any roll a 6, the attack is reflected back to the caster, dealing the damage to them instead.",
+  "data": {
+    "domain": "arcana",
+    "level": 8,
+    "type": "spell",
+    "recallCost": 1
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "iridian-dust",
+  "name": "Iridian Dust",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 82,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "This multicolored powder sticks to everything and prevents creatures covered in it from becoming Hidden.",
+  "data": {
+    "category": "consumable",
+    "roll": 2
+  }
+}

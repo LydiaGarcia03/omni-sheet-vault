@@ -6,6 +6,17 @@ Format: `## YYYY-MM-DD — short title`, then what changed, why, and anything
 deliberately left out.
 
 ---
+## 2026-11-07 — Daggerheart and VtM split into their own PRs
+
+- **VtM (`feature/0004-Vtm-5e-system`):** the pending Localization L4 work and
+  the narrow-sheet layout, on top of main.
+- **Daggerheart (`feature/0005-Daggerheart-system`):** D2–D7 code and tests,
+  the six shared web registrations, `tools/daggerheart-import/`, the SRD
+  content in `content/daggerheart/` and Demiplane's art. The owner chose to
+  publish the content and art; ADR-0010 has the amendment.
+- **Left out:** `tools/daggerheart-srd/` (raw SRD, ignored) and
+  `translation-worksheets/` (owner's working files).
+
 ## 2026-11-07 — PR 11: accented lead patterns in option summaries
 
 - **SonarCloud:** after the first PR 11 push, coverage passed at 83.1%, and the

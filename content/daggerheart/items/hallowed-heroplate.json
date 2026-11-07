@@ -1,0 +1,24 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "hallowed-heroplate",
+  "name": "Hallowed Heroplate",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 74,
+  "tags": [],
+  "description": "Blessed: Once per long rest, you can spend any number of Hope before you make the Risk It All death move. You gain a bonus to the result of your Hope Die equal to the number of Hope spent.",
+  "data": {
+    "category": "armor",
+    "tier": 4,
+    "baseThresholds": {
+      "major": 13,
+      "severe": 35
+    },
+    "baseScore": 7,
+    "feature": {
+      "name": "Blessed",
+      "text": "Once per long rest, you can spend any number of Hope before you make the Risk It All death move. You gain a bonus to the result of your Hope Die equal to the number of Hope spent."
+    }
+  }
+}

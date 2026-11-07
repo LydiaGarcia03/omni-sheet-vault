@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "on-the-brink",
+  "name": "On the Brink",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 210,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When you have 2 or fewer Hit Points unmarked, you don’t take Minor damage.",
+  "data": {
+    "domain": "bone",
+    "level": 9,
+    "type": "ability",
+    "recallCost": 1
+  }
+}

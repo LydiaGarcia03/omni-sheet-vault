@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "blade-touched",
+  "name": "Blade-Touched",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 208,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When 4 or more of the domain cards in your loadout are from the Blade domain, gain the following benefits:\n◦ +2 bonus to your attack rolls\n◦ +4 bonus to your Severe damage threshold",
+  "data": {
+    "domain": "blade",
+    "level": 7,
+    "type": "ability",
+    "recallCost": 1
+  }
+}

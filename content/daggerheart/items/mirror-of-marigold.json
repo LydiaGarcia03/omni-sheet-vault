@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "mirror-of-marigold",
+  "name": "Mirror of Marigold",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 81,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When you take damage, you can spend a Hope to negate that damage, after which the mirror shatters.",
+  "data": {
+    "category": "consumable",
+    "roll": 59
+  }
+}

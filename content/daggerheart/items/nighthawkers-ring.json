@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "nighthawkers-ring",
+  "name": "Nighthawker’s Ring",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 77,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "Spend a Hope to activate the gemstone in this ring until the end of the scene. While active, the gemstone changes color to indicate the wearer’s proximity to hidden treasure: warm colors for near, cool colors for far.",
+  "data": {
+    "category": "loot",
+    "roll": 5
+  }
+}

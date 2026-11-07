@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "kingfishers-net",
+  "name": "Kingfisher’s Net",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 78,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "Once per long rest, you can use this net to scoop one live fish out of any amount of water, no matter how unlikely it is for that water to have fish in it.",
+  "data": {
+    "category": "loot",
+    "roll": 21
+  }
+}

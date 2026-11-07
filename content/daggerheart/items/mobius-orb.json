@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "mobius-orb",
+  "name": "Möbius Orb",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 69,
+  "tags": [],
+  "description": "Recursive: When you roll the maximum value on a damage die, roll an additional damage die and add the result to the total damage. This feature can trigger repeatedly.",
+  "data": {
+    "category": "weapon",
+    "slot": "secondary",
+    "tier": 4,
+    "trait": "Knowledge",
+    "range": "Melee",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d8",
+      "bonus": 6,
+      "type": "magic"
+    },
+    "feature": {
+      "name": "Recursive",
+      "text": "When you roll the maximum value on a damage die, roll an additional damage die and add the result to the total damage. This feature can trigger repeatedly."
+    }
+  }
+}

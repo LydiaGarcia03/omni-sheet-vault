@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "hammer-of-wrath",
+  "name": "Hammer of Wrath",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 61,
+  "tags": [],
+  "description": "Devastating: Before you make an attack roll, you can mark a Stress to use a d20 as your damage die.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 3,
+    "trait": "Strength",
+    "range": "Melee",
+    "burden": 2,
+    "wheelchair": false,
+    "damage": {
+      "die": "d10",
+      "bonus": 7,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Devastating",
+      "text": "Before you make an attack roll, you can mark a Stress to use a d20 as your damage die."
+    }
+  }
+}

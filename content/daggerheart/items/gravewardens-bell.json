@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "gravewardens-bell",
+  "name": "Gravewarden’s Bell",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 78,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "This bell rings when a ghost or undead creature moves within Far range of it.",
+  "data": {
+    "category": "loot",
+    "roll": 29
+  }
+}

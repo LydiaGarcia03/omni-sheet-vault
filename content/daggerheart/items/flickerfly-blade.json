@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "flickerfly-blade",
+  "name": "Flickerfly Blade",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 61,
+  "tags": [],
+  "description": "Sharpwing: Gain a bonus to your damage rolls equal to your Agility.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 3,
+    "trait": "Agility",
+    "range": "Melee",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d8",
+      "bonus": 5,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Sharpwing",
+      "text": "Gain a bonus to your damage rolls equal to your Agility."
+    }
+  }
+}

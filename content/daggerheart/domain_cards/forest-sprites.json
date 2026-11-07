@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "forest-sprites",
+  "name": "Forest Sprites",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 220,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Make a Spellcast Roll (13). On a success, spend any number of Hope to create an equal number of small forest sprites who appear at points you choose within Far range, providing the following benefits:\n◦ Your allies gain a +3 bonus to attack rolls against adversaries within Melee range of a sprite.\n◦ An ally who marks an Armor Slot while within Melee range of a sprite can mark an additional Armor Slot.\n\nA sprite vanishes after granting a benefit or taking any damage.",
+  "data": {
+    "domain": "sage",
+    "level": 8,
+    "type": "spell",
+    "recallCost": 2
+  }
+}

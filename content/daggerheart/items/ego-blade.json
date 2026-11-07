@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "ego-blade",
+  "name": "Ego Blade",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 59,
+  "tags": [],
+  "description": "Pompous: You must have a Presence of 0 or lower to use this weapon.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 2,
+    "trait": "Agility",
+    "range": "Melee",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d12",
+      "bonus": 4,
+      "type": "magic"
+    },
+    "feature": {
+      "name": "Pompous",
+      "text": "You must have a Presence of 0 or lower to use this weapon."
+    }
+  }
+}

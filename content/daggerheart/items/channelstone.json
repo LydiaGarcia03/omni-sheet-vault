@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "channelstone",
+  "name": "Channelstone",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 81,
+  "tags": [
+    "core-set"
+  ],
+  "description": "You can use this stone to take a spell or grimoire from your vault, use it once, and return it to your vault.",
+  "data": {
+    "category": "consumable",
+    "roll": 34
+  }
+}

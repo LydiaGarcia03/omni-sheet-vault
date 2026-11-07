@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "fusion-gloves",
+  "name": "Fusion Gloves",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 66,
+  "tags": [],
+  "description": "Bonded: Gain a bonus to your damage rolls equal to your level.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 4,
+    "trait": "Knowledge",
+    "range": "Very Far",
+    "burden": 2,
+    "wheelchair": false,
+    "damage": {
+      "die": "d6",
+      "bonus": 9,
+      "type": "magic"
+    },
+    "feature": {
+      "name": "Bonded",
+      "text": "Gain a bonus to your damage rolls equal to your level."
+    }
+  }
+}

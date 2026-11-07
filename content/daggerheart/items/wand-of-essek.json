@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "wand-of-essek",
+  "name": "Wand of Essek",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 66,
+  "tags": [],
+  "description": "Timebending: You can choose the target of your attack after making your attack roll.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 4,
+    "trait": "Knowledge",
+    "range": "Far",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d8",
+      "bonus": 13,
+      "type": "magic"
+    },
+    "feature": {
+      "name": "Timebending",
+      "text": "You can choose the target of your attack after making your attack roll."
+    }
+  }
+}

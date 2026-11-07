@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "hammer-of-exota",
+  "name": "Hammer of Exota",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 60,
+  "tags": [],
+  "description": "Eruptive: On a successful attack against a target within Melee range, all other adversaries within Very Close range must succeed on a reaction roll (14) or take half damage.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 2,
+    "trait": "Instinct",
+    "range": "Melee",
+    "burden": 2,
+    "wheelchair": false,
+    "damage": {
+      "die": "d8",
+      "bonus": 6,
+      "type": "magic"
+    },
+    "feature": {
+      "name": "Eruptive",
+      "text": "On a successful attack against a target within Melee range, all other adversaries within Very Close range must succeed on a reaction roll (14) or take half damage."
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "rings-of-friendship",
+  "name": "Rings of Friendship",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 79,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "Two creatures can wear this pair of rings shaped like coiled snakes. You can spend the Hope of whoever is wearing the other ring (with their permission) as if it were your own.",
+  "data": {
+    "category": "loot",
+    "roll": 52
+  }
+}

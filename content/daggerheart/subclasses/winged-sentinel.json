@@ -1,0 +1,45 @@
+{
+  "systemId": "daggerheart",
+  "kind": "SUBCLASS",
+  "slug": "winged-sentinel",
+  "name": "Winged Sentinel",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 24,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Play the Winged Sentinel if you want to take flight and strike crushing blows from the sky.",
+  "data": {
+    "classSlug": "seraph",
+    "spellcastTrait": "Strength",
+    "foundation": [
+      {
+        "name": "Wings of Light",
+        "text": "You can fly. While flying, you can do the following:\n• Mark a Stress to pick up and carry another willing creature approximately your size or smaller.\n• Spend a Hope to deal an extra 1d8 damage on a successful attack."
+      }
+    ],
+    "specialization": [
+      {
+        "name": "Ethereal Visage",
+        "text": "Your supernatural visage strikes awe and fear. While flying, you have advantage on Presence Rolls. When you succeed with Hope on a Presence Roll, you can remove a Fear from the GM’s Fear pool instead of gaining Hope."
+      }
+    ],
+    "mastery": [
+      {
+        "name": "Ascendant",
+        "text": "Gain a permanent +4 bonus to your Severe damage threshold.",
+        "modifiers": [
+          {
+            "target": "severeThreshold",
+            "value": 4
+          }
+        ]
+      },
+      {
+        "name": "Power of the Gods",
+        "text": "While flying, you deal an extra 1d12 damage instead of 1d8 from your “Wings of Light” feature."
+      }
+    ]
+  }
+}

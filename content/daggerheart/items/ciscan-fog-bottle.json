@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "ciscan-fog-bottle",
+  "name": "Ciscan Fog Bottle",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 82,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "You can break this jar to fill the area within Close range with magical mist. A creature who enters the mist clears a Stress and becomes Hidden.",
+  "data": {
+    "category": "consumable",
+    "roll": 18
+  }
+}

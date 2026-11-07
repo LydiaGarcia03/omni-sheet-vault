@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "endless-charisma",
+  "name": "Endless Charisma",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 216,
+  "tags": [
+    "core-set"
+  ],
+  "description": "After you make an action roll to persuade, lie, or garner favor, you can spend a Hope to reroll the Hope or Fear Die.",
+  "data": {
+    "domain": "grace",
+    "level": 7,
+    "type": "ability",
+    "recallCost": 1
+  }
+}

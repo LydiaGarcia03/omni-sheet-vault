@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "bag-of-ficklesand",
+  "name": "Bag of Ficklesand",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 76,
+  "tags": [
+    "core-set"
+  ],
+  "description": "You can convince this small bag of sand to be much heavier or lighter with a successful Presence Roll (10). Additionally, on a successful Finesse Roll (10), you can blow a bit of sand into a target’s face to make them temporarily Vulnerable.",
+  "data": {
+    "category": "loot",
+    "roll": 31
+  }
+}

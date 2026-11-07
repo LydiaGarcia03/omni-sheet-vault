@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "dark-army",
+  "name": "Dark Army",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 214,
+  "tags": [
+    "expansion"
+  ],
+  "description": "Make a Spellcast Roll (14). Once per long rest on a success, you can summon fiends that surround and move with you. Place 8 tokens on this card. When you deal damage to a target within Very Close range, you can spend any number of tokens to add 1d8 for each token spent to your damage roll. Additionally, when you take damage, you can spend any number of tokens to reduce the damage by 1d8 for each token spent. Each time you spend a token, a fiend acts on your behalf, then disappears.\n\nWhen you take a rest, clear all unspent tokens.",
+  "data": {
+    "domain": "dread",
+    "level": 8,
+    "type": "spell",
+    "recallCost": 2
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "codex-touched",
+  "name": "Codex-Touched",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 212,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When 4 or more of the domain cards in your loadout are from the Codex domain, gain the following benefits:\n◦ You can mark a Stress to add your Proficiency to a Spellcast Roll.\n◦ Once per rest, replace this card with any card from your vault without paying its Recall Cost.",
+  "data": {
+    "domain": "codex",
+    "level": 7,
+    "type": "ability",
+    "recallCost": 2
+  }
+}

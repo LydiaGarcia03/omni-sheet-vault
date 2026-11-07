@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "warding-candle",
+  "name": "Warding Candle",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 82,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "You can light this candle to fill an area within Close range with a halo of light. A creature outside the halo can’t enter it if they have ill intent toward a creature within it. The candle burns for an hour.",
+  "data": {
+    "category": "consumable",
+    "roll": 1
+  }
+}

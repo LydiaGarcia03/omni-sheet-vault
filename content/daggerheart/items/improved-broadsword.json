@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "improved-broadsword",
+  "name": "Improved Broadsword",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 57,
+  "tags": [],
+  "description": "Reliable: +1 to attack rolls",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 2,
+    "trait": "Agility",
+    "range": "Melee",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d8",
+      "bonus": 3,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Reliable",
+      "text": "+1 to attack rolls"
+    }
+  }
+}

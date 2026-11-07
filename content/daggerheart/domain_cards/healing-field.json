@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "healing-field",
+  "name": "Healing Field",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 219,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Once per long rest, you can conjure a field of healing plants around you. Everywhere within Close range of you bursts to life with vibrant nature, allowing you and all allies in the area to clear a Hit Point.\n\nSpend 2 Hope to allow you and all allies to clear 2 Hit Points instead.",
+  "data": {
+    "domain": "sage",
+    "level": 4,
+    "type": "spell",
+    "recallCost": 2
+  }
+}

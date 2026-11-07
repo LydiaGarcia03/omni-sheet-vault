@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "blood-of-the-yorgi",
+  "name": "Blood of the Yorgi",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 81,
+  "tags": [
+    "core-set"
+  ],
+  "description": "You can drink this blood to disappear from where you are and immediately reappear at a point you can see within Very Far range.",
+  "data": {
+    "category": "consumable",
+    "roll": 31
+  }
+}

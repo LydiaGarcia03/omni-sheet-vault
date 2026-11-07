@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "scramble",
+  "name": "Scramble",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 208,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Once per rest, when a creature within Melee range would deal damage to you, you can avoid the attack and safely move out of Melee range of the enemy.",
+  "data": {
+    "domain": "blade",
+    "level": 3,
+    "type": "ability",
+    "recallCost": 1
+  }
+}

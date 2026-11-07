@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "control-potion",
+  "name": "Control Potion",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 80,
+  "tags": [
+    "core-set"
+  ],
+  "description": "You gain a +1 bonus to your next Finesse Roll.",
+  "data": {
+    "category": "consumable",
+    "roll": 3
+  }
+}

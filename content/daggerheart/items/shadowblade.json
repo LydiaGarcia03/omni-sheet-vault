@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "shadowblade",
+  "name": "Shadowblade",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 56,
+  "tags": [],
+  "description": "Otherworldly: On a successful attack, you can deal physical or magic damage.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 1,
+    "trait": "Presence",
+    "range": "Melee",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d8",
+      "bonus": 0,
+      "type": "physical-or-magic"
+    },
+    "feature": {
+      "name": "Otherworldly",
+      "text": "On a successful attack, you can deal physical or magic damage."
+    }
+  }
+}

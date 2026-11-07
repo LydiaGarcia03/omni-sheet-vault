@@ -1,0 +1,35 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "sledge-axe",
+  "name": "Sledge Axe",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 63,
+  "tags": [],
+  "description": "Destructive: −1 to Agility; on a successful attack, all adversaries within Very Close range must mark a Stress.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 4,
+    "trait": "Strength",
+    "range": "Melee",
+    "burden": 2,
+    "wheelchair": false,
+    "damage": {
+      "die": "d12",
+      "bonus": 13,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Destructive",
+      "text": "−1 to Agility; on a successful attack, all adversaries within Very Close range must mark a Stress.",
+      "modifiers": [
+        {
+          "target": "agility",
+          "value": -1
+        }
+      ]
+    }
+  }
+}

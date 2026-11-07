@@ -1,0 +1,47 @@
+{
+  "systemId": "daggerheart",
+  "kind": "SUBCLASS",
+  "slug": "executioners-guild",
+  "name": "Executioners Guild",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 9,
+  "tags": [
+    "expansion"
+  ],
+  "description": "Play the Executioners Guild if you want to strike down your targets with lethal precision.",
+  "data": {
+    "classSlug": "assassin",
+    "spellcastTrait": "Agility",
+    "foundation": [
+      {
+        "name": "First Strike",
+        "text": "The first time in a scene you succeed on an attack, you deal double damage."
+      },
+      {
+        "name": "Ambush",
+        "text": "Your “Marked for Death” feature uses d6s instead of d4s."
+      }
+    ],
+    "specialization": [
+      {
+        "name": "Death Strike",
+        "text": "When you deal Severe damage to a creature, you can mark a Stress to force them to mark an additional Hit Point."
+      },
+      {
+        "name": "Scorpion’s Poise",
+        "text": "You gain a +2 bonus to your Evasion against attacks made by a creature you’ve Marked for Death."
+      }
+    ],
+    "mastery": [
+      {
+        "name": "True Strike",
+        "text": "Once per long rest when you fail an attack, you can spend a Hope to make it a success instead."
+      },
+      {
+        "name": "Backstab",
+        "text": "Your “Marked for Death” feature uses d8s instead of d6s."
+      }
+    ]
+  }
+}

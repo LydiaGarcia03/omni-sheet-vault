@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "quintessential-severant",
+  "name": "Quintessential Severant",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 84,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "You can use this magic blade to cut one magical or metaphysical bond, such as an enchantment, contract, magical tether, or divine oath. When you do, the blade shatters.",
+  "data": {
+    "category": "consumable",
+    "roll": 53
+  }
+}

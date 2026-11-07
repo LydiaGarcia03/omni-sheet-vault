@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "legendary-offhand-brass-knuckles",
+  "name": "Legendary Offhand Brass Knuckles",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 69,
+  "tags": [],
+  "description": "Paired: +5 to primary weapon damage to targets within Melee range",
+  "data": {
+    "category": "weapon",
+    "slot": "secondary",
+    "tier": 4,
+    "trait": "Strength",
+    "range": "Melee",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d8",
+      "bonus": 6,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Paired",
+      "text": "+5 to primary weapon damage to targets within Melee range"
+    }
+  }
+}

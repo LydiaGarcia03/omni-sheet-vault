@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "wand-of-enthrallment",
+  "name": "Wand of Enthrallment",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 60,
+  "tags": [],
+  "description": "Persuasive: Before you make a Presence Roll, you can mark a Stress to gain a +2 bonus to the result.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 2,
+    "trait": "Presence",
+    "range": "Far",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d6",
+      "bonus": 4,
+      "type": "magic"
+    },
+    "feature": {
+      "name": "Persuasive",
+      "text": "Before you make a Presence Roll, you can mark a Stress to gain a +2 bonus to the result."
+    }
+  }
+}

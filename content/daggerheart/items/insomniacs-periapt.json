@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "insomniacs-periapt",
+  "name": "Insomniac’s Periapt",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 78,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "When you take a rest without clearing Hit Points or Stress, you gain a +2 bonus to attack and damage rolls until your next rest.",
+  "data": {
+    "category": "loot",
+    "roll": 38
+  }
+}

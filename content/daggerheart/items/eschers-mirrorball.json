@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "eschers-mirrorball",
+  "name": "Escher’s Mirrorball",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 78,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "Once per long rest, you can command this fist-sized silver orb to capture an omnidirectional image of its surroundings on its surface. This image lasts until your next long rest.",
+  "data": {
+    "category": "loot",
+    "roll": 27
+  }
+}

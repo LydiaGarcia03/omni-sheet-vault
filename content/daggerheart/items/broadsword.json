@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "broadsword",
+  "name": "Broadsword",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 56,
+  "tags": [],
+  "description": "Reliable: +1 to attack rolls",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 1,
+    "trait": "Agility",
+    "range": "Melee",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d8",
+      "bonus": 0,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Reliable",
+      "text": "+1 to attack rolls"
+    }
+  }
+}

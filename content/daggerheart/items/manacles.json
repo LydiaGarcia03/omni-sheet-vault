@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "manacles",
+  "name": "Manacles",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 75,
+  "tags": [
+    "core-set"
+  ],
+  "description": "This pair of locking cuffs comes with a key.",
+  "data": {
+    "category": "loot",
+    "roll": 6
+  }
+}

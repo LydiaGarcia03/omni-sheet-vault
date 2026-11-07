@@ -1,0 +1,26 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "crossbow",
+  "name": "Crossbow",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 56,
+  "tags": [],
+  "description": null,
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 1,
+    "trait": "Finesse",
+    "range": "Far",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d6",
+      "bonus": 1,
+      "type": "physical"
+    },
+    "feature": null
+  }
+}

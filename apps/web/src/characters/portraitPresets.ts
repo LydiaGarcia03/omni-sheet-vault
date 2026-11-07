@@ -1,3 +1,4 @@
+import { DAGGERHEART_PORTRAIT_PRESETS } from '../systems/daggerheart/portraits/daggerheartPortraitPresets';
 import { DND5E_PORTRAIT_PRESETS } from '../systems/dnd5e/portraits/dnd5ePortraitPresets';
 import { VTM5_PORTRAIT_PRESETS } from '../systems/vtm5/portraits/vtm5PortraitPresets';
 import type { Portrait } from './portrait';
@@ -7,6 +8,7 @@ export type PortraitPreset = { id: string; url: string };
 const PRESETS_BY_SYSTEM: Record<string, PortraitPreset[]> = {
   'dnd-5e': DND5E_PORTRAIT_PRESETS,
   'vtm-v5': VTM5_PORTRAIT_PRESETS,
+  daggerheart: DAGGERHEART_PORTRAIT_PRESETS,
 };
 
 /** The default portraits a game system offers; empty for a system without any. */

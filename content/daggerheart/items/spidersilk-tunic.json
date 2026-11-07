@@ -1,0 +1,30 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "spidersilk-tunic",
+  "name": "Spidersilk Tunic",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 72,
+  "tags": [],
+  "description": "Wall-Crawling: +1 Evasion; you can walk on walls as easily as on the ground.",
+  "data": {
+    "category": "armor",
+    "tier": 2,
+    "baseThresholds": {
+      "major": 9,
+      "severe": 20
+    },
+    "baseScore": 4,
+    "feature": {
+      "name": "Wall-Crawling",
+      "text": "+1 Evasion; you can walk on walls as easily as on the ground.",
+      "modifiers": [
+        {
+          "target": "evasion",
+          "value": 1
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "calming-pendant",
+  "name": "Calming Pendant",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 76,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When you would mark your last Stress, roll a d6. On a result of 5 or higher, don’t mark it.",
+  "data": {
+    "category": "loot",
+    "roll": 29
+  }
+}

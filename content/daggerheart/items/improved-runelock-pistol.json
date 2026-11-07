@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "improved-runelock-pistol",
+  "name": "Improved Runelock Pistol",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 59,
+  "tags": [],
+  "description": "Reloading: After you make an attack, roll a d6. On a result of 1, you must mark a Stress to reload this weapon before you can fire it again.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 2,
+    "trait": "Knowledge",
+    "range": "Far",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d6",
+      "bonus": 6,
+      "type": "magic"
+    },
+    "feature": {
+      "name": "Reloading",
+      "text": "After you make an attack, roll a d6. On a result of 1, you must mark a Stress to reload this weapon before you can fire it again."
+    }
+  }
+}

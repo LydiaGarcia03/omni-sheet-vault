@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "battle-monster",
+  "name": "Battle Monster",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 209,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When you make a successful attack against an adversary, you can mark 4 Stress to force the target to mark a number of Hit Points equal to the number of Hit Points you currently have marked instead of rolling for damage.",
+  "data": {
+    "domain": "blade",
+    "level": 10,
+    "type": "ability",
+    "recallCost": 0
+  }
+}

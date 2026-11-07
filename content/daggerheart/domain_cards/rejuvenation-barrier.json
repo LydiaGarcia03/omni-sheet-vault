@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "rejuvenation-barrier",
+  "name": "Rejuvenation Barrier",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 220,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Make a Spellcast Roll (15). Once per rest on a success, create a temporary barrier of protective energy around you at Very Close range. You and all allies within the barrier when this spell is cast clear 1d4 Hit Points. While the barrier is up, you and all allies within have resistance to physical damage from outside the barrier.\n\nWhen you move, the barrier follows you.",
+  "data": {
+    "domain": "sage",
+    "level": 8,
+    "type": "spell",
+    "recallCost": 1
+  }
+}

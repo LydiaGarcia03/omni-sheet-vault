@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "starmetal-blade",
+  "name": "Starmetal Blade",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 65,
+  "tags": [],
+  "description": "Serrated: When you roll a 1 on a damage die, it deals 8 damage instead.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 4,
+    "trait": "Agility",
+    "range": "Melee",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d8",
+      "bonus": 10,
+      "type": "magic"
+    },
+    "feature": {
+      "name": "Serrated",
+      "text": "When you roll a 1 on a damage die, it deals 8 damage instead."
+    }
+  }
+}

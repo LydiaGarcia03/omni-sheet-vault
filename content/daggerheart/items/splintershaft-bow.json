@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "splintershaft-bow",
+  "name": "Splintershaft Bow",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 60,
+  "tags": [],
+  "description": "Volleyed: Spend a Hope to target a group of creatures within range. Targets you succeed against take half damage.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 2,
+    "trait": "Agility",
+    "range": "Far",
+    "burden": 2,
+    "wheelchair": false,
+    "damage": {
+      "die": "d6",
+      "bonus": 6,
+      "type": "magic"
+    },
+    "feature": {
+      "name": "Volleyed",
+      "text": "Spend a Hope to target a group of creatures within range. Targets you succeed against take half damage."
+    }
+  }
+}

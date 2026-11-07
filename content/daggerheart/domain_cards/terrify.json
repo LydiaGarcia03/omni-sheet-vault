@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "terrify",
+  "name": "Terrify",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 213,
+  "tags": [
+    "expansion"
+  ],
+  "description": "Make a Spellcast Roll against a target within Close range. On a success, the target marks 1d4 Stress, and you can make the target flee one range away from you (such as Very Close to Close or Close to Far). On a success with Fear, the target also becomes temporarily Vulnerable.",
+  "data": {
+    "domain": "dread",
+    "level": 3,
+    "type": "spell",
+    "recallCost": 1
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "gadimans-backpack",
+  "name": "Gadiman’s Backpack",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 78,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "Once per rest, you can spend a Hope to conjure a mundane item up to a cubic foot in size inside this satchel.",
+  "data": {
+    "category": "loot",
+    "roll": 33
+  }
+}

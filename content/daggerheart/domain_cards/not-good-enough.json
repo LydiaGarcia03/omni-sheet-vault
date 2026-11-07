@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "not-good-enough",
+  "name": "Not Good Enough",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 208,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When you roll your damage dice, you can reroll any 1s or 2s.",
+  "data": {
+    "domain": "blade",
+    "level": 1,
+    "type": "ability",
+    "recallCost": 1
+  }
+}

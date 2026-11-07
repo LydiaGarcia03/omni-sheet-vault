@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "ring-of-silence",
+  "name": "Ring of Silence",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 76,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Spend a Hope to activate this ring. Your footsteps are silent until your next rest.",
+  "data": {
+    "category": "loot",
+    "roll": 28
+  }
+}

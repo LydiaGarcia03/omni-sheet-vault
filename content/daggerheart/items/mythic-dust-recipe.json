@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "mythic-dust-recipe",
+  "name": "Mythic Dust Recipe",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 77,
+  "tags": [
+    "core-set"
+  ],
+  "description": "As a downtime move, you can use a handful of fine gold dust to craft Mythic Dust.",
+  "data": {
+    "category": "loot",
+    "roll": 51
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "major-attune-potion",
+  "name": "Major Attune Potion",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 80,
+  "tags": [
+    "core-set"
+  ],
+  "description": "You gain a +1 bonus to your Instinct until your next rest.",
+  "data": {
+    "category": "consumable",
+    "roll": 28
+  }
+}

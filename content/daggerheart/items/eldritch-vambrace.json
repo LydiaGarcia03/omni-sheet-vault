@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "eldritch-vambrace",
+  "name": "Eldritch Vambrace",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 67,
+  "tags": [],
+  "description": "Deflecting: When you are attacked, you can mark an Armor Slot to gain a bonus to your Evasion equal to your Armor Score against the attack.",
+  "data": {
+    "category": "weapon",
+    "slot": "secondary",
+    "tier": 2,
+    "trait": "Instinct",
+    "range": "Melee",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d8",
+      "bonus": 0,
+      "type": "magic"
+    },
+    "feature": {
+      "name": "Deflecting",
+      "text": "When you are attacked, you can mark an Armor Slot to gain a bonus to your Evasion equal to your Armor Score against the attack."
+    }
+  }
+}

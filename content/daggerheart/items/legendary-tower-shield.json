@@ -1,0 +1,39 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "legendary-tower-shield",
+  "name": "Legendary Tower Shield",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 69,
+  "tags": [],
+  "description": "Barrier: +5 to Armor Score; −1 to Evasion.",
+  "data": {
+    "category": "weapon",
+    "slot": "secondary",
+    "tier": 4,
+    "trait": "Strength",
+    "range": "Melee",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d6",
+      "bonus": 6,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Barrier",
+      "text": "+5 to Armor Score; −1 to Evasion.",
+      "modifiers": [
+        {
+          "target": "armorScore",
+          "value": 5
+        },
+        {
+          "target": "evasion",
+          "value": -1
+        }
+      ]
+    }
+  }
+}

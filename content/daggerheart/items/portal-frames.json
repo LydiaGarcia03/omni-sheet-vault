@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "portal-frames",
+  "name": "Portal Frames",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 79,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "This pair of small ornate frames, one red and one blue, are connected. Anything that passes into one exits from the other.",
+  "data": {
+    "category": "loot",
+    "roll": 58
+  }
+}

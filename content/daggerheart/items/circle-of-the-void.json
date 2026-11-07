@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "circle-of-the-void",
+  "name": "Circle of the Void",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 81,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Mark a Stress to create a void that extends up to Far range. No magic can be cast inside the void, and creatures within the void are immune to magic damage.",
+  "data": {
+    "category": "consumable",
+    "roll": 40
+  }
+}

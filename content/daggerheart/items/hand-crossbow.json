@@ -1,0 +1,26 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "hand-crossbow",
+  "name": "Hand Crossbow",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 66,
+  "tags": [],
+  "description": null,
+  "data": {
+    "category": "weapon",
+    "slot": "secondary",
+    "tier": 1,
+    "trait": "Finesse",
+    "range": "Far",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d6",
+      "bonus": 1,
+      "type": "physical"
+    },
+    "feature": null
+  }
+}

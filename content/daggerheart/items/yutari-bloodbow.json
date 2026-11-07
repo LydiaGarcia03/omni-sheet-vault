@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "yutari-bloodbow",
+  "name": "Yutari Bloodbow",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 60,
+  "tags": [],
+  "description": "Brutal: When you roll the maximum value on a damage die, roll an additional damage die.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 2,
+    "trait": "Finesse",
+    "range": "Far",
+    "burden": 2,
+    "wheelchair": false,
+    "damage": {
+      "die": "d6",
+      "bonus": 4,
+      "type": "magic"
+    },
+    "feature": {
+      "name": "Brutal",
+      "text": "When you roll the maximum value on a damage die, roll an additional damage die."
+    }
+  }
+}

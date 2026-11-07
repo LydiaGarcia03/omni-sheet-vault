@@ -1,0 +1,26 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "legendary-wand",
+  "name": "Legendary Wand",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 65,
+  "tags": [],
+  "description": null,
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 4,
+    "trait": "Knowledge",
+    "range": "Far",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d6",
+      "bonus": 10,
+      "type": "magic"
+    },
+    "feature": null
+  }
+}

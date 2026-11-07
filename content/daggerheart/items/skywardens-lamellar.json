@@ -1,0 +1,30 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "skywardens-lamellar",
+  "name": "Skywarden’s Lamellar",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 73,
+  "tags": [],
+  "description": "Vigilant: +2 to Evasion",
+  "data": {
+    "category": "armor",
+    "tier": 3,
+    "baseThresholds": {
+      "major": 11,
+      "severe": 27
+    },
+    "baseScore": 5,
+    "feature": {
+      "name": "Vigilant",
+      "text": "+2 to Evasion",
+      "modifiers": [
+        {
+          "target": "evasion",
+          "value": 2
+        }
+      ]
+    }
+  }
+}

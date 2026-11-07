@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "razor-wire",
+  "name": "Razor Wire",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 67,
+  "tags": [],
+  "description": "Entangling: On a successful attack with your primary weapon against a target within Very Close range, you can spend a Hope to make the target temporarily Vulnerable.",
+  "data": {
+    "category": "weapon",
+    "slot": "secondary",
+    "tier": 2,
+    "trait": "Finesse",
+    "range": "Very Close",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d6",
+      "bonus": 3,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Entangling",
+      "text": "On a successful attack with your primary weapon against a target within Very Close range, you can spend a Hope to make the target temporarily Vulnerable."
+    }
+  }
+}

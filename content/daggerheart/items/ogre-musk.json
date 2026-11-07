@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "ogre-musk",
+  "name": "Ogre Musk",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 81,
+  "tags": [
+    "core-set"
+  ],
+  "description": "You can use this musk to prevent anyone from tracking you by mundane or magical means until your next rest.",
+  "data": {
+    "category": "consumable",
+    "roll": 45
+  }
+}

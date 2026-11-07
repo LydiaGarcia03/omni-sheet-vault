@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "shrug-it-off",
+  "name": "Shrug It Off",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 223,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When you would take damage, you can mark a Stress to reduce the severity of the damage by one threshold. When you do, roll a d6. On a result of 3 or lower, place this card in your vault.",
+  "data": {
+    "domain": "valor",
+    "level": 7,
+    "type": "ability",
+    "recallCost": 1
+  }
+}

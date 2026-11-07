@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "crucible-frames",
+  "name": "Crucible Frames",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 79,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "These eyeglasses reveal weak points in objects and creatures. Three times per rest, you can spend a Hope to gain advantage on an attack roll.",
+  "data": {
+    "category": "loot",
+    "roll": 42
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "death-grip",
+  "name": "Death Grip",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 219,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Make a Spellcast Roll against a target within Close range and choose one of the following options:\n◦ You pull the target into Melee range or pull yourself into Melee range of them.\n◦ You constrict the target and force them to mark 2 Stress.\n◦ All adversaries between you and the target must succeed on a Reaction Roll (13) or be hit by vines, taking 3d6+2 physical damage.\n\nOn a success, vines reach out from your hands, causing the chosen effect and temporarily Restraining the target.",
+  "data": {
+    "domain": "sage",
+    "level": 4,
+    "type": "spell",
+    "recallCost": 1
+  }
+}

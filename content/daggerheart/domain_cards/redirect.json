@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "redirect",
+  "name": "Redirect",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 210,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When an attack made against you from beyond Melee range fails, roll a number of d6s equal to your Proficiency. If any roll a 6, you can mark a Stress to redirect the attack to damage an adversary within Very Close range instead.",
+  "data": {
+    "domain": "bone",
+    "level": 4,
+    "type": "ability",
+    "recallCost": 1
+  }
+}

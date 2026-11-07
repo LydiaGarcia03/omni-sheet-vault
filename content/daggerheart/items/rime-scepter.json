@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "rime-scepter",
+  "name": "Rime Scepter",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 62,
+  "tags": [],
+  "description": "Freezing: When an attack from this weapon causes a target to mark 2 or more HP, they become temporarily Restrained.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 3,
+    "trait": "Knowledge",
+    "range": "Close",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d8",
+      "bonus": 6,
+      "type": "magic"
+    },
+    "feature": {
+      "name": "Freezing",
+      "text": "When an attack from this weapon causes a target to mark 2 or more HP, they become temporarily Restrained."
+    }
+  }
+}

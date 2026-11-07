@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "silees-folding-knife",
+  "name": "Silee’s Folding Knife",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 77,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "This 3-inch blade has an edge that easily cuts through anything except the handle it’s stored in.",
+  "data": {
+    "category": "loot",
+    "roll": 10
+  }
+}

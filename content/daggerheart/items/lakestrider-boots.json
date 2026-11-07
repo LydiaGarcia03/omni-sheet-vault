@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "lakestrider-boots",
+  "name": "Lakestrider Boots",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 77,
+  "tags": [
+    "core-set"
+  ],
+  "description": "You can walk on the surface of water as if it were soft ground.",
+  "data": {
+    "category": "loot",
+    "roll": 49
+  }
+}

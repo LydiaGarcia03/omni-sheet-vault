@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "gem-of-might",
+  "name": "Gem of Might",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 77,
+  "tags": [
+    "core-set"
+  ],
+  "description": "You can attach this gem to a weapon, allowing you to use your Strength when making an attack with that weapon.",
+  "data": {
+    "category": "loot",
+    "roll": 54
+  }
+}

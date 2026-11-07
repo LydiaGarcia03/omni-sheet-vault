@@ -1,0 +1,24 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "emberwoven-armor",
+  "name": "Emberwoven Armor",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 74,
+  "tags": [],
+  "description": "Burning: When an adversary attacks you within Melee range, they mark a Stress.",
+  "data": {
+    "category": "armor",
+    "tier": 4,
+    "baseThresholds": {
+      "major": 13,
+      "severe": 36
+    },
+    "baseScore": 6,
+    "feature": {
+      "name": "Burning",
+      "text": "When an adversary attacks you within Melee range, they mark a Stress."
+    }
+  }
+}

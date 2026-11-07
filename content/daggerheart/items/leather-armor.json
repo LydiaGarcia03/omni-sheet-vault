@@ -1,0 +1,21 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "leather-armor",
+  "name": "Leather Armor",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 72,
+  "tags": [],
+  "description": null,
+  "data": {
+    "category": "armor",
+    "tier": 1,
+    "baseThresholds": {
+      "major": 6,
+      "severe": 13
+    },
+    "baseScore": 3,
+    "feature": null
+  }
+}

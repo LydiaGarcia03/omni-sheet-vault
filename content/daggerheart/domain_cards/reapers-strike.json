@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "reapers-strike",
+  "name": "Reaper’s Strike",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 209,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Once per long rest, spend a Hope to make an attack roll. The GM tells you which targets within range it would succeed against. Choose one of these targets and force them to mark 5 Hit Points.",
+  "data": {
+    "domain": "blade",
+    "level": 9,
+    "type": "ability",
+    "recallCost": 3
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "tyris-soft-armor",
+  "name": "Tyris Soft Armor",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 73,
+  "tags": [],
+  "description": "Quiet: You gain a +2 bonus to rolls you make to move silently.",
+  "data": {
+    "category": "armor",
+    "tier": 2,
+    "baseThresholds": {
+      "major": 8,
+      "severe": 18
+    },
+    "baseScore": 5,
+    "feature": {
+      "name": "Quiet",
+      "text": "You gain a +2 bonus to rolls you make to move silently."
+    }
+  }
+}

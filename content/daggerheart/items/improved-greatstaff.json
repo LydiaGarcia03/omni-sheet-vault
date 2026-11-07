@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "improved-greatstaff",
+  "name": "Improved Greatstaff",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 59,
+  "tags": [],
+  "description": "Powerful: On a successful attack, roll an additional damage die and discard the lowest result.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 2,
+    "trait": "Knowledge",
+    "range": "Very Far",
+    "burden": 2,
+    "wheelchair": false,
+    "damage": {
+      "die": "d6",
+      "bonus": 3,
+      "type": "magic"
+    },
+    "feature": {
+      "name": "Powerful",
+      "text": "On a successful attack, roll an additional damage die and discard the lowest result."
+    }
+  }
+}

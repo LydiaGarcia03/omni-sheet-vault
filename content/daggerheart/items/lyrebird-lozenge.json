@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "lyrebird-lozenge",
+  "name": "Lyrebird Lozenge",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 82,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "You can dissolve this lozenge in your mouth to perfectly mimic any voice you’ve heard until the end of the scene.",
+  "data": {
+    "category": "consumable",
+    "roll": 6
+  }
+}

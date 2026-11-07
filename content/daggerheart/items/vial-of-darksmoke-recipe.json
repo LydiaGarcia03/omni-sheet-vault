@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "vial-of-darksmoke-recipe",
+  "name": "Vial of Darksmoke Recipe",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 76,
+  "tags": [
+    "core-set"
+  ],
+  "description": "As a downtime move, you can mark a Stress to craft a Vial of Darksmoke.",
+  "data": {
+    "category": "loot",
+    "roll": 24
+  }
+}

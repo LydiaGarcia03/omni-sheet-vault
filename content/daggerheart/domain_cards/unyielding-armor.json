@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "unyielding-armor",
+  "name": "Unyielding Armor",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 224,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When you would mark an Armor Slot, roll a number of d6s equal to your Proficiency. If any roll a 6, reduce the severity by one threshold without marking an Armor Slot.",
+  "data": {
+    "domain": "valor",
+    "level": 10,
+    "type": "ability",
+    "recallCost": 1
+  }
+}

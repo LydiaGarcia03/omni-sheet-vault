@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "talon-blades",
+  "name": "Talon Blades",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 61,
+  "tags": [],
+  "description": "Brutal: When you roll the maximum value on a damage die, roll an additional damage die.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 3,
+    "trait": "Finesse",
+    "range": "Close",
+    "burden": 2,
+    "wheelchair": false,
+    "damage": {
+      "die": "d10",
+      "bonus": 7,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Brutal",
+      "text": "When you roll the maximum value on a damage die, roll an additional damage die."
+    }
+  }
+}

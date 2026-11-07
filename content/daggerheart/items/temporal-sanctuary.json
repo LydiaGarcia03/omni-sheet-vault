@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "temporal-sanctuary",
+  "name": "Temporal Sanctuary",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 79,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "A PC who takes a rest in the temporal sanctuary can choose an additional downtime move.",
+  "data": {
+    "category": "loot",
+    "roll": 50
+  }
+}

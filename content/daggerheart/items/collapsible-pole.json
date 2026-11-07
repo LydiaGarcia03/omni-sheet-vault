@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "collapsible-pole",
+  "name": "Collapsible Pole",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 77,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "You can break down this 18-foot pole into six interlinked 3-foot segments.",
+  "data": {
+    "category": "loot",
+    "roll": 8
+  }
+}

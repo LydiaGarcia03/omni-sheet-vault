@@ -1,0 +1,26 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "wand",
+  "name": "Wand",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 57,
+  "tags": [],
+  "description": null,
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 1,
+    "trait": "Knowledge",
+    "range": "Far",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d6",
+      "bonus": 1,
+      "type": "magic"
+    },
+    "feature": null
+  }
+}

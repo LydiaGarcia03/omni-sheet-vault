@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "corrosive-projectile",
+  "name": "Corrosive Projectile",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 219,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Make a Spellcast Roll against a target within Far range. On a success, deal d6+4 magic damage using your Proficiency. Additionally, mark 2 or more Stress to make them permanently Corroded. While a target is Corroded, they gain a −1 penalty to their Difficulty for every 2 Stress you spent. This condition can stack.",
+  "data": {
+    "domain": "sage",
+    "level": 3,
+    "type": "spell",
+    "recallCost": 1
+  }
+}

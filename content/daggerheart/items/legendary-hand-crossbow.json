@@ -1,0 +1,26 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "legendary-hand-crossbow",
+  "name": "Legendary Hand Crossbow",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 69,
+  "tags": [],
+  "description": null,
+  "data": {
+    "category": "weapon",
+    "slot": "secondary",
+    "tier": 4,
+    "trait": "Finesse",
+    "range": "Far",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d6",
+      "bonus": 7,
+      "type": "physical"
+    },
+    "feature": null
+  }
+}

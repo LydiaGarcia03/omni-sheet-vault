@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "casting-dagger",
+  "name": "Casting Dagger",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 57,
+  "tags": [],
+  "description": "Versatile: This weapon can also be used with these statistics—Instinct, Melee, d8.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 1,
+    "trait": "Instinct",
+    "range": "Close",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d6",
+      "bonus": 0,
+      "type": "magic"
+    },
+    "feature": {
+      "name": "Versatile",
+      "text": "This weapon can also be used with these statistics—Instinct, Melee, d8."
+    }
+  }
+}

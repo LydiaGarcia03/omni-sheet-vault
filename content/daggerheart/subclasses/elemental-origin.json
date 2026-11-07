@@ -1,0 +1,35 @@
+{
+  "systemId": "daggerheart",
+  "kind": "SUBCLASS",
+  "slug": "elemental-origin",
+  "name": "Elemental Origin",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 25,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Play the Elemental Origin if you want to channel raw magic to take the shape of a particular element.",
+  "data": {
+    "classSlug": "sorcerer",
+    "spellcastTrait": "Instinct",
+    "foundation": [
+      {
+        "name": "Elementalist",
+        "text": "Choose one of the following elements at character creation: air, earth, fire, lightning, water.\n\nYou can shape this element into harmless effects. Additionally, spend a Hope and describe how your control over this element helps an action roll you’re about to make, then either gain a +2 bonus to the roll or a +3 bonus to the roll’s damage."
+      }
+    ],
+    "specialization": [
+      {
+        "name": "Natural Evasion",
+        "text": "You can call forth your element to protect you from harm. When an attack roll against you succeeds, you can mark a Stress and describe how you use your element to defend you. When you do, roll a d6 and add its result to your Evasion against the attack."
+      }
+    ],
+    "mastery": [
+      {
+        "name": "Transcendence",
+        "text": "Once per long rest, you can transform into a physical manifestation of your element. When you do, describe your transformation and choose two of the following benefits to gain until your next rest:\n◦ +4 bonus to your Severe threshold\n◦ +1 bonus to a character trait of your choice\n◦ +1 bonus to your Proficiency\n◦ +2 bonus to your Evasion"
+      }
+    ]
+  }
+}

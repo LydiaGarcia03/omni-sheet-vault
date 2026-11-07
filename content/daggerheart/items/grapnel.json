@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "grapnel",
+  "name": "Grapnel",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 77,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "You gain advantage on action rolls to climb sheer surfaces.",
+  "data": {
+    "category": "loot",
+    "roll": 2
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "advanced-hatchet",
+  "name": "Advanced Hatchet",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 68,
+  "tags": [],
+  "description": "Follow-Up: On a successful attack with your primary weapon within Melee range, you can mark a Stress to gain a +1 bonus to your Proficiency for this attack.",
+  "data": {
+    "category": "weapon",
+    "slot": "secondary",
+    "tier": 3,
+    "trait": "Agility",
+    "range": "Melee",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d8",
+      "bonus": 4,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Follow-Up",
+      "text": "On a successful attack with your primary weapon within Melee range, you can mark a Stress to gain a +1 bonus to your Proficiency for this attack."
+    }
+  }
+}

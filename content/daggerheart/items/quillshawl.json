@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "quillshawl",
+  "name": "Quillshawl",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 79,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "If an adversary attacks you within Melee range, they must succeed on a Reaction Roll (12) or mark a Hit Point.",
+  "data": {
+    "category": "loot",
+    "roll": 56
+  }
+}

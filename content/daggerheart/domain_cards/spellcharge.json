@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "spellcharge",
+  "name": "Spellcharge",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 218,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When you take magic damage, place tokens equal to the number of Hit Points you marked on this card. You can store a number of tokens equal to your Spellcast trait.\n\nWhen you make a successful attack against a target, you can spend any number of tokens to add a d6 for each token spent to your damage roll.",
+  "data": {
+    "domain": "midnight",
+    "level": 8,
+    "type": "spell",
+    "recallCost": 1
+  }
+}

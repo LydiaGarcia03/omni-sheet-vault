@@ -1,0 +1,35 @@
+{
+  "systemId": "daggerheart",
+  "kind": "SUBCLASS",
+  "slug": "troubadour",
+  "name": "Troubadour",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 11,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Play the Troubadour if you want to play music to bolster your allies.",
+  "data": {
+    "classSlug": "bard",
+    "spellcastTrait": "Presence",
+    "foundation": [
+      {
+        "name": "Gifted Performer",
+        "text": "You can play three different types of songs, once each per long rest; describe how you perform for others to gain the listed benefit:\n◦ Relaxing Song: You and all allies within Close range clear a Hit Point.\n◦ Epic Song: Make a target within Close range temporarily Vulnerable.\n◦ Heartbreaking Song: You and all allies within Close range gain a Hope."
+      }
+    ],
+    "specialization": [
+      {
+        "name": "Maestro",
+        "text": "Your rallying songs steel the courage of those who listen. When you give a Rally Die to an ally, they can gain a Hope or clear a Stress."
+      }
+    ],
+    "mastery": [
+      {
+        "name": "Virtuoso",
+        "text": "You are among the greatest of your craft and your skill is boundless. You can perform each of your “Gifted Performer” feature’s songs twice per long rest."
+      }
+    ]
+  }
+}

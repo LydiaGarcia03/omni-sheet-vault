@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "airblade-charm",
+  "name": "Airblade Charm",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 76,
+  "tags": [
+    "core-set"
+  ],
+  "description": "You can attach this charm to a weapon with a Melee range. Three times per rest, you can activate the charm and attack a target within Close range.",
+  "data": {
+    "category": "loot",
+    "roll": 35
+  }
+}

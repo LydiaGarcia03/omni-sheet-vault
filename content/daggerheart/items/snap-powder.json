@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "snap-powder",
+  "name": "Snap Powder",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 80,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Mark a Stress and clear a HP.",
+  "data": {
+    "category": "consumable",
+    "roll": 18
+  }
+}

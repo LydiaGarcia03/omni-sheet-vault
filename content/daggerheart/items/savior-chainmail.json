@@ -1,0 +1,54 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "savior-chainmail",
+  "name": "Savior Chainmail",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 74,
+  "tags": [],
+  "description": "Difficult: −1 to all character traits and Evasion",
+  "data": {
+    "category": "armor",
+    "tier": 4,
+    "baseThresholds": {
+      "major": 18,
+      "severe": 48
+    },
+    "baseScore": 8,
+    "feature": {
+      "name": "Difficult",
+      "text": "−1 to all character traits and Evasion",
+      "modifiers": [
+        {
+          "target": "agility",
+          "value": -1
+        },
+        {
+          "target": "strength",
+          "value": -1
+        },
+        {
+          "target": "finesse",
+          "value": -1
+        },
+        {
+          "target": "instinct",
+          "value": -1
+        },
+        {
+          "target": "presence",
+          "value": -1
+        },
+        {
+          "target": "knowledge",
+          "value": -1
+        },
+        {
+          "target": "evasion",
+          "value": -1
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,56 @@
+/* Daggerheart level up: the four steps beside what changes, scoped to .dh-page (the design system is dh-theme.css) */
+.dh-levelup { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 16px; align-items: start; max-width: 1260px; margin: 20px auto 40px; padding: 0 14px; }
+.dh-levelup-problem { max-width: 1232px; margin: 20px auto; }
+.dh-page .lu-main { padding: 16px 20px 20px; }
+.dh-page .lu-head { display: flex; align-items: center; gap: 12px; padding-bottom: 10px; border-bottom: 1.5px solid var(--gold-2); }
+.dh-page .lu-head h1 { font-size: 20px; font-weight: 900; text-transform: uppercase; color: #fff; }
+.dh-page .lu-step { margin-top: 16px; }
+.dh-page .lu-step h2 { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 14px; letter-spacing: .05em; text-transform: uppercase; color: #fff; }
+.dh-page .lu-step__n { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--gold); color: var(--ink); font: 700 12px var(--body); }
+.dh-page .lu-note { margin: 0 0 8px; font-size: 12px; color: var(--on-navy-2); }
+.dh-page .lu-field { display: block; margin-bottom: 8px; }
+.dh-page .lu-field > span { display: block; margin-bottom: 3px; font: 700 10.5px var(--display); text-transform: uppercase; color: var(--on-navy-2); }
+.dh-page .lu-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 10px; }
+.dh-page .lu-tier { padding: 8px; background: var(--paper); color: var(--ink); border: 1.5px solid var(--gold-2); border-radius: 3px; }
+.dh-page .lu-tier.closed { opacity: .55; }
+.dh-page .lu-tier h3 { margin-bottom: 6px; font-size: 12px; text-transform: uppercase; color: var(--ink); }
+.dh-page .lu-tier h3 small { font: 600 10px var(--body); text-transform: none; color: var(--ink-2); }
+.dh-page .lu-option { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 6px; align-items: start; width: 100%; padding: 4px 2px; border: 0; border-radius: 3px; background: none; color: var(--ink); text-align: left; font-size: 11px; line-height: 1.3; }
+.dh-page .lu-option:hover:not(:disabled) { background: #fff7e8; }
+.dh-page .lu-option:disabled { cursor: default; }
+.dh-page .lu-option.crossed span:last-child { text-decoration: line-through; color: var(--ink-2); }
+.dh-page .lu-slots { display: flex; justify-content: flex-end; gap: 2px; padding-top: 1px; }
+.dh-page .lu-slots i { width: 12px; height: 12px; border: 1.5px solid var(--navy); border-radius: 2px; background: #fff; }
+.dh-page .lu-slots.both { outline: 2px solid var(--navy); outline-offset: 1px; border-radius: 2px; gap: 0; }
+.dh-page .lu-slots i.marked { background: var(--navy); }
+.dh-page .lu-slots i.picked { background: var(--fear); border-color: var(--fear); }
+.dh-page .lu-pick { margin-top: 8px; padding: 10px 12px; background: var(--paper); color: var(--ink); border: 1.5px solid var(--fear); border-radius: 3px; }
+.dh-page .lu-pick__head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px; }
+.dh-page .lu-pick__head small { color: var(--ink-2); }
+.dh-page .lu-pick__head .link-btn { margin-left: auto; }
+.dh-page .lu-pick .lu-field > span, .dh-page .lu-pick .lu-note { color: var(--ink-2); }
+.dh-page .lu-choices { display: flex; flex-wrap: wrap; gap: 4px; }
+.dh-page .lu-choices button { width: auto; border: 1.5px solid var(--paper-line); background: #fff; color: var(--ink); border-radius: 3px; padding: 3px 8px; font-size: 11.5px; font-weight: 600; }
+.dh-page .lu-choices button.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+.dh-page .lu-choices button:disabled { opacity: .45; cursor: default; }
+.dh-page .lu-cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; max-height: 470px; overflow-y: auto; padding: 4px; }
+.dh-page .lu-cards .dcard { min-height: 170px; }
+.dh-page .lu-sub { font-size: 12px; }
+.dh-page .lu-side { position: sticky; top: 14px; padding: 16px; }
+.dh-page .lu-side h4 { margin: 12px 0 4px; font-size: 12px; text-transform: uppercase; color: var(--ink); }
+.dh-page .lu-changes { margin: 0; }
+.dh-page .lu-changes > div { display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px dashed var(--paper-line); font-size: 12.5px; }
+.dh-page .lu-changes dt { color: var(--ink-2); }
+.dh-page .lu-changes dd { margin: 0; font-weight: 700; }
+.dh-page .lu-changes .changed dd, .dh-page .lu-list .changed { color: var(--fear); }
+.dh-page .lu-list { margin: 0; padding-left: 16px; font-size: 12.5px; }
+.dh-page .lu-feature { margin-top: 6px; padding: 6px 8px; background: #fff; border-left: 3px solid var(--gold-2); font-size: 12px; }
+.dh-page .lu-feature p { margin: 2px 0 0; white-space: pre-line; }
+.dh-page .lu-feature small { color: var(--ink-2); }
+.dh-page .lu-issues { margin: 12px 0 0; padding: 8px 10px 8px 24px; background: #fff7e8; border-left: 3px solid var(--gold-2); font-size: 12px; }
+.dh-page .lu-issues .problem-line { color: #a3402f; }
+@media (max-width: 1300px) {
+  .dh-levelup { grid-template-columns: minmax(0, 1fr) 290px; }
+  .dh-page .lu-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+.dh-page .lu-pick .link-btn { border: 0; background: none; padding: 0; color: #a3402f; font-size: 11px; font-weight: 600; text-decoration: underline; }

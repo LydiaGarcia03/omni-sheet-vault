@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "attune-relic",
+  "name": "Attune Relic",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 76,
+  "tags": [
+    "core-set"
+  ],
+  "description": "You gain a +1 bonus to your Instinct. You can only carry one relic.",
+  "data": {
+    "category": "loot",
+    "roll": 44
+  }
+}

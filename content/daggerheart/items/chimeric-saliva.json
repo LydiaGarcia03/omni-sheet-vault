@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "chimeric-saliva",
+  "name": "Chimeric Saliva",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 82,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "You can apply this saliva to a weapon that deals physical damage to change its damage type to magic until your next rest.",
+  "data": {
+    "category": "consumable",
+    "roll": 8
+  }
+}

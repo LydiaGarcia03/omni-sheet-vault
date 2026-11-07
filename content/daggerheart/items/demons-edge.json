@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "demons-edge",
+  "name": "Demon’s Edge",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 65,
+  "tags": [],
+  "description": "Disturbing: When you defeat a creature with this weapon, all adversaries within Close range must mark a Stress.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 4,
+    "trait": "Presence",
+    "range": "Melee",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d8",
+      "bonus": 10,
+      "type": "magic"
+    },
+    "feature": {
+      "name": "Disturbing",
+      "text": "When you defeat a creature with this weapon, all adversaries within Close range must mark a Stress."
+    }
+  }
+}

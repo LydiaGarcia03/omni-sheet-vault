@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "gill-salve",
+  "name": "Gill Salve",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 80,
+  "tags": [
+    "core-set"
+  ],
+  "description": "You can apply this salve to your neck to breathe underwater for a number of minutes equal to your level.",
+  "data": {
+    "category": "consumable",
+    "roll": 22
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "premonition",
+  "name": "Premonition",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 207,
+  "tags": [
+    "core-set"
+  ],
+  "description": "You can channel arcane energy to have visions of the future. Once per long rest, immediately after the GM conveys the consequences of a roll you made, you can rescind the move and consequences like they never happened and make another move instead.",
+  "data": {
+    "domain": "arcana",
+    "level": 5,
+    "type": "spell",
+    "recallCost": 2
+  }
+}

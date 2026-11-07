@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "brace",
+  "name": "Brace",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 209,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When you mark an Armor Slot to reduce incoming damage, you can mark a Stress to mark an additional Armor Slot.",
+  "data": {
+    "domain": "bone",
+    "level": 3,
+    "type": "ability",
+    "recallCost": 1
+  }
+}

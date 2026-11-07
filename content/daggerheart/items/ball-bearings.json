@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "ball-bearings",
+  "name": "Ball Bearings",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 77,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "This pouch contains perfectly smooth metal spheres.",
+  "data": {
+    "category": "loot",
+    "roll": 3
+  }
+}

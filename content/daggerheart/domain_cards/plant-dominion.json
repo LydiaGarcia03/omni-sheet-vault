@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "plant-dominion",
+  "name": "Plant Dominion",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 220,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Make a Spellcast Roll (18). Once per long rest on a success, you reshape the natural world, changing the surrounding plant life anywhere within Far range of you. For example, you can grow trees instantly, clear a path through dense vines, or create a wall of roots.",
+  "data": {
+    "domain": "sage",
+    "level": 9,
+    "type": "spell",
+    "recallCost": 1
+  }
+}

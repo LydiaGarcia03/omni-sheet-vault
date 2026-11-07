@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "morphing-clay",
+  "name": "Morphing Clay",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 80,
+  "tags": [
+    "core-set"
+  ],
+  "description": "You can spend a Hope to use this clay, altering your face enough to make you unrecognizable until your next rest.",
+  "data": {
+    "category": "consumable",
+    "roll": 15
+  }
+}

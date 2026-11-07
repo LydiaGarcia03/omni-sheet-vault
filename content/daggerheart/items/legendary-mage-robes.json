@@ -1,0 +1,24 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "legendary-mage-robes",
+  "name": "Legendary Mage Robes",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 74,
+  "tags": [],
+  "description": "Enchanted: Gain a bonus to your damage thresholds equal to your Spellcast trait.",
+  "data": {
+    "category": "armor",
+    "tier": 4,
+    "baseThresholds": {
+      "major": 10,
+      "severe": 31
+    },
+    "baseScore": 5,
+    "feature": {
+      "name": "Enchanted",
+      "text": "Gain a bonus to your damage thresholds equal to your Spellcast trait."
+    }
+  }
+}

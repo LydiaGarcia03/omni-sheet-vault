@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "namers-oracle",
+  "name": "Namer’s Oracle",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 79,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "Once per session, you can roll this set of runic dice to reveal the full name of the last person you touched.",
+  "data": {
+    "category": "loot",
+    "roll": 41
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "dual-flask",
+  "name": "Dual Flask",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 76,
+  "tags": [
+    "core-set"
+  ],
+  "description": "This flask can hold two different liquids. You can swap between them by flipping a small switch on the flask’s side.",
+  "data": {
+    "category": "loot",
+    "roll": 30
+  }
+}

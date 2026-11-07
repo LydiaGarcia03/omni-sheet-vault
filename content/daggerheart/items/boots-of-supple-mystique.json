@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "boots-of-supple-mystique",
+  "name": "Boots of Supple Mystique",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 78,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "While wearing these boots, you don’t leave tracks or footprints.",
+  "data": {
+    "category": "loot",
+    "roll": 18
+  }
+}

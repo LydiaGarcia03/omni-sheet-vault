@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "gourmet-granules",
+  "name": "Gourmet Granules",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 77,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "This savory powder makes any food it’s sprinkled on delicious and healthy, no matter how bland or rotten it is.",
+  "data": {
+    "category": "loot",
+    "roll": 7
+  }
+}

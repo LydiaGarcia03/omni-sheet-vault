@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "armor-stitcher",
+  "name": "Armor Stitcher",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 80,
+  "tags": [
+    "core-set"
+  ],
+  "description": "You can use this stitcher to spend any number of Hope and clear that many Armor Slots.",
+  "data": {
+    "category": "consumable",
+    "roll": 21
+  }
+}

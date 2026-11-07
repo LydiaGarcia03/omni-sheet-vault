@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "sage-touched",
+  "name": "Sage-Touched",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 220,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When 4 or more of the domain cards in your loadout are from the Sage domain, gain the following benefits:\n◦ While you’re in a natural environment, you gain a +2 bonus to your Spellcast Rolls.\n◦ Once per rest, you can double your Agility or Instinct when making a roll that uses that trait. You must choose to do this before you roll.",
+  "data": {
+    "domain": "sage",
+    "level": 7,
+    "type": "ability",
+    "recallCost": 2
+  }
+}

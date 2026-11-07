@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "blinding-orb",
+  "name": "Blinding Orb",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 81,
+  "tags": [
+    "core-set"
+  ],
+  "description": "You can activate this orb to create a flash of bright light. All targets within Close range become Vulnerable until they mark HP.",
+  "data": {
+    "category": "consumable",
+    "roll": 57
+  }
+}

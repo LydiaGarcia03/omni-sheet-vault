@@ -1,0 +1,30 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "legendary-chainmail-armor",
+  "name": "Legendary Chainmail Armor",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 74,
+  "tags": [],
+  "description": "Heavy: −1 to Evasion",
+  "data": {
+    "category": "armor",
+    "tier": 4,
+    "baseThresholds": {
+      "major": 15,
+      "severe": 40
+    },
+    "baseScore": 7,
+    "feature": {
+      "name": "Heavy",
+      "text": "−1 to Evasion",
+      "modifiers": [
+        {
+          "target": "evasion",
+          "value": -1
+        }
+      ]
+    }
+  }
+}

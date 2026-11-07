@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "wildriders-saddle",
+  "name": "Wildrider’s Saddle",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 78,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "This saddle grants any animal it’s strapped onto the ability to understand their rider’s commands.",
+  "data": {
+    "category": "loot",
+    "roll": 39
+  }
+}

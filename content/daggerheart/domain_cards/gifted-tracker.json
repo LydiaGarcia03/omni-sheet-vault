@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "gifted-tracker",
+  "name": "Gifted Tracker",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 218,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When you’re tracking a specific creature or group of creatures based on signs of their passage, you can spend any number of Hope and ask the GM that many questions from the following list.\n◦ What direction did they go?\n◦ How long ago did they pass through?\n◦ What were they doing in this location?\n◦ How many of them were here? When you encounter creatures you’ve tracked in this way, gain a +1 bonus to your Evasion against them.",
+  "data": {
+    "domain": "sage",
+    "level": 1,
+    "type": "ability",
+    "recallCost": 0
+  }
+}

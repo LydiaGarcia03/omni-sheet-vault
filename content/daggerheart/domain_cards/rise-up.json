@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "rise-up",
+  "name": "Rise Up",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 223,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Gain a bonus to your Severe threshold equal to your Proficiency.\n\nWhen you mark 1 or more Hit Points from an attack, clear a Stress.",
+  "data": {
+    "domain": "valor",
+    "level": 6,
+    "type": "ability",
+    "recallCost": 2
+  }
+}

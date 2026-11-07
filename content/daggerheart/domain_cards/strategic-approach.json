@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "strategic-approach",
+  "name": "Strategic Approach",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 209,
+  "tags": [
+    "core-set"
+  ],
+  "description": "After a long rest, place a number of tokens equal to your Knowledge on this card (minimum 1). The first time you move within Close range of an adversary and make an attack against them, you can spend one token to choose one of the following options:\n◦ You make the attack with advantage.\n◦ You clear a Stress on an ally within Melee range of the adversary.\n◦ You add a d8 to your damage roll. When you take a long rest, clear all unspent tokens.",
+  "data": {
+    "domain": "bone",
+    "level": 2,
+    "type": "ability",
+    "recallCost": 1
+  }
+}

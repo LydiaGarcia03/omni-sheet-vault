@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "rage-up",
+  "name": "Rage Up",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 208,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Before you make an attack, you can mark a Stress to gain a bonus to your damage roll equal to twice your Strength.\n\nYou can Rage Up twice per attack.",
+  "data": {
+    "domain": "blade",
+    "level": 6,
+    "type": "ability",
+    "recallCost": 1
+  }
+}

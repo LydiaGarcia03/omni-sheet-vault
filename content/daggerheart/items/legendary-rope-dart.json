@@ -1,0 +1,26 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "legendary-rope-dart",
+  "name": "Legendary Rope Dart",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 63,
+  "tags": [],
+  "description": null,
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 4,
+    "trait": "Instinct",
+    "range": "Close",
+    "burden": 2,
+    "wheelchair": false,
+    "damage": {
+      "die": "d6",
+      "bonus": 10,
+      "type": "physical"
+    },
+    "feature": null
+  }
+}

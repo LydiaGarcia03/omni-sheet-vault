@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "bonding-honey",
+  "name": "Bonding Honey",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 81,
+  "tags": [
+    "core-set"
+  ],
+  "description": "This honey can be used to glue two objects together permanently.",
+  "data": {
+    "category": "consumable",
+    "roll": 52
+  }
+}

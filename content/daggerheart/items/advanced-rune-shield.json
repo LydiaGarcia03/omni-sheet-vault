@@ -1,0 +1,35 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "advanced-rune-shield",
+  "name": "Advanced Rune Shield",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 68,
+  "tags": [],
+  "description": "Protective: +3 to Armor Score",
+  "data": {
+    "category": "weapon",
+    "slot": "secondary",
+    "tier": 3,
+    "trait": "Knowledge",
+    "range": "Melee",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d4",
+      "bonus": 4,
+      "type": "magic"
+    },
+    "feature": {
+      "name": "Protective",
+      "text": "+3 to Armor Score",
+      "modifiers": [
+        {
+          "target": "armorScore",
+          "value": 3
+        }
+      ]
+    }
+  }
+}

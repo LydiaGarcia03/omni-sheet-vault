@@ -1,0 +1,30 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "legendary-scale-mail-armor",
+  "name": "Legendary Scale Mail Armor",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 74,
+  "tags": [],
+  "description": "Cumbersome: −1 to Finesse",
+  "data": {
+    "category": "armor",
+    "tier": 4,
+    "baseThresholds": {
+      "major": 15,
+      "severe": 39
+    },
+    "baseScore": 6,
+    "feature": {
+      "name": "Cumbersome",
+      "text": "−1 to Finesse",
+      "modifiers": [
+        {
+          "target": "finesse",
+          "value": -1
+        }
+      ]
+    }
+  }
+}

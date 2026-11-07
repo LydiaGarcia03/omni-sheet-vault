@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "minor-stamina-potion-recipe",
+  "name": "Minor Stamina Potion Recipe",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 75,
+  "tags": [
+    "core-set"
+  ],
+  "description": "As a downtime move, you can use the bone of a creature to craft a Minor Stamina Potion.",
+  "data": {
+    "category": "loot",
+    "roll": 18
+  }
+}

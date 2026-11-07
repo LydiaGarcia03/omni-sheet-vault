@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "iron-dagger-pendant",
+  "name": "Iron Dagger Pendant",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 79,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "Once per long rest, you can spend a Hope to tell the pendant a creature’s name. The pendant gently pulls you toward that creature’s current location until your next long rest.",
+  "data": {
+    "category": "loot",
+    "roll": 48
+  }
+}

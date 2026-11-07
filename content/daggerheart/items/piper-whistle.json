@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "piper-whistle",
+  "name": "Piper Whistle",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 75,
+  "tags": [
+    "core-set"
+  ],
+  "description": "This handcrafted whistle has a distinctive sound. When you blow this whistle, its piercing tone can be heard within a 1-mile radius.",
+  "data": {
+    "category": "loot",
+    "roll": 2
+  }
+}

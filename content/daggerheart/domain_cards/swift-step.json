@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "swift-step",
+  "name": "Swift Step",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 210,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When an attack made against you fails, clear a Stress. If you can’t clear a Stress, gain a Hope.",
+  "data": {
+    "domain": "bone",
+    "level": 10,
+    "type": "ability",
+    "recallCost": 2
+  }
+}

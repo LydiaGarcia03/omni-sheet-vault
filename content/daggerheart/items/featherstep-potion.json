@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "featherstep-potion",
+  "name": "Featherstep Potion",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 84,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "You can drink this potion to sprout small wings from your ankles that give you a bonus to your Evasion equal to your tier until your next rest.",
+  "data": {
+    "category": "consumable",
+    "roll": 60
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "fortified-armor",
+  "name": "Fortified Armor",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 208,
+  "tags": [
+    "core-set"
+  ],
+  "description": "While you are wearing armor, gain a +2 bonus to your damage thresholds.",
+  "data": {
+    "domain": "blade",
+    "level": 4,
+    "type": "ability",
+    "recallCost": 0
+  }
+}

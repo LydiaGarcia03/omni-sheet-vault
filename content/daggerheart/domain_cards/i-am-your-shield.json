@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "i-am-your-shield",
+  "name": "I Am Your Shield",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 223,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When an ally within Very Close range would take damage, you can mark a Stress to stand in the way and make yourself the target of the attack instead. When you take damage from this attack, you can mark any number of Armor Slots.",
+  "data": {
+    "domain": "valor",
+    "level": 1,
+    "type": "ability",
+    "recallCost": 1
+  }
+}

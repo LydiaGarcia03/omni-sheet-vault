@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "grappler",
+  "name": "Grappler",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 66,
+  "tags": [],
+  "description": "Hooked: On a successful attack, you can pull the target into Melee range.",
+  "data": {
+    "category": "weapon",
+    "slot": "secondary",
+    "tier": 1,
+    "trait": "Finesse",
+    "range": "Close",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d6",
+      "bonus": 0,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Hooked",
+      "text": "On a successful attack, you can pull the target into Melee range."
+    }
+  }
+}

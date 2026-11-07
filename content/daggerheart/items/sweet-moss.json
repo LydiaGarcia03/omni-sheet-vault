@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "sweet-moss",
+  "name": "Sweet Moss",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 81,
+  "tags": [
+    "core-set"
+  ],
+  "description": "You can consume this moss during a rest to clear 1d10 HP or 1d10 Stress.",
+  "data": {
+    "category": "consumable",
+    "roll": 56
+  }
+}

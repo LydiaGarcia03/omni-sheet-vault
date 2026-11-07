@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "improved-arcane-frame-wheelchair",
+  "name": "Improved Arcane-Frame Wheelchair",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 71,
+  "tags": [],
+  "description": "Reliable: +1 to attack rolls",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 2,
+    "trait": "Spellcast",
+    "range": "Far",
+    "burden": 1,
+    "wheelchair": true,
+    "damage": {
+      "die": "d6",
+      "bonus": 3,
+      "type": "magic"
+    },
+    "feature": {
+      "name": "Reliable",
+      "text": "+1 to attack rolls"
+    }
+  }
+}

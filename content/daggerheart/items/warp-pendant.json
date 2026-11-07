@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "warp-pendant",
+  "name": "Warp Pendant",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 79,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "Once per rest, mark a Stress to teleport to a location you can clearly see.",
+  "data": {
+    "category": "loot",
+    "roll": 57
+  }
+}

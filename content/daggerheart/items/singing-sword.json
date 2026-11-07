@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "singing-sword",
+  "name": "Singing Sword",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 61,
+  "tags": [],
+  "description": "Bolstering: When you critically succeed on an attack, all PCs within Close range gain a Hope.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 3,
+    "trait": "Presence",
+    "range": "Very Close",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d8",
+      "bonus": 5,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Bolstering",
+      "text": "When you critically succeed on an attack, all PCs within Close range gain a Hope."
+    }
+  }
+}

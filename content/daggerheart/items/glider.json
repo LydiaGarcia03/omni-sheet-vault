@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "glider",
+  "name": "Glider",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 76,
+  "tags": [
+    "core-set"
+  ],
+  "description": "While falling, you can mark a Stress to deploy this small parachute and glide safely to the ground.",
+  "data": {
+    "category": "loot",
+    "roll": 27
+  }
+}

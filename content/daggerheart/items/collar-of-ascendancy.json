@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "collar-of-ascendancy",
+  "name": "Collar of Ascendancy",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 79,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "An animal who wears this collar gains the ability to speak and understand common speech.",
+  "data": {
+    "category": "loot",
+    "roll": 49
+  }
+}

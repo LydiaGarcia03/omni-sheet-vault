@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "deft-deceiver",
+  "name": "Deft Deceiver",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 215,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Spend a Hope to gain advantage on a roll to deceive or trick someone into believing a lie you tell them.",
+  "data": {
+    "domain": "grace",
+    "level": 1,
+    "type": "ability",
+    "recallCost": 0
+  }
+}

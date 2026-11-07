@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "fury-gem",
+  "name": "Fury Gem",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 60,
+  "tags": [],
+  "description": "Burning: When you roll the maximum result on a damage die, the target must mark a Stress.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 2,
+    "trait": "Instinct",
+    "range": "Close",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d8",
+      "bonus": 3,
+      "type": "magic"
+    },
+    "feature": {
+      "name": "Burning",
+      "text": "When you roll the maximum result on a damage die, the target must mark a Stress."
+    }
+  }
+}

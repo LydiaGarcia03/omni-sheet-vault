@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "returning-ring",
+  "name": "Returning Ring",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 78,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "When you throw your primary weapon while wearing this ring, the weapon appears in your hand immediately after the attack.",
+  "data": {
+    "category": "loot",
+    "roll": 20
+  }
+}

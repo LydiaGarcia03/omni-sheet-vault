@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "ring-of-unbreakable-resolve",
+  "name": "Ring of Unbreakable Resolve",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 77,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Once per session, when the GM spends a Fear, you can spend 4 Hope to cancel the effects of that spent Fear.",
+  "data": {
+    "category": "loot",
+    "roll": 59
+  }
+}

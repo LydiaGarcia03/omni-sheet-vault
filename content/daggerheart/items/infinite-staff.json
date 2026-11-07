@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "infinite-staff",
+  "name": "Infinite Staff",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 64,
+  "tags": [],
+  "description": "Extending: You can increase the range of this weapon up to Very Far. You gain a −1 penalty to attack rolls for each step you increase the range by (such as Melee to Very Close, Very Close to Close, or Close to Far).",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 4,
+    "trait": "Presence",
+    "range": "Melee",
+    "burden": 2,
+    "wheelchair": false,
+    "damage": {
+      "die": "d10",
+      "bonus": 9,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Extending",
+      "text": "You can increase the range of this weapon up to Very Far. You gain a −1 penalty to attack rolls for each step you increase the range by (such as Melee to Very Close, Very Close to Close, or Close to Far)."
+    }
+  }
+}

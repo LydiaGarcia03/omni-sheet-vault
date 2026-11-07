@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "urok-broadsword",
+  "name": "Urok Broadsword",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 58,
+  "tags": [],
+  "description": "Deadly: When you deal Severe damage, the target must mark an additional HP.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 2,
+    "trait": "Finesse",
+    "range": "Melee",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d8",
+      "bonus": 3,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Deadly",
+      "text": "When you deal Severe damage, the target must mark an additional HP."
+    }
+  }
+}

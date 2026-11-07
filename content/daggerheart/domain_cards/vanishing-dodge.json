@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "vanishing-dodge",
+  "name": "Vanishing Dodge",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 218,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When an attack made against you that would deal physical damage fails, you can spend a Hope to envelop yourself in shadow, becoming Hidden and teleporting to a point within Close range of the attacker. You remain Hidden until the next time you make an action roll.",
+  "data": {
+    "domain": "midnight",
+    "level": 7,
+    "type": "spell",
+    "recallCost": 1
+  }
+}

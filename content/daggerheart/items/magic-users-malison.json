@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "magic-users-malison",
+  "name": "Magic-User’s Malison",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 84,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "When you release this spellcaster’s trapped soul, you can cast one spell from a card in your vault as if it were in your loadout. This doesn’t work for permanently vaulted cards.",
+  "data": {
+    "category": "consumable",
+    "roll": 52
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "thiefs-compass",
+  "name": "Thief’s Compass",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 78,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "This compass points the way toward the nearest exit while indoors and the closest entrance while outdoors.",
+  "data": {
+    "category": "loot",
+    "roll": 15
+  }
+}

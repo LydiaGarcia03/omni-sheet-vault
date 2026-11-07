@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "feast-of-xuria",
+  "name": "Feast of Xuria",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 81,
+  "tags": [
+    "core-set"
+  ],
+  "description": "You can eat this meal to clear all HP and Stress and gain 1d4 Hope.",
+  "data": {
+    "category": "consumable",
+    "roll": 51
+  }
+}

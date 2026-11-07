@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "wrangle",
+  "name": "Wrangle",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 210,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Make an Agility Roll against all targets within Close range. Spend a Hope to move targets you succeed against, and any willing allies within Close range, to another point within Close range.",
+  "data": {
+    "domain": "bone",
+    "level": 8,
+    "type": "ability",
+    "recallCost": 1
+  }
+}

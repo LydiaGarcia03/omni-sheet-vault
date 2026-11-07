@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "major-health-potion",
+  "name": "Major Health Potion",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 81,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Clear 1d4+2 HP.",
+  "data": {
+    "category": "consumable",
+    "roll": 43
+  }
+}

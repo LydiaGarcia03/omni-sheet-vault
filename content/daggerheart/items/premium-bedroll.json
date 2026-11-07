@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "premium-bedroll",
+  "name": "Premium Bedroll",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 75,
+  "tags": [
+    "core-set"
+  ],
+  "description": "During downtime, you automatically clear a Stress.",
+  "data": {
+    "category": "loot",
+    "roll": 1
+  }
+}

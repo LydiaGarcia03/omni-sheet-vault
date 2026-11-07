@@ -1,0 +1,30 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "improved-scale-mail-armor",
+  "name": "Improved Scale Mail Armor",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 72,
+  "tags": [],
+  "description": "Cumbersome: −1 to Finesse",
+  "data": {
+    "category": "armor",
+    "tier": 2,
+    "baseThresholds": {
+      "major": 11,
+      "severe": 23
+    },
+    "baseScore": 4,
+    "feature": {
+      "name": "Cumbersome",
+      "text": "−1 to Finesse",
+      "modifiers": [
+        {
+          "target": "finesse",
+          "value": -1
+        }
+      ]
+    }
+  }
+}

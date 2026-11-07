@@ -1,0 +1,24 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "elundrian-chain-armor",
+  "name": "Elundrian Chain Armor",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 73,
+  "tags": [],
+  "description": "Warded: You reduce incoming magic damage by your Armor Score before applying it to your damage thresholds.",
+  "data": {
+    "category": "armor",
+    "tier": 2,
+    "baseThresholds": {
+      "major": 9,
+      "severe": 21
+    },
+    "baseScore": 4,
+    "feature": {
+      "name": "Warded",
+      "text": "You reduce incoming magic damage by your Armor Score before applying it to your damage thresholds."
+    }
+  }
+}

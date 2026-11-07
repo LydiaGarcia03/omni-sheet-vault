@@ -1,0 +1,35 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "improved-longbow",
+  "name": "Improved Longbow",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 58,
+  "tags": [],
+  "description": "Cumbersome: −1 to Finesse",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 2,
+    "trait": "Agility",
+    "range": "Very Far",
+    "burden": 2,
+    "wheelchair": false,
+    "damage": {
+      "die": "d8",
+      "bonus": 6,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Cumbersome",
+      "text": "−1 to Finesse",
+      "modifiers": [
+        {
+          "target": "finesse",
+          "value": -1
+        }
+      ]
+    }
+  }
+}

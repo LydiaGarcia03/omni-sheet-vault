@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "dire-strike",
+  "name": "Dire Strike",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 214,
+  "tags": [
+    "expansion"
+  ],
+  "description": "When a target marks any number of Hit Points from an attack you make, you can spend a Hope to drain power from them. The GM loses a Fear.",
+  "data": {
+    "domain": "dread",
+    "level": 5,
+    "type": "spell",
+    "recallCost": 2
+  }
+}

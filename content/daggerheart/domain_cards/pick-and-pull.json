@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "pick-and-pull",
+  "name": "Pick and Pull",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 216,
+  "tags": [
+    "core-set"
+  ],
+  "description": "You have advantage on action rolls to pick nonmagical locks, disarm nonmagical traps, or steal items from a target (either through stealth or by force).",
+  "data": {
+    "domain": "midnight",
+    "level": 1,
+    "type": "ability",
+    "recallCost": 0
+  }
+}

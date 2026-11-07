@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "swinging-ropeblade",
+  "name": "Swinging Ropeblade",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 64,
+  "tags": [],
+  "description": "Grappling: On a successful attack, you can spend a Hope to Restrain the target or pull them into Melee range with you.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 4,
+    "trait": "Presence",
+    "range": "Close",
+    "burden": 2,
+    "wheelchair": false,
+    "damage": {
+      "die": "d8",
+      "bonus": 9,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Grappling",
+      "text": "On a successful attack, you can spend a Hope to Restrain the target or pull them into Melee range with you."
+    }
+  }
+}

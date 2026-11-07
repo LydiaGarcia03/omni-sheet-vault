@@ -1,0 +1,43 @@
+{
+  "systemId": "daggerheart",
+  "kind": "SUBCLASS",
+  "slug": "poisoners-guild",
+  "name": "Poisoners Guild",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 10,
+  "tags": [
+    "expansion"
+  ],
+  "description": "Play the Poisoners Guild if you want to debilitate your targets with punishing afflictions.",
+  "data": {
+    "classSlug": "assassin",
+    "spellcastTrait": "Knowledge",
+    "foundation": [
+      {
+        "name": "Toxic Concoctions",
+        "text": "Mark a Stress to place 1d4+1 tokens on this card. When you make a successful weapon attack, you can spend a token to afflict the target with a poison. You know these poisons:\n◦ Ghost Petal: The target becomes temporarily Vulnerable.\n◦ Grave Spore: The target must also mark a Stress.\n◦ Leech Weed: You deal an extra 1d6 damage on this attack. When you take a long rest, clear all unspent tokens."
+      }
+    ],
+    "specialization": [
+      {
+        "name": "Poison Compendium",
+        "text": "You also know these poisons:\n◦ Midnight Vine: The target has disadvantage on attack rolls until it marks a Stress to clear this condition.\n◦ Gorgon Root: The target becomes temporarily Restrained."
+      },
+      {
+        "name": "Twin Fang",
+        "text": "When you afflict a target Marked for Death with a poison you know, you can spend an additional token to also inflict the effect of a second poison you know."
+      }
+    ],
+    "mastery": [
+      {
+        "name": "Venomancer",
+        "text": "You also know these poisons:\n◦ Blight Seed: The target gains a −3 penalty to their damage thresholds until the end of the scene. This effect can’t stack.\n◦ Fear Leaf: You deal extra damage equal to the result of your Fear Die on this attack.\n◦ Corpse Thorn: The target gains disadvantage on reaction rolls until the end of the scene."
+      },
+      {
+        "name": "Adder’s Blessing",
+        "text": "You are immune to poisons and other toxins."
+      }
+    ]
+  }
+}

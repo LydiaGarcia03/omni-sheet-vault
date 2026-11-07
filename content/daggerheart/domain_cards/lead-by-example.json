@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "lead-by-example",
+  "name": "Lead By Example",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 224,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When you deal damage to an adversary, you can mark a Stress and describe how you encourage your allies. The next PC to make an attack against that adversary can clear a Stress or gain a Hope.",
+  "data": {
+    "domain": "valor",
+    "level": 9,
+    "type": "ability",
+    "recallCost": 3
+  }
+}

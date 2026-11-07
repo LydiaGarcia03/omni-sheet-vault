@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "ring-of-resistance",
+  "name": "Ring of Resistance",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 76,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Once per long rest, you can activate this ring after a successful attack against you to halve the damage.",
+  "data": {
+    "category": "loot",
+    "roll": 32
+  }
+}

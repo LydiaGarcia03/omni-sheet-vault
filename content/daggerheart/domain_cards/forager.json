@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "forager",
+  "name": "Forager",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 219,
+  "tags": [
+    "core-set"
+  ],
+  "description": "As an additional downtime move you can choose, roll a d6 to see what you forage. Work with the GM to describe it and add it to your inventory as a consumable. Your party can carry up to five foraged consumables at a time.\n\n1. A unique food (Clear 2 Stress)\n\n2. A beautiful relic (Gain 2 Hope)\n\n3. An arcane rune (+2 to a Spellcast    Roll)\n\n4. A healing vial (Clear 2 Hit Points)\n\n5. A luck charm (Reroll any die)\n\n6. Choose one of the options above.",
+  "data": {
+    "domain": "sage",
+    "level": 6,
+    "type": "ability",
+    "recallCost": 1
+  }
+}

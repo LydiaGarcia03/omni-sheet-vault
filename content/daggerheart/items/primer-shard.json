@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "primer-shard",
+  "name": "Primer Shard",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 69,
+  "tags": [],
+  "description": "Locked On: On a successful attack, your next attack against the same target with your primary weapon automatically succeeds.",
+  "data": {
+    "category": "weapon",
+    "slot": "secondary",
+    "tier": 4,
+    "trait": "Instinct",
+    "range": "Very Close",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d4",
+      "bonus": 0,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Locked On",
+      "text": "On a successful attack, your next attack against the same target with your primary weapon automatically succeeds."
+    }
+  }
+}

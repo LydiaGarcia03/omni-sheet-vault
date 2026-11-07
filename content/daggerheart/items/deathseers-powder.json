@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "deathseers-powder",
+  "name": "Deathseer’s Powder",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 82,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "You can sprinkle this powder over a recently deceased corpse to conjure a spectral reprise of their final minute of life.",
+  "data": {
+    "category": "consumable",
+    "roll": 11
+  }
+}

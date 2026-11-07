@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "gem-of-alacrity",
+  "name": "Gem of Alacrity",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 77,
+  "tags": [
+    "core-set"
+  ],
+  "description": "You can attach this gem to a weapon, allowing you to use your Agility when making an attack with that weapon.",
+  "data": {
+    "category": "loot",
+    "roll": 53
+  }
+}

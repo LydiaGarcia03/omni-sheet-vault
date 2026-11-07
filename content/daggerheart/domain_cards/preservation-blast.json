@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "preservation-blast",
+  "name": "Preservation Blast",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 206,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Make a Spellcast Roll against all targets within Melee range. Targets you succeed against are forced back to Far range and take d8+3 magic damage using your Spellcast trait.",
+  "data": {
+    "domain": "arcana",
+    "level": 4,
+    "type": "spell",
+    "recallCost": 2
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "whip",
+  "name": "Whip",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 66,
+  "tags": [],
+  "description": "Startling: Mark a Stress to crack the whip and force all adversaries within Melee range back to Close range.",
+  "data": {
+    "category": "weapon",
+    "slot": "secondary",
+    "tier": 1,
+    "trait": "Presence",
+    "range": "Very Close",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d6",
+      "bonus": 0,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Startling",
+      "text": "Mark a Stress to crack the whip and force all adversaries within Melee range back to Close range."
+    }
+  }
+}

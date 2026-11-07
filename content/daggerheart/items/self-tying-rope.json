@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "self-tying-rope",
+  "name": "Self-Tying Rope",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 78,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "You can command this rope to tie or untie itself.",
+  "data": {
+    "category": "loot",
+    "roll": 14
+  }
+}

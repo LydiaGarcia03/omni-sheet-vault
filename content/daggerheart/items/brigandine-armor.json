@@ -1,0 +1,24 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "brigandine-armor",
+  "name": "Brigandine Armor",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 72,
+  "tags": [],
+  "description": "Lined: Mark a Stress to negate Minor damage.",
+  "data": {
+    "category": "armor",
+    "tier": 1,
+    "baseThresholds": {
+      "major": 6,
+      "severe": 12
+    },
+    "baseScore": 3,
+    "feature": {
+      "name": "Lined",
+      "text": "Mark a Stress to negate Minor damage."
+    }
+  }
+}

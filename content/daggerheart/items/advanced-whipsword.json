@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "advanced-whipsword",
+  "name": "Advanced Whipsword",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 61,
+  "tags": [],
+  "description": "Versatile: This weapon can also be used with these statistics—Finesse, Melee, d10+6.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 3,
+    "trait": "Finesse",
+    "range": "Very Close",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d8",
+      "bonus": 6,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Versatile",
+      "text": "This weapon can also be used with these statistics—Finesse, Melee, d10+6."
+    }
+  }
+}

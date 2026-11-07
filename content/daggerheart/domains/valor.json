@@ -1,0 +1,20 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN",
+  "slug": "valor",
+  "name": "Valor",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 7,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Valor is the domain of protection. Whether through attack or defense, those who choose this discipline channel formidable strength to protect their allies in battle. Valor offers great power to those who raise their shields in defense of others. The Valor domain can be accessed by the Brawler, Guardian, and Seraph classes.",
+  "data": {
+    "classes": [
+      "brawler",
+      "guardian",
+      "seraph"
+    ]
+  }
+}

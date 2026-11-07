@@ -1,0 +1,30 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "legendary-banded-armor",
+  "name": "Legendary Banded Armor",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 74,
+  "tags": [],
+  "description": "Bulky: −1 to Evasion; when you take Severe damage, you must mark a Stress.",
+  "data": {
+    "category": "armor",
+    "tier": 4,
+    "baseThresholds": {
+      "major": 17,
+      "severe": 43
+    },
+    "baseScore": 7,
+    "feature": {
+      "name": "Bulky",
+      "text": "−1 to Evasion; when you take Severe damage, you must mark a Stress.",
+      "modifiers": [
+        {
+          "target": "evasion",
+          "value": -1
+        }
+      ]
+    }
+  }
+}

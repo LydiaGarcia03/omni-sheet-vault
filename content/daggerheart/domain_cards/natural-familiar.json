@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "natural-familiar",
+  "name": "Natural Familiar",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 219,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Spend a Hope to summon a small nature spirit or forest critter to your side until your next rest, you cast Natural Familiar again, or the familiar is targeted by an attack. If you spend an additional Hope, you can summon a familiar that flies. You can communicate with them, make a Spellcast Roll to command them to perform simple tasks, and mark a Stress to see through their eyes.\n\nWhen you deal damage to an adversary within Melee range of your familiar, you add a d6 to your damage roll.",
+  "data": {
+    "domain": "sage",
+    "level": 2,
+    "type": "spell",
+    "recallCost": 1
+  }
+}

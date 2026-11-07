@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "yakamel-milk",
+  "name": "Yakamel Milk",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 82,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "After consuming this milk, the next time you clear 1 or more Hit Points, you clear an additional Hit Point.",
+  "data": {
+    "category": "consumable",
+    "roll": 13
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "ricochet-axes",
+  "name": "Ricochet Axes",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 64,
+  "tags": [],
+  "description": "Bouncing: Mark 1 or more Stress to hit that many targets in range of the attack.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 4,
+    "trait": "Agility",
+    "range": "Far",
+    "burden": 2,
+    "wheelchair": false,
+    "damage": {
+      "die": "d6",
+      "bonus": 11,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Bouncing",
+      "text": "Mark 1 or more Stress to hit that many targets in range of the attack."
+    }
+  }
+}

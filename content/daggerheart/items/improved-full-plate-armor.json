@@ -1,0 +1,34 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "improved-full-plate-armor",
+  "name": "Improved Full Plate Armor",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 72,
+  "tags": [],
+  "description": "Very Heavy: −2 to Evasion; −1 to Agility",
+  "data": {
+    "category": "armor",
+    "tier": 2,
+    "baseThresholds": {
+      "major": 13,
+      "severe": 28
+    },
+    "baseScore": 5,
+    "feature": {
+      "name": "Very Heavy",
+      "text": "−2 to Evasion; −1 to Agility",
+      "modifiers": [
+        {
+          "target": "evasion",
+          "value": -2
+        },
+        {
+          "target": "agility",
+          "value": -1
+        }
+      ]
+    }
+  }
+}

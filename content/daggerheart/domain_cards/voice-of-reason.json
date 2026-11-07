@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "voice-of-reason",
+  "name": "Voice of Reason",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 221,
+  "tags": [
+    "core-set"
+  ],
+  "description": "You speak with an unmatched power and authority. You have advantage on action rolls to de-escalate violent situations or convince someone to follow your lead.\n\nAdditionally, you’re emboldened in moments of duress. When all of your Stress slots are marked, you gain a +1 bonus to your Proficiency for damage rolls.",
+  "data": {
+    "domain": "splendor",
+    "level": 3,
+    "type": "ability",
+    "recallCost": 1
+  }
+}

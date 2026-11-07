@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "mask-of-the-echoed-self",
+  "name": "Mask of the Echoed Self",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 84,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "You can wear this mask during your next level up to swap the values of any of your traits. When you do, the mask becomes your permanent face.",
+  "data": {
+    "category": "consumable",
+    "roll": 54
+  }
+}

@@ -132,6 +132,12 @@ Some classes track their own resource (Seraph Prayer Dice, Warlock Favor…).
 ## 8. Notes for the importer
 
 - Plain `pdftotext` mixes the two columns: neighbouring ancestries and
-  communities swap features. The importer needs layout-aware extraction
-  (`-layout` with column splitting, or per-column cropping) and a check
-  against the SRD's own lists.
+  communities swap features. The importer (`tools/daggerheart-import/`, D1)
+  uses `-layout` and splits each line at the gutter (`columns.mjs`).
+- `-layout` scrambles the equipment tables: cells are vertically centred
+  and drift apart. Those pages are read with `-table`, and each row's
+  columns are taken from the row itself, not the header.
+- SRD quirks the importer handles: Troubadour's Maestro and Virtuoso use
+  "Name." instead of "Name:"; one Sage card heading carries a stray `--`;
+  "Tip:" and "Note:" are asides inside a feature; the Commune and Lunar
+  Phases roll tables are rebuilt row by row.

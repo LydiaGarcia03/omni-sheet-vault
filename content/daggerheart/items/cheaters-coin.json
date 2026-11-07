@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "cheaters-coin",
+  "name": "Cheater’s Coin",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 78,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "When you flip this coin, you can spend a Hope to determine which side it lands on.",
+  "data": {
+    "category": "loot",
+    "roll": 28
+  }
+}

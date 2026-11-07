@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "empty-chest",
+  "name": "Empty Chest",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 75,
+  "tags": [
+    "core-set"
+  ],
+  "description": "This magical chest appears empty. When you speak a specific trigger word or action and open the chest, you can see the items stored within it.",
+  "data": {
+    "category": "loot",
+    "roll": 12
+  }
+}
