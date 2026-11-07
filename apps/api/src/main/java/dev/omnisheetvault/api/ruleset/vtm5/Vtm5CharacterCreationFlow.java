@@ -8,6 +8,7 @@ import dev.omnisheetvault.api.ruleset.CreationChoiceOption;
 import dev.omnisheetvault.api.ruleset.CreationPreview;
 import dev.omnisheetvault.api.ruleset.InvalidBuildException;
 import dev.omnisheetvault.api.ruleset.MaterializedSheet;
+import dev.omnisheetvault.api.shared.InterfaceLocale;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -39,10 +40,12 @@ class Vtm5CharacterCreationFlow implements CharacterCreationFlow {
 
     private final ObjectMapper objectMapper;
     private final Vtm5Content content;
+    private final Vtm5Messages messages;
 
-    Vtm5CharacterCreationFlow(ObjectMapper objectMapper, Vtm5Content content) {
+    Vtm5CharacterCreationFlow(ObjectMapper objectMapper, Vtm5Content content, Vtm5Messages messages) {
         this.objectMapper = objectMapper;
         this.content = content;
+        this.messages = messages;
     }
 
     @Override
@@ -97,38 +100,38 @@ class Vtm5CharacterCreationFlow implements CharacterCreationFlow {
     // Steps
 
     private void basics(JsonNode build, List<CreationChoice> choices) {
-        choices.add(single("concept", "basics", "Concept", text(build, "concept")));
-        choices.add(single("age", "basics", "Age since the Embrace", content.age(text(build, "age")).isPresent() ? text(build, "age") : ""));
+        choices.add(single("concept", "basics", messages.text("choice.concept"), text(build, "concept")));
+        choices.add(single("age", "basics", messages.text("choice.age"), content.age(text(build, "age")).isPresent() ? text(build, "age") : ""));
     }
 
     private void clan(JsonNode build, List<CreationChoice> choices, List<String> problems) {
         String clan = text(build, "clan");
         if (!clan.isEmpty() && content.clan(clan).isEmpty()) {
-            problems.add("Unknown clan: " + clan);
+            problems.add(messages.text("problem.unknownClan", clan));
         }
         List<CreationChoiceOption> options = new ArrayList<>();
         content.all().path("clans").forEach(c -> options.add(new CreationChoiceOption(
-                c.path("name").asString(), c.path("name").asString(), c.path("source").asString(), c.path("nick").asString())));
-        choices.add(new CreationChoice("clan", "clan", null, "Clan", null, 1, false, options, selectedIf(clan)));
+                c.path("name").asString(), messages.term(c.path("name").asString()), c.path("source").asString(), nickOf(c.path("name").asString()))));
+        choices.add(new CreationChoice("clan", "clan", null, messages.text("choice.clan"), null, 1, false, options, selectedIf(clan)));
     }
 
     private void attributes(JsonNode build, List<CreationChoice> choices, List<String> problems) {
         List<String> placed = placed(build.path("attributes"), content.attributes(), 4, problems, "Attribute");
-        choices.add(counted("attributes", "attributes", "Attribute dots", content.attributes().size(), placed));
+        choices.add(counted("attributes", "attributes", messages.text("choice.attributes"), content.attributes().size(), placed));
         slotProblems(build.path("attributes"), content.attributes(), ATTRIBUTE_SLOTS, "attributes", problems);
     }
 
     private void skills(JsonNode build, List<CreationChoice> choices, List<String> problems) {
         String distribution = text(build, "distribution");
         Map<Integer, Integer> slots = content.distribution(distribution);
-        choices.add(single("distribution", "skills", "Skill distribution", slots.isEmpty() ? "" : distribution));
+        choices.add(single("distribution", "skills", messages.text("choice.distribution"), slots.isEmpty() ? "" : distribution));
         if (slots.isEmpty()) {
             return;
         }
         int maxDots = slots.keySet().stream().max(Integer::compare).orElse(3);
         List<String> placed = placed(build.path("skills"), content.skills(), maxDots, problems, "Skill");
         int total = slots.values().stream().mapToInt(Integer::intValue).sum();
-        choices.add(counted("skills", "skills", "Skill dots", total, placed));
+        choices.add(counted("skills", "skills", messages.text("choice.skills"), total, placed));
         slotProblems(build.path("skills"), content.skills(), slots, "skills", problems);
         specialties(build, placed, choices);
     }
@@ -138,7 +141,7 @@ class Vtm5CharacterCreationFlow implements CharacterCreationFlow {
         List<String> required = trainedSkills.stream().filter(content.freeSpecialtySkills()::contains).toList();
         List<String> chosen = new ArrayList<>(required.stream().filter(skill -> !text(specialties, skill).isEmpty()).toList());
         trainedSkills.stream().filter(skill -> !required.contains(skill) && !text(specialties, skill).isEmpty()).findFirst().ifPresent(chosen::add);
-        choices.add(counted("specialties", "skills", "Specialties", required.size() + 1, chosen));
+        choices.add(counted("specialties", "skills", messages.text("choice.specialties"), required.size() + 1, chosen));
     }
 
     private void disciplines(JsonNode build, List<CreationChoice> choices, List<String> problems) {
@@ -156,22 +159,22 @@ class Vtm5CharacterCreationFlow implements CharacterCreationFlow {
                 continue;
             }
             if (!allowed.contains(discipline)) {
-                problems.add(discipline + " is not one of your clan's disciplines.");
+                problems.add(messages.text("problem.notClanDiscipline", messages.term(discipline)));
             }
             picked.add(discipline);
         }
         if (!two.isEmpty() && two.equals(one)) {
-            problems.add("Pick two different disciplines.");
+            problems.add(messages.text("problem.sameDiscipline"));
         }
-        choices.add(counted("disciplines", "disciplines", "Clan disciplines", 2, picked));
+        choices.add(counted("disciplines", "disciplines", messages.text("choice.disciplines"), 2, picked));
         Map<String, Integer> dots = powerChoice(build, choices, problems);
         if (dots.containsKey(BLOOD_SORCERY)) {
             String ritual = text(build, "ritual");
             boolean levelOne = content.ritual(ritual).map(r -> r.path("level").asInt() == 1).orElse(false);
             if (!ritual.isEmpty() && !levelOne) {
-                problems.add(ritual + " is not a level-1 ritual.");
+                problems.add(messages.text("problem.ritualNotLevelOne", messages.term(ritual)));
             }
-            choices.add(single("ritual", "disciplines", "Free ritual", levelOne ? ritual : ""));
+            choices.add(single("ritual", "disciplines", messages.text("choice.ritual"), levelOne ? ritual : ""));
         }
     }
 
@@ -187,10 +190,10 @@ class Vtm5CharacterCreationFlow implements CharacterCreationFlow {
             if (isPowerAllowed(discipline, power.asString(), level)) {
                 powers.add(discipline + ":" + power.asString());
             } else {
-                problems.add(power.asString() + " is above your " + discipline + " rating.");
+                problems.add(messages.text("problem.powerAboveRating", messages.term(power.asString()), messages.term(discipline)));
             }
         }));
-        choices.add(counted("powers", "disciplines", "Powers", needed, powers.stream().limit(needed).toList()));
+        choices.add(counted("powers", "disciplines", messages.text("choice.powers"), needed, powers.stream().limit(needed).toList()));
         return dots;
     }
 
@@ -198,21 +201,21 @@ class Vtm5CharacterCreationFlow implements CharacterCreationFlow {
         String name = text(build, "predator");
         Optional<JsonNode> predator = content.predator(name);
         if (!name.isEmpty() && predator.isEmpty()) {
-            problems.add("Unknown predator type: " + name);
+            problems.add(messages.text("problem.unknownPredator", name));
         }
         predator.filter(p -> contains(p.path("notFor"), text(build, "clan")))
-                .ifPresent(p -> problems.add(name + " is not open to " + text(build, "clan") + "."));
-        choices.add(single("predator", "predator", "Predator type", predator.isPresent() ? name : ""));
+                .ifPresent(p -> problems.add(messages.text("problem.predatorNotOpen", messages.term(name), messages.term(text(build, "clan")))));
+        choices.add(single("predator", "predator", messages.text("choice.predator"), predator.isPresent() ? name : ""));
         JsonNode specialty = build.path("predatorSpecialty");
         boolean specialtyValid = predator.isPresent() && specialty.isInt() && specialty.asInt() >= 0
                 && specialty.asInt() < predator.get().path("specialties").size();
-        choices.add(single("predator-specialty", "predator", "Predator specialty", specialtyValid ? String.valueOf(specialty.asInt()) : ""));
+        choices.add(single("predator-specialty", "predator", messages.text("choice.predatorSpecialty"), specialtyValid ? String.valueOf(specialty.asInt()) : ""));
         String discipline = text(build, "predatorDiscipline");
         boolean disciplineValid = predator.isPresent() && contains(predator.get().path("disciplines"), discipline);
         if (disciplineValid && discipline.equals("Blood Sorcery") && !content.sorceryClans().contains(text(build, "clan"))) {
-            problems.add("Blood Sorcery from a predator type needs a Tremere or Banu Haqim.");
+            problems.add(messages.text("problem.predatorSorcery", messages.term(BLOOD_SORCERY), messages.term("Tremere"), messages.term("Banu Haqim")));
         }
-        choices.add(single("predator-discipline", "predator", "Predator discipline", disciplineValid ? discipline : ""));
+        choices.add(single("predator-discipline", "predator", messages.text("choice.predatorDiscipline"), disciplineValid ? discipline : ""));
     }
 
     private void advantages(JsonNode build, List<CreationChoice> choices, List<String> problems) {
@@ -223,7 +226,7 @@ class Vtm5CharacterCreationFlow implements CharacterCreationFlow {
         build.path("advantages").properties().forEach(entry -> {
             Optional<JsonNode> advantage = content.advantage(entry.getKey());
             if (advantage.isEmpty()) {
-                problems.add("Unknown advantage: " + entry.getKey());
+                problems.add(messages.text("problem.unknownAdvantage", entry.getKey()));
                 return;
             }
             List<String> target = advantage.get().path("kind").asString().equals("Flaw") ? flaws : merits;
@@ -234,12 +237,12 @@ class Vtm5CharacterCreationFlow implements CharacterCreationFlow {
         build.path("loresheets").properties().forEach(entry -> {
             Optional<JsonNode> loresheet = content.loresheet(entry.getKey());
             if (loresheet.isEmpty()) {
-                problems.add("Unknown loresheet: " + entry.getKey());
+                problems.add(messages.text("problem.unknownLoresheet", entry.getKey()));
                 return;
             }
             String restriction = loresheet.get().path("restriction").asString("");
             if (!restriction.isEmpty() && !restriction.equals(text(build, "clan"))) {
-                problems.add(entry.getKey() + " is only for the " + restriction + ".");
+                problems.add(messages.text("problem.loresheetRestricted", messages.term(entry.getKey()), messages.term(restriction)));
             }
             for (JsonNode level : entry.getValue()) {
                 for (int dot = 1; dot <= level.asInt(); dot++) {
@@ -249,16 +252,16 @@ class Vtm5CharacterCreationFlow implements CharacterCreationFlow {
         });
         int contribution = build.path("coterieContribution").asInt(0);
         if (contribution < 0 || contribution > MAX_COTERIE_CONTRIBUTION) {
-            problems.add("A coterie contribution is 0 to " + MAX_COTERIE_CONTRIBUTION + " points.");
+            problems.add(messages.text("problem.coterieContribution", MAX_COTERIE_CONTRIBUTION));
         }
         for (int point = 1; point <= Math.clamp(contribution, 0, MAX_COTERIE_CONTRIBUTION); point++) {
             merits.add("coterie:" + point);
         }
         if (merits.size() > budget) {
-            problems.add("Advantages spend " + merits.size() + " points; the budget is " + budget + ".");
+            problems.add(messages.text("problem.advantageBudget", merits.size(), budget));
         }
-        choices.add(counted("advantages", "advantages", "Advantage points", budget, merits.stream().limit(budget).toList()));
-        choices.add(counted("flaws", "advantages", "Flaw points", flawMinimum, flaws.stream().limit(flawMinimum).toList()));
+        choices.add(counted("advantages", "advantages", messages.text("choice.advantages"), budget, merits.stream().limit(budget).toList()));
+        choices.add(counted("flaws", "advantages", messages.text("choice.flaws"), flawMinimum, flaws.stream().limit(flawMinimum).toList()));
     }
 
     private void thinBlood(JsonNode build, List<CreationChoice> choices, List<String> problems) {
@@ -267,19 +270,19 @@ class Vtm5CharacterCreationFlow implements CharacterCreationFlow {
         }
         List<String> merits = names(build.path("thinBloodMerits"));
         List<String> flaws = names(build.path("thinBloodFlaws"));
-        merits.stream().filter(name -> !content.isThinBloodMerit(name)).forEach(name -> problems.add("Unknown thin-blood merit: " + name));
-        flaws.stream().filter(name -> !content.isThinBloodFlaw(name)).forEach(name -> problems.add("Unknown thin-blood flaw: " + name));
+        merits.stream().filter(name -> !content.isThinBloodMerit(name)).forEach(name -> problems.add(messages.text("problem.unknownThinBloodMerit", name)));
+        flaws.stream().filter(name -> !content.isThinBloodFlaw(name)).forEach(name -> problems.add(messages.text("problem.unknownThinBloodFlaw", name)));
         if (merits.size() > MAX_THIN_BLOOD_MERITS) {
-            problems.add("At most " + MAX_THIN_BLOOD_MERITS + " thin-blood merits.");
+            problems.add(messages.text("problem.thinBloodMeritLimit", MAX_THIN_BLOOD_MERITS));
         }
-        choices.add(counted("thin-blood-merits", "advantages", "Thin-blood merits", 1, merits.stream().limit(1).toList()));
-        choices.add(counted("thin-blood-flaws", "advantages", "Thin-blood flaws", Math.max(1, merits.size()), flaws.stream().limit(Math.max(1, merits.size())).toList()));
+        choices.add(counted("thin-blood-merits", "advantages", messages.text("choice.thinBloodMerits"), 1, merits.stream().limit(1).toList()));
+        choices.add(counted("thin-blood-flaws", "advantages", messages.text("choice.thinBloodFlaws"), Math.max(1, merits.size()), flaws.stream().limit(Math.max(1, merits.size())).toList()));
         if (flaws.size() > merits.size() && !merits.isEmpty()) {
-            problems.add("Take as many thin-blood flaws as merits.");
+            problems.add(messages.text("problem.thinBloodFlawBalance"));
         }
         if (merits.contains(ALCHEMIST)) {
             String method = text(build, "alchemyMethod");
-            choices.add(single("alchemy-method", "advantages", "Alchemy method", content.isAlchemyMethod(method) ? method : ""));
+            choices.add(single("alchemy-method", "advantages", messages.text("choice.alchemyMethod"), content.isAlchemyMethod(method) ? method : ""));
         }
     }
 
@@ -296,8 +299,8 @@ class Vtm5CharacterCreationFlow implements CharacterCreationFlow {
                 complete.add(text(c, "conviction"));
             }
         });
-        choices.add(counted("convictions", "beliefs", "Convictions with a touchstone", 1, complete.stream().limit(1).toList()));
-        choices.add(single("ambition", "beliefs", "Ambition", text(build, "ambition")));
+        choices.add(counted("convictions", "beliefs", messages.text("choice.convictions"), 1, complete.stream().limit(1).toList()));
+        choices.add(single("ambition", "beliefs", messages.text("choice.ambition"), text(build, "ambition")));
     }
 
     // The sheet a finished build becomes
@@ -386,7 +389,7 @@ class Vtm5CharacterCreationFlow implements CharacterCreationFlow {
         sheet.putNull("resonance");
         ArrayNode xpLog = sheet.putArray("xpLog");
         if (age.path("xp").asInt() > 0) {
-            xpLog.addObject().put("kind", "award").put("amount", age.path("xp").asInt()).put("note", "Starting XP (" + text(build, "age") + ")");
+            xpLog.addObject().put("kind", "award").put("amount", age.path("xp").asInt()).put("note", messages.text("sheet.startingXp", messages.term(text(build, "age"))));
         }
         sheet.put("notes", "");
         sheet.set("build", build.deepCopy());
@@ -394,6 +397,16 @@ class Vtm5CharacterCreationFlow implements CharacterCreationFlow {
     }
 
     // Helpers
+
+    /** The clan's one-line nickname in the request's language. */
+    private String nickOf(String clanName) {
+        for (JsonNode clan : content.localized(InterfaceLocale.current()).path("clans")) {
+            if (clan.path("name").asString("").equals(clanName)) {
+                return clan.path("nick").asString("");
+            }
+        }
+        return "";
+    }
 
     Map<String, Integer> disciplineDots(JsonNode build) {
         Map<String, Integer> dots = new LinkedHashMap<>();
@@ -437,14 +450,14 @@ class Vtm5CharacterCreationFlow implements CharacterCreationFlow {
         }).orElse(false);
     }
 
-    private static List<String> placed(JsonNode values, List<String> names, int maxDots, List<String> problems, String label) {
+    private List<String> placed(JsonNode values, List<String> names, int maxDots, List<String> problems, String label) {
         List<String> placed = new ArrayList<>();
         values.properties().forEach(entry -> {
             int dots = entry.getValue().asInt(0);
             if (!names.contains(entry.getKey())) {
-                problems.add("Unknown " + label.toLowerCase() + ": " + entry.getKey());
+                problems.add(messages.text("problem.unknown" + label, entry.getKey()));
             } else if (dots > maxDots) {
-                problems.add(label + " " + entry.getKey() + " can't start above " + maxDots + ".");
+                problems.add(messages.text("problem." + label.toLowerCase() + "AboveStart", messages.term(entry.getKey()), maxDots));
             } else if (dots > 0) {
                 placed.add(entry.getKey());
             }
@@ -452,11 +465,11 @@ class Vtm5CharacterCreationFlow implements CharacterCreationFlow {
         return placed;
     }
 
-    private static void slotProblems(JsonNode values, List<String> names, Map<Integer, Integer> slots, String what, List<String> problems) {
+    private void slotProblems(JsonNode values, List<String> names, Map<Integer, Integer> slots, String what, List<String> problems) {
         slots.forEach((dots, allowed) -> {
             long used = names.stream().filter(name -> values.path(name).asInt(0) == dots).count();
             if (used > allowed) {
-                problems.add("Too many " + what + " at " + dots + ": " + used + " of " + allowed + ".");
+                problems.add(messages.text("problem.tooMany" + Character.toUpperCase(what.charAt(0)) + what.substring(1), dots, used, allowed));
             }
         });
     }

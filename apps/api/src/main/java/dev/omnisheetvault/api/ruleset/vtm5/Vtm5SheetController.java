@@ -1,5 +1,6 @@
 package dev.omnisheetvault.api.ruleset.vtm5;
 
+import dev.omnisheetvault.api.shared.InterfaceLocale;
 import dev.omnisheetvault.api.character.Character;
 import dev.omnisheetvault.api.character.CharacterService;
 import dev.omnisheetvault.api.ruleset.UnsupportedGameSystemException;
@@ -15,7 +16,10 @@ import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
 import tools.jackson.databind.node.ObjectNode;
 
-/** VtM 5e's own endpoints: its content for the builder and sheet, and a character's sheet with derived values. */
+/**
+ * VtM 5e's own endpoints: its content for the builder and sheet, and a character's sheet with derived values, both
+ * in the request's language.
+ */
 @RestController
 class Vtm5SheetController {
 
@@ -33,7 +37,7 @@ class Vtm5SheetController {
 
     @GetMapping("/api/vtm5/content")
     JsonNode content() {
-        return content.all();
+        return content.localized(InterfaceLocale.current());
     }
 
     @GetMapping("/api/vtm5/characters/{id}/sheet")
@@ -91,7 +95,12 @@ class Vtm5SheetController {
         derived.put("xpEarned", earned);
         derived.put("xpSpent", spent);
         derived.put("xpAvailable", earned - spent);
-        content.clan(sheet.path("identity").path("clan").asString()).ifPresent(clan -> derived.set("clan", clan));
+        String clanName = sheet.path("identity").path("clan").asString();
+        content.localized(InterfaceLocale.current()).path("clans").forEach(clan -> {
+            if (clan.path("name").asString("").equals(clanName)) {
+                derived.set("clan", clan);
+            }
+        });
         actions.nextCosts(sheet, derived.putObject("nextCost"));
         derived.put("coteriePool", Vtm5SheetActions.coteriePool(sheet.path("coterie")));
         derived.put("coterieSpent", Vtm5SheetActions.coterieSpent(sheet.path("coterie")));

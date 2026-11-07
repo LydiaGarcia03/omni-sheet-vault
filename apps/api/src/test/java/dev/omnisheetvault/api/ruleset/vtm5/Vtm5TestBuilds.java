@@ -1,5 +1,7 @@
 package dev.omnisheetvault.api.ruleset.vtm5;
 
+import dev.omnisheetvault.api.shared.TranslationOverlay;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import tools.jackson.databind.ObjectMapper;
 import tools.jackson.databind.node.ObjectNode;
 
@@ -7,7 +9,16 @@ import tools.jackson.databind.node.ObjectNode;
 final class Vtm5TestBuilds {
 
     static final ObjectMapper MAPPER = new ObjectMapper();
-    static final Vtm5Content CONTENT = new Vtm5Content(MAPPER);
+    static final Vtm5Content CONTENT = new Vtm5Content(MAPPER, new TranslationOverlay(MAPPER));
+    static final Vtm5Messages MESSAGES = new Vtm5Messages(messageSource(), CONTENT);
+
+    private static ResourceBundleMessageSource messageSource() {
+        ResourceBundleMessageSource source = new ResourceBundleMessageSource();
+        source.setBasename("locales/vtm5-messages");
+        source.setDefaultEncoding("UTF-8");
+        source.setFallbackToSystemLocale(false);
+        return source;
+    }
 
     static final String VALID = """
             {"concept":"Gallery restorer","chronicle":"Lisbon by Night","sire":"Isadora","age":"Neonate","generation":"13th",
@@ -40,7 +51,7 @@ final class Vtm5TestBuilds {
 
     /** The sheet the valid build materializes into. */
     static ObjectNode validSheet() {
-        Vtm5CharacterCreationFlow flow = new Vtm5CharacterCreationFlow(MAPPER, CONTENT);
+        Vtm5CharacterCreationFlow flow = new Vtm5CharacterCreationFlow(MAPPER, CONTENT, Vtm5TestBuilds.MESSAGES);
         return (ObjectNode) MAPPER.readTree(flow.materialize(null, VALID, null).sheetJson());
     }
 }

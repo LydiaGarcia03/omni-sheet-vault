@@ -1,0 +1,367 @@
+{
+  "skillScale": {
+    "0": "Novato: conhece o básico",
+    "1": "Praticante: um amador competente",
+    "2": "Profissional: poderia viver disso",
+    "3": "Especialista: conhecido na área",
+    "4": "Mestre: um dos melhores do mundo"
+  },
+  "attributes": {
+    "Strength": { "short": "Músculo bruto: levantar, quebrar, bater forte.", "uses": "Dano de Briga e Armas Brancas, arrombar portas, carregar peso." },
+    "Dexterity": { "short": "Coordenação, velocidade e mão firme.", "uses": "Armas de Fogo, Furtividade, Ladroagem, esquivas." },
+    "Stamina": { "short": "Quanto castigo o corpo aguenta.", "uses": "Define a Vitalidade (Vigor + 3); resistir à dor e ao esforço." },
+    "Charisma": { "short": "Presença e a força de fazer as pessoas seguirem você.", "uses": "Liderança, Performance, muitos poderes de Presença e Dominação." },
+    "Manipulation": { "short": "Levar as pessoas aonde elas não iriam sozinhas.", "uses": "Lábia, Persuasão, Hipnotizar." },
+    "Composure": { "short": "Manter a calma sob pressão e diante da Besta.", "uses": "Metade da Força de Vontade; resistir ao medo e ao frenesi." },
+    "Intelligence": { "short": "Memória, raciocínio e conhecimento aprendido.", "uses": "Acadêmicos, Medicina, Ciência, rituais." },
+    "Wits": { "short": "Pensar rápido e perceber o momento.", "uses": "Prontidão, reações rápidas, Sentidos Aguçados." },
+    "Resolve": { "short": "Foco e vontade teimosa de ir até o fim.", "uses": "Metade da Força de Vontade; paradas de Auspícios, investigações longas." }
+  },
+  "skills": {
+    "Athletics": { "short": "Correr, escalar, saltar, nadar." },
+    "Brawl": { "short": "Lutar com punhos, agarrões e presas." },
+    "Craft": { "short": "Fazer coisas com as mãos. Sempre exige uma especialização." },
+    "Drive": { "short": "Pilotar veículos em alta velocidade e em perseguições." },
+    "Firearms": { "short": "Atirar, e cuidar das armas." },
+    "Larceny": { "short": "Fechaduras, alarmes, bolsos e arrombamentos." },
+    "Melee": { "short": "Lutar com lâminas, porretes e estacas." },
+    "Stealth": { "short": "Mover-se e esconder-se sem ser notado." },
+    "Survival": { "short": "Rastrear, e viver ao relento fora da cidade." },
+    "Animal Ken": { "short": "Entender, acalmar e treinar animais." },
+    "Etiquette": { "short": "Conhecer os modos de uma corte ou de uma multidão." },
+    "Insight": { "short": "Ler humores, motivos e mentiras." },
+    "Intimidation": { "short": "Ameaças, olhares e fazer as pessoas recuarem." },
+    "Leadership": { "short": "Fazer um grupo agir junto por você." },
+    "Performance": { "short": "Arte diante de uma plateia. Sempre exige uma especialização." },
+    "Persuasion": { "short": "Convencer com palavras e argumentos." },
+    "Streetwise": { "short": "Conhecer a rua, suas regras e seus mercados." },
+    "Subterfuge": { "short": "Mentir, enganar e manter a cara séria." },
+    "Academics": { "short": "História, arte e humanidades. Sempre exige uma especialização." },
+    "Awareness": { "short": "Notar o que está fora do lugar, pressentir o perigo." },
+    "Finance": { "short": "Dinheiro, mercados e seguir o rastro dele." },
+    "Investigation": { "short": "Encontrar pistas e juntá-las." },
+    "Medicine": { "short": "Tratar ferimentos, e conhecer o corpo." },
+    "Occult": { "short": "Saber sobre o sobrenatural e sobre os Membros." },
+    "Politics": { "short": "Como o poder funciona, mortal e dos Membros." },
+    "Science": { "short": "As ciências naturais. Sempre exige uma especialização." },
+    "Technology": { "short": "Computadores, redes e aparelhos modernos." }
+  },
+  "distributions": {
+    "Jack of all trades": { "short": "Um pouco de tudo: uma habilidade em 3, a maioria das outras tocada.", "fits": "Generalistas, sobreviventes, gente que viveu muitas vidas." },
+    "Balanced": { "short": "Alguns pontos fortes e uma base sólida.", "fits": "A escolha comum: um papel claro com habilidades de apoio." },
+    "Specialist": { "short": "Uma habilidade em 4, o resto estreito.", "fits": "Especialistas: o cirurgião, o hacker, o duelista." }
+  },
+  "disciplines": {
+    "Animalism": {
+      "short": "Falar com as feras e a Besta, comandá-las e tornar-se parente delas.",
+      "powers": {
+        "Bond Famulus": { "cost": "Grátis", "summary": "Vincule um animal como servo leal." },
+        "Sense the Beast": { "cost": "Grátis", "summary": "Sinta a hostilidade e a Besta nos outros." },
+        "Feral Whispers": { "cost": "Um Teste de Despertar", "summary": "Converse com animais e chame-os até você." },
+        "Animal Succulence": { "cost": "Grátis", "summary": "Sangue animal sacia mais Fome." },
+        "Quell the Beast": { "cost": "Um Teste de Despertar", "summary": "Acalme um mortal até a apatia, ou tranquilize um vampiro." }
+      }
+    },
+    "Auspex": {
+      "short": "Sentidos além dos limites mortais, e vislumbres de mentes e futuros.",
+      "powers": {
+        "Heightened Senses": { "cost": "Grátis", "summary": "Os sentidos ficam muito além dos limites mortais." },
+        "Sense the Unseen": { "cost": "Grátis", "summary": "Note presenças ocultas ou sobrenaturais." },
+        "Premonition": { "cost": "Grátis ou um Teste de Despertar", "summary": "Lampejos do que está por vir." },
+        "Scry the Soul": { "cost": "Um Teste de Despertar", "summary": "Leia a aura e a natureza de alguém." },
+        "Share the Senses": { "cost": "Um Teste de Despertar", "summary": "Veja e ouça através de outro Membro." }
+      }
+    },
+    "Celerity": {
+      "short": "Velocidade e graça sobrenaturais.",
+      "powers": {
+        "Cat's Grace": { "cost": "Passivo", "summary": "Equilíbrio perfeito em qualquer apoio." },
+        "Rapid Reflexes": { "cost": "Passivo", "summary": "Reaja mais rápido; ações pequenas não custam nada." },
+        "Fleetness": { "cost": "Um Teste de Despertar", "summary": "Some Rapidez à defesa e à Destreza fora de combate." },
+        "Blink": { "cost": "Um Teste de Despertar", "summary": "Cubra uma distância num instante." },
+        "Traversal": { "cost": "Um Teste de Despertar", "summary": "Corra por paredes e sobre a água." }
+      }
+    },
+    "Dominate": {
+      "short": "Dobre mentes com um olhar e uma palavra.",
+      "powers": {
+        "Cloud Memory": { "cost": "Grátis", "summary": "Faça alguém esquecer os últimos instantes." },
+        "Compel": { "cost": "Grátis", "summary": "Uma ordem de uma palavra que precisa ser obedecida." },
+        "Mesmerize": { "cost": "Um Teste de Despertar", "summary": "Dê uma ordem mais longa e detalhada." },
+        "The Forgetful Mind": { "cost": "Um Teste de Despertar", "summary": "Reescreva uma lembrança." },
+        "Submerged Directive": { "cost": "Grátis", "summary": "Esconda uma ordem para ser disparada depois." }
+      }
+    },
+    "Fortitude": {
+      "short": "Resistência antinatural do corpo e da mente.",
+      "powers": {
+        "Resilience": { "cost": "Passivo", "summary": "Some Fortitude à Vitalidade." },
+        "Unswayable Mind": { "cost": "Passivo", "summary": "Dados extras para resistir ao controle mental." },
+        "Toughness": { "cost": "Um Teste de Despertar", "summary": "Ignore parte do dano Superficial." },
+        "Defy Bane": { "cost": "Um Teste de Despertar", "summary": "Transforme dano Agravado em Superficial." },
+        "Fortify the Inner Façade": { "cost": "Passivo", "summary": "Difícil de ler com Auspícios." }
+      }
+    },
+    "Obfuscate": {
+      "short": "Passe despercebido e seja esquecido.",
+      "powers": {
+        "Cloak of Shadows": { "cost": "Grátis", "summary": "Fique invisível enquanto estiver parado." },
+        "Silence of Death": { "cost": "Grátis", "summary": "Não faça som algum." },
+        "Unseen Passage": { "cost": "Um Teste de Despertar", "summary": "Mova-se sem ser visto." },
+        "Ghost in the Machine": { "cost": "Grátis", "summary": "Ofuscação funciona também em câmeras." },
+        "Mask of a Thousand Faces": { "cost": "Um Teste de Despertar", "summary": "Pareça um estranho fácil de esquecer." }
+      }
+    },
+    "Potence": {
+      "short": "Força muito além de qualquer corpo vivo.",
+      "powers": {
+        "Lethal Body": { "cost": "Grátis", "summary": "As mãos nuas causam dano Agravado em mortais." },
+        "Soaring Leap": { "cost": "Grátis", "summary": "Salte muito mais alto e mais longe." },
+        "Prowess": { "cost": "Um Teste de Despertar", "summary": "Some Potência ao dano e aos feitos de Força." },
+        "Brutal Feed": { "cost": "Grátis", "summary": "Drene uma vítima em segundos." },
+        "Uncanny Grip": { "cost": "Um Teste de Despertar", "summary": "Agarre-se a qualquer superfície." }
+      }
+    },
+    "Presence": {
+      "short": "Atraia, deslumbre e aterrorize multidões pela emoção.",
+      "powers": {
+        "Awe": { "cost": "Grátis", "summary": "Torne-se o centro do ambiente." },
+        "Daunt": { "cost": "Grátis", "summary": "Faça as pessoas recuarem." },
+        "Lingering Kiss": { "cost": "Passivo", "summary": "Suas vítimas anseiam pela sua mordida." },
+        "Dread Gaze": { "cost": "Um Teste de Despertar", "summary": "Aterrorize uma pessoa até ela fugir." },
+        "Entrancement": { "cost": "Um Teste de Despertar", "summary": "Torne alguém devotado a você." }
+      }
+    },
+    "Protean": {
+      "short": "Remodele o corpo: garras, olhos, formas de fera.",
+      "powers": {
+        "Eyes of the Beast": { "cost": "Grátis", "summary": "Enxergue na escuridão total." },
+        "Weight of the Feather": { "cost": "Grátis", "summary": "Fique quase sem peso; caia em segurança." },
+        "Feral Weapons": { "cost": "Um Teste de Despertar", "summary": "Faça crescer garras que causam dano Agravado." },
+        "Earth Meld": { "cost": "Um Teste de Despertar", "summary": "Afunde na terra para descansar." },
+        "Shapechange": { "cost": "Um Teste de Despertar", "summary": "Torne-se um animal do seu tamanho." }
+      }
+    },
+    "Blood Sorcery": {
+      "short": "Magia de sangue, e os rituais dos Tremere e dos Banu Haqim.",
+      "powers": {
+        "Corrosive Vitae": { "cost": "Um ou mais Testes de Despertar", "summary": "Seu sangue corrói objetos." },
+        "A Taste for Blood": { "cost": "Grátis", "summary": "Descubra coisas sobre alguém pelo sangue." },
+        "Extinguish Vitae": { "cost": "Um Teste de Despertar", "summary": "Deixe outro vampiro com mais Fome." },
+        "Blood of Potency": { "cost": "Um Teste de Despertar", "summary": "Aumente sua Potência de Sangue por uma noite." },
+        "Scorpion's Touch": { "cost": "Um ou mais Testes de Despertar", "summary": "Transforme seu sangue em veneno." }
+      }
+    },
+    "Thin-Blood Alchemy": {
+      "short": "Prepare poderes temporários a partir de sangue e ingredientes, em vez de herdá-los.",
+      "powers": {
+        "Far Reach": { "cost": "Um Teste de Despertar para destilar", "summary": "Mova objetos com a mente." },
+        "Haze": { "cost": "Um Teste de Despertar para destilar", "summary": "Envolva-se numa nuvem de névoa." },
+        "Profane Hieros Gamos": { "cost": "Um Teste de Despertar para destilar", "summary": "Remodele o sexo e os traços de um corpo." },
+        "Envelop": { "cost": "Um Teste de Despertar para destilar", "summary": "Sufoque um alvo numa névoa que cega." },
+        "Defractionate": { "cost": "Um Teste de Despertar para destilar", "summary": "Torne nutritivo de novo o sangue de bolsa ou conservado." },
+        "Airborne Momentum": { "cost": "Um Teste de Despertar para destilar", "summary": "Voe por um curto período." },
+        "Awaken the Sleeper": { "cost": "Um Teste de Despertar para destilar", "summary": "Desperte um vampiro do torpor." }
+      }
+    }
+  },
+  "clans": {
+    "Brujah": {
+      "nick": "Rebeldes com uma causa",
+      "long": "Filósofos que viraram brigões de rua. Os Brujah ardem por causas, pessoas e rancores, e são os primeiros a erguer o punho contra tiranos, Membros ou mortais.",
+      "play": "Paixão, convicção e um temperamento que vira problema.",
+      "bane": { "text": "Menos dados para resistir ao frenesi de fúria." },
+      "compulsion": { "text": "Precisa desafiar alguém com autoridade, ou sofre uma penalidade." }
+    },
+    "Gangrel": {
+      "nick": "Andarilhos selvagens",
+      "long": "Solitários, os mais próximos da Besta. Os Gangrel vagam pelas bordas das cidades e das matas, sobrevivem a tudo e voltam do frenesi com algo animal deixado para trás.",
+      "play": "Independência, instinto e corpos que mudam.",
+      "bane": { "text": "O frenesi deixa traços animais que enfraquecem atributos." },
+      "compulsion": { "text": "Fala e raciocínio descem ao nível animal por um tempo." }
+    },
+    "Malkavian": {
+      "nick": "Videntes de verdades partidas",
+      "long": "Todo Malkaviano é tocado por uma loucura que vê o que os outros não veem. Profetas, bufões e oráculos, são temidos porque tantas vezes têm razão.",
+      "play": "Percepção que custa a sanidade, e uma mente que nunca está totalmente segura.",
+      "bane": { "text": "Uma falha bestial ou compulsão turva um tipo de rolagem pelo resto da cena." },
+      "compulsion": { "text": "As percepções se distorcem; sentidos e julgamento sofrem." }
+    },
+    "Nosferatu": {
+      "nick": "Escondidos no escuro",
+      "long": "Horrendos desde o Abraço, os Nosferatu vivem em esgotos e redes. Negociam segredos e sabem mais sobre a cidade do que qualquer um gostaria.",
+      "play": "Corretagem de informações, furtividade e um rosto que ninguém consegue encarar.",
+      "bane": { "text": "Nunca passa por belo; disfarçar-se de humano é mais difícil." },
+      "compulsion": { "text": "Precisa descobrir um segredo antes de qualquer outra coisa." }
+    },
+    "Toreador": {
+      "nick": "Devotos da beleza",
+      "long": "Artistas, amantes e conhecedores. Os Toreador colecionam beleza e pessoas, ditam a moda do Elísio e sofrem muito quando o mundo fica feio.",
+      "play": "Sociedade, arte e charme, com uma fraqueza pelo sublime.",
+      "bane": { "text": "Menos dados em rolagens de Disciplina em lugares feios ou sórdidos." },
+      "compulsion": { "text": "Fixa-se numa coisa bela até se satisfazer." }
+    },
+    "Tremere": {
+      "nick": "Estudiosos do sangue",
+      "long": "Antes uma pirâmide de magos, hoje uma casa partida de feiticeiros. Os Tremere praticam magia de sangue, guardam segredos e despertam a desconfiança de todos.",
+      "play": "Rituais, pesquisa e ambição dentro de uma hierarquia caída.",
+      "bane": { "text": "Não consegue criar Laços de Sangue com outros Membros; mortais precisam beber mais vezes." },
+      "compulsion": { "text": "Só um resultado impecável é bom o bastante." }
+    },
+    "Ventrue": {
+      "nick": "Nascidos para governar",
+      "long": "Os aristocratas da noite. Os Ventrue lideram a Camarilla, dominam as salas de reunião e só conseguem se alimentar de um tipo de presa.",
+      "play": "Liderança, riqueza e comando, com um paladar exigente.",
+      "bane": { "text": "Só se alimenta de um tipo de vítima; os outros custam Força de Vontade." },
+      "compulsion": { "text": "Precisa fazer alguém obedecê-lo." }
+    },
+    "Banu Haqim": {
+      "nick": "Juízes dos culpados",
+      "long": "Assassinos e juízes que se alimentam dos culpados. Os Banu Haqim entraram há pouco na Camarilla e continuam sendo sua lâmina mais afiada e perigosa.",
+      "play": "Justiça, disciplina e sede de sangue de Membros.",
+      "bane": { "text": "Beber sangue de vampiro arrisca um frenesi de fome." },
+      "compulsion": { "text": "Precisa punir quem violar uma das suas Convicções." }
+    },
+    "The Ministry": {
+      "nick": "Tentadores e libertadores",
+      "long": "Seguidores de Set que libertam as pessoas corrompendo-as. O Ministério lida com tentação, cultos e segredos, e é bem-vindo entre os Anarquistas.",
+      "play": "Tentação, fé e levar os outros além dos próprios limites.",
+      "bane": { "text": "Luz forte os enfraquece; o sol queima mais." },
+      "compulsion": { "text": "Precisa levar alguém a quebrar um princípio." }
+    },
+    "Caitiff": {
+      "nick": "Sem clã",
+      "long": "Abraçados sem clã, ou abandonados por um. Os Caitiff não têm perdição nem herança, escolhem quaisquer Disciplinas e são desprezados por todos.",
+      "play": "Liberdade de construção, status de forasteiro.",
+      "bane": { "text": "Começa com o Defeito Suspeito e sem Status." },
+      "compulsion": { "text": "Só as compulsões genéricas." }
+    },
+    "Thin-blooded": {
+      "nick": "Mal chegam a Membros",
+      "long": "Distantes demais de Caim para serem vampiros completos. Os sangues-ralos às vezes andam à luz do dia, comem comida e preparam alquimia em vez de Disciplinas verdadeiras.",
+      "play": "Meio mortais, poderes improvisados, desprezados pelos anciões.",
+      "bane": { "text": "Potência de Sangue 0; fraquezas quase mortais." },
+      "compulsion": { "text": "Só as compulsões genéricas." }
+    }
+  },
+  "predators": {
+    "Alleycat": { "short": "Toma sangue à força: emboscada, assalto, ameaça.", "extras": "Contatos ••• (criminosos)" },
+    "Bagger": { "short": "Rouba ou compra sangue de bolsa: hospitais, bancos de sangue, mercado negro.", "extras": "Estômago de Ferro •••, Inimigo ••" },
+    "Blood Leech": { "short": "Alimenta-se de outros vampiros. Poderoso, e um crime.", "extras": "Diablerista •• ou Rejeitado ••, Exclusão de Presa (mortais) ••" },
+    "Cleaver": { "short": "Alimenta-se em segredo de uma família ou círculo que não sabe.", "extras": "Segredo Sombrio • (Cleaver), Rebanho ••" },
+    "Consensualist": { "short": "Só se alimenta com consentimento: uma clínica, um fetiche, um estudo.", "extras": "Violador da Máscara •, Exclusão de Presa (sem consentimento) •" },
+    "Farmer": { "short": "Só se alimenta de animais, para se agarrar à Humanidade.", "extras": "Vegano ••" },
+    "Osiris": { "short": "Uma celebridade ou líder de culto alimentado pelos seguidores.", "extras": "3 pontos de Fama ou Rebanho; 2 pontos de Inimigo ou de Defeitos Míticos" },
+    "Sandman": { "short": "Invade casas e se alimenta de quem dorme e nunca acorda.", "extras": "Recursos •" },
+    "Scene Queen": { "short": "Figura fixa de uma subcultura que se alimenta da sua gente.", "extras": "Fama •, Contato •, Malquisto • ou Exclusão de Presa •" },
+    "Siren": { "short": "Seduz as vítimas e se alimenta na intimidade.", "extras": "Belo ••, Inimigo •" }
+  },
+  "ages": {
+    "Childer": { "short": "Abraçado há pouco, ainda aprendendo o que você é.", "note": "Sem XP inicial." },
+    "Neonate": { "short": "Alguns anos na noite, já encontrou seu rumo.", "note": "+15 XP para gastar." },
+    "Ancilla": { "short": "Décadas de não-vida, com poder e dívidas antigas.", "note": "+35 XP, +2 pontos de Vantagem, +2 pontos de Defeito, −1 de Humanidade." }
+  },
+  "advantages": {
+    "Allies": { "short": "Mortais que ajudam você quando importa." },
+    "Contacts": { "short": "Pessoas que passam informações e favores a você." },
+    "Fame": { "short": "Celebridade mortal: abre portas, difícil de se esconder." },
+    "Haven": { "short": "Um lugar seguro para descansar durante o dia." },
+    "Herd": { "short": "Receptáculos dispostos de quem você se alimenta com facilidade." },
+    "Influence": { "short": "Peso sobre um grupo ou instituição mortal." },
+    "Mask": { "short": "Uma identidade mortal falsa, com documentos." },
+    "Mawla": { "short": "Um mentor Membro mais velho que protege você." },
+    "Resources": { "short": "Dinheiro e o estilo de vida que ele compra." },
+    "Retainers": { "short": "Servos leais, muitas vezes carniçais." },
+    "Status": { "short": "Posição na sua seita." },
+    "Beautiful": { "short": "+1 dado em rolagens sociais em que a aparência importa." },
+    "Linguistics": { "short": "Um idioma extra por ponto." },
+    "Bloodhound": { "short": "Sinta pelo cheiro a Ressonância do sangue mortal." },
+    "Iron Gullet": { "short": "Alimente-se de sangue rançoso ou de bolsa sem problemas." },
+    "Eat Food": { "short": "Coma e mantenha no estômago comida mortal." },
+    "Prey Exclusion": { "short": "Há um tipo de vítima de que você se recusa a se alimentar." },
+    "Dark Secret": { "short": "Algo que arruinaria você se fosse descoberto." },
+    "Enemy": { "short": "Alguém que quer ver você ferido." },
+    "Suspect": { "short": "Sua seita não confia em você." },
+    "Destitute": { "short": "Sem dinheiro e sem casa." },
+    "Known Corpse": { "short": "As pessoas sabem que você morreu." },
+    "Ugly": { "short": "−1 dado em rolagens sociais em que a aparência importa." },
+    "Addiction": { "short": "Precisa de sangue com uma droga, ou sofre." },
+    "Folkloric Bane": { "short": "Um objeto do folclore (prata, alho) queima você." }
+  },
+  "blood": {
+    "Health": "Quanto dano você aguenta. Vigor + 3 caixas. O dano Superficial (/) da maioria das armas é reduzido à metade; o Agravado (X) vem do fogo, do sol e de garras. Uma trilha cheia de Agravado significa torpor.",
+    "Willpower": "Força interior. Autocontrole + Determinação caixas. Gaste um ponto para rerrolar até três dados comuns. Trilha cheia: −2 dados em rolagens Sociais e Mentais.",
+    "Hunger": "O quanto a Besta quer sangue, de 0 a 5. Cada ponto transforma um dado de toda parada em dado de Fome, que pode causar críticos caóticos e falhas bestiais.",
+    "Humanity": "O que resta da pessoa. De 0 a 10, começa em 7. Máculas de atos monstruosos podem custar um ponto no fim da sessão.",
+    "Blood Potency": "O poder do seu sangue. Define o Surto de Sangue, quanto você se cura por Teste de Despertar, os dados bônus de Disciplina e a Severidade da Perdição.",
+    "Resonance": "A emoção do último sangue que você bebeu. Uma Ressonância forte dá um dado bônus às Disciplinas correspondentes."
+  },
+  "bpTable": {
+    "1": { "0": "+1 dado", "3": "Nível 1" },
+    "2": { "0": "+1 dado", "3": "Nível 1" },
+    "3": { "0": "+2 dados", "3": "Nível 2 ou menos" },
+    "4": { "0": "+2 dados", "3": "Nível 2 ou menos" },
+    "5": { "0": "+3 dados", "3": "Nível 3 ou menos" }
+  },
+  "identity": {
+    "Concept": "Quem você era antes e o que é agora, em poucas palavras. Orienta como você joga.",
+    "Chronicle": "O jogo ou a cidade em que este personagem vive.",
+    "Clan": "Sua linhagem: três Disciplinas fáceis, uma perdição e uma compulsão. Definido na criação.",
+    "Predator": "Como você caça. Definido na criação; deu uma especialização, um ponto de Disciplina e algumas vantagens.",
+    "Ambition": "O objetivo de longo prazo. Trabalhar por ele cura Força de Vontade Agravada.",
+    "Generation": "Passos de distância de Caim. Gerações mais baixas alcançam Potência de Sangue mais alta.",
+    "Sire": "O vampiro que Abraçou você. Muitas vezes um gancho de história, às vezes um Mawla ou um Inimigo.",
+    "Desire": "Um desejo de curto prazo para esta sessão. Agir por ele recupera Força de Vontade.",
+    "Age": "Há quanto tempo foi o Abraço: cria, neófito ou ancilla."
+  },
+  "convictionHelp": "Uma linha moral que você não cruza, ligada a uma Pedra de Toque mortal que a encarna. Perder a Pedra de Toque abala sua Humanidade.",
+  "rituals": {
+    "Blood Walk": { "summary": "Leia a linhagem de senhores de alguém a partir de um gole do seu sangue." },
+    "Clinging of the Insect": { "summary": "Grude em paredes e tetos como uma aranha." },
+    "Craft Bloodstone": { "summary": "Faça uma pedra do seu sangue que você sempre consegue reencontrar." },
+    "Wake with Evening's Freshness": { "summary": "Desperte na hora quando o perigo chega durante o dia." },
+    "Ward against Ghouls": { "summary": "Um objeto protegido que fere qualquer carniçal que o toque." },
+    "Communicate with Kindred Sire": { "summary": "Fale de mente para mente com seu senhor, onde quer que ele esteja." },
+    "Eyes of Babel": { "summary": "Entenda e fale um idioma tomado de outra pessoa." },
+    "Illuminate the Trail of Prey": { "summary": "Veja brilhar à sua frente o caminho que sua presa percorreu." },
+    "Truth of Blood": { "summary": "Prove o sangue para saber se o dono dele diz a verdade." },
+    "Ward against Spirits": { "summary": "Um objeto protegido que fere espíritos e fantasmas." },
+    "Warding Circle against Ghouls": { "summary": "Um círculo que carniçais não atravessam sem se ferir." },
+    "Dagon's Call": { "summary": "Afogue alguém por dentro, através de um sangue que você já tocou." },
+    "Deflection of Wooden Doom": { "summary": "Estacas não atravessam seu coração enquanto durar." },
+    "Essence of Air": { "summary": "Seu corpo fica leve como o ar e flutua." },
+    "Firewalker": { "summary": "Proteja-se contra as chamas." },
+    "Ward against Lupines": { "summary": "Um objeto protegido que fere lobisomens." },
+    "Warding Circle against Spirits": { "summary": "Um círculo que espíritos não atravessam sem se ferir." }
+  },
+  "thinBloodMerits": {
+    "Anarch Comrades": { "short": "Aliados Anarquistas que olham por você." },
+    "Camarilla Contact": { "short": "Alguém na Camarilla que aceita falar com você." },
+    "Catenating Blood": { "short": "Seu sangue cria laços e Abraça como o de um vampiro de verdade." },
+    "Day Drinker": { "short": "Você pode andar sob o sol, enfraquecido." },
+    "Discipline Affinity": { "short": "Uma Disciplina fica com você em um ponto." },
+    "Lifelike": { "short": "Seu corpo passa por um corpo vivo." },
+    "Thin-blood Alchemist": { "short": "Você começa com Alquimia de Sangue-Ralo e uma fórmula." },
+    "Vampiric Resilience": { "short": "Você sofre dano como um vampiro completo." }
+  },
+  "thinBloodFlaws": {
+    "Baby Teeth": { "short": "Suas presas não servem para se alimentar." },
+    "Bestial Temper": { "short": "Você entra em frenesi tão fácil quanto um Membro verdadeiro." },
+    "Branded": { "short": "A Camarilla marcou você." },
+    "Clan Curse": { "short": "Você carrega a perdição do clã que o criou." },
+    "Dead Flesh": { "short": "Para os mortais, você tem aparência e cheiro de morto." },
+    "Mortal Frailty": { "short": "Você não consegue se curar com sangue." },
+    "Shunned by the Anarchs": { "short": "Os Anarquistas não querem nada com você." },
+    "Vitae Dependency": { "short": "Você precisa de sangue de Membros com regularidade." }
+  },
+  "alchemyMethods": {
+    "Athanor Corporis": { "short": "Destile dentro do seu próprio corpo." },
+    "Calcinatio": { "short": "Destile reduzindo sangue e ingredientes a cinzas." },
+    "Fixatio": { "short": "Destile num laboratório, devagar e com precisão." }
+  },
+  "domain": {
+    "Chasse": "O quanto o terreno de caça é rico: cada ponto facilita caçar ali.",
+    "Lien": "O quanto a coterie conhece suas ruas: dados extras para ações dentro do domínio.",
+    "Portillon": "O quanto ele é bem guardado: menos dados para invasores que agem contra vocês ali."
+  }
+}

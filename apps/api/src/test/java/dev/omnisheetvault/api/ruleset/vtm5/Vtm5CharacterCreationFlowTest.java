@@ -18,7 +18,7 @@ import tools.jackson.databind.node.ObjectNode;
 
 class Vtm5CharacterCreationFlowTest {
 
-    private final Vtm5CharacterCreationFlow flow = new Vtm5CharacterCreationFlow(MAPPER, CONTENT);
+    private final Vtm5CharacterCreationFlow flow = new Vtm5CharacterCreationFlow(MAPPER, CONTENT, Vtm5TestBuilds.MESSAGES);
 
     @Test
     void anEmptyDraftHasEveryStepPending() {

@@ -17,7 +17,9 @@ import dev.omnisheetvault.api.character.Character;
 import dev.omnisheetvault.api.character.CharacterService;
 import dev.omnisheetvault.api.dice.Roll;
 import dev.omnisheetvault.api.dice.RollService;
+import dev.omnisheetvault.api.shared.InterfaceLocaleConfig;
 import dev.omnisheetvault.api.shared.SecurityConfig;
+import dev.omnisheetvault.api.shared.TranslationOverlay;
 import java.util.List;
 import java.util.UUID;
 import org.junit.jupiter.api.BeforeEach;
@@ -32,7 +34,7 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 @WebMvcTest({Vtm5SheetController.class, Vtm5RollController.class})
-@Import({SecurityConfig.class, Vtm5Content.class, Vtm5SheetActions.class})
+@Import({SecurityConfig.class, InterfaceLocaleConfig.class, TranslationOverlay.class, Vtm5Content.class, Vtm5Messages.class, Vtm5SheetActions.class})
 class Vtm5ControllersTest {
 
     private static final UUID ID = UUID.randomUUID();

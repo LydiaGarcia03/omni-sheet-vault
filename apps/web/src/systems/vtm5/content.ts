@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { apiFetch } from '../../api/client';
+import { useLanguage } from '../../language/language';
 
 export type Power = { level: number; name: string; cost: string; pool: string; summary: string };
 export type Discipline = { type: string; resonance: string; short: string; powers: Power[] };
@@ -53,34 +54,51 @@ export type Vtm5Content = {
   bpTable: string[][];
   identity: Record<string, string>;
   convictionHelp: string;
+  /** English content name → the name shown in the current language; a name missing here is shown in English. */
+  terms: Record<string, string>;
 };
 
 export const GROUPS = ['Physical', 'Social', 'Mental'] as const;
 
-let cached: Promise<Vtm5Content> | null = null;
+const cached = new Map<string, Promise<Vtm5Content>>();
 
-function loadContent(): Promise<Vtm5Content> {
-  cached ??= apiFetch('/api/vtm5/content').then((response) => {
-    if (!response.ok) {
-      cached = null;
-      throw new Error('Could not load the Vampire content.');
-    }
-    return response.json() as Promise<Vtm5Content>;
-  });
-  return cached;
+function loadContent(locale: string): Promise<Vtm5Content> {
+  let loading = cached.get(locale);
+  if (!loading) {
+    loading = apiFetch('/api/vtm5/content').then((response) => {
+      if (!response.ok) {
+        cached.delete(locale);
+        throw new Error('Could not load the Vampire content.');
+      }
+      return response.json() as Promise<Vtm5Content>;
+    });
+    cached.set(locale, loading);
+  }
+  return loading;
 }
 
-/** The VtM content, or null while it loads. */
+/** The VtM content in the interface language, or null while it loads. */
 export function useVtm5Content(): Vtm5Content | null {
+  const { locale } = useLanguage();
   const [content, setContent] = useState<Vtm5Content | null>(null);
   useEffect(() => {
     let active = true;
-    loadContent().then((loaded) => active && setContent(loaded), () => undefined);
+    loadContent(locale).then((loaded) => active && setContent(loaded), () => undefined);
     return () => {
       active = false;
     };
-  }, []);
+  }, [locale]);
   return content;
+}
+
+/** A content name (clan, discipline, attribute…) as the player reads it; the English name is the identifier. */
+export function termOf(content: Vtm5Content, name: string): string {
+  return content.terms?.[name] || name;
+}
+
+/** A pool written as "Strength + Brawl", each trait in the current language. */
+export function poolOf(content: Vtm5Content, pool: string): string {
+  return pool.split(' + ').map((trait) => termOf(content, trait)).join(' + ');
 }
 
 export function traitsOfGroup(traits: Record<string, Trait>, group: string): string[] {

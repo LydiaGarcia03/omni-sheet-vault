@@ -54,13 +54,13 @@
 .app-header__extra { display: flex; align-items: center; gap: 12px; min-width: 0; }
 .app-header__pill { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; background: #2a2a2a; border-radius: 3px; padding: 2px 8px; }
 .app-header__saved { font-size: 12px; color: #AAB6BF; }
-.app-header__column { position: absolute; inset: 0; margin: 0 auto; width: min(var(--app-header-column), 100% - 400px); display: flex; align-items: center; justify-content: flex-end; pointer-events: none; }
+.app-header__column { position: absolute; inset: 0; margin: 0 auto; width: min(var(--app-header-column), 100% - 520px); display: flex; align-items: center; justify-content: flex-end; pointer-events: none; }
 .app-header__column > * { pointer-events: auto; }
 .app-header__back { color: rgba(255, 255, 255, 0.78); text-decoration: none; font-weight: 700; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid rgba(255, 255, 255, 0.22); border-radius: 4px; padding: 5px 10px; white-space: nowrap; }
 .app-header__back:hover { color: #fff; border-color: rgba(255, 255, 255, 0.5); }
 .app-header__right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
 .app-user__button { display: flex; align-items: center; gap: 8px; cursor: pointer; background: transparent; color: inherit; border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 999px; padding: 4px 10px 4px 4px; font: 500 14px var(--font-label); }
-.app-user__avatar { width: 28px; height: 28px; border-radius: 50%; background: var(--teal); color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 13px; }
+.app-user__avatar { width: 28px; height: 28px; border-radius: 50%; background: var(--teal); color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 13px; overflow: hidden; }
 
 
 .divider { position: relative; display: flex; align-items: center; gap: 0; margin: 14px 0 8px; }
@@ -345,3 +345,11 @@
 .vtm5-builder .builder-portrait__preset:hover { border-color: #888; }
 .vtm5-builder .builder-portrait__preset[aria-checked='true'] { border-color: var(--red); box-shadow: 0 0 0 1px var(--red); }
 .vtm5-builder .budget__tabs { grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); }
+
+/* Laptop widths: the step column shrinks from its natural width and the side columns narrow, so nothing is cut off */
+.vtm5-builder.layout > main { flex: 0 1 auto; min-width: 0; }
+@media (max-width: 1500px) {
+  .vtm5-builder .progress { width: 260px; flex-shrink: 0; }
+  .vtm5-builder .explain-col { width: 300px; flex-shrink: 0; }
+  .vtm5-builder .strip { grid-template-columns: 36px minmax(0, 220px) repeat(5, minmax(44px, 62px)) auto; gap: 8px; }
+}

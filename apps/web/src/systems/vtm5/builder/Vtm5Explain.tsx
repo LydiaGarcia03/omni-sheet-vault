@@ -1,23 +1,30 @@
 import type { ReactNode } from 'react';
-import { useVtm5Content, type Vtm5Content } from '../content';
+import type { Translate } from '../../../language/language';
+import { poolOf, termOf, useVtm5Content, type Vtm5Content } from '../content';
+import { useVtm5Text } from '../locales/vtm5Messages';
+import type vtm5 from '../locales/vtm5.en.json';
 import { useFocus, type Focus, type Vtm5Build } from './vtm5Build';
+
+type T = Translate<typeof vtm5>;
 
 /** The right column of the VtM builder: what the option in focus is and what picking it changes. */
 export function Vtm5Explain({ build, stepId }: { build: unknown; stepId: string }) {
+  const t = useVtm5Text();
   const content = useVtm5Content();
   const chosen = useFocus();
   const focus = chosen ?? defaultFocus(stepId, (build ?? {}) as Vtm5Build, content);
   return (
     <aside className="dbox explain-col sticky">
-        <div className="explain-col__title">What this choice means</div>
-        <div className="explain">{content ? explain(content, focus, (build ?? {}) as Vtm5Build) : null}</div>
+        <div className="explain-col__title">{t('explain.title')}</div>
+        <div className="explain">{content ? explain(t, content, focus, (build ?? {}) as Vtm5Build) : null}</div>
     </aside>
   );
 }
 
-function explain(content: Vtm5Content, focus: Focus, build: Vtm5Build): ReactNode {
+function explain(t: T, content: Vtm5Content, focus: Focus, build: Vtm5Build): ReactNode {
+  const term = (name: string) => termOf(content, name);
   if (!focus) {
-    return <p className="vtm-muted">Click any option, trait or power to read what it does and what it changes.</p>;
+    return <p className="vtm-muted">{t('explain.empty')}</p>;
   }
   const { kind, key } = focus;
   if (kind === 'clan') {
@@ -25,36 +32,41 @@ function explain(content: Vtm5Content, focus: Focus, build: Vtm5Build): ReactNod
     if (!clan) return null;
     return (
       <>
-        <Kind text={`Clan · ${clan.source}`} />
-        <h2>{clan.name}</h2>
+        <Kind text={t('explain.clanKind', { source: term(clan.source) })} />
+        <h2>{term(clan.name)}</h2>
         <div className="sub">{clan.nick}</div>
         <p>{clan.long}</p>
-        <p className="vtm-muted">Play them for: {clan.play}</p>
-        <h4>Clan disciplines</h4>
+        <p className="vtm-muted">{t('explain.playFor', { play: clan.play })}</p>
+        <h4>{t('builder.clanDisciplines')}</h4>
         <div className="pills">
           {clan.disciplines.map((d) => (
-            <div key={d} className="pill"><b>{d}</b><span>{content.disciplines[d].short}</span></div>
+            <div key={d} className="pill"><b>{term(d)}</b><span>{content.disciplines[d].short}</span></div>
           ))}
         </div>
-        <h4>Bane · {clan.bane.name}</h4>
+        <h4>{t('terms.bane')} · {term(clan.bane.name)}</h4>
         <p>{clan.bane.text}</p>
-        <h4>Compulsion · {clan.compulsion.name}</h4>
+        <h4>{t('terms.compulsion')} · {term(clan.compulsion.name)}</h4>
         <p>{clan.compulsion.text}</p>
       </>
     );
   }
   if (kind === 'attr' || kind === 'skill') {
     const trait = (kind === 'attr' ? content.attributes : content.skills)[key];
-    const scale = kind === 'attr' ? content.attributeScale.slice(0, 4) : content.skillScale;
+    const scale = kind === 'attr' ? content.attributeScale.slice(0, 4).map(term) : content.skillScale;
     const value = (kind === 'attr' ? build.attributes : build.skills)?.[key] ?? 0;
-    const derived = key === 'Stamina' ? (n: number) => `Health ${n + 3}` : key === 'Composure' || key === 'Resolve' ? (n: number) => `Willpower ${n} + ${key === 'Composure' ? 'Resolve' : 'Composure'}` : null;
+    const derived =
+      key === 'Stamina'
+        ? (n: number) => t('explain.healthAt', { value: n + 3 })
+        : key === 'Composure' || key === 'Resolve'
+          ? (n: number) => t('explain.willpowerWith', { value: n, other: term(key === 'Composure' ? 'Resolve' : 'Composure') })
+          : null;
     return (
       <>
-        <Kind text={`${trait.group} ${kind === 'attr' ? 'attribute' : 'skill'}`} />
-        <h2>{key}</h2>
+        <Kind text={t(kind === 'attr' ? 'explain.attributeKind' : 'explain.skillKind', { group: term(trait.group) })} />
+        <h2>{term(key)}</h2>
         <p>{trait.short}</p>
-        {trait.uses && (<><h4>Used for</h4><p>{trait.uses}</p></>)}
-        <h4>What each dot means</h4>
+        {trait.uses && (<><h4>{t('explain.usedFor')}</h4><p>{trait.uses}</p></>)}
+        <h4>{t('explain.eachDot')}</h4>
         <table className="levels">
           <tbody>
             {scale.map((text, i) => (
@@ -76,21 +88,21 @@ function explain(content: Vtm5Content, focus: Focus, build: Vtm5Build): ReactNod
     if (power) {
       return (
         <>
-          <Kind text={`${disciplineName} ${'●'.repeat(power.level)}`} />
-          <h2>{power.name}</h2>
+          <Kind text={`${term(disciplineName)} ${'●'.repeat(power.level)}`} />
+          <h2>{term(power.name)}</h2>
           <p>{power.summary}</p>
-          <table className="levels"><tbody><tr><td>Cost</td><td>{power.cost}</td></tr><tr><td>Pool</td><td>{power.pool}</td></tr></tbody></table>
+          <table className="levels"><tbody><tr><td>{t('explain.cost')}</td><td>{power.cost}</td></tr><tr><td>{t('explain.pool')}</td><td>{poolOf(content, power.pool)}</td></tr></tbody></table>
         </>
       );
     }
     return (
       <>
-        <Kind text={`${discipline.type} discipline · ${discipline.resonance} resonance`} />
-        <h2>{disciplineName}</h2>
+        <Kind text={t('explain.disciplineKind', { type: term(discipline.type), resonance: term(discipline.resonance) })} />
+        <h2>{term(disciplineName)}</h2>
         <p>{discipline.short}</p>
-        <h4>Powers by level</h4>
+        <h4>{t('explain.powersByLevel')}</h4>
         {discipline.powers.map((p) => (
-          <div key={p.name} className="change"><span><span className="red">{'●'.repeat(p.level)}</span> {p.name}</span><b>{p.summary}</b></div>
+          <div key={p.name} className="change"><span><span className="red">{'●'.repeat(p.level)}</span> {term(p.name)}</span><b>{p.summary}</b></div>
         ))}
       </>
     );
@@ -100,16 +112,16 @@ function explain(content: Vtm5Content, focus: Focus, build: Vtm5Build): ReactNod
     if (!predator) return null;
     return (
       <>
-        <Kind text="Predator type" />
-        <h2>{predator.name}</h2>
+        <Kind text={t('terms.predatorType')} />
+        <h2>{term(predator.name)}</h2>
         <p>{predator.short}</p>
-        <h4>Gives</h4>
-        <div className="change"><span>Specialty</span><b>{predator.specialties.map((s) => `${s.skill} (${s.specialty})`).join(' or ')}</b></div>
-        <div className="change"><span>Discipline dot</span><b>{predator.disciplines.join(' or ')}</b></div>
-        <div className="change"><span>Advantages & flaws</span><b>{predator.extras}</b></div>
-        {predator.humanity ? <div className="change"><span>Humanity</span><b className="new">{predator.humanity > 0 ? '+' : ''}{predator.humanity}</b></div> : null}
-        {predator.bp ? <div className="change"><span>Blood Potency</span><b className="new">+{predator.bp}</b></div> : null}
-        {predator.notFor?.includes(build.clan ?? '') && <p className="vtm-problem">Not open to {build.clan}.</p>}
+        <h4>{t('explain.gives')}</h4>
+        <div className="change"><span>{t('terms.specialty')}</span><b>{predator.specialties.map((s) => `${term(s.skill)} (${term(s.specialty)})`).join(t('explain.or'))}</b></div>
+        <div className="change"><span>{t('explain.disciplineDot')}</span><b>{predator.disciplines.map(term).join(t('explain.or'))}</b></div>
+        <div className="change"><span>{t('terms.advantagesAndFlaws')}</span><b>{predator.extras}</b></div>
+        {predator.humanity ? <div className="change"><span>{term('Humanity')}</span><b className="new">{predator.humanity > 0 ? '+' : ''}{predator.humanity}</b></div> : null}
+        {predator.bp ? <div className="change"><span>{term('Blood Potency')}</span><b className="new">+{predator.bp}</b></div> : null}
+        {predator.notFor?.includes(build.clan ?? '') && <p className="vtm-problem">{t('explain.notOpenTo', { clan: term(build.clan ?? '') })}</p>}
       </>
     );
   }
@@ -117,13 +129,13 @@ function explain(content: Vtm5Content, focus: Focus, build: Vtm5Build): ReactNod
     const age = content.ages[key];
     return (
       <>
-        <Kind text="Age since the Embrace" />
-        <h2>{key}</h2>
+        <Kind text={t('terms.ageSinceEmbrace')} />
+        <h2>{term(key)}</h2>
         <p>{age.short}</p>
-        <div className="change"><span>Blood Potency</span><b>{age.bp}</b></div>
-        <div className="change"><span>Starting XP</span><b>{age.xp}</b></div>
-        <div className="change"><span>Generation</span><b>{age.generations.join(' or ')}</b></div>
-        <div className="change"><span>Also</span><b>{age.note}</b></div>
+        <div className="change"><span>{term('Blood Potency')}</span><b>{age.bp}</b></div>
+        <div className="change"><span>{t('explain.startingXp')}</span><b>{age.xp}</b></div>
+        <div className="change"><span>{term('Generation')}</span><b>{age.generations.join(t('explain.or'))}</b></div>
+        <div className="change"><span>{t('explain.also')}</span><b>{age.note}</b></div>
       </>
     );
   }
@@ -131,10 +143,10 @@ function explain(content: Vtm5Content, focus: Focus, build: Vtm5Build): ReactNod
     const distribution = content.distributions[key];
     return (
       <>
-        <Kind text="Skill distribution" />
-        <h2>{key}</h2>
+        <Kind text={t('builder.distribution')} />
+        <h2>{term(key)}</h2>
         <p>{distribution.short}</p>
-        <p className="vtm-muted">Good for: {distribution.fits}</p>
+        <p className="vtm-muted">{t('explain.goodFor', { fits: distribution.fits })}</p>
       </>
     );
   }
@@ -143,15 +155,15 @@ function explain(content: Vtm5Content, focus: Focus, build: Vtm5Build): ReactNod
     if (!advantage) return null;
     return (
       <>
-        <Kind text={advantage.kind} />
-        <h2>{advantage.name}</h2>
+        <Kind text={term(advantage.kind)} />
+        <h2>{term(advantage.name)}</h2>
         <p>{advantage.short}</p>
-        <div className="change"><span>Dots</span><b>{advantage.fixed ? `${advantage.fixed} (fixed)` : `1 to ${advantage.max}`}</b></div>
+        <div className="change"><span>{t('explain.dots')}</span><b>{advantage.fixed ? t('explain.fixedDots', { dots: advantage.fixed }) : t('explain.dotRange', { max: advantage.max })}</b></div>
       </>
     );
   }
   if (kind === 'conviction') {
-    return (<><Kind text="Beliefs" /><h2>Convictions</h2><p>{content.convictionHelp}</p></>);
+    return (<><Kind text={t('terms.beliefs')} /><h2>{t('terms.convictions')}</h2><p>{content.convictionHelp}</p></>);
   }
   return null;
 }

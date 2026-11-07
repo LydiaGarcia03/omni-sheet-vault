@@ -21,9 +21,11 @@ class Vtm5SheetActions {
     private static final int MAX_DOTS = 5;
 
     private final Vtm5Content content;
+    private final Vtm5Messages messages;
 
-    Vtm5SheetActions(Vtm5Content content) {
+    Vtm5SheetActions(Vtm5Content content, Vtm5Messages messages) {
         this.content = content;
+        this.messages = messages;
     }
 
     /** Applies one action to {@code sheet} in place. */
@@ -47,7 +49,7 @@ class Vtm5SheetActions {
             case "coterie" -> coterie(sheet, action);
             case "addItem" -> {
                 String name = action.path("name").asString("").strip();
-                if (name.isEmpty()) throw new InvalidBuildException("An item needs a name.");
+                if (name.isEmpty()) throw new InvalidBuildException(messages.text("action.itemNeedsName"));
                 inventory(sheet).addObject().put("name", name).put("quantity", Math.max(1, action.path("quantity").asInt(1)))
                         .put("notes", action.path("notes").asString(""));
             }
@@ -117,7 +119,7 @@ class Vtm5SheetActions {
             for (JsonNode background : action.path("backgrounds")) {
                 String name = background.path("name").asString("");
                 boolean isBackground = content.advantage(name).map(a -> "Background".equals(a.path("kind").asString())).orElse(false);
-                if (!isBackground) throw new InvalidBuildException(name + " is not a background.");
+                if (!isBackground) throw new InvalidBuildException(messages.text("action.notBackground", messages.term(name)));
                 int dots = Math.clamp(background.path("dots").asInt(), 0, MAX_DOTS);
                 if (dots > 0) backgrounds.addObject().put("name", name).put("dots", dots);
             }
@@ -125,7 +127,7 @@ class Vtm5SheetActions {
         int pool = coteriePool(coterie);
         int spent = coterieSpent(coterie);
         if (spent > pool) {
-            throw new InvalidBuildException("The coterie spends " + spent + " dots; its pool is " + pool + ".");
+            throw new InvalidBuildException(messages.text("action.coterieOverspent", spent, pool));
         }
     }
 
@@ -159,7 +161,7 @@ class Vtm5SheetActions {
         ((ObjectNode) sheet.path("identity")).put(field, action.path("value").asString(""));
     }
 
-    private static void conviction(ObjectNode sheet, JsonNode action) {
+    private void conviction(ObjectNode sheet, JsonNode action) {
         ArrayNode convictions = (ArrayNode) sheet.path("convictions");
         int index = action.path("index").asInt(-1);
         if (action.path("remove").asBoolean(false)) {
@@ -167,7 +169,7 @@ class Vtm5SheetActions {
             return;
         }
         if (index < 0 || index >= convictions.size()) {
-            if (convictions.size() >= 3) throw new InvalidBuildException("A character has at most three convictions.");
+            if (convictions.size() >= 3) throw new InvalidBuildException(messages.text("action.maxConvictions"));
             convictions.addObject().put("conviction", "").put("touchstone", "");
             index = convictions.size() - 1;
         }
@@ -178,12 +180,12 @@ class Vtm5SheetActions {
 
     // Experience
 
-    private static void awardXp(ObjectNode sheet, JsonNode action) {
+    private void awardXp(ObjectNode sheet, JsonNode action) {
         int amount = action.path("amount").asInt();
         if (amount <= 0) {
-            throw new InvalidBuildException("Award a positive amount of XP.");
+            throw new InvalidBuildException(messages.text("action.positiveXp"));
         }
-        String note = action.path("note").asString("").isBlank() ? "Award" : action.path("note").asString();
+        String note = action.path("note").asString("").isBlank() ? messages.text("action.awardNote") : action.path("note").asString();
         ((ArrayNode) sheet.path("xpLog")).addObject().put("kind", "award").put("amount", amount).put("note", note).put("at", Instant.now().toString());
     }
 
@@ -196,61 +198,62 @@ class Vtm5SheetActions {
             case "attribute" -> {
                 int now = requireTrait(sheet.path("attributes"), key, content.attributes());
                 cost = (now + 1) * 5;
-                label = key + " " + now + " → " + (now + 1);
+                label = messages.text("label.raise", messages.term(key), now, now + 1);
             }
             case "skill" -> {
                 int now = requireTrait(sheet.path("skills"), key, content.skills());
                 cost = now == 0 ? 3 : (now + 1) * 3;
-                label = key + " " + now + " → " + (now + 1);
+                label = messages.text("label.raise", messages.term(key), now, now + 1);
             }
             case "discipline" -> {
                 if (content.discipline(key).isEmpty()) throw new InvalidBuildException("Unknown discipline: " + key);
                 if (key.equals(Vtm5CharacterCreationFlow.ALCHEMY) != isThinBlood(sheet)) {
-                    throw new InvalidBuildException(isThinBlood(sheet) ? "Thin-bloods raise Thin-Blood Alchemy, not disciplines." : "Only thin-bloods practise Thin-Blood Alchemy.");
+                    throw new InvalidBuildException(messages.text(isThinBlood(sheet) ? "action.thinBloodAlchemyOnly" : "action.alchemyThinBloodOnly",
+                            messages.term(Vtm5CharacterCreationFlow.ALCHEMY)));
                 }
                 int now = sheet.path("disciplines").path(key).path("dots").asInt(0);
-                if (now >= MAX_DOTS) throw new InvalidBuildException(key + " is already at " + MAX_DOTS + ".");
+                if (now >= MAX_DOTS) throw new InvalidBuildException(messages.text("action.alreadyAt", messages.term(key), MAX_DOTS));
                 cost = (now + 1) * disciplineMultiplier(sheet, key);
-                label = key + " " + now + " → " + (now + 1);
+                label = messages.text("label.raise", messages.term(key), now, now + 1);
             }
             case "specialty" -> {
                 String specialty = action.path("specialty").asString("").strip();
                 int dots = sheet.path("skills").path(key).asInt(0);
                 int has = sheet.path("specialties").path(key).size();
-                if (specialty.isEmpty() || dots == 0 || has >= dots) throw new InvalidBuildException("A specialty needs a name and a free skill dot.");
+                if (specialty.isEmpty() || dots == 0 || has >= dots) throw new InvalidBuildException(messages.text("action.specialtyNeedsDot"));
                 cost = 3;
-                label = "Specialty " + key + " (" + specialty + ")";
+                label = messages.text("label.specialty", messages.term(key), specialty);
             }
             case "advantage" -> {
                 JsonNode advantage = content.advantage(key).orElseThrow(() -> new InvalidBuildException("Unknown advantage: " + key));
-                if ("Flaw".equals(advantage.path("kind").asString())) throw new InvalidBuildException("Flaws aren't bought with XP.");
+                if ("Flaw".equals(advantage.path("kind").asString())) throw new InvalidBuildException(messages.text("action.flawsNotBought"));
                 int now = advantageDots(sheet, key);
                 int fixed = advantage.path("fixed").asInt(0);
-                if (now >= advantage.path("max").asInt(MAX_DOTS) || (fixed > 0 && now > 0)) throw new InvalidBuildException(key + " is already at its maximum.");
+                if (now >= advantage.path("max").asInt(MAX_DOTS) || (fixed > 0 && now > 0)) throw new InvalidBuildException(messages.text("action.atMaximum", messages.term(key)));
                 cost = fixed > 0 ? fixed * 3 : 3;
-                label = key + " " + now + " → " + (fixed > 0 ? fixed : now + 1);
+                label = messages.text("label.raise", messages.term(key), now, fixed > 0 ? fixed : now + 1);
             }
             case "loresheet" -> {
                 int level = action.path("level").asInt(0);
                 cost = loresheetCost(sheet, key, level);
-                if (cost == 0) throw new InvalidBuildException(key + " " + level + " can't be bought: unknown, already owned, or not for your clan.");
-                label = "Loresheet " + key + " " + level;
+                if (cost == 0) throw new InvalidBuildException(messages.text("action.loresheetUnavailable", messages.term(key), level));
+                label = messages.text("label.loresheet", messages.term(key), level);
             }
             case "ritual" -> {
                 cost = ritualCost(sheet, key);
-                if (cost == 0) throw new InvalidBuildException(key + " can't be learned: rituals go up to your Blood Sorcery rating, once each.");
-                label = "Ritual " + key;
+                if (cost == 0) throw new InvalidBuildException(messages.text("action.ritualUnavailable", messages.term(key), messages.term(Vtm5CharacterCreationFlow.BLOOD_SORCERY)));
+                label = messages.text("label.ritual", messages.term(key));
             }
             case "bloodPotency" -> {
                 int now = sheet.path("bloodPotency").asInt();
-                if (now >= MAX_DOTS) throw new InvalidBuildException("Blood Potency is at its maximum.");
+                if (now >= MAX_DOTS) throw new InvalidBuildException(messages.text("action.atMaximum", messages.term("Blood Potency")));
                 cost = (now + 1) * 10;
-                label = "Blood Potency " + now + " → " + (now + 1);
+                label = messages.text("label.raise", messages.term("Blood Potency"), now, now + 1);
             }
             default -> throw new InvalidBuildException("Unknown XP target: " + target);
         }
         if (cost > available(sheet)) {
-            throw new InvalidBuildException("Not enough XP: " + label + " costs " + cost + ".");
+            throw new InvalidBuildException(messages.text("action.notEnoughXp", label, cost));
         }
         raise(sheet, target, key, target.equals("loresheet") ? String.valueOf(action.path("level").asInt()) : action.path("specialty").asString("").strip(), 1);
         ((ArrayNode) sheet.path("xpLog")).addObject().put("kind", "spend").put("target", target).put("key", key)
@@ -262,13 +265,13 @@ class Vtm5SheetActions {
         ArrayNode log = (ArrayNode) sheet.path("xpLog");
         JsonNode entry = log.path(index);
         if (!"spend".equals(entry.path("kind").asString("")) || entry.path("undone").asBoolean(false)) {
-            throw new InvalidBuildException("Only an active spend can be undone.");
+            throw new InvalidBuildException(messages.text("action.onlyActiveUndo"));
         }
         for (int later = index + 1; later < log.size(); later++) {
             JsonNode other = log.get(later);
             if ("spend".equals(other.path("kind").asString("")) && !other.path("undone").asBoolean(false)
                     && other.path("key").asString("").equals(entry.path("key").asString(""))) {
-                throw new InvalidBuildException("Undo the later spend on " + entry.path("key").asString() + " first.");
+                throw new InvalidBuildException(messages.text("action.undoLaterFirst", messages.term(entry.path("key").asString())));
             }
         }
         raise(sheet, entry.path("target").asString(), entry.path("key").asString(), entry.path("specialty").asString(""), -1);
@@ -280,7 +283,7 @@ class Vtm5SheetActions {
         String power = action.path("power").asString("");
         JsonNode node = sheet.path("disciplines").path(discipline);
         if (!node.isObject()) {
-            throw new InvalidBuildException("The character has no " + discipline + ".");
+            throw new InvalidBuildException(messages.text("action.noDiscipline", messages.term(discipline)));
         }
         ObjectNode owned = (ObjectNode) node;
         int dots = owned.path("dots").asInt();
@@ -292,7 +295,7 @@ class Vtm5SheetActions {
             return false;
         }).orElse(false);
         if (!allowed || powers.size() >= dots) {
-            throw new InvalidBuildException(power + " can't be learned now: one power per dot, at most your rating's level.");
+            throw new InvalidBuildException(messages.text("action.powerUnavailable", messages.term(power)));
         }
         powers.add(power);
     }
@@ -467,10 +470,10 @@ class Vtm5SheetActions {
         return total;
     }
 
-    private static int requireTrait(JsonNode values, String key, List<String> names) {
+    private int requireTrait(JsonNode values, String key, List<String> names) {
         if (!names.contains(key)) throw new InvalidBuildException("Unknown trait: " + key);
         int now = values.path(key).asInt(0);
-        if (now >= MAX_DOTS) throw new InvalidBuildException(key + " is already at " + MAX_DOTS + ".");
+        if (now >= MAX_DOTS) throw new InvalidBuildException(messages.text("action.alreadyAt", messages.term(key), MAX_DOTS));
         return now;
     }
 

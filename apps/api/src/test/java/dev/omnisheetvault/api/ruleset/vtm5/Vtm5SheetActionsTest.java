@@ -12,7 +12,7 @@ import tools.jackson.databind.node.ObjectNode;
 
 class Vtm5SheetActionsTest {
 
-    private final Vtm5SheetActions actions = new Vtm5SheetActions(CONTENT);
+    private final Vtm5SheetActions actions = new Vtm5SheetActions(CONTENT, Vtm5TestBuilds.MESSAGES);
     private ObjectNode sheet;
 
     @BeforeEach
