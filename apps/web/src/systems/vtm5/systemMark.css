@@ -8,7 +8,6 @@
 .vtm5-page .app-header { background: #000; border-bottom: 1px solid #1c1c1c; }
 /* Behind a VtM page (overscroll, a window narrower than the layout) the document itself stays dark */
 html:has(.vtm5-page), body:has(.vtm5-page) { background: #050505; }
-.vtm5-page { min-width: fit-content; }
 /* The app footer on VtM pages, in the sheet's dark look */
 .vtm5-page .app-footer { background: #000; color: #8a8a8a; border-top: 1px solid #1c1c1c; }
 .vtm5-page .app-footer a { color: #C82434; }

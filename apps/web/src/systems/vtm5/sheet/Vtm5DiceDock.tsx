@@ -1,5 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import { apiFetch } from '../../../api/client';
+import { useLanguage } from '../../../language/language';
+import { termOf, useVtm5Content } from '../content';
+import { useVtm5Text } from '../locales/vtm5Messages';
 import diceIcon from '../vtm5-dice-icon.webp';
 
 export type Vtm5Roll = {
@@ -31,6 +34,8 @@ export type DicePool = {
 
 /** The dice pool and roll log state; every roll is made and stored by the API. */
 export function useVtm5Dice(characterId: string, onSheetChanged: () => void) {
+  const t = useVtm5Text();
+  const { locale } = useLanguage();
   const [traits, setTraits] = useState<Record<string, number>>({});
   const [bonus, setBonus] = useState(0);
   const [difficulty, setDifficulty] = useState(0);
@@ -40,7 +45,7 @@ export function useVtm5Dice(characterId: string, onSheetChanged: () => void) {
 
   const refresh = useCallback(() => {
     apiFetch(`/api/vtm5/characters/${characterId}/rolls`).then((r) => (r.ok ? r.json() : [])).then(setRolls, () => undefined);
-  }, [characterId]);
+  }, [characterId, locale]);
   useEffect(refresh, [refresh]);
 
   const post = async (path: string, body?: unknown) => {
@@ -51,7 +56,7 @@ export function useVtm5Dice(characterId: string, onSheetChanged: () => void) {
     });
     if (!response.ok) {
       const problem = await response.json().catch(() => null);
-      setError(problem?.detail ?? 'The roll failed.');
+      setError(problem?.detail ?? t('dice.failed'));
       return;
     }
     setError(null);
@@ -119,63 +124,66 @@ type DockProps = {
 };
 
 function Vtm5DiceDock({ open, onToggle, traits, bonus, difficulty, onDifficulty, hunger, rolls, error, onBonus, onRemove, onClear, onRoll, onReroll }: DockProps) {
+  const t = useVtm5Text();
+  const content = useVtm5Content();
+  const term = (name: string) => (content ? termOf(content, name) : name);
   const size = Math.max(0, Object.values(traits).reduce((a, b) => a + b, 0) + bonus);
   return (
     <>
       {open && (
         <aside className="dock open">
           <section className="frame">
-            <div className="frame__title">Dice Pool</div>
+            <div className="frame__title">{t('terms.dicePool')}</div>
             <div className="pool">
-              {Object.keys(traits).length === 0 && <div className="pool__empty">Click a rating on the sheet to add it.</div>}
+              {Object.keys(traits).length === 0 && <div className="pool__empty">{t('dice.emptyPool')}</div>}
               {Object.entries(traits).map(([trait, value]) => (
                 <div key={trait} className="pool__row">
-                  <span>{trait}</span>
-                  <button type="button" onClick={() => onRemove(trait)} title="Remove">
+                  <span>{term(trait)}</span>
+                  <button type="button" onClick={() => onRemove(trait)} title={t('dice.remove')}>
                     <span className="diamonds">{'◆'.repeat(value)}</span> ✕
                   </button>
                 </div>
               ))}
               <div className="pool__row">
-                <span>Bonus dice</span>
+                <span>{t('dice.bonusDice')}</span>
                 <span>
                   <button type="button" className="step" onClick={() => onBonus(-1)}>−</button> <b>{bonus > 0 ? `+${bonus}` : bonus}</b>{' '}
                   <button type="button" className="step" onClick={() => onBonus(1)}>+</button>
                 </span>
               </div>
               <div className="pool__row">
-                <span>Difficulty</span>
+                <span>{t('terms.difficulty')}</span>
                 <span>
                   <button type="button" className="step" onClick={() => onDifficulty(-1)}>−</button> <b>{difficulty || '0'}</b>{' '}
                   <button type="button" className="step" onClick={() => onDifficulty(1)}>+</button>
                 </span>
               </div>
               <div className="pool__total">
-                <span>Pool <b>{size}</b></span>
-                <span>Hunger dice <b className="red">{Math.min(hunger, Math.max(size, 1))}</b></span>
+                <span>{t('dice.pool')} <b>{size}</b></span>
+                <span>{t('terms.hungerDice')} <b className="red">{Math.min(hunger, Math.max(size, 1))}</b></span>
               </div>
               <div className="pool__buttons">
-                <button type="button" className="btn btn--ghost" onClick={onClear}>Clear</button>
-                <button type="button" className="btn" disabled={size === 0 && Object.keys(traits).length === 0} onClick={onRoll}>Roll</button>
+                <button type="button" className="btn btn--ghost" onClick={onClear}>{t('dice.clear')}</button>
+                <button type="button" className="btn" disabled={size === 0 && Object.keys(traits).length === 0} onClick={onRoll}>{t('dice.roll')}</button>
               </div>
               {error && <p className="vtm-problem">{error}</p>}
             </div>
           </section>
           <section className="frame">
-            <div className="frame__title">Roll Log</div>
-            {rolls.length === 0 && <div className="roll__empty">No rolls yet.</div>}
+            <div className="frame__title">{t('dice.rollLog')}</div>
+            {rolls.length === 0 && <div className="roll__empty">{t('dice.noRolls')}</div>}
             {rolls.slice(0, 20).map((roll) => (
               <div key={roll.id} className="roll">
                 <div className="roll__head">
                   <span>{roll.kind === 'reroll' ? `↻ ${roll.label}` : roll.label}</span>
-                  <span className="muted">{new Date(roll.rolledAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+                  <span className="muted">{new Date(roll.rolledAt).toLocaleTimeString(document.documentElement.lang || undefined, { hour: '2-digit', minute: '2-digit' })}</span>
                 </div>
                 {roll.kind === 'rouse' ? (
-                  <div className="roll__result">{roll.successes ? 'Passed' : 'Failed'}</div>
+                  <div className="roll__result">{roll.successes ? t('dice.passed') : t('dice.failedRouse')}</div>
                 ) : (
                   <div className="roll__result">
-                    {roll.successes} success{roll.successes === 1 ? '' : 'es'}
-                    {roll.difficulty > 0 && <span className="roll__vs"> vs {roll.difficulty} · margin {roll.margin}</span>} <small>{roll.outcome}</small>
+                    {t('dice.successes', { count: roll.successes })}
+                    {roll.difficulty > 0 && <span className="roll__vs">{t('dice.versus', { difficulty: roll.difficulty, margin: roll.margin })}</span>} <small>{roll.outcome}</small>
                   </div>
                 )}
                 <div className="faces">
@@ -185,8 +193,8 @@ function Vtm5DiceDock({ open, onToggle, traits, bonus, difficulty, onDifficulty,
                 </div>
                 {roll.kind !== 'rouse' && roll.kind !== 'frenzy' && roll.kind !== 'remorse' && (
                   <div className="roll__actions">
-                    <span>{roll.faces.length - roll.hunger} regular · {roll.hunger} hunger</span>
-                    {roll.rerolled || roll.kind === 'reroll' ? <span className="used">Re-rolled</span> : <button type="button" className="red" onClick={() => onReroll(roll.id)}>↻ Re-roll · 1 WP</button>}
+                    <span>{t('dice.regularAndHunger', { regular: roll.faces.length - roll.hunger, hunger: roll.hunger })}</span>
+                    {roll.rerolled || roll.kind === 'reroll' ? <span className="used">{t('dice.rerolled')}</span> : <button type="button" className="red" onClick={() => onReroll(roll.id)}>{t('dice.reroll')}</button>}
                   </div>
                 )}
               </div>
@@ -194,7 +202,7 @@ function Vtm5DiceDock({ open, onToggle, traits, bonus, difficulty, onDifficulty,
           </section>
         </aside>
       )}
-      <button type="button" className="dicefab" aria-label={open ? 'Hide the dice' : 'Show the dice'} aria-expanded={open} onClick={onToggle}>
+      <button type="button" className="dicefab" aria-label={open ? t('dice.hide') : t('dice.show')} aria-expanded={open} onClick={onToggle}>
         <img src={diceIcon} alt="" />
         {size > 0 && <b className="dicefab__count">{size}</b>}
       </button>

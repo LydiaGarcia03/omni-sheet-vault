@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,6 +34,8 @@ class Vtm5RollController {
     private static final String FRENZY = "Frenzy check";
     private static final String REMORSE = "Remorse";
     private static final int MAX_REROLLED_DICE = 3;
+    private static final Pattern HUNGER_NOTE = Pattern.compile("Hunger (\\d+)");
+    private static final Pattern HUMANITY_LOST = Pattern.compile("Humanity (\\d+) → (\\d+)");
 
     /** One VtM roll as the sheet's log shows it. */
     record Vtm5Roll(UUID id, String kind, String label, List<Integer> faces, int hunger, int successes, int difficulty, int margin, boolean win, boolean critical,
@@ -41,12 +46,15 @@ class Vtm5RollController {
     private final RollService rollService;
     private final Vtm5SheetActions actions;
     private final ObjectMapper objectMapper;
+    private final Vtm5Messages messages;
 
-    Vtm5RollController(CharacterService characterService, RollService rollService, Vtm5SheetActions actions, ObjectMapper objectMapper) {
+    Vtm5RollController(CharacterService characterService, RollService rollService, Vtm5SheetActions actions, ObjectMapper objectMapper,
+            Vtm5Messages messages) {
         this.characterService = characterService;
         this.rollService = rollService;
         this.actions = actions;
         this.objectMapper = objectMapper;
+        this.messages = messages;
     }
 
     /** Rolls a pool: the named traits' ratings plus {@code bonus} (at least one die), Hunger dice up to the current Hunger, against an optional {@code difficulty}. */
@@ -113,7 +121,7 @@ class Vtm5RollController {
         int humanity = sheet.path("humanity").asInt();
         int stains = sheet.path("stains").asInt();
         if (stains == 0) {
-            throw new InvalidBuildException("There are no stains to roll Remorse for.");
+            throw new InvalidBuildException(messages.text("roll.noStains"));
         }
         int pool = Math.max(1, 10 - humanity - stains);
         int[] faces = rollService.rollDice(pool, 10);
@@ -133,13 +141,13 @@ class Vtm5RollController {
         Character character = mine(jwt, id);
         List<Roll> history = rollService.history(jwt, id);
         Roll original = history.stream().filter(r -> r.id().equals(rollId)).findFirst()
-                .orElseThrow(() -> new InvalidBuildException("No such roll."));
+                .orElseThrow(() -> new InvalidBuildException(messages.text("roll.noSuchRoll")));
         int hunger = Vtm5Dice.hungerOf(original.expression());
         if (hunger < 0 || original.context().startsWith(FRENZY) || original.context().startsWith(REMORSE)) {
-            throw new InvalidBuildException("Only a dice pool can be re-rolled.");
+            throw new InvalidBuildException(messages.text("roll.onlyPoolReroll"));
         }
         if (history.stream().anyMatch(r -> r.context().startsWith(REROLL_OF + rollId))) {
-            throw new InvalidBuildException("That roll was already re-rolled.");
+            throw new InvalidBuildException(messages.text("roll.alreadyRerolled"));
         }
         int[] faces = original.results().clone();
         int regular = faces.length - hunger;
@@ -151,7 +159,7 @@ class Vtm5RollController {
             }
         }
         if (changed == 0) {
-            throw new InvalidBuildException("No failed regular dice to re-roll.");
+            throw new InvalidBuildException(messages.text("roll.nothingToReroll"));
         }
         ObjectNode sheet = (ObjectNode) objectMapper.readTree(character.sheet());
         actions.apply(sheet, objectMapper.createObjectNode().put("type", "damage").put("track", "willpower").put("kind", "superficial").put("amount", 1));
@@ -171,18 +179,64 @@ class Vtm5RollController {
                 .toList();
     }
 
+    /** A stored roll as the log shows it, in the request's language; the stored context stays English. */
     private Vtm5Roll view(Roll roll, boolean rerolled) {
         List<Integer> faces = Arrays.stream(roll.results()).boxed().toList();
         if (roll.expression().endsWith("rouse")) {
-            return new Vtm5Roll(roll.id(), "rouse", roll.context(), faces, 0, roll.total(), 0, 0, roll.total() > 0, false, false, false, "", false, roll.rolledAt());
+            return new Vtm5Roll(roll.id(), "rouse", shownRouse(roll.context()), faces, 0, roll.total(), 0, 0, roll.total() > 0, false, false, false, "",
+                    false, roll.rolledAt());
         }
         int hunger = Math.max(0, Vtm5Dice.hungerOf(roll.expression()));
         Vtm5Dice.Outcome outcome = Vtm5Dice.read(roll.results(), hunger, Vtm5Dice.difficultyOf(roll.expression()));
         String kind = roll.context().startsWith(REROLL_OF) ? "reroll"
                 : roll.context().startsWith(FRENZY) ? "frenzy" : roll.context().startsWith(REMORSE) ? "remorse" : "pool";
-        String label = kind.equals("frenzy") || kind.equals("remorse") ? roll.context() : labelOf(roll.context());
+        String label = switch (kind) {
+            case "frenzy" -> shownFrenzy(roll.context());
+            case "remorse" -> shownRemorse(roll.context());
+            default -> shownPool(labelOf(roll.context()));
+        };
         return new Vtm5Roll(roll.id(), kind, label, faces, hunger, outcome.successes(), outcome.difficulty(), outcome.margin(), outcome.win(),
-                outcome.critical(), outcome.messy(), outcome.bestial(), outcome.tag(), rerolled, roll.rolledAt());
+                outcome.critical(), outcome.messy(), outcome.bestial(), shownTag(outcome), rerolled, roll.rolledAt());
+    }
+
+    /** "Strength + Brawl": each trait in the request's language; a label the player typed stays as it is. */
+    private String shownPool(String label) {
+        return Arrays.stream(label.split(" \\+ ")).map(messages::term).collect(Collectors.joining(" + "));
+    }
+
+    /** "Rouse Check · reason — Hunger 3". */
+    private String shownRouse(String context) {
+        int split = context.lastIndexOf(" — ");
+        String head = split < 0 ? context : context.substring(0, split);
+        String note = split < 0 ? "" : context.substring(split + 3);
+        String shownHead = messages.text("roll.rouse") + head.substring(Math.min(head.length(), ROUSE.length()));
+        Matcher hunger = HUNGER_NOTE.matcher(note);
+        String shownNote = switch (note) {
+            case "Passed" -> messages.text("roll.passed");
+            case "Failed at Hunger 5: hunger frenzy test" -> messages.text("roll.hungerFrenzy");
+            default -> hunger.matches() ? messages.text("roll.hungerRises", hunger.group(1)) : note;
+        };
+        return shownNote.isEmpty() ? shownHead : shownHead + " — " + shownNote;
+    }
+
+    private String shownFrenzy(String context) {
+        String result = context.endsWith("Resisted") ? messages.text("roll.resisted") : messages.text("roll.frenzied");
+        return messages.text("roll.frenzy") + " — " + result;
+    }
+
+    private String shownRemorse(String context) {
+        Matcher lost = HUMANITY_LOST.matcher(context);
+        String result = lost.find() ? messages.text("roll.humanityLost", lost.group(1), lost.group(2)) : messages.text("roll.humanityKept");
+        return messages.text("roll.remorse") + " — " + result;
+    }
+
+    private String shownTag(Vtm5Dice.Outcome outcome) {
+        if (!outcome.win()) {
+            return messages.text(outcome.bestial() ? "outcome.bestialFailure"
+                    : outcome.difficulty() > 0 && outcome.successes() > 0 ? "outcome.failureAtCost" : "outcome.failure");
+        }
+        return outcome.messy() ? messages.text("outcome.messyCritical")
+                : outcome.critical() ? messages.text("outcome.critical") : outcome.difficulty() > 0 ? messages.text("outcome.success") : "";
     }
 
     /** The roll's own name: without the re-roll prefix and the outcome suffix. */
