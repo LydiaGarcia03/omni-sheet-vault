@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "war-dart",
+  "name": "War Dart",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 68,
+  "tags": [],
+  "description": "Versatile: This weapon can also be used with these statistics—Agility, Melee, d8+5.",
+  "data": {
+    "category": "weapon",
+    "slot": "secondary",
+    "tier": 3,
+    "trait": "Agility",
+    "range": "Far",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d6",
+      "bonus": 5,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Versatile",
+      "text": "This weapon can also be used with these statistics—Agility, Melee, d8+5."
+    }
+  }
+}

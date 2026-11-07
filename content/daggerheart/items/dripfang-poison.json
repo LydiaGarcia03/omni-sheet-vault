@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "dripfang-poison",
+  "name": "Dripfang Poison",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 81,
+  "tags": [
+    "core-set"
+  ],
+  "description": "A creature who consumes this poison takes 8d10 direct magic damage.",
+  "data": {
+    "category": "consumable",
+    "roll": 42
+  }
+}

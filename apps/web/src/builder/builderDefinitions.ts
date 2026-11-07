@@ -1,3 +1,4 @@
+import { DAGGERHEART_BUILDER } from '../systems/daggerheart/builder/daggerheartBuilderDefinition';
 import { DND5E_BUILDER } from '../systems/dnd5e/builder/dnd5eBuilderDefinition';
 import { VTM5_BUILDER } from '../systems/vtm5/builder/vtm5BuilderDefinition';
 import type { BuilderDefinition } from './builderDefinition';
@@ -5,6 +6,7 @@ import type { BuilderDefinition } from './builderDefinition';
 const BUILDERS: Record<string, BuilderDefinition> = {
   'dnd-5e': DND5E_BUILDER,
   'vtm-v5': VTM5_BUILDER,
+  daggerheart: DAGGERHEART_BUILDER,
 };
 
 export function builderFor(systemId: string): BuilderDefinition {

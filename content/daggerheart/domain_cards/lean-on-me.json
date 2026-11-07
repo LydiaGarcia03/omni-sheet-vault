@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "lean-on-me",
+  "name": "Lean on Me",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 223,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Once per long rest, when you console or inspire an ally who failed an action roll, you can both clear 2 Stress.",
+  "data": {
+    "domain": "valor",
+    "level": 3,
+    "type": "ability",
+    "recallCost": 1
+  }
+}

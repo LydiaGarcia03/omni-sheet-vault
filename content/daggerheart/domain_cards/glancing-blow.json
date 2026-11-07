@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "glancing-blow",
+  "name": "Glancing Blow",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 208,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When you fail an attack, you can mark a Stress to deal weapon damage using half your Proficiency.",
+  "data": {
+    "domain": "blade",
+    "level": 7,
+    "type": "ability",
+    "recallCost": 1
+  }
+}

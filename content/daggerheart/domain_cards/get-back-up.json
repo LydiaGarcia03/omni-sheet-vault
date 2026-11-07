@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "get-back-up",
+  "name": "Get Back Up",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 208,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When you take Severe damage, you can mark a Stress to reduce the severity by one threshold.",
+  "data": {
+    "domain": "blade",
+    "level": 1,
+    "type": "ability",
+    "recallCost": 1
+  }
+}

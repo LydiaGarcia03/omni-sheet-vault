@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "cloaking-blast",
+  "name": "Cloaking Blast",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 207,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When you make a successful Spellcast Roll to cast a different spell, you can spend a Hope to become Cloaked. While Cloaked, you remain unseen if you are stationary when an adversary moves to where they would normally see you. When you move into or within an adversary’s line of sight or make an attack, you are no longer Cloaked.",
+  "data": {
+    "domain": "arcana",
+    "level": 7,
+    "type": "spell",
+    "recallCost": 2
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "blitz-hammer",
+  "name": "Blitz Hammer",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 61,
+  "tags": [],
+  "description": "Accelerator: Once per scene, mark a Stress to move to Far range then make an attack. Gain a +1 bonus to your Proficiency on this attack.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 3,
+    "trait": "Strength",
+    "range": "Melee",
+    "burden": 2,
+    "wheelchair": false,
+    "damage": {
+      "die": "d10",
+      "bonus": 7,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Accelerator",
+      "text": "Once per scene, mark a Stress to move to Far range then make an attack. Gain a +1 bonus to your Proficiency on this attack."
+    }
+  }
+}

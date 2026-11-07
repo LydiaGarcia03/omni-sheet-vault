@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "grace-touched",
+  "name": "Grace-Touched",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 216,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When 4 or more of the domain cards in your loadout are from the Grace domain, gain the following benefits:\n◦ You can mark an Armor Slot instead of marking a Stress.\n◦ When you would force a target to mark a number of Hit Points, you can choose instead to force them to mark that number of Stress.",
+  "data": {
+    "domain": "grace",
+    "level": 7,
+    "type": "ability",
+    "recallCost": 2
+  }
+}

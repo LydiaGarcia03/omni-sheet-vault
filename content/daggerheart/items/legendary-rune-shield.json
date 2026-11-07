@@ -1,0 +1,35 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "legendary-rune-shield",
+  "name": "Legendary Rune Shield",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 69,
+  "tags": [],
+  "description": "Protective: +4 to Armor Score",
+  "data": {
+    "category": "weapon",
+    "slot": "secondary",
+    "tier": 4,
+    "trait": "Knowledge",
+    "range": "Melee",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d4",
+      "bonus": 6,
+      "type": "magic"
+    },
+    "feature": {
+      "name": "Protective",
+      "text": "+4 to Armor Score",
+      "modifiers": [
+        {
+          "target": "armorScore",
+          "value": 4
+        }
+      ]
+    }
+  }
+}

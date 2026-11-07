@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "bare-bones",
+  "name": "Bare Bones",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 222,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When you choose not to equip armor, you have a base Armor Score of 3 + your Strength and use the following as your base damage thresholds:\n◦ Tier 1: 9/19\n◦ Tier 2: 11/24\n◦ Tier 3: 13/31\n◦ Tier 4: 15/38",
+  "data": {
+    "domain": "valor",
+    "level": 1,
+    "type": "ability",
+    "recallCost": 0
+  }
+}

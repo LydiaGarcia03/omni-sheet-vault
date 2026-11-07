@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "chokehold",
+  "name": "Chokehold",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 217,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When you position yourself behind a creature who’s about your size, you can mark a Stress to pull them into a chokehold, making them temporarily Vulnerable.\n\nWhen a creature attacks a target who is Vulnerable in this way, they deal an extra 2d6 damage.",
+  "data": {
+    "domain": "midnight",
+    "level": 3,
+    "type": "ability",
+    "recallCost": 1
+  }
+}

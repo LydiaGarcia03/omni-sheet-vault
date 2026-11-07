@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "whisperstep-anklet",
+  "name": "Whisperstep Anklet",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 78,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "This anklet makes your steps silent as long as you don’t move faster than walking speed.",
+  "data": {
+    "category": "loot",
+    "roll": 25
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "tears-of-the-undying-hero",
+  "name": "Tears of the Undying Hero",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 84,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "When you drink this potion, death can’t touch you until your next long rest. When you would mark your last Hit Point, instead of making a death move, you make one final action roll before falling into a dreamless slumber until an ally chooses the Tend to Wounds downtime move to clear your Hit Points.",
+  "data": {
+    "category": "consumable",
+    "roll": 59
+  }
+}

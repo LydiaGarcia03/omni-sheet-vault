@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "phantom-retreat",
+  "name": "Phantom Retreat",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 217,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Spend a Hope to activate Phantom Retreat where you’re currently standing. Spend another Hope at any time before your next rest to disappear from where you are and reappear where you were standing when you activated Phantom Retreat. This spell ends after you reappear.",
+  "data": {
+    "domain": "midnight",
+    "level": 5,
+    "type": "spell",
+    "recallCost": 2
+  }
+}

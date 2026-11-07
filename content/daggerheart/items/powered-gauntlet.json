@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "powered-gauntlet",
+  "name": "Powered Gauntlet",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 68,
+  "tags": [],
+  "description": "Charged: Mark a Stress to gain a +1 bonus to your Proficiency on a primary weapon attack.",
+  "data": {
+    "category": "weapon",
+    "slot": "secondary",
+    "tier": 3,
+    "trait": "Knowledge",
+    "range": "Close",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d6",
+      "bonus": 4,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Charged",
+      "text": "Mark a Stress to gain a +1 bonus to your Proficiency on a primary weapon attack."
+    }
+  }
+}

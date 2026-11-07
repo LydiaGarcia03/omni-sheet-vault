@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "avatar-of-terror",
+  "name": "Avatar of Terror",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 214,
+  "tags": [
+    "expansion"
+  ],
+  "description": "Mark a Stress to transform into a creature fueled by fear. While in this form, you gain a 1d6 bonus to your damage rolls for each Fear in the GM’s pool. Additionally, you gain a Hope when the GM spends a Fear to spotlight an adversary within Very Close range.\n\nBefore you make an action roll, you must spend a Hope. If you can’t, you revert to your normal form.",
+  "data": {
+    "domain": "dread",
+    "level": 10,
+    "type": "spell",
+    "recallCost": 2
+  }
+}

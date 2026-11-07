@@ -1,0 +1,20 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN",
+  "slug": "grace",
+  "name": "Grace",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 7,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Grace is the domain of charisma. Through rapturous storytelling, charming spells, or a shroud of lies, those who channel this power define the realities of their adversaries, bending perception to their will. Grace offers its wielders raw magnetism and mastery over language. The Grace domain can be accessed by the Bard, Rogue, and Warlock classes",
+  "data": {
+    "classes": [
+      "bard",
+      "rogue",
+      "warlock"
+    ]
+  }
+}

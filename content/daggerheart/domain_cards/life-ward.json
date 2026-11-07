@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "life-ward",
+  "name": "Life Ward",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 221,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Spend 3 Hope and choose an ally within Close range. They are marked with a glowing sigil of protection. When this ally would make a death move, they clear a Hit Point instead.\n\nThis effect ends when it saves the target from a death move, you cast Life Ward on another target, or you take a long rest.",
+  "data": {
+    "domain": "splendor",
+    "level": 4,
+    "type": "spell",
+    "recallCost": 1
+  }
+}

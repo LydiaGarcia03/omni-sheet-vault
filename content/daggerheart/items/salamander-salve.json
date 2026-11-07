@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "salamander-salve",
+  "name": "Salamander Salve",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 83,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "You can apply this salve to your skin to make yourself immune to heat until your next rest.",
+  "data": {
+    "category": "consumable",
+    "roll": 28
+  }
+}

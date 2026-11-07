@@ -1,0 +1,39 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "bravesword",
+  "name": "Bravesword",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 61,
+  "tags": [],
+  "description": "Brave: −1 to Evasion; +3 to Severe damage threshold",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 3,
+    "trait": "Strength",
+    "range": "Melee",
+    "burden": 2,
+    "wheelchair": false,
+    "damage": {
+      "die": "d12",
+      "bonus": 7,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Brave",
+      "text": "−1 to Evasion; +3 to Severe damage threshold",
+      "modifiers": [
+        {
+          "target": "evasion",
+          "value": -1
+        },
+        {
+          "target": "severeThreshold",
+          "value": 3
+        }
+      ]
+    }
+  }
+}

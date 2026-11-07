@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "skeleton-key",
+  "name": "Skeleton Key",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 75,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When you use this key to open a locked door, you gain advantage on the Finesse Roll.",
+  "data": {
+    "category": "loot",
+    "roll": 16
+  }
+}

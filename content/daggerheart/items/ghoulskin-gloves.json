@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "ghoulskin-gloves",
+  "name": "Ghoulskin Gloves",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 78,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "When you attack with a physical weapon while wearing these gloves, the damage is considered both physical and magic.",
+  "data": {
+    "category": "loot",
+    "roll": 36
+  }
+}

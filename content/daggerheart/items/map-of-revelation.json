@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "map-of-revelation",
+  "name": "Map of Revelation",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 78,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "You can attune this map to one creature at a time. The map always shows the attuned creature’s location.",
+  "data": {
+    "category": "loot",
+    "roll": 31
+  }
+}

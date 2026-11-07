@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "bundle-of-spiderlegs",
+  "name": "Bundle of Spiderlegs",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 82,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "You can eat these spiderlegs to walk on walls until your next rest.",
+  "data": {
+    "category": "consumable",
+    "roll": 17
+  }
+}

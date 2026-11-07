@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "arcane-cloak",
+  "name": "Arcane Cloak",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 75,
+  "tags": [
+    "core-set"
+  ],
+  "description": "A creature with a Spellcast trait wearing this cloak can adjust its color, texture, and size at will.",
+  "data": {
+    "category": "loot",
+    "roll": 7
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "splendor-touched",
+  "name": "Splendor-Touched",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 222,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When 4 or more of the domain cards in your loadout are from the Splendor domain, gain the following benefits:\n◦ +3 bonus to your Severe damage threshold\n◦ Once per long rest, when incoming damage would require you to mark a number of Hit Points, you can choose to mark that much Stress or spend that much Hope instead.",
+  "data": {
+    "domain": "splendor",
+    "level": 7,
+    "type": "ability",
+    "recallCost": 2
+  }
+}

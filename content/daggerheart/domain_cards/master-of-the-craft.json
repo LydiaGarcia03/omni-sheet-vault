@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "master-of-the-craft",
+  "name": "Master of the Craft",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 216,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Gain a permanent +2 bonus to two of your Experiences or a permanent +3 bonus to one of your Experiences. Then place this card in your vault permanently.",
+  "data": {
+    "domain": "grace",
+    "level": 9,
+    "type": "ability",
+    "recallCost": 0
+  }
+}

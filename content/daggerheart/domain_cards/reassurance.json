@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "reassurance",
+  "name": "Reassurance",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 221,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Once per rest, after an ally attempts an action roll but before the consequences take place, you can offer assistance or words of support. When you do, your ally can reroll their dice.",
+  "data": {
+    "domain": "splendor",
+    "level": 1,
+    "type": "ability",
+    "recallCost": 0
+  }
+}

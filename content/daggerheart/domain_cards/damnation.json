@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "damnation",
+  "name": "Damnation",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 214,
+  "tags": [
+    "expansion"
+  ],
+  "description": "Make a Spellcast Roll against a target within Far range. On a success, mark any number of Stress to roll an equal number of d20s, dealing magic damage equal to the total result. If this attack defeats the target, all adversaries within Far range of the target must mark a Stress.",
+  "data": {
+    "domain": "dread",
+    "level": 9,
+    "type": "spell",
+    "recallCost": 2
+  }
+}

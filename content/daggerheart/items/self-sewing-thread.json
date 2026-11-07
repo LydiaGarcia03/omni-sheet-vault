@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "self-sewing-thread",
+  "name": "Self-Sewing Thread",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 82,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "You can use this thread to clear either a Hit Point or 2 Armor Slots.",
+  "data": {
+    "category": "consumable",
+    "roll": 25
+  }
+}

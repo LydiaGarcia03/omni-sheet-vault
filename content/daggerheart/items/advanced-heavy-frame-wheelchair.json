@@ -1,0 +1,35 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "advanced-heavy-frame-wheelchair",
+  "name": "Advanced Heavy-Frame Wheelchair",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 71,
+  "tags": [],
+  "description": "Heavy: −1 to Evasion",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 3,
+    "trait": "Strength",
+    "range": "Melee",
+    "burden": 2,
+    "wheelchair": true,
+    "damage": {
+      "die": "d12",
+      "bonus": 9,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Heavy",
+      "text": "−1 to Evasion",
+      "modifiers": [
+        {
+          "target": "evasion",
+          "value": -1
+        }
+      ]
+    }
+  }
+}

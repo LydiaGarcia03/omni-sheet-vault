@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "reckless",
+  "name": "Reckless",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 208,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Mark a Stress to gain advantage on an attack.",
+  "data": {
+    "domain": "blade",
+    "level": 2,
+    "type": "ability",
+    "recallCost": 1
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "iron-veil",
+  "name": "Iron Veil",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 78,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "This chain-link head covering renders the wearer invisible to fey creatures.",
+  "data": {
+    "category": "loot",
+    "roll": 23
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "book-of-ronin",
+  "name": "Book of Ronin",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 213,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Transform: Make a Spellcast Roll (15). On a success, transform into an inanimate object no larger than twice your normal size. You can remain in this shape until you take damage.\n\nEternal Enervation: Once per long rest, make a Spellcast Roll against a target within Close range. On a success, they become permanently Vulnerable. They can’t clear this condition by any means.",
+  "data": {
+    "domain": "codex",
+    "level": 9,
+    "type": "grimoire",
+    "recallCost": 4
+  }
+}

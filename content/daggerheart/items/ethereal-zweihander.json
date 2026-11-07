@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "ethereal-zweihander",
+  "name": "Ethereal Zweihänder",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 65,
+  "tags": [],
+  "description": "Ethereal: You must mark a Stress to conjure this weapon. It lasts until the end of the scene.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 4,
+    "trait": "Instinct",
+    "range": "Very Close",
+    "burden": 2,
+    "wheelchair": false,
+    "damage": {
+      "die": "d10",
+      "bonus": 9,
+      "type": "magic"
+    },
+    "feature": {
+      "name": "Ethereal",
+      "text": "You must mark a Stress to conjure this weapon. It lasts until the end of the scene."
+    }
+  }
+}

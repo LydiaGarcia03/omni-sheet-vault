@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "battle-hardened",
+  "name": "Battle-Hardened",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 208,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Once per long rest when you would make a Death Move, you can spend a Hope to clear a Hit Point instead.",
+  "data": {
+    "domain": "blade",
+    "level": 6,
+    "type": "ability",
+    "recallCost": 2
+  }
+}

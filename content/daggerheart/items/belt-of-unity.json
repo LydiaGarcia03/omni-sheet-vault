@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "belt-of-unity",
+  "name": "Belt of Unity",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 77,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Once per session, you can spend 5 Hope to lead a Tag Team Roll with three PCs instead of two.",
+  "data": {
+    "category": "loot",
+    "roll": 60
+  }
+}

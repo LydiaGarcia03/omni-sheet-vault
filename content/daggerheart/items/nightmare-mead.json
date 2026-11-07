@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "nightmare-mead",
+  "name": "Nightmare Mead",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 83,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "You can drink this potion to discover the deepest fear of the next person you make eye contact with. When you do, the GM gains a Fear.",
+  "data": {
+    "category": "consumable",
+    "roll": 42
+  }
+}

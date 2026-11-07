@@ -1,0 +1,30 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "advanced-banded-armor",
+  "name": "Advanced Banded Armor",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 73,
+  "tags": [],
+  "description": "Bulky: −1 to Evasion; when you take Severe damage, you must mark a Stress.",
+  "data": {
+    "category": "armor",
+    "tier": 3,
+    "baseThresholds": {
+      "major": 15,
+      "severe": 34
+    },
+    "baseScore": 6,
+    "feature": {
+      "name": "Bulky",
+      "text": "−1 to Evasion; when you take Severe damage, you must mark a Stress.",
+      "modifiers": [
+        {
+          "target": "evasion",
+          "value": -1
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "legendary-spear",
+  "name": "Legendary Spear",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 63,
+  "tags": [],
+  "description": null,
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 4,
+    "trait": "Finesse",
+    "range": "Very Close",
+    "burden": 2,
+    "wheelchair": false,
+    "damage": {
+      "die": "d8",
+      "bonus": 12,
+      "type": "physical"
+    },
+    "feature": null
+  }
+}

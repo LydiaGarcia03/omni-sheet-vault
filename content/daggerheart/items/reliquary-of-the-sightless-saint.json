@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "reliquary-of-the-sightless-saint",
+  "name": "Reliquary of the Sightless Saint",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 78,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "You gain a +1 bonus to your Hope Die when you make the Risk It All death move.",
+  "data": {
+    "category": "loot",
+    "roll": 30
+  }
+}

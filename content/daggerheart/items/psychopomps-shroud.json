@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "psychopomps-shroud",
+  "name": "Psychopomp’s Shroud",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 83,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "You can place this shroud over the corpse of a recently deceased creature. The creature’s spirit enters the shroud and becomes your spectral assistant until the next sunrise, when they pass through the veil of death and take the shroud with them.",
+  "data": {
+    "category": "consumable",
+    "roll": 44
+  }
+}

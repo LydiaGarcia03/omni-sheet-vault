@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "knuckle-claws",
+  "name": "Knuckle Claws",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 69,
+  "tags": [],
+  "description": "Doubled Up: When you make an attack with your primary weapon, you can deal damage to another target within Melee range.",
+  "data": {
+    "category": "weapon",
+    "slot": "secondary",
+    "tier": 4,
+    "trait": "Strength",
+    "range": "Melee",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d6",
+      "bonus": 8,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Doubled Up",
+      "text": "When you make an attack with your primary weapon, you can deal damage to another target within Melee range."
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "fighting-cloak",
+  "name": "Fighting Cloak",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 66,
+  "tags": [],
+  "description": "Padded: +2 to damage thresholds",
+  "data": {
+    "category": "weapon",
+    "slot": "secondary",
+    "tier": 1,
+    "trait": "Presence",
+    "range": "Melee",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d4",
+      "bonus": 0,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Padded",
+      "text": "+2 to damage thresholds",
+      "modifiers": [
+        {
+          "target": "majorThreshold",
+          "value": 2
+        },
+        {
+          "target": "severeThreshold",
+          "value": 2
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "chains-of-affliction",
+  "name": "Chains of Affliction",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 213,
+  "tags": [
+    "expansion"
+  ],
+  "description": "Mark 2 Stress to temporarily Chain a target within Close range. When a Chained creature deals damage, the target of their attack marks one fewer Hit Point than they normally would. You can’t have more than one creature Chained at a time.",
+  "data": {
+    "domain": "dread",
+    "level": 4,
+    "type": "spell",
+    "recallCost": 2
+  }
+}

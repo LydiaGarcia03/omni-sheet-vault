@@ -1,0 +1,24 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "rosewild-armor",
+  "name": "Rosewild Armor",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 73,
+  "tags": [],
+  "description": "Hopeful: When you would spend a Hope, you can mark an Armor Slot instead.",
+  "data": {
+    "category": "armor",
+    "tier": 2,
+    "baseThresholds": {
+      "major": 11,
+      "severe": 23
+    },
+    "baseScore": 5,
+    "feature": {
+      "name": "Hopeful",
+      "text": "When you would spend a Hope, you can mark an Armor Slot instead."
+    }
+  }
+}

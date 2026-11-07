@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "heros-helm",
+  "name": "Hero’s Helm",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 79,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "When you critically succeed on an attack, all allies within Close range gain a Hope.",
+  "data": {
+    "category": "loot",
+    "roll": 51
+  }
+}

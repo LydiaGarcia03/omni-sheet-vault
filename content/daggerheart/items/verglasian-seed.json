@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "verglasian-seed",
+  "name": "Verglasian Seed",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 82,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "You can use this ice shard to instantly freeze an area of water up to Close range.",
+  "data": {
+    "category": "consumable",
+    "roll": 3
+  }
+}

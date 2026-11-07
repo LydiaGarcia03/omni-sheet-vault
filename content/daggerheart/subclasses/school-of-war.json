@@ -1,0 +1,53 @@
+{
+  "systemId": "daggerheart",
+  "kind": "SUBCLASS",
+  "slug": "school-of-war",
+  "name": "School of War",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 31,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Play the School of War if you want to utilize trained magic for violence.",
+  "data": {
+    "classSlug": "wizard",
+    "spellcastTrait": "Knowledge",
+    "foundation": [
+      {
+        "name": "Battlemage",
+        "text": "You’ve focused your studies on becoming an unconquerable force on the battlefield. Gain an additional Hit Point slot.",
+        "modifiers": [
+          {
+            "target": "hitPointSlots",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "name": "Face Your Fear",
+        "text": "When you succeed with Fear on an attack roll, you deal an extra 1d10 magic damage."
+      }
+    ],
+    "specialization": [
+      {
+        "name": "Conjure Shield",
+        "text": "You can maintain a protective barrier of magic. While you have at least 2 Hope, you add your Proficiency to your Evasion."
+      },
+      {
+        "name": "Fueled by Fear",
+        "text": "The extra magic damage from your “Face Your Fear” feature increases to 2d10."
+      }
+    ],
+    "mastery": [
+      {
+        "name": "Thrive in Chaos",
+        "text": "When you succeed on an attack, you can mark a Stress after rolling damage to force the target to mark an additional Hit Point."
+      },
+      {
+        "name": "Have No Fear",
+        "text": "The extra magic damage from your “Face Your Fear” feature increases to 3d10."
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+/* Daggerheart's mark in the app header */
+.dh-system-mark { display: inline-flex; align-items: center; gap: 9px; white-space: nowrap; }
+.dh-system-mark__logo { width: 22px; height: 23px; flex-shrink: 0; background: url(./assets/logo-gold.png) center / contain no-repeat; }
+.dh-system-mark__name { font: 700 16px 'Cinzel', Georgia, serif; letter-spacing: .06em; text-transform: uppercase; color: #f2c55c; }
+.dh-system-mark__edition { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(255, 255, 255, .55); }
+
+/* Behind a Daggerheart page the document stays dark */
+html:has(.dh-page), body:has(.dh-page) { background: #0a0f24; }
+/* The app footer on Daggerheart pages, on the deep navy with gold links */
+.dh-page .app-footer { background: #0a0f24; color: #c9c6ea; border-top: 1.5px solid #e39a3b; }
+.dh-page .app-footer a { color: #f2c55c; }

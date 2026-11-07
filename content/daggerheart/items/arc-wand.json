@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "arc-wand",
+  "name": "Arc Wand",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 62,
+  "tags": [],
+  "description": "Bouncing: Mark any number of Stress to target that many additional creatures in range of the attack.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 3,
+    "trait": "Presence",
+    "range": "Close",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d8",
+      "bonus": 6,
+      "type": "magic"
+    },
+    "feature": {
+      "name": "Bouncing",
+      "text": "Mark any number of Stress to target that many additional creatures in range of the attack."
+    }
+  }
+}

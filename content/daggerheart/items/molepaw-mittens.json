@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "molepaw-mittens",
+  "name": "Molepaw Mittens",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 79,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "Spend a Hope to swim through earth as if it were water for the next 10 minutes.",
+  "data": {
+    "category": "loot",
+    "roll": 46
+  }
+}

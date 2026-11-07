@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "rousing-strike",
+  "name": "Rousing Strike",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 223,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Once per rest, when you critically succeed on an attack, you and all allies who can see or hear you can clear a Hit Point or 1d4 Stress.",
+  "data": {
+    "domain": "valor",
+    "level": 5,
+    "type": "ability",
+    "recallCost": 1
+  }
+}

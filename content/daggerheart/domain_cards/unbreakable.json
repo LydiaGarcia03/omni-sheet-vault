@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "unbreakable",
+  "name": "Unbreakable",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 224,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When you mark your last Hit Point, instead of making a death move, you can roll a d6 and clear a number of Hit Points equal to the result. Then place this card in your vault.",
+  "data": {
+    "domain": "valor",
+    "level": 10,
+    "type": "ability",
+    "recallCost": 4
+  }
+}

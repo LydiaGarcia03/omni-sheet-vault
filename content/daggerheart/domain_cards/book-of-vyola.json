@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "book-of-vyola",
+  "name": "Book of Vyola",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 212,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Memory Delve: Make a Spellcast Roll against a target within Far range. On a success, peer into the target’s mind and ask the GM a question. The GM describes any memories the target has pertaining to the answer.\n\nShared Clarity: Once per long rest, spend a Hope to choose two willing creatures. When one of them would mark Stress, they can choose between the two of them who marks it. This spell lasts until their next rest.",
+  "data": {
+    "domain": "codex",
+    "level": 8,
+    "type": "grimoire",
+    "recallCost": 2
+  }
+}

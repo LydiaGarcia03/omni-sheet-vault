@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "advanced-focus-runes",
+  "name": "Advanced Focus Runes",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 68,
+  "tags": [],
+  "description": "Focused: +1 to primary weapon damage to targets within Very Close range",
+  "data": {
+    "category": "weapon",
+    "slot": "secondary",
+    "tier": 3,
+    "trait": "Instinct",
+    "range": "Very Close",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d6",
+      "bonus": 4,
+      "type": "magic"
+    },
+    "feature": {
+      "name": "Focused",
+      "text": "+1 to primary weapon damage to targets within Very Close range"
+    }
+  }
+}

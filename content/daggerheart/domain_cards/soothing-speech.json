@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "soothing-speech",
+  "name": "Soothing Speech",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 215,
+  "tags": [
+    "core-set"
+  ],
+  "description": "During a short rest, when you take the time to comfort another character while using the Tend to Wounds downtime move on them, clear an additional Hit Point on that character. When you do, you also clear 2 Hit Points.",
+  "data": {
+    "domain": "grace",
+    "level": 4,
+    "type": "ability",
+    "recallCost": 1
+  }
+}

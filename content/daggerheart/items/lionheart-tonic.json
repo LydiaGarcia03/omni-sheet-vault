@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "lionheart-tonic",
+  "name": "Lionheart Tonic",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 84,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "You can drink this tonic to gain a +1 bonus to your Proficiency until you roll with Fear.",
+  "data": {
+    "category": "consumable",
+    "roll": 58
+  }
+}

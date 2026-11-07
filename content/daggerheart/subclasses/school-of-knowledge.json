@@ -1,0 +1,47 @@
+{
+  "systemId": "daggerheart",
+  "kind": "SUBCLASS",
+  "slug": "school-of-knowledge",
+  "name": "School of Knowledge",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 31,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Play the School of Knowledge if you want a keen understanding of the world around you.",
+  "data": {
+    "classSlug": "wizard",
+    "spellcastTrait": "Knowledge",
+    "foundation": [
+      {
+        "name": "Prepared",
+        "text": "Take an additional domain card of your level or lower from a domain you have access to."
+      },
+      {
+        "name": "Adept",
+        "text": "When you Utilize an Experience, you can mark a Stress instead of spending a Hope. If you do, double your Experience modifier for that roll."
+      }
+    ],
+    "specialization": [
+      {
+        "name": "Accomplished",
+        "text": "Take an additional domain card of your level or lower from a domain you have access to."
+      },
+      {
+        "name": "Perfect Recall",
+        "text": "Once per rest, when you recall a domain card in your vault, you can reduce its Recall Cost by 1."
+      }
+    ],
+    "mastery": [
+      {
+        "name": "Brilliant",
+        "text": "Take an additional domain card of your level or lower from a domain you have access to."
+      },
+      {
+        "name": "Honed Expertise",
+        "text": "When you use an Experience, roll a d6. On a result of 5 or higher, you can use it without spending Hope."
+      }
+    ]
+  }
+}

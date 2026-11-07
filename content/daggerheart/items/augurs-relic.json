@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "augurs-relic",
+  "name": "Augur’s Relic",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 79,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "Once per long rest, you can activate your Hope feature without spending Hope. You can carry only one relic.",
+  "data": {
+    "category": "loot",
+    "roll": 60
+  }
+}

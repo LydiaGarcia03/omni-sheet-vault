@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "homing-compasses",
+  "name": "Homing Compasses",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 76,
+  "tags": [
+    "core-set"
+  ],
+  "description": "These two compasses point toward each other no matter how far apart they are.",
+  "data": {
+    "category": "loot",
+    "roll": 20
+  }
+}

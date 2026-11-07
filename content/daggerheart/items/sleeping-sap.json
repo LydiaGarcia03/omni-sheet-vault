@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "sleeping-sap",
+  "name": "Sleeping Sap",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 81,
+  "tags": [
+    "core-set"
+  ],
+  "description": "You can drink this potion to fall asleep for a full night’s rest. You clear all Stress upon waking.",
+  "data": {
+    "category": "consumable",
+    "roll": 50
+  }
+}

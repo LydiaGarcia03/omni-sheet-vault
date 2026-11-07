@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "counterspell",
+  "name": "Counterspell",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 206,
+  "tags": [
+    "core-set"
+  ],
+  "description": "You can interrupt a magical effect taking place by making a reaction roll using your Spellcast trait. On a success, the effect stops and any consequences are avoided, and this card is placed in your vault.",
+  "data": {
+    "domain": "arcana",
+    "level": 3,
+    "type": "spell",
+    "recallCost": 2
+  }
+}

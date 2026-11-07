@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "gloves-of-alacrity",
+  "name": "Gloves of Alacrity",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 78,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "When you would mark a Stress to reload a weapon, you don’t mark it.",
+  "data": {
+    "category": "loot",
+    "roll": 37
+  }
+}

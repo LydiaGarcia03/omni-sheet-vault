@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "night-hags-dust",
+  "name": "Night Hag’s Dust",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 82,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "You can blow this dust in an adversary’s face to prevent them from clearing Stress until your next long rest.",
+  "data": {
+    "category": "consumable",
+    "roll": 24
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ANCESTRY",
+  "slug": "human",
+  "name": "Human",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 36,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Humans are most easily recognized by their dexterous hands, rounded ears, and bodies built for endurance. Their average height ranges from just under 5 feet to about 6 ½ feet. They have a wide variety of builds, with some being quite broad, others lithe, and many inhabiting the spectrum in between. Humans are physically adaptable and adjust to harsh climates with relative ease. In general, humans live to an age of about 100, with their bodies changing dramatically between their youngest and oldest years.",
+  "data": {
+    "features": [
+      {
+        "name": "High Stamina",
+        "text": "Gain an additional Stress slot at character creation.",
+        "modifiers": [
+          {
+            "target": "stressSlots",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "name": "Adaptability",
+        "text": "When you fail a roll that utilized one of your Experiences, you can mark a Stress to reroll."
+      }
+    ],
+    "family": null
+  }
+}

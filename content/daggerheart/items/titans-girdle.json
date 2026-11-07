@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "titans-girdle",
+  "name": "Titan’s Girdle",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 78,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "Once per scene, you can activate this girdle to gain a +1 bonus to your Proficiency for your next attack.",
+  "data": {
+    "category": "loot",
+    "roll": 22
+  }
+}

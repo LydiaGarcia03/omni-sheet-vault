@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "stealth-expertise",
+  "name": "Stealth Expertise",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 217,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When you roll with Fear while attempting to move unnoticed through a dangerous area, you can mark a Stress to roll with Hope instead.\n\nIf an ally within Close range is also attempting to move unnoticed and rolls with Fear, you can mark a Stress to change their result to a roll with Hope.",
+  "data": {
+    "domain": "midnight",
+    "level": 4,
+    "type": "ability",
+    "recallCost": 0
+  }
+}

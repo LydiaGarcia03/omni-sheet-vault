@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "steelforged-halberd",
+  "name": "Steelforged Halberd",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 58,
+  "tags": [],
+  "description": "Scary: On a successful attack, the target must mark a Stress.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 2,
+    "trait": "Strength",
+    "range": "Very Close",
+    "burden": 2,
+    "wheelchair": false,
+    "damage": {
+      "die": "d8",
+      "bonus": 4,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Scary",
+      "text": "On a successful attack, the target must mark a Stress."
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "hypnotic-shimmer",
+  "name": "Hypnotic Shimmer",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 215,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Make a Spellcast Roll against all adversaries in front of you within Close range. Once per rest on a success, create an illusion of flashing colors and lights that temporarily Stuns targets you succeed against and forces them to mark a Stress. While Stunned, they can’t use reactions and can’t take any other actions until they clear this condition.",
+  "data": {
+    "domain": "grace",
+    "level": 3,
+    "type": "spell",
+    "recallCost": 1
+  }
+}

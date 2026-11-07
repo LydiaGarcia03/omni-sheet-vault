@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "jumping-root",
+  "name": "Jumping Root",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 80,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Eat this root to leap up to Far range once without needing to roll.",
+  "data": {
+    "category": "consumable",
+    "roll": 17
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "timekeepers-pendant",
+  "name": "Timekeeper’s Pendant",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 79,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "You can choose an additional downtime move each rest.",
+  "data": {
+    "category": "loot",
+    "roll": 47
+  }
+}

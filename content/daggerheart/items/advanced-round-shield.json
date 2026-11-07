@@ -1,0 +1,35 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "advanced-round-shield",
+  "name": "Advanced Round Shield",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 68,
+  "tags": [],
+  "description": "Protective: +3 to Armor Score",
+  "data": {
+    "category": "weapon",
+    "slot": "secondary",
+    "tier": 3,
+    "trait": "Strength",
+    "range": "Melee",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d4",
+      "bonus": 4,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Protective",
+      "text": "+3 to Armor Score",
+      "modifiers": [
+        {
+          "target": "armorScore",
+          "value": 3
+        }
+      ]
+    }
+  }
+}

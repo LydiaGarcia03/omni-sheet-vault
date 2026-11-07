@@ -1,0 +1,47 @@
+{
+  "systemId": "daggerheart",
+  "kind": "SUBCLASS",
+  "slug": "pact-of-the-endless",
+  "name": "Pact of the Endless",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 27,
+  "tags": [
+    "expansion"
+  ],
+  "description": "Play the Pact of the Endless if you want to stand strong against enemies and avoid death.",
+  "data": {
+    "classSlug": "warlock",
+    "spellcastTrait": "Presence",
+    "foundation": [
+      {
+        "name": "Patron’s Mantle",
+        "text": "Spend a Favor to cloak yourself in a terrifying aspect of your Patron that lasts until you take Severe damage or the scene ends. While this effect is active, you gain a bonus to your damage thresholds equal to your tier and have advantage on action rolls to intimidate a target."
+      },
+      {
+        "name": "Deathless Embrace",
+        "text": "Once per rest, spend any number of Favor to roll an equal number of Patron Dice. For each result of 4 or higher, clear a Hit Point."
+      }
+    ],
+    "specialization": [
+      {
+        "name": "Harrowing Invocation",
+        "text": "When an adversary targets you or an ally within Very Close range with an attack, you can spend a Favor to give them disadvantage on the roll. If the adversary fails the roll, they must also mark a Stress."
+      },
+      {
+        "name": "Damage Sink",
+        "text": "Once per rest, you can spend a Favor to halve incoming damage."
+      }
+    ],
+    "mastery": [
+      {
+        "name": "Dark Aegis",
+        "text": "Once per long rest when you would take damage, you can spend a Favor instead of marking Hit Points."
+      },
+      {
+        "name": "Draining Bane",
+        "text": "When an adversary targets you or an ally within Very Close range with an attack, you can spend a Favor to Drain them. When you do, they must mark a Stress, and you can clear a Stress. While Drained, the target uses a d12 instead of a d20 for attack rolls (including for advantage or disadvantage) until they fail a roll."
+      }
+    ]
+  }
+}

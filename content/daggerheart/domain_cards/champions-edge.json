@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "champions-edge",
+  "name": "Champion’s Edge",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 208,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When you critically succeed on an attack, you can spend up to 3 Hope and choose one of the following options for each Hope spent:\n◦ You clear a Hit Point.\n◦ You clear an Armor Slot.\n◦ The target must mark an additional Hit Point. You can’t choose the same option more than once.",
+  "data": {
+    "domain": "blade",
+    "level": 5,
+    "type": "ability",
+    "recallCost": 1
+  }
+}

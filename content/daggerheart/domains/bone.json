@@ -1,0 +1,20 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN",
+  "slug": "bone",
+  "name": "Bone",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 7,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Bone is the domain of tactics and the body. Practitioners of this domain have an uncanny control over their own physical abilities and an eye for predicting the behaviors of others in combat. Adherents to Bone gain an unparalleled understanding of bodies and their movements. The Bone domain can be accessed by the Brawler, Ranger, and Warrior classes.",
+  "data": {
+    "classes": [
+      "brawler",
+      "ranger",
+      "warrior"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "never-upstaged",
+  "name": "Never Upstaged",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 215,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When you mark 1 or more Hit Points from an attack, you can mark a Stress to place a number of tokens equal to the number of Hit Points you marked on this card. On your next successful attack, gain a +5 bonus to your damage roll for each token on this card, then clear all tokens.",
+  "data": {
+    "domain": "grace",
+    "level": 6,
+    "type": "ability",
+    "recallCost": 2
+  }
+}

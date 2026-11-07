@@ -1,0 +1,77 @@
+{
+  "systemId": "daggerheart",
+  "kind": "SUBCLASS",
+  "slug": "stalwart",
+  "name": "Stalwart",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 19,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Play the Stalwart if you want to take heavy blows and keep fighting.",
+  "data": {
+    "classSlug": "guardian",
+    "spellcastTrait": null,
+    "foundation": [
+      {
+        "name": "Unwavering",
+        "text": "Gain a permanent +1 bonus to your damage thresholds.",
+        "modifiers": [
+          {
+            "target": "majorThreshold",
+            "value": 1
+          },
+          {
+            "target": "severeThreshold",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "name": "Iron Will",
+        "text": "When you take physical damage, you can mark an additional Armor Slot to reduce the severity."
+      }
+    ],
+    "specialization": [
+      {
+        "name": "Unrelenting",
+        "text": "Gain a permanent +2 bonus to your damage thresholds.",
+        "modifiers": [
+          {
+            "target": "majorThreshold",
+            "value": 2
+          },
+          {
+            "target": "severeThreshold",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "name": "Partners-in-Arms",
+        "text": "When an ally within Very Close range takes damage, you can mark an Armor Slot to reduce the severity by one threshold."
+      }
+    ],
+    "mastery": [
+      {
+        "name": "Undaunted",
+        "text": "Gain a permanent +3 bonus to your damage thresholds.",
+        "modifiers": [
+          {
+            "target": "majorThreshold",
+            "value": 3
+          },
+          {
+            "target": "severeThreshold",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "name": "Loyal Protector",
+        "text": "When an ally within Close range has 2 or fewer Hit Points and would take damage, you can mark a Stress to sprint to their side and take the damage instead."
+      }
+    ]
+  }
+}

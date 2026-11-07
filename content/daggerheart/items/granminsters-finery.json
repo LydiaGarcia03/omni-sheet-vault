@@ -1,0 +1,24 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "granminsters-finery",
+  "name": "Granminster’s Finery",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 73,
+  "tags": [],
+  "description": "Magnificent: Gain a bonus to your Armor Score equal to your Presence.",
+  "data": {
+    "category": "armor",
+    "tier": 3,
+    "baseThresholds": {
+      "major": 11,
+      "severe": 27
+    },
+    "baseScore": 2,
+    "feature": {
+      "name": "Magnificent",
+      "text": "Gain a bonus to your Armor Score equal to your Presence."
+    }
+  }
+}

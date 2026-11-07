@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "staff-of-augma",
+  "name": "Staff of Augma",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 63,
+  "tags": [],
+  "description": "Catalytic: On a successful attack, you can mark a Stress to give an ally within Close range a +3 bonus to their next attack roll.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 3,
+    "trait": "Instinct",
+    "range": "Far",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d6",
+      "bonus": 7,
+      "type": "magic"
+    },
+    "feature": {
+      "name": "Catalytic",
+      "text": "On a successful attack, you can mark a Stress to give an ally within Close range a +3 bonus to their next attack roll."
+    }
+  }
+}

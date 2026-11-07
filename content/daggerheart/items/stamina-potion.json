@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "stamina-potion",
+  "name": "Stamina Potion",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 80,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Clear 1d4+1 Stress.",
+  "data": {
+    "category": "consumable",
+    "roll": 20
+  }
+}

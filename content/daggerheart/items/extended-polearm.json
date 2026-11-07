@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "extended-polearm",
+  "name": "Extended Polearm",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 64,
+  "tags": [],
+  "description": "Long: This weapon’s attack targets all adversaries in a line within range.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 4,
+    "trait": "Finesse",
+    "range": "Very Close",
+    "burden": 2,
+    "wheelchair": false,
+    "damage": {
+      "die": "d8",
+      "bonus": 10,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Long",
+      "text": "This weapon’s attack targets all adversaries in a line within range."
+    }
+  }
+}

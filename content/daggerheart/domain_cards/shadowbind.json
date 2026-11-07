@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "shadowbind",
+  "name": "Shadowbind",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 217,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Make a Spellcast Roll against all adversaries within Very Close range. Targets you succeed against are temporarily Restrained as their shadow binds them in place.",
+  "data": {
+    "domain": "midnight",
+    "level": 2,
+    "type": "spell",
+    "recallCost": 0
+  }
+}

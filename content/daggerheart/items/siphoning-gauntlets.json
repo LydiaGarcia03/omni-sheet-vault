@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "siphoning-gauntlets",
+  "name": "Siphoning Gauntlets",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 65,
+  "tags": [],
+  "description": "Lifestealing: On a successful attack, roll a d6. On a result of 6, clear a Hit Point or clear a Stress.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 4,
+    "trait": "Presence",
+    "range": "Melee",
+    "burden": 2,
+    "wheelchair": false,
+    "damage": {
+      "die": "d10",
+      "bonus": 9,
+      "type": "magic"
+    },
+    "feature": {
+      "name": "Lifestealing",
+      "text": "On a successful attack, roll a d6. On a result of 6, clear a Hit Point or clear a Stress."
+    }
+  }
+}

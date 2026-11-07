@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "mandragorian-torch",
+  "name": "Mandragorian Torch",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 78,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "This torch gives off light only the bearer can see.",
+  "data": {
+    "category": "loot",
+    "roll": 17
+  }
+}

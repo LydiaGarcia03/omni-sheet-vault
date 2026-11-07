@@ -1,0 +1,35 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "black-powder-serpentine",
+  "name": "Black Powder Serpentine",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 64,
+  "tags": [],
+  "description": "Incendiary: −1 to Agility; on a successful attack, all creatures within Very Close range of the target must mark a Hit Point.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 4,
+    "trait": "Strength",
+    "range": "Far",
+    "burden": 2,
+    "wheelchair": false,
+    "damage": {
+      "die": "d8",
+      "bonus": 12,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Incendiary",
+      "text": "−1 to Agility; on a successful attack, all creatures within Very Close range of the target must mark a Hit Point.",
+      "modifiers": [
+        {
+          "target": "agility",
+          "value": -1
+        }
+      ]
+    }
+  }
+}

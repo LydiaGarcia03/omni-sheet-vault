@@ -1,0 +1,103 @@
+/* Daggerheart's design system (v3 mocks), shared by the builder and the sheet, scoped to .dh-page */
+.dh-page {
+  --navy: #1e1a4f;
+  --navy-2: #282365;
+  --navy-3: #332d7a;
+  --navy-deep: #0a0f24;
+  --gold: #f2c55c;
+  --gold-2: #e39a3b;
+  --gold-ink: #9a6a12;
+  --paper: #f1f2f4;
+  --paper-2: #ffffff;
+  --paper-line: #d9dbe3;
+  --ink: #1d1b33;
+  --ink-2: #55546c;
+  --on-navy: #ffffff;
+  --on-navy-2: #c9c6ea;
+  --fear: #6d3fd1;
+  --sage: #1f8a4c;
+  --hp: #c94a3a;
+  --stress: #2f6fbf;
+  --blue-btn: linear-gradient(90deg, #3a7fd3, #6a3fbf);
+  --display: 'Cinzel', Georgia, serif;
+  --body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+
+  min-height: 100vh;
+  font: 13px/1.4 var(--body);
+  color: var(--on-navy);
+  background: var(--navy-deep) url(./assets/builder-bg.webp) center top / cover fixed;
+}
+.dh-page *, .dh-page *::before, .dh-page *::after { box-sizing: border-box; }
+.dh-page h1, .dh-page h2, .dh-page h3, .dh-page h4 { margin: 0; font-family: var(--display); font-weight: 700; }
+.dh-page button { font: inherit; cursor: pointer; }
+.dh-page a { color: inherit; text-decoration: none; }
+
+/* Frame: gold border plus the four corner ornaments */
+.dh-page .dh-frame { position: relative; border: 2px solid var(--gold); }
+.dh-page .dh-frame::after {
+  content: ''; position: absolute; inset: -6px; pointer-events: none; z-index: 3;
+  background:
+    url(./assets/right-left-t.webp) left top / 36px 35px no-repeat,
+    url(./assets/right-right-t.webp) right top / 36px 35px no-repeat,
+    url(./assets/right-bottom-left.webp) left bottom / 32px 31px no-repeat,
+    url(./assets/right-bottom-right.webp) right bottom / 32px 31px no-repeat;
+}
+.dh-page .dh-frame.navy { background: var(--navy); color: var(--on-navy); }
+.dh-page .dh-frame.paper { background: var(--paper); color: var(--ink); }
+.dh-page .muted { color: var(--on-navy-2); }
+.dh-page .problem { margin: 0 0 10px; padding: 6px 10px; background: rgba(201, 74, 58, .18); border-left: 3px solid #c94a3a; color: #ffd9d3; font-size: 12px; }
+
+/* Section title with its ornaments */
+.dh-page .dh-title { display: flex; align-items: center; margin: 0 0 10px; }
+.dh-page .dh-title::before, .dh-page .dh-title::after { content: ''; flex: 1; min-width: 20px; height: 13px; background: url(./assets/mid-left.webp) right center / auto 100% no-repeat; }
+.dh-page .dh-title::after { background-image: url(./assets/mid-right.webp); background-position: left center; }
+.dh-page .dh-title > span, .dh-page .dh-title > button > span { background: var(--navy); color: #fff; border: 1.5px solid var(--gold); border-radius: 3px; padding: 3px 14px; font: 700 11.5px var(--display); letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+.dh-page .dh-title span em { font-style: normal; color: var(--gold); margin-left: 8px; }
+
+.dh-page .dh-badge { display: inline-block; background: var(--gold); color: var(--ink); border: 1px solid var(--gold-2); border-radius: 3px; padding: 1px 7px; font: 700 9.5px var(--display); letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; }
+.dh-page .dh-badge.done { background: #d5efe0; border-color: var(--sage); color: #0f5a33; }
+
+/* Stat frames */
+.dh-page .stat { display: grid; place-items: center; width: 56px; height: 59px; padding-bottom: 7px; background: url(./assets/stat-box-bg.webp) center / contain no-repeat; color: var(--ink); font: 700 20px var(--display); }
+.dh-page .stat.evasion { background-image: url(./assets/evasion-bg.webp); }
+.dh-page .stat.armor { background-image: url(./assets/armor-bg.webp); }
+.dh-page .stat.level { background-image: url(./assets/level-bg.webp); }
+.dh-page .plate { display: inline-block; background: var(--navy); color: #fff; border: 1.5px solid var(--gold); border-radius: 3px; padding: 1px 7px; font: 700 9.5px var(--display); letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+
+/* Domain icons from the 3x3 sprite: white by default, dark on paper */
+.dh-page .dom-ico { display: inline-block; width: 15px; height: 15px; flex: none; vertical-align: -3px; background: url(./assets/domain-icons.png) 0 0 / 300% 300% no-repeat; filter: brightness(0) invert(1); }
+.dh-page .dom-ico.dark { filter: brightness(0); opacity: .8; }
+.dh-page .dom-codex { background-position: 0 0; }
+.dh-page .dom-grace { background-position: 50% 0; }
+.dh-page .dom-midnight { background-position: 100% 0; }
+.dh-page .dom-bone { background-position: 0 50%; }
+.dh-page .dom-splendor { background-position: 50% 50%; }
+.dh-page .dom-sage { background-position: 100% 50%; }
+.dh-page .dom-valor { background-position: 0 100%; }
+.dh-page .dom-arcana { background-position: 50% 100%; }
+.dh-page .dom-blade { background-position: 100% 100%; }
+.dh-page .dom-dread { background: none; filter: none; border: 2px solid currentColor; border-radius: 50%; transform: scale(.8); }
+.dh-page .dom-label { display: inline-flex; align-items: center; gap: 4px; }
+
+/* Domain cards and feature cards */
+.dh-page .dcard { position: relative; display: flex; flex-direction: column; min-height: 200px; padding: 0; background: var(--paper-2); color: var(--ink); border: 1.5px solid var(--gold-2); border-radius: 8px; overflow: hidden; text-align: left; transition: transform .12s, box-shadow .12s; }
+.dh-page .dcard:hover:not(:disabled) { transform: translateY(-3px); box-shadow: 0 8px 18px rgba(10, 12, 40, .3); }
+.dh-page .dcard:disabled { opacity: .55; cursor: default; }
+.dh-page .dcard__head { display: flex; align-items: center; gap: 6px; padding: 5px 8px; color: #fff; font: 700 9.5px var(--body); letter-spacing: .07em; text-transform: uppercase; }
+.dh-page .dcard__head .recall { margin-left: auto; background: rgba(0, 0, 0, .28); border-radius: 999px; padding: 1px 7px; }
+.dh-page .dcard__name { display: block; padding: 7px 34px 0 9px; font: 700 13px var(--display); text-transform: uppercase; color: var(--ink); }
+.dh-page .dcard__type { display: block; padding: 0 9px; font: 700 9.5px var(--display); color: var(--gold-ink); text-transform: uppercase; letter-spacing: .05em; }
+.dh-page .dcard__text { display: -webkit-box; margin: 5px 9px 8px; font-size: 11.5px; line-height: 1.4; color: #34324c; -webkit-line-clamp: 7; -webkit-box-orient: vertical; overflow: hidden; white-space: pre-line; }
+.dh-page .dcard.is-selected { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+/* Buttons */
+.dh-page .dh-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: var(--navy); color: #fff; border: 1.5px solid var(--gold); border-radius: 3px; padding: 5px 12px; font: 700 11px var(--display); letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+.dh-page .dh-btn:hover:not(:disabled) { background: var(--navy-3); }
+.dh-page .dh-btn:disabled { opacity: .45; cursor: default; }
+.dh-page .dh-btn.gold { background: var(--gold); color: var(--ink); border-color: var(--gold-2); }
+.dh-page .dh-btn.ghost { background: transparent; }
+.dh-page .dh-btn.light { background: #fff; color: var(--navy); border-color: var(--navy); }
+.dh-page .dh-btn.light:hover:not(:disabled) { background: #eef0f7; }
+.dh-page .dh-btn.sm { padding: 3px 8px; font-size: 10px; }
+.dh-page .field { width: 100%; padding: 7px 10px; background: #fff; color: var(--ink); border: 1.5px solid var(--paper-line); border-radius: 3px; font: inherit; }
+.dh-page textarea.field { resize: vertical; }

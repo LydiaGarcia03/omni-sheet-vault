@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "meridian-cutlass",
+  "name": "Meridian Cutlass",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 61,
+  "tags": [],
+  "description": "Dueling: When there are no other creatures within Close range of the target, gain advantage on your attack roll against them.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 3,
+    "trait": "Presence",
+    "range": "Melee",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d10",
+      "bonus": 5,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Dueling",
+      "text": "When there are no other creatures within Close range of the target, gain advantage on your attack roll against them."
+    }
+  }
+}

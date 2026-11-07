@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "travelers-bell",
+  "name": "Traveler’s Bell",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 78,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "Once per long rest, you can ring this bell to magically open the shortest safe path through rough terrain for 1 hour.",
+  "data": {
+    "category": "loot",
+    "roll": 16
+  }
+}

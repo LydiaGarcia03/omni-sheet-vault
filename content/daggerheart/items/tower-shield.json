@@ -1,0 +1,39 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "tower-shield",
+  "name": "Tower Shield",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 66,
+  "tags": [],
+  "description": "Barrier: +2 to Armor Score; −1 to Evasion",
+  "data": {
+    "category": "weapon",
+    "slot": "secondary",
+    "tier": 1,
+    "trait": "Strength",
+    "range": "Melee",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d6",
+      "bonus": 0,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Barrier",
+      "text": "+2 to Armor Score; −1 to Evasion",
+      "modifiers": [
+        {
+          "target": "armorScore",
+          "value": 2
+        },
+        {
+          "target": "evasion",
+          "value": -1
+        }
+      ]
+    }
+  }
+}

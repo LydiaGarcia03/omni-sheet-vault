@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "hollowbark-horn",
+  "name": "Hollowbark Horn",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 78,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "You can blow this horn to summon a small woodland creature to perform a simple task.",
+  "data": {
+    "category": "loot",
+    "roll": 13
+  }
+}

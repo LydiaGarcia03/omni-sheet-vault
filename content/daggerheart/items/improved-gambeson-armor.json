@@ -1,0 +1,30 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "improved-gambeson-armor",
+  "name": "Improved Gambeson Armor",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 72,
+  "tags": [],
+  "description": "Flexible: +1 to Evasion",
+  "data": {
+    "category": "armor",
+    "tier": 2,
+    "baseThresholds": {
+      "major": 7,
+      "severe": 16
+    },
+    "baseScore": 4,
+    "feature": {
+      "name": "Flexible",
+      "text": "+1 to Evasion",
+      "modifiers": [
+        {
+          "target": "evasion",
+          "value": 1
+        }
+      ]
+    }
+  }
+}

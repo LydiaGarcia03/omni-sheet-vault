@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "tempest",
+  "name": "Tempest",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 220,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Choose one of the following tempests and make a Spellcast Roll against all targets within Far range. Targets you succeed against experience its effects until the GM spends a Fear on their turn to end this spell.\n◦ Blizzard: Deal 2d20+8 magic damage and targets are temporararily Vulnerable.\n◦ Hurricane: Deal 3d10+10 magic damage and choose a direction the wind is blowing. Targets can’t move against the wind.\n◦ Sandstorm: Deal 5d6+9 magic damage. Attacks made from beyond Melee range have disadvantage.",
+  "data": {
+    "domain": "sage",
+    "level": 10,
+    "type": "spell",
+    "recallCost": 2
+  }
+}

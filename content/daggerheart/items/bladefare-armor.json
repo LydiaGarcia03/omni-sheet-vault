@@ -1,0 +1,24 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "bladefare-armor",
+  "name": "Bladefare Armor",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 73,
+  "tags": [],
+  "description": "Physical: You can’t mark an Armor Slot to reduce magic damage.",
+  "data": {
+    "category": "armor",
+    "tier": 3,
+    "baseThresholds": {
+      "major": 16,
+      "severe": 39
+    },
+    "baseScore": 6,
+    "feature": {
+      "name": "Physical",
+      "text": "You can’t mark an Armor Slot to reduce magic damage."
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "bellamoi-fine-armor",
+  "name": "Bellamoi Fine Armor",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 73,
+  "tags": [],
+  "description": "Gilded: +1 to Presence",
+  "data": {
+    "category": "armor",
+    "tier": 3,
+    "baseThresholds": {
+      "major": 11,
+      "severe": 27
+    },
+    "baseScore": 5,
+    "feature": {
+      "name": "Gilded",
+      "text": "+1 to Presence",
+      "modifiers": [
+        {
+          "target": "presence",
+          "value": 1
+        }
+      ]
+    }
+  }
+}

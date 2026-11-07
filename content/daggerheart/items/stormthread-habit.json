@@ -1,0 +1,24 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "stormthread-habit",
+  "name": "Stormthread Habit",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 73,
+  "tags": [],
+  "description": "Absorbing: Once per scene when you take magic damage, you can clear an Armor Slot.",
+  "data": {
+    "category": "armor",
+    "tier": 2,
+    "baseThresholds": {
+      "major": 9,
+      "severe": 20
+    },
+    "baseScore": 4,
+    "feature": {
+      "name": "Absorbing",
+      "text": "Once per scene when you take magic damage, you can clear an Armor Slot."
+    }
+  }
+}

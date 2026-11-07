@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "dark-whispers",
+  "name": "Dark Whispers",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 217,
+  "tags": [
+    "core-set"
+  ],
+  "description": "You can speak into the mind of any person with whom you’ve made physical contact. Once you’ve opened a channel with them, they can speak back into your mind. Additionally, you can mark a Stress to make a Spellcast Roll against them. On a success, you can ask the GM one of the following questions and receive an answer:\n◦ Where are they?\n◦ What are they doing?\n◦ What are they afraid of?\n◦ What do they cherish most in the world?",
+  "data": {
+    "domain": "midnight",
+    "level": 6,
+    "type": "spell",
+    "recallCost": 0
+  }
+}

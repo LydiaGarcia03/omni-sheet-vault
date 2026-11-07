@@ -1,0 +1,24 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "full-fortified-armor",
+  "name": "Full Fortified Armor",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 74,
+  "tags": [],
+  "description": "Fortified: When you mark an Armor Slot, you reduce the severity of an attack by two thresholds instead of one.",
+  "data": {
+    "category": "armor",
+    "tier": 4,
+    "baseThresholds": {
+      "major": 15,
+      "severe": 40
+    },
+    "baseScore": 4,
+    "feature": {
+      "name": "Fortified",
+      "text": "When you mark an Armor Slot, you reduce the severity of an attack by two thresholds instead of one."
+    }
+  }
+}

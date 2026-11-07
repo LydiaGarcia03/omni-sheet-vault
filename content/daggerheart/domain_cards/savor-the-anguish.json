@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "savor-the-anguish",
+  "name": "Savor the Anguish",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 214,
+  "tags": [
+    "expansion"
+  ],
+  "description": "When an adversary within Close range takes Severe damage, you can clear a Stress.",
+  "data": {
+    "domain": "dread",
+    "level": 9,
+    "type": "ability",
+    "recallCost": 1
+  }
+}

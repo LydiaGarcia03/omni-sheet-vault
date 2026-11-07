@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "know-thy-enemy",
+  "name": "Know Thy Enemy",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 210,
+  "tags": [
+    "core-set"
+  ],
+  "description": "When observing a creature, you can make an Instinct Roll against them. On a success, spend a Hope and ask the GM for one set of information about the target from the following options:\n◦ Their unmarked Hit Points and Stress.\n◦ Their Difficulty and damage thresholds.\n◦ Their tactics and standard attack damage dice.\n◦ Their features and Experiences. Additionally on a success, you can mark a Stress to remove a Fear from the GM’s Fear Pool.",
+  "data": {
+    "domain": "bone",
+    "level": 5,
+    "type": "ability",
+    "recallCost": 1
+  }
+}

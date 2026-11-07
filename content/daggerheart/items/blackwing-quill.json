@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "blackwing-quill",
+  "name": "Blackwing Quill",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 77,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "This writing quill never runs out of ink or needs to be sharpened.",
+  "data": {
+    "category": "loot",
+    "roll": 9
+  }
+}

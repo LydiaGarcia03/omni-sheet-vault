@@ -1,0 +1,24 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "channeling-armor",
+  "name": "Channeling Armor",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 74,
+  "tags": [],
+  "description": "Channeling: +1 to Spellcast Rolls",
+  "data": {
+    "category": "armor",
+    "tier": 4,
+    "baseThresholds": {
+      "major": 13,
+      "severe": 36
+    },
+    "baseScore": 5,
+    "feature": {
+      "name": "Channeling",
+      "text": "+1 to Spellcast Rolls"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "invoke-torment",
+  "name": "Invoke Torment",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 214,
+  "tags": [
+    "expansion"
+  ],
+  "description": "You deal double damage to targets that have all their Stress marked.\n\nAdditionally, when an adversary within Close range is defeated with all its Stress marked, you gain a Hope..",
+  "data": {
+    "domain": "dread",
+    "level": 10,
+    "type": "ability",
+    "recallCost": 2
+  }
+}

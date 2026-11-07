@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "blackblood-tendril",
+  "name": "Blackblood Tendril",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 69,
+  "tags": [],
+  "description": "Poisonous: When a target marks any number of Hit Points from an attack you rolled with Fear, they mark an equal number of Stress.",
+  "data": {
+    "category": "weapon",
+    "slot": "secondary",
+    "tier": 4,
+    "trait": "Instinct",
+    "range": "Close",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d6",
+      "bonus": 8,
+      "type": "magic"
+    },
+    "feature": {
+      "name": "Poisonous",
+      "text": "When a target marks any number of Hit Points from an attack you rolled with Fear, they mark an equal number of Stress."
+    }
+  }
+}

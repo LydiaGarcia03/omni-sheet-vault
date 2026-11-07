@@ -1,0 +1,18 @@
+/* Daggerheart tour: navy bubble with the gold edge and Cinzel headings of the builder */
+.tutorial.tutorial--daggerheart {
+  --tutorial-accent: #f2c55c;
+  --tutorial-surface: #1e1a4f;
+  --tutorial-text: #ffffff;
+  --tutorial-muted: #c9c6ea;
+  --tutorial-border: #f2c55c;
+  --tutorial-radius: 3px;
+  --tutorial-heading-font: 'Cinzel', Georgia, serif;
+}
+.tutorial--daggerheart .tutorial__title { text-transform: uppercase; letter-spacing: .05em; font-size: 16px; color: #f2c55c; }
+/* The tour's launcher: navy with the gold frame and Cinzel label */
+.tutorial-launcher.tutorial--daggerheart {
+  background: #1e1a4f; color: #f2c55c; border: 1.5px solid #f2c55c; border-radius: 3px;
+  font: 700 12px/1 'Cinzel', Georgia, serif; letter-spacing: .08em; box-shadow: 0 4px 14px rgba(0, 0, 0, .45);
+}
+.tutorial-launcher.tutorial--daggerheart .tutorial-launcher__mark { background: #f2c55c; color: #1e1a4f; font-family: Georgia, serif; }
+.tutorial-launcher.tutorial--daggerheart:hover { background: #332d7a; filter: none; }

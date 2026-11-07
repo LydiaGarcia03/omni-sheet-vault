@@ -1,0 +1,39 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "legendary-fighting-cloak",
+  "name": "Legendary Fighting Cloak",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 69,
+  "tags": [],
+  "description": "Padded: +5 to damage thresholds",
+  "data": {
+    "category": "weapon",
+    "slot": "secondary",
+    "tier": 4,
+    "trait": "Presence",
+    "range": "Melee",
+    "burden": 1,
+    "wheelchair": false,
+    "damage": {
+      "die": "d4",
+      "bonus": 6,
+      "type": "physical"
+    },
+    "feature": {
+      "name": "Padded",
+      "text": "+5 to damage thresholds",
+      "modifiers": [
+        {
+          "target": "majorThreshold",
+          "value": 5
+        },
+        {
+          "target": "severeThreshold",
+          "value": 5
+        }
+      ]
+    }
+  }
+}

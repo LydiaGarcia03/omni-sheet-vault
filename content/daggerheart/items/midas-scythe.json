@@ -1,0 +1,29 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "midas-scythe",
+  "name": "Midas Scythe",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 65,
+  "tags": [],
+  "description": "Greedy: Spend a handful of gold to gain a +1 bonus to your Proficiency on a damage roll.",
+  "data": {
+    "category": "weapon",
+    "slot": "primary",
+    "tier": 4,
+    "trait": "Knowledge",
+    "range": "Melee",
+    "burden": 2,
+    "wheelchair": false,
+    "damage": {
+      "die": "d10",
+      "bonus": 9,
+      "type": "magic"
+    },
+    "feature": {
+      "name": "Greedy",
+      "text": "Spend a handful of gold to gain a +1 bonus to your Proficiency on a damage roll."
+    }
+  }
+}

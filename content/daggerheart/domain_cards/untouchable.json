@@ -1,0 +1,19 @@
+{
+  "systemId": "daggerheart",
+  "kind": "DOMAIN_CARD",
+  "slug": "untouchable",
+  "name": "Untouchable",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 209,
+  "tags": [
+    "core-set"
+  ],
+  "description": "Gain a bonus to your Evasion equal to half your Agility.",
+  "data": {
+    "domain": "bone",
+    "level": 1,
+    "type": "ability",
+    "recallCost": 1
+  }
+}

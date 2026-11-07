@@ -1,0 +1,17 @@
+{
+  "systemId": "daggerheart",
+  "kind": "ITEM",
+  "slug": "enchanters-loupe",
+  "name": "Enchanter’s Loupe",
+  "sourceBook": "Daggerheart SRD 2.0",
+  "sourceCode": "DHSRD",
+  "sourcePage": 78,
+  "tags": [
+    "hope-and-fear"
+  ],
+  "description": "You can use this loupe to see through illusions and enchantments.",
+  "data": {
+    "category": "loot",
+    "roll": 26
+  }
+}
