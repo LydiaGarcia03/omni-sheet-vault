@@ -7,17 +7,17 @@ import org.junit.jupiter.api.Test;
 
 class Vtm5CharacterSummarizerTest {
 
-    private final Vtm5CharacterSummarizer summarizer = new Vtm5CharacterSummarizer(Vtm5TestBuilds.MAPPER);
+    private final Vtm5CharacterSummarizer summarizer = new Vtm5CharacterSummarizer(Vtm5TestBuilds.MAPPER, Vtm5TestBuilds.CONTENT);
 
     @Test
     void aCardShowsClanAgeAndPredatorFromTheSheet() {
         assertThat(summarizer.summarize(Vtm5TestBuilds.json(Vtm5TestBuilds.validSheet()), null, null))
-                .containsExactly(new SummaryFact("Clan", "Toreador"), new SummaryFact("Age", "Neonate"), new SummaryFact("Predator", "Consensualist"));
+                .containsExactly(new SummaryFact("Clan", "Toreador"), new SummaryFact("Age and predator", "Neonate · Consensualist"));
     }
 
     @Test
     void aDraftShowsOnlyWhatIsChosen() {
-        assertThat(summarizer.summarize(null, "{\"age\":\"Neonate\"}", null)).containsExactly(new SummaryFact("Age", "Neonate"));
+        assertThat(summarizer.summarize(null, "{\"age\":\"Neonate\"}", null)).containsExactly(new SummaryFact("Age and predator", "Neonate"));
         assertThat(summarizer.systemId()).isEqualTo("vtm-v5");
         assertThat(new Vtm5GameSystem().displayName()).isEqualTo("Vampire: The Masquerade 5e");
     }
