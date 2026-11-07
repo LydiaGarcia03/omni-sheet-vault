@@ -6,6 +6,16 @@ Format: `## YYYY-MM-DD — short title`, then what changed, why, and anything
 deliberately left out.
 
 ---
+## 2026-11-07 — PR 11: accented lead patterns in option summaries
+
+- **SonarCloud:** after the first PR 11 push, coverage passed at 83.1%, and the
+  gate failed on one reliability bug (S5866) in `Dnd5eOptionSummaries`.
+- **Fix:** `BENEFITS_LEAD` now matches accented text in any case, and it and
+  `PREREQUISITE_LEAD` match decomposed accents. An upper-case "BENEFÍCIOS" used
+  to stay in the summary.
+- **Tests:** a `Dnd5eOptionSummariesTest` case for both forms.
+- **Left out:** SonarCloud's other open issues, which do not fail the gate.
+
 ## 2026-11-07 — PR 11: SonarCloud coverage and maintainability issues
 
 - **Owner:** take PR 11 forward. Its quality gate failed on new-code coverage

@@ -27,8 +27,9 @@ final class Dnd5eOptionSummaries {
     private static final String SEPARATOR = " · ";
     private static final String COUNT = "count";
     private static final int MAX_SENTENCE = 220;
-    private static final Pattern BENEFITS_LEAD = Pattern.compile("(?i)(following benefits|seguintes benefícios):\\s*");
-    private static final Pattern PREREQUISITE_LEAD = Pattern.compile("^(Prerequisite|Pré-requisito):[^\\n]*\\n+");
+    private static final Pattern BENEFITS_LEAD = Pattern.compile("(following benefits|seguintes benefícios):\\s*",
+            Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE | Pattern.CANON_EQ);
+    private static final Pattern PREREQUISITE_LEAD = Pattern.compile("^(Prerequisite|Pré-requisito):[^\\n]*\\n+", Pattern.CANON_EQ);
     private static final Pattern FIRST_SENTENCE = Pattern.compile("^(.+?[.!?])(\\s|$)", Pattern.DOTALL);
     private static final Map<String, String> ABILITY_ABBREVIATIONS = Map.of(
             "strength", "STR", "dexterity", "DEX", "constitution", "CON",

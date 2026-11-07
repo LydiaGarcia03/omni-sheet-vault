@@ -126,6 +126,15 @@ class Dnd5eOptionSummariesTest {
     }
 
     @Test
+    void accentedLeadsMatchWhateverTheirCaseOrUnicodeForm() {
+        CatalogueRecord upperCase = record("FEAT", "Ator", "VOCÊ GANHA OS SEGUINTES BENEFÍCIOS: Aumente seu Carisma em 1. Outro.", "{}");
+        CatalogueRecord decomposed = record("OPTIONAL_FEATURE", "Rajada", "Pré-requisito: truque\n\nAdicione seu Carisma ao dano.", "{}");
+
+        assertThat(summaries.of(upperCase)).isEqualTo("Aumente seu Carisma em 1.");
+        assertThat(summaries.of(decomposed)).isEqualTo("Adicione seu Carisma ao dano.");
+    }
+
+    @Test
     void redactedProseLeavesOnlyTheStructuredParts() {
         Dnd5eOptionSummaries redacted = new Dnd5eOptionSummaries(CATALOGUE, false);
         CatalogueRecord actor = record("FEAT", "Actor", "You gain the following benefits: Increase your Charisma score by 1.",
