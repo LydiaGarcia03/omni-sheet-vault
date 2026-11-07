@@ -223,7 +223,7 @@ class DaggerheartCharacterCreationFlowTest {
     void aRedactedCataloguePreviewsWithoutProse() {
         CreationPreview preview = flow.preview(DaggerheartTestCatalogue.VALID, new DaggerheartTestCatalogue().redacted());
 
-        assertThat(preview.selections().get("ancestry").grants()).allSatisfy(grant -> assertThat(grant.text()).isNull());
+        assertThat(preview.selections().get("ancestry").grants()).isNotEmpty().allSatisfy(grant -> assertThat(grant.text()).isNull());
     }
 
     @Test

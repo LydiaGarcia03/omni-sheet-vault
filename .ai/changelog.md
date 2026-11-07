@@ -6,6 +6,16 @@ Format: `## YYYY-MM-DD — short title`, then what changed, why, and anything
 deliberately left out.
 
 ---
+## 2026-11-07 — PR 13: Daggerheart reliability issues
+
+- **SonarCloud:** the gate failed on reliability (C) with four issues.
+- **Fixes:** `DaggerheartDice.Damage` and `Custom` compare, hash and print
+  their arrays by content (S6218); `readCustom` parses tokens instead of a
+  backtracking regex (S8786); a redacted-preview test checks the list is not
+  empty before `allSatisfy` (S5841).
+- **Tests:** stored rolls read back equal by content; malformed free rolls
+  return null.
+
 ## 2026-11-07 — Daggerheart and VtM split into their own PRs
 
 - **VtM (`feature/0004-Vtm-5e-system`):** the pending Localization L4 work and

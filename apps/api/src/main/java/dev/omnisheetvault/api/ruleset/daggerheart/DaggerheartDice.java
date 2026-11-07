@@ -3,6 +3,7 @@ package dev.omnisheetvault.api.ruleset.daggerheart;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -85,6 +86,22 @@ final class DaggerheartDice {
         String expression() {
             return "damage " + dice.length + "d" + sides + (bonus != 0 ? signed(bonus) : "") + (critical ? " crit" : "");
         }
+
+        @Override
+        public boolean equals(Object other) {
+            return other instanceof Damage that && Arrays.equals(dice, that.dice) && sides == that.sides && bonus == that.bonus
+                    && critical == that.critical;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(Arrays.hashCode(dice), sides, bonus, critical);
+        }
+
+        @Override
+        public String toString() {
+            return "Damage[dice=" + Arrays.toString(dice) + ", sides=" + sides + ", bonus=" + bonus + ", critical=" + critical + "]";
+        }
     }
 
     /** A free roll of any dice: groups like 2d6 and 1d8, plus a flat modifier; stored as {@code dice 2d6 1d8 +3}. */
@@ -100,22 +117,46 @@ final class DaggerheartDice {
             groups.forEach(group -> expression.append(' ').append(group[0]).append('d').append(group[1]));
             return expression.append(' ').append(signed(bonus)).append(critical ? " crit" : "").toString();
         }
+
+        @Override
+        public boolean equals(Object other) {
+            return other instanceof Custom that && Arrays.deepEquals(groups.toArray(), that.groups.toArray()) && Arrays.equals(faces, that.faces)
+                    && bonus == that.bonus && critical == that.critical;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(Arrays.deepHashCode(groups.toArray()), Arrays.hashCode(faces), bonus, critical);
+        }
+
+        @Override
+        public String toString() {
+            return "Custom[groups=" + Arrays.deepToString(groups.toArray()) + ", faces=" + Arrays.toString(faces) + ", bonus=" + bonus
+                    + ", critical=" + critical + "]";
+        }
     }
 
-    private static final Pattern CUSTOM = Pattern.compile("dice((?: \\d++d\\d++)++) ([+-]\\d++)( crit)?");
     private static final Pattern GROUP = Pattern.compile("(\\d++)d(\\d++)");
+    private static final Pattern BONUS = Pattern.compile("[+-]\\d++");
 
+    /** A stored free roll ({@code dice 2d6 1d8 +3 crit}), or null when the expression is another kind. */
     static Custom readCustom(String expression, int[] results) {
-        Matcher matcher = CUSTOM.matcher(expression);
-        if (!matcher.matches()) {
+        String[] tokens = expression.split(" ");
+        int last = tokens.length - 1;
+        boolean critical = last >= 0 && tokens[last].equals("crit");
+        int bonusAt = critical ? last - 1 : last;
+        if (bonusAt < 2 || !tokens[0].equals("dice") || !BONUS.matcher(tokens[bonusAt]).matches()) {
             return null;
         }
         List<int[]> groups = new ArrayList<>();
-        Matcher group = GROUP.matcher(matcher.group(1));
-        while (group.find()) {
+        for (int index = 1; index < bonusAt; index++) {
+            Matcher group = GROUP.matcher(tokens[index]);
+            if (!group.matches()) {
+                return null;
+            }
             groups.add(new int[] {Integer.parseInt(group.group(1)), Integer.parseInt(group.group(2))});
         }
-        return new Custom(groups, results, Integer.parseInt(matcher.group(2)), matcher.group(3) != null);
+        return new Custom(groups, results, Integer.parseInt(tokens[bonusAt]), critical);
     }
 
     private DaggerheartDice() {

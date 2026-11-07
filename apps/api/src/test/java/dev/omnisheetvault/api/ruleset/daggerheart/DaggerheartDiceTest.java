@@ -77,6 +77,30 @@ class DaggerheartDiceTest {
     }
 
     @Test
+    void storedRollsReadBackEqualByContent() {
+        DaggerheartDice.Custom custom = new DaggerheartDice.Custom(java.util.List.of(new int[] {2, 6}, new int[] {1, 8}), new int[] {1, 4, 7}, -1, false);
+        DaggerheartDice.Damage damage = new DaggerheartDice.Damage(new int[] {3, 5}, 8, 0, false);
+
+        DaggerheartDice.Custom readCustom = DaggerheartDice.readCustom(custom.expression(), new int[] {1, 4, 7});
+        DaggerheartDice.Damage readDamage = DaggerheartDice.readDamage(damage.expression(), new int[] {3, 5});
+
+        assertThat(readCustom).isEqualTo(custom).hasSameHashCodeAs(custom).hasToString(custom.toString()).isNotEqualTo(damage);
+        assertThat(readCustom.toString()).contains("[[2, 6], [1, 8]]", "[1, 4, 7]");
+        assertThat(readDamage).isEqualTo(damage).hasSameHashCodeAs(damage).isNotEqualTo(custom);
+        assertThat(readDamage.toString()).contains("[3, 5]");
+        assertThat(readDamage).isNotEqualTo(new DaggerheartDice.Damage(new int[] {3, 5}, 8, 0, true));
+    }
+
+    @Test
+    void otherExpressionsAreNotCustomRolls() {
+        assertThat(DaggerheartDice.readCustom("dice +3", new int[0])).isNull();
+        assertThat(DaggerheartDice.readCustom("damage 1d6 +3", new int[] {2})).isNull();
+        assertThat(DaggerheartDice.readCustom("dice 2d6 3", new int[] {2, 3})).isNull();
+        assertThat(DaggerheartDice.readCustom("dice 2x6 +3", new int[] {2, 3})).isNull();
+        assertThat(DaggerheartDice.readCustom("dice 2d6 +3 crit", new int[] {2, 3}).critical()).isTrue();
+    }
+
+    @Test
     void readsTheTierOfARestMove() {
         assertThat(DaggerheartDice.restTier("rest 1d4+1")).isEqualTo(1);
         assertThat(DaggerheartDice.restTier("damage 1d6")).isEqualTo(-1);
