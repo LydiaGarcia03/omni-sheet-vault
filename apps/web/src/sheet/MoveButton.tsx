@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useSheetText } from '../locales/platformMessages';
 
 type MoveButtonOption = { id: string; label: string };
 
@@ -16,6 +17,7 @@ type MoveButtonProps = {
  * 5e storage location today, any other system's own bucket set tomorrow).
  */
 export function MoveButton({ current, options, onMove }: MoveButtonProps) {
+  const t = useSheetText();
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -43,7 +45,7 @@ export function MoveButton({ current, options, onMove }: MoveButtonProps) {
         aria-expanded={open}
         onClick={() => setOpen((value) => !value)}
       >
-        Move
+        {t('inventory.move')}
       </button>
       {open && (
         <ul className="move-button__menu" role="menu">

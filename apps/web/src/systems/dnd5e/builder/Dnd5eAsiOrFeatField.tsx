@@ -1,8 +1,10 @@
 import { useState, type ReactNode } from 'react';
 import type { CreationChoice } from '../../../builder/draftApi';
+import { PendingMark } from '../../../builder/PendingMark';
 import { Segmented } from '../../../builder/Segmented';
 import { SourceSelect } from '../../../builder/SourceSelect';
 import { CatalogueSourceLabel } from '../../../sheet/CatalogueSourceLabel';
+import { useDnd5eTerms } from '../locales/dnd5eMessages';
 import { ABILITIES } from './dnd5eBuild';
 
 const ASI_KEY = 'asi';
@@ -22,6 +24,7 @@ type Dnd5eAsiOrFeatFieldProps = {
 
 /** Ability Score Improvement or a feat: pick which first, then how to split the increase or which feat. */
 export function Dnd5eAsiOrFeatField({ choice, nested, answerFor, onAnswer, renderChoice }: Dnd5eAsiOrFeatFieldProps) {
+  const { t } = useDnd5eTerms();
   const picked = choice.selected[0] ?? null;
   const [featChosen, setFeatChosen] = useState(picked !== null && picked !== ASI_KEY);
   const mode: Mode | null = picked === ASI_KEY ? 'asi' : picked || featChosen ? 'feat' : null;
@@ -43,15 +46,18 @@ export function Dnd5eAsiOrFeatField({ choice, nested, answerFor, onAnswer, rende
   return (
     <div className={`builder-choice${pending ? ' is-pending' : ''}`}>
       <div>
-        <div className="builder-choice__label">{choice.prompt}</div>
+        <div className="builder-choice__label">
+          {choice.prompt}
+          {pending && <PendingMark />}
+        </div>
         <div className="builder-choice__from">{choice.sourceLabel}</div>
       </div>
       <div className="builder-asi-feat">
         <Segmented
           value={mode}
           options={[
-            ['asi', 'Ability Score Improvement'],
-            ['feat', 'Feat'],
+            ['asi', t('terms.builder.abilityScoreImprovement')],
+            ['feat', t('terms.builder.feat')],
           ]}
           onChange={chooseMode}
           ariaLabel={choice.prompt}
@@ -65,8 +71,8 @@ export function Dnd5eAsiOrFeatField({ choice, nested, answerFor, onAnswer, rende
               options={feats}
               value={feat?.key ?? null}
               onChange={(key) => onAnswer(choice.id, key ? [key] : [])}
-              placeholder="— choose a feat —"
-              ariaLabel="Feat"
+              placeholder={t('builder.asi.chooseFeat')}
+              ariaLabel={t('terms.builder.feat')}
               clearable
             />
             {feat && (
@@ -92,11 +98,13 @@ type AbilityIncreaseProps = {
 
 /** +2 to one ability (stored as that ability twice) or +1 to two different ones. */
 function AbilityIncrease({ id, choice, answerFor, onAnswer }: AbilityIncreaseProps) {
+  const terms = useDnd5eTerms();
+  const { t } = terms;
   const values = answerFor(id);
   const stored: Split | null = values.length === 2 && values[0] === values[1] ? 'plus2' : values.length > 0 ? 'plus1' : null;
   const [split, setSplit] = useState<Split | null>(stored);
   const current = stored ?? split;
-  const options = choice?.options ?? ABILITIES.map((ability) => ({ key: ability, label: ability.charAt(0).toUpperCase() + ability.slice(1), sourceBook: null }));
+  const options = choice?.options ?? ABILITIES.map((ability) => ({ key: ability, label: terms.ability(ability), sourceBook: null }));
 
   const chooseSplit = (next: Split) => {
     setSplit(next);
@@ -110,19 +118,19 @@ function AbilityIncrease({ id, choice, answerFor, onAnswer }: AbilityIncreasePro
       <Segmented
         value={current}
         options={[
-          ['plus2', '+2 to one ability'],
-          ['plus1', '+1 to two abilities'],
+          ['plus2', t('builder.asi.plus2')],
+          ['plus1', t('builder.asi.plus1')],
         ]}
         onChange={chooseSplit}
-        ariaLabel="How to split the increase"
+        ariaLabel={t('builder.asi.splitAria')}
       />
       {current === 'plus2' && (
         <SourceSelect
           options={options}
           value={values[0] ?? null}
           onChange={(key) => onAnswer(id, key ? [key, key] : [])}
-          placeholder="— choose an ability —"
-          ariaLabel="Ability to increase by 2"
+          placeholder={t('builder.asi.chooseAbility')}
+          ariaLabel={t('builder.asi.plus2Aria')}
         />
       )}
       {current === 'plus1' && (
@@ -132,8 +140,8 @@ function AbilityIncrease({ id, choice, answerFor, onAnswer }: AbilityIncreasePro
           values={[...new Set(values)]}
           max={2}
           onChange={(keys) => onAnswer(id, keys)}
-          placeholder="— choose 2 abilities —"
-          ariaLabel="Abilities to increase by 1"
+          placeholder={t('builder.asi.chooseTwo')}
+          ariaLabel={t('builder.asi.plus1Aria')}
         />
       )}
     </>

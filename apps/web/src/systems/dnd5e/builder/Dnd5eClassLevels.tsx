@@ -1,6 +1,8 @@
 import { useState, type ReactNode } from 'react';
 import type { CreationChoice, ProgressionTable } from '../../../builder/draftApi';
 import { ProgressionPanel } from '../../../builder/ProgressionPanel';
+import { useDnd5eText } from '../locales/dnd5eMessages';
+import { PROGRESSION_FEATURES_COLUMN } from './dnd5eBuild';
 import type { Dnd5eBuild } from './dnd5eBuild';
 
 type Dnd5eClassLevelsProps = {
@@ -33,6 +35,7 @@ export function Dnd5eClassLevels({
   renderHitPoints,
   hitPointsLeftIn,
 }: Dnd5eClassLevelsProps) {
+  const t = useDnd5eText();
   const pendingIn = (slug: string) =>
     choices.filter((choice) => choice.group === slug && choice.pending).length + (hitPointsLeftIn ? hitPointsLeftIn(slug) : 0);
   const firstPending = build.classes.find((entry) => pendingIn(entry.classSlug) > 0);
@@ -48,7 +51,7 @@ export function Dnd5eClassLevels({
   return (
     <>
       {build.classes.length > 1 && (
-        <div className="builder-tabs" role="tablist" aria-label="Classes">
+        <div className="builder-tabs" role="tablist" aria-label={t('builder.classLevels.tabs')}>
           {build.classes.map((entry) => (
             <button
               key={entry.classSlug}
@@ -75,11 +78,11 @@ export function Dnd5eClassLevels({
       {hitPoints && (
         <section className="builder-frame">
           <div className="builder-frame__title">
-            <span>Hit points · {label}</span>
+            <span>{t('builder.hitPoints.classTitle', { name: label })}</span>
             {hitPointsLeftIn && hitPointsLeftIn(current.classSlug) > 0 ? (
-              <span className="builder-badge builder-badge--pending">{hitPointsLeftIn(current.classSlug)} left</span>
+              <span className="builder-badge builder-badge--pending">{t('builder.left', { count: hitPointsLeftIn(current.classSlug) })}</span>
             ) : (
-              <span className="builder-badge builder-badge--done">done</span>
+              <span className="builder-badge builder-badge--done">{t('builder.done')}</span>
             )}
           </div>
           {hitPoints}
@@ -100,8 +103,9 @@ type ClassPanelProps = {
 };
 
 function ClassPanel({ label, level, choices, progression, renderChoice }: ClassPanelProps) {
+  const t = useDnd5eText();
   const pending = choices.filter((choice) => choice.pending).length;
-  const featuresColumn = progression?.columns.indexOf('Features') ?? -1;
+  const featuresColumn = progression ? PROGRESSION_FEATURES_COLUMN : -1;
   const featuresAt = (classLevel: number) => {
     const cell = featuresColumn >= 0 ? progression?.rows[classLevel - 1]?.[featuresColumn] : undefined;
     return cell && cell !== '—' ? cell : null;
@@ -112,12 +116,12 @@ function ClassPanel({ label, level, choices, progression, renderChoice }: ClassP
     <section className="builder-frame">
       <div className="builder-frame__title">
         <span>
-          {label} · {level === 1 ? 'level 1' : `levels 1–${level}`}
+          {level === 1 ? t('builder.classLevels.levelOne', { name: label }) : t('builder.classLevels.levels', { name: label, level })}
         </span>
         {pending > 0 ? (
-          <span className="builder-badge builder-badge--pending">{pending} left</span>
+          <span className="builder-badge builder-badge--pending">{t('builder.left', { count: pending })}</span>
         ) : (
-          <span className="builder-badge builder-badge--done">done</span>
+          <span className="builder-badge builder-badge--done">{t('builder.done')}</span>
         )}
       </div>
       {Array.from({ length: level }, (_, index) => index + 1).map((classLevel) => (
@@ -131,7 +135,7 @@ function ClassPanel({ label, level, choices, progression, renderChoice }: ClassP
       ))}
       {wholeClass.length > 0 && (
         <div className="builder-level__whole">
-          <div className="builder-label">Every level</div>
+          <div className="builder-label">{t('builder.classLevels.everyLevel')}</div>
           {wholeClass.map(renderChoice)}
         </div>
       )}
@@ -148,33 +152,34 @@ type LevelSectionProps = {
 
 /** A level's section starts open while it still has a choice to make; the player opens or closes it after that. */
 function LevelSection({ level, features, choices, renderChoice }: LevelSectionProps) {
+  const t = useDnd5eText();
   const pending = choices.filter((choice) => choice.pending).length;
   const [open, setOpen] = useState(pending > 0);
   const badge =
     choices.length === 0 ? (
-      <span className="builder-muted">no choices</span>
+      <span className="builder-muted">{t('builder.classLevels.noChoices')}</span>
     ) : pending > 0 ? (
       <span className="builder-badge builder-badge--pending">
-        {pending} {pending === 1 ? 'choice' : 'choices'}
+        {t('builder.classLevels.choicesBadge', { count: pending })}
       </span>
     ) : (
-      <span className="builder-badge builder-badge--done">done</span>
+      <span className="builder-badge builder-badge--done">{t('builder.done')}</span>
     );
 
   return (
     <details className="builder-level" open={open} onToggle={(event) => setOpen(event.currentTarget.open)}>
       <summary className="builder-level__summary">
-        <span className="builder-level__number">Level {level}</span>
+        <span className="builder-level__number">{t('builder.classLevels.levelNumber', { level })}</span>
         {badge}
         {features && <span className="builder-level__features">{features}</span>}
       </summary>
       <div className="builder-level__body">
         {features && (
           <p className="builder-level__gains">
-            <b>Features:</b> {features}
+            <b>{t('builder.classLevels.features')}</b> {features}
           </p>
         )}
-        {choices.length === 0 ? <p className="builder-muted">Nothing to choose at this level.</p> : choices.map(renderChoice)}
+        {choices.length === 0 ? <p className="builder-muted">{t('builder.classLevels.nothingAtLevel')}</p> : choices.map(renderChoice)}
       </div>
     </details>
   );

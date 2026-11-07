@@ -1,6 +1,7 @@
 import type { ComponentType } from 'react';
 import type { Portrait } from '../characters/portrait';
-import type { BuildPlan, CreationChoice, DraftPreview } from './draftApi';
+import type { TutorialDefinition } from '../tutorial/tutorialDefinition';
+import type { BuildPlan, CreationChoice, DraftPreview, HypotheticalDraft } from './draftApi';
 
 export type BuilderStep = {
   id: string;
@@ -48,14 +49,74 @@ export type BuilderDefinition = {
   pageClassName?: string;
   /** Draws the whole builder page instead of the shared three-column frame; the draft logic stays shared. */
   Frame?: ComponentType<BuilderFrameProps>;
+  /** The guided tour shown the first time a player opens this system's builder. */
+  tutorial?: TutorialDefinition;
+  /** Step and checklist-line names in the player's language; without it the English names show. */
+  useLabels?: () => BuilderLabels;
 };
 
+/** The game terms the shared summary column names. */
+export type SummaryTerm =
+  | 'hitPoints'
+  | 'armorClass'
+  | 'speed'
+  | 'initiative'
+  | 'proficiencyBonus'
+  | 'savingThrows'
+  | 'passivePerception'
+  | 'features'
+  | 'proficiencies'
+  | 'languages'
+  | 'defensesSenses'
+  | 'resistance';
+
+const ENGLISH_SUMMARY_TERMS: Record<SummaryTerm, string> = {
+  hitPoints: 'Hit points',
+  armorClass: 'Armor class',
+  speed: 'Speed',
+  initiative: 'Initiative',
+  proficiencyBonus: 'Proficiency',
+  savingThrows: 'Saving throws',
+  passivePerception: 'Passive Perception',
+  features: 'Features',
+  proficiencies: 'Proficiencies',
+  languages: 'Languages',
+  defensesSenses: 'Defenses & senses',
+  resistance: 'Resistance',
+};
+
+export type BuilderLabels = {
+  step: (step: BuilderStep) => string;
+  checklistGroup: (group: string) => string;
+  summaryTerm: (term: SummaryTerm) => string;
+  /** An ability's short name, e.g. "STR" for "strength". */
+  abilityShort: (ability: string) => string;
+  /** A distance in feet as the player reads it. */
+  feet: (feet: number) => string;
+};
+
+export const ENGLISH_LABELS: BuilderLabels = {
+  step: (step) => step.label,
+  checklistGroup: (group) => group,
+  summaryTerm: (term) => ENGLISH_SUMMARY_TERMS[term],
+  abilityShort: (ability) => ability.slice(0, 3).toUpperCase(),
+  feet: (feet) => `${feet} ft.`,
+};
+const englishLabels = () => ENGLISH_LABELS;
+
+/** The definition's step, checklist and summary names in the player's language. */
+export function useBuilderLabels(definition: BuilderDefinition): BuilderLabels {
+  return (definition.useLabels ?? englishLabels)();
+}
+
 /** Everything a system's own builder page needs: the draft's state and the shared actions. */
-export type BuilderFrameProps = Omit<StepPageProps, 'choices' | 'preview'> & {
+export type BuilderFrameProps = Omit<StepPageProps, 'choices'> & {
   userName: string;
   steps: BuilderStep[];
   saveLabel: string;
   error: string | null;
+  /** Plans and previews a build without saving it, to show what an option would change before it is picked. */
+  previewBuild: (build: unknown) => Promise<HypotheticalDraft>;
 };
 
 export type ChecklistLine = { group: string; total: number; pending: number };

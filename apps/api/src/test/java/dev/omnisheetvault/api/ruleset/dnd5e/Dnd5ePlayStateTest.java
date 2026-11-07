@@ -119,6 +119,16 @@ class Dnd5ePlayStateTest {
     }
 
     @Test
+    void aMilestoneBuildSignalsALevelUpOnceItHoldsTheNextLevelsPoints() {
+        var before = calculator.calculateVitals(sheetJson(10, null)).experience();
+        var reached = calculator.calculateVitals(mutator.setExperiencePoints(sheetJson(10, null), 14_000)).experience();
+
+        assertThat(before.advancement()).isEqualTo("MILESTONE");
+        assertThat(before.levelUpAvailable()).isFalse();
+        assertThat(reached.levelUpAvailable()).isTrue();
+    }
+
+    @Test
     void experiencePointsNeverGoBelowWhereTheLevelStarts() {
         assertThat(read(mutator.setExperiencePoints(sheetJson(10, null), -40)).experiencePointsOrDefault()).isEqualTo(6_500);
         assertThat(read(mutator.setExperiencePoints(sheetJson(10, null), 300)).experiencePoints()).isEqualTo(6_500);

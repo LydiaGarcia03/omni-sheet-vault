@@ -1,6 +1,8 @@
 package dev.omnisheetvault.api.catalogue;
 
+import dev.omnisheetvault.api.shared.TranslationOverlay;
 import java.util.List;
+import java.util.Locale;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
 
@@ -23,16 +25,27 @@ public record CatalogueEntryResponse(
         JsonNode data) {
 
     static CatalogueEntryResponse from(CatalogueEntry entry, boolean redactionEnabled, ObjectMapper objectMapper) {
+        return from(entry, redactionEnabled, objectMapper, Locale.ENGLISH);
+    }
+
+    /** As the player browses it: the entry's name, description and data texts in {@code locale} where translated. */
+    static CatalogueEntryResponse from(CatalogueEntry entry, boolean redactionEnabled, ObjectMapper objectMapper, Locale locale) {
+        JsonNode translation = objectMapper.readTree(entry.translations()).path(locale.toLanguageTag());
+        JsonNode data = TranslationOverlay.overlay(objectMapper.readTree(entry.data()), translation.path("data"));
         return new CatalogueEntryResponse(
                 entry.id().toString(),
                 entry.systemId(),
                 entry.kind(),
                 entry.slug(),
-                entry.name(),
+                textOr(translation.path("name"), entry.name()),
                 entry.sourceBook(),
                 entry.sourcePage(),
                 entry.tags(),
-                RedactableText.of(entry.description(), redactionEnabled),
-                objectMapper.readTree(entry.data()));
+                RedactableText.of(textOr(translation.path("description"), entry.description()), redactionEnabled),
+                data);
+    }
+
+    private static String textOr(JsonNode translated, String english) {
+        return translated.isString() && !translated.asString().isBlank() ? translated.asString() : english;
     }
 }

@@ -1,8 +1,11 @@
 import { useEffect, useState, type ReactNode } from 'react';
+import { CheckListSelect } from '../../../builder/CheckListSelect';
 import { PortraitPicker } from '../../../builder/PortraitPicker';
 import { Segmented } from '../../../builder/Segmented';
+import { SourceSelect } from '../../../builder/SourceSelect';
 import type { Portrait } from '../../../characters/portrait';
 import { getCataloguePartners, getCatalogueSources, type CataloguePartner, type CatalogueSource } from '../../../catalogue/api';
+import { useDnd5eText } from '../locales/dnd5eMessages';
 import {
   LOCKED_SOURCES,
   orderOptionalSources,
@@ -27,6 +30,7 @@ type Dnd5eBasicsStepProps = {
 
 /** Identity, the books the builder draws from, and the table rules this character follows. */
 export function Dnd5eBasicsStep({ characterId, systemId, name, onNameChange, portrait, onPortraitChange, build, onChange }: Dnd5eBasicsStepProps) {
+  const t = useDnd5eText();
   const [sources, setSources] = useState<CatalogueSource[] | null>(null);
   useEffect(() => {
     getCatalogueSources('dnd-5e')
@@ -52,164 +56,174 @@ export function Dnd5eBasicsStep({ characterId, systemId, name, onNameChange, por
 
   return (
     <>
-      <section className="builder-frame">
-        <div className="builder-frame__title">Identity</div>
+      <section className="builder-frame" data-tutorial="basics-identity">
+        <div className="builder-frame__title">{t('builder.basics.identity')}</div>
         <div className="builder-identity">
           <div className="builder-identity__name">
             <label className="builder-label" htmlFor="builder-name">
-              Character name
+              {t('builder.basics.characterName')}
             </label>
             <input id="builder-name" className="builder-input" value={name} maxLength={120} onChange={(event) => onNameChange(event.target.value)} />
-            {name.trim() === '' && <p className="builder-problem">A character needs a name.</p>}
+            {name.trim() === '' && <p className="builder-problem">{t('builder.basics.needsName')}</p>}
           </div>
           <PortraitPicker characterId={characterId} systemId={systemId} portrait={portrait} onChange={onPortraitChange} />
         </div>
       </section>
 
-      <section className="builder-frame">
-        <div className="builder-frame__title">Content sources</div>
-        <span className="builder-label">Books whose options appear in this builder</span>
-        <details className="builder-multi">
-          <summary className="builder-input builder-multi__summary">
-            {LOCKED_SOURCES.map((book) => (
-              <span key={book} className="builder-tag is-locked">
-                {book}
-              </span>
-            ))}
-            {preferences.sources === null ? (
-              <span className="builder-tag">Every other book ({optional.length})</span>
-            ) : (
+      <section className="builder-frame" data-tutorial="basics-sources">
+        <div className="builder-frame__title">{t('builder.basics.contentSources')}</div>
+        <span className="builder-label">{t('builder.basics.booksLabel')}</span>
+        <CheckListSelect
+          ariaLabel={t('builder.basics.booksLabel')}
+          summary={
+            <>
+              {LOCKED_SOURCES.map((book) => (
+                <span key={book} className="builder-tag is-locked">
+                  {book}
+                </span>
+              ))}
               <span className="builder-tag">
-                {enabledOptional.length} of {optional.length} other books
+                {preferences.sources === null
+                  ? t('builder.basics.everyOtherBook', { count: optional.length })
+                  : t('builder.basics.someBooks', { count: enabledOptional.length, total: optional.length })}
               </span>
-            )}
-          </summary>
-          <div className="builder-multi__menu">
-            {sources === null && <p className="builder-muted">Loading books…</p>}
-            <div className="builder-label builder-multi__group">Always on</div>
-            {LOCKED_SOURCES.map((book) => (
-              <label key={book} className="builder-multi__option is-locked">
-                <input type="checkbox" checked disabled /> {book}
-                <small>always on</small>
-              </label>
-            ))}
-            <div className="builder-label builder-multi__group">Other books</div>
-            {orderOptionalSources(sources ?? []).map((source) => (
-              <label key={source.sourceBook} className="builder-multi__option">
-                <input type="checkbox" checked={isOn(source.sourceBook)} onChange={() => onChange(withSourceToggled(build, source.sourceBook, allBooks))} />{' '}
-                {source.sourceBook}
-                <small>{source.entryCount} entries</small>
-              </label>
-            ))}
-          </div>
-        </details>
-        <p className="builder-muted">
-          The 2014 Player's Handbook and Dungeon Master's Guide can't be turned off: every other book builds on them. A book turned off stops
-          appearing in species, classes, backgrounds, feats and spells.
-        </p>
+            </>
+          }
+          message={sources === null ? t('builder.basics.loadingBooks') : undefined}
+          groups={[
+            {
+              label: t('builder.basics.alwaysOn'),
+              options: LOCKED_SOURCES.map((book) => ({ key: book, label: book, note: t('builder.basics.alwaysOnNote'), checked: true, locked: true })),
+            },
+            {
+              label: t('builder.basics.otherBooks'),
+              options: orderOptionalSources(sources ?? []).map((source) => ({
+                key: source.sourceBook,
+                label: source.sourceBook,
+                note: t('builder.basics.entries', { count: source.entryCount }),
+                checked: isOn(source.sourceBook),
+              })),
+            },
+          ]}
+          onToggle={(book) => onChange(withSourceToggled(build, book, allBooks))}
+        />
+        <p className="builder-muted">{t('builder.basics.coreNote')}</p>
         <div className="builder-row">
           <button type="button" className="builder-btn" onClick={() => onChange(withPreferences(build, { sources: null }))}>
-            Enable all
+            {t('builder.basics.enableAll')}
           </button>
           <button type="button" className="builder-btn" onClick={() => onChange(withPreferences(build, { sources: [] }))}>
-            Core only
+            {t('builder.basics.coreOnly')}
           </button>
         </div>
       </section>
 
-      <section className="builder-frame">
-        <div className="builder-frame__title">Partnered &amp; playtest content</div>
+      <section className="builder-frame" data-tutorial="basics-extra">
+        <div className="builder-frame__title">{t('builder.basics.extraTitle')}</div>
         <Setting
-          title="Playtest content"
+          title={t('terms.builder.playtestContent')}
           description={
             playtestSources.length === 0
-              ? 'Unearthed Arcana: rules still being tested. None are imported yet.'
-              : `Unearthed Arcana: rules still being tested. ${playtestSources.map((source) => source.sourceBook).join(', ')}.`
+              ? t('builder.basics.playtestNone')
+              : t('builder.basics.playtestSome', { books: playtestSources.map((source) => source.sourceBook).join(', ') })
           }
         >
-          <Switch label="Playtest content" on={preferences.playtestContent} onChange={(on) => onChange(withPreferences(build, { playtestContent: on }))} />
+          <Switch label={t('terms.builder.playtestContent')} on={preferences.playtestContent} onChange={(on) => onChange(withPreferences(build, { playtestContent: on }))} />
         </Setting>
-        <Setting title="Partnered content" description="Content developed by partner publishers and brands. Choose which partners to allow.">
+        <Setting
+          title={t('terms.builder.partneredContent')}
+          description={t('builder.basics.partneredDescription')}
+          below={
+            preferences.partneredContent && (
+              <CheckListSelect
+                ariaLabel={t('builder.basics.choosePartners')}
+                summary={
+                  <span className="builder-tag">
+                    {preferences.partners === null
+                      ? t('builder.basics.everyPartner', { count: allPartners.length })
+                      : t('builder.basics.somePartners', { count: chosenPartners.length, total: allPartners.length })}
+                  </span>
+                }
+                message={partners === null ? t('builder.basics.loadingPartners') : partners.length === 0 ? t('builder.basics.noPartners') : undefined}
+                groups={[
+                  {
+                    label: t('builder.basics.partners'),
+                    options: (partners ?? []).map((partner) => ({
+                      key: partner.name,
+                      label: partner.name,
+                      note: partner.sourceBooks.join(', '),
+                      checked: isPartnerOn(partner.name),
+                    })),
+                  },
+                ]}
+                onToggle={(name) => onChange(withPartnerToggled(build, name, allPartners))}
+              />
+            )
+          }
+        >
           <Switch
-            label="Enable partnered content"
+            label={t('builder.basics.enablePartnered')}
             on={preferences.partneredContent}
             onChange={(on) => onChange(withPreferences(build, { partneredContent: on }))}
           />
         </Setting>
-        {preferences.partneredContent && (
-          <details className="builder-multi">
-            <summary className="builder-input builder-multi__summary" aria-label="Choose partners">
-              <span className="builder-tag">
-                {preferences.partners === null ? `Every partner (${allPartners.length})` : `${chosenPartners.length} of ${allPartners.length} partners`}
-              </span>
-            </summary>
-            <div className="builder-multi__menu">
-              {partners === null && <p className="builder-muted">Loading partners…</p>}
-              {partners?.length === 0 && <p className="builder-muted">No partnered books are available yet.</p>}
-              {(partners ?? []).map((partner) => (
-                <label key={partner.name} className="builder-multi__option" title={partner.sourceBooks.join(', ')}>
-                  <input type="checkbox" checked={isPartnerOn(partner.name)} onChange={() => onChange(withPartnerToggled(build, partner.name, allPartners))} />{' '}
-                  {partner.name}
-                  <small>{partner.sourceBooks.join(', ')}</small>
-                </label>
-              ))}
-            </div>
-          </details>
-        )}
       </section>
 
-      <section className="builder-frame">
-        <div className="builder-frame__title">Rules</div>
-        <Setting title="Advancement type" description="Level up at story milestones, or by earning experience points.">
+      <section className="builder-frame" data-tutorial="basics-rules">
+        <div className="builder-frame__title">{t('builder.basics.rules')}</div>
+        <Setting title={t('terms.builder.advancementType')} description={t('builder.basics.advancementDescription')}>
           <Segmented
             value={preferences.advancement}
             options={[
-              ['MILESTONE', 'Milestone'],
-              ['XP', 'XP'],
+              ['MILESTONE', t('terms.builder.milestone')],
+              ['XP', t('terms.builder.experiencePoints')],
             ]}
             onChange={(advancement) => onChange(withPreferences(build, { advancement }))}
           />
         </Setting>
-        <Setting title="Hit points on level up" description="Take the class average, or roll and type the result.">
+        <Setting title={t('terms.builder.hitPointsOnLevelUp')} description={t('builder.basics.hitPointsDescription')}>
           <Segmented
             value={build.hitPointMethod}
             options={[
-              ['FIXED', 'Fixed'],
-              ['ROLLED', 'Rolled'],
+              ['FIXED', t('terms.builder.fixed')],
+              ['ROLLED', t('terms.builder.rolled')],
             ]}
             onChange={(method) => onChange(withHitPointMethod(build, method))}
           />
         </Setting>
-        <Setting title="Optional class features" description="Tasha's optional and replacement class features.">
-          <Switch label="Optional class features" on={preferences.optionalClassFeatures} onChange={(on) => onChange(withPreferences(build, { optionalClassFeatures: on }))} />
+        <Setting title={t('terms.builder.optionalClassFeatures')} description={t('builder.basics.optionalFeaturesDescription')}>
+          <Switch label={t('terms.builder.optionalClassFeatures')} on={preferences.optionalClassFeatures} onChange={(on) => onChange(withPreferences(build, { optionalClassFeatures: on }))} />
         </Setting>
-        <Setting title="Feat prerequisites" description="Only offer feats whose requirements are met.">
-          <Switch label="Feat prerequisites" on={preferences.featPrerequisites} onChange={(on) => onChange(withPreferences(build, { featPrerequisites: on }))} />
+        <Setting title={t('terms.builder.featPrerequisites')} description={t('builder.basics.featPrerequisitesDescription')}>
+          <Switch label={t('terms.builder.featPrerequisites')} on={preferences.featPrerequisites} onChange={(on) => onChange(withPreferences(build, { featPrerequisites: on }))} />
         </Setting>
-        <Setting title="Multiclass prerequisites" description="Require 13 in the abilities each class asks for.">
-          <Switch label="Multiclass prerequisites" on={preferences.multiclassPrerequisites} onChange={(on) => onChange(withPreferences(build, { multiclassPrerequisites: on }))} />
+        <Setting title={t('terms.builder.multiclassPrerequisites')} description={t('builder.basics.multiclassDescription')}>
+          <Switch label={t('terms.builder.multiclassPrerequisites')} on={preferences.multiclassPrerequisites} onChange={(on) => onChange(withPreferences(build, { multiclassPrerequisites: on }))} />
         </Setting>
-        <Setting title="Encumbrance" description="Standard: carry up to Strength × 15 pounds. Off: no weight tracking.">
-          <select
-            className="builder-input"
-            style={{ width: 180 }}
-            aria-label="Encumbrance"
-            value={preferences.encumbrance}
-            onChange={(event) => onChange(withPreferences(build, { encumbrance: event.target.value as 'STANDARD' | 'NONE' }))}
-          >
-            <option value="STANDARD">Standard</option>
-            <option value="NONE">No encumbrance</option>
-          </select>
+        <Setting title={t('terms.builder.encumbrance')} description={t('builder.basics.encumbranceDescription')}>
+          <div className="builder-setting__select">
+            <SourceSelect
+              ariaLabel={t('terms.builder.encumbrance')}
+              placeholder={t('terms.builder.standardEncumbrance')}
+              options={[
+                { key: 'STANDARD', label: t('terms.builder.standardEncumbrance'), sourceBook: null },
+                { key: 'NONE', label: t('terms.builder.noEncumbrance'), sourceBook: null },
+              ]}
+              value={preferences.encumbrance}
+              onChange={(key) => key && onChange(withPreferences(build, { encumbrance: key as 'STANDARD' | 'NONE' }))}
+            />
+          </div>
         </Setting>
-        <Setting title="Ignore coin weight" description="Coins don't count toward the weight you carry (50 coins = 1 lb).">
-          <Switch label="Ignore coin weight" on={preferences.ignoreCoinWeight} onChange={(on) => onChange(withPreferences(build, { ignoreCoinWeight: on }))} />
+        <Setting title={t('builder.basics.ignoreCoinWeight')} description={t('builder.basics.ignoreCoinWeightDescription')}>
+          <Switch label={t('builder.basics.ignoreCoinWeight')} on={preferences.ignoreCoinWeight} onChange={(on) => onChange(withPreferences(build, { ignoreCoinWeight: on }))} />
         </Setting>
       </section>
     </>
   );
 }
 
-function Setting({ title, description, children }: { title: string; description: string; children: ReactNode }) {
+/** One setting row: title and description beside its control; `below` spans the row's full width under them. */
+function Setting({ title, description, children, below }: { title: string; description: string; children: ReactNode; below?: ReactNode }) {
   return (
     <div className="builder-setting">
       <div>
@@ -217,6 +231,7 @@ function Setting({ title, description, children }: { title: string; description:
         <div className="builder-muted">{description}</div>
       </div>
       {children}
+      {below && <div className="builder-setting__below">{below}</div>}
     </div>
   );
 }

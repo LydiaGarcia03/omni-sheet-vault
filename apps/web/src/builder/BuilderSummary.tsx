@@ -1,5 +1,7 @@
 import { CharacterPortrait } from '../characters/CharacterPortrait';
 import type { Portrait } from '../characters/portrait';
+import { useBuilderText } from '../locales/platformMessages';
+import { ENGLISH_LABELS, type BuilderLabels } from './builderDefinition';
 import type { DraftPreview } from './draftApi';
 
 type BuilderSummaryProps = {
@@ -10,6 +12,7 @@ type BuilderSummaryProps = {
   preview: DraftPreview;
   portrait: Portrait | null;
   systemId: string;
+  labels?: BuilderLabels;
 };
 
 const signed = (value: number) => (value >= 0 ? `+${value}` : `−${Math.abs(value)}`);
@@ -17,19 +20,21 @@ const signed = (value: number) => (value >= 0 ? `+${value}` : `−${Math.abs(val
 const titleCase = (text: string) => text.replace(/\b\w/g, (letter) => letter.toUpperCase());
 
 /** The builder's right column: what the character adds up to so far, recalculated by the API on every save. */
-export function BuilderSummary({ name, description, pendingCount, preview, portrait, systemId }: BuilderSummaryProps) {
+export function BuilderSummary({ name, description, pendingCount, preview, portrait, systemId, labels = ENGLISH_LABELS }: BuilderSummaryProps) {
+  const tb = useBuilderText();
+  const term = labels.summaryTerm;
   const { vitals } = preview;
   const hasBase = (ability: DraftPreview['abilities'][number]) => ability.contributions.some((part) => part.source === 'Base');
   return (
-    <section className="builder-frame builder-frame--side builder-summary" aria-label="Character summary">
-      <div className="builder-frame__title">Your character</div>
+    <section className="builder-frame builder-frame--side builder-summary" aria-label={tb('summary.aria')}>
+      <div className="builder-frame__title">{tb('summary.title')}</div>
       <div className="builder-summary__who">
         <CharacterPortrait portrait={portrait} systemId={systemId} className="builder-summary__portrait" />
         <div>
           <div className="builder-summary__name">{name}</div>
           <div className="builder-muted">
-            {vitals && `Level ${vitals.level} · `}
-            {description || 'Nothing chosen yet'}
+            {vitals && tb('summary.level', { level: vitals.level })}
+            {description || tb('summary.nothingYet')}
           </div>
         </div>
       </div>
@@ -37,33 +42,37 @@ export function BuilderSummary({ name, description, pendingCount, preview, portr
       <div className="builder-summary__abilities">
         {preview.abilities.map((ability) => (
           <div key={ability.ability} title={ability.contributions.map((part) => `${part.source} ${signed(part.amount)}`).join(' · ')}>
-            <span className="builder-summary__ability-key">{ability.ability.slice(0, 3).toUpperCase()}</span>
+            <span className="builder-summary__ability-key">{labels.abilityShort(ability.ability)}</span>
             <b>{hasBase(ability) ? signed(ability.modifier) : '—'}</b>
             <span className="builder-summary__ability-score">{hasBase(ability) ? ability.score : '—'}</span>
           </div>
         ))}
       </div>
 
-      {pendingCount > 0 && <div className="builder-summary__pending">{pendingCount} choices left</div>}
+      {pendingCount > 0 && <div className="builder-summary__pending">{tb('summary.choicesLeft', { count: pendingCount })}</div>}
 
       {vitals ? (
         <>
-          <Stat label="Hit points" value={vitals.hitPoints.value} note={vitals.hitDice} />
-          <Stat label="Armor class" value={vitals.armorClass.value} note={vitals.armorClass.contributions.map((part) => part.source).join(' + ')} />
-          <Stat label="Speed" value={`${vitals.speed} ft.`} />
-          <Stat label="Initiative · Proficiency" value={`${signed(vitals.initiative)} · ${signed(vitals.proficiencyBonus)}`} />
-          <Stat label="Saving throws" value={vitals.savingThrows.map((save) => `${save.name.slice(0, 3).toUpperCase()} ${signed(save.value)}`).join(' · ') || '—'} />
-          <Stat label="Passive Perception" value={vitals.passivePerception} />
-          <Group title="Attacks" lines={vitals.attacks.map((attack) => `${attack.name} ${signed(attack.toHit)} · ${attack.damage}`)} />
-          <Group title="Features" lines={[vitals.features.join(' · ')]} />
-          <Group
-            title="Proficiencies"
-            lines={[[...vitals.skills.map(titleCase), ...vitals.armor, ...vitals.weapons, ...vitals.tools].join(' · '), vitals.languages.join(', ')]}
+          <Stat label={term('hitPoints')} value={vitals.hitPoints.value} note={vitals.hitDice} />
+          <Stat label={term('armorClass')} value={vitals.armorClass.value} note={vitals.armorClass.contributions.map((part) => part.source).join(' + ')} />
+          <Stat label={term('speed')} value={labels.feet(vitals.speed)} />
+          <Stat label={`${term('initiative')} · ${term('proficiencyBonus')}`} value={`${signed(vitals.initiative)} · ${signed(vitals.proficiencyBonus)}`} />
+          <Stat
+            label={term('savingThrows')}
+            value={vitals.savingThrows.map((save) => `${labels.abilityShort(save.name.toLowerCase())} ${signed(save.value)}`).join(' · ') || '—'}
           />
-          <Group title="Defenses & senses" lines={[[...vitals.resistances.map((type) => `${titleCase(type)} resistance`), ...vitals.senses].join(' · ')]} />
+          <Stat label={term('passivePerception')} value={vitals.passivePerception} />
+          <Group title={tb('summary.attacks')} lines={vitals.attacks.map((attack) => `${attack.name} ${signed(attack.toHit)} · ${attack.damage}`)} />
+          <Group title={term('features')} lines={[vitals.features.join(' · ')]} />
+          <Group title={term('proficiencies')} lines={[[...vitals.skills, ...vitals.armor, ...vitals.weapons, ...vitals.tools].join(' · ')]} />
+          <Group title={term('languages')} lines={[vitals.languages.join(', ')]} />
+          <Group
+            title={term('defensesSenses')}
+            lines={[[...vitals.resistances.map((type) => `${titleCase(type)} ${term('resistance').toLowerCase()}`), ...vitals.senses].join(' · ')]}
+          />
         </>
       ) : (
-        <p className="builder-muted">Choose a class and set your ability scores to see hit points, armor class and attacks.</p>
+        <p className="builder-muted">{tb('summary.empty')}</p>
       )}
     </section>
   );

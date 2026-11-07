@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useSheetText } from '../locales/platformMessages';
 import type { HpManagementRequest } from './api';
 import { RulesText } from './RulesText';
 import { Customize, SidebarHeader } from './sidebarParts';
@@ -102,6 +103,7 @@ export function HpManagementPanel({
   onSetMaxModifier,
   onSetMaxOverride,
 }: HpManagementRequest) {
+  const t = useSheetText();
   const [currentDraft, setCurrentDraft] = useState(String(current));
   const [tempDraft, setTempDraft] = useState(String(temporary));
   const [healingDraft, setHealingDraft] = useState('');
@@ -160,11 +162,11 @@ export function HpManagementPanel({
 
   return (
     <div className="hp-management">
-      <SidebarHeader title="HP Management" />
+      <SidebarHeader title={t('hp.title')} />
 
       <div className="hp-management__section hp-management__stats">
         <label className="hp-management__stat">
-          <span className="hp-management__label">Current</span>
+          <span className="hp-management__label">{t('hp.current')}</span>
           <input
             type="number"
             className="hp-management__stat-input"
@@ -172,19 +174,19 @@ export function HpManagementPanel({
             onChange={(event) => setCurrentDraft(event.target.value)}
             onBlur={commitCurrent}
             onKeyDown={(event) => event.key === 'Enter' && event.currentTarget.blur()}
-            aria-label="Current hit points"
+            aria-label={t('hp.currentLabel')}
           />
         </label>
         <span className="hp-management__slash">/</span>
         <div className="hp-management__stat">
-          <span className="hp-management__label">Max</span>
+          <span className="hp-management__label">{t('hp.max')}</span>
           <span className="hp-management__max">
             <span className={`hp-management__number${maxClass}`}>{max}</span>
             {max !== calculatedMax && <span className="hp-management__original-max">({calculatedMax})</span>}
           </span>
         </div>
         <label className="hp-management__stat">
-          <span className="hp-management__label">Temp</span>
+          <span className="hp-management__label">{t('hp.temp')}</span>
           <input
             type="number"
             min={0}
@@ -193,7 +195,7 @@ export function HpManagementPanel({
             onChange={(event) => setTempDraft(event.target.value)}
             onBlur={commitTemp}
             onKeyDown={(event) => event.key === 'Enter' && event.currentTarget.blur()}
-            aria-label="Temporary hit points"
+            aria-label={t('hp.tempLabel')}
           />
         </label>
       </div>
@@ -201,7 +203,7 @@ export function HpManagementPanel({
       <div className="hp-management__section hp-management__adjust">
         <div className="hp-management__adjust-row hp-management__adjust-row--healing">
           <label className="hp-management__amount hp-management__amount--healing">
-            <span className="hp-management__amount-label">Healing</span>
+            <span className="hp-management__amount-label">{t('hp.healing')}</span>
             <input
               type="number"
               min={0}
@@ -209,25 +211,25 @@ export function HpManagementPanel({
               placeholder="0"
               value={healingDraft}
               onChange={(event) => setHealingDraft(event.target.value)}
-              aria-label="Healing amount"
+              aria-label={t('hp.healingAmount')}
             />
           </label>
           <button
             type="button"
             className="hp-management__button"
-            aria-label="Increase Hit Points"
+            aria-label={t('hp.increase')}
             onClick={() => setHealingDraft(String(healingAmount + 1))}
           >
             <PlusIcon />
           </button>
         </div>
         <div className="hp-management__new-hp">
-          <span className="hp-management__label">New HP</span>
+          <span className="hp-management__label">{t('hp.newHp')}</span>
           <span className="hp-management__new-hp-value">{newHp}</span>
         </div>
         <div className="hp-management__adjust-row hp-management__adjust-row--damage">
           <label className="hp-management__amount hp-management__amount--damage">
-            <span className="hp-management__amount-label">Damage</span>
+            <span className="hp-management__amount-label">{t('hp.damage')}</span>
             <input
               type="number"
               min={0}
@@ -235,13 +237,13 @@ export function HpManagementPanel({
               placeholder="0"
               value={damageDraft}
               onChange={(event) => setDamageDraft(event.target.value)}
-              aria-label="Damage amount"
+              aria-label={t('hp.damageAmount')}
             />
           </label>
           <button
             type="button"
             className="hp-management__button"
-            aria-label="Decrease Hit Points"
+            aria-label={t('hp.decrease')}
             onClick={() => setDamageDraft(String(damageAmount + 1))}
           >
             <MinusIcon />
@@ -250,24 +252,24 @@ export function HpManagementPanel({
         {hasPendingChanges && (
           <div className="hp-management__apply">
             <button type="button" className="mutate hp-management__apply-button" onClick={applyChanges}>
-              Apply Changes
+              {t('hp.applyChanges')}
             </button>
             <button type="button" className="hp-management__cancel-button" onClick={cancelChanges}>
-              Cancel
+              {t('common.cancel')}
             </button>
           </div>
         )}
       </div>
 
       <div className="hp-management__section hp-management__overrides">
-        <OptionalNumberField label="Max HP Modifier" value={maxModifier} onSave={onSetMaxModifier} />
-        <OptionalNumberField label="Override Max HP" value={maxOverride} onSave={onSetMaxOverride} />
+        <OptionalNumberField label={t('hp.maxModifier')} value={maxModifier} onSave={onSetMaxModifier} />
+        <OptionalNumberField label={t('hp.overrideMax')} value={maxOverride} onSave={onSetMaxOverride} />
       </div>
 
       {maxContributions.length > 0 && (
         <div className="hp-management__breakdown">
-          <Customize label="Max HP Breakdown">
-            <div className="hp-breakdown" role="table" aria-label="Max HP breakdown">
+          <Customize label={t('hp.breakdown')}>
+            <div className="hp-breakdown" role="table" aria-label={t('hp.breakdownLabel')}>
               {maxContributions.map((contribution, index) => (
                 <div key={index} className="hp-breakdown__row" role="row">
                   <div className="hp-breakdown__label" role="rowheader">
@@ -280,7 +282,7 @@ export function HpManagementPanel({
               ))}
               <div className="hp-breakdown__row hp-breakdown__row--total" role="row">
                 <div className="hp-breakdown__label" role="rowheader">
-                  Max Hit Points
+                  {t('terms.maxHitPoints')}
                 </div>
                 <div className="hp-breakdown__value" role="cell">
                   {max}
@@ -293,7 +295,7 @@ export function HpManagementPanel({
 
       {dying && deathSavesRulesText.trim() !== '' && (
         <section className="hp-management__death-saves-rules">
-          <h2 className="sidebar-subheading">Death Saving Throws Rules</h2>
+          <h2 className="sidebar-subheading">{t('hp.deathSavesRules')}</h2>
           <RulesText text={deathSavesRulesText} placement="plain" />
         </section>
       )}

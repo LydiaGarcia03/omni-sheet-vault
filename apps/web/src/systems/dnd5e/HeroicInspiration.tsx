@@ -1,4 +1,5 @@
 import { FrameLayer } from './FrameLayer';
+import { useDnd5eText } from './locales/dnd5eMessages';
 import paperSvg from './frames/dnd_frame_inspiration.svg?raw';
 import inkSvg from './frames/dnd_frame_inspiration_ink.svg?raw';
 import dotOnSvg from './frames/dnd_icon_inspiration_on.svg?raw';
@@ -20,13 +21,14 @@ type HeroicInspirationProps = {
  * rendering it and letting CSS hide its border via a `--on` modifier.
  */
 export function HeroicInspiration({ inspired, onToggle }: HeroicInspirationProps) {
+  const t = useDnd5eText();
   return (
     <div className="inspiration-wrap">
       <button
         type="button"
         className="mutate frame-box inspiration"
         aria-pressed={inspired}
-        aria-label={`Heroic inspiration: ${inspired ? 'inspired' : 'not inspired'}`}
+        aria-label={inspired ? t('vitals.inspired') : t('vitals.notInspired')}
         onClick={onToggle}
       >
         <FrameLayer svg={paperSvg} layer="paper" />
@@ -38,7 +40,7 @@ export function HeroicInspiration({ inspired, onToggle }: HeroicInspirationProps
           </span>
         )}
       </button>
-      <div className="inspiration-wrap__caption">Heroic Inspiration</div>
+      <div className="inspiration-wrap__caption">{t('terms.labels.heroicInspiration')}</div>
     </div>
   );
 }

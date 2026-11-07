@@ -3,19 +3,20 @@ import type { Coins, MutationHandler } from '../../sheet/api';
 import { FrameIcon } from './FrameIcon';
 import minusIconSvg from './frames/dnd_icon_minus.svg?raw';
 import plusIconSvg from './frames/dnd_icon_plus.svg?raw';
+import { useDnd5eText } from './locales/dnd5eMessages';
 
 type CoinsPanelProps = {
   coins: Coins;
   onMutate: MutationHandler;
 };
 
-const DENOMINATIONS: { key: string; label: string; value: (coins: Coins) => number }[] = [
-  { key: 'copper', label: 'CP', value: (coins) => coins.copper },
-  { key: 'silver', label: 'SP', value: (coins) => coins.silver },
-  { key: 'electrum', label: 'EP', value: (coins) => coins.electrum },
-  { key: 'gold', label: 'GP', value: (coins) => coins.gold },
-  { key: 'platinum', label: 'PP', value: (coins) => coins.platinum },
-];
+const DENOMINATIONS = [
+  { key: 'copper', label: 'terms.coins.copper', value: (coins: Coins) => coins.copper },
+  { key: 'silver', label: 'terms.coins.silver', value: (coins: Coins) => coins.silver },
+  { key: 'electrum', label: 'terms.coins.electrum', value: (coins: Coins) => coins.electrum },
+  { key: 'gold', label: 'terms.coins.gold', value: (coins: Coins) => coins.gold },
+  { key: 'platinum', label: 'terms.coins.platinum', value: (coins: Coins) => coins.platinum },
+] as const;
 
 /**
  * No coin settings (lifestyle/expenses are cosmetic and omitted, per
@@ -25,6 +26,7 @@ const DENOMINATIONS: { key: string; label: string; value: (coins: Coins) => numb
  * damage/heal/temp buttons.
  */
 export function CoinsPanel({ coins, onMutate }: CoinsPanelProps) {
+  const t = useDnd5eText();
   const [amount, setAmount] = useState('');
   const parsedAmount = Number(amount) || 0;
 
@@ -35,19 +37,19 @@ export function CoinsPanel({ coins, onMutate }: CoinsPanelProps) {
         min={1}
         value={amount}
         onChange={(event) => setAmount(event.target.value)}
-        placeholder="Amount"
-        aria-label="Coin amount"
+        placeholder={t('inventory.amount')}
+        aria-label={t('inventory.coinAmount')}
         className="coins-panel__amount"
       />
       {DENOMINATIONS.map(({ key, label, value }) => (
         <div key={key} className="coins-panel__row">
-          <span className="coins-panel__label">{label}</span>
+          <span className="coins-panel__label">{t(label)}</span>
           <span className="coins-panel__value">{value(coins)}</span>
           <button
             type="button"
             className="mutate coins-panel__button"
             disabled={parsedAmount <= 0}
-            aria-label={`Add ${label}`}
+            aria-label={t('inventory.addCoin', { coin: t(label) })}
             onClick={() => onMutate({ type: 'ADD_COINS', denomination: key, amount: parsedAmount })}
           >
             <FrameIcon svg={plusIconSvg} className="stepper-icon" aria-hidden />
@@ -56,7 +58,7 @@ export function CoinsPanel({ coins, onMutate }: CoinsPanelProps) {
             type="button"
             className="mutate coins-panel__button"
             disabled={parsedAmount <= 0}
-            aria-label={`Remove ${label}`}
+            aria-label={t('inventory.removeCoin', { coin: t(label) })}
             onClick={() => onMutate({ type: 'REMOVE_COINS', denomination: key, amount: parsedAmount })}
           >
             <FrameIcon svg={minusIconSvg} className="stepper-icon" aria-hidden />

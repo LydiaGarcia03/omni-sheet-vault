@@ -1,0 +1,75 @@
+{
+  "home": {
+    "title": "Your characters",
+    "characterCount": { "one": "{count} character", "other": "{count} characters" },
+    "create": "＋ Create character",
+    "creating": "Creating…",
+    "startNew": "Start something new",
+    "loadFailed": "Could not load your characters.",
+    "deleteFailed": "Could not delete {name}.",
+    "createFailed": "Could not create the character: {error}",
+    "empty": "Your vault is empty. Every hero starts somewhere.",
+    "createFirst": "Create your first character",
+    "filterLabel": "Filter by game system",
+    "all": "All",
+    "deleteTitle": "Delete character?",
+    "deleteConfirm": "Delete",
+    "deleteBody": "{name} will be removed from your vault. This can't be undone."
+  },
+  "landing": {
+    "titleLine1": "Every system.",
+    "titleLine2": "One vault for your heroes.",
+    "lead": "Build characters with rules that explain every choice, play them on a sheet that knows its mechanics, and roll dice with a history nobody can fake.",
+    "createCharacter": "Create character",
+    "createAccount": "Create account",
+    "haveAccount": "I already have an account",
+    "featuresTitle": "What you can do",
+    "pickGame": "Pick your game",
+    "moreSoon": "More systems are on the way.",
+    "features": {
+      "guided": { "title": "Guided creation", "text": "Every choice shows what it changes before you make it: scores, proficiencies, spells." },
+      "play": { "title": "Sheets that play", "text": "Cast a spell, spend a slot, roll its damage. Rests, conditions and hit dice just work." },
+      "dice": { "title": "Honest dice", "text": "Rolled on the server and kept forever in a roll history your table can check." },
+      "roster": { "title": "Your whole roster", "text": "Portraits, backstories and every character you play, across every game, in one place." }
+    }
+  },
+  "systemCards": {
+    "available": "Available",
+    "comingSoon": "Coming soon",
+    "create": "Create character",
+    "creating": "Creating…",
+    "previous": "Previous systems",
+    "next": "Next systems",
+    "taglines": {
+      "dnd-5e": "Dungeons & Dragons · 2014 rules",
+      "vtm-v5": "Vampire: The Masquerade",
+      "daggerheart": "Hope & fear and duality dice",
+      "Pathfinder 2e": "Three actions a turn",
+      "Call of Cthulhu": "Sanity is a resource",
+      "Tormenta20": "Arton awaits",
+      "Candela Obscura": "Join an esoteric order"
+    }
+  },
+  "banner": {
+    "draft": "Draft · continue creating",
+    "continueNamed": "Continue creating {name}",
+    "openNamed": "Open {name}",
+    "moreActions": "More actions for {name}",
+    "continue": "Continue creating",
+    "open": "Open sheet",
+    "delete": "Delete"
+  },
+  "dialog": {
+    "cancel": "Cancel"
+  },
+  "picker": {
+    "title": "Create a character",
+    "lead": "Choose the game system first. It decides which rules, choices and sheet your character gets.",
+    "back": "← Back to your characters"
+  },
+  "create": {
+    "creating": "Creating your {system} character…",
+    "failed": "Could not create the character: {error}",
+    "back": "Back to your characters"
+  }
+}

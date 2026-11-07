@@ -1,6 +1,7 @@
 package dev.omnisheetvault.api.character;
 
 import dev.omnisheetvault.api.ruleset.FeatureAction;
+import java.util.function.UnaryOperator;
 
 public record FeatureActionResponse(
         String key,
@@ -12,6 +13,12 @@ public record FeatureActionResponse(
         String rechargeTrigger,
         String parentName,
         String parentKey) {
+
+    /** Name, description and parent name in another language. */
+    FeatureActionResponse localized(UnaryOperator<String> text, UnaryOperator<String> name) {
+        return new FeatureActionResponse(key, name.apply(this.name), actionType, text.apply(description), maxUses, usedCount,
+                rechargeTrigger, name.apply(parentName), parentKey);
+    }
 
     static FeatureActionResponse from(FeatureAction feature) {
         return new FeatureActionResponse(

@@ -1,0 +1,455 @@
+{
+  "agonizing-blast": {
+    "description": "Pré-requisito: truque rajada mística\n\nQuando você conjura rajada mística, soma seu modificador de Carisma ao dano que ela causa ao acertar."
+  },
+  "archery": {
+    "description": "Você recebe +2 de bônus nas jogadas de ataque que faz com armas à distância."
+  },
+  "armor-of-shadows": {
+    "description": "Você pode conjurar armadura arcana em si mesmo à vontade, sem gastar um espaço de magia ou componentes materiais."
+  },
+  "ascendant-step": {
+    "description": "Pré-requisito: 9º nível\n\nVocê pode conjurar levitação em si mesmo à vontade, sem gastar um espaço de magia ou componentes materiais."
+  },
+  "beast-speech": {
+    "description": "Você pode conjurar falar com animais à vontade, sem gastar um espaço de magia."
+  },
+  "beguiling-influence": {
+    "description": "Você ganha proficiência nas perícias Enganação e Persuasão."
+  },
+  "bewitching-whispers": {
+    "description": "Pré-requisito: 7º nível\n\nVocê pode conjurar compulsão uma vez usando um espaço de magia de bruxo. Não pode fazer isso de novo até terminar um descanso longo."
+  },
+  "book-of-ancient-secrets": {
+    "description": "Pré-requisito: Pacto do Tomo\n\nAgora você pode inscrever rituais mágicos no seu Livro das Sombras. Escolha duas magias de 1º nível com a característica ritual da lista de magias de qualquer classe. As magias não precisam ser da mesma lista. As magias aparecem no livro e não contam no número de magias que você conhece. Com o Livro das Sombras em mãos, você pode conjurar as magias escolhidas como rituais. Você não pode conjurar essas magias a não ser como rituais, a menos que as tenha aprendido de outra forma. Você também pode conjurar como ritual uma magia de bruxo que conheça, se ela tiver a característica ritual. Em suas aventuras, você pode adicionar outras magias de ritual ao Livro das Sombras. Quando encontrar uma magia assim, pode adicioná-la ao livro se o nível dela for igual ou menor que a metade do seu nível de bruxo (arredondado para cima) e se tiver tempo para transcrevê-la. Para cada nível da magia, a transcrição leva 2 horas e custa 50 po pelas tintas raras necessárias para inscrevê-la."
+  },
+  "breath-of-winter": {
+    "description": "Pré-requisito: 17º nível\n\nVocê pode gastar 6 pontos de ki para conjurar cone de frio."
+  },
+  "careful-spell": {
+    "description": "Quando você conjura uma magia que força outras criaturas a fazer um teste de resistência, pode proteger algumas delas da força total da magia. Para isso, gaste 1 ponto de feitiçaria e escolha um número dessas criaturas até seu modificador de Carisma (no mínimo uma criatura). Uma criatura escolhida tem sucesso automático no teste de resistência contra a magia."
+  },
+  "chains-of-carceri": {
+    "description": "Pré-requisito: 15º nível, Pacto da Corrente\n\nVocê pode conjurar imobilizar monstro à vontade, tendo como alvo um celestial, corruptor ou elemental, sem gastar um espaço de magia ou componentes materiais. Você precisa terminar um descanso longo antes de poder usar esta invocação na mesma criatura de novo."
+  },
+  "clench-of-the-north-wind": {
+    "description": "Pré-requisito: 6º nível\n\nVocê pode gastar 3 pontos de ki para conjurar imobilizar pessoa."
+  },
+  "commanders-strike": {
+    "description": "Quando você usa a ação de Ataque no seu turno, pode abrir mão de um dos seus ataques e usar uma ação bônus para mandar um dos seus companheiros atacar. Ao fazer isso, escolha uma criatura amigável que possa vê-lo ou ouvi-lo e gaste um dado de superioridade. Essa criatura pode usar imediatamente sua reação para fazer um ataque com arma, somando o dado de superioridade à jogada de dano do ataque."
+  },
+  "defense": {
+    "description": "Enquanto estiver usando armadura, você recebe +1 de bônus na CA."
+  },
+  "devils-sight": {
+    "description": "Você enxerga normalmente na escuridão, mágica ou não, até uma distância de 36 metros."
+  },
+  "disarming-attack": {
+    "description": "Quando você atinge uma criatura com um ataque com arma, pode gastar um dado de superioridade para tentar desarmar o alvo, forçando-o a largar um item à sua escolha que esteja segurando. Você soma o dado de superioridade à jogada de dano do ataque, e o alvo precisa fazer um teste de resistência de Força. Se falhar, ele larga o objeto que você escolheu. O objeto cai aos pés dele."
+  },
+  "distant-spell": {
+    "description": "Quando você conjura uma magia com alcance de 1,5 metro ou mais, pode gastar 1 ponto de feitiçaria para dobrar o alcance da magia. Quando você conjura uma magia com alcance de toque, pode gastar 1 ponto de feitiçaria para que o alcance da magia seja de 9 metros."
+  },
+  "distracting-strike": {
+    "description": "Quando você atinge uma criatura com um ataque com arma, pode gastar um dado de superioridade para distrair a criatura, abrindo uma brecha para seus aliados. Você soma o dado de superioridade à jogada de dano do ataque. A próxima jogada de ataque contra o alvo feita por um atacante que não seja você tem vantagem se o ataque for feito antes do início do seu próximo turno."
+  },
+  "dreadful-word": {
+    "description": "Pré-requisito: 7º nível\n\nVocê pode conjurar confusão uma vez usando um espaço de magia de bruxo. Não pode fazer isso de novo até terminar um descanso longo."
+  },
+  "dueling": {
+    "description": "Quando você empunha uma arma corpo a corpo em uma mão e nenhuma outra arma, recebe +2 de bônus nas jogadas de dano com essa arma."
+  },
+  "eldritch-sight": {
+    "description": "Você pode conjurar detectar magia à vontade, sem gastar um espaço de magia."
+  },
+  "eldritch-spear": {
+    "description": "Pré-requisito: truque rajada mística\n\nQuando você conjura rajada mística, o alcance dela é de 90 metros."
+  },
+  "elemental-attunement": {
+    "description": "Você pode usar sua ação para controlar brevemente forças elementais a até 9 metros de você, causando um dos seguintes efeitos à sua escolha: Criar um efeito sensorial inofensivo e instantâneo ligado ao ar, à terra, ao fogo ou à água, como uma chuva de faíscas, uma lufada de vento, um borrifo de névoa leve ou um leve tremor de pedra. Acender ou apagar instantaneamente uma vela, uma tocha ou uma pequena fogueira. Esfriar ou aquecer até 0,5 kg de material sem vida por até 1 hora. Fazer terra, fogo, água ou névoa que caiba em um cubo de 30 centímetros assumir uma forma rudimentar que você determinar por 1 minuto."
+  },
+  "empowered-spell": {
+    "description": "Quando você rola o dano de uma magia, pode gastar 1 ponto de feitiçaria para rolar de novo um número de dados de dano até seu modificador de Carisma (no mínimo um). Você precisa usar as novas rolagens. Você pode usar Magia Potencializada mesmo que já tenha usado outra opção de Metamágica ao conjurar a magia."
+  },
+  "eternal-mountain-defense": {
+    "description": "Pré-requisito: 17º nível\n\nVocê pode gastar 5 pontos de ki para conjurar pele de pedra, tendo a si mesmo como alvo."
+  },
+  "evasive-footwork": {
+    "description": "Quando você se move, pode gastar um dado de superioridade, rolando o dado e somando o resultado à sua CA até parar de se mover."
+  },
+  "extended-spell": {
+    "description": "Quando você conjura uma magia com duração de 1 minuto ou mais, pode gastar 1 ponto de feitiçaria para dobrar a duração, até o máximo de 24 horas."
+  },
+  "eyes-of-the-rune-keeper": {
+    "description": "Você consegue ler qualquer escrita."
+  },
+  "fangs-of-the-fire-snake": {
+    "description": "Quando você usa a ação de Ataque no seu turno, pode gastar 1 ponto de ki para fazer gavinhas de chamas se estenderem dos seus punhos e pés. Seu alcance com ataques desarmados aumenta em 3 metros nessa ação e no resto do turno. Um acerto com esse ataque causa dano de fogo em vez de concussão, e se você gastar 1 ponto de ki quando o ataque acertar, ele também causa 1d10 de dano de fogo extra."
+  },
+  "feinting-attack": {
+    "description": "Você pode gastar um dado de superioridade e usar uma ação bônus no seu turno para fintar, escolhendo como alvo uma criatura a até 1,5 metro de você. Você tem vantagem na sua próxima jogada de ataque contra essa criatura neste turno. Se esse ataque acertar, some o dado de superioridade à jogada de dano do ataque."
+  },
+  "fiendish-vigor": {
+    "description": "Você pode conjurar vitalidade falsa em si mesmo à vontade como uma magia de 1º nível, sem gastar um espaço de magia ou componentes materiais."
+  },
+  "fist-of-four-thunders": {
+    "description": "Você pode gastar 2 pontos de ki para conjurar onda trovejante."
+  },
+  "flames-of-the-phoenix": {
+    "description": "Pré-requisito: 11º nível\n\nVocê pode gastar 4 pontos de ki para conjurar bola de fogo."
+  },
+  "gaze-of-two-minds": {
+    "description": "Você pode usar sua ação para tocar um humanoide voluntário e perceber pelos sentidos dele até o fim do seu próximo turno. Enquanto a criatura estiver no mesmo plano de existência que você, você pode usar sua ação nos turnos seguintes para manter essa conexão, estendendo a duração até o fim do seu próximo turno. Enquanto percebe pelos sentidos da outra criatura, você se beneficia de quaisquer sentidos especiais que ela tenha, e fica cego e surdo em relação ao seu próprio ambiente."
+  },
+  "goading-attack": {
+    "description": "Quando você atinge uma criatura com um ataque com arma, pode gastar um dado de superioridade para tentar provocar o alvo a atacar você. Você soma o dado de superioridade à jogada de dano do ataque, e o alvo precisa fazer um teste de resistência de Sabedoria. Se falhar, o alvo tem desvantagem em todas as jogadas de ataque contra alvos que não sejam você até o fim do seu próximo turno."
+  },
+  "gong-of-the-summit": {
+    "description": "Pré-requisito: 6º nível\n\nVocê pode gastar 3 pontos de ki para conjurar despedaçar."
+  },
+  "great-weapon-fighting": {
+    "description": "Quando você tira 1 ou 2 em um dado de dano de um ataque feito com uma arma corpo a corpo que empunha com as duas mãos, pode rolar o dado de novo e precisa usar a nova rolagem, mesmo que ela seja 1 ou 2. A arma precisa ter a propriedade duas mãos ou versátil para você receber este benefício."
+  },
+  "heightened-spell": {
+    "description": "Quando você conjura uma magia que força uma criatura a fazer um teste de resistência para resistir aos efeitos dela, pode gastar 3 pontos de feitiçaria para dar desvantagem a um alvo da magia no primeiro teste de resistência que ele fizer contra ela."
+  },
+  "lifedrinker": {
+    "description": "Pré-requisito: 12º nível, Pacto da Lâmina\n\nQuando você atinge uma criatura com sua arma do pacto, a criatura sofre dano necrótico extra igual ao seu modificador de Carisma (no mínimo 1)."
+  },
+  "lunging-attack": {
+    "description": "Quando você faz um ataque corpo a corpo com arma no seu turno, pode gastar um dado de superioridade para aumentar seu alcance nesse ataque em 1,5 metro. Se acertar, você soma o dado de superioridade à jogada de dano do ataque."
+  },
+  "maneuvering-attack": {
+    "description": "Quando você atinge uma criatura com um ataque com arma, pode gastar um dado de superioridade para manobrar um dos seus companheiros para uma posição mais vantajosa. Você soma o dado de superioridade à jogada de dano do ataque e escolhe uma criatura amigável que possa vê-lo ou ouvi-lo. Essa criatura pode usar sua reação para se mover até metade do deslocamento dela sem provocar ataques de oportunidade do alvo do seu ataque."
+  },
+  "mask-of-many-faces": {
+    "description": "Você pode conjurar disfarçar-se à vontade, sem gastar um espaço de magia."
+  },
+  "master-of-myriad-forms": {
+    "description": "Pré-requisito: 15º nível\n\nVocê pode conjurar alterar-se à vontade, sem gastar um espaço de magia."
+  },
+  "menacing-attack": {
+    "description": "Quando você atinge uma criatura com um ataque com arma, pode gastar um dado de superioridade para tentar amedrontar o alvo. Você soma o dado de superioridade à jogada de dano do ataque, e o alvo precisa fazer um teste de resistência de Sabedoria. Se falhar, ele fica amedrontado por você até o fim do seu próximo turno."
+  },
+  "minions-of-chaos": {
+    "description": "Pré-requisito: 9º nível\n\nVocê pode conjurar conjurar elemental uma vez usando um espaço de magia de bruxo. Não pode fazer isso de novo até terminar um descanso longo."
+  },
+  "mire-the-mind": {
+    "description": "Pré-requisito: 5º nível\n\nVocê pode conjurar lentidão uma vez usando um espaço de magia de bruxo. Não pode fazer isso de novo até terminar um descanso longo."
+  },
+  "mist-stance": {
+    "description": "Pré-requisito: 11º nível\n\nVocê pode gastar 4 pontos de ki para conjurar forma gasosa, tendo a si mesmo como alvo."
+  },
+  "misty-visions": {
+    "description": "Você pode conjurar imagem silenciosa à vontade, sem gastar um espaço de magia ou componentes materiais."
+  },
+  "one-with-shadows": {
+    "description": "Pré-requisito: 5º nível\n\nQuando você está em uma área de penumbra ou escuridão, pode usar sua ação para ficar invisível até se mover ou realizar uma ação ou reação."
+  },
+  "otherworldly-leap": {
+    "description": "Pré-requisito: 9º nível\n\nVocê pode conjurar salto em si mesmo à vontade, sem gastar um espaço de magia ou componentes materiais."
+  },
+  "pact-of-the-blade": {
+    "description": "Você pode usar sua ação para criar uma arma do pacto na sua mão vazia. Você escolhe a forma que essa arma corpo a corpo assume cada vez que a cria (veja o capítulo 5 para as opções de arma). Você é proficiente com ela enquanto a empunha. Essa arma conta como mágica para superar resistência e imunidade a ataques e dano não mágicos. Sua arma do pacto desaparece se ficar a mais de 1,5 metro de você por 1 minuto ou mais. Ela também desaparece se você usar esta característica de novo, se dispensar a arma (não exige ação) ou se morrer. Você pode transformar uma arma mágica na sua arma do pacto realizando um ritual especial enquanto segura a arma. O ritual leva 1 hora e pode ser feito durante um descanso curto. Depois, você pode dispensar a arma, mandando-a para um espaço extradimensional, e ela aparece sempre que você criar sua arma do pacto dali em diante. Você não pode afetar um artefato ou uma arma senciente dessa forma. A arma deixa de ser sua arma do pacto se você morrer, se fizer o ritual de 1 hora em outra arma ou se usar um ritual de 1 hora para romper seu vínculo com ela. A arma aparece aos seus pés se estiver no espaço extradimensional quando o vínculo se romper."
+  },
+  "pact-of-the-chain": {
+    "description": "Você aprende a magia convocar familiar e pode conjurá-la como ritual. A magia não conta no seu número de magias conhecidas. Quando você conjura a magia, pode escolher uma das formas normais para seu familiar ou uma das seguintes formas especiais: diabrete, pseudodragão, quasit ou sprite. Além disso, quando você usa a ação de Ataque, pode abrir mão de um dos seus ataques para permitir que seu familiar use a reação dele para fazer um ataque próprio."
+  },
+  "pact-of-the-tome": {
+    "description": "Seu patrono lhe dá um grimório chamado Livro das Sombras. Quando você recebe esta característica, escolha três truques da lista de magias de qualquer classe. Os truques não precisam ser da mesma lista. Enquanto o livro estiver com você, você pode conjurar esses truques à vontade. Eles não contam no seu número de truques conhecidos. Qualquer truque que você conjurar com esta característica conta como truque de bruxo para você. Se perder o Livro das Sombras, você pode realizar uma cerimônia de 1 hora para receber um substituto do seu patrono. A cerimônia pode ser feita durante um descanso curto ou longo, e destrói o livro anterior. O livro vira cinzas quando você morre."
+  },
+  "parry": {
+    "description": "Quando outra criatura causa dano a você com um ataque corpo a corpo, você pode usar sua reação e gastar um dado de superioridade para reduzir o dano pelo resultado do dado de superioridade + seu modificador de Destreza."
+  },
+  "precision-attack": {
+    "description": "Quando você faz uma jogada de ataque com arma contra uma criatura, pode gastar um dado de superioridade para somá-lo à jogada. Você pode usar esta manobra antes ou depois de fazer a jogada de ataque, mas antes de qualquer efeito do ataque ser aplicado."
+  },
+  "protection": {
+    "description": "Quando uma criatura que você pode ver ataca um alvo que não seja você e que esteja a até 1,5 metro de você, você pode usar sua reação para impor desvantagem na jogada de ataque. Você precisa estar empunhando um escudo."
+  },
+  "pushing-attack": {
+    "description": "Quando você atinge uma criatura com um ataque com arma, pode gastar um dado de superioridade para tentar fazer o alvo recuar. Você soma o dado de superioridade à jogada de dano do ataque, e se o alvo for Grande ou menor, ele precisa fazer um teste de resistência de Força. Se falhar, você empurra o alvo até 4,5 metros para longe de você."
+  },
+  "quickened-spell": {
+    "description": "Quando você conjura uma magia com tempo de conjuração de 1 ação, pode gastar 2 pontos de feitiçaria para mudar o tempo de conjuração para 1 ação bônus nessa conjuração."
+  },
+  "rally": {
+    "description": "No seu turno, você pode usar uma ação bônus e gastar um dado de superioridade para reforçar a determinação de um dos seus companheiros. Ao fazer isso, escolha uma criatura amigável que possa vê-lo ou ouvi-lo. Essa criatura ganha pontos de vida temporários iguais à rolagem do dado de superioridade + seu modificador de Carisma."
+  },
+  "repelling-blast": {
+    "description": "Pré-requisito: truque rajada mística\n\nQuando você atinge uma criatura com rajada mística, pode empurrá-la até 3 metros para longe de você em linha reta."
+  },
+  "ride-the-wind": {
+    "description": "Pré-requisito: 11º nível\n\nVocê pode gastar 4 pontos de ki para conjurar voo, tendo a si mesmo como alvo."
+  },
+  "riposte": {
+    "description": "Quando uma criatura erra um ataque corpo a corpo contra você, você pode usar sua reação e gastar um dado de superioridade para fazer um ataque corpo a corpo com arma contra a criatura. Se acertar, você soma o dado de superioridade à jogada de dano do ataque."
+  },
+  "river-of-hungry-flame": {
+    "description": "Pré-requisito: 17º nível\n\nVocê pode gastar 5 pontos de ki para conjurar muralha de fogo."
+  },
+  "rush-of-the-gale-spirits": {
+    "description": "Você pode gastar 2 pontos de ki para conjurar lufada de vento."
+  },
+  "sculptor-of-flesh": {
+    "description": "Pré-requisito: 7º nível\n\nVocê pode conjurar metamorfose uma vez usando um espaço de magia de bruxo. Não pode fazer isso de novo até terminar um descanso longo."
+  },
+  "shape-the-flowing-river": {
+    "description": "Como uma ação, você pode gastar 1 ponto de ki para escolher uma área de gelo ou água de no máximo 9 metros de lado a até 36 metros de você. Você pode transformar água em gelo na área e vice-versa, e pode remodelar o gelo na área como quiser. Você pode elevar ou rebaixar o nível do gelo, criar ou preencher uma vala, erguer ou nivelar uma parede, ou formar um pilar. A extensão dessas mudanças não pode passar da metade da maior dimensão da área. Por exemplo, se você afetar um quadrado de 9 metros, pode criar um pilar de até 4,5 metros de altura, elevar ou rebaixar o quadrado em até 4,5 metros, cavar uma vala de até 4,5 metros de profundidade, e assim por diante. Você não pode moldar o gelo para prender ou ferir uma criatura na área."
+  },
+  "sign-of-ill-omen": {
+    "description": "Pré-requisito: 5º nível\n\nVocê pode conjurar rogar maldição uma vez usando um espaço de magia de bruxo. Não pode fazer isso de novo até terminar um descanso longo."
+  },
+  "subtle-spell": {
+    "description": "Quando você conjura uma magia, pode gastar 1 ponto de feitiçaria para conjurá-la sem nenhum componente somático ou verbal."
+  },
+  "sweeping-attack": {
+    "description": "Quando você atinge uma criatura com um ataque corpo a corpo com arma, pode gastar um dado de superioridade para tentar causar dano a outra criatura com o mesmo ataque. Escolha outra criatura a até 1,5 metro do alvo original e dentro do seu alcance. Se a jogada de ataque original acertaria a segunda criatura, ela sofre dano igual ao resultado do seu dado de superioridade. O dano é do mesmo tipo causado pelo ataque original."
+  },
+  "sweeping-cinder-strike": {
+    "description": "Você pode gastar 2 pontos de ki para conjurar mãos flamejantes."
+  },
+  "thief-of-five-fates": {
+    "description": "Você pode conjurar perdição uma vez usando um espaço de magia de bruxo. Não pode fazer isso de novo até terminar um descanso longo."
+  },
+  "thirsting-blade": {
+    "description": "Pré-requisito: 5º nível, Pacto da Lâmina\n\nVocê pode atacar duas vezes com sua arma do pacto, em vez de uma, sempre que usar a ação de Ataque no seu turno."
+  },
+  "trip-attack": {
+    "description": "Quando você atinge uma criatura com um ataque com arma, pode gastar um dado de superioridade para tentar derrubar o alvo. Você soma o dado de superioridade à jogada de dano do ataque, e se o alvo for Grande ou menor, ele precisa fazer um teste de resistência de Força. Se falhar, você derruba o alvo, deixando-o caído."
+  },
+  "twinned-spell": {
+    "description": "Quando você conjura uma magia que tem apenas uma criatura como alvo e não tem alcance pessoal, pode gastar um número de pontos de feitiçaria igual ao nível da magia para ter como alvo uma segunda criatura dentro do alcance com a mesma magia (1 ponto de feitiçaria se a magia for um truque). Para ser elegível, a magia precisa ser incapaz de ter mais de uma criatura como alvo no nível em que está sendo conjurada. Por exemplo, mísseis mágicos e raio ardente não são elegíveis, mas raio de gelo e orbe cromático são."
+  },
+  "two-weapon-fighting": {
+    "description": "Quando você luta com duas armas, pode somar seu modificador de atributo ao dano do segundo ataque."
+  },
+  "unbroken-air": {
+    "description": "Você pode criar uma rajada de ar comprimido que golpeia como um punho poderoso. Como uma ação, você pode gastar 2 pontos de ki e escolher uma criatura a até 9 metros de você. Essa criatura precisa fazer um teste de resistência de Força. Se falhar, a criatura sofre 3d10 de dano de concussão, mais 1d10 de dano de concussão extra para cada ponto de ki adicional que você gastar, e você pode empurrá-la até 6 metros para longe de você e derrubá-la. Se tiver sucesso, a criatura sofre metade do dano, e você não a empurra nem a derruba."
+  },
+  "visions-of-distant-realms": {
+    "description": "Pré-requisito: 15º nível\n\nVocê pode conjurar olho arcano à vontade, sem gastar um espaço de magia."
+  },
+  "voice-of-the-chain-master": {
+    "description": "Pré-requisito: Pacto da Corrente\n\nVocê pode se comunicar telepaticamente com seu familiar e perceber pelos sentidos dele enquanto estiverem no mesmo plano de existência. Além disso, enquanto percebe pelos sentidos do familiar, você também pode falar através dele com sua própria voz, mesmo que ele normalmente não consiga falar."
+  },
+  "water-whip": {
+    "description": "Você pode gastar 2 pontos de ki como uma ação para criar um chicote de água que empurra e puxa uma criatura para desequilibrá-la. Uma criatura que você possa ver a até 9 metros de você precisa fazer um teste de resistência de Destreza. Se falhar, a criatura sofre 3d10 de dano de concussão, mais 1d10 de dano de concussão extra para cada ponto de ki adicional que você gastar, e você pode derrubá-la ou puxá-la até 7,5 metros para perto de você. Se tiver sucesso, a criatura sofre metade do dano, e você não a puxa nem a derruba."
+  },
+  "wave-of-rolling-earth": {
+    "description": "Pré-requisito: 17º nível\n\nVocê pode gastar 6 pontos de ki para conjurar muralha de pedra."
+  },
+  "whispers-of-the-grave": {
+    "description": "Pré-requisito: 9º nível\n\nVocê pode conjurar falar com os mortos à vontade, sem gastar um espaço de magia."
+  },
+  "witch-sight": {
+    "description": "Pré-requisito: 15º nível\n\nVocê pode ver a forma verdadeira de qualquer metamorfo ou criatura disfarçada por magia de ilusão ou transmutação enquanto a criatura estiver a até 9 metros de você e na sua linha de visão."
+  },
+  "ambush": {
+    "description": "Quando fizer um teste de Destreza (Furtividade) ou uma jogada de iniciativa, você pode gastar um dado de superioridade e somá-lo à jogada, desde que não esteja incapacitado."
+  },
+  "arcane-propulsion-armor": {
+    "description": "Pré-requisito: 14º nível, Uma armadura (exige sintonia)\n\nQuem veste esta armadura ganha estes benefícios: O deslocamento de caminhada de quem a veste aumenta em 1,5 metro. A armadura inclui manoplas, e cada uma é uma arma mágica corpo a corpo que só pode ser empunhada quando a mão não estiver segurando nada. Quem veste a armadura tem proficiência com as manoplas, e cada uma causa 1d8 de dano de energia ao acertar e tem a propriedade arremesso, com distância normal de 6 metros e longa de 18 metros. Quando arremessada, a manopla se solta e voa até o alvo do ataque, depois volta imediatamente para quem veste a armadura e se encaixa de novo. A armadura não pode ser removida contra a vontade de quem a veste. Se quem a veste não tiver algum membro, a armadura substitui esse membro — mãos, braços, pés, pernas ou apêndices parecidos. As substituições funcionam exatamente como as partes do corpo que substituem."
+  },
+  "armor-of-magical-strength": {
+    "description": "Pré-requisito: Uma armadura (exige sintonia)\n\nEsta armadura tem 6 cargas. Quem a veste pode gastar as cargas da armadura das seguintes formas: Quando fizer um teste de Força ou um teste de resistência de Força, pode gastar 1 carga para somar à jogada um bônus igual ao seu modificador de Inteligência. Se a criatura fosse ser derrubada, ela pode usar sua reação para gastar 1 carga e evitar ficar caída. A armadura recupera 1d6 cargas gastas diariamente ao amanhecer."
+  },
+  "bait-and-switch": {
+    "description": "Quando estiver a até 1,5 metro de uma criatura no seu turno, você pode gastar um dado de superioridade e trocar de lugar com essa criatura, desde que gaste pelo menos 1,5 metro de movimento e a criatura esteja disposta e não esteja incapacitada. Esse movimento não provoca ataques de oportunidade. Role o dado de superioridade. Até o início do seu próximo turno, você ou a outra criatura (à sua escolha) ganha um bônus na CA igual ao resultado."
+  },
+  "blessed-warrior": {
+    "description": "Você aprende dois truques à sua escolha da lista de magias de clérigo. Eles contam como magias de paladino para você, e Carisma é sua habilidade de conjuração para eles. Sempre que ganhar um nível nesta classe, você pode trocar um desses truques por outro truque da lista de magias de clérigo."
+  },
+  "blind-fighting": {
+    "description": "Você tem percepção às cegas com alcance de 3 metros. Dentro desse alcance, você consegue ver efetivamente qualquer coisa que não esteja atrás de cobertura total, mesmo que esteja cego ou na escuridão. Além disso, você consegue ver uma criatura invisível dentro desse alcance, a menos que ela consiga se esconder de você."
+  },
+  "bond-of-the-talisman": {
+    "description": "Pré-requisito: 12º nível, Pacto do Talismã\n\nEnquanto outra pessoa estiver usando seu talismã, você pode usar sua ação para se teletransportar para o espaço desocupado mais próximo dela, desde que vocês dois estejam no mesmo plano de existência. Quem usa seu talismã pode fazer o mesmo, usando a própria ação para se teletransportar até você. O teletransporte pode ser usado um número de vezes igual ao seu bônus de proficiência, e todos os usos gastos são restaurados quando você termina um descanso longo."
+  },
+  "boots-of-the-winding-path": {
+    "description": "Pré-requisito: 6º nível, Um par de botas (exige sintonia)\n\nEnquanto calça estas botas, uma criatura pode se teletransportar até 4,5 metros com uma ação bônus para um espaço desocupado que possa ver. A criatura precisa ter ocupado esse espaço em algum momento durante o turno atual."
+  },
+  "brace": {
+    "description": "Quando uma criatura que você possa ver entrar no seu alcance com a arma corpo a corpo que você empunha, você pode usar sua reação para gastar um dado de superioridade e fazer um ataque contra a criatura com essa arma. Se o ataque acertar, some o dado de superioridade à jogada de dano da arma."
+  },
+  "cloud-rune": {
+    "description": "Esta runa imita a magia enganadora usada por alguns gigantes das nuvens. Enquanto vestir ou carregar um objeto inscrito com esta runa, você tem vantagem em testes de Destreza (Prestidigitação) e de Carisma (Enganação). Além disso, quando você ou uma criatura que você possa ver a até 9 metros de você for atingido por uma jogada de ataque, você pode usar sua reação para invocar a runa e escolher outra criatura a até 9 metros de você, que não seja o atacante. A criatura escolhida passa a ser o alvo do ataque, usando a mesma jogada. Essa magia pode transferir os efeitos do ataque independentemente do alcance dele. Depois de invocar esta runa, você não pode fazer isso de novo até terminar um descanso curto ou longo."
+  },
+  "commanding-presence": {
+    "description": "Quando fizer um teste de Carisma (Intimidação), Carisma (Atuação) ou Carisma (Persuasão), você pode gastar um dado de superioridade e somá-lo ao teste de habilidade."
+  },
+  "druidic-warrior": {
+    "description": "Você aprende dois truques à sua escolha da lista de magias de druida. Eles contam como magias de patrulheiro para você, e Sabedoria é sua habilidade de conjuração para eles. Sempre que ganhar um nível nesta classe, você pode trocar um desses truques por outro truque da lista de magias de druida."
+  },
+  "eldritch-mind": {
+    "description": "Você tem vantagem nos testes de resistência de Constituição que fizer para manter a concentração numa magia."
+  },
+  "enhanced-arcane-focus": {
+    "description": "Pré-requisito: Um bastão, cajado ou varinha (exige sintonia)\n\nEnquanto segura este item, uma criatura ganha +1 de bônus nas jogadas de ataque mágico. Além disso, a criatura ignora meia cobertura ao fazer um ataque mágico. O bônus aumenta para +2 quando você atinge o 10º nível nesta classe."
+  },
+  "enhanced-defense": {
+    "description": "Pré-requisito: Uma armadura ou um escudo\n\nUma criatura ganha +1 de bônus na Classe de Armadura enquanto veste (armadura) ou empunha (escudo) o item infundido. O bônus aumenta para +2 quando você atinge o 10º nível nesta classe."
+  },
+  "enhanced-weapon": {
+    "description": "Pré-requisito: Uma arma simples ou marcial\n\nEsta arma mágica concede +1 de bônus nas jogadas de ataque e de dano feitas com ela. O bônus aumenta para +2 quando você atinge o 10º nível nesta classe."
+  },
+  "far-scribe": {
+    "description": "Pré-requisito: 5º nível, Pacto do Tomo\n\nUma página nova aparece no seu Livro das Sombras. Com sua permissão, uma criatura pode usar sua ação para escrever o próprio nome nessa página, que pode conter um número de nomes igual ao seu bônus de proficiência. Você pode conjurar a magia enviar mensagem tendo como alvo uma criatura cujo nome esteja na página, sem usar espaço de magia e sem usar componentes materiais. Para isso, você precisa escrever a mensagem na página. O alvo ouve a mensagem na mente e, se responder, a resposta aparece na página, em vez de na sua mente. A escrita desaparece depois de 1 minuto. Com uma ação, você pode apagar magicamente um nome da página tocando-o."
+  },
+  "fire-rune": {
+    "description": "A magia desta runa canaliza o trabalho magistral dos grandes ferreiros. Enquanto vestir ou carregar um objeto inscrito com esta runa, seu bônus de proficiência é dobrado em qualquer teste de habilidade que fizer usando sua proficiência com uma ferramenta. Além disso, quando atingir uma criatura com um ataque usando uma arma, você pode invocar a runa para conjurar grilhões flamejantes: o alvo sofre 2d6 de dano de fogo extra e precisa ser bem-sucedido num teste de resistência de Força ou fica impedido por 1 minuto. Enquanto estiver impedido pelos grilhões, o alvo sofre 2d6 de dano de fogo no início de cada um dos turnos dele. O alvo pode repetir o teste de resistência no fim de cada um dos turnos dele, banindo os grilhões em caso de sucesso. Depois de invocar esta runa, você não pode fazer isso de novo até terminar um descanso curto ou longo."
+  },
+  "frost-rune": {
+    "description": "A magia desta runa evoca a força de quem sobrevive nos ermos gelados, como os gigantes do gelo. Enquanto vestir ou carregar um objeto inscrito com esta runa, você tem vantagem em testes de Sabedoria (Lidar com Animais) e de Carisma (Intimidação). Além disso, você pode invocar a runa com uma ação bônus para aumentar sua robustez. Por 10 minutos, você ganha +2 de bônus em todos os testes de habilidade e testes de resistência que usem Força ou Constituição. Depois de invocar esta runa, você não pode fazer isso de novo até terminar um descanso curto ou longo."
+  },
+  "gift-of-the-protectors": {
+    "description": "Pré-requisito: 9º nível, Pacto do Tomo\n\nUma página nova aparece no seu Livro das Sombras. Com sua permissão, uma criatura pode usar sua ação para escrever o próprio nome nessa página, que pode conter um número de nomes igual ao seu bônus de proficiência. Quando qualquer criatura cujo nome esteja na página for reduzida a 0 pontos de vida mas não morrer na hora, ela cai magicamente para 1 ponto de vida em vez disso. Depois que essa magia for ativada, nenhuma criatura pode se beneficiar dela até você terminar um descanso longo. Com uma ação, você pode apagar magicamente um nome da página tocando-o."
+  },
+  "grappling-strike": {
+    "description": "Imediatamente depois de atingir uma criatura com um ataque corpo a corpo no seu turno, você pode gastar um dado de superioridade e então tentar agarrar o alvo com uma ação bônus (veja o Livro do Jogador para as regras de agarrar). Some o dado de superioridade ao seu teste de Força (Atletismo)."
+  },
+  "helm-of-awareness": {
+    "description": "Pré-requisito: 10º nível, Um elmo (exige sintonia)\n\nEnquanto usa este elmo, uma criatura tem vantagem nas jogadas de iniciativa. Além disso, quem o usa não pode ser surpreendido, desde que não esteja incapacitado."
+  },
+  "hill-rune": {
+    "description": "Pré-requisito: 7º nível\n\nA magia desta runa concede uma resiliência que lembra a de um gigante das colinas. Enquanto vestir ou carregar um objeto que tenha esta runa, você tem vantagem em testes de resistência contra ficar envenenado e tem resistência a dano de veneno. Além disso, você pode invocar a runa com uma ação bônus, ganhando resistência a dano de concussão, perfurante e cortante por 1 minuto. Depois de invocar esta runa, você não pode fazer isso de novo até terminar um descanso curto ou longo."
+  },
+  "homunculus-servant": {
+    "description": "Pré-requisito: Uma gema ou cristal que valha pelo menos 100 po\n\nVocê aprende métodos intrincados para criar magicamente um homúnculo especial que o serve. O item que você infunde serve de coração da criatura, ao redor do qual o corpo dela se forma instantaneamente. Você determina a aparência do homúnculo. Alguns artífices preferem pássaros de aparência mecânica, enquanto outros gostam de frascos alados ou caldeirões animados em miniatura. O homúnculo é amigável a você e aos seus companheiros e obedece aos seus comandos. Veja as estatísticas de jogo dessa criatura no bloco de estatísticas do Homúnculo Servo, que usa seu bônus de proficiência (BP) em vários lugares. Em combate, o homúnculo compartilha sua contagem de iniciativa, mas age imediatamente depois de você. Ele pode se mover e usar sua reação por conta própria, mas a única ação que realiza no turno dele é a ação Esquivar, a menos que você use uma ação bônus no seu turno para mandá-lo realizar outra ação. Essa ação pode ser uma do bloco de estatísticas dele ou alguma outra ação. Se você estiver incapacitado, o homúnculo pode realizar qualquer ação que quiser, não apenas Esquivar. O homúnculo recupera 2d6 pontos de vida se a magia consertar for conjurada nele. Se você ou o homúnculo morrer, ele desaparece, deixando o coração no espaço dele."
+  },
+  "interception": {
+    "description": "Quando uma criatura que você possa ver atingir um alvo que não seja você, a até 1,5 metro de você, com um ataque, você pode usar sua reação para reduzir o dano que o alvo sofre em 1d10 + seu bônus de proficiência (até um mínimo de 0 de dano). Você precisa estar empunhando um escudo ou uma arma simples ou marcial para usar esta reação."
+  },
+  "investment-of-the-chain-master": {
+    "description": "Pré-requisito: Pacto da Corrente\n\nQuando conjura encontrar familiar, você infunde o familiar invocado com uma parcela do seu poder místico, concedendo à criatura os seguintes benefícios: O familiar ganha deslocamento de voo ou de natação (à sua escolha) de 12 metros. Com uma ação bônus, você pode mandar o familiar realizar a ação de Ataque. Os ataques com arma do familiar são considerados mágicos para superar imunidade e resistência a ataques não mágicos. Se o familiar forçar uma criatura a fazer um teste de resistência, ele usa a CD de resistência das suas magias. Quando o familiar sofrer dano, você pode usar sua reação para dar a ele resistência a esse dano."
+  },
+  "mind-sharpener": {
+    "description": "Pré-requisito: Uma armadura ou um manto\n\nO item infundido pode dar um choque em quem o veste para recentrar a mente dele. O item tem 4 cargas. Quando quem o veste falhar num teste de resistência de Constituição para manter a concentração numa magia, pode usar sua reação para gastar 1 das cargas do item e ser bem-sucedido em vez disso. O item recupera 1d4 cargas gastas diariamente ao amanhecer."
+  },
+  "pact-of-the-talisman": {
+    "description": "Seu patrono lhe dá um amuleto, um talismã que pode ajudar quem o usa quando a necessidade é grande. Quando quem o usa falhar num teste de habilidade, pode somar um d4 à jogada, possivelmente transformando a jogada num sucesso. Este benefício pode ser usado um número de vezes igual ao seu bônus de proficiência, e todos os usos gastos são restaurados quando você termina um descanso longo. Se perder o talismã, você pode realizar uma cerimônia de 1 hora para receber um substituto do seu patrono. Essa cerimônia pode ser feita durante um descanso curto ou longo e destrói o amuleto anterior. O talismã vira cinzas quando você morre."
+  },
+  "protection-of-the-talisman": {
+    "description": "Pré-requisito: 7º nível, Pacto do Talismã\n\nQuando quem usa seu talismã falhar num teste de resistência, pode somar um d4 à jogada, possivelmente transformando o teste num sucesso. Este benefício pode ser usado um número de vezes igual ao seu bônus de proficiência, e todos os usos gastos são restaurados quando você termina um descanso longo."
+  },
+  "quick-toss": {
+    "description": "Com uma ação bônus, você pode gastar um dado de superioridade e fazer um ataque à distância com uma arma que tenha a propriedade arremesso. Você pode sacar a arma como parte desse ataque. Se acertar, some o dado de superioridade à jogada de dano da arma."
+  },
+  "radiant-weapon": {
+    "description": "Pré-requisito: 6º nível, Uma arma simples ou marcial (exige sintonia)\n\nEsta arma mágica concede +1 de bônus nas jogadas de ataque e de dano feitas com ela. Enquanto a segura, quem a empunha pode usar uma ação bônus para fazê-la emitir luz plena num raio de 9 metros e penumbra por mais 9 metros. Quem a empunha pode apagar a luz com uma ação bônus. A arma tem 4 cargas. Com uma reação, imediatamente depois de ser atingido por um ataque, quem a empunha pode gastar 1 carga e deixar o atacante cego até o fim do próximo turno do atacante, a menos que ele seja bem-sucedido num teste de resistência de Constituição contra a CD de resistência das suas magias. A arma recupera 1d4 cargas gastas diariamente ao amanhecer."
+  },
+  "rebuke-of-the-talisman": {
+    "description": "Pré-requisito: Pacto do Talismã\n\nQuando quem usa seu talismã for atingido por um atacante que você possa ver a até 9 metros de você, você pode usar sua reação para causar ao atacante dano psíquico igual ao seu bônus de proficiência e empurrá-lo até 3 metros para longe de quem usa o talismã."
+  },
+  "repeating-shot": {
+    "description": "Pré-requisito: Uma arma simples ou marcial com a propriedade munição (exige sintonia)\n\nEsta arma mágica concede +1 de bônus nas jogadas de ataque e de dano feitas com ela quando usada para um ataque à distância, e ignora a propriedade recarga, se a tiver. Se a arma estiver sem munição, ela produz a sua própria, criando automaticamente uma munição mágica quando quem a empunha faz um ataque à distância com ela. A munição criada pela arma desaparece no instante seguinte a acertar ou errar um alvo."
+  },
+  "replicate-magic-item": {
+    "description": "Usando esta infusão, você replica um item mágico específico. Você pode aprender esta infusão várias vezes; a cada vez, escolha um item mágico que possa fazer com ela, a partir das tabelas de Itens Replicáveis abaixo. O título de cada tabela diz o nível que você precisa ter na classe para escolher um item dela. Como alternativa, você pode escolher o item mágico entre os itens mágicos comuns do jogo, sem contar poções ou pergaminhos. Nas tabelas, a entrada de cada item diz se ele exige sintonia. Veja a descrição do item no Guia do Mestre para mais informações sobre ele, incluindo o tipo de objeto necessário para fazê-lo."
+  },
+  "repulsion-shield": {
+    "description": "Pré-requisito: 6º nível, Um escudo (exige sintonia)\n\nUma criatura ganha +1 de bônus na Classe de Armadura enquanto empunha este escudo. O escudo tem 4 cargas. Enquanto o segura, quem o empunha pode usar uma reação imediatamente depois de ser atingido por um ataque corpo a corpo para gastar 1 das cargas do escudo e empurrar o atacante até 4,5 metros para longe. O escudo recupera 1d4 cargas gastas diariamente ao amanhecer."
+  },
+  "resistant-armor": {
+    "description": "Pré-requisito: 6º nível, Uma armadura (exige sintonia)\n\nEnquanto veste esta armadura, uma criatura tem resistência a um dos seguintes tipos de dano, que você escolhe ao infundir o item: ácido, frio, fogo, energia, elétrico, necrótico, veneno, psíquico, radiante ou trovejante."
+  },
+  "returning-weapon": {
+    "description": "Pré-requisito: Uma arma simples ou marcial com a propriedade arremesso\n\nEsta arma mágica concede +1 de bônus nas jogadas de ataque e de dano feitas com ela, e volta para a mão de quem a empunha imediatamente depois de ser usada num ataque à distância."
+  },
+  "seeking-spell": {
+    "description": "Se fizer uma jogada de ataque com uma magia e errar, você pode gastar 2 pontos de feitiçaria para rolar o d20 de novo, e precisa usar o novo resultado. Você pode usar Magia Teleguiada mesmo que já tenha usado outra opção de Metamagia durante a conjuração da magia."
+  },
+  "spell-refueling-ring": {
+    "description": "Pré-requisito: 6º nível, Um anel (exige sintonia)\n\nEnquanto usa este anel, a criatura pode recuperar um espaço de magia gasto com uma ação. O espaço recuperado pode ser de 3º nível ou menor. Depois de usado, o anel não pode ser usado de novo até o próximo amanhecer."
+  },
+  "stone-rune": {
+    "description": "A magia desta runa canaliza a sensatez associada aos gigantes de pedra. Enquanto vestir ou carregar um objeto inscrito com esta runa, você tem vantagem em testes de Sabedoria (Intuição) e tem visão no escuro com alcance de 36 metros. Além disso, quando uma criatura que você possa ver terminar o turno a até 9 metros de você, você pode usar sua reação para invocar a runa e forçar a criatura a fazer um teste de resistência de Sabedoria. A menos que seja bem-sucedida, a criatura fica enfeitiçada por você por 1 minuto. Enquanto estiver enfeitiçada dessa forma, a criatura tem deslocamento 0 e fica incapacitada, caindo num estupor sonhador. A criatura repete o teste de resistência no fim de cada um dos turnos dela, encerrando o efeito em caso de sucesso. Depois de invocar esta runa, você não pode fazer isso de novo até terminar um descanso curto ou longo."
+  },
+  "storm-rune": {
+    "description": "Pré-requisito: 7º nível\n\nUsando esta runa, você pode vislumbrar o futuro como um vidente gigante das tempestades. Enquanto vestir ou carregar um objeto inscrito com esta runa, você tem vantagem em testes de Inteligência (Arcanismo) e não pode ser surpreendido enquanto não estiver incapacitado. Além disso, você pode invocar a runa com uma ação bônus para entrar num estado profético por 1 minuto ou até ficar incapacitado. Até o estado terminar, quando você ou outra criatura que você possa ver a até 18 metros de você fizer uma jogada de ataque, um teste de resistência ou um teste de habilidade, você pode usar sua reação para fazer a jogada ter vantagem ou desvantagem. Depois de invocar esta runa, você não pode fazer isso de novo até terminar um descanso curto ou longo."
+  },
+  "superior-technique": {
+    "description": "Você aprende uma manobra à sua escolha entre as disponíveis para o arquétipo Mestre de Batalha. Se uma manobra que você usar exigir que o alvo faça um teste de resistência para resistir aos efeitos dela, a CD do teste é igual a 8 + seu bônus de proficiência + seu modificador de Força ou de Destreza (à sua escolha). Você ganha um dado de superioridade, que é um d6 (esse dado se soma a qualquer dado de superioridade que você tenha de outra fonte). Esse dado é usado para alimentar suas manobras. Um dado de superioridade é gasto quando você o usa. Você recupera seus dados de superioridade gastos ao terminar um descanso curto ou longo."
+  },
+  "tactical-assessment": {
+    "description": "Quando fizer um teste de Inteligência (Investigação), Inteligência (História) ou Sabedoria (Intuição), você pode gastar um dado de superioridade e somá-lo ao teste de habilidade."
+  },
+  "thrown-weapon-fighting": {
+    "description": "Você pode sacar uma arma que tenha a propriedade arremesso como parte do ataque que faz com ela. Além disso, quando acertar um ataque à distância usando uma arma de arremesso, você ganha +2 de bônus na jogada de dano."
+  },
+  "transmuted-spell": {
+    "description": "Quando conjurar uma magia que cause um tipo de dano da lista a seguir, você pode gastar 1 ponto de feitiçaria para mudar esse tipo de dano para outro dos tipos listados: ácido, frio, fogo, elétrico, veneno, trovejante."
+  },
+  "unarmed-fighting": {
+    "description": "Seus ataques desarmados podem causar dano de concussão igual a 1d6 + seu modificador de Força ao acertar. Se você não estiver empunhando nenhuma arma nem escudo ao fazer a jogada de ataque, o d6 vira um d8. No início de cada um dos seus turnos, você pode causar 1d4 de dano de concussão a uma criatura agarrada por você."
+  },
+  "undying-servitude": {
+    "description": "Pré-requisito: 5º nível\n\nVocê pode conjurar animar mortos sem usar um espaço de magia. Depois de fazer isso, você não pode conjurá-la dessa forma de novo até terminar um descanso longo."
+  },
+  "aspect-of-the-moon": {
+    "description": "Pré-requisito: Pacto do Tomo\n\nVocê não precisa mais dormir e não pode ser forçado a dormir por nenhum meio. Para receber os benefícios de um descanso longo, você pode passar as 8 horas fazendo atividades leves, como ler seu Livro das Sombras e montar guarda."
+  },
+  "banishing-arrow": {
+    "description": "Você usa magia de abjuração para tentar banir temporariamente o alvo para um lugar inofensivo na Agrestia das Fadas. A criatura atingida pela flecha também precisa ser bem-sucedida num teste de resistência de Carisma ou é banida. Enquanto estiver banido dessa forma, o deslocamento do alvo é 0 e ele fica incapacitado. No fim do próximo turno dele, o alvo reaparece no espaço que deixou ou no espaço desocupado mais próximo, se aquele estiver ocupado. Depois que você atinge o 18º nível nesta classe, o alvo também sofre 2d6 de dano de energia quando a flecha o atinge."
+  },
+  "beguiling-arrow": {
+    "description": "Sua magia de encantamento faz esta flecha seduzir temporariamente o alvo. A criatura atingida pela flecha sofre 2d6 de dano psíquico extra, e você escolhe um dos seus aliados a até 9 metros do alvo. O alvo precisa ser bem-sucedido num teste de resistência de Sabedoria ou fica enfeitiçado pelo aliado escolhido até o início do seu próximo turno. Esse efeito termina antes se o aliado escolhido atacar o alvo enfeitiçado, causar dano a ele ou forçá-lo a fazer um teste de resistência. O dano psíquico aumenta para 4d6 quando você atinge o 18º nível nesta classe."
+  },
+  "bursting-arrow": {
+    "description": "Você imbui sua flecha com energia extraída da escola de evocação. A energia detona depois do seu ataque. Imediatamente depois de a flecha atingir a criatura, o alvo e todas as outras criaturas a até 3 metros dele sofrem 2d6 de dano de energia cada. O dano de energia aumenta para 4d6 quando você atinge o 18º nível nesta classe."
+  },
+  "cloak-of-flies": {
+    "description": "Pré-requisito: 5º nível\n\nCom uma ação bônus, você pode se cercar de uma aura mágica que parece um enxame de moscas zumbindo. A aura se estende por 1,5 metro a partir de você em todas as direções, mas não atravessa cobertura total. Ela dura até você ficar incapacitado ou dispensá-la com uma ação bônus. A aura dá a você vantagem em testes de Carisma (Intimidação), mas desvantagem em todos os outros testes de Carisma. Qualquer outra criatura que começar o turno na aura sofre dano de veneno igual ao seu modificador de Carisma (no mínimo 0 de dano). Depois de usar esta invocação, você não pode usá-la de novo até terminar um descanso curto ou longo."
+  },
+  "eldritch-smite": {
+    "description": "Pré-requisito: 5º nível, Pacto da Lâmina\n\nUma vez por turno, quando atingir uma criatura com sua arma do pacto, você pode gastar um espaço de magia de bruxo para causar 1d8 de dano de energia extra ao alvo, mais 1d8 por nível do espaço de magia, e pode derrubar o alvo se ele for Enorme ou menor."
+  },
+  "enfeebling-arrow": {
+    "description": "Você entrelaça magia necromântica na sua flecha. A criatura atingida pela flecha sofre 2d6 de dano necrótico extra. O alvo também precisa ser bem-sucedido num teste de resistência de Constituição ou o dano causado pelos ataques com arma dele é reduzido à metade até o início do seu próximo turno. O dano necrótico aumenta para 4d6 quando você atinge o 18º nível nesta classe."
+  },
+  "ghostly-gaze": {
+    "description": "Pré-requisito: 7º nível\n\nCom uma ação, você ganha a capacidade de ver através de objetos sólidos até um alcance de 9 metros. Dentro desse alcance, você tem visão no escuro, se ainda não a tiver. Essa visão especial dura 1 minuto ou até sua concentração terminar (como se estivesse se concentrando numa magia). Durante esse tempo, você percebe os objetos como imagens fantasmagóricas e transparentes. Depois de usar esta invocação, você não pode usá-la de novo até terminar um descanso curto ou longo."
+  },
+  "gift-of-the-depths": {
+    "description": "Pré-requisito: 5º nível\n\nVocê consegue respirar debaixo d'água e ganha deslocamento de natação igual ao seu deslocamento de caminhada. Você também pode conjurar respirar na água uma vez sem gastar um espaço de magia. Você recupera a capacidade de fazer isso ao terminar um descanso longo."
+  },
+  "gift-of-the-ever-living-ones": {
+    "description": "Pré-requisito: Pacto da Corrente\n\nSempre que recuperar pontos de vida enquanto seu familiar estiver a até 30 metros de você, considere que quaisquer dados rolados para determinar os pontos de vida que você recupera tiraram o valor máximo."
+  },
+  "grasp-of-hadar": {
+    "description": "Pré-requisito: truque rajada mística\n\nUma vez em cada um dos seus turnos, quando atingir uma criatura com sua rajada mística, você pode mover essa criatura em linha reta 3 metros para mais perto de você."
+  },
+  "grasping-arrow": {
+    "description": "Quando esta flecha atinge o alvo, magia de conjuração cria espinheiros venenosos que se agarram e se enrolam em volta dele. A criatura atingida pela flecha sofre 2d6 de dano de veneno extra, tem o deslocamento reduzido em 3 metros e sofre 2d6 de dano cortante na primeira vez, em cada turno, que se mover 30 centímetros ou mais sem se teletransportar. O alvo ou qualquer criatura que consiga alcançá-lo pode usar sua ação para remover os espinheiros com um teste de Força (Atletismo) bem-sucedido contra a CD de resistência do seu Tiro Arcano. Caso contrário, os espinheiros duram 1 minuto ou até você usar esta opção de novo. O dano de veneno e o dano cortante aumentam para 4d6 quando você atinge o 18º nível nesta classe."
+  },
+  "improved-pact-weapon": {
+    "description": "Pré-requisito: Pacto da Lâmina\n\nVocê pode usar qualquer arma que invocar com sua característica Pacto da Lâmina como foco de conjuração para suas magias de bruxo. Além disso, a arma ganha +1 de bônus nas jogadas de ataque e de dano, a menos que seja uma arma mágica que já tenha bônus nessas jogadas. Por fim, a arma que você conjura pode ser um arco curto, arco longo, besta leve ou besta pesada."
+  },
+  "lance-of-lethargy": {
+    "description": "Pré-requisito: truque rajada mística\n\nUma vez em cada um dos seus turnos, quando atingir uma criatura com sua rajada mística, você pode reduzir o deslocamento dessa criatura em 3 metros até o fim do seu próximo turno."
+  },
+  "maddening-hex": {
+    "description": "Pré-requisito: 5º nível, magia bruxaria ou uma característica de bruxo que amaldiçoa\n\nCom uma ação bônus, você causa uma perturbação psíquica ao redor do alvo amaldiçoado pela sua magia bruxaria ou por uma característica de bruxo sua, como Maldição da Lâmina Maldita ou Sinal de Mau Agouro. Ao fazer isso, você causa dano psíquico ao alvo amaldiçoado e a cada criatura à sua escolha que possa ver a até 1,5 metro dele. O dano psíquico é igual ao seu modificador de Carisma (no mínimo 1 de dano). Para usar esta invocação, você precisa conseguir ver o alvo amaldiçoado, e ele precisa estar a até 9 metros de você."
+  },
+  "piercing-arrow": {
+    "description": "Você usa magia de transmutação para dar à sua flecha uma qualidade etérea. Ao usar esta opção, você não faz jogada de ataque. Em vez disso, a flecha dispara adiante numa linha de 30 centímetros de largura e 9 metros de comprimento, antes de desaparecer. A flecha atravessa objetos sem causar dano, ignorando cobertura. Cada criatura nessa linha precisa fazer um teste de resistência de Destreza. Se falhar, a criatura sofre dano como se tivesse sido atingida pela flecha, mais 1d6 de dano perfurante extra. Se for bem-sucedido, o alvo sofre metade desse dano. O dano perfurante aumenta para 2d6 quando você atinge o 18º nível nesta classe."
+  },
+  "relentless-hex": {
+    "description": "Pré-requisito: 7º nível, magia bruxaria ou uma característica de bruxo que amaldiçoa\n\nSua maldição cria um elo temporário entre você e seu alvo. Com uma ação bônus, você pode se teletransportar magicamente até 9 metros para um espaço desocupado que possa ver a até 1,5 metro do alvo amaldiçoado pela sua magia bruxaria ou por uma característica de bruxo sua, como Maldição da Lâmina Maldita ou Sinal de Mau Agouro. Para se teletransportar dessa forma, você precisa conseguir ver o alvo amaldiçoado."
+  },
+  "seeking-arrow": {
+    "description": "Usando magia de adivinhação, você concede à sua flecha a capacidade de buscar um alvo. Ao usar esta opção, você não faz jogada de ataque. Em vez disso, escolha uma criatura que tenha visto no último minuto. A flecha voa até essa criatura, contornando esquinas se necessário e ignorando três quartos de cobertura e meia cobertura. Se o alvo estiver dentro do alcance da arma e houver um caminho grande o bastante para a flecha chegar até ele, o alvo precisa fazer um teste de resistência de Destreza. Caso contrário, a flecha desaparece depois de percorrer o máximo que puder. Se falhar, o alvo sofre dano como se tivesse sido atingido pela flecha, mais 1d6 de dano de energia extra, e você descobre a localização atual dele. Se for bem-sucedido, o alvo sofre metade desse dano, e você não descobre a localização dele. O dano de energia aumenta para 2d6 quando você atinge o 18º nível nesta classe."
+  },
+  "shadow-arrow": {
+    "description": "Você entrelaça magia de ilusão na sua flecha, fazendo-a cobrir de sombras a visão do inimigo. A criatura atingida pela flecha sofre 2d6 de dano psíquico extra e precisa ser bem-sucedida num teste de resistência de Sabedoria ou fica incapaz de ver qualquer coisa a mais de 1,5 metro de distância até o início do seu próximo turno. O dano psíquico aumenta para 4d6 quando você atinge o 18º nível nesta classe."
+  },
+  "shroud-of-shadow": {
+    "description": "Pré-requisito: 15º nível\n\nVocê pode conjurar invisibilidade à vontade, sem gastar um espaço de magia."
+  },
+  "tomb-of-levistus": {
+    "description": "Pré-requisito: 5º nível\n\nCom uma reação, quando sofrer dano, você pode se sepultar em gelo, que derrete no fim do seu próximo turno. Você ganha 10 pontos de vida temporários por nível de bruxo, que absorvem o máximo possível do dano que ativou a reação. Imediatamente depois de sofrer o dano, você ganha vulnerabilidade a dano de fogo, seu deslocamento é reduzido a 0 e você fica incapacitado. Esses efeitos, incluindo os pontos de vida temporários que restarem, terminam quando o gelo derrete. Depois de usar esta invocação, você não pode usá-la de novo até terminar um descanso curto ou longo."
+  },
+  "tricksters-escape": {
+    "description": "Pré-requisito: 7º nível\n\nVocê pode conjurar movimentação livre uma vez em si mesmo sem gastar um espaço de magia. Você recupera a capacidade de fazer isso ao terminar um descanso longo."
+  }
+}

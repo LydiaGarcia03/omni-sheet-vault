@@ -34,10 +34,17 @@ export const SUPPORTED_SYSTEMS: SupportedSystem[] = [
     color: '#7A0A14',
     cardBackground: 'linear-gradient(135deg, #1A0608, #6E0E17 60%, #A3121F)',
   },
+  {
+    id: 'daggerheart',
+    label: 'Daggerheart',
+    description: 'Daggerheart, from the SRD 2.0: the Core Set classes, ancestries and communities, plus the Hope & Fear expansion.',
+    tagline: 'Hope & fear and duality dice',
+    color: '#6A42B8',
+    cardBackground: 'linear-gradient(135deg, #1F2D5A 0%, #3E4EA1 30%, #6A42B8 68%, #CFA24A 100%)',
+  },
 ];
 
 export const UPCOMING_SYSTEMS: UpcomingSystem[] = [
-  { label: 'Daggerheart', tagline: 'Hope & fear and duality dice', cardBackground: 'linear-gradient(135deg, #1F2D5A 0%, #3E4EA1 30%, #6A42B8 68%, #CFA24A 100%)' },
   { label: 'Pathfinder 2e', tagline: 'Three actions a turn', cardBackground: 'linear-gradient(135deg, #1A0D08, #7A2E1B 60%, #B68A2E)' },
   { label: 'Call of Cthulhu', tagline: 'Sanity is a resource', cardBackground: 'radial-gradient(ellipse at 75% 30%, #3A766B 0%, transparent 42%), linear-gradient(120deg, #081C1A 0%, #123B35 100%)' },
   { label: 'Tormenta20', tagline: 'Arton awaits', cardBackground: 'linear-gradient(135deg, #231126 0%, #5A1E5F 46%, #16101A 100%), linear-gradient(60deg, transparent 0%, rgba(224, 162, 59, .16) 46%, rgba(255, 210, 120, .10) 52%, transparent 58%)' },

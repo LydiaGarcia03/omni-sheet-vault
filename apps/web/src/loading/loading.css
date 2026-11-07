@@ -1,0 +1,41 @@
+/* Loading ring: dark track, gold arc whose dash grows and shrinks while it travels round */
+.app-spinner { display: inline-flex; flex-direction: column; align-items: center; gap: 10px; }
+.app-spinner svg { display: block; }
+.app-spinner__track { fill: none; stroke: rgba(31, 35, 39, .82); stroke-width: 10; }
+.app-spinner__arc {
+  fill: none; stroke: #D9A441; stroke-width: 6; stroke-linecap: round;
+  transform: rotate(-90deg); transform-origin: 50% 50%;
+  animation: app-spinner-arc 2s linear infinite;
+}
+.app-spinner__label { font: 600 13px Roboto, Helvetica, sans-serif; letter-spacing: .04em; color: inherit; }
+@keyframes app-spinner-arc {
+  0% { stroke-dashoffset: 0; stroke-dasharray: 150.6 100.4; }
+  50% { stroke-dasharray: 1 250; }
+  100% { stroke-dashoffset: 502; stroke-dasharray: 150.6 100.4; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app-spinner__arc { animation: app-spinner-pulse 1.6s ease-in-out infinite; stroke-dasharray: 150.6 100.4; }
+}
+@keyframes app-spinner-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .35; }
+}
+
+/* A centred ring in place of a page or panel that is still loading */
+.app-spinner.is-centred { display: flex; margin: 64px auto; }
+
+/* Full-window overlay: the page behind stays visible, blurred and slightly veiled */
+.app-loading-overlay {
+  position: fixed; inset: 0; z-index: 1000; display: grid; place-items: center;
+  background: rgba(15, 17, 19, .28);
+  backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+  animation: app-loading-fade 160ms ease-out;
+}
+@keyframes app-loading-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.app-visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}

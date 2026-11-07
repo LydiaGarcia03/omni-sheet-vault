@@ -1,5 +1,6 @@
 import type { ForcedRollMode, ProficiencyLevel } from '../../sheet/api';
 import { ProficiencyDot } from './ProficiencyDot';
+import { useDnd5eText } from './locales/dnd5eMessages';
 import { RollModeMarker } from './RollModeMarker';
 
 type SkillRowProps = {
@@ -47,6 +48,7 @@ function formatModifier(modifier: number): string {
  * never replaces it.
  */
 export function SkillRow({ name, abilityAbbreviation, proficiency, modifier, rollMode, onRoll, onRollContextMenu, onOpenExplainer }: SkillRowProps) {
+  const t = useDnd5eText();
   const formattedModifier = formatModifier(modifier);
 
   return (
@@ -59,7 +61,7 @@ export function SkillRow({ name, abilityAbbreviation, proficiency, modifier, rol
         <button
           type="button"
           className="reveal skill-row__name-button"
-          aria-label={`Open ${name} details`}
+          aria-label={t('actionsTab.openDetails', { name })}
           onClick={onOpenExplainer}
         >
           {name}
@@ -74,7 +76,7 @@ export function SkillRow({ name, abilityAbbreviation, proficiency, modifier, rol
         <button
           type="button"
           className="roll roll--modifier skill-row__mod-button"
-          aria-label={`Roll ${name}, ${formattedModifier}`}
+          aria-label={t('skills.roll', { name, modifier: formattedModifier })}
           onClick={onRoll}
           onContextMenu={(event) => {
             event.preventDefault();

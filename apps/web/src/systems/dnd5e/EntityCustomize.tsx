@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useDnd5eText } from './locales/dnd5eMessages';
 
 export type CustomizeValue = number | boolean | string | null;
 
@@ -109,6 +110,7 @@ function SelectField({ field, value, onCommit }: { field: CustomizeField; value:
 
 /** The "Remove Customizations" button: a first click asks to confirm for three seconds, a second one resets. */
 function ResetButton({ customized, onReset }: { customized: boolean; onReset: () => void }) {
+  const t = useDnd5eText();
   const [secondsLeft, setSecondsLeft] = useState(0);
   useEffect(() => {
     if (secondsLeft === 0) {
@@ -133,7 +135,7 @@ function ResetButton({ customized, onReset }: { customized: boolean; onReset: ()
         }
       }}
     >
-      {!customized ? 'No Customizations' : confirming ? `Confirm (${secondsLeft})` : 'Remove Customizations'}
+      {!customized ? t('customize.none') : confirming ? t('customize.confirm', { seconds: secondsLeft }) : t('customize.remove')}
     </button>
   );
 }

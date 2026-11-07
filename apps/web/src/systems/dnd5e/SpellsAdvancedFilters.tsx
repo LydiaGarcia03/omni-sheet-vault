@@ -1,6 +1,5 @@
 import type { Spell } from '../../sheet/api';
-import { abilityAbbreviation } from './abilities';
-import { damageTypeLabel } from './damageTypes';
+import { useDnd5eTerms } from './locales/dnd5eMessages';
 
 export type SpellAdvancedFilterState = {
   castingTimes: string[];
@@ -80,6 +79,8 @@ function FilterGroup({ label, options, selected, formatOption, onToggle }: Filte
  * character with no save-DC spells simply never shows a "Saving Throw" group.
  */
 export function SpellsAdvancedFilters({ spells, filters, onChange }: SpellsAdvancedFiltersProps) {
+  const terms = useDnd5eTerms();
+  const { t } = terms;
   const castingTimes = Array.from(new Set(spells.map((spell) => spell.castingTime))).sort();
   const saveAbilities = Array.from(
     new Set(spells.map((spell) => spell.saveAbility).filter((ability): ability is string => ability != null)),
@@ -91,29 +92,29 @@ export function SpellsAdvancedFilters({ spells, filters, onChange }: SpellsAdvan
   return (
     <div className="spells-advanced-filters">
       <FilterGroup
-        label="Casting Time"
+        label={t('terms.labels.castingTime')}
         options={castingTimes}
         selected={filters.castingTimes}
         formatOption={(value) => value}
         onToggle={(value) => onChange({ ...filters, castingTimes: toggle(filters.castingTimes, value) })}
       />
       <FilterGroup
-        label="Saving Throw"
+        label={t('terms.labels.savingThrow')}
         options={saveAbilities}
         selected={filters.saveAbilities}
-        formatOption={abilityAbbreviation}
+        formatOption={terms.abilityAbbreviation}
         onToggle={(value) => onChange({ ...filters, saveAbilities: toggle(filters.saveAbilities, value) })}
       />
       <FilterGroup
-        label="Damage Type"
+        label={t('actionsTab.damageType')}
         options={damageTypes}
         selected={filters.damageTypes}
-        formatOption={damageTypeLabel}
+        formatOption={terms.damageType}
         onToggle={(value) => onChange({ ...filters, damageTypes: toggle(filters.damageTypes, value) })}
       />
       {hasActiveAdvancedFilters(filters) && (
         <button type="button" className="reveal spells-advanced-filters__clear" onClick={() => onChange(EMPTY_ADVANCED_FILTERS)}>
-          Clear Filters
+          {t('spellsTab.clearFilters')}
         </button>
       )}
     </div>

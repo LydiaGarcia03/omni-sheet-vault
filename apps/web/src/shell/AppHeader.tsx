@@ -3,11 +3,10 @@ import { Link } from 'react-router';
 import logo from '../assets/brand/omni-logo-light.svg';
 import { useAuth } from '../auth/AuthProvider';
 import { isDesktopEdition } from '../edition';
+import { LanguageMenu } from '../language/LanguageMenu';
+import { useShellText } from '../locales/platformMessages';
 import { useAppTheme } from '../theme/appTheme';
 import { systemMarkFor } from './systemMarks';
-
-/** Keycloak's own account page (profile and password), which reuses the Keycloak login of the session. */
-const ACCOUNT_URL = import.meta.env.VITE_KEYCLOAK_ACCOUNT_URL ?? 'http://localhost:8081/realms/omni-sheet-vault/account';
 
 type AppHeaderProps = {
   /** The signed-in player's name; null shows "Log in" instead of the user menu. */
@@ -27,7 +26,8 @@ type AppHeaderProps = {
 
 /** The app's top bar on every page: logo and name, an optional way back to the list, and the player's menu (or "Log in"). */
 export function AppHeader({ userName, backToListWithin, compact = false, children, systemId }: AppHeaderProps) {
-  const { signIn, signOut } = useAuth();
+  const { signIn, signOut, user } = useAuth();
+  const t = useShellText();
   const SystemMark = systemId === undefined ? undefined : systemMarkFor(systemId);
   return (
     <header className={`app-header${compact ? ' is-compact' : ''}`}>
@@ -45,17 +45,18 @@ export function AppHeader({ userName, backToListWithin, compact = false, childre
         {backToListWithin !== undefined && (
           <div className="app-header__column" style={{ '--app-header-column': `${backToListWithin}px` } as CSSProperties}>
             <Link className="app-header__back" to="/">
-              ← Your characters
+              {t('header.backToCharacters')}
             </Link>
           </div>
         )}
         <div className="app-header__right">
+          <LanguageMenu />
           {userName === null ? (
             <button type="button" className="app-btn app-btn--ghost" onClick={() => signIn('/')}>
-              Log in
+              {t('header.logIn')}
             </button>
           ) : (
-            <UserMenu name={userName} onSignOut={signOut} />
+            <UserMenu name={userName} avatarUrl={user?.avatarUrl ?? null} onSignOut={signOut} />
           )}
         </div>
       </div>
@@ -63,9 +64,10 @@ export function AppHeader({ userName, backToListWithin, compact = false, childre
   );
 }
 
-function UserMenu({ name, onSignOut }: { name: string; onSignOut: () => void }) {
+function UserMenu({ name, avatarUrl, onSignOut }: { name: string; avatarUrl: string | null; onSignOut: () => void }) {
   const [open, setOpen] = useState(false);
   const { theme, setTheme } = useAppTheme();
+  const t = useShellText();
   const root = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -90,14 +92,17 @@ function UserMenu({ name, onSignOut }: { name: string; onSignOut: () => void }) 
     <div className="app-user" ref={root}>
       <button type="button" className="app-user__button" aria-haspopup="menu" aria-expanded={open} onClick={() => setOpen(!open)}>
         <span className="app-user__avatar" aria-hidden="true">
-          {name.charAt(0).toUpperCase()}
+          {avatarUrl ? <img src={avatarUrl} alt="" /> : name.charAt(0).toUpperCase()}
         </span>
         {name} ▾
       </button>
       {open && (
         <div className="app-user__menu" role="menu">
           <Link role="menuitem" to="/" onClick={() => setOpen(false)}>
-            My characters
+            {t('header.myCharacters')}
+          </Link>
+          <Link role="menuitem" to="/profile" onClick={() => setOpen(false)}>
+            {t('header.profile')}
           </Link>
           <button
             type="button"
@@ -106,17 +111,14 @@ function UserMenu({ name, onSignOut }: { name: string; onSignOut: () => void }) 
             className="app-user__toggle"
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
           >
-            Dark theme
+            {t('header.darkTheme')}
             <span className="app-user__switch" aria-hidden="true" />
           </button>
           {!isDesktopEdition && (
             <>
-              <a role="menuitem" href={ACCOUNT_URL} target="_blank" rel="noreferrer">
-                Account
-              </a>
               <hr />
               <button type="button" role="menuitem" onClick={onSignOut}>
-                Log out
+                {t('header.logOut')}
               </button>
             </>
           )}

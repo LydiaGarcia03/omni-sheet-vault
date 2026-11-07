@@ -1,0 +1,2252 @@
+[
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "aarakocra",
+    "name": "Aarakocra",
+    "sourceBook": "Monster Manual",
+    "sourceCode": "MM",
+    "sourcePage": 12,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "abanasinian",
+    "name": "Abanasinian",
+    "sourceBook": "Dragonlance: Shadow of the Dragon Queen",
+    "sourceCode": "DSotDQ",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Common"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "abyssal-ggr",
+    "name": "Abyssal",
+    "sourceBook": "Guildmasters' Guide to Ravnica",
+    "sourceCode": "GGR",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Infernal"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "abyssal-phb",
+    "name": "Abyssal",
+    "sourceBook": "Player's Handbook",
+    "sourceCode": "PHB",
+    "sourcePage": 123,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "exotic",
+      "script": "Infernal"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "alzhedo",
+    "name": "Alzhedo",
+    "sourceBook": "Sword Coast Adventurer's Guide",
+    "sourceCode": "SCAG",
+    "sourcePage": 112,
+    "tags": [],
+    "description": "Option: Human Languages. Many human ethnicities and nations in Faerûn have their own language, in addition to Common. Most human languages are written in Thorass, the alphabet of Old Common, derived from the Chondathan language that traders used as their common tongue. A few human languages use other alphabets, including Draconic, Dethek, and Espruar. If your Dungeon Master allows this option, then any human from an ethnic group that has its own language is assumed to know that language as well as Common. This ethnic language is treated as a free additional language for such individuals.",
+    "data": {
+      "type": null,
+      "script": "Thorass"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "aven",
+    "name": "Aven",
+    "sourceBook": "Plane Shift: Dominaria",
+    "sourceCode": "PSD",
+    "sourcePage": 6,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "blink-dog",
+    "name": "Blink Dog",
+    "sourceBook": "Monster Manual",
+    "sourceCode": "MM",
+    "sourcePage": 318,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "bothii",
+    "name": "Bothii",
+    "sourceBook": "Storm King's Thunder",
+    "sourceCode": "SKT",
+    "sourcePage": 86,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "bullywug",
+    "name": "Bullywug",
+    "sourceBook": "Monster Manual",
+    "sourceCode": "MM",
+    "sourcePage": 35,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "celestial-erlw",
+    "name": "Celestial",
+    "sourceBook": "Eberron: Rising from the Last War",
+    "sourceCode": "ERLW",
+    "sourcePage": 6,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "exotic",
+      "script": "Celestial"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "celestial-ggr",
+    "name": "Celestial",
+    "sourceBook": "Guildmasters' Guide to Ravnica",
+    "sourceCode": "GGR",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Celestial"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "celestial-mot",
+    "name": "Celestial",
+    "sourceBook": "Mythic Odysseys of Theros",
+    "sourceCode": "MOT",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": "Celestial"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "celestial-phb",
+    "name": "Celestial",
+    "sourceBook": "Player's Handbook",
+    "sourceCode": "PHB",
+    "sourcePage": 123,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "exotic",
+      "script": "Celestial"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "chessentan",
+    "name": "Chessentan",
+    "sourceBook": "Sword Coast Adventurer's Guide",
+    "sourceCode": "SCAG",
+    "sourcePage": 112,
+    "tags": [],
+    "description": "Option: Human Languages. Many human ethnicities and nations in Faerûn have their own language, in addition to Common. Most human languages are written in Thorass, the alphabet of Old Common, derived from the Chondathan language that traders used as their common tongue. A few human languages use other alphabets, including Draconic, Dethek, and Espruar. If your Dungeon Master allows this option, then any human from an ethnic group that has its own language is assumed to know that language as well as Common. This ethnic language is treated as a free additional language for such individuals.",
+    "data": {
+      "type": null,
+      "script": "Thorass"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "chondathan",
+    "name": "Chondathan",
+    "sourceBook": "Sword Coast Adventurer's Guide",
+    "sourceCode": "SCAG",
+    "sourcePage": 112,
+    "tags": [],
+    "description": "Option: Human Languages. Many human ethnicities and nations in Faerûn have their own language, in addition to Common. Most human languages are written in Thorass, the alphabet of Old Common, derived from the Chondathan language that traders used as their common tongue. A few human languages use other alphabets, including Draconic, Dethek, and Espruar. If your Dungeon Master allows this option, then any human from an ethnic group that has its own language is assumed to know that language as well as Common. This ethnic language is treated as a free additional language for such individuals.",
+    "data": {
+      "type": null,
+      "script": "Thorass"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "coalition-pidgin",
+    "name": "Coalition Pidgin",
+    "sourceBook": "Plane Shift: Ixalan",
+    "sourceCode": "PSX",
+    "sourcePage": 6,
+    "tags": [],
+    "description": "The humans of the Brazen Coalition speak a different language—a pidgin of Orc, Siren, and a native human language that is similar to Vampire (about as closely related as Italian is to Spanish). Orcs, sirens, and goblins also speak this Brazen Coalition pidgin.",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "common-dsotdq",
+    "name": "Common",
+    "sourceBook": "Dragonlance: Shadow of the Dragon Queen",
+    "sourceCode": "DSotDQ",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Common"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "common-erlw",
+    "name": "Common",
+    "sourceBook": "Eberron: Rising from the Last War",
+    "sourceCode": "ERLW",
+    "sourcePage": 6,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Common"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "common-ggr",
+    "name": "Common",
+    "sourceBook": "Guildmasters' Guide to Ravnica",
+    "sourceCode": "GGR",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Common"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "common-mot",
+    "name": "Common",
+    "sourceBook": "Mythic Odysseys of Theros",
+    "sourceCode": "MOT",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": "Common"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "common-phb",
+    "name": "Common",
+    "sourceBook": "Player's Handbook",
+    "sourceCode": "PHB",
+    "sourcePage": 123,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Common"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "common-psi",
+    "name": "Common",
+    "sourceBook": "Plane Shift: Innistrad",
+    "sourceCode": "PSI",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "common-trade-pidgin",
+    "name": "Common Trade Pidgin",
+    "sourceBook": "Plane Shift: Ixalan",
+    "sourceCode": "PSX",
+    "sourcePage": 6,
+    "tags": [],
+    "description": "A trade pidgin used in circumstances where members of different peoples do interact with each other. But this language is almost impossible to use for discussions of matters of any depth.",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "daelkyr",
+    "name": "Daelkyr",
+    "sourceBook": "Eberron: Rising from the Last War",
+    "sourceCode": "ERLW",
+    "sourcePage": 6,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "exotic",
+      "script": "Daelkyr"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "damaran",
+    "name": "Damaran",
+    "sourceBook": "Sword Coast Adventurer's Guide",
+    "sourceCode": "SCAG",
+    "sourcePage": 112,
+    "tags": [],
+    "description": "Option: Human Languages. Many human ethnicities and nations in Faerûn have their own language, in addition to Common. Most human languages are written in Thorass, the alphabet of Old Common, derived from the Chondathan language that traders used as their common tongue. A few human languages use other alphabets, including Draconic, Dethek, and Espruar. If your Dungeon Master allows this option, then any human from an ethnic group that has its own language is assumed to know that language as well as Common. This ethnic language is treated as a free additional language for such individuals.",
+    "data": {
+      "type": null,
+      "script": "Dethek"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "dambrathan",
+    "name": "Dambrathan",
+    "sourceBook": "Sword Coast Adventurer's Guide",
+    "sourceCode": "SCAG",
+    "sourcePage": 112,
+    "tags": [],
+    "description": "Option: Human Languages. Many human ethnicities and nations in Faerûn have their own language, in addition to Common. Most human languages are written in Thorass, the alphabet of Old Common, derived from the Chondathan language that traders used as their common tongue. A few human languages use other alphabets, including Draconic, Dethek, and Espruar. If your Dungeon Master allows this option, then any human from an ethnic group that has its own language is assumed to know that language as well as Common. This ethnic language is treated as a free additional language for such individuals.",
+    "data": {
+      "type": null,
+      "script": "Espruar"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "deep-crow",
+    "name": "Deep Crow",
+    "sourceBook": "Acquisitions Incorporated",
+    "sourceCode": "AI",
+    "sourcePage": 210,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "deep-speech",
+    "name": "Deep Speech",
+    "sourceBook": "Player's Handbook",
+    "sourceCode": "PHB",
+    "sourcePage": 123,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "exotic",
+      "script": "none"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "demonic",
+    "name": "Demonic",
+    "sourceBook": "Plane Shift: Innistrad",
+    "sourceCode": "PSI",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "draconic-dsotdq",
+    "name": "Draconic",
+    "sourceBook": "Dragonlance: Shadow of the Dragon Queen",
+    "sourceCode": "DSotDQ",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "rare",
+      "script": "Draconic"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "draconic-erlw",
+    "name": "Draconic",
+    "sourceBook": "Eberron: Rising from the Last War",
+    "sourceCode": "ERLW",
+    "sourcePage": 6,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "exotic",
+      "script": "Draconic"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "draconic-ggr",
+    "name": "Draconic",
+    "sourceBook": "Guildmasters' Guide to Ravnica",
+    "sourceCode": "GGR",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Draconic"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "draconic-mot",
+    "name": "Draconic",
+    "sourceBook": "Mythic Odysseys of Theros",
+    "sourceCode": "MOT",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": "Draconic"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "draconic-phb",
+    "name": "Draconic",
+    "sourceBook": "Player's Handbook",
+    "sourceCode": "PHB",
+    "sourcePage": 123,
+    "tags": [],
+    "description": "Draconic is thought to be one of the oldest languages and is often used in the study of magic. The language sounds harsh to most other creatures and includes numerous hard consonants and sibilants.",
+    "data": {
+      "type": "exotic",
+      "script": "Draconic"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "draconic-psi",
+    "name": "Draconic",
+    "sourceBook": "Plane Shift: Innistrad",
+    "sourceCode": "PSI",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "druidic-ggr",
+    "name": "Druidic",
+    "sourceBook": "Guildmasters' Guide to Ravnica",
+    "sourceCode": "GGR",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "secret",
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "druidic-phb",
+    "name": "Druidic",
+    "sourceBook": "Player's Handbook",
+    "sourceCode": "PHB",
+    "sourcePage": 64,
+    "tags": [],
+    "description": "Druidic is the secret language of druids. It can be spoken or used to leave hidden messages. Creatures who know this language automatically spot such a message. Others spot the message's presence with a successful DC 15 Wisdom (Perception) check but can't decipher it without magic.",
+    "data": {
+      "type": "secret",
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "dwarvish-dsotdq",
+    "name": "Dwarvish",
+    "sourceBook": "Dragonlance: Shadow of the Dragon Queen",
+    "sourceCode": "DSotDQ",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Dwarvish"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "dwarvish-erlw",
+    "name": "Dwarvish",
+    "sourceBook": "Eberron: Rising from the Last War",
+    "sourceCode": "ERLW",
+    "sourcePage": 6,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Dwarvish"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "dwarvish-phb",
+    "name": "Dwarvish",
+    "sourceBook": "Player's Handbook",
+    "sourceCode": "PHB",
+    "sourcePage": 123,
+    "tags": [],
+    "description": "Dwarvish is full of hard consonants and guttural sounds, and those characteristics spill over into whatever other language a dwarf might speak.",
+    "data": {
+      "type": "standard",
+      "script": "Dwarvish"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "elvish-dsotdq",
+    "name": "Elvish",
+    "sourceBook": "Dragonlance: Shadow of the Dragon Queen",
+    "sourceCode": "DSotDQ",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Elvish"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "elvish-erlw",
+    "name": "Elvish",
+    "sourceBook": "Eberron: Rising from the Last War",
+    "sourceCode": "ERLW",
+    "sourcePage": 6,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Elvish"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "elvish-ggr",
+    "name": "Elvish",
+    "sourceBook": "Guildmasters' Guide to Ravnica",
+    "sourceCode": "GGR",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Elvish"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "elvish-phb",
+    "name": "Elvish",
+    "sourceBook": "Player's Handbook",
+    "sourceCode": "PHB",
+    "sourcePage": 123,
+    "tags": [],
+    "description": "Elvish is fluid, with subtle intonations and intricate grammar. Elven literature is rich and varied, and their songs and poems are famous among other races. Many bards learn their language so they can add Elvish ballads to their repertoires.",
+    "data": {
+      "type": "standard",
+      "script": "Elvish"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "ergot",
+    "name": "Ergot",
+    "sourceBook": "Dragonlance: Shadow of the Dragon Queen",
+    "sourceCode": "DSotDQ",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Common"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "giant-eagle",
+    "name": "Giant Eagle",
+    "sourceBook": "Monster Manual",
+    "sourceCode": "MM",
+    "sourcePage": 324,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "giant-elk",
+    "name": "Giant Elk",
+    "sourceBook": "Monster Manual",
+    "sourceCode": "MM",
+    "sourcePage": 325,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "giant-erlw",
+    "name": "Giant",
+    "sourceBook": "Eberron: Rising from the Last War",
+    "sourceCode": "ERLW",
+    "sourcePage": 6,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Giant"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "giant-ggr",
+    "name": "Giant",
+    "sourceBook": "Guildmasters' Guide to Ravnica",
+    "sourceCode": "GGR",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Minotaur"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "giant-mot",
+    "name": "Giant",
+    "sourceBook": "Mythic Odysseys of Theros",
+    "sourceCode": "MOT",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": "Minotaur"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "giant-owl",
+    "name": "Giant Owl",
+    "sourceBook": "Monster Manual",
+    "sourceCode": "MM",
+    "sourcePage": 327,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "giant-phb",
+    "name": "Giant",
+    "sourceBook": "Player's Handbook",
+    "sourceCode": "PHB",
+    "sourcePage": 123,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Dwarvish"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "gith",
+    "name": "Gith",
+    "sourceBook": "Monster Manual",
+    "sourceCode": "MM",
+    "sourcePage": 160,
+    "tags": [],
+    "description": "The Gith Alphabet. The gith use a written language composed of alphabetic symbols arranged in circular clusters called tir'su. Each \"spoke\" on the wheel corresponds to a letter of the alphabet. Each cluster of characters represents a single word, and multiple tir'su connect to form phrases and sentences. Githyanki and githzerai both speak Gith, but each race has a distinct dialect and accent. Similarly, the two races of gith differentiate their language by how they write it. Githyanki write a tir'su clockwise, starting at the top. Githzerai use the same letter symbols but write their tir'su counterclockwise, starting from the bottom.",
+    "data": {
+      "type": null,
+      "script": "Tir'su"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "gnoll",
+    "name": "Gnoll",
+    "sourceBook": "Monster Manual",
+    "sourceCode": "MM",
+    "sourcePage": 163,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "gnomish-dsotdq",
+    "name": "Gnomish",
+    "sourceBook": "Dragonlance: Shadow of the Dragon Queen",
+    "sourceCode": "DSotDQ",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Common"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "gnomish-erlw",
+    "name": "Gnomish",
+    "sourceBook": "Eberron: Rising from the Last War",
+    "sourceCode": "ERLW",
+    "sourcePage": 6,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Dwarvish"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "gnomish-phb",
+    "name": "Gnomish",
+    "sourceBook": "Player's Handbook",
+    "sourceCode": "PHB",
+    "sourcePage": 123,
+    "tags": [],
+    "description": "The Gnomish language, which uses the Dwarvish script, is renowned for its technical treatises and its catalogs of knowledge about the natural world.",
+    "data": {
+      "type": "standard",
+      "script": "Dwarvish"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "goblin-dsotdq",
+    "name": "Goblin",
+    "sourceBook": "Dragonlance: Shadow of the Dragon Queen",
+    "sourceCode": "DSotDQ",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "rare",
+      "script": "Dwarvish"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "goblin-erlw",
+    "name": "Goblin",
+    "sourceBook": "Eberron: Rising from the Last War",
+    "sourceCode": "ERLW",
+    "sourcePage": 6,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Goblin"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "goblin-ggr",
+    "name": "Goblin",
+    "sourceBook": "Guildmasters' Guide to Ravnica",
+    "sourceCode": "GGR",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "In Ravnica, Goblin is a simplistic language with a limited vocabulary and fluid rules of grammar, unsuited for any sophisticated conversation.",
+    "data": {
+      "type": "standard",
+      "script": "Common"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "goblin-phb",
+    "name": "Goblin",
+    "sourceBook": "Player's Handbook",
+    "sourceCode": "PHB",
+    "sourcePage": 123,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Dwarvish"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "grell",
+    "name": "Grell",
+    "sourceBook": "Monster Manual",
+    "sourceCode": "MM",
+    "sourcePage": 172,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "grung",
+    "name": "Grung",
+    "sourceBook": "Volo's Guide to Monsters",
+    "sourceCode": "VGM",
+    "sourcePage": 156,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "guran",
+    "name": "Guran",
+    "sourceBook": "Sword Coast Adventurer's Guide",
+    "sourceCode": "SCAG",
+    "sourcePage": 112,
+    "tags": [],
+    "description": "A patois of Roushoum and Rashemi. Option: Human Languages. Many human ethnicities and nations in Faerûn have their own language, in addition to Common. Most human languages are written in Thorass, the alphabet of Old Common, derived from the Chondathan language that traders used as their common tongue. A few human languages use other alphabets, including Draconic, Dethek, and Espruar. If your Dungeon Master allows this option, then any human from an ethnic group that has its own language is assumed to know that language as well as Common. This ethnic language is treated as a free additional language for such individuals.",
+    "data": {
+      "type": null,
+      "script": "Thorass"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "halfling-erlw",
+    "name": "Halfling",
+    "sourceBook": "Eberron: Rising from the Last War",
+    "sourceCode": "ERLW",
+    "sourcePage": 6,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Common"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "halfling-phb",
+    "name": "Halfling",
+    "sourceBook": "Player's Handbook",
+    "sourceCode": "PHB",
+    "sourcePage": 123,
+    "tags": [],
+    "description": "The Halfling language isn't secret, but halflings are loath to share it with others. They write very little, so they don't have a rich body of literature. Their oral tradition, however, is very strong. Almost all halflings speak Common to converse with the people in whose lands they dwell or through which they are traveling.",
+    "data": {
+      "type": "standard",
+      "script": "Common"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "halruaan",
+    "name": "Halruaan",
+    "sourceBook": "Sword Coast Adventurer's Guide",
+    "sourceCode": "SCAG",
+    "sourcePage": 112,
+    "tags": [],
+    "description": "Option: Human Languages. Many human ethnicities and nations in Faerûn have their own language, in addition to Common. Most human languages are written in Thorass, the alphabet of Old Common, derived from the Chondathan language that traders used as their common tongue. A few human languages use other alphabets, including Draconic, Dethek, and Espruar. If your Dungeon Master allows this option, then any human from an ethnic group that has its own language is assumed to know that language as well as Common. This ethnic language is treated as a free additional language for such individuals.",
+    "data": {
+      "type": null,
+      "script": "Draconic"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "homarid",
+    "name": "Homarid",
+    "sourceBook": "Plane Shift: Dominaria",
+    "sourceCode": "PSD",
+    "sourcePage": 15,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "hook-horror",
+    "name": "Hook Horror",
+    "sourceBook": "Monster Manual",
+    "sourceCode": "MM",
+    "sourcePage": 189,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "ice-toad",
+    "name": "Ice Toad",
+    "sourceBook": "Rise of Tiamat",
+    "sourceCode": "RoT",
+    "sourcePage": 90,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "illuskan",
+    "name": "Illuskan",
+    "sourceBook": "Sword Coast Adventurer's Guide",
+    "sourceCode": "SCAG",
+    "sourcePage": 112,
+    "tags": [],
+    "description": "Option: Human Languages. Many human ethnicities and nations in Faerûn have their own language, in addition to Common. Most human languages are written in Thorass, the alphabet of Old Common, derived from the Chondathan language that traders used as their common tongue. A few human languages use other alphabets, including Draconic, Dethek, and Espruar. If your Dungeon Master allows this option, then any human from an ethnic group that has its own language is assumed to know that language as well as Common. This ethnic language is treated as a free additional language for such individuals.",
+    "data": {
+      "type": null,
+      "script": "Thorass"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "infernal-erlw",
+    "name": "Infernal",
+    "sourceBook": "Eberron: Rising from the Last War",
+    "sourceCode": "ERLW",
+    "sourcePage": 6,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "exotic",
+      "script": "Infernal"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "infernal-phb",
+    "name": "Infernal",
+    "sourceBook": "Player's Handbook",
+    "sourceCode": "PHB",
+    "sourcePage": 123,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "exotic",
+      "script": "Infernal"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "istarian",
+    "name": "Istarian",
+    "sourceBook": "Dragonlance: Shadow of the Dragon Queen",
+    "sourceCode": "DSotDQ",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "rare",
+      "script": "Istarian"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "itzocan",
+    "name": "Itzocan",
+    "sourceBook": "Plane Shift: Ixalan",
+    "sourceCode": "PSX",
+    "sourcePage": 6,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "ixitxachitl",
+    "name": "Ixitxachitl",
+    "sourceBook": "Out of the Abyss",
+    "sourceCode": "OotA",
+    "sourcePage": 225,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "keldon",
+    "name": "Keldon",
+    "sourceBook": "Plane Shift: Dominaria",
+    "sourceCode": "PSD",
+    "sourcePage": 19,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "kenderspeak",
+    "name": "Kenderspeak",
+    "sourceBook": "Dragonlance: Shadow of the Dragon Queen",
+    "sourceCode": "DSotDQ",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Common"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "kharolian",
+    "name": "Kharolian",
+    "sourceBook": "Dragonlance: Shadow of the Dragon Queen",
+    "sourceCode": "DSotDQ",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Common"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "khenra",
+    "name": "Khenra",
+    "sourceBook": "Plane Shift: Amonkhet",
+    "sourceCode": "PSA",
+    "sourcePage": 18,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "khur",
+    "name": "Khur",
+    "sourceBook": "Dragonlance: Shadow of the Dragon Queen",
+    "sourceCode": "DSotDQ",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Istarian"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "kothian",
+    "name": "Kothian",
+    "sourceBook": "Dragonlance: Shadow of the Dragon Queen",
+    "sourceCode": "DSotDQ",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "rare",
+      "script": "Kothian"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "kraul",
+    "name": "Kraul",
+    "sourceBook": "Guildmasters' Guide to Ravnica",
+    "sourceCode": "GGR",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Kraul"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "kruthik",
+    "name": "Kruthik",
+    "sourceBook": "Mordenkainen's Tome of Foes",
+    "sourceCode": "MTF",
+    "sourcePage": 211,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "leonin",
+    "name": "Leonin",
+    "sourceBook": "Mythic Odysseys of Theros",
+    "sourceCode": "MOT",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": "Common"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "loross",
+    "name": "Loross",
+    "sourceBook": "Icewind Dale: Rime of the Frostmaiden",
+    "sourceCode": "IDRotF",
+    "sourcePage": 221,
+    "tags": [],
+    "description": "Loross, a language spoken by the Netherese, is a dead tongue. Very few creatures in the world today would recognize it, much less speak it. Loross used the Draconic alphabet in its written form, while the spoken language had many similarities with Elvish, due to the cultural influence the elves had on Netherese civilization. A character who speaks Elvish can understand what a creature speaking Loross is saying, and vice versa. A character who has the Cloistered Scholar or Sage background, or a warlock who knows the Eyes of the Rune Keeper invocation, can translate written Loross without an ability check.",
+    "data": {
+      "type": null,
+      "script": "Draconic"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "loxodon",
+    "name": "Loxodon",
+    "sourceBook": "Guildmasters' Guide to Ravnica",
+    "sourceCode": "GGR",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Elvish"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "marquesian",
+    "name": "Marquesian",
+    "sourceBook": "Explorer's Guide to Wildemount",
+    "sourceCode": "EGW",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "The Menagerie Coast was settled by colonists from the arid land of Marquet, and their language now holds an unusual position in the Clovis Concord. It is the language of high society, as many Clovis elite are descended from Marquesians, but it is also the language of piracy, since countless lower-class Marquesians defected from the Concord and formed the Revelry pirates.",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "merfolk-ggr",
+    "name": "Merfolk",
+    "sourceBook": "Guildmasters' Guide to Ravnica",
+    "sourceCode": "GGR",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Merfolk"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "merfolk-psx",
+    "name": "Merfolk",
+    "sourceBook": "Plane Shift: Ixalan",
+    "sourceCode": "PSX",
+    "sourcePage": 6,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": "Merfolk"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "midani",
+    "name": "Midani",
+    "sourceBook": "Sword Coast Adventurer's Guide",
+    "sourceCode": "SCAG",
+    "sourcePage": 112,
+    "tags": [],
+    "description": "Option: Human Languages. Many human ethnicities and nations in Faerûn have their own language, in addition to Common. Most human languages are written in Thorass, the alphabet of Old Common, derived from the Chondathan language that traders used as their common tongue. A few human languages use other alphabets, including Draconic, Dethek, and Espruar. If your Dungeon Master allows this option, then any human from an ethnic group that has its own language is assumed to know that language as well as Common. This ethnic language is treated as a free additional language for such individuals.",
+    "data": {
+      "type": null,
+      "script": "Thorass"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "minotaur-ggr",
+    "name": "Minotaur",
+    "sourceBook": "Guildmasters' Guide to Ravnica",
+    "sourceCode": "GGR",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Minotaur"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "minotaur-mot",
+    "name": "Minotaur",
+    "sourceBook": "Mythic Odysseys of Theros",
+    "sourceCode": "MOT",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": "Minotaur"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "modron",
+    "name": "Modron",
+    "sourceBook": "Monster Manual",
+    "sourceCode": "MM",
+    "sourcePage": 224,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "mulhorandi",
+    "name": "Mulhorandi",
+    "sourceBook": "Sword Coast Adventurer's Guide",
+    "sourceCode": "SCAG",
+    "sourcePage": 112,
+    "tags": [],
+    "description": "Option: Human Languages. Many human ethnicities and nations in Faerûn have their own language, in addition to Common. Most human languages are written in Thorass, the alphabet of Old Common, derived from the Chondathan language that traders used as their common tongue. A few human languages use other alphabets, including Draconic, Dethek, and Espruar. If your Dungeon Master allows this option, then any human from an ethnic group that has its own language is assumed to know that language as well as Common. This ethnic language is treated as a free additional language for such individuals.",
+    "data": {
+      "type": null,
+      "script": "Thorass"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "naga",
+    "name": "Naga",
+    "sourceBook": "Plane Shift: Amonkhet",
+    "sourceCode": "PSA",
+    "sourcePage": 18,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "naush",
+    "name": "Naush",
+    "sourceBook": "Explorer's Guide to Wildemount",
+    "sourceCode": "EGW",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "Originally spoken by the Ki'Nau islanders native to the Menagerie Coast, Naush is a thriving language within the multicultural cities of the Clovis Concord. Even sailors who only speak Common incorporate dozens of Naush words into their nautical jargon.",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "nerakese",
+    "name": "Nerakese",
+    "sourceBook": "Dragonlance: Shadow of the Dragon Queen",
+    "sourceCode": "DSotDQ",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "rare",
+      "script": "Istarian"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "netherese",
+    "name": "Netherese",
+    "sourceBook": "Hoard of the Dragon Queen",
+    "sourceCode": "HotDQ",
+    "sourcePage": 93,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": "Draconic"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "nordmaarian",
+    "name": "Nordmaarian",
+    "sourceBook": "Dragonlance: Shadow of the Dragon Queen",
+    "sourceCode": "DSotDQ",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Istarian"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "ogre",
+    "name": "Ogre",
+    "sourceBook": "Dragonlance: Shadow of the Dragon Queen",
+    "sourceCode": "DSotDQ",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "rare",
+      "script": "Ogre"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "olman",
+    "name": "Olman",
+    "sourceBook": "Tales from the Yawning Portal",
+    "sourceCode": "TftYP",
+    "sourcePage": 238,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "orc-erlw",
+    "name": "Orc",
+    "sourceBook": "Eberron: Rising from the Last War",
+    "sourceCode": "ERLW",
+    "sourcePage": 6,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "exotic",
+      "script": "Goblin"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "orc-phb",
+    "name": "Orc",
+    "sourceBook": "Player's Handbook",
+    "sourceCode": "PHB",
+    "sourcePage": 123,
+    "tags": [],
+    "description": "Orc is a harsh, grating language with hard consonants. It has no script of its own but is written in the Dwarvish script.",
+    "data": {
+      "type": "standard",
+      "script": "Dwarvish"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "otyugh",
+    "name": "Otyugh",
+    "sourceBook": "Monster Manual",
+    "sourceCode": "MM",
+    "sourcePage": 248,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "primordial-dsotdq",
+    "name": "Primordial",
+    "sourceBook": "Dragonlance: Shadow of the Dragon Queen",
+    "sourceCode": "DSotDQ",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "rare",
+      "script": "Primordial"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "primordial-erlw",
+    "name": "Primordial",
+    "sourceBook": "Eberron: Rising from the Last War",
+    "sourceCode": "ERLW",
+    "sourcePage": 6,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "exotic",
+      "script": "Primordial"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "primordial-mot",
+    "name": "Primordial",
+    "sourceBook": "Mythic Odysseys of Theros",
+    "sourceCode": "MOT",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": "Common"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "primordial-phb",
+    "name": "Primordial",
+    "sourceBook": "Player's Handbook",
+    "sourceCode": "PHB",
+    "sourcePage": 123,
+    "tags": [],
+    "description": "Primordial is a guttural language, filled with harsh syllables and hard consonants.",
+    "data": {
+      "type": "exotic",
+      "script": "Dwarvish"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "primordial-psi",
+    "name": "Primordial",
+    "sourceBook": "Plane Shift: Innistrad",
+    "sourceCode": "PSI",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "qualith",
+    "name": "Qualith",
+    "sourceBook": "Volo's Guide to Monsters",
+    "sourceCode": "VGM",
+    "sourcePage": 75,
+    "tags": [],
+    "description": "The \"writing\" of mind flayers, known as Qualith, isn't as simple as a set of symbols representing sounds or ideas. An inscription in Qualith captures the thoughts of its creator and psionically transmits the thoughts to a mind flayer who later reads the inscription by touching it with its tentacles. Mind flayers write in Qualith by psionically imprinting their messages on nonmagical, nonliving material they grasp or caress with their tentacles. The imprinting causes imperceptible surface changes to the object, and abrasion or degradation of the material can cause the inscription to fade and fail. An expression in Qualith is made up of four-line stanzas packed into interlocking blocks, creating complex patterns that are indecipherable by other creatures. Someone that touches a Qualith inscription, however, can receive fragmentary insight into the multilayered thoughts contained within it. A non-illithid that wants to understand a Qualith inscription can make an Intelligence check (DC based on the complexity of the contained thoughts) to try to derive some of the inscription's meaning. Multiple successful attempts might uncover different aspects about the illithid author, its intended meaning, and its intended audience. A failed attempt results in a crushing headache and, in extreme cases, madness. A comprehend languages spell provides understanding of the inscription roughly equivalent to what a mind flayer would get from it.",
+    "data": {
+      "type": null,
+      "script": "Qualith"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "quori",
+    "name": "Quori",
+    "sourceBook": "Eberron: Rising from the Last War",
+    "sourceCode": "ERLW",
+    "sourcePage": 6,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "exotic",
+      "script": "Quori"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "rashemi",
+    "name": "Rashemi",
+    "sourceBook": "Sword Coast Adventurer's Guide",
+    "sourceCode": "SCAG",
+    "sourcePage": 112,
+    "tags": [],
+    "description": "Option: Human Languages. Many human ethnicities and nations in Faerûn have their own language, in addition to Common. Most human languages are written in Thorass, the alphabet of Old Common, derived from the Chondathan language that traders used as their common tongue. A few human languages use other alphabets, including Draconic, Dethek, and Espruar. If your Dungeon Master allows this option, then any human from an ethnic group that has its own language is assumed to know that language as well as Common. This ethnic language is treated as a free additional language for such individuals.",
+    "data": {
+      "type": null,
+      "script": "Thorass"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "riedran",
+    "name": "Riedran",
+    "sourceBook": "Eberron: Rising from the Last War",
+    "sourceCode": "ERLW",
+    "sourcePage": 6,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Common"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "roushoum",
+    "name": "Roushoum",
+    "sourceBook": "Sword Coast Adventurer's Guide",
+    "sourceCode": "SCAG",
+    "sourcePage": 112,
+    "tags": [],
+    "description": "Option: Human Languages. Many human ethnicities and nations in Faerûn have their own language, in addition to Common. Most human languages are written in Thorass, the alphabet of Old Common, derived from the Chondathan language that traders used as their common tongue. A few human languages use other alphabets, including Draconic, Dethek, and Espruar. If your Dungeon Master allows this option, then any human from an ethnic group that has its own language is assumed to know that language as well as Common. This ethnic language is treated as a free additional language for such individuals.",
+    "data": {
+      "type": null,
+      "script": "Thorass"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "sahuagin",
+    "name": "Sahuagin",
+    "sourceBook": "Monster Manual",
+    "sourceCode": "MM",
+    "sourcePage": 263,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "shaaran",
+    "name": "Shaaran",
+    "sourceBook": "Sword Coast Adventurer's Guide",
+    "sourceCode": "SCAG",
+    "sourcePage": 112,
+    "tags": [],
+    "description": "Option: Human Languages. Many human ethnicities and nations in Faerûn have their own language, in addition to Common. Most human languages are written in Thorass, the alphabet of Old Common, derived from the Chondathan language that traders used as their common tongue. A few human languages use other alphabets, including Draconic, Dethek, and Espruar. If your Dungeon Master allows this option, then any human from an ethnic group that has its own language is assumed to know that language as well as Common. This ethnic language is treated as a free additional language for such individuals.",
+    "data": {
+      "type": null,
+      "script": "Dethek"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "shou",
+    "name": "Shou",
+    "sourceBook": "Sword Coast Adventurer's Guide",
+    "sourceCode": "SCAG",
+    "sourcePage": 112,
+    "tags": [],
+    "description": "Option: Human Languages. Many human ethnicities and nations in Faerûn have their own language, in addition to Common. Most human languages are written in Thorass, the alphabet of Old Common, derived from the Chondathan language that traders used as their common tongue. A few human languages use other alphabets, including Draconic, Dethek, and Espruar. If your Dungeon Master allows this option, then any human from an ethnic group that has its own language is assumed to know that language as well as Common. This ethnic language is treated as a free additional language for such individuals.",
+    "data": {
+      "type": null,
+      "script": "Thorass"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "siren",
+    "name": "Siren",
+    "sourceBook": "Plane Shift: Ixalan",
+    "sourceCode": "PSX",
+    "sourcePage": 17,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "slaad",
+    "name": "Slaad",
+    "sourceBook": "Monster Manual",
+    "sourceCode": "MM",
+    "sourcePage": 276,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "solamnic",
+    "name": "Solamnic",
+    "sourceBook": "Dragonlance: Shadow of the Dragon Queen",
+    "sourceCode": "DSotDQ",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "Common"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "sphinx-ggr",
+    "name": "Sphinx",
+    "sourceBook": "Guildmasters' Guide to Ravnica",
+    "sourceCode": "GGR",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "standard",
+      "script": "none"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "sphinx-mm",
+    "name": "Sphinx",
+    "sourceBook": "Monster Manual",
+    "sourceCode": "MM",
+    "sourcePage": 281,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "sphinx-mot",
+    "name": "Sphinx",
+    "sourceBook": "Mythic Odysseys of Theros",
+    "sourceCode": "MOT",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "sylvan-dsotdq",
+    "name": "Sylvan",
+    "sourceBook": "Dragonlance: Shadow of the Dragon Queen",
+    "sourceCode": "DSotDQ",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "rare",
+      "script": "Sylvan"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "sylvan-erlw",
+    "name": "Sylvan",
+    "sourceBook": "Eberron: Rising from the Last War",
+    "sourceCode": "ERLW",
+    "sourcePage": 6,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "exotic",
+      "script": "Elvish"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "sylvan-ggr",
+    "name": "Sylvan",
+    "sourceBook": "Guildmasters' Guide to Ravnica",
+    "sourceCode": "GGR",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "Sylvan is widely spoken in the Selesnya Conclave, for it is rich in vocabulary to describe natural phenomena and spiritual forces.",
+    "data": {
+      "type": "standard",
+      "script": "Elvish"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "sylvan-mot",
+    "name": "Sylvan",
+    "sourceBook": "Mythic Odysseys of Theros",
+    "sourceCode": "MOT",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": "Elvish"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "sylvan-phb",
+    "name": "Sylvan",
+    "sourceBook": "Player's Handbook",
+    "sourceCode": "PHB",
+    "sourcePage": 123,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "exotic",
+      "script": "Elvish"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "thayan",
+    "name": "Thayan",
+    "sourceBook": "Sword Coast Adventurer's Guide",
+    "sourceCode": "SCAG",
+    "sourcePage": 112,
+    "tags": [],
+    "description": "Option: Human Languages. Many human ethnicities and nations in Faerûn have their own language, in addition to Common. Most human languages are written in Thorass, the alphabet of Old Common, derived from the Chondathan language that traders used as their common tongue. A few human languages use other alphabets, including Draconic, Dethek, and Espruar. If your Dungeon Master allows this option, then any human from an ethnic group that has its own language is assumed to know that language as well as Common. This ethnic language is treated as a free additional language for such individuals.",
+    "data": {
+      "type": null,
+      "script": "Thorass"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "thieves-cant-ggr",
+    "name": "Thieves' Cant",
+    "sourceBook": "Guildmasters' Guide to Ravnica",
+    "sourceCode": "GGR",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "secret",
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "thieves-cant-phb",
+    "name": "Thieves' Cant",
+    "sourceBook": "Player's Handbook",
+    "sourceCode": "PHB",
+    "sourcePage": 94,
+    "tags": [],
+    "description": "Thieves' cant is a secret mix of dialect, jargon, and code that allows messages to be hidden in seemingly normal conversation. Only a creature that knows thieves' cant understands such messages. It takes four times longer to convey such a message than it does to speak the same idea plainly.",
+    "data": {
+      "type": "secret",
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "thri-kreen",
+    "name": "Thri-kreen",
+    "sourceBook": "Monster Manual",
+    "sourceCode": "MM",
+    "sourcePage": 288,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "tlincalli",
+    "name": "Tlincalli",
+    "sourceBook": "Volo's Guide to Monsters",
+    "sourceCode": "VGM",
+    "sourcePage": 193,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "troglodyte",
+    "name": "Troglodyte",
+    "sourceBook": "Monster Manual",
+    "sourceCode": "MM",
+    "sourcePage": 290,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "tuigan",
+    "name": "Tuigan",
+    "sourceBook": "Sword Coast Adventurer's Guide",
+    "sourceCode": "SCAG",
+    "sourcePage": 112,
+    "tags": [],
+    "description": "Option: Human Languages. Many human ethnicities and nations in Faerûn have their own language, in addition to Common. Most human languages are written in Thorass, the alphabet of Old Common, derived from the Chondathan language that traders used as their common tongue. A few human languages use other alphabets, including Draconic, Dethek, and Espruar. If your Dungeon Master allows this option, then any human from an ethnic group that has its own language is assumed to know that language as well as Common. This ethnic language is treated as a free additional language for such individuals.",
+    "data": {
+      "type": null,
+      "script": "Thorass"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "turmic",
+    "name": "Turmic",
+    "sourceBook": "Sword Coast Adventurer's Guide",
+    "sourceCode": "SCAG",
+    "sourcePage": 112,
+    "tags": [],
+    "description": "Option: Human Languages. Many human ethnicities and nations in Faerûn have their own language, in addition to Common. Most human languages are written in Thorass, the alphabet of Old Common, derived from the Chondathan language that traders used as their common tongue. A few human languages use other alphabets, including Draconic, Dethek, and Espruar. If your Dungeon Master allows this option, then any human from an ethnic group that has its own language is assumed to know that language as well as Common. This ethnic language is treated as a free additional language for such individuals.",
+    "data": {
+      "type": null,
+      "script": "Thorass"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "uluik",
+    "name": "Uluik",
+    "sourceBook": "Sword Coast Adventurer's Guide",
+    "sourceCode": "SCAG",
+    "sourcePage": 112,
+    "tags": [],
+    "description": "Option: Human Languages. Many human ethnicities and nations in Faerûn have their own language, in addition to Common. Most human languages are written in Thorass, the alphabet of Old Common, derived from the Chondathan language that traders used as their common tongue. A few human languages use other alphabets, including Draconic, Dethek, and Espruar. If your Dungeon Master allows this option, then any human from an ethnic group that has its own language is assumed to know that language as well as Common. This ethnic language is treated as a free additional language for such individuals.",
+    "data": {
+      "type": null,
+      "script": "Thorass"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "umber-hulk",
+    "name": "Umber Hulk",
+    "sourceBook": "Monster Manual",
+    "sourceCode": "MM",
+    "sourcePage": 292,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "undercommon",
+    "name": "Undercommon",
+    "sourceBook": "Player's Handbook",
+    "sourceCode": "PHB",
+    "sourcePage": 123,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": "exotic",
+      "script": "Elvish"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "untheric",
+    "name": "Untheric",
+    "sourceBook": "Sword Coast Adventurer's Guide",
+    "sourceCode": "SCAG",
+    "sourcePage": 112,
+    "tags": [],
+    "description": "Option: Human Languages. Many human ethnicities and nations in Faerûn have their own language, in addition to Common. Most human languages are written in Thorass, the alphabet of Old Common, derived from the Chondathan language that traders used as their common tongue. A few human languages use other alphabets, including Draconic, Dethek, and Espruar. If your Dungeon Master allows this option, then any human from an ethnic group that has its own language is assumed to know that language as well as Common. This ethnic language is treated as a free additional language for such individuals.",
+    "data": {
+      "type": null,
+      "script": "Thorass"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "vampire",
+    "name": "Vampire",
+    "sourceBook": "Plane Shift: Ixalan",
+    "sourceCode": "PSX",
+    "sourcePage": 6,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "vedalken",
+    "name": "Vedalken",
+    "sourceBook": "Guildmasters' Guide to Ravnica",
+    "sourceCode": "GGR",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "The Vedalken language is renowned for its technical treatises and its catalogs of knowledge about the natural world and the aether that pervades it.",
+    "data": {
+      "type": "standard",
+      "script": "Vedalken"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "vegepygmy",
+    "name": "Vegepygmy",
+    "sourceBook": "Volo's Guide to Monsters",
+    "sourceCode": "VGM",
+    "sourcePage": 196,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "waelan",
+    "name": "Waelan",
+    "sourceBook": "Sword Coast Adventurer's Guide",
+    "sourceCode": "SCAG",
+    "sourcePage": 112,
+    "tags": [],
+    "description": "Option: Human Languages. Many human ethnicities and nations in Faerûn have their own language, in addition to Common. Most human languages are written in Thorass, the alphabet of Old Common, derived from the Chondathan language that traders used as their common tongue. A few human languages use other alphabets, including Draconic, Dethek, and Espruar. If your Dungeon Master allows this option, then any human from an ethnic group that has its own language is assumed to know that language as well as Common. This ethnic language is treated as a free additional language for such individuals.",
+    "data": {
+      "type": null,
+      "script": "Thorass"
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "winter-wolf",
+    "name": "Winter Wolf",
+    "sourceBook": "Monster Manual",
+    "sourceCode": "MM",
+    "sourcePage": 340,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "worg",
+    "name": "Worg",
+    "sourceBook": "Monster Manual",
+    "sourceCode": "MM",
+    "sourcePage": 341,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "yeti",
+    "name": "Yeti",
+    "sourceBook": "Monster Manual",
+    "sourceCode": "MM",
+    "sourcePage": 305,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "yikaria",
+    "name": "Yikaria",
+    "sourceBook": "Storm King's Thunder",
+    "sourceCode": "SKT",
+    "sourcePage": 244,
+    "tags": [],
+    "description": "",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  },
+  {
+    "systemId": "dnd-5e",
+    "kind": "LANGUAGE",
+    "slug": "zemnian",
+    "name": "Zemnian",
+    "sourceBook": "Explorer's Guide to Wildemount",
+    "sourceCode": "EGW",
+    "sourcePage": 9,
+    "tags": [],
+    "description": "This ancient language was spoken by the people of Zemniaz in the Age of Arcanum. That ancient culture has long since crumbled, but its language and its people live on in the Dwendalian Empire. Many ancient scrolls were written in Zemnian, but it is a language now largely spoken by farmers, as Common is the default language of the empire.",
+    "data": {
+      "type": null,
+      "script": null
+    }
+  }
+]

@@ -7,6 +7,7 @@ import { ABILITY_ICONS } from './abilityIcons';
 import { CheckCustomize } from './CheckCustomize';
 import { customizationsOf, EMPTY_CHECK } from './customizations';
 import { FrameIcon } from './FrameIcon';
+import { useDnd5eTerms } from './locales/dnd5eMessages';
 import { SAVING_THROWS_RULES_TEXT } from './rulesText';
 import { SavingThrowModifiers, SavingThrowsGrid } from './SavingThrowsPanel';
 
@@ -19,11 +20,12 @@ type SavingThrowsPaneProps = {
 
 /** D&D Beyond's Saving Throws pane: the saves grid, the saving throw modifiers, then the rules text. */
 export function SavingThrowsPane({ sheet, onRoll, onRollContextMenu, onOpenSave }: SavingThrowsPaneProps) {
+  const { t } = useDnd5eTerms();
   return (
     <div className="saving-throws-pane">
-      <SidebarHeader title="Saving Throws" />
+      <SidebarHeader title={t('terms.labels.savingThrows')} />
       <SavingThrowsGrid sheet={sheet} onRoll={onRoll} onRollContextMenu={onRollContextMenu} onOpenSave={onOpenSave} />
-      <SavingThrowModifiers sheet={sheet} heading={<h2 className="sidebar-subheading">Saving Throw Modifiers</h2>} />
+      <SavingThrowModifiers sheet={sheet} heading={<h2 className="sidebar-subheading">{t('saves.modifiers')}</h2>} />
       <RulesText text={SAVING_THROWS_RULES_TEXT} />
     </div>
   );
@@ -38,19 +40,21 @@ type SavingThrowPaneProps = {
 
 /** D&D Beyond's pane for one saving throw: its value, the Customize that overrides it, then the rules text. */
 export function SavingThrowPane({ sheet, ability, onMutate, onOpenSavingThrows }: SavingThrowPaneProps) {
-  const label = ABILITIES.find((entry) => entry.key === ability)?.label ?? ability;
+  const terms = useDnd5eTerms();
+  const { t } = terms;
+  const label = ABILITIES.some((entry) => entry.key === ability) ? terms.ability(ability) : ability;
   const value = customizationsOf(sheet).savingThrows[ability] ?? EMPTY_CHECK;
   return (
     <div className="saving-throw-pane">
       <SidebarHeader
-        parent="Saving Throws"
+        parent={t('terms.labels.savingThrows')}
         onOpenParent={onOpenSavingThrows}
         icon={<FrameIcon svg={ABILITY_ICONS[ability]} className="explainer-icon" aria-hidden />}
-        title={`${label} Saving Throw`}
+        title={t('saves.title', { ability: label })}
         modifier={sheet.savingThrows[ability].value}
       />
       <CheckCustomize
-        label="Saving Throw"
+        label={t('terms.labels.savingThrow')}
         value={value}
         onChange={(next) => onMutate({ type: 'CUSTOMIZE', group: 'savingThrows', target: ability, value: next })}
       />

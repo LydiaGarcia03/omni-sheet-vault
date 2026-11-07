@@ -11,12 +11,14 @@ public record ExtraResponse(
         int currentHitPoints,
         int temporaryHitPoints,
         int speed,
-        ExtraStatBlockResponse statBlock) {
+        ExtraStatBlockResponse statBlock,
+        String source,
+        String notes) {
 
     static ExtraResponse from(Extra extra) {
         return new ExtraResponse(
                 extra.key(), extra.name(), extra.category(), extra.armorClass(), extra.maxHitPoints(),
                 extra.currentHitPoints(), extra.temporaryHitPoints(), extra.speed(),
-                ExtraStatBlockResponse.from(extra.statBlock()));
+                ExtraStatBlockResponse.from(extra.statBlock()), extra.source(), extra.notes());
     }
 }

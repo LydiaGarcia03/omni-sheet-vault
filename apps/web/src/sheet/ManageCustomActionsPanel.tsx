@@ -1,17 +1,18 @@
 import type { CustomAction, ManageCustomActionsRequest, NewCustomAction } from './api';
+import { useSheetText, type SheetText } from '../locales/platformMessages';
 import { SidebarHeader } from './sidebarParts';
 
 const TEMPLATES = [
-  { value: 'GENERAL', label: 'General' },
-  { value: 'SPELL', label: 'Spell' },
-  { value: 'WEAPON', label: 'Weapon' },
-];
+  { value: 'GENERAL', label: 'customActions.general' },
+  { value: 'SPELL', label: 'terms.spell' },
+  { value: 'WEAPON', label: 'terms.weapon' },
+] as const;
 
 /** A blank action of the template, named like D&D Beyond's: "Custom Action N". */
-export function blankCustomAction(template: string, existing: CustomAction[]): NewCustomAction {
+export function blankCustomAction(template: string, existing: CustomAction[], t: SheetText = useSheetText.english): NewCustomAction {
   return {
     template,
-    name: `Custom Action ${existing.length + 1}`,
+    name: t('customActions.defaultName', { number: existing.length + 1 }),
     snippet: '',
     description: '',
     rangeCategory: null,
@@ -43,6 +44,7 @@ export function blankCustomAction(template: string, existing: CustomAction[]): N
  * changes it) with a Remove Action button, then "Add New Actions", whose select creates a blank action at once.
  */
 export function ManageCustomActionsPanel({ customActions, onAdd, onRemove, onOpenAction }: ManageCustomActionsRequest) {
+  const t = useSheetText();
   const groups = TEMPLATES.map((template) => ({
     ...template,
     actions: customActions.filter((action) => action.template === template.value),
@@ -50,10 +52,10 @@ export function ManageCustomActionsPanel({ customActions, onAdd, onRemove, onOpe
 
   return (
     <div className="custom-actions-pane">
-      <SidebarHeader title="Manage Custom Actions" />
+      <SidebarHeader title={t('customActions.title')} />
       {groups.map((group) => (
         <section key={group.value}>
-          <h2 className="custom-actions-pane__subheading">{group.label}</h2>
+          <h2 className="custom-actions-pane__subheading">{t(group.label)}</h2>
           <ul className="custom-actions-pane__actions">
             {group.actions.map((action) => (
               <li key={action.key} className="custom-actions-pane__summary">
@@ -63,10 +65,10 @@ export function ManageCustomActionsPanel({ customActions, onAdd, onRemove, onOpe
                 <button
                   type="button"
                   className="mutate custom-actions-pane__remove"
-                  aria-label={`Remove ${action.name}`}
+                  aria-label={t('common.removeName', { name: action.name })}
                   onClick={() => onRemove(action.key)}
                 >
-                  Remove Action
+                  {t('customActions.removeAction')}
                 </button>
               </li>
             ))}
@@ -74,17 +76,17 @@ export function ManageCustomActionsPanel({ customActions, onAdd, onRemove, onOpe
         </section>
       ))}
       <section>
-        <h2 className="custom-actions-pane__subheading">Add New Actions</h2>
+        <h2 className="custom-actions-pane__subheading">{t('customActions.addNew')}</h2>
         <select
           className="custom-actions-pane__select"
-          aria-label="Add a custom action"
+          aria-label={t('customActions.addLabel')}
           value=""
-          onChange={(event) => event.target.value && onAdd(blankCustomAction(event.target.value, customActions))}
+          onChange={(event) => event.target.value && onAdd(blankCustomAction(event.target.value, customActions, t))}
         >
-          <option value="">-- Choose an Option --</option>
+          <option value="">{t('common.chooseOption')}</option>
           {TEMPLATES.map((template) => (
             <option key={template.value} value={template.value}>
-              {template.label}
+              {t(template.label)}
             </option>
           ))}
         </select>

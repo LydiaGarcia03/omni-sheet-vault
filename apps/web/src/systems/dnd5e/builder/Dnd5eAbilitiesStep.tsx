@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { RolledDice } from '../../../builder/RolledDice';
 import type { AbilityPreview, CreationChoice, DraftPreview } from '../../../builder/draftApi';
 import { postCreationRoll, type RollResult } from '../../../dice/api';
+import { ENGLISH_TERMS, useDnd5eTerms } from '../locales/dnd5eMessages';
 import {
   ABILITIES,
   withAbilityAdjustment,
@@ -32,14 +33,8 @@ type Dnd5eAbilitiesStepProps = {
 /** Contributions the player doesn't type: species, feats and other grants, not the base score or manual corrections. */
 const MANUAL_SOURCES = new Set(['Base', 'Other modifier', 'Override']);
 
-const LABELS: Record<string, string> = {
-  strength: 'Strength',
-  dexterity: 'Dexterity',
-  constitution: 'Constitution',
-  intelligence: 'Intelligence',
-  wisdom: 'Wisdom',
-  charisma: 'Charisma',
-};
+/** The API's ability-score problems, in English or Portuguese. */
+const SCORE_PROBLEM = /score|point buy|standard array|valores|compra de pontos|sequência padrão/i;
 
 const signed = (value: number) => (value >= 0 ? `+${value}` : `−${Math.abs(value)}`);
 
@@ -48,6 +43,8 @@ const abbreviated = (source: string) => source.replace(/^Ability Score Improveme
 
 /** D&D Beyond's Abilities step: a generation method, the base scores it allows, and every number behind each total. */
 export function Dnd5eAbilitiesStep({ characterId, build, choices, problems, preview, onChange }: Dnd5eAbilitiesStepProps) {
+  const terms = useDnd5eTerms();
+  const { t } = terms;
   const [pendingMethod, setPendingMethod] = useState<Dnd5eAbilityScoreMethod | null>(null);
   const [lastRolls, setLastRolls] = useState<Record<string, RollResult>>({});
   const [rolling, setRolling] = useState<string | null>(null);
@@ -79,33 +76,33 @@ export function Dnd5eAbilitiesStep({ characterId, build, choices, problems, prev
         count: dice.count,
         sides: dice.sides,
         keepHighest: dice.keepHighest,
-        context: `${LABELS[ability]} (${dice.label})`,
+        context: `${ENGLISH_TERMS.ability(ability)} (${dice.label})`,
       });
       setLastRolls((current) => ({ ...current, [ability]: roll }));
       onChange(withAbilityScore(build, ability, roll.total));
     } catch {
-      setRollError('The roll failed. Try again.');
+      setRollError(t('builder.rollFailed'));
     } finally {
       setRolling(null);
     }
   };
 
-  const scoreProblems = problems.filter((problem) => /score|point buy|standard array/i.test(problem));
-  const bonuses = speciesBonuses(preview.abilities);
+  const scoreProblems = problems.filter((problem) => SCORE_PROBLEM.test(problem));
+  const bonuses = speciesBonuses(preview.abilities, terms.ability);
 
   return (
     <>
-      <section className="builder-frame">
+      <section className="builder-frame" data-tutorial="ability-method">
         <div className="builder-frame__title">
-          <span className="builder-grow">Generation method</span>
+          <span className="builder-grow">{t('builder.abilities.method')}</span>
           <select
             className="builder-input"
             style={{ width: 200 }}
-            aria-label="Generation method"
+            aria-label={t('builder.abilities.method')}
             value={build.abilityScoreMethod ?? ''}
             onChange={(event) => requestMethod((event.target.value || null) as Dnd5eAbilityScoreMethod | null)}
           >
-            <option value="">— choose a method —</option>
+            <option value="">{t('builder.abilities.chooseMethod')}</option>
             {methods.map((option) => (
               <option key={option.key} value={option.key}>
                 {option.label}
@@ -115,19 +112,19 @@ export function Dnd5eAbilitiesStep({ characterId, build, choices, problems, prev
         </div>
 
         {pendingMethod !== null && (
-          <div className="builder-confirm" role="alertdialog" aria-label="Change generation method">
-            <span className="builder-grow">Switching method clears the scores you set. Continue?</span>
+          <div className="builder-confirm" role="alertdialog" aria-label={t('builder.abilities.changeMethod')}>
+            <span className="builder-grow">{t('builder.abilities.switchWarning')}</span>
             <button type="button" className="builder-btn builder-btn--primary" onClick={() => switchTo(pendingMethod)}>
-              Switch
+              {t('builder.abilities.switch')}
             </button>
             <button type="button" className="builder-btn" onClick={() => setPendingMethod(null)}>
-              Cancel
+              {t('builder.abilities.cancel')}
             </button>
           </div>
         )}
 
         {build.abilityScoreMethod === null ? (
-          <p className="builder-muted">Pick how you generate your scores: the standard array, point buy, or your own rolls.</p>
+          <p className="builder-muted">{t('builder.abilities.pickMethod')}</p>
         ) : (
           <>
             {build.abilityScoreMethod === 'POINT_BUY' && <PointBudget build={build} rules={rules} />}
@@ -135,7 +132,7 @@ export function Dnd5eAbilitiesStep({ characterId, build, choices, problems, prev
               {ABILITIES.map((ability) => (
                 <div key={ability} className="builder-ability-cell">
                   <label className="builder-label" htmlFor={`base-${ability}`}>
-                    {ability.slice(0, 3)}
+                    {terms.abilityAbbreviation(ability)}
                   </label>
                   <BaseScoreInput id={`base-${ability}`} build={build} ability={ability} rules={rules} onChange={onChange} />
                   {build.abilityScoreMethod === 'MANUAL' && rules.roll && (
@@ -143,20 +140,20 @@ export function Dnd5eAbilitiesStep({ characterId, build, choices, problems, prev
                       <button
                         type="button"
                         className="builder-btn"
-                        aria-label={`Roll ${LABELS[ability]}`}
+                        aria-label={t('builder.abilities.rollAbility', { ability: terms.ability(ability) })}
                         title={rules.roll.label}
                         disabled={rolling !== null}
                         onClick={() => rollAbility(ability)}
                       >
-                        {rolling === ability ? 'Rolling…' : 'Roll'}
+                        {rolling === ability ? t('builder.rolling') : t('builder.roll')}
                       </button>
                       {lastRolls[ability] && <RolledDice roll={lastRolls[ability]} />}
                     </div>
                   )}
                   <div className="builder-ability-cell__total">
-                    Total {build.baseAbilityScores[ability] === undefined ? '—' : (byAbility.get(ability)?.score ?? '—')}
+                    {t('builder.abilities.total', { value: build.baseAbilityScores[ability] === undefined ? '—' : (byAbility.get(ability)?.score ?? '—') })}
                     {sourcedBonus(byAbility.get(ability)) !== 0 && (
-                      <span className="builder-ability-cell__bonus"> incl. {signed(sourcedBonus(byAbility.get(ability)))}</span>
+                      <span className="builder-ability-cell__bonus">{t('builder.abilities.including', { bonus: signed(sourcedBonus(byAbility.get(ability))) })}</span>
                     )}
                   </div>
                 </div>
@@ -168,7 +165,7 @@ export function Dnd5eAbilitiesStep({ characterId, build, choices, problems, prev
         {bonuses.map((bonus) => (
           <div key={bonus.source} className="builder-asi">
             <span>
-              <b>Ability Score Increase</b> · {bonus.source}
+              <b>{t('terms.builder.abilityScoreIncrease')}</b> · {bonus.source}
             </span>
             <span className="builder-positive">{bonus.parts.join(', ')}</span>
           </div>
@@ -181,10 +178,10 @@ export function Dnd5eAbilitiesStep({ characterId, build, choices, problems, prev
         ))}
       </section>
 
-      <section className="builder-frame">
-        <div className="builder-frame__title">Score calculations</div>
+      <section className="builder-frame" data-tutorial="ability-scores">
+        <div className="builder-frame__title">{t('builder.abilities.calculations')}</div>
         <p className="builder-muted" style={{ marginTop: 0 }}>
-          Every number behind each total. Add an extra bonus with Other Modifier, or replace the total with Override Score.
+          {t('builder.abilities.calculationsLead')}
         </p>
         <div className="builder-calc-grid">
           {ABILITIES.map((ability) => (
@@ -197,12 +194,13 @@ export function Dnd5eAbilitiesStep({ characterId, build, choices, problems, prev
 }
 
 function PointBudget({ build, rules }: { build: Dnd5eBuild; rules: MethodRules }) {
+  const { t } = useDnd5eTerms();
   const spent = ABILITIES.reduce((total, ability) => total + (rules.costs?.[String(build.baseAbilityScores[ability])] ?? 0), 0);
   const budget = rules.budget ?? 0;
   return (
     <div className="builder-budget">
       <span className="builder-label" style={{ margin: 0 }}>
-        Points remaining
+        {t('builder.abilities.pointsRemaining')}
       </span>
       <span className={`builder-budget__value${spent > budget ? ' is-over' : ''}`}>
         {budget - spent} / {budget}
@@ -221,6 +219,7 @@ type BaseScoreInputProps = {
 
 /** Point buy offers only affordable scores, the standard array only values no other ability took, manual any number in range. */
 function BaseScoreInput({ id, build, ability, rules, onChange }: BaseScoreInputProps) {
+  const { t } = useDnd5eTerms();
   const current = build.baseAbilityScores[ability];
   const set = (value: string) => onChange(withAbilityScore(build, ability, value === '' ? null : Number(value)));
 
@@ -237,7 +236,7 @@ function BaseScoreInput({ id, build, ability, rules, onChange }: BaseScoreInputP
       <select id={id} className="builder-input" value={current ?? ''} onChange={(event) => set(event.target.value)}>
         {affordable.map(([score, cost]) => (
           <option key={score} value={score}>
-            {score} ({cost} {cost === 1 ? 'pt' : 'pts'})
+            {t('builder.abilities.points', { score, count: cost })}
           </option>
         ))}
       </select>
@@ -284,6 +283,8 @@ type ScoreCardProps = {
 };
 
 function ScoreCard({ ability, build, preview, onChange }: ScoreCardProps) {
+  const terms = useDnd5eTerms();
+  const { t } = terms;
   const adjustment = build.abilityScoreAdjustments?.[ability] ?? { otherModifier: null, overrideScore: null };
   const base = build.baseAbilityScores[ability];
   const granted = (preview?.contributions ?? []).filter((part) => !MANUAL_SOURCES.has(part.source));
@@ -294,21 +295,21 @@ function ScoreCard({ ability, build, preview, onChange }: ScoreCardProps) {
 
   return (
     <div className="builder-calc">
-      <div className="builder-calc__head">{LABELS[ability]}</div>
+      <div className="builder-calc__head">{terms.ability(ability)}</div>
       <div className="builder-calc__row is-highlight">
-        <span>Total score</span>
+        <span>{t('terms.builder.totalScore')}</span>
         <b>{scored && preview ? preview.score : '—'}</b>
       </div>
       <div className="builder-calc__row is-highlight">
-        <span>Modifier</span>
+        <span>{t('terms.builder.modifier')}</span>
         <b>{scored && preview ? signed(preview.modifier) : '—'}</b>
       </div>
       <div className="builder-calc__row">
-        <span>Base score</span>
+        <span>{t('terms.builder.baseScore')}</span>
         <span>{base ?? '—'}</span>
       </div>
       <div className="builder-calc__row">
-        <span>Bonus</span>
+        <span>{t('terms.builder.bonus')}</span>
         <span>{signed(bonus)}</span>
       </div>
       {granted.map((part) => (
@@ -318,7 +319,7 @@ function ScoreCard({ ability, build, preview, onChange }: ScoreCardProps) {
         </div>
       ))}
       <label className="builder-calc__row is-edit">
-        <span>Other modifier</span>
+        <span>{t('terms.builder.otherModifier')}</span>
         <input
           className="builder-input builder-input--number"
           type="number"
@@ -330,7 +331,7 @@ function ScoreCard({ ability, build, preview, onChange }: ScoreCardProps) {
         />
       </label>
       <label className="builder-calc__row is-edit">
-        <span>Override score</span>
+        <span>{t('terms.builder.overrideScore')}</span>
         <input
           className="builder-input builder-input--number"
           type="number"
@@ -350,12 +351,12 @@ function sourcedBonus(ability: AbilityPreview | undefined): number {
 }
 
 /** The species' and other grants' increases, grouped by source: "Mountain Dwarf: Strength +2". */
-function speciesBonuses(abilities: AbilityPreview[]): { source: string; parts: string[] }[] {
+function speciesBonuses(abilities: AbilityPreview[], nameOf: (ability: string) => string): { source: string; parts: string[] }[] {
   const bySource = new Map<string, string[]>();
   for (const ability of abilities) {
     for (const part of ability.contributions) {
       if (!MANUAL_SOURCES.has(part.source)) {
-        bySource.set(part.source, [...(bySource.get(part.source) ?? []), `${LABELS[ability.ability]} ${signed(part.amount)}`]);
+        bySource.set(part.source, [...(bySource.get(part.source) ?? []), `${nameOf(ability.ability)} ${signed(part.amount)}`]);
       }
     }
   }

@@ -3,6 +3,7 @@ package dev.omnisheetvault.api.ruleset.dnd5e;
 import dev.omnisheetvault.api.ruleset.CatalogueLookup;
 import dev.omnisheetvault.api.ruleset.CatalogueRecord;
 import dev.omnisheetvault.api.ruleset.CreationChoiceOption;
+import dev.omnisheetvault.api.shared.InterfaceLocale;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
@@ -42,10 +43,10 @@ final class Dnd5eChoiceOptions {
     private final boolean includeOptionalClassFeatures;
     private final Dnd5eOptionSummaries summaries;
 
-    Dnd5eChoiceOptions(CatalogueLookup catalogue, boolean includeOptionalClassFeatures) {
+    Dnd5eChoiceOptions(CatalogueLookup catalogue, boolean includeOptionalClassFeatures, Dnd5eText text) {
         this.catalogue = catalogue;
         this.includeOptionalClassFeatures = includeOptionalClassFeatures;
-        this.summaries = new Dnd5eOptionSummaries(catalogue, !catalogue.redactsProse());
+        this.summaries = new Dnd5eOptionSummaries(catalogue, !catalogue.redactsProse(), text);
     }
 
     Dnd5eOptionSummaries summaries() {
@@ -97,7 +98,7 @@ final class Dnd5eChoiceOptions {
                 .filter(language -> types.contains(language.data().path("type").asString("")))
                 .sorted(Comparator.comparing(language -> !"Player's Handbook".equals(language.sourceBook())))
                 .forEach(language -> byName.putIfAbsent(Dnd5ePrerequisites.slug(language.name()),
-                        new CreationChoiceOption(Dnd5ePrerequisites.slug(language.name()), language.name(), language.sourceBook(),
+                        new CreationChoiceOption(Dnd5ePrerequisites.slug(language.name()), displayName(language), language.sourceBook(),
                                 Dnd5eOptionSummaries.language(language.data()))));
         return sorted(List.copyOf(byName.values()));
     }
@@ -178,12 +179,17 @@ final class Dnd5eChoiceOptions {
                     data.set(field, value);
                 }
             }
-            return new CreationChoiceOption(record.slug(), record.name(), record.sourceBook(), Dnd5eOptionSummaries.spell(record.data()), data);
+            return new CreationChoiceOption(record.slug(), displayName(record), record.sourceBook(), Dnd5eOptionSummaries.spell(record.data()), data);
         }
         if ("LANGUAGE".equals(record.kind())) {
-            return new CreationChoiceOption(record.slug(), record.name(), record.sourceBook(), Dnd5eOptionSummaries.language(record.data()));
+            return new CreationChoiceOption(record.slug(), displayName(record), record.sourceBook(), Dnd5eOptionSummaries.language(record.data()));
         }
-        return new CreationChoiceOption(record.slug(), record.name(), record.sourceBook(), null);
+        return new CreationChoiceOption(record.slug(), displayName(record), record.sourceBook(), null);
+    }
+
+    /** The entry's name in the request's language; options only show it, the build stores the slug. */
+    private static String displayName(CatalogueRecord record) {
+        return record.localizedName(InterfaceLocale.current());
     }
 
     private CreationChoiceOption itemOption(String slug) {

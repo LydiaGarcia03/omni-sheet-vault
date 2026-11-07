@@ -1,6 +1,7 @@
 package dev.omnisheetvault.api.ruleset.dnd5e;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.tuple;
 
 import dev.omnisheetvault.api.ruleset.BuildPlan;
 import dev.omnisheetvault.api.ruleset.CatalogueLookup;
@@ -29,6 +30,20 @@ class Dnd5eBuildPlannerTest {
 
         assertThat(ids(plan)).startsWith("build.abilityScores", "build.species", "build.subspecies");
         assertThat(ids(plan)).noneMatch(id -> id.startsWith("species:"));
+    }
+
+    @Test
+    void theUnnamedDefaultSubspeciesKeepsAnEmptyKeyAndALabelInThePlayersLanguage() {
+        Dnd5eCharacterBuild human = new Dnd5eCharacterBuild("human", null, null, null, null, null, null, null, null, null);
+        Dnd5eText portuguese = (code, arguments) -> "plan.standardSubspecies".equals(code) ? "Padrão" : Dnd5eText.ENGLISH.text(code, arguments);
+
+        CreationChoice english = choice(plan(human), "build.subspecies");
+        CreationChoice translated = choice(new Dnd5eBuildPlanner(human, catalogue(), portuguese).plan(), "build.subspecies");
+
+        assertThat(english.options()).extracting(CreationChoiceOption::key, CreationChoiceOption::label)
+                .containsExactly(tuple("", "Standard"), tuple("Variant", "Variant"));
+        assertThat(translated.options()).extracting(CreationChoiceOption::key, CreationChoiceOption::label)
+                .containsExactly(tuple("", "Padrão"), tuple("Variant", "Variant"));
     }
 
     @Test
@@ -159,6 +174,21 @@ class Dnd5eBuildPlannerTest {
     private static List<String> speciesKeys(Dnd5ePreferences preferences, CatalogueLookup catalogue) {
         Dnd5eCharacterBuild draft = new Dnd5eCharacterBuild(null, null, null, null, null, null, null, null, null, null, null, preferences);
         return choice(new Dnd5eBuildPlanner(draft, catalogue).plan(), "build.species").options().stream().map(CreationChoiceOption::key).toList();
+    }
+
+    @Test
+    void multiclassingChecksTheStartingClassRequirementsToo() {
+        Dnd5eCharacterBuild build = new Dnd5eCharacterBuild(
+                "dwarf", "Mountain", null, "soldier", List.of(new Dnd5eBuildClass("fighter", null, 1), new Dnd5eBuildClass("rogue", null, 1)),
+                Dnd5eAbilityScoreMethod.MANUAL,
+                Map.of("strength", 10, "dexterity", 14, "constitution", 14, "intelligence", 8, "wisdom", 12, "charisma", 10),
+                null, null, null);
+        Dnd5eCharacterBuild singleClass = new Dnd5eCharacterBuild(build.speciesSlug(), build.subspeciesName(), null, build.backgroundSlug(),
+                List.of(new Dnd5eBuildClass("fighter", null, 2)), build.abilityScoreMethod(), build.baseAbilityScores(), null, null, null);
+
+        assertThat(plan(build).problems()).contains("Multiclassing out of Fighter (the starting class) requires strength 13")
+                .noneMatch(problem -> problem.startsWith("Rogue multiclass"));
+        assertThat(plan(singleClass).problems()).noneMatch(problem -> problem.contains("multiclass requires"));
     }
 
     @Test
@@ -316,12 +346,172 @@ class Dnd5eBuildPlannerTest {
 
         BuildPlan plan = new Dnd5eBuildPlanner(build, catalogue).plan();
 
-        assertThat(choice(plan, "species:changeling:ability:0").prompt()).contains("+2, +1");
-        assertThat(choice(plan, "species:changeling:ability:0").isPending()).isFalse();
+        assertThat(choice(plan, "species:changeling:ability-set").options()).extracting(CreationChoiceOption::label)
+                .containsExactly("+2 and +1 to 2 different abilities of your choice", "+1 to 3 abilities of your choice");
+        assertThat(choice(plan, "species:changeling:ability-set").options()).extracting(CreationChoiceOption::summary).containsOnlyNulls();
+        assertThat(choice(plan, "species:changeling:ability:0:1").selected()).containsExactly("dexterity");
+        assertThat(choice(plan, "species:changeling:ability:0:2").selected()).containsExactly("charisma");
         assertThat(plan.problems()).isEmpty();
     }
 
+    @Test
+    void unequalIncreasesAreOnePickPerBonusAndNeverTheSameAbility() {
+        Dnd5eCharacterBuild build = new Dnd5eCharacterBuild(
+                "changeling", null, null, "soldier", List.of(new Dnd5eBuildClass("rogue", null, 1)),
+                Dnd5eAbilityScoreMethod.MANUAL,
+                Map.of("strength", 8, "dexterity", 13, "constitution", 12, "intelligence", 10, "wisdom", 10, "charisma", 12),
+                Dnd5eHitPointMethod.FIXED, List.of(),
+                List.of(answer("species:changeling:ability-set", "0"), answer("species:changeling:ability:0:2", "wisdom")));
+
+        BuildPlan plan = new Dnd5eBuildPlanner(build, catalogue()).plan();
+
+        CreationChoice plusTwo = choice(plan, "species:changeling:ability:0:1");
+        CreationChoice plusOne = choice(plan, "species:changeling:ability:0:2");
+        assertThat(plusTwo.prompt()).isEqualTo("Increase one ability by 2");
+        assertThat(plusTwo.count()).isEqualTo(1);
+        assertThat(plusTwo.isPending()).isTrue();
+        assertThat(plusTwo.options()).extracting(CreationChoiceOption::key).doesNotContain("wisdom");
+        assertThat(plusOne.prompt()).isEqualTo("Increase a different ability by 1");
+        assertThat(plusOne.selected()).containsExactly("wisdom");
+        assertThat(plan.problems()).isEmpty();
+    }
+
+    @Test
+    void startingGoldAsksForTheDiceRollAndAddsItMultipliedOnceRolled() {
+        Dnd5eCharacterBuild unrolled = build(null, "cleric", null, 1, List.of(answer("class:cleric:equipment-method", "gold")));
+        Dnd5eBuildPlanner unrolledPlanner = new Dnd5eBuildPlanner(unrolled, catalogue());
+        BuildPlan unrolledPlan = unrolledPlanner.plan();
+
+        CreationChoice roll = choice(unrolledPlan, "class:cleric:equipment-gold");
+        assertThat(roll.type()).isEqualTo("STARTING_GOLD");
+        assertThat(roll.isPending()).isTrue();
+        assertThat(roll.options()).extracting(CreationChoiceOption::key).first().isEqualTo("4");
+        assertThat(roll.options()).extracting(CreationChoiceOption::key).last().isEqualTo("16");
+        assertThat(roll.options().get(8).label()).isEqualTo("120 gp");
+        assertThat(unrolledPlanner.outcome().startingCopper()).isZero();
+
+        Dnd5eCharacterBuild rolled = build(null, "cleric", null, 1,
+                List.of(answer("class:cleric:equipment-method", "gold"), answer("class:cleric:equipment-gold", "12")));
+        Dnd5eBuildPlanner rolledPlanner = new Dnd5eBuildPlanner(rolled, catalogue());
+        BuildPlan rolledPlan = rolledPlanner.plan();
+
+        assertThat(choice(rolledPlan, "class:cleric:equipment-gold").isPending()).isFalse();
+        assertThat(rolledPlanner.outcome().startingCopper()).isEqualTo(120 * 100);
+        assertThat(rolledPlan.problems()).noneMatch(problem -> problem.contains("equipment-gold"));
+    }
+
+    @Test
+    void anyOfMulticlassRequirementsNeedOnlyOneOfTheirMinimums() {
+        CatalogueLookup catalogue = with(catalogue(), "CLASS", "duelist", "Duelist", DUELIST);
+        Map<String, Integer> weak = Map.of("strength", 13, "dexterity", 10, "constitution", 14, "intelligence", 8, "wisdom", 12, "charisma", 10);
+        Map<String, Integer> nimble = Map.of("strength", 13, "dexterity", 14, "constitution", 14, "intelligence", 8, "wisdom", 12, "charisma", 10);
+
+        assertThat(new Dnd5eBuildPlanner(multiclass(weak), catalogue).plan().problems())
+                .anyMatch(problem -> problem.contains("dexterity 13 or charisma 13"));
+        assertThat(new Dnd5eBuildPlanner(multiclass(nimble), catalogue).plan().problems())
+                .noneMatch(problem -> problem.contains("dexterity 13 or charisma 13"));
+    }
+
+    @Test
+    void startingGoldWithoutDiceIsReportedAsAProblem() {
+        CatalogueLookup catalogue = with(catalogue(), "CLASS", "duelist", "Duelist", DUELIST);
+        Dnd5eCharacterBuild build = build(null, "duelist", null, 1, List.of(answer("class:duelist:equipment-method", "gold")));
+
+        assertThat(new Dnd5eBuildPlanner(build, catalogue).plan().problems()).contains("Unreadable starting gold: a small pouch");
+    }
+
+    @Test
+    void severalGrantAlternativesAreOfferedInWords() {
+        CatalogueLookup catalogue = with(catalogue(), "SPECIES", "sprite", "Sprite", """
+                {"size":["small"],"speed":{"walk":25},"subspecies":[],"variants":[],
+                 "skillAlternatives":[{"fixed":["stealth"],"choices":[]},
+                   {"fixed":[],"choices":[{"from":["perception","insight"],"count":1},{"count":2}]},
+                   {"fixed":[],"choices":[]}]}""");
+        Dnd5eCharacterBuild undecided = species("sprite", List.of());
+        Dnd5eCharacterBuild decided = species("sprite", List.of(answer("species:sprite:skills-set", "0")));
+
+        BuildPlan plan = new Dnd5eBuildPlanner(undecided, catalogue).plan();
+        Dnd5eBuildPlanner decidedPlanner = new Dnd5eBuildPlanner(decided, catalogue);
+        decidedPlanner.plan();
+
+        assertThat(choice(plan, "species:sprite:skills-set").type()).isEqualTo("ALTERNATIVE");
+        assertThat(choice(plan, "species:sprite:skills-set").options()).extracting(CreationChoiceOption::label)
+                .hasSize(3).first().isEqualTo("Stealth");
+        assertThat(decidedPlanner.state().sourceOf(Dnd5eGrantState.Kind.SKILL, "stealth")).isEqualTo("Sprite");
+    }
+
+    @Test
+    void equalWeightsAskForOnePickOfSeveralAbilities() {
+        Dnd5eCharacterBuild build = species("changeling", List.of(answer("species:changeling:ability-set", "1"),
+                answer("species:changeling:ability:0", "dexterity", "charisma", "wisdom")));
+
+        Dnd5eBuildPlanner planner = new Dnd5eBuildPlanner(build, catalogue());
+        BuildPlan plan = planner.plan();
+
+        assertThat(choice(plan, "species:changeling:ability:0").count()).isEqualTo(3);
+        assertThat(planner.state().score("dexterity")).isEqualTo(14);
+        assertThat(planner.state().score("charisma")).isEqualTo(13);
+        assertThat(planner.state().score("wisdom")).isEqualTo(11);
+    }
+
+    @Test
+    void fixedAndChosenIncreasesAddUpUnderTheSourcesMaximum() {
+        CatalogueLookup catalogue = with(catalogue(), "SPECIES", "titanborn", "Titanborn", """
+                {"size":["large"],"speed":{"walk":30},"subspecies":[],"variants":[],
+                 "abilityAlternatives":[{"fixed":{"strength":1},"choices":[{"from":["constitution","wisdom"],"count":1,"amount":2}],"maximum":16}]}""");
+        Dnd5eCharacterBuild build = species("titanborn", List.of(answer("species:titanborn:ability:0", "constitution")));
+
+        Dnd5eBuildPlanner planner = new Dnd5eBuildPlanner(build, catalogue);
+        BuildPlan plan = planner.plan();
+
+        assertThat(planner.state().score("strength")).isEqualTo(9);
+        assertThat(planner.state().score("constitution")).isEqualTo(14);
+        assertThat(plan.problems()).noneMatch(problem -> problem.contains("Titanborn"));
+    }
+
     // ---- fixtures -----------------------------------------------------------------
+
+    private static final String DUELIST = """
+            {"savingThrows":["dexterity","charisma"],"subclassTitle":"Style","subclassLevel":3,"abilityScoreImprovementLevels":[4],
+             "proficiencies":{"armor":[],"weaponCategories":["simple"],"weaponItems":[],"skillAlternatives":[],"toolAlternatives":[]},
+             "startingEquipment":{"goldAlternative":"a small pouch","groups":[]},
+             "multiclassing":{"allOf":{},"anyOf":{"dexterity":13,"charisma":13},
+               "proficienciesGained":{"armor":["light"],"weaponCategories":["martial"],"weaponItems":[]}},
+             "optionalFeatureProgressions":[],"features":[]}""";
+
+    private static Dnd5eCharacterBuild multiclass(Map<String, Integer> scores) {
+        return new Dnd5eCharacterBuild("dwarf", "Mountain", null, "soldier",
+                List.of(new Dnd5eBuildClass("fighter", null, 1), new Dnd5eBuildClass("duelist", null, 1)),
+                Dnd5eAbilityScoreMethod.MANUAL, scores, null, null, null);
+    }
+
+    private static Dnd5eCharacterBuild species(String speciesSlug, List<Dnd5eBuildChoice> answers) {
+        return new Dnd5eCharacterBuild(
+                speciesSlug, null, null, "soldier", List.of(new Dnd5eBuildClass("rogue", null, 1)),
+                Dnd5eAbilityScoreMethod.MANUAL,
+                Map.of("strength", 8, "dexterity", 13, "constitution", 12, "intelligence", 10, "wisdom", 10, "charisma", 12),
+                Dnd5eHitPointMethod.FIXED, List.of(), answers);
+    }
+
+    /** {@code base} with one more entry, for fixtures only one test needs. */
+    private static CatalogueLookup with(CatalogueLookup base, String entryKind, String entrySlug, String name, String data) {
+        CatalogueRecord extra = new CatalogueRecord(entryKind, entrySlug, name, "PHB", 1, "", MAPPER.readTree(data));
+        return new CatalogueLookup() {
+            @Override
+            public Optional<CatalogueRecord> find(String kind, String slug) {
+                return entryKind.equals(kind) && entrySlug.equals(slug) ? Optional.of(extra) : base.find(kind, slug);
+            }
+
+            @Override
+            public List<CatalogueRecord> list(String kind) {
+                List<CatalogueRecord> entries = new ArrayList<>(base.list(kind));
+                if (entryKind.equals(kind)) {
+                    entries.add(extra);
+                }
+                return entries;
+            }
+        };
+    }
 
     private static BuildPlan plan(Dnd5eCharacterBuild build) {
         return new Dnd5eBuildPlanner(build, catalogue()).plan();
@@ -361,6 +551,11 @@ class Dnd5eBuildPlannerTest {
                    {"fixed":{},"choices":[{"from":["strength","dexterity","constitution","intelligence","wisdom","charisma"],"weights":[2,1],"count":2,"amount":null}],"maximum":null},
                    {"fixed":{},"choices":[{"from":["strength","dexterity","constitution","intelligence","wisdom","charisma"],"weights":[1,1,1],"count":3,"amount":null}],"maximum":null}],
                  "subspecies":[],"variants":[]}""");
+        add(byKind, "SPECIES", "human", "Human", """
+                {"size":["medium"],"speed":{"walk":30},"subspecies":[
+                   {"sourceBook":"PHB","overwrite":[],"abilityAlternatives":[{"fixed":{"strength":1},"choices":[],"maximum":null}],"variants":[]},
+                   {"name":"Variant","sourceBook":"PHB","overwrite":[],"variants":[]}],
+                 "variants":[]}""");
         add(byKind, "BACKGROUND", "soldier", "Soldier", """
                 {"skillAlternatives":[{"fixed":["athletics","intimidation"],"choices":[]}],"toolAlternatives":[{"fixed":["thieves-tools"],"choices":[]}],
                  "startingEquipment":[]}""");
@@ -383,6 +578,12 @@ class Dnd5eBuildPlannerTest {
                  "optionalFeatureProgressions":[],
                  "features":[{"name":"Expertise","level":1,"optional":false,"grantsSubclassFeature":false,
                    "choices":[{"type":"EXPERTISE","count":2,"from":["proficientSkills","thieves-tools"]}]}]}""");
+        add(byKind, "CLASS", "cleric", "Cleric", """
+                {"savingThrows":["wisdom","charisma"],"subclassTitle":"Divine Domain","subclassLevel":1,"abilityScoreImprovementLevels":[4],
+                 "proficiencies":{"armor":["light"],"weaponCategories":["simple"],"weaponItems":[],"skillAlternatives":[],"toolAlternatives":[]},
+                 "startingEquipment":{"goldAlternative":"4d4 × 10","groups":[]},
+                 "multiclassing":{"allOf":{"wisdom":13},"anyOf":{},"proficienciesGained":{}},
+                 "optionalFeatureProgressions":[],"features":[]}""");
         add(byKind, "SUBCLASS", "fighter-battle-master", "Battle Master", """
                 {"classSlug":"fighter","features":[],
                  "optionalFeatureProgressions":[{"name":"Maneuvers","featureTypes":["MV:B"],"countByLevel":[0,0,3,3,3,3,5]}]}""");

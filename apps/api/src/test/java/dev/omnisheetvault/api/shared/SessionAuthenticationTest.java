@@ -145,6 +145,21 @@ class SessionAuthenticationTest {
     }
 
     @Test
+    void theLoginCanOpenKeycloaksChangePasswordAndChangeEmailScreens() throws Exception {
+        mockMvc.perform(get("/oauth2/authorization/keycloak").param("returnTo", "/profile").param("action", "password"))
+                .andExpect(header().string("Location", containsString("kc_action=UPDATE_PASSWORD")));
+        mockMvc.perform(get("/oauth2/authorization/keycloak").param("action", "email"))
+                .andExpect(header().string("Location", containsString("kc_action=UPDATE_EMAIL")));
+    }
+
+    @Test
+    void anUnknownAccountActionIsIgnored() throws Exception {
+        mockMvc.perform(get("/oauth2/authorization/keycloak").param("action", "delete_account"))
+                .andExpect(status().isFound())
+                .andExpect(header().string("Location", not(containsString("kc_action"))));
+    }
+
+    @Test
     void aReturnPathOutsideTheAppFallsBackToHome() throws Exception {
         mockMvc.perform(get("/oauth2/authorization/keycloak").param("returnTo", "https://evil.example/"))
                 .andExpect(header().string("Location", not(containsString("prompt=create"))))

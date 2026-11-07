@@ -12,11 +12,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-/** Serves the desktop edition's uploaded portraits from disk, at the URLs {@link FileSystemPortraitStorage} hands out. */
+/** Serves the desktop edition's uploaded portraits and profile pictures from disk, at the URLs {@link FileSystemPortraitStorage} hands out. */
 @RestController
 @Profile("desktop")
 class LocalPortraitFileController {
 
+    private static final Pattern FOLDER = Pattern.compile("uploads|avatars");
     private static final Pattern UUID_PATTERN = Pattern.compile("[0-9a-fA-F-]{36}");
     private static final Pattern PORTRAIT_FILE = Pattern.compile("[0-9a-fA-F-]{36}\\.png");
 
@@ -26,12 +27,12 @@ class LocalPortraitFileController {
         this.storage = storage;
     }
 
-    @GetMapping(FileSystemPortraitStorage.URL_PREFIX + "uploads/{characterId}/{fileName}")
-    ResponseEntity<byte[]> portrait(@PathVariable String characterId, @PathVariable String fileName) throws IOException {
-        if (!UUID_PATTERN.matcher(characterId).matches() || !PORTRAIT_FILE.matcher(fileName).matches()) {
+    @GetMapping(FileSystemPortraitStorage.URL_PREFIX + "{folder}/{ownerId}/{fileName}")
+    ResponseEntity<byte[]> portrait(@PathVariable String folder, @PathVariable String ownerId, @PathVariable String fileName) throws IOException {
+        if (!FOLDER.matcher(folder).matches() || !UUID_PATTERN.matcher(ownerId).matches() || !PORTRAIT_FILE.matcher(fileName).matches()) {
             return ResponseEntity.notFound().build();
         }
-        var file = storage.find("uploads/" + characterId + "/" + fileName);
+        var file = storage.find(folder + "/" + ownerId + "/" + fileName);
         if (file.isEmpty()) {
             return ResponseEntity.notFound().build();
         }

@@ -423,7 +423,7 @@ class Dnd5eSheetCalculatorTest {
         assertThat(vitals.armorClass().value()).isEqualTo(14);
         assertThat(vitals.armorClass().contributions()).containsExactly(
                 new Contribution("Base (Half Plate)", 12),
-                new Contribution("Dexterity modifier", 2));
+                new Contribution("Dexterity mod.", 2));
     }
 
     @Test
@@ -444,7 +444,7 @@ class Dnd5eSheetCalculatorTest {
         VitalsZone vitals = calculator.calculateVitals(objectMapper.writeValueAsString(sheet));
 
         assertThat(vitals.armorClass().value()).isEqualTo(18);
-        assertThat(vitals.armorClass().contributions()).contains(new Contribution("Dexterity modifier", 0));
+        assertThat(vitals.armorClass().contributions()).contains(new Contribution("Dexterity mod.", 0));
     }
 
     @Test

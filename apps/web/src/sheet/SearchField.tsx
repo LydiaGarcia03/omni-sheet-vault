@@ -1,3 +1,5 @@
+import { useSheetText } from '../locales/platformMessages';
+
 type SearchFieldProps = {
   value: string;
   onChange: (value: string) => void;
@@ -15,14 +17,15 @@ type SearchFieldProps = {
  * other control — not the pill this used to guess at.
  */
 export function SearchField({ value, onChange, placeholder }: SearchFieldProps) {
+  const t = useSheetText();
   return (
     <input
       type="search"
       className="search-field"
       value={value}
       onChange={(event) => onChange(event.target.value)}
-      placeholder={placeholder ?? 'Search'}
-      aria-label={placeholder ?? 'Search'}
+      placeholder={placeholder ?? t('common.search')}
+      aria-label={placeholder ?? t('common.search')}
     />
   );
 }

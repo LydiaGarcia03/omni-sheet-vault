@@ -24,10 +24,11 @@ describe('AppHeader', () => {
     edition.isDesktopEdition = false;
   });
 
-  it('offers the account page and logging out on the server edition', () => {
+  it('offers the profile page instead of the login service account console, and logging out', () => {
     openUserMenu();
 
-    expect(screen.getByRole('menuitem', { name: 'Account' })).toBeInTheDocument();
+    expect(screen.getByRole('menuitem', { name: 'My profile' })).toHaveAttribute('href', '/profile');
+    expect(screen.queryByRole('menuitem', { name: 'Account' })).toBeNull();
     expect(screen.getByRole('menuitem', { name: 'Log out' })).toBeInTheDocument();
   });
 
@@ -70,13 +71,13 @@ describe('AppHeader', () => {
     expect(container.querySelector('.app-system')).toBeNull();
   });
 
-  it('has no account or logout in the desktop edition, where there is no login', () => {
+  it('has the profile but no logout in the desktop edition, where there is no login', () => {
     edition.isDesktopEdition = true;
 
     openUserMenu();
 
     expect(screen.getByRole('menuitem', { name: 'My characters' })).toBeInTheDocument();
-    expect(screen.queryByRole('menuitem', { name: 'Account' })).toBeNull();
+    expect(screen.getByRole('menuitem', { name: 'My profile' })).toBeInTheDocument();
     expect(screen.queryByRole('menuitem', { name: 'Log out' })).toBeNull();
   });
 });

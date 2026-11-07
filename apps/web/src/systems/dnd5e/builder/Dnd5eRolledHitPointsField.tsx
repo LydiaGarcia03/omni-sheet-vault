@@ -1,10 +1,27 @@
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
+import { Link } from 'react-router';
 import type { CreationChoice } from '../../../builder/draftApi';
+import { PendingMark } from '../../../builder/PendingMark';
 import { postCreationRoll } from '../../../dice/api';
+import { useDnd5eText } from '../locales/dnd5eMessages';
 import { withRolledHitPoint, type Dnd5eBuild } from './dnd5eBuild';
+
+/** Puts `link` where the text says {basics}. */
+function withLink(text: string, link: ReactNode): ReactNode {
+  const [before, after] = text.split('{basics}');
+  return (
+    <>
+      {before}
+      {after !== undefined && link}
+      {after}
+    </>
+  );
+}
 
 /** `group` is the class a row belongs to and `classLevel` its level in that class, so rows can be shown per class or per level. */
 type LevelRules = { sides: number; average: number; rollLabel: string; group?: string; classLevel?: number };
+
+const FIXED_HIT_POINTS = 'FIXED_HIT_POINTS';
 
 type Dnd5eRolledHitPointsFieldProps = {
   characterId: string;
@@ -15,19 +32,26 @@ type Dnd5eRolledHitPointsFieldProps = {
   group?: string;
   /** With `group`, shows only this level's row (the level being gained). */
   classLevel?: number;
+  /** Points to the Basics setting that switches between fixed and rolled; off where the draft's settings can't be reached. */
+  showMethodHint?: boolean;
 };
 
-/** The rows of a class (or every row) that still have no value. */
+/** The rows of a class (or every row) that still have no value; fixed hit points never leave one. */
 export function unrolledHitPointLevels(choice: CreationChoice, build: Dnd5eBuild, group?: string): number {
+  if (choice.type === FIXED_HIT_POINTS) {
+    return 0;
+  }
   return choice.options.filter(
     (option, index) => (group === undefined || (option.data as LevelRules).group === group) && (build.rolledHitPoints[index] ?? null) === null,
   ).length;
 }
 
-/** One row per level after the first: type the die you rolled at the table, roll it here, or take the fixed value. */
-export function Dnd5eRolledHitPointsField({ characterId, choice, build, onChange, group, classLevel }: Dnd5eRolledHitPointsFieldProps) {
+/** One row per level after the first: rolled hit points take a typed or rolled die, fixed ones show the class's fixed value. */
+export function Dnd5eRolledHitPointsField({ characterId, choice, build, onChange, group, classLevel, showMethodHint = true }: Dnd5eRolledHitPointsFieldProps) {
+  const t = useDnd5eText();
   const [rolling, setRolling] = useState<number | null>(null);
   const [rollError, setRollError] = useState<string | null>(null);
+  const fixed = choice.type === FIXED_HIT_POINTS;
   const levels = choice.options.map((option, index) => ({ index, label: option.label, ...(option.data as LevelRules) }));
   const shown = levels.filter(
     (level) => (group === undefined || level.group === group) && (classLevel === undefined || level.classLevel === classLevel),
@@ -41,8 +65,6 @@ export function Dnd5eRolledHitPointsField({ characterId, choice, build, onChange
     return null;
   }
 
-  const useFixed = (index: number) => set(index, levels[index].average);
-
   const roll = async (index: number) => {
     const level = levels[index];
     setRolling(index);
@@ -51,48 +73,66 @@ export function Dnd5eRolledHitPointsField({ characterId, choice, build, onChange
       const result = await postCreationRoll(characterId, { sides: level.sides, count: 1, keepHighest: null, context: level.rollLabel });
       set(index, result.total);
     } catch {
-      setRollError('The roll failed. Try again.');
+      setRollError(t('builder.rollFailed'));
     } finally {
       setRolling(null);
     }
   };
 
+  const basics = <Link to={`/characters/${characterId}/build/basics`}>{t('terms.builderSteps.basics')}</Link>;
+
   return (
-    <div className="builder-choice">
-      <div className="builder-choice__label">{choice.prompt}</div>
-      <div>
+    <div className="builder-hp">
+      <p className="builder-hp__subtitle">
+        {choice.prompt}
+        {!fixed && shown.some((level) => valueAt(level.index) === null) && <PendingMark />}
+      </p>
+      <div className="builder-hp__rows">
         {shown.map((level) => (
           <div key={level.label} className="builder-hp-roll">
             <span>
-              <b>{level.label}</b> <span className="builder-muted">d{level.sides}</span>
+              <b>{level.label}</b> <span className="builder-muted">(d{level.sides})</span>
             </span>
-            <input
-              className="builder-input builder-input--number"
-              type="number"
-              min={1}
-              max={level.sides}
-              aria-label={`Hit points, ${level.label}`}
-              value={valueAt(level.index) ?? ''}
-              onChange={(event) => set(level.index, event.target.value === '' ? null : Number(event.target.value))}
-            />
-            <button type="button" className="builder-btn" disabled={rolling !== null} onClick={() => roll(level.index)}>
-              {rolling === level.index ? 'Rolling…' : `Roll d${level.sides}`}
-            </button>
-            <button
-              type="button"
-              className="builder-btn"
-              aria-label={`Use fixed value for ${level.label}`}
-              title="The class's fixed value: the die's average, rounded up"
-              onClick={() => useFixed(level.index)}
-            >
-              Use fixed ({level.average})
-            </button>
+            {fixed ? (
+              <span className="builder-hp-fixed" aria-label={t('builder.hitPoints.rowAria', { level: level.label })}>
+                {level.average}
+              </span>
+            ) : (
+              <>
+                <input
+                  className="builder-input builder-input--number"
+                  type="text"
+                  inputMode="numeric"
+                  maxLength={2}
+                  aria-label={t('builder.hitPoints.rowAria', { level: level.label })}
+                  value={valueAt(level.index) ?? ''}
+                  onChange={(event) => {
+                    const digits = event.target.value.replace(/\D/g, '');
+                    set(level.index, digits === '' ? null : Number(digits));
+                  }}
+                />
+                <button type="button" className="builder-btn" disabled={rolling !== null} onClick={() => roll(level.index)}>
+                  {rolling === level.index ? t('builder.rolling') : t('builder.rollDice', { dice: `d${level.sides}` })}
+                </button>
+              </>
+            )}
           </div>
         ))}
         <div className="builder-hp-total">
-          <span>Rolled total {rolledTotal}</span>
-          <span className="builder-muted">Average would be {averageTotal}</span>
+          {fixed ? (
+            <span>{t('builder.hitPoints.fixedTotal', { value: averageTotal })}</span>
+          ) : (
+            <>
+              <span>{t('builder.hitPoints.rolledTotal', { value: rolledTotal })}</span>
+              <span className="builder-muted">{t('builder.averageWouldBe', { value: averageTotal })}</span>
+            </>
+          )}
         </div>
+        {showMethodHint && (
+          <p className="builder-hp-hint builder-muted">
+            {withLink(t(fixed ? 'builder.hitPoints.fixedHint' : 'builder.hitPoints.rolledHint'), basics)}
+          </p>
+        )}
         {rollError && <p className="builder-problem">{rollError}</p>}
       </div>
     </div>

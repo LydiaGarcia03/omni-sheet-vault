@@ -5,6 +5,7 @@ import { UsePoolStepper } from '../../sheet/UsePoolStepper';
 import { LARGE_POOL_THRESHOLD, rechargeTriggerLabel } from './FeatureActionRow';
 import { FrameIcon } from './FrameIcon';
 import minusIconSvg from './frames/dnd_icon_minus.svg?raw';
+import { useDnd5eTerms } from './locales/dnd5eMessages';
 import plusIconSvg from './frames/dnd_icon_plus.svg?raw';
 
 type FeatureTraitRowProps = {
@@ -23,8 +24,9 @@ type FeatureTraitRowProps = {
  * `Dnd5eFeatureTrait`'s doc comment: the two lists never affect each other.
  */
 export function FeatureTraitRow({ feature, onMutate, onOpenDetail }: FeatureTraitRowProps) {
+  const terms = useDnd5eTerms();
   return (
-    <ListRow className="action-feature reveal" ariaLabel={`Open ${feature.name} details`} onOpen={onOpenDetail}>
+    <ListRow className="action-feature reveal" ariaLabel={terms.t('actionsTab.openDetails', { name: feature.name })} onOpen={onOpenDetail}>
       <div className="action-feature__body">
         <h3 className="reveal actions-tab__heading">{feature.name}</h3>
         <p className="action-feature__description">{feature.summary}</p>
@@ -44,7 +46,7 @@ export function FeatureTraitRow({ feature, onMutate, onOpenDetail }: FeatureTrai
             <UsePoolStepper
               maxUses={feature.maxUses}
               usedCount={feature.usedCount}
-              rechargeLabel={rechargeTriggerLabel(feature.rechargeTrigger)}
+              rechargeLabel={rechargeTriggerLabel(feature.rechargeTrigger, terms)}
               onUse={() => onMutate({ type: 'USE_FEATURE_TRAIT', featureKey: feature.key })}
               onRestore={() => onMutate({ type: 'RESTORE_FEATURE_TRAIT', featureKey: feature.key })}
               useIcon={<FrameIcon svg={minusIconSvg} className="stepper-icon" aria-hidden />}
@@ -54,7 +56,7 @@ export function FeatureTraitRow({ feature, onMutate, onOpenDetail }: FeatureTrai
             <BoxTrack
               maxUses={feature.maxUses}
               usedCount={feature.usedCount}
-              rechargeLabel={rechargeTriggerLabel(feature.rechargeTrigger)}
+              rechargeLabel={rechargeTriggerLabel(feature.rechargeTrigger, terms)}
               onUse={() => onMutate({ type: 'USE_FEATURE_TRAIT', featureKey: feature.key })}
               onRestore={() => onMutate({ type: 'RESTORE_FEATURE_TRAIT', featureKey: feature.key })}
             />

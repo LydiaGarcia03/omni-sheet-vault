@@ -2,8 +2,11 @@ package dev.omnisheetvault.api.ruleset.dnd5e;
 
 import dev.omnisheetvault.api.ruleset.CatalogueRecord;
 import dev.omnisheetvault.api.ruleset.ProgressionTable;
+import dev.omnisheetvault.api.shared.InterfaceLocale;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.function.UnaryOperator;
 import tools.jackson.databind.JsonNode;
 
 /**
@@ -21,23 +24,43 @@ final class Dnd5eClassProgression {
     }
 
     static ProgressionTable table(CatalogueRecord playerClass, CatalogueRecord subclass, int currentLevel, boolean optionalFeatures) {
+        return table(playerClass, subclass, currentLevel, optionalFeatures, Dnd5eText.ENGLISH);
+    }
+
+    /**
+     * The headers and level ordinals in {@code text}'s language, and the class's own column labels, feature names and title in
+     * the catalogue's translation for the request's language; the features column is always the third.
+     */
+    static ProgressionTable table(CatalogueRecord playerClass, CatalogueRecord subclass, int currentLevel, boolean optionalFeatures, Dnd5eText text) {
+        Locale locale = InterfaceLocale.current();
+        UnaryOperator<String> classText = playerClass.texts(locale);
+        UnaryOperator<String> subclassText = subclass == null ? UnaryOperator.identity() : subclass.texts(locale);
+        List<String> columnLabels = new ArrayList<>();
         List<JsonNode> tableColumns = new ArrayList<>();
-        playerClass.data().path("tableColumns").forEach(tableColumns::add);
+        playerClass.data().path("tableColumns").forEach(column -> {
+            tableColumns.add(column);
+            columnLabels.add(classText.apply(column.path("label").asString("")));
+        });
         if (subclass != null) {
-            subclass.data().path("tableColumns").forEach(tableColumns::add);
+            subclass.data().path("tableColumns").forEach(column -> {
+                tableColumns.add(column);
+                columnLabels.add(subclassText.apply(column.path("label").asString("")));
+            });
         }
         JsonNode slots = spellSlots(playerClass, subclass);
         int slotColumns = highestSlotLevel(slots);
 
-        List<String> columns = new ArrayList<>(List.of("Level", "Proficiency Bonus", "Features"));
-        tableColumns.forEach(column -> columns.add(column.path("label").asString("")));
+        List<String> columns = new ArrayList<>(List.of(text.text("progression.level"), text.text("progression.proficiencyBonus"),
+                text.text("progression.features")));
+        columns.addAll(columnLabels);
         for (int spellLevel = 1; spellLevel <= slotColumns; spellLevel++) {
-            columns.add(ordinal(spellLevel));
+            columns.add(text.ordinal(spellLevel));
         }
 
         List<List<String>> rows = new ArrayList<>();
         for (int level = 1; level <= MAX_LEVEL; level++) {
-            List<String> row = new ArrayList<>(List.of(ordinal(level), "+" + (2 + (level - 1) / 4), features(playerClass, subclass, level, optionalFeatures)));
+            List<String> row = new ArrayList<>(List.of(text.ordinal(level), "+" + (2 + (level - 1) / 4),
+                    features(playerClass, subclass, level, optionalFeatures, classText, subclassText)));
             for (JsonNode column : tableColumns) {
                 JsonNode value = column.path("valuesByLevel").path(level - 1);
                 row.add(value.isMissingNode() || value.isNull() ? NONE : value.asString());
@@ -48,12 +71,14 @@ final class Dnd5eClassProgression {
             }
             rows.add(row);
         }
-        String name = subclass == null ? playerClass.name() : playerClass.name() + " (" + subclass.name() + ")";
+        String className = playerClass.localizedName(locale);
+        String name = subclass == null ? className : className + " (" + subclass.localizedName(locale) + ")";
         return new ProgressionTable(playerClass.slug(), name, currentLevel, columns, rows);
     }
 
     /** The class's features at {@code level}; a subclass placeholder becomes the chosen subclass's own features, if any. */
-    private static String features(CatalogueRecord playerClass, CatalogueRecord subclass, int level, boolean optionalFeatures) {
+    private static String features(CatalogueRecord playerClass, CatalogueRecord subclass, int level, boolean optionalFeatures,
+            UnaryOperator<String> classText, UnaryOperator<String> subclassText) {
         List<String> names = new ArrayList<>();
         boolean placeholder = false;
         for (JsonNode feature : playerClass.data().path("features")) {
@@ -64,14 +89,14 @@ final class Dnd5eClassProgression {
             boolean isPlaceholder = feature.path("grantsSubclassFeature").asBoolean(false) && name.endsWith(" feature");
             placeholder |= feature.path("grantsSubclassFeature").asBoolean(false);
             if (!isPlaceholder || subclass == null) {
-                names.add(name);
+                names.add(classText.apply(name));
             }
         }
         if (subclass != null && placeholder) {
             for (JsonNode feature : subclass.data().path("features")) {
                 String name = feature.path("name").asString("");
                 if (feature.path("level").asInt() == level && !name.endsWith(" Options")) {
-                    names.add(name);
+                    names.add(subclassText.apply(name));
                 }
             }
         }
@@ -97,18 +122,5 @@ final class Dnd5eClassProgression {
             }
         }
         return highest;
-    }
-
-    private static String ordinal(int number) {
-        int lastTwo = number % 100;
-        if (lastTwo >= 11 && lastTwo <= 13) {
-            return number + "th";
-        }
-        return switch (number % 10) {
-            case 1 -> number + "st";
-            case 2 -> number + "nd";
-            case 3 -> number + "rd";
-            default -> number + "th";
-        };
     }
 }

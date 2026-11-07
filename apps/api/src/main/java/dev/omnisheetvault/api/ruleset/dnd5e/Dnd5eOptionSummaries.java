@@ -2,11 +2,14 @@ package dev.omnisheetvault.api.ruleset.dnd5e;
 
 import dev.omnisheetvault.api.ruleset.CatalogueLookup;
 import dev.omnisheetvault.api.ruleset.CatalogueRecord;
+import dev.omnisheetvault.api.shared.InterfaceLocale;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
+import java.util.function.UnaryOperator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -17,14 +20,16 @@ import tools.jackson.databind.node.MissingNode;
 /**
  * What a builder option gives, in one line built from its catalogue data: "CON +2 · Speed 25 ft ·
  * Darkvision 60 ft". Feats and optional features also quote their first benefit sentence, unless
- * the catalogue's prose is redacted (adr-0005).
+ * the catalogue's prose is redacted (adr-0005). Words come from {@link Dnd5eText}, game terms from its term list.
  */
 final class Dnd5eOptionSummaries {
 
     private static final String SEPARATOR = " · ";
+    private static final String COUNT = "count";
     private static final int MAX_SENTENCE = 220;
-    private static final Pattern BENEFITS_LEAD = Pattern.compile("(?i)following benefits:\\s*");
-    private static final Pattern PREREQUISITE_LEAD = Pattern.compile("^Prerequisite:[^\\n]*\\n+");
+    private static final Pattern BENEFITS_LEAD = Pattern.compile("(following benefits|seguintes benefícios):\\s*",
+            Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE | Pattern.CANON_EQ);
+    private static final Pattern PREREQUISITE_LEAD = Pattern.compile("^(Prerequisite|Pré-requisito):[^\\n]*\\n+", Pattern.CANON_EQ);
     private static final Pattern FIRST_SENTENCE = Pattern.compile("^(.+?[.!?])(\\s|$)", Pattern.DOTALL);
     private static final Map<String, String> ABILITY_ABBREVIATIONS = Map.of(
             "strength", "STR", "dexterity", "DEX", "constitution", "CON",
@@ -32,25 +37,39 @@ final class Dnd5eOptionSummaries {
     private static final Map<String, String> TOOL_CATEGORY_LABELS = Map.of(
             "gamingSet", "gaming set", "musicalInstrument", "musical instrument",
             "artisansTool", "artisan's tools", "any", "tool");
+    private static final Map<String, String> MOVEMENT_TERMS = Map.of(
+            "fly", "flying", "swim", "swimming", "climb", "climbing", "burrow", "burrowing");
     private static final List<String> HEAVIER_ARMOR = List.of("light", "medium", "heavy");
 
     private final CatalogueLookup catalogue;
     private final boolean includeProse;
+    private final Dnd5eText text;
 
     Dnd5eOptionSummaries(CatalogueLookup catalogue, boolean includeProse) {
+        this(catalogue, includeProse, Dnd5eText.ENGLISH);
+    }
+
+    Dnd5eOptionSummaries(CatalogueLookup catalogue, boolean includeProse, Dnd5eText text) {
         this.catalogue = catalogue;
         this.includeProse = includeProse;
+        this.text = text;
+    }
+
+    /** The words and game terms these summaries are written in. */
+    Dnd5eText text() {
+        return text;
     }
 
     /** The summary of a catalogue entry offered as an option; null for kinds that keep a plain line (items). */
     String of(CatalogueRecord record) {
+        Locale locale = InterfaceLocale.current();
         return switch (record.kind()) {
             case "SPECIES" -> species(record.data());
-            case "BACKGROUND" -> background(record.data());
+            case "BACKGROUND" -> background(record);
             case "CLASS" -> playerClass(record.data());
-            case "SUBCLASS" -> subclass(record.data());
-            case "FEAT" -> joined(abilityIncreases(record.data().get("abilityAlternatives")), prose(record.description()));
-            case "OPTIONAL_FEATURE" -> prose(record.description());
+            case "SUBCLASS" -> subclass(record);
+            case "FEAT" -> joined(abilityIncreases(record.data().get("abilityAlternatives")), prose(record.localizedDescription(locale)));
+            case "OPTIONAL_FEATURE" -> prose(record.localizedDescription(locale));
             case "SPELL" -> spell(record.data());
             case "LANGUAGE" -> language(record.data());
             default -> null;
@@ -61,11 +80,13 @@ final class Dnd5eOptionSummaries {
     String species(JsonNode node) {
         List<String> parts = new ArrayList<>();
         parts.add(abilityIncreases(node.get("abilityAlternatives")));
-        parts.add(speed(node.get("speed")));
+        String speed = speedValue(node.get("speed"));
+        parts.add(speed == null ? null : text.term("labels", "speed", "Speed") + " " + speed);
         parts.add(senses(node.get("senses")));
-        List<String> resistances = strings(node.path("damageResistances").get("fixed"));
+        List<String> resistances = strings(node.path("damageResistances").get("fixed")).stream()
+                .map(type -> text.term("damageTypes", type, type)).toList();
         if (!resistances.isEmpty()) {
-            parts.add(capitalize(String.join(", ", resistances)) + " resistance");
+            parts.add(capitalize(text.text("summary.resistance", String.join(", ", resistances))));
         }
         parts.add(knownSpells(node.get("additionalSpells")));
         return joined(parts.toArray(String[]::new));
@@ -98,19 +119,22 @@ final class Dnd5eOptionSummaries {
         return joined(type == null ? null : capitalize(type), script == null ? null : script + " script");
     }
 
-    private String background(JsonNode data) {
+    private String background(CatalogueRecord record) {
+        JsonNode data = record.data();
+        UnaryOperator<String> translate = record.texts(InterfaceLocale.current());
         List<String> features = StreamSupport.stream(data.path("features").spliterator(), false)
-                .map(feature -> feature.path("name").asString(null)).filter(name -> name != null).toList();
+                .map(feature -> feature.path("name").asString(null)).filter(name -> name != null).map(translate).toList();
         return joined(skills(data.get("skillAlternatives")), tools(data.get("toolAlternatives")), languages(data.get("languageAlternatives")),
                 listOrNull(features));
     }
 
     /** "Athletics, Intimidation", plus any skills of the player's choice. */
-    static String skills(JsonNode alternatives) {
+    String skills(JsonNode alternatives) {
         JsonNode skills = alternative(alternatives);
-        List<String> parts = new ArrayList<>(strings(skills.get("fixed")).stream().map(key -> Dnd5eSkills.LABELS.getOrDefault(key, key)).toList());
+        List<String> parts = new ArrayList<>(strings(skills.get("fixed")).stream()
+                .map(key -> text.term("skills", key, Dnd5eSkills.LABELS.getOrDefault(key, key))).toList());
         for (JsonNode choice : skills.path("choices")) {
-            parts.add(choice.path("count").asInt(1) + " skill(s) of your choice");
+            parts.add(text.text("summary.skillsOfChoice", choice.path(COUNT).asInt(1)));
         }
         return listOrNull(parts);
     }
@@ -120,49 +144,54 @@ final class Dnd5eOptionSummaries {
         JsonNode tools = alternative(alternatives);
         List<String> parts = new ArrayList<>(strings(tools.get("fixed")).stream().map(this::toolName).toList());
         for (JsonNode choice : tools.path("choices")) {
-            String category = TOOL_CATEGORY_LABELS.getOrDefault(choice.path("category").asString(""), "tool");
-            parts.add(choice.path("count").asInt(1) + " " + category);
+            String key = TOOL_CATEGORY_LABELS.containsKey(choice.path("category").asString("")) ? choice.path("category").asString() : "any";
+            parts.add(choice.path(COUNT).asInt(1) + " " + text.term("toolCategories", key, TOOL_CATEGORY_LABELS.get(key)));
         }
         return listOrNull(parts);
     }
 
     /** "Common, Dwarvish", plus any languages of the player's choice. */
-    static String languages(JsonNode alternatives) {
+    String languages(JsonNode alternatives) {
         JsonNode languages = alternative(alternatives);
         List<String> parts = new ArrayList<>(strings(languages.get("fixed")).stream().map(Dnd5eOptionSummaries::capitalize).toList());
         for (JsonNode choice : languages.path("choices")) {
-            int count = choice.path("count").asInt(1);
-            parts.add(count + (count == 1 ? " language" : " languages") + " of your choice");
+            parts.add(text.text("summary.languagesOfChoice", choice.path(COUNT).asInt(1)));
         }
         return listOrNull(parts);
     }
 
     /** A block's first alternative: 5etools writes some as a list of alternatives, others as the one block. */
     private static JsonNode alternative(JsonNode alternatives) {
-        return alternatives != null && alternatives.isArray() ? first(alternatives) : alternatives == null ? MissingNode.getInstance() : alternatives;
+        if (alternatives == null) {
+            return MissingNode.getInstance();
+        }
+        return alternatives.isArray() ? first(alternatives) : alternatives;
     }
 
-    private static String playerClass(JsonNode data) {
+    private String playerClass(JsonNode data) {
         String hitDie = data.hasNonNull("hitDie") ? "d" + data.get("hitDie").asInt() : null;
-        List<String> saves = strings(data.get("savingThrows")).stream().map(ability -> ABILITY_ABBREVIATIONS.getOrDefault(ability, ability)).toList();
+        List<String> saves = strings(data.get("savingThrows")).stream().map(this::abbreviation).toList();
         JsonNode proficiencies = data.path("proficiencies");
-        return joined(hitDie, saves.isEmpty() ? null : "Saves " + String.join(", ", saves),
+        return joined(hitDie, saves.isEmpty() ? null : text.text("summary.saves", String.join(", ", saves)),
                 armor(strings(proficiencies.get("armor"))), weapons(strings(proficiencies.get("weaponCategories"))));
     }
 
     /** The features a subclass grants at its first level, leaving out the "… Options" lists that only index choices. */
-    private static String subclass(JsonNode data) {
+    private String subclass(CatalogueRecord record) {
+        JsonNode data = record.data();
         int firstLevel = StreamSupport.stream(data.path("features").spliterator(), false)
                 .mapToInt(feature -> feature.path("level").asInt(Integer.MAX_VALUE)).min().orElse(Integer.MAX_VALUE);
         if (firstLevel == Integer.MAX_VALUE) {
             return null;
         }
+        UnaryOperator<String> translate = record.texts(InterfaceLocale.current());
         List<String> names = StreamSupport.stream(data.path("features").spliterator(), false)
                 .filter(feature -> feature.path("level").asInt() == firstLevel)
                 .map(feature -> feature.path("name").asString(""))
                 .filter(name -> !name.isEmpty() && !name.endsWith(" Options"))
+                .map(translate)
                 .toList();
-        return names.isEmpty() ? null : "Level " + firstLevel + ": " + String.join(", ", names);
+        return names.isEmpty() ? null : text.text("summary.levelFeatures", String.valueOf(firstLevel), String.join(", ", names));
     }
 
     /** The catalogue's full prose, or null when it is redacted. */
@@ -186,49 +215,90 @@ final class Dnd5eOptionSummaries {
         return first.length() > MAX_SENTENCE ? first.substring(0, MAX_SENTENCE - 1).strip() + "…" : first;
     }
 
-    static String abilityIncreases(JsonNode alternatives) {
-        JsonNode alternative = alternatives != null && alternatives.isArray() ? first(alternatives) : alternatives;
+    /** Every alternative set of ability increases, joined with "or". */
+    String abilityIncreases(JsonNode alternatives) {
+        if (alternatives == null || alternatives.isMissingNode() || alternatives.isNull()) {
+            return null;
+        }
+        List<JsonNode> all = alternatives.isArray() ? StreamSupport.stream(alternatives.spliterator(), false).toList() : List.of(alternatives);
+        List<String> described = all.stream().map(this::abilityIncrease).filter(Objects::nonNull).toList();
+        return described.isEmpty() ? null : String.join(" " + text.text("plan.or") + " ", described);
+    }
+
+    /** One alternative set of ability increases: its fixed bonuses, then each choice. */
+    String abilityIncrease(JsonNode alternative) {
         if (alternative == null || alternative.isMissingNode() || alternative.isNull()) {
             return null;
         }
         List<String> parts = new ArrayList<>();
         alternative.path("fixed").properties().forEach(entry ->
-                parts.add(ABILITY_ABBREVIATIONS.getOrDefault(entry.getKey(), entry.getKey()) + " " + signed(entry.getValue().asInt())));
+                parts.add(abbreviation(entry.getKey()) + " " + signed(entry.getValue().asInt())));
         for (JsonNode choice : alternative.path("choices")) {
-            int amount = choice.path("amount").asInt(1);
-            int count = choice.path("count").asInt(1);
-            List<String> from = strings(choice.get("from"));
-            String target = from.isEmpty() || from.size() == 6
-                    ? (count == 1 ? "one ability" : count + " abilities") + " of your choice"
-                    : (count == 1 ? "one of " : count + " of ") + from.stream().map(ability -> ABILITY_ABBREVIATIONS.getOrDefault(ability, ability)).collect(Collectors.joining(", "));
-            parts.add(signed(amount) + " to " + target);
+            parts.add(abilityChoice(choice));
         }
         return listOrNull(parts);
     }
 
-    static String speed(JsonNode speed) {
+    private String abilityChoice(JsonNode choice) {
+        List<Integer> weights = StreamSupport.stream(choice.path("weights").spliterator(), false).map(JsonNode::asInt).toList();
+        int count = weights.isEmpty() ? choice.path(COUNT).asInt(1) : weights.size();
+        List<String> from = strings(choice.get("from"));
+        boolean anyAbility = from.isEmpty() || from.size() == 6;
+        if (weights.stream().distinct().count() > 1) {
+            String bonuses = weights.stream().map(Dnd5eOptionSummaries::signed).collect(Collectors.joining(" " + text.text("summary.and") + " "));
+            return anyAbility
+                    ? text.text("summary.abilityWeightedAny", bonuses, count)
+                    : text.text("summary.abilityWeightedFrom", bonuses, count, abbreviations(from));
+        }
+        String amount = signed(weights.isEmpty() ? choice.path("amount").asInt(1) : weights.getFirst());
+        if (anyAbility) {
+            return count == 1 ? text.text("summary.abilityOneAny", amount) : text.text("summary.abilityManyAny", amount, count);
+        }
+        return count == 1 ? text.text("summary.abilityOneFrom", amount, abbreviations(from))
+                : text.text("summary.abilityManyFrom", amount, count, abbreviations(from));
+    }
+
+    private String abbreviations(List<String> abilities) {
+        return abilities.stream().map(this::abbreviation).collect(Collectors.joining(", "));
+    }
+
+    private String abbreviation(String ability) {
+        return text.term("abilityAbbreviations", ability, ABILITY_ABBREVIATIONS.getOrDefault(ability, ability));
+    }
+
+    /** "25 ft, fly 25 ft": walking speed first, then any other movement (a movement without a number equals walking). */
+    String speedValue(JsonNode speed) {
         if (speed == null || speed.isNull() || !speed.has("walk")) {
             return null;
         }
-        List<String> parts = new ArrayList<>(List.of("Speed " + speed.get("walk").asInt() + " ft"));
+        List<String> parts = new ArrayList<>(List.of(text.distance(speed.get("walk").asInt())));
         speed.properties().forEach(entry -> {
             if (!entry.getKey().equals("walk")) {
                 JsonNode value = entry.getValue();
-                parts.add(entry.getKey() + (value.isNumber() ? " " + value.asInt() + " ft" : ""));
+                String movement = text.term("movements", MOVEMENT_TERMS.getOrDefault(entry.getKey(), entry.getKey()), entry.getKey());
+                parts.add(movement + (value.isNumber() ? " " + text.distance(value.asInt()) : ""));
             }
         });
         return String.join(", ", parts);
     }
 
-    static String senses(JsonNode senses) {
+    String senses(JsonNode senses) {
         List<String> parts = new ArrayList<>();
-        List<JsonNode> list = senses == null ? List.of() : senses.isArray() ? StreamSupport.stream(senses.spliterator(), false).toList() : List.of(senses);
-        for (JsonNode sense : list) {
+        for (JsonNode sense : senseList(senses)) {
             if (sense.hasNonNull("type")) {
-                parts.add(capitalize(sense.get("type").asString()) + (sense.hasNonNull("range") ? " " + sense.get("range").asInt() + " ft" : ""));
+                String type = sense.get("type").asString();
+                String name = text.term("senses", type.toUpperCase(Locale.ROOT), capitalize(type));
+                parts.add(name + (sense.hasNonNull("range") ? " " + text.distance(sense.get("range").asInt()) : ""));
             }
         }
         return listOrNull(parts);
+    }
+
+    private static List<JsonNode> senseList(JsonNode senses) {
+        if (senses == null) {
+            return List.of();
+        }
+        return senses.isArray() ? StreamSupport.stream(senses.spliterator(), false).toList() : List.of(senses);
     }
 
     /** Spells a species grants from level 1, e.g. {@code "produce flame#c"} → "Produce Flame". */
@@ -244,28 +314,37 @@ final class Dnd5eOptionSummaries {
         return listOrNull(names);
     }
 
-    private static String armor(List<String> armor) {
+    /** "All armor, shields" or "Light, medium armor"; armor kinds and shields come from the term list. */
+    private String armor(List<String> armor) {
         if (armor.isEmpty()) {
             return null;
         }
-        boolean shields = armor.contains("shield");
+        String shields = armor.contains("shield") ? text.term("armorCategories", "shield", "shields") : null;
         List<String> kinds = armor.stream().filter(HEAVIER_ARMOR::contains).toList();
-        String body = kinds.containsAll(HEAVIER_ARMOR) ? "All armor" : kinds.isEmpty() ? null : capitalize(String.join(", ", kinds)) + " armor";
+        String body = kinds.containsAll(HEAVIER_ARMOR) ? text.text("summary.allArmor")
+                : kinds.isEmpty() ? null
+                : text.text("summary.armor", kinds.stream().map(kind -> text.term("armorCategories", kind, kind)).collect(Collectors.joining(", ")));
         if (body == null) {
-            return shields ? "Shields" : null;
+            return shields == null ? null : capitalize(shields);
         }
-        return shields ? body + ", shields" : body;
+        return capitalize(shields == null ? body : body + ", " + shields);
     }
 
-    private static String weapons(List<String> categories) {
-        return categories.isEmpty() ? null : capitalize(String.join(" & ", categories)) + " weapons";
+    private String weapons(List<String> categories) {
+        if (categories.isEmpty()) {
+            return null;
+        }
+        String joined = categories.stream().map(category -> text.term("weaponCategories", category, category))
+                .collect(Collectors.joining(" " + text.text("summary.weaponJoin") + " "));
+        return capitalize(text.text("summary.weapons", joined));
     }
 
     private String toolName(String slug) {
         if (slug.startsWith("vehicles-")) {
-            return "Vehicles (" + titleCase(slug.substring("vehicles-".length())) + ")";
+            String kind = slug.substring("vehicles-".length());
+            return text.term("vehicles", kind, "Vehicles (" + titleCase(kind) + ")");
         }
-        return catalogue.find("ITEM", slug).map(CatalogueRecord::name).orElse(titleCase(slug));
+        return catalogue.find("ITEM", slug).map(item -> item.localizedName(InterfaceLocale.current())).orElse(titleCase(slug));
     }
 
     private static JsonNode first(JsonNode array) {

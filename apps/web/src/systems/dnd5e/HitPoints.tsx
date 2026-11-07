@@ -1,5 +1,6 @@
 import { useState, type KeyboardEvent, type MouseEvent } from 'react';
 import { FrameLayer } from './FrameLayer';
+import { useDnd5eText } from './locales/dnd5eMessages';
 import paperSvg from './frames/dnd_frame_hit_points.svg?raw';
 import inkSvg from './frames/dnd_frame_hit_points_ink.svg?raw';
 
@@ -12,6 +13,8 @@ type HitPointsProps = {
   onSetTemporary: (amount: number) => void;
   /** Omitted where there is nothing to open (an Extra's hit points, already inside its own Entity Detail body). */
   onOpenManagement?: () => void;
+  /** False drops the frame, the fixed size and the "Hit Points" title, for a sidebar section that already names it. */
+  framed?: boolean;
 };
 
 function useAmountField() {
@@ -67,7 +70,9 @@ export function HitPoints({
   onHeal,
   onSetTemporary,
   onOpenManagement,
+  framed = true,
 }: HitPointsProps) {
+  const t = useDnd5eText();
   const hp = useAmountField();
   const temp = useAmountField();
   const [isEditingTemp, setIsEditingTemp] = useState(false);
@@ -115,15 +120,15 @@ export function HitPoints({
 
   return (
     <div
-      className="frame-box hit-points"
+      className={framed ? 'frame-box hit-points' : 'hit-points hit-points--bare'}
       role={onOpenManagement ? 'button' : undefined}
       tabIndex={onOpenManagement ? 0 : undefined}
       onClick={onOpenManagement}
       onKeyDown={onOpenManagement ? handleKeyDown : undefined}
-      aria-label={`Hit points ${current} of ${max}${temporary > 0 ? `, plus ${temporary} temporary` : ''}${onOpenManagement ? ', open HP management' : ''}`}
+      aria-label={`${t('vitals.hitPointsAria', { current, max })}${temporary > 0 ? t('vitals.hitPointsTempAria', { temporary }) : ''}${onOpenManagement ? t('vitals.openHpManagement') : ''}`}
     >
-      <FrameLayer svg={paperSvg} layer="paper" />
-      <FrameLayer svg={inkSvg} layer="ink" />
+      {framed && <FrameLayer svg={paperSvg} layer="paper" />}
+      {framed && <FrameLayer svg={inkSvg} layer="ink" />}
       <div className="hit-points__content">
         <div className="hit-points__row">
           <div className="hit-points__left" onClick={stopPropagation}>
@@ -136,7 +141,7 @@ export function HitPoints({
                 apply(hp, onHeal);
               }}
             >
-              Heal
+              {t('vitals.heal')}
             </button>
             <input
               type="number"
@@ -145,7 +150,7 @@ export function HitPoints({
               value={hp.amount}
               onChange={(event) => hp.setAmount(event.target.value)}
               onClick={stopPropagation}
-              aria-label="Heal or damage amount"
+              aria-label={t('vitals.amount')}
             />
             <button
               type="button"
@@ -156,25 +161,25 @@ export function HitPoints({
                 apply(hp, onDamage);
               }}
             >
-              Damage
+              {t('vitals.damage')}
             </button>
           </div>
           <div className="hit-points__stats">
             <div className="hit-points__stat">
-              <div className="hit-points__stat-label">Current</div>
+              <div className="hit-points__stat-label">{t('vitals.current')}</div>
               <div className="hit-points__stat-value" onClick={stopPropagation}>
                 {current}
               </div>
             </div>
             <div className="hit-points__stat-slash">/</div>
             <div className="hit-points__stat">
-              <div className="hit-points__stat-label">Max</div>
+              <div className="hit-points__stat-label">{t('vitals.max')}</div>
               <div className="hit-points__stat-value" onClick={stopPropagation}>
                 {max}
               </div>
             </div>
-            <div className="hit-points__stat">
-              <div className="hit-points__stat-label">Temp</div>
+            <div className="hit-points__stat hit-points__stat--temp">
+              <div className="hit-points__stat-label">{t('vitals.temp')}</div>
               {isEditingTemp ? (
                 <input
                   type="number"
@@ -185,7 +190,7 @@ export function HitPoints({
                   onBlur={commitTemp}
                   onKeyDown={handleTempKeyDown}
                   onClick={stopPropagation}
-                  aria-label="Temporary hit points amount"
+                  aria-label={t('vitals.tempAmount')}
                   autoFocus
                 />
               ) : (
@@ -196,7 +201,7 @@ export function HitPoints({
                     stopPropagation(event);
                     startEditingTemp();
                   }}
-                  aria-label="Set temporary hit points"
+                  aria-label={t('vitals.setTemp')}
                 >
                   {temporary > 0 ? temporary : '--'}
                 </button>
@@ -204,7 +209,7 @@ export function HitPoints({
             </div>
           </div>
         </div>
-        <div className="hit-points__title">Hit Points</div>
+        {framed && <div className="hit-points__title">{t('terms.labels.hitPoints')}</div>}
       </div>
     </div>
   );

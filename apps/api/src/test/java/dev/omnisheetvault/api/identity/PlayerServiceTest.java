@@ -1,6 +1,7 @@
 package dev.omnisheetvault.api.identity;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.time.Instant;
 import org.junit.jupiter.api.Test;
@@ -57,6 +58,26 @@ class PlayerServiceTest {
         assertThat(second.id()).isEqualTo(first.id());
         assertThat(playerRepository.findBySubject("44444444-4444-4444-4444-444444444444")).hasValueSatisfying(
                 stored -> assertThat(stored.id()).isEqualTo(first.id()));
+    }
+
+    @Test
+    void remembersEachSeenTutorialOnce() {
+        Jwt jwt = jwtFor("55555555-5555-5555-5555-555555555555", "tutorial-player");
+
+        assertThat(playerService.currentPlayer(jwt).seenTutorials()).isEmpty();
+        playerService.markTutorialSeen(jwt, "builder:dnd-5e");
+        playerService.markTutorialSeen(jwt, "builder:dnd-5e");
+        playerService.markTutorialSeen(jwt, "builder:vtm-v5");
+
+        assertThat(playerService.currentPlayer(jwt).seenTutorials()).containsExactly("builder:dnd-5e", "builder:vtm-v5");
+    }
+
+    @Test
+    void rejectsATutorialIdThatIsNotOneWordList() {
+        Jwt jwt = jwtFor("66666666-6666-6666-6666-666666666666", "tutorial-player-2");
+
+        assertThatThrownBy(() -> playerService.markTutorialSeen(jwt, "Builder DND; drop"))
+                .isInstanceOf(InvalidTutorialIdException.class);
     }
 
     private Jwt jwtFor(String subject, String preferredUsername) {

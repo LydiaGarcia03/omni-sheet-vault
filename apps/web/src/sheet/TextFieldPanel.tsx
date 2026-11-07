@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef, useState } from 'react';
 import type { TextFieldEntry, TextFieldRequest } from './api';
+import { useSheetText } from '../locales/platformMessages';
 import { SidebarHeader } from './sidebarParts';
 
 type SuggestionsTableProps = {
@@ -11,6 +12,7 @@ type SuggestionsTableProps = {
 
 /** D&D Beyond's suggestions table: a die column, the entries striped, a Random pick and a "+ Add" per row. */
 function SuggestionsTable({ title, die, entries, onPick }: SuggestionsTableProps) {
+  const t = useSheetText();
   return (
     <table className="text-field-pane__table">
       <thead>
@@ -19,7 +21,7 @@ function SuggestionsTable({ title, die, entries, onPick }: SuggestionsTableProps
           <th>{title}</th>
           <th className="text-field-pane__action">
             <button type="button" className="text-field-pane__button" onClick={() => onPick(entries[Math.floor(Math.random() * entries.length)])}>
-              Random
+              {t('common.random')}
             </button>
           </th>
         </tr>
@@ -30,8 +32,8 @@ function SuggestionsTable({ title, die, entries, onPick }: SuggestionsTableProps
             <td className="text-field-pane__die">{index + 1}</td>
             <td>{entry}</td>
             <td className="text-field-pane__action">
-              <button type="button" className="text-field-pane__button" aria-label={`Add suggestion ${index + 1}`} onClick={() => onPick(entry)}>
-                + Add
+              <button type="button" className="text-field-pane__button" aria-label={t('textField.addSuggestion', { number: index + 1 })} onClick={() => onPick(entry)}>
+                {t('textField.add')}
               </button>
             </td>
           </tr>
@@ -68,6 +70,7 @@ function GrowingTextarea({ value, placeholder, onChange, onBlur }: { value: stri
  * the textarea never had focus.
  */
 function SingleField({ label, value, helperPrompt, onSave, suggestions, suggestionDie }: TextFieldEntry) {
+  const t = useSheetText();
   const [draft, setDraft] = useState(value);
   const commit = (next: string) => next !== value && onSave(next);
   const append = (text: string) => {
@@ -79,11 +82,11 @@ function SingleField({ label, value, helperPrompt, onSave, suggestions, suggesti
 
   return (
     <>
-      <GrowingTextarea value={draft} placeholder={`Enter any ${label.toLowerCase()} here!`} onChange={setDraft} onBlur={() => commit(draft)} />
+      <GrowingTextarea value={draft} placeholder={t('textField.placeholder', { label: label.toLowerCase() })} onChange={setDraft} onBlur={() => commit(draft)} />
       {!hasSuggestions && helperPrompt && <p className="text-field-pane__prompt">{helperPrompt}</p>}
       {hasSuggestions && (
         <section className="text-field-pane__suggestions">
-          <h2 className="text-field-pane__subheading">Suggestions</h2>
+          <h2 className="text-field-pane__subheading">{t('textField.suggestions')}</h2>
           {helperPrompt && <p className="text-field-pane__prompt">{helperPrompt}</p>}
           <SuggestionsTable title={label} die={suggestionDie ?? `d${suggestions.length}`} entries={suggestions} onPick={append} />
         </section>
@@ -93,7 +96,7 @@ function SingleField({ label, value, helperPrompt, onSave, suggestions, suggesti
 }
 
 /** One row of a combined pane: a bold label over an input, or a select when the field has fixed choices. */
-function DetailField({ label, value, onSave, options }: TextFieldEntry) {
+function DetailField({ label, value, onSave, options, optionLabel }: TextFieldEntry) {
   const [draft, setDraft] = useState(value);
   const choices = options && value && !options.includes(value) ? [value, ...options] : options;
   return (
@@ -104,7 +107,7 @@ function DetailField({ label, value, onSave, options }: TextFieldEntry) {
           <option value="">--</option>
           {choices.map((choice) => (
             <option key={choice} value={choice}>
-              {choice}
+              {optionLabel ? optionLabel(choice) : choice}
             </option>
           ))}
         </select>

@@ -33,6 +33,9 @@ import java.util.List;
  * sourcePage} the same "copy once" way every other catalogue-sourced field here is —
  * {@code null} for a freeform item, since this app invents no book/page for one, same
  * reasoning {@code cost}'s own doc comment gives.
+ *
+ * <p>{@code equippable} is the system's ruling on whether the item can be equipped at all
+ * (D&D 5e: weapons, armor, shields, and magic items that aren't single-use).
  */
 public record Item(
         String key,
@@ -74,7 +77,8 @@ public record Item(
         List<ItemGrantedSpell> grantedSpells,
         int chargesUsed,
         String storageLocation,
-        String source) {
+        String source,
+        boolean equippable) {
 
     /** A freeform/homebrew item — see {@code Dnd5eItem}'s own matching constructor. */
     public Item(
@@ -86,6 +90,5 @@ public record Item(
                 null, null, List.of(), false, null, null,
                 null, null, false, null,
                 null, null, null,
-                null, null, null, List.of(), 0, "EQUIPMENT", null);
-    }
-}
+                null, null, null, List.of(), 0, "EQUIPMENT", null, false);
+    }}

@@ -44,11 +44,21 @@ class Dnd5eSelectionDetailsTest {
 
         assertThat(detail.name()).isEqualTo("Mountain Dwarf");
         assertThat(detail.facts()).extracting(SelectionDetail.Entry::label, SelectionDetail.Entry::text).containsExactly(
-                tuple("Ability bonuses", "CON +2, STR +2"), tuple("Speed", "25 ft"), tuple("Size", "Medium"),
-                tuple("Languages", "Common, Dwarvish"), tuple("Senses", "Darkvision 60 ft"));
+                tuple("Creature type", "Humanoid"), tuple("Size", "Medium"), tuple("Speed", "25 ft"), tuple("Senses", "Darkvision 60 ft"),
+                tuple("Languages", "Common, Dwarvish"), tuple("Ability bonuses", "CON +2, STR +2"));
         assertThat(detail.grants()).extracting(SelectionDetail.Entry::label)
                 .containsExactly("Speed", "Dwarven Resilience");
         assertThat(detail.grants().get(1).text()).isEqualTo("You have advantage on saving throws against poison.");
+    }
+
+    @Test
+    void speciesCardNamesItsCreatureTypeInsteadOfTheGenericTrait() {
+        SelectionDetail detail = Dnd5eSelectionDetails.species(record("SPECIES", "Fairy", "{}"), "Fairy", MAPPER.readTree("""
+                {"creatureTypes":["fey"],"traits":[{"name":"Creature Type","description":"You are a Fey."},{"name":"Flight","description":"You can fly."}]}"""),
+                summaries);
+
+        assertThat(detail.facts()).extracting(SelectionDetail.Entry::label, SelectionDetail.Entry::text).contains(tuple("Creature type", "Fey"));
+        assertThat(detail.grants()).extracting(SelectionDetail.Entry::label).containsExactly("Flight");
     }
 
     @Test

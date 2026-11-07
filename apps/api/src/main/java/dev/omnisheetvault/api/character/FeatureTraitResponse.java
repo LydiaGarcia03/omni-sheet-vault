@@ -2,6 +2,7 @@ package dev.omnisheetvault.api.character;
 
 import dev.omnisheetvault.api.ruleset.FeatureTrait;
 import java.util.List;
+import java.util.function.UnaryOperator;
 
 public record FeatureTraitResponse(
         String key,
@@ -14,6 +15,14 @@ public record FeatureTraitResponse(
         int usedCount,
         String rechargeTrigger,
         List<String> choices) {
+
+    /** Name, source, summary and description in another language; {@code summary} rewrites the summary from the translated description. */
+    FeatureTraitResponse localized(UnaryOperator<String> text, UnaryOperator<String> name, SheetTextLocalizer.Summary summary) {
+        String translated = text.apply(description);
+        return new FeatureTraitResponse(key, name.apply(this.name), category, name.apply(source),
+                summary.of(this.summary, description, translated), translated, maxUses, usedCount, rechargeTrigger,
+                choices.stream().map(name).toList());
+    }
 
     static FeatureTraitResponse from(FeatureTrait feature) {
         return new FeatureTraitResponse(

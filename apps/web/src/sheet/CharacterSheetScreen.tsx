@@ -2,7 +2,9 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { CharacterPortrait } from '../characters/CharacterPortrait';
 import type { BackgroundCatalogueEntryData, CatalogueEntry } from '../catalogue/api';
-import { getCatalogue } from '../catalogue/api';
+import { getCharacterCatalogue } from '../catalogue/api';
+import { useLanguage } from '../language/language';
+import { useSheetText, type SheetText } from '../locales/platformMessages';
 import { renameCharacter, type Character } from '../characters/api';
 import { getRollHistory, postManualRoll, postRoll, type DiceGroup, type RollContextMenuHandler, type RollKind, type RollResult } from '../dice/api';
 import { CustomRollPicker } from '../dice/CustomRollPicker';
@@ -14,6 +16,7 @@ import { buildItemDetailRequest, hasBagOfHoldingIn } from '../systems/dnd5e/Item
 import { CONDITIONS } from '../systems/dnd5e/DefensesConditionsPanel';
 import { Dnd5eVitalsColumns } from '../systems/dnd5e/Dnd5eVitalsColumns';
 import { Dnd5eVitalsTopRow } from '../systems/dnd5e/Dnd5eVitalsTopRow';
+import { ClassIcon } from '../systems/dnd5e/ClassIcon';
 import { FrameIcon } from '../systems/dnd5e/FrameIcon';
 import conditionBlindedSvg from '../systems/dnd5e/frames/dnd_icon_condition_blinded.svg?raw';
 import conditionCharmedSvg from '../systems/dnd5e/frames/dnd_icon_condition_charmed.svg?raw';
@@ -36,6 +39,7 @@ import shortRestIconSvg from '../systems/dnd5e/frames/dnd_icon_short_rest.svg?ra
 import '../systems/dnd5e/themes.css';
 import '../systems/dnd5e/frames.css';
 import { LastingEffectSpellsContext, lastingEffectSpellSlugs } from '../systems/dnd5e/lastingEffectSpells';
+import { useDnd5eTerms, type Dnd5eTerms } from '../systems/dnd5e/locales/dnd5eMessages';
 import { LongRestBody, restRecovery, ShortRestBody } from '../systems/dnd5e/RestBody';
 import { customActionDetailRequest } from '../systems/dnd5e/customActionDetail';
 import {
@@ -116,10 +120,10 @@ const CONDITION_ICONS: Record<string, string> = {
   unconscious: conditionUnconsciousSvg,
 };
 
-function conditionEntries(sheet: CharacterSheet) {
-  return CONDITIONS.map(({ key, label }) => ({
+function conditionEntries(sheet: CharacterSheet, terms: Dnd5eTerms) {
+  return CONDITIONS.map(({ key }) => ({
     key,
-    label,
+    label: terms.condition(key),
     active: sheet.activeConditions.includes(key),
     icon: CONDITION_ICONS[key] && <FrameIcon svg={CONDITION_ICONS[key]} aria-hidden />,
     rulesText: CONDITION_RULES_TEXT[key] ?? '',
@@ -133,8 +137,19 @@ function conditionEntries(sheet: CharacterSheet) {
  */
 /** Marks the sidebar as shown by the player while no panel is open. */
 const SHOW_EMPTY = Symbol('show empty sidebar');
+/** "Warlock 4 / Fighter 3" under the name; the overall level only when no class is known. */
+function classSummary(classes: { name: string; level: number }[], level: number, t: SheetText): string {
+  return classes.length > 0 ? classes.map((entry) => `${entry.name} ${entry.level}`).join(' / ') : t('common.level', { level });
+}
+
+/** The locked sidebar's 340px plus a 12px gap, kept free so the sheet sits beside it. */
+const SIDEBAR_RESERVE = 352;
 
 export function CharacterSheetScreen({ character, userLabel, onBack }: CharacterSheetScreenProps) {
+  const t = useSheetText();
+  const { locale } = useLanguage();
+  const loadFailed = t('common.loadFailed');
+  const terms = useDnd5eTerms();
   const [sheet, setSheet] = useState<CharacterSheet | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [rollHistory, setRollHistory] = useState<RollResult[]>([]);
@@ -156,10 +171,10 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
         .then((renamed) => setCharacterName(renamed.name))
         .catch(() => {
           setCharacterName(previous);
-          setMutationError('Renaming failed to reach the server. Nothing was saved.');
+          setMutationError(t('common.renameFailed'));
         });
     },
-    [character.id, characterName],
+    [character.id, characterName, t],
   );
   const [sidebarContent, setSidebarContent] = useState<SidebarContent | null>(null);
   // The panel the player hid (or SHOW_EMPTY after showing an empty sidebar): any newly opened panel is shown,
@@ -168,6 +183,7 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
   const sidebarHidden = sidebarContent === null ? hiddenPanel !== SHOW_EMPTY : hiddenPanel === sidebarContent;
   const hideSidebar = useCallback(() => setHiddenPanel(sidebarContent), [sidebarContent]);
   const showSidebar = useCallback(() => setHiddenPanel(SHOW_EMPTY), []);
+  const [sidebarLocked, setSidebarLocked] = useState(false);
   const [catalogueSpells, setCatalogueSpells] = useState<CatalogueEntry[]>([]);
   const [catalogueBackgrounds, setCatalogueBackgrounds] = useState<CatalogueEntry[]>([]);
   const [catalogueFeats, setCatalogueFeats] = useState<CatalogueEntry[]>([]);
@@ -176,8 +192,8 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
   useEffect(() => {
     getCharacterSheet(character.id)
       .then(setSheet)
-      .catch(() => setError('Could not load the character sheet.'));
-  }, [character.id]);
+      .catch(() => setError(loadFailed));
+  }, [character.id, loadFailed, locale]);
 
   useEffect(() => {
     getRollHistory(character.id)
@@ -189,36 +205,36 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
   }, [character.id]);
 
   useEffect(() => {
-    getCatalogue(character.systemId, 'SPELL')
+    getCharacterCatalogue(character.id, 'SPELL')
       .then(setCatalogueSpells)
       .catch(() => {
         // "Manage spells" degrades to an empty picker rather than blocking the sheet.
       });
-  }, [character.systemId]);
+  }, [character.id]);
 
   useEffect(() => {
-    getCatalogue(character.systemId, 'BACKGROUND')
+    getCharacterCatalogue(character.id, 'BACKGROUND')
       .then(setCatalogueBackgrounds)
       .catch(() => {
         // Personality/Ideals/Bonds/Flaws suggestions degrade to "none" rather than blocking the sheet.
       });
-  }, [character.systemId]);
+  }, [character.id]);
 
   useEffect(() => {
-    getCatalogue(character.systemId, 'FEAT')
+    getCharacterCatalogue(character.id, 'FEAT')
       .then(setCatalogueFeats)
       .catch(() => {
         // "Manage feats" degrades to an empty picker rather than blocking the sheet.
       });
-  }, [character.systemId]);
+  }, [character.id]);
 
   useEffect(() => {
-    getCatalogue(character.systemId, 'ITEM')
+    getCharacterCatalogue(character.id, 'ITEM')
       .then(setCatalogueItems)
       .catch(() => {
         // "Manage Inventory" degrades to custom-item-only rather than blocking the sheet.
       });
-  }, [character.systemId]);
+  }, [character.id]);
 
   // Matched by slug (kebab-cased background name) against the catalogue's backgrounds; a custom
   // background with no catalogue entry just gets no suggestions table.
@@ -241,7 +257,7 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
           setRollHistory((history) => [result, ...history]);
           setSessionLatestRoll(result);
         })
-        .catch(() => setRollError('Roll failed to reach the server. Nothing was recorded.'));
+        .catch(() => setRollError(t('common.rollFailed')));
     },
     [character.id],
   );
@@ -258,7 +274,7 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
           setRollHistory((history) => [result, ...history]);
           setSessionLatestRoll(result);
         })
-        .catch(() => setRollError('Roll failed to reach the server. Nothing was recorded.'));
+        .catch(() => setRollError(t('common.rollFailed')));
     },
     [character.id],
   );
@@ -302,7 +318,7 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
         .then(setSheet)
         .catch(() => {
           setSheet(previousSheet);
-          setMutationError('Change failed to reach the server. Nothing was saved.');
+          setMutationError(t('common.saveFailed'));
         });
     },
     [character.id, sheet],
@@ -318,7 +334,7 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
         setRollHistory((history) => [roll, ...history]);
         setSessionLatestRoll(roll);
       })
-      .catch(() => setMutationError('Death save failed to reach the server. Nothing was saved.'));
+      .catch(() => setMutationError(t('common.deathSaveFailed')));
   }, [character.id]);
 
   // A short rest optionally spends hit dice in the same operation (see
@@ -338,7 +354,7 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
           }
           setSidebarContent(null);
         })
-        .catch(() => setMutationError('Short rest failed to reach the server. Nothing was saved.'));
+        .catch(() => setMutationError(t('common.shortRestFailed')));
     },
     [character.id],
   );
@@ -350,7 +366,7 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
         setSheet(updatedSheet);
         setSidebarContent(null);
       })
-      .catch(() => setMutationError('Long rest failed to reach the server. Nothing was saved.'));
+      .catch(() => setMutationError(t('common.longRestFailed')));
   }, [character.id]);
 
   const handleOpenShortRest = useCallback(() => {
@@ -359,7 +375,7 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
     }
     setSidebarContent({
       kind: 'mechanic',
-      title: 'Short Rest',
+      title: t('terms.shortRest'),
       summary: SHORT_REST_INTRO_TEXT,
       mutedSummary: true,
       rulesText: SHORT_REST_RULES_TEXT,
@@ -367,7 +383,7 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
         <ShortRestBody
           hitDice={sheet.hitDice}
           conModifier={sheet.abilityModifiers.constitution?.value ?? 0}
-          recover={restRecovery(sheet, 'short')}
+          recover={restRecovery(sheet, 'short', terms)}
           onConfirm={handleTakeShortRest}
         />
       ),
@@ -377,14 +393,14 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
   const handleOpenLongRest = useCallback(() => {
     setSidebarContent({
       kind: 'mechanic',
-      title: 'Long Rest',
+      title: t('terms.longRest'),
       summary: LONG_REST_INTRO_TEXT,
       rulesText: LONG_REST_RULES_TEXT,
       body: sheet ? (
         <LongRestBody
           hitDice={sheet.hitDice}
           conModifier={sheet.abilityModifiers.constitution?.value ?? 0}
-          recover={restRecovery(sheet, 'long')}
+          recover={restRecovery(sheet, 'long', terms)}
           onConfirm={handleTakeLongRest}
         />
       ) : null,
@@ -427,7 +443,7 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
   const handleOpenChangeAppearance = useCallback(() => {
     setSidebarContent({
       kind: 'changeAppearance',
-      themes: SHEET_THEMES,
+      themes: SHEET_THEMES.map((theme) => ({ ...theme, label: terms.theme(theme.id, theme.label) })),
       current: sheet?.sheetTheme ?? DEFAULT_SHEET_THEME,
       onSelect: (theme) => handleMutate({ type: 'SET_SHEET_THEME', theme }),
       renderSample: (theme) => <ThemeSample color={theme.color} />,
@@ -447,6 +463,7 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
       subtitle: character.summary.slice(1).map((fact) => fact.value).join(' · ') || null,
       experience: sheet.experience ?? null,
       onManageExperience: () => handleOpenManageExperienceRef.current(),
+      onSetExperience: (points) => handleMutate({ type: 'SET_EXPERIENCE', points }),
       onLevelUp: handleLevelUp,
       onOpenLog: handleOpenLog,
       onOpenShortRest: handleOpenShortRest,
@@ -458,8 +475,9 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
         longRest: <FrameIcon svg={longRestIconSvg} className="rest-button__icon" />,
         gameLog: <FrameIcon svg={gameLogIconSvg} className="rest-button__icon" />,
       },
+      classIcon: (className) => <ClassIcon className={className} />,
     });
-  }, [sheet, character, characterName, handleRename, handleLevelUp, handleOpenLog, handleOpenShortRest, handleOpenLongRest, handleOpenChangeAppearance]);
+  }, [sheet, character, characterName, handleRename, handleMutate, handleLevelUp, handleOpenLog, handleOpenShortRest, handleOpenLongRest, handleOpenChangeAppearance]);
 
   const handleOpenManageExperience = useCallback(() => {
     if (!sheet?.experience) {
@@ -505,7 +523,7 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
       setMutationError(null);
       postUpdateBackgroundField(character.id, field, value)
         .then(setSheet)
-        .catch(() => setMutationError('Change failed to reach the server. Nothing was saved.'));
+        .catch(() => setMutationError(t('common.saveFailed')));
     },
     [character.id],
   );
@@ -518,8 +536,8 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
     }
     setSidebarContent({
       kind: 'conditions',
-      title: 'Conditions',
-      conditions: conditionEntries(sheet),
+      title: t('terms.conditions'),
+      conditions: conditionEntries(sheet, terms),
       onToggle: (key) => handleMutate({ type: 'TOGGLE_CONDITION', condition: key }),
       exhaustionLevel: sheet.exhaustionLevel,
       exhaustionIcon: <FrameIcon svg={conditionExhaustedSvg} aria-hidden />,
@@ -528,7 +546,7 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
       activeEffects: sheet.activeEffects,
       onEndEffect: (effectKey) => handleMutate({ type: 'END_ACTIVE_EFFECT', effectKey }),
     });
-  }, [sheet, handleMutate]);
+  }, [sheet, handleMutate, terms, t]);
 
   const handleOpenManageCustomActions = useCallback(() => {
     if (!sheet) {
@@ -541,7 +559,7 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
       onRemove: (actionKey) => handleMutate({ type: 'REMOVE_CUSTOM_ACTION', actionKey }),
       onOpenAction: (action) =>
         setSidebarContent(
-          customActionDetailRequest(action, (actionKey, updated) => handleMutate({ type: 'UPDATE_CUSTOM_ACTION', actionKey, action: updated })),
+          customActionDetailRequest(action, (actionKey, updated) => handleMutate({ type: 'UPDATE_CUSTOM_ACTION', actionKey, action: updated }), terms),
         ),
     });
   }, [sheet, handleMutate]);
@@ -561,7 +579,7 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
       onMove: (itemKey, storageLocation) => handleMutate({ type: 'MOVE_ITEM', itemKey, storageLocation }),
       onToggleEquip: (itemKey) => handleMutate({ type: 'TOGGLE_ITEM_EQUIPPED', itemKey }),
       onOpenItem: (item) =>
-        setSidebarContent(buildItemDetailRequest(item, customizationsOf(sheet).items[item.key], handleMutate, hasBagOfHoldingIn(sheet))),
+        setSidebarContent(buildItemDetailRequest(item, customizationsOf(sheet).items[item.key], handleMutate, hasBagOfHoldingIn(sheet), terms)),
     });
   }, [sheet, catalogueItems, handleMutate]);
 
@@ -600,7 +618,7 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
       : sidebarContent?.kind === 'conditions' && sheet
         ? {
             ...sidebarContent,
-            conditions: conditionEntries(sheet),
+            conditions: conditionEntries(sheet, terms),
             exhaustionLevel: sheet.exhaustionLevel,
             activeEffects: sheet.activeEffects,
             onEndEffect: (effectKey: string) => handleMutate({ type: 'END_ACTIVE_EFFECT', effectKey }),
@@ -650,7 +668,7 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
     return (
       <div>
         <button type="button" onClick={onBack}>
-          ← Back to characters
+          {t('common.backToCharacters')}
         </button>
         <p role="alert">{error}</p>
       </div>
@@ -668,7 +686,7 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
       characterName={characterName}
       portrait={character.portrait}
       systemId={character.systemId}
-      level={sheet.level}
+      summary={classSummary(sheet.experience?.classes ?? [], sheet.level, t)}
       userLabel={userLabel}
       onOpenLog={handleOpenLog}
       onOpenShortRest={handleOpenShortRest}
@@ -680,12 +698,27 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
       progress={sheet.experience?.advancement === 'XP' ? <XpBar experience={sheet.experience} variant="header" /> : undefined}
       portraitBadge={
         sheet.experience?.levelUpAvailable && (sidebarHidden || sidebarContent?.kind !== 'characterMenu') ? (
-          <button type="button" className="level-up-arrow" title="Level up available" aria-label="Level up available" onClick={handleOpenCharacterMenu}>
+          <button type="button" className="level-up-arrow" title={t('header.levelUpAvailable')} aria-label={t('header.levelUpAvailable')} onClick={handleOpenCharacterMenu}>
             <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true">
               <path d="M8 1 15 9h-4v6H5V9H1z" />
             </svg>
           </button>
         ) : undefined
+      }
+      reserveRight={sidebarLocked && !sidebarHidden ? SIDEBAR_RESERVE : 0}
+      overlay={
+        <>
+          <DiceTray latestRoll={sessionLatestRoll} error={rollError} />
+          <CustomRollPicker onRoll={handleManualRoll} />
+          <Sidebar content={displayedSidebarContent} hidden={sidebarHidden} onHide={hideSidebar} onShow={showSidebar} onLockedChange={setSidebarLocked} />
+          {rollModeRequest && (
+            <RollModeMenu
+              request={rollModeRequest}
+              onConfirm={(kind, key, advantage, disadvantage) => handleRoll(kind, key, undefined, { advantage, disadvantage })}
+              onClose={() => setRollModeRequest(null)}
+            />
+          )}
+        </>
       }
     >
       {mutationError && <p role="alert">{mutationError}</p>}
@@ -717,16 +750,6 @@ export function CharacterSheetScreen({ character, userLabel, onBack }: Character
           onOpenTextField={handleOpenTextField}
         />
       </div>
-      <DiceTray latestRoll={sessionLatestRoll} error={rollError} />
-      <CustomRollPicker onRoll={handleManualRoll} />
-      <Sidebar content={displayedSidebarContent} hidden={sidebarHidden} onHide={hideSidebar} onShow={showSidebar} />
-      {rollModeRequest && (
-        <RollModeMenu
-          request={rollModeRequest}
-          onConfirm={(kind, key, advantage, disadvantage) => handleRoll(kind, key, undefined, { advantage, disadvantage })}
-          onClose={() => setRollModeRequest(null)}
-        />
-      )}
     </SheetShell>
     </LastingEffectSpellsContext.Provider>
   );

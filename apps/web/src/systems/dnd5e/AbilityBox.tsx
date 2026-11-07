@@ -1,5 +1,6 @@
 import type { KeyboardEvent, MouseEvent } from 'react';
 import { FrameLayer } from './FrameLayer';
+import { useDnd5eText } from './locales/dnd5eMessages';
 import paperSvg from './frames/dnd_frame.svg?raw';
 import inkSvg from './frames/dnd_frame_ink.svg?raw';
 
@@ -25,6 +26,7 @@ function formatModifier(modifier: number): string {
  * (a bare div, no button semantics there either).
  */
 export function AbilityBox({ name, score, modifier, onRoll, onRollContextMenu, onOpenExplainer }: AbilityBoxProps) {
+  const t = useDnd5eText();
   const formattedModifier = formatModifier(modifier);
 
   const handleKeyDown = (event: KeyboardEvent) => {
@@ -39,7 +41,7 @@ export function AbilityBox({ name, score, modifier, onRoll, onRollContextMenu, o
       className="frame-box ability"
       role="button"
       tabIndex={0}
-      aria-label={`${name} score ${score}, open details`}
+      aria-label={t('vitals.abilityAria', { name, score })}
       onClick={onOpenExplainer}
       onKeyDown={handleKeyDown}
     >
@@ -50,7 +52,7 @@ export function AbilityBox({ name, score, modifier, onRoll, onRollContextMenu, o
         <button
           type="button"
           className="roll roll--modifier ability__roll"
-          aria-label={`Roll ${name} check, ${formattedModifier}`}
+          aria-label={t('vitals.abilityRoll', { name, modifier: formattedModifier })}
           onClick={(event: MouseEvent) => {
             event.stopPropagation();
             onRoll();

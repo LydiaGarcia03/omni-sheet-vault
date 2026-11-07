@@ -5,8 +5,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 import dev.omnisheetvault.api.ruleset.CatalogueLookup;
 import dev.omnisheetvault.api.ruleset.CatalogueRecord;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 import java.util.Optional;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.support.ResourceBundleMessageSource;
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.ObjectMapper;
 
@@ -25,6 +28,14 @@ class Dnd5eOptionSummariesTest {
             return List.of();
         }
     };
+
+    private static final Map<String, String> TERMS = Map.of(
+            "abilityAbbreviations.strength", "FOR", "abilityAbbreviations.dexterity", "DES", "skills.athletics", "Atletismo",
+            "labels.speed", "Deslocamento", "movements.swimming", "natação", "senses.DARKVISION", "Visão no escuro",
+            "damageTypes.poison", "veneno", "armorCategories.shield", "escudos", "weaponCategories.simple", "simples",
+            "weaponCategories.martial", "marciais");
+    /** The Portuguese messages with a few owner terms; other terms stay English. */
+    private static final Dnd5eText PORTUGUESE = portuguese();
 
     private final Dnd5eOptionSummaries summaries = new Dnd5eOptionSummaries(CATALOGUE, true);
 
@@ -54,6 +65,18 @@ class Dnd5eOptionSummariesTest {
                  "speed":{"walk":30}}""");
 
         assertThat(summaries.species(halfElf)).isEqualTo("CHA +2, +1 to 2 abilities of your choice · Speed 30 ft");
+    }
+
+    @Test
+    void weightedIncreasesListEveryAlternative() {
+        JsonNode deepGnome = json("""
+                {"abilityAlternatives":[
+                   {"fixed":{},"choices":[{"from":["strength","dexterity","constitution","intelligence","wisdom","charisma"],"weights":[2,1],"count":2,"amount":null}]},
+                   {"fixed":{},"choices":[{"from":["strength","dexterity","constitution","intelligence","wisdom","charisma"],"weights":[1,1,1],"count":3,"amount":null}]}],
+                 "speed":{"walk":30}}""");
+
+        assertThat(summaries.species(deepGnome))
+                .isEqualTo("+2 and +1 to 2 different abilities of your choice or +1 to 3 abilities of your choice · Speed 30 ft");
     }
 
     @Test
@@ -103,6 +126,15 @@ class Dnd5eOptionSummariesTest {
     }
 
     @Test
+    void accentedLeadsMatchWhateverTheirCaseOrUnicodeForm() {
+        CatalogueRecord upperCase = record("FEAT", "Ator", "VOCÊ GANHA OS SEGUINTES BENEFÍCIOS: Aumente seu Carisma em 1. Outro.", "{}");
+        CatalogueRecord decomposed = record("OPTIONAL_FEATURE", "Rajada", "Pré-requisito: truque\n\nAdicione seu Carisma ao dano.", "{}");
+
+        assertThat(summaries.of(upperCase)).isEqualTo("Aumente seu Carisma em 1.");
+        assertThat(summaries.of(decomposed)).isEqualTo("Adicione seu Carisma ao dano.");
+    }
+
+    @Test
     void redactedProseLeavesOnlyTheStructuredParts() {
         Dnd5eOptionSummaries redacted = new Dnd5eOptionSummaries(CATALOGUE, false);
         CatalogueRecord actor = record("FEAT", "Actor", "You gain the following benefits: Increase your Charisma score by 1.",
@@ -132,6 +164,29 @@ class Dnd5eOptionSummariesTest {
     }
 
     @Test
+    void portugueseSummariesUseTheMessagesTheTermListAndMeters() {
+        Dnd5eOptionSummaries portuguese = new Dnd5eOptionSummaries(CATALOGUE, true, PORTUGUESE);
+        JsonNode dwarf = json("""
+                {"abilityAlternatives":{"fixed":{"constitution":2},"choices":[{"from":["strength","dexterity"],"count":1,"amount":1}]},
+                 "speed":{"walk":25,"swim":30},"senses":{"type":"darkvision","range":60},"damageResistances":{"fixed":["poison"],"choices":[]}}""");
+        CatalogueRecord fighter = record("CLASS", "Fighter", "", """
+                {"hitDie":10,"savingThrows":["strength","constitution"],
+                 "proficiencies":{"armor":["light","medium","heavy","shield"],"weaponCategories":["simple","martial"]}}""");
+
+        assertThat(portuguese.species(dwarf))
+                .isEqualTo("CON +2, +1 em um entre FOR, DES · Deslocamento 7,5 m, natação 9 m · Visão no escuro 18 m · Resistência a veneno");
+        assertThat(portuguese.of(fighter)).isEqualTo("d10 · Resistências: FOR, CON · Todas as armaduras, escudos · Armas simples e marciais");
+    }
+
+    @Test
+    void anUntranslatedTermKeepsItsEnglish() {
+        Dnd5eOptionSummaries portuguese = new Dnd5eOptionSummaries(CATALOGUE, true, PORTUGUESE);
+
+        assertThat(portuguese.skills(json("[{\"fixed\":[\"athletics\",\"stealth\"],\"choices\":[{\"count\":2}]}]")))
+                .isEqualTo("Atletismo, Stealth, 2 perícias à sua escolha");
+    }
+
+    @Test
     void itemsKeepAPlainLine() {
         assertThat(summaries.of(record("ITEM", "Longsword", "", "{}"))).isNull();
     }
@@ -142,5 +197,24 @@ class Dnd5eOptionSummariesTest {
 
     private static JsonNode json(String text) {
         return MAPPER.readTree(text);
+    }
+
+    private static Dnd5eText portuguese() {
+        ResourceBundleMessageSource source = new ResourceBundleMessageSource();
+        source.setBasename("locales/dnd5e-messages");
+        source.setDefaultEncoding("UTF-8");
+        source.setFallbackToSystemLocale(false);
+        Locale locale = Locale.forLanguageTag("pt-BR");
+        return new Dnd5eText() {
+            @Override
+            public String text(String code, Object... arguments) {
+                return source.getMessage("dnd5e." + code, arguments.length == 0 ? null : arguments, locale);
+            }
+
+            @Override
+            public String term(String group, String key, String english) {
+                return TERMS.getOrDefault(group + "." + key, english);
+            }
+        };
     }
 }

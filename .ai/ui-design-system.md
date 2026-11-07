@@ -33,6 +33,9 @@ One surface, not many. Rules:
   - Unlocked, Escape and a click outside hide it. Locked, it stays open and the
     hide control disappears. Opening another panel still replaces the content.
   - The lock is remembered per viewer (`localStorage`).
+  - Unlocked, it overlays the sheet. Locked and shown, the sheet makes room
+    for it: `SheetShell`'s `reserveRight` keeps 352px free, and the sheet
+    scales down to 0.85 to fit (`features/laptop-responsiveness.md`).
 - **Frame:** D&D Beyond's border SVG at the top and bottom, a 10px gap, and 3px
   side borders, all in the sheet theme's `--theme-accent`. It has a light
   (`#FEFEFE`) and a dark (`#12181C`, character panel) variant. Measurements
@@ -243,19 +246,31 @@ direction B of `design-reference/mockups/home`, chosen on 2026-09-25:
   tokens.
 - `AppThemeProvider` (`theme/appTheme.tsx`) holds the choice:
   - the "Dark theme" switch in the user menu (`menuitemcheckbox`) sets it;
-  - it's kept in `localStorage` (`osv.app-theme`), a per-browser
-    convenience;
+  - signed in, it's saved in `players.preferred_theme`
+    (`PUT /api/me/preferences`) and follows the player across devices; it's
+    also kept in `localStorage` (`osv.app-theme`) for signed-out pages;
   - until the player picks, it follows `prefers-color-scheme`.
 - The landing is signed out and has no user menu, so it always follows the
   system (or a choice made earlier in that browser).
 
 The Keycloak login theme repeats these values in
 `infra/keycloak-themes/omni-sheet-vault/login/resources/css/omni-sheet-vault.css`.
+It follows the app's theme through the `osv_theme` cookie: light by default,
+the dark palette under `html[data-osv-theme='dark']`. Below the card it shows
+the same language pill as the header. See `features/localization.md`, "Login
+pages (Keycloak)".
 
 **App header** (`apps/web/src/shell/AppHeader.tsx`), on every page, full width
 and at least 96 px tall: the 48 px logo and the name (a link to `/`) in the
 left corner, and the player's menu (or "Log in" when signed out) in the right
 corner.
+- **Language button** (`language/LanguageMenu.tsx`, `language.css`), just left
+  of the user pill (or of "Log in"), on every page:
+  - a 38 px pill with the gold Material Symbols `language` icon and the
+    current code (`EN`, `PT-BR`);
+  - its dropdown lists each language as a code chip plus its own name, with
+    the current one checked and highlighted in gold.
+  - See `features/localization.md`.
 - On the builder, the system picker and the sheet it is `compact` (58 px, 32 px
   logo). It adds a "← Your characters" link at the right edge of the page's
   centred column (`backToListWithin`): the builder's 1440 px column, or the
@@ -267,13 +282,15 @@ corner.
   component): D&D 5e is the ampersand logo (a PNG used as a CSS mask) and
   "Dungeons & Dragons" in Modesto Bold Condensed (not bundled: commercial, so
   it falls back to the heading font where it isn't installed), both in the
-  muted brand red `--dnd5e-brand-red-muted` (`#C53131`, the sheet's DDB Red), at 15 px so it stays smaller than the app's name;
+  muted brand red `--dnd5e-brand-red-muted` (`#C53131`, the sheet's DND Red), at 15 px so it stays smaller than the app's name;
   "5th edition · 2014" muted, centred on the name.
 - **Rule (owner, 2026-10-04):** the bar is the same for every system: its
   black background, the app's logo and name, their font and size, the back
   link and the user pill. A system only adds its mark after the divider
   (logo, name and edition in its own theme), never restyles the bar. The
   mark stays smaller than the app's name. Below 1280 px the edition hides; below 640 px the whole mark does.
+  Exception (owner, 2026-10-04): on VtM pages (`.vtm5-page`) the header's
+  background is pure black to match the sheet; everything else stays.
 - On the sheet it sits above the character header, the way D&D Beyond's site
   bar sits above its own. The sheet header no longer carries a back button or
   the user name.
@@ -297,6 +314,17 @@ sources, and a link to `/credits`. Its styles live in `theme/theme.css`
   drafts carry a "Draft · continue creating" badge.
 - **Systems:** those not supported yet show only a "Coming soon" badge.
 - **Deleting** always asks first (`ConfirmDialog`).
+
+**Loading** (`apps/web/src/loading/`):
+- `Spinner`: the app's loading ring, recreated from D&D Beyond's
+  `AnimatedLoadingRingSvg`. It is a gold `#D9A441` arc whose dash grows and
+  shrinks around a dark track, drawn as inline SVG with a CSS animation.
+  - Under `prefers-reduced-motion` it pulses instead.
+  - With `className="is-centred"`, it stands in for a page or step that is
+    still loading.
+- `LoadingOverlay`: a fixed full-window layer for page-wide changes, such as
+  switching language. The page stays visible behind a 5 px blur and a light
+  dark veil, with a 72 px ring in the middle.
 
 ## Redactable content
 
@@ -340,9 +368,36 @@ identifier the backend uses.
 Adding a system means adding a module. It must not require editing the shell, the
 sidebar, the character list, or another system's module.
 
+## Screen sizes
+
+Every screen supports laptop sizes; the minimum is **1280 x 720**. Plan and
+status are in `features/laptop-responsiveness.md`.
+
+- At 1280px and wider, no page scrolls horizontally.
+- Scroll caps on frames follow the viewport height, not fixed px.
+- A layout that can reflow, reflows (columns drop to fewer columns).
+- A pixel replica of an external reference (the D&D sheet) scales as a whole
+  instead (`SheetShell`'s `useFitScale`, `zoom` on `.sheet-column`). The
+  sidebar, the dice tray and menus go through `overlay`, outside the scaled
+  element.
+- Size a component by its own width with a container query (the builder spell
+  tables, the VtM sheet), not by the viewport. The free width depends on which
+  panels are open.
+- A new system's sheet and builder meet this from their first slice. Their
+  screenshots at 1280 x 720 are part of done.
+
 ## Rules that do not bend
 
 - No game rules in the frontend. If the UI needs a modifier, the API returns it.
 - The character list is fully generic: it renders a portrait, a name and a summary
   line that the backend composed. It knows no system by name.
+- A character card has **four lines of text at most** (owner, 2026-10-12):
+  1. the name, emphasised;
+  2. the draft tag, only on a draft;
+  3. the most important fact, a little emphasised (class, level or group);
+  4. the next fact (ancestry, species or similar).
+
+  Each line stays on one line and ends in an ellipsis when it's too long. A system's
+  `CharacterSummarizer` returns at most `MAX_FACTS` (2) facts, joining related ones
+  ("Neonate · Alleycat"). `CharacterBanner` shows no more than two.
 - Every list of entities supports search and filtering through the shared primitives.

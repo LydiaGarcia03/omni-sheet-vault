@@ -3,6 +3,10 @@ import { Link } from 'react-router';
 import type { Character } from '../characters/api';
 import { CharacterPortrait } from '../characters/CharacterPortrait';
 import { systemColor } from '../characters/supportedSystems';
+import { useHomeText } from '../locales/platformMessages';
+
+/** A card has four lines at most: the name, the draft tag, and two facts (the API's CharacterSummarizer.MAX_FACTS). */
+const MAX_FACTS = 2;
 
 type CharacterBannerProps = {
   character: Character;
@@ -11,6 +15,7 @@ type CharacterBannerProps = {
 
 /** One character in the vault: portrait, name and the facts its game system chose, with a bar in the system's colour. */
 export function CharacterBanner({ character, onDelete }: CharacterBannerProps) {
+  const t = useHomeText();
   const [menuOpen, setMenuOpen] = useState(false);
   const menu = useRef<HTMLDivElement>(null);
   const draft = character.status === 'DRAFT';
@@ -34,13 +39,13 @@ export function CharacterBanner({ character, onDelete }: CharacterBannerProps) {
       className={`character-banner${draft ? ' is-draft' : ''}`}
       style={{ '--system-color': systemColor(character.systemId) } as CSSProperties}
     >
-      <Link className="character-banner__link" to={href} aria-label={draft ? `Continue creating ${character.name}` : `Open ${character.name}`} />
+      <Link className="character-banner__link" to={href} aria-label={t(draft ? 'banner.continueNamed' : 'banner.openNamed', { name: character.name })} />
       <CharacterPortrait portrait={character.portrait} systemId={character.systemId} className="character-banner__portrait" />
       <div className="character-banner__body">
         <div className="character-banner__name">{character.name}</div>
         <div className="character-banner__facts">
-          {draft && <span className="character-banner__draft">Draft · continue creating</span>}
-          {character.summary.map((fact, index) => (
+          {draft && <span className="character-banner__draft">{t('banner.draft')}</span>}
+          {character.summary.slice(0, MAX_FACTS).map((fact, index) => (
             <span key={fact.label} className={index === 0 ? 'is-lead' : undefined}>
               {fact.value}
             </span>
@@ -51,7 +56,7 @@ export function CharacterBanner({ character, onDelete }: CharacterBannerProps) {
         <button
           type="button"
           className="character-banner__menu-button"
-          aria-label={`More actions for ${character.name}`}
+          aria-label={t('banner.moreActions', { name: character.name })}
           aria-haspopup="menu"
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen(!menuOpen)}
@@ -61,7 +66,7 @@ export function CharacterBanner({ character, onDelete }: CharacterBannerProps) {
         {menuOpen && (
           <div className="character-banner__menu" role="menu">
             <Link role="menuitem" to={href}>
-              {draft ? 'Continue creating' : 'Open sheet'}
+              {draft ? t('banner.continue') : t('banner.open')}
             </Link>
             <button
               type="button"
@@ -72,7 +77,7 @@ export function CharacterBanner({ character, onDelete }: CharacterBannerProps) {
                 onDelete(character);
               }}
             >
-              Delete
+              {t('banner.delete')}
             </button>
           </div>
         )}

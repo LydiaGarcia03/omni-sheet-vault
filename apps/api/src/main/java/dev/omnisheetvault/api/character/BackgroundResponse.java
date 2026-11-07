@@ -1,6 +1,7 @@
 package dev.omnisheetvault.api.character;
 
 import dev.omnisheetvault.api.ruleset.Background;
+import java.util.function.UnaryOperator;
 
 public record BackgroundResponse(
         String name,
@@ -27,6 +28,13 @@ public record BackgroundResponse(
         String age,
         String weight,
         String lifestyle) {
+
+    /** The background's own name and feature in another language; what the player wrote stays as written. */
+    BackgroundResponse localized(UnaryOperator<String> text, UnaryOperator<String> name) {
+        return new BackgroundResponse(name.apply(this.name), name.apply(featureName), text.apply(featureDescription), alignment,
+                personalityTraits, ideals, bonds, flaws, appearance, organizations, allies, enemies, backstory, other, gender, eyes,
+                size, height, faith, hair, skin, age, weight, lifestyle);
+    }
 
     static BackgroundResponse from(Background background) {
         return new BackgroundResponse(

@@ -4,7 +4,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import dev.omnisheetvault.api.ruleset.CatalogueRecord;
 import dev.omnisheetvault.api.ruleset.ProgressionTable;
+import java.util.Locale;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.i18n.LocaleContextHolder;
 import tools.jackson.databind.ObjectMapper;
 
 /** Fixtures follow the shapes ClassConverter and SubclassConverter write (trimmed PHB Wizard, Barbarian, Fighter, Battle Master). */
@@ -63,6 +65,25 @@ class Dnd5eClassProgressionTest {
         assertThat(table.rows().get(6).get(2)).isEqualTo("Know Your Enemy");
         assertThat(Dnd5eClassProgression.table(fighter, null, 3, true).rows().get(6).get(2)).isEqualTo("Martial Archetype feature");
         assertThat(Dnd5eClassProgression.table(fighter, null, 3, true).rows().get(3).get(2)).isEqualTo("Martial Versatility");
+    }
+
+    @Test
+    void columnLabelsFeatureNamesAndTitleFollowTheCataloguesTranslation() {
+        CatalogueRecord barbarian = new CatalogueRecord("CLASS", "barbarian", "Barbarian", "Player's Handbook", 1, "", MAPPER.readTree("""
+                {"tableColumns":[{"label":"Rages","valuesByLevel":["2"]},{"label":"Rage Damage","valuesByLevel":["+2"]}],
+                 "features":[{"level":1,"name":"Rage"},{"level":1,"name":"Unarmored Defense"}]}"""), false, null, MAPPER.readTree("""
+                {"pt-BR":{"name":"Bárbaro","data":{"tableColumns":{"0":{"label":"Fúrias"}},"features":{"Rage":{"name":"Fúria"}}}}}"""));
+
+        LocaleContextHolder.setLocale(Locale.forLanguageTag("pt-BR"));
+        try {
+            ProgressionTable table = Dnd5eClassProgression.table(barbarian, null, 1, false);
+
+            assertThat(table.name()).isEqualTo("Bárbaro");
+            assertThat(table.columns()).containsExactly("Level", "Proficiency Bonus", "Features", "Fúrias", "Rage Damage");
+            assertThat(table.rows().get(0)).containsExactly("1st", "+2", "Fúria, Unarmored Defense", "2", "+2");
+        } finally {
+            LocaleContextHolder.resetLocaleContext();
+        }
     }
 
     private static CatalogueRecord record(String kind, String name, String data) {

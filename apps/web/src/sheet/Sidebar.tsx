@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useSheetText } from '../locales/platformMessages';
 import type { SidebarContent } from './api';
 import { LockIcon, SidebarBorder, SidebarLeftIcon, SidebarRightIcon, UnlockIcon } from './sidebarIcons';
 import { ChangeAppearancePanel } from './ChangeAppearancePanel';
@@ -75,15 +76,22 @@ type SidebarProps = {
   hidden: boolean;
   onHide: () => void;
   onShow: () => void;
+  /** Told the lock state on mount and on every change, so the sheet can make room for a locked sidebar. */
+  onLockedChange?: (locked: boolean) => void;
 };
 
 /**
  * The one contextual surface, anchored right (ui-design-system.md): D&D Beyond's frame, its hide and lock
  * controls, and one panel at a time. Unlocked, Escape or a click outside hides it; locked, it stays open.
  */
-export function Sidebar({ content, hidden, onHide, onShow }: SidebarProps) {
+export function Sidebar({ content, hidden, onHide, onShow, onLockedChange }: SidebarProps) {
+  const t = useSheetText();
   const [locked, setLocked] = useState(readLocked);
   const root = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    onLockedChange?.(locked);
+  }, [locked, onLockedChange]);
 
   useEffect(() => {
     if (hidden || locked) {
@@ -117,7 +125,7 @@ export function Sidebar({ content, hidden, onHide, onShow }: SidebarProps) {
     <aside ref={root} className={`sidebar${hidden ? ' is-hidden' : ''}${dark ? ' sidebar--dark' : ''}`}>
       <div className="sidebar__controls">
         {locked ? (
-          <button type="button" className="sidebar__control" title="Locked" aria-label="Locked" onClick={toggleLocked}>
+          <button type="button" className="sidebar__control" title={t('sidebar.locked')} aria-label={t('sidebar.locked')} onClick={toggleLocked}>
             <LockIcon />
           </button>
         ) : (
@@ -125,14 +133,14 @@ export function Sidebar({ content, hidden, onHide, onShow }: SidebarProps) {
             <button
               type="button"
               className="sidebar__control"
-              title={hidden ? 'Show sidebar' : 'Hide sidebar'}
-              aria-label={hidden ? 'Show sidebar' : 'Hide sidebar'}
+              title={hidden ? t('sidebar.show') : t('sidebar.hide')}
+              aria-label={hidden ? t('sidebar.show') : t('sidebar.hide')}
               onClick={hidden ? onShow : onHide}
             >
               {hidden ? <SidebarLeftIcon /> : <SidebarRightIcon />}
             </button>
             {!hidden && (
-              <button type="button" className="sidebar__control" title="Unlocked" aria-label="Unlocked" onClick={toggleLocked}>
+              <button type="button" className="sidebar__control" title={t('sidebar.unlocked')} aria-label={t('sidebar.unlocked')} onClick={toggleLocked}>
                 <UnlockIcon />
               </button>
             )}
@@ -144,7 +152,7 @@ export function Sidebar({ content, hidden, onHide, onShow }: SidebarProps) {
           <SidebarBorder />
           <div className="sidebar__gap" />
           <div className="sidebar__content">
-            {content ? renderContent(content) : <p className="sidebar__default">Select elements on the character sheet to display more information about</p>}
+            {content ? renderContent(content) : <p className="sidebar__default">{t('sidebar.empty')}</p>}
           </div>
           <SidebarBorder bottom />
         </div>

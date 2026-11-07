@@ -4,7 +4,7 @@ import { ChangeAppearancePanel } from './ChangeAppearancePanel';
 import { useSheetTheme } from './useSheetTheme';
 
 const THEMES = [
-  { id: 'ddb-red', label: 'DDB Red', color: '#C53131' },
+  { id: 'ddb-red', label: 'DND Red', color: '#C53131' },
   { id: 'wizard-cobalt', label: 'Wizard Cobalt', color: '#0045B7' },
 ];
 
@@ -15,9 +15,9 @@ describe('ChangeAppearancePanel', () => {
       <ChangeAppearancePanel kind="changeAppearance" themes={THEMES} current="ddb-red" onSelect={onSelect} renderSample={(theme) => <span>{theme.color}</span>} />,
     );
 
-    expect(screen.getByText('DDB Red')).toBeTruthy();
+    expect(screen.getByText('DND Red')).toBeTruthy();
     fireEvent.click(screen.getByRole('button', { name: 'Themes' }));
-    expect(screen.getByRole('button', { name: /DDB Red/ })).toHaveAttribute('aria-pressed', 'true');
+    expect(screen.getByRole('button', { name: /DND Red/ })).toHaveAttribute('aria-pressed', 'true');
     fireEvent.click(screen.getByRole('button', { name: /Wizard Cobalt/ }));
 
     expect(onSelect).toHaveBeenCalledWith('wizard-cobalt');

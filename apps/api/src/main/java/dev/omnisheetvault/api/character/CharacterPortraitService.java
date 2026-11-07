@@ -1,5 +1,6 @@
 package dev.omnisheetvault.api.character;
 
+import dev.omnisheetvault.api.storage.PortraitImage;
 import dev.omnisheetvault.api.storage.PortraitStorage;
 import java.util.Optional;
 import java.util.UUID;

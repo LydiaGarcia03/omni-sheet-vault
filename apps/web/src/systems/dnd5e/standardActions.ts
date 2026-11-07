@@ -1,4 +1,18 @@
-export type StandardAction = { name: string; description: string };
+export type StandardAction = { key: StandardActionKey };
+
+export type StandardActionKey =
+  | 'attack'
+  | 'dash'
+  | 'disengage'
+  | 'dodge'
+  | 'help'
+  | 'hide'
+  | 'ready'
+  | 'search'
+  | 'useAnObject'
+  | 'twoWeaponFighting'
+  | 'opportunityAttack'
+  | 'interactWithAnObject';
 
 /**
  * The nine standard 5e combat actions — identical text for every character, not
@@ -8,22 +22,15 @@ export type StandardAction = { name: string; description: string };
  * unchanging entries would be a bigger lift than this slice's scope.
  */
 export const STANDARD_ACTIONS: StandardAction[] = [
-  { name: 'Attack', description: 'Make one melee or ranged attack.' },
-  { name: 'Dash', description: 'Gain extra movement equal to your speed.' },
-  { name: 'Disengage', description: 'Your movement does not provoke opportunity attacks for the rest of the turn.' },
-  {
-    name: 'Dodge',
-    description:
-      'Attacks against you have disadvantage, and you have advantage on Dexterity saving throws, as long as you can see the attacker and are not incapacitated.',
-  },
-  {
-    name: 'Help',
-    description: "Aid another creature's ability check, or aid an ally's attack against a creature within 5 feet of you.",
-  },
-  { name: 'Hide', description: 'Make a Dexterity (Stealth) check to try to hide.' },
-  { name: 'Ready', description: 'Prepare to act in response to a trigger you define, using your reaction when it occurs.' },
-  { name: 'Search', description: 'Devote your attention to finding something.' },
-  { name: 'Use an Object', description: 'Interact with a second object, or use an object that requires your action.' },
+  { key: 'attack' },
+  { key: 'dash' },
+  { key: 'disengage' },
+  { key: 'dodge' },
+  { key: 'help' },
+  { key: 'hide' },
+  { key: 'ready' },
+  { key: 'search' },
+  { key: 'useAnObject' },
 ];
 
 /**
@@ -35,11 +42,7 @@ export const STANDARD_ACTIONS: StandardAction[] = [
  * list, same shape as `STANDARD_ACTIONS` above.
  */
 export const BONUS_ACTIONS: StandardAction[] = [
-  {
-    name: 'Two-Weapon Fighting',
-    description:
-      "When you take the Attack action and attack with a light melee weapon in one hand, use a bonus action to attack with a different light melee weapon in your other hand. Don't add your ability modifier to that second attack's damage, unless the modifier is negative.",
-  },
+  { key: 'twoWeaponFighting' },
 ];
 
 /**
@@ -49,11 +52,7 @@ export const BONUS_ACTIONS: StandardAction[] = [
  * to add beside it).
  */
 export const REACTIONS: StandardAction[] = [
-  {
-    name: 'Opportunity Attack',
-    description:
-      'When a hostile creature you can see moves out of your reach, use your reaction to make one melee attack against it, resolved right before it leaves.',
-  },
+  { key: 'opportunityAttack' },
 ];
 
 /**
@@ -62,8 +61,5 @@ export const REACTIONS: StandardAction[] = [
  * this one universal entry.
  */
 export const OTHER_ACTIONS: StandardAction[] = [
-  {
-    name: 'Interact with an Object',
-    description: 'As a free part of your turn, interact with one object or feature of the environment — open a door, draw a weapon, pick something up.',
-  },
+  { key: 'interactWithAnObject' },
 ];

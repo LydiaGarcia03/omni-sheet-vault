@@ -117,8 +117,8 @@ The original plan follows.
   `AppShell` no longer fetches `/api/me` itself.
 - **`apiFetch`:** same-origin paths, with `X-XSRF-TOKEN` on writes. A 401
   goes to the login; there is no client-side renewal.
-- **Account link:** `VITE_KEYCLOAK_ACCOUNT_URL`, which defaults to the local
-  account page.
+- **Account link:** replaced on 2026-10-15 by the app's own "My profile" page
+  (see `profile-page.md`); Keycloak's account console is disabled.
 - **Checked live:**
   - landing, then "I already have an account", then Keycloak, back to home as
     "test";

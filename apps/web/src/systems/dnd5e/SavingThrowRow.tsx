@@ -1,4 +1,5 @@
 import { FrameLayer } from './FrameLayer';
+import { useDnd5eText } from './locales/dnd5eMessages';
 import frameSvg from './frames/dnd_frame_saving_throw_attribute.svg?raw';
 import type { ProficiencyLevel } from '../../sheet/api';
 import { ProficiencyDot } from './ProficiencyDot';
@@ -19,6 +20,7 @@ function formatModifier(modifier: number): string {
 }
 
 export function SavingThrowRow({ abbreviation, fullName, proficiency, modifier, onRoll, onRollContextMenu, onOpenDetail }: SavingThrowRowProps) {
+  const t = useDnd5eText();
   const formattedModifier = formatModifier(modifier);
 
   return (
@@ -27,7 +29,7 @@ export function SavingThrowRow({ abbreviation, fullName, proficiency, modifier, 
       <FrameLayer svg={frameSvg} layer="ink" />
       <ProficiencyDot level={proficiency} className="saving__prof" />
       {onOpenDetail ? (
-        <button type="button" className="reveal saving__abbr" aria-label={`${fullName} saving throw details`} onClick={onOpenDetail}>
+        <button type="button" className="reveal saving__abbr" aria-label={t('saves.detailsAria', { name: fullName })} onClick={onOpenDetail}>
           {abbreviation}
         </button>
       ) : (
@@ -36,7 +38,7 @@ export function SavingThrowRow({ abbreviation, fullName, proficiency, modifier, 
       <button
         type="button"
         className="roll roll--modifier saving__mod"
-        aria-label={`Roll ${fullName} saving throw, ${formattedModifier}`}
+        aria-label={t('saves.rollAria', { name: fullName, modifier: formattedModifier })}
         onClick={onRoll}
         onContextMenu={(event) => {
           event.preventDefault();

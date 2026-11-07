@@ -1,4 +1,5 @@
 import { useEffect, useState, type ReactNode } from 'react';
+import { useSheetText } from '../locales/platformMessages';
 
 type SidebarHeaderProps = {
   title: ReactNode;
@@ -63,7 +64,8 @@ type CustomizeProps = {
 };
 
 /** D&D Beyond's collapsed "Customize" section (a custom skill's reads "Edit"): a themed details with its editors inside. */
-export function Customize({ children, label = 'Customize', open, onToggle }: CustomizeProps) {
+export function Customize({ children, label, open, onToggle }: CustomizeProps) {
+  const t = useSheetText();
   return (
     <details
       className="sidebar-customize"
@@ -71,7 +73,7 @@ export function Customize({ children, label = 'Customize', open, onToggle }: Cus
       onToggle={onToggle ? (event) => onToggle((event.currentTarget as HTMLDetailsElement).open) : undefined}
     >
       <summary className="sidebar-customize__summary">
-        {label}
+        {label ?? t('sidebar.customize')}
         <ChevronDown />
       </summary>
       <div className="sidebar-customize__content">{children}</div>
@@ -112,14 +114,15 @@ function PagerChevron({ direction }: { direction: 'previous' | 'next' }) {
 
 /** D&D Beyond's PREV / NEXT on the pane's top edge, stepping through a panel's siblings; null at an end. */
 export function SidebarPager({ onPrevious, onNext }: { onPrevious: (() => void) | null; onNext: (() => void) | null }) {
+  const t = useSheetText();
   return (
-    <nav className="sidebar-pager" aria-label="Previous and next">
+    <nav className="sidebar-pager" aria-label={t('sidebar.pager')}>
       <button type="button" className="sidebar-pager__button" disabled={!onPrevious} onClick={onPrevious ?? undefined}>
         <PagerChevron direction="previous" />
-        <span>Prev</span>
+        <span>{t('sidebar.previous')}</span>
       </button>
       <button type="button" className="sidebar-pager__button" disabled={!onNext} onClick={onNext ?? undefined}>
-        <span>Next</span>
+        <span>{t('sidebar.next')}</span>
         <PagerChevron direction="next" />
       </button>
     </nav>
@@ -151,6 +154,7 @@ type ValueEditorRowProps = {
 
 /** One ct-value-editor row: a label, a value field and a source-notes field, saved when a field loses focus. */
 export function ValueEditorRow({ label, value, notes, onCommit, control }: ValueEditorRowProps) {
+  const t = useSheetText();
   const [valueText, setValueText] = useState(value === null ? '' : String(value));
   const [notesText, setNotesText] = useState(notes);
   useEffect(() => setValueText(value === null ? '' : String(value)), [value]);
@@ -180,8 +184,8 @@ export function ValueEditorRow({ label, value, notes, onCommit, control }: Value
         <input
           className="sidebar-value-editor__input sidebar-value-editor__input--notes"
           type="text"
-          placeholder="Enter Source Notes..."
-          aria-label={`${label} source notes`}
+          placeholder={t('sidebar.sourceNotes')}
+          aria-label={t('sidebar.sourceNotesOf', { label })}
           value={notesText}
           onChange={(event) => setNotesText(event.target.value)}
           onBlur={commit}

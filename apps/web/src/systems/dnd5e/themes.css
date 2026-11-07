@@ -1,4 +1,4 @@
-/* D&D 5e theme accent: sheet, builder and dice tray. DDB Red is the system default. */
+/* D&D 5e theme accent: sheet, builder and dice tray. DND Red is the system default. */
 :root {
     --theme-accent: #C53131;
     --theme-accent-dark: color-mix(in srgb, var(--theme-accent) 79%, #000000);

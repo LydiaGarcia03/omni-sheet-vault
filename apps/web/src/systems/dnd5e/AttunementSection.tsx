@@ -5,6 +5,7 @@ import type { Item, MutationHandler } from '../../sheet/api';
 import battleGearSvg from './frames/dnd_icon_battle_gear.svg?raw';
 import attunementSlotSvg from './frames/dnd_icon_attunement_slot.svg?raw';
 import { rarityClassSuffix } from './itemRarity';
+import { useDnd5eText } from './locales/dnd5eMessages';
 
 type AttunementSectionProps = {
   items: Item[];
@@ -48,6 +49,7 @@ const ATTUNEMENT_LIMIT = 3;
  * `role="checkbox"` control, the same one it reuses for equip).
  */
 export function AttunementSection({ items, onMutate }: AttunementSectionProps) {
+  const t = useDnd5eText();
   const attunedItems = items.filter((item) => item.attuned);
   const attunableItems = items.filter((item) => item.requiresAttunement);
   const atLimit = attunedItems.length >= ATTUNEMENT_LIMIT;
@@ -59,14 +61,14 @@ export function AttunementSection({ items, onMutate }: AttunementSectionProps) {
   return (
     <div className="attunement-section">
       <div className="attunement-section__col">
-        <div className="attunement-section__heading">Attuned Items</div>
+        <div className="attunement-section__heading">{t('inventory.attunedItems')}</div>
         {slots.map((slot, index) => (
           <AttunementSlot key={slot ? slot.key : `empty-${index}`} item={slot} />
         ))}
       </div>
       <div className="attunement-section__col">
-        <div className="attunement-section__heading">Items Requiring Attunement</div>
-        {attunableItems.length === 0 && <p className="attunement-section__empty">No eligible items.</p>}
+        <div className="attunement-section__heading">{t('inventory.requiringAttunement')}</div>
+        {attunableItems.length === 0 && <p className="attunement-section__empty">{t('inventory.noEligible')}</p>}
         {attunableItems.map((item) => {
           const raritySuffix = rarityClassSuffix(item.rarity);
           return (
@@ -75,7 +77,7 @@ export function AttunementSection({ items, onMutate }: AttunementSectionProps) {
                 type="button"
                 className="mutate item-row__flag"
                 aria-pressed={item.attuned}
-                aria-label={`${item.name} attuned: ${item.attuned ? 'yes' : 'no'}`}
+                aria-label={t(item.attuned ? 'inventory.attunedYes' : 'inventory.attunedNo', { name: item.name })}
                 disabled={!item.attuned && atLimit}
                 onClick={() => onMutate({ type: 'TOGGLE_ITEM_ATTUNED', itemKey: item.key })}
               >
@@ -104,18 +106,19 @@ export function AttunementSection({ items, onMutate }: AttunementSectionProps) {
  * since there is no dark ink line to fall back on the way the filled state has.
  */
 function AttunementSlot({ item }: { item: Item | null }) {
+  const t = useDnd5eText();
   return (
     <div className={`attunement-slot ${item ? 'attunement-slot--filled' : 'attunement-slot--empty'}`}>
       <FrameLayer svg={attunementSlotSvg} layer={item ? 'ink' : 'paper'} />
       {item ? (
         <div className="attunement-slot__content">
           <span className="attunement-slot__icon">
-            <FrameIcon className="attunement-slot__icon-glyph" svg={battleGearSvg} aria-label="Attuned item" />
+            <FrameIcon className="attunement-slot__icon-glyph" svg={battleGearSvg} aria-label={t('inventory.attunedItem')} />
           </span>
           <span className="attunement-slot__name">{item.name}</span>
         </div>
       ) : (
-        <div className="attunement-slot__content attunement-slot__content--empty">Choose an item from the right</div>
+        <div className="attunement-slot__content attunement-slot__content--empty">{t('inventory.chooseFromRight')}</div>
       )}
     </div>
   );

@@ -3,7 +3,7 @@ package dev.omnisheetvault.api.ruleset.dnd5e;
 import jakarta.validation.constraints.NotBlank;
 import java.util.Set;
 
-/** How the character's sheet looks: its theme id (DDB Red by default), one of {@link #THEMES}. */
+/** How the character's sheet looks: its theme id (DND Red by default), one of {@link #THEMES}. */
 public record Dnd5eAppearance(@NotBlank String theme) {
 
     public static final String DEFAULT_THEME = "ddb-red";

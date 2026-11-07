@@ -2,17 +2,25 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { SourceCodesProvider } from '../catalogue/SourceCodes';
 import type { Portrait } from '../characters/portrait';
+import { Spinner } from '../loading/Spinner';
+import { useLanguage } from '../language/language';
+import { useBuilderText } from '../locales/platformMessages';
 import { AppFooter } from '../shell/AppFooter';
 import { AppHeader } from '../shell/AppHeader';
+import { Tutorial } from '../tutorial/Tutorial';
+import { TutorialLauncher } from '../tutorial/TutorialLauncher';
+import { useTutorial } from '../tutorial/useTutorial';
 import { BUILDER_COLUMN_WIDTH } from './builderLayout';
 import { BuilderChecklist } from './BuilderChecklist';
 import { BuilderSummary } from './BuilderSummary';
-import { choicesByStep, withLocalAnswers, type BuilderDefinition } from './builderDefinition';
-import { finishDraft, getDraft, saveDraft, type BuildPlan, type Draft, type DraftPreview } from './draftApi';
+import { choicesByStep, useBuilderLabels, withLocalAnswers, type BuilderDefinition } from './builderDefinition';
+import { finishDraft, getDraft, previewDraft, saveDraft, type BuildPlan, type Draft, type DraftPreview } from './draftApi';
 import '../systems/dnd5e/themes.css';
 import './builder.css';
 
-const AUTOSAVE_DELAY_MS = 600;
+/** Typing waits for a pause; a pick saves almost at once, so the choices it opens arrive quickly. */
+const TYPING_SAVE_DELAY_MS = 600;
+const PICK_SAVE_DELAY_MS = 120;
 
 type SaveState = 'saved' | 'saving' | 'unsaved' | 'error';
 
@@ -25,6 +33,7 @@ type CharacterBuilderProps = {
 
 /** The three-column creation flow: step checklist, one page per step, and the character summary. */
 export function CharacterBuilder({ characterId, stepId, definitionFor, userName }: CharacterBuilderProps) {
+  const tb = useBuilderText();
   const [draft, setDraft] = useState<Draft | null>(null);
   const [loadError, setLoadError] = useState<string | null>(null);
 
@@ -37,12 +46,12 @@ export function CharacterBuilder({ characterId, stepId, definitionFor, userName 
   if (loadError) {
     return (
       <div className="builder-page builder-message" role="alert">
-        {loadError} <Link to="/">Back to your characters</Link>
+        {loadError} <Link to="/">{tb('backToCharacters')}</Link>
       </div>
     );
   }
   if (!draft) {
-    return <div className="builder-page builder-message">Loading…</div>;
+    return <Spinner className="is-centred" />;
   }
   const definition = definitionFor(draft.systemId);
   return (
@@ -60,9 +69,11 @@ type LoadedBuilderProps = {
 };
 
 function LoadedBuilder({ initial, stepId, definition, userName }: LoadedBuilderProps) {
+  const tb = useBuilderText();
+  const labels = useBuilderLabels(definition);
   const navigate = useNavigate();
   const [name, setName] = useState(initial.name);
-  const [build, setBuild] = useState<unknown>(initial.build);
+  const [build, setBuild] = useState<unknown>(() => definition.withoutStaleAnswers(initial.build, initial.plan));
   const [plan, setPlan] = useState<BuildPlan>(initial.plan);
   const [preview, setPreview] = useState<DraftPreview>(initial.preview);
   const [portrait, setPortrait] = useState<Portrait | null>(initial.portrait ?? null);
@@ -70,7 +81,10 @@ function LoadedBuilder({ initial, stepId, definition, userName }: LoadedBuilderP
   const [error, setError] = useState<string | null>(null);
   const [finishing, setFinishing] = useState(false);
   const latestSave = useRef(0);
-  const dirty = useRef(false);
+  const dirty = useRef(build !== initial.build);
+  const saveDelay = useRef(PICK_SAVE_DELAY_MS);
+  const tutorial = useTutorial(definition.tutorial);
+  const openStep = useCallback((target: string) => navigate(`/characters/${initial.id}/build/${target}`), [navigate, initial.id]);
 
   const save = useCallback(async () => {
     const sequence = ++latestSave.current;
@@ -103,14 +117,19 @@ function LoadedBuilder({ initial, stepId, definition, userName }: LoadedBuilderP
       return;
     }
     setSaveState('unsaved');
-    const timer = window.setTimeout(save, AUTOSAVE_DELAY_MS);
+    const timer = window.setTimeout(save, saveDelay.current);
     return () => window.clearTimeout(timer);
   }, [name, build, save]);
 
-  const edit = <T,>(setter: (value: T) => void) => (value: T) => {
-    dirty.current = true;
-    setter(value);
-  };
+  const edit =
+    <T,>(setter: (value: T) => void, delay: number) =>
+    (value: T) => {
+      dirty.current = true;
+      saveDelay.current = delay;
+      setter(value);
+    };
+  const editName = edit(setName, TYPING_SAVE_DELAY_MS);
+  const editBuild = edit(setBuild, PICK_SAVE_DELAY_MS);
 
   const finish = async () => {
     setFinishing(true);
@@ -126,6 +145,20 @@ function LoadedBuilder({ initial, stepId, definition, userName }: LoadedBuilderP
     }
   };
 
+  const { locale } = useLanguage();
+  const shownLocale = useRef(locale);
+  useEffect(() => {
+    if (shownLocale.current === locale) {
+      return;
+    }
+    shownLocale.current = locale;
+    getDraft(initial.id).then((reloaded) => {
+      setPlan(reloaded.plan);
+      setPreview(reloaded.preview);
+    }, () => undefined);
+  }, [locale, initial.id]);
+
+  const previewBuild = useCallback((candidate: unknown) => previewDraft(initial.id, candidate), [initial.id]);
   const livePlan = useMemo(() => withLocalAnswers(definition, plan, build), [definition, plan, build]);
   const byStep = useMemo(() => choicesByStep(definition, livePlan), [definition, livePlan]);
   const step = definition.steps.find((candidate) => candidate.id === stepId) ?? definition.steps[0];
@@ -133,43 +166,64 @@ function LoadedBuilder({ initial, stepId, definition, userName }: LoadedBuilderP
   const previous = definition.steps[stepIndex - 1];
   const next = definition.steps[stepIndex + 1];
   const { StepPage, Frame } = definition;
+  const tour = definition.tutorial ? (
+    <>
+      <TutorialLauncher onOpen={tutorial.start} themeClassName={definition.tutorial.className} />
+      {tutorial.open && (
+        <Tutorial
+          definition={definition.tutorial}
+          onNavigate={openStep}
+          onClose={tutorial.close}
+          onFinish={() => {
+            tutorial.close();
+            openStep(definition.steps[0].id);
+          }}
+        />
+      )}
+    </>
+  ) : null;
 
   if (Frame) {
     return (
-      <Frame
-        characterId={initial.id}
-        systemId={initial.systemId}
-        stepId={step.id}
-        steps={definition.steps}
-        userName={userName}
-        portrait={portrait}
-        onPortraitChange={setPortrait}
-        name={name}
-        onNameChange={edit(setName)}
-        build={build}
-        onBuildChange={edit(setBuild)}
-        plan={livePlan}
-        onFinish={finish}
-        finishing={finishing}
-        saveLabel={SAVE_LABELS[saveState]}
-        error={error}
-      />
+      <>
+        <Frame
+          characterId={initial.id}
+          systemId={initial.systemId}
+          stepId={step.id}
+          steps={definition.steps}
+          userName={userName}
+          portrait={portrait}
+          onPortraitChange={setPortrait}
+          name={name}
+          onNameChange={editName}
+          build={build}
+          onBuildChange={editBuild}
+          plan={livePlan}
+          preview={preview}
+          previewBuild={previewBuild}
+          onFinish={finish}
+          finishing={finishing}
+          saveLabel={tb(`save.${saveState}`)}
+          error={error}
+        />
+        {tour}
+      </>
     );
   }
 
   return (
     <div className={definition.pageClassName ? `builder-page ${definition.pageClassName}` : 'builder-page'}>
       <AppHeader userName={userName} backToListWithin={BUILDER_COLUMN_WIDTH} compact systemId={initial.systemId}>
-        <span className="builder-topbar__pill">Draft</span>
-        <span className="builder-topbar__saved" role="status">
-          {SAVE_LABELS[saveState]}
+        <span className="builder-topbar__pill">{tb('draft')}</span>
+        <span className="builder-topbar__saved" role="status" data-tutorial="save-state">
+          {tb(`save.${saveState}`)}
         </span>
       </AppHeader>
       <div className="builder-layout">
-        <aside className="builder-layout__side">
+        <aside className="builder-layout__side" data-tutorial="checklist">
           <BuilderChecklist characterId={initial.id} definition={definition} currentStepId={step.id} choicesByStep={byStep} />
         </aside>
-        <main className="builder-layout__main">
+        <main className="builder-layout__main" data-tutorial="step">
           {error && (
             <div className="builder-error" role="alert">
               {error}
@@ -182,37 +236,38 @@ function LoadedBuilder({ initial, stepId, definition, userName }: LoadedBuilderP
             portrait={portrait}
             onPortraitChange={setPortrait}
             name={name}
-            onNameChange={edit(setName)}
+            onNameChange={editName}
             build={build}
-            onBuildChange={edit(setBuild)}
+            onBuildChange={editBuild}
             plan={livePlan}
             preview={preview}
             choices={byStep.get(step.id) ?? []}
             onFinish={finish}
             finishing={finishing}
           />
-          <div className="builder-stepnav">
+          <div className="builder-stepnav" data-tutorial="stepnav">
             {previous ? (
               <Link className="builder-btn builder-btn--big" to={`/characters/${initial.id}/build/${previous.id}`}>
-                ← {previous.label}
+                ← {labels.step(previous)}
               </Link>
             ) : (
               <span />
             )}
             <span className="builder-muted">
-              Step {stepIndex + 1} of {definition.steps.length} · saved automatically
+              {tb('stepOf', { step: stepIndex + 1, total: definition.steps.length })}
             </span>
             {next ? (
               <Link className="builder-btn builder-btn--primary builder-btn--big" to={`/characters/${initial.id}/build/${next.id}`}>
-                {next.label} →
+                {labels.step(next)} →
               </Link>
             ) : (
               <span />
             )}
           </div>
         </main>
-        <aside className="builder-layout__summary">
+        <aside className="builder-layout__summary" data-tutorial="summary">
           <BuilderSummary
+            labels={labels}
             name={name}
             description={definition.describe(build, livePlan)}
             pendingCount={plan.pendingCount}
@@ -222,14 +277,8 @@ function LoadedBuilder({ initial, stepId, definition, userName }: LoadedBuilderP
           />
         </aside>
       </div>
-      <AppFooter />
+      <AppFooter rulesText />
+      {tour}
     </div>
   );
 }
-
-const SAVE_LABELS: Record<SaveState, string> = {
-  saved: 'All changes saved',
-  saving: 'Saving…',
-  unsaved: 'Unsaved changes',
-  error: 'Not saved',
-};

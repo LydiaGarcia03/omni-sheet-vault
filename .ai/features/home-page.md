@@ -128,7 +128,9 @@ e.g. `python -m http.server 5191` and
   - `home/CharacterBanner`:
     - the system colour as `--system-color`;
     - a whole-card link, "Open Vex" or "Continue creating …";
-    - the facts from `character.summary`, the first one emphasised;
+    - the facts from `character.summary`, the first one emphasised. Since
+      2026-10-12 there are at most two, one line each (`ui-design-system.md`,
+      "Rules that do not bend");
     - the draft badge;
     - the "⋯" menu.
   - The old `characters/CharacterList.tsx` was removed.

@@ -2,6 +2,7 @@ import type { KeyboardEvent, MouseEvent } from 'react';
 import type { DeathSaves } from '../../sheet/api';
 import { FrameIcon } from './FrameIcon';
 import { FrameLayer } from './FrameLayer';
+import { useDnd5eText } from './locales/dnd5eMessages';
 import skullSvg from './frames/dnd_icon_condition_unconscious.svg?raw';
 import paperSvg from './frames/dnd_frame_hit_points.svg?raw';
 import inkSvg from './frames/dnd_frame_hit_points_ink.svg?raw';
@@ -26,6 +27,7 @@ function countAfterClick(count: number, index: number): number {
  * the box opens HP management, where healing brings the hit points box back.
  */
 export function DeathSavesBox({ saves, onSet, onRoll, onOpenManagement }: DeathSavesBoxProps) {
+  const t = useDnd5eText();
   const canRoll = !saves.stable && !saves.dead;
 
   const stop = (event: MouseEvent) => event.stopPropagation();
@@ -45,7 +47,7 @@ export function DeathSavesBox({ saves, onSet, onRoll, onOpenManagement }: DeathS
             key={index}
             type="button"
             className={`mutate death-saves__mark${index < count ? ` death-saves__mark--${kind}` : ''}`}
-            aria-label={`${label} ${index + 1}${index < count ? ', marked' : ''}`}
+            aria-label={`${t('vitals.markAria', { label, number: index + 1 })}${index < count ? t('vitals.marked') : ''}`}
             onClick={(event) => {
               stop(event);
               const next = countAfterClick(count, index);
@@ -64,7 +66,7 @@ export function DeathSavesBox({ saves, onSet, onRoll, onOpenManagement }: DeathS
       tabIndex={0}
       onClick={onOpenManagement}
       onKeyDown={handleKeyDown}
-      aria-label={`Death saves: ${saves.successes} successes, ${saves.failures} failures${saves.stable ? ', stable' : ''}${saves.dead ? ', dead' : ''}. Open HP management`}
+      aria-label={`${t('vitals.deathSavesAria', { successes: saves.successes, failures: saves.failures })}${saves.stable ? t('vitals.stable') : ''}${saves.dead ? t('vitals.dead') : ''}${t('vitals.deathSavesOpen')}`}
     >
       <FrameLayer svg={paperSvg} layer="paper" />
       <FrameLayer svg={inkSvg} layer="ink" />
@@ -72,8 +74,8 @@ export function DeathSavesBox({ saves, onSet, onRoll, onOpenManagement }: DeathS
         type="button"
         className="mutate death-saves__icon"
         disabled={!canRoll}
-        title={canRoll ? 'Roll a death saving throw' : undefined}
-        aria-label="Roll a death saving throw"
+        title={canRoll ? t('vitals.rollDeathSave') : undefined}
+        aria-label={t('vitals.rollDeathSave')}
         onClick={(event) => {
           stop(event);
           onRoll();
@@ -82,10 +84,10 @@ export function DeathSavesBox({ saves, onSet, onRoll, onOpenManagement }: DeathS
         <FrameIcon svg={skullSvg} className="death-saves__skull" aria-hidden />
       </button>
       <div className="death-saves__rows">
-        {row('Failure', 'fail', saves.failures)}
-        {row('Success', 'success', saves.successes)}
+        {row(t('terms.labels.failure'), 'fail', saves.failures)}
+        {row(t('terms.labels.success'), 'success', saves.successes)}
       </div>
-      <div className="death-saves__title">Death Saves</div>
+      <div className="death-saves__title">{t('terms.labels.deathSaves')}</div>
     </div>
   );
 }

@@ -85,7 +85,7 @@ describe('Dnd5eAbilitiesStep', () => {
   it('only offers scores the remaining points can pay for', () => {
     render(<Dnd5eAbilitiesStep characterId="c1" build={BUILD} choices={[METHODS]} problems={[]} preview={PREVIEW} onChange={vi.fn()} />);
 
-    const constitution = screen.getByLabelText('con');
+    const constitution = screen.getByLabelText('CON');
     const offered = [...constitution.querySelectorAll('option')].map((option) => option.value);
     expect(offered).toEqual(['8', '9', '10', '11', '12', '13', '14']);
   });

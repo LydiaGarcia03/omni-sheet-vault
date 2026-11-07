@@ -57,6 +57,11 @@ public class CatalogueEntry {
     @Column(nullable = false, columnDefinition = "jsonb")
     private String data;
 
+    /** Per language tag, the text that replaces the English entry's (features/localization.md); {@code {}} when none. */
+    @JdbcTypeCode(SqlTypes.JSON)
+    @Column(nullable = false, columnDefinition = "jsonb")
+    private String translations = "{}";
+
     @Column(name = "created_at", nullable = false)
     private Instant createdAt;
 
@@ -105,6 +110,11 @@ public class CatalogueEntry {
         this.updatedAt = Instant.now();
     }
 
+    /** Applied on every import, with the directory's translation files. */
+    void replaceTranslations(String translations) {
+        this.translations = translations;
+    }
+
     public UUID id() {
         return id;
     }
@@ -147,5 +157,9 @@ public class CatalogueEntry {
 
     public String data() {
         return data;
+    }
+
+    public String translations() {
+        return translations;
     }
 }

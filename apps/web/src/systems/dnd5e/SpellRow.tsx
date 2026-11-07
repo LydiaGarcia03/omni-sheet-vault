@@ -1,12 +1,12 @@
 import type { RollContextMenuHandler, RollHandler } from '../../dice/api';
 import { ListRow } from '../../sheet/ListRow';
 import { adjustedSpellAttack, adjustedSpellSaveDc, type Spell, type SpellcastingClassInfo } from '../../sheet/api';
-import { abilityAbbreviation } from './abilities';
-import { DAMAGE_TYPE_ICONS, damageTypeLabel } from './damageTypes';
+import { DAMAGE_TYPE_ICONS } from './damageTypes';
 import { FrameIcon } from './FrameIcon';
 import healingIcon from './frames/dnd_icon_healing.svg?raw';
 import concentrationIcon from './frames/dnd_icon_marker_concentration.svg?raw';
 import ritualIcon from './frames/dnd_icon_marker_ritual.svg?raw';
+import { ENGLISH_TERMS, useDnd5eTerms, type Dnd5eTerms } from './locales/dnd5eMessages';
 import { RangeDisplay, SpellAreaTag } from './RangeDisplay';
 import { isHealingSpell, spellDamageLabel } from './spellCombat';
 
@@ -22,14 +22,14 @@ type SpellRowProps = {
   castLevel?: number;
 };
 
-const ORDINAL_SUFFIXES: Record<number, string> = { 1: 'st', 2: 'nd', 3: 'rd' };
 
 /** D&D Beyond's blue badge with the spell's own level, on the Cast button of a row listed at a higher level. */
 function ScaledLevelBadge({ level }: { level: number }) {
+  const terms = useDnd5eTerms();
   return (
-    <span className="spell-row__scaled" aria-label={`Level ${level} spell`}>
+    <span className="spell-row__scaled" aria-label={terms.t('spellRow.levelSpell', { level })}>
       <span className="spell-row__scaled-number">{level}</span>
-      <span className="spell-row__scaled-ordinal">{ORDINAL_SUFFIXES[level] ?? 'th'}</span>
+      <span className="spell-row__scaled-ordinal">{terms.ordinal(level).slice(String(level).length)}</span>
     </span>
   );
 }
@@ -45,18 +45,18 @@ function formatSigned(amount: number): string {
  * `Dnd5eSpell.castingTime` stores the full text ("1 Action"); this is a
  * display-only shortening, not a new stored field.
  */
-function castingTimeAbbreviation(castingTime: string): string {
+function castingTimeAbbreviation(castingTime: string, { t }: Dnd5eTerms = ENGLISH_TERMS): string {
   const match = castingTime.match(/^(\d+)\s+(.+)$/);
   if (!match) {
     return castingTime;
   }
   const [, count, unit] = match;
   const normalized = unit.toLowerCase();
-  if (normalized.startsWith('bonus action')) return `${count}BA`;
-  if (normalized.startsWith('action')) return `${count}A`;
-  if (normalized.startsWith('reaction')) return `${count}R`;
-  if (normalized.startsWith('minute')) return `${count}m`;
-  if (normalized.startsWith('hour')) return `${count}h`;
+  if (normalized.startsWith('bonus action')) return t('spellRow.timeBonusAction', { count });
+  if (normalized.startsWith('action')) return t('spellRow.timeAction', { count });
+  if (normalized.startsWith('reaction')) return t('spellRow.timeReaction', { count });
+  if (normalized.startsWith('minute')) return t('spellRow.timeMinute', { count });
+  if (normalized.startsWith('hour')) return t('spellRow.timeHour', { count });
   return castingTime;
 }
 
@@ -137,6 +137,9 @@ function castingTimeAbbreviation(castingTime: string): string {
  * just this app's own geometry.
  */
 export function SpellRow({ spell, spellcasting, onRoll, onRollContextMenu, onOpenDetail, castLevel }: SpellRowProps) {
+  const terms = useDnd5eTerms();
+  const { t } = terms;
+  const saveAbility = spell.saveAbility ?? spellcasting?.spellcastingAbility ?? '';
   const scaled = castLevel != null && castLevel > spell.level;
   const damageLabel = spellDamageLabel(spell, scaled ? castLevel : undefined);
   const isHealing = isHealingSpell(spell);
@@ -145,13 +148,13 @@ export function SpellRow({ spell, spellcasting, onRoll, onRollContextMenu, onOpe
   const attackBonus = spellcasting ? adjustedSpellAttack(spell, spellcasting.spellAttackBonus.value) : null;
 
   return (
-    <ListRow className="spell-row reveal" ariaLabel={`Open ${spell.name} details`} onOpen={onOpenDetail}>
+    <ListRow className="spell-row reveal" ariaLabel={t('actionsTab.openDetails', { name: spell.name })} onOpen={onOpenDetail}>
       <div className="spell-row__cast">
         {spell.usage?.mode === 'AT_WILL' ? (
           <span className="spell-row__cast-label">
-            At
+            {t('spellRow.atWillTop')}
             <br />
-            Will
+            {t('spellRow.atWillBottom')}
           </span>
         ) : spell.usage?.mode === 'LIMITED' ? (
           <button
@@ -162,19 +165,19 @@ export function SpellRow({ spell, spellcasting, onRoll, onRollContextMenu, onOpe
               onOpenDetail();
             }}
           >
-            Use
+            {t('spell.use')}
           </button>
         ) : spell.ritual ? (
           <span className="spell-row__cast-label">
-            As
+            {t('spellRow.asRitualTop')}
             <br />
-            Ritual
+            {t('spellRow.asRitualBottom')}
           </span>
         ) : spell.level === 0 ? (
           <span className="spell-row__cast-label">
-            At
+            {t('spellRow.atWillTop')}
             <br />
-            Will
+            {t('spellRow.atWillBottom')}
           </span>
         ) : (
           <button
@@ -186,7 +189,7 @@ export function SpellRow({ spell, spellcasting, onRoll, onRollContextMenu, onOpe
             }}
           >
             {scaled && <ScaledLevelBadge level={spell.level} />}
-            Cast
+            {t('spell.cast')}
           </button>
         )}
       </div>
@@ -194,13 +197,13 @@ export function SpellRow({ spell, spellcasting, onRoll, onRollContextMenu, onOpe
         <span className="spell-row__name">
           {spell.name}
           {spell.concentration && (
-            <FrameIcon className="spell-row__marker" svg={concentrationIcon} aria-label="Concentration" title="Concentration" />
+            <FrameIcon className="spell-row__marker" svg={concentrationIcon} aria-label={t('terms.labels.concentration')} title={t('terms.labels.concentration')} />
           )}
-          {spell.ritual && <FrameIcon className="spell-row__marker" svg={ritualIcon} aria-label="Ritual" title="Ritual" />}
+          {spell.ritual && <FrameIcon className="spell-row__marker" svg={ritualIcon} aria-label={t('terms.labels.ritual')} title={t('terms.labels.ritual')} />}
         </span>
       </div>
       <div className="spell-row__time" title={spell.castingTime}>
-        {castingTimeAbbreviation(spell.castingTime)}
+        {castingTimeAbbreviation(spell.castingTime, terms)}
       </div>
       <div className="spell-row__range">
         <RangeDisplay range={spell.range} />
@@ -210,7 +213,7 @@ export function SpellRow({ spell, spellcasting, onRoll, onRollContextMenu, onOpe
           <button
             type="button"
             className="roll action-row__value spell-row__value--tohit"
-            aria-label={`Roll ${spell.name} spell attack`}
+            aria-label={t('spellRow.rollSpellAttack', { name: spell.name })}
             onClick={(event) => {
               event.stopPropagation();
               onRoll('SPELL_ATTACK', spell.key);
@@ -227,7 +230,7 @@ export function SpellRow({ spell, spellcasting, onRoll, onRollContextMenu, onOpe
         {!spell.attackRoll && isSaveBasedDamage && saveDc != null && (
           <div className="spell-row__save">
             <span className="spell-row__save-label">
-              {abilityAbbreviation(spell.saveAbility ?? spellcasting?.spellcastingAbility ?? '')}
+              {saveAbility ? terms.abilityAbbreviation(saveAbility) : ''}
             </span>
             <span className="spell-row__save-value">{saveDc}</span>
           </div>
@@ -239,7 +242,11 @@ export function SpellRow({ spell, spellcasting, onRoll, onRollContextMenu, onOpe
           <button
             type="button"
             className="roll action-row__value spell-row__value--effect"
-            aria-label={isHealing ? `Roll ${spell.name} healing, ${damageLabel}` : `Roll ${spell.name} damage, ${damageLabel} ${spell.damageType}`}
+            aria-label={
+              isHealing
+                ? t('spellRow.rollHealing', { name: spell.name, damage: damageLabel })
+                : t('attack.rollDamage', { name: spell.name, damage: damageLabel, type: spell.damageType ? terms.damageType(spell.damageType) : '' })
+            }
             onClick={(event) => {
               event.stopPropagation();
               onRoll(isHealing ? 'SPELL_HEAL' : 'SPELL_DAMAGE', spell.key, scaled ? castLevel : undefined);
@@ -247,14 +254,14 @@ export function SpellRow({ spell, spellcasting, onRoll, onRollContextMenu, onOpe
           >
             <span className="action-row__damage-value">{damageLabel}</span>
             {isHealing ? (
-              <FrameIcon className="action-row__damage-type" svg={healingIcon} title="Healing" aria-hidden />
+              <FrameIcon className="action-row__damage-type" svg={healingIcon} title={t('spell.healing')} aria-hidden />
             ) : (
               spell.damageType &&
               DAMAGE_TYPE_ICONS[spell.damageType] && (
                 <FrameIcon
                   className="action-row__damage-type"
                   svg={DAMAGE_TYPE_ICONS[spell.damageType]}
-                  title={damageTypeLabel(spell.damageType)}
+                  title={terms.damageType(spell.damageType)}
                   aria-hidden
                 />
               )

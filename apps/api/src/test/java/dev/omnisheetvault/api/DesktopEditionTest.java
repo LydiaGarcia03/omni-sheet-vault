@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -32,6 +33,8 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.node.ArrayNode;
 
 /** The desktop edition end to end: embedded PostgreSQL, the local player, portraits on disk and the catalogue import. */
 @SpringBootTest
@@ -43,7 +46,7 @@ class DesktopEditionTest {
     /** Shared by every test JVM run: the embedded-postgres library remembers where it unpacked the binaries. */
     static final Path EMBEDDED_POSTGRES_RUNTIME = Path.of("build/embedded-postgres");
 
-    private static final List<String> CONDITIONS = List.of("blinded.json", "charmed.json", "deafened.json");
+    private static final Set<String> CONDITIONS = Set.of("blinded", "charmed", "deafened");
 
     @TempDir
     static Path dataDirectory;
@@ -70,11 +73,15 @@ class DesktopEditionTest {
     }
 
     private static void bundleThreeConditions() throws IOException {
-        Path source = Path.of("../../content/dnd-5e/conditions");
+        ObjectMapper mapper = new ObjectMapper();
+        ArrayNode bundled = mapper.createArrayNode();
+        mapper.readTree(Path.of("../../content/dnd-5e/conditions/conditions.en.json").toFile()).forEach(entry -> {
+            if (CONDITIONS.contains(entry.get("slug").asString())) {
+                bundled.add(entry);
+            }
+        });
         Path target = Files.createDirectories(contentDirectory.resolve("dnd-5e/conditions"));
-        for (String file : CONDITIONS) {
-            Files.copy(source.resolve(file), target.resolve(file));
-        }
+        Files.writeString(target.resolve("conditions.en.json"), mapper.writeValueAsString(bundled));
     }
 
     private static void bundleAWebApp() throws IOException {

@@ -5,12 +5,15 @@ import cylinderIcon from './frames/dnd_icon_aoe_cylinder.svg?raw';
 import lineIcon from './frames/dnd_icon_aoe_line.svg?raw';
 import sphereIcon from './frames/dnd_icon_aoe_sphere.svg?raw';
 import squareIcon from './frames/dnd_icon_aoe_square.svg?raw';
+import { useDnd5eTerms, type Dnd5eTerms } from './locales/dnd5eMessages';
 
 type ParsedRange = {
   primary: string;
   unit?: string;
   longRange?: string;
   areaDetail?: string;
+  /** A melee weapon's "Reach", shown under the distance. */
+  note?: string;
 };
 
 /**
@@ -35,9 +38,9 @@ export function parseRange(range: string): ParsedRange {
   if (dual) {
     return { primary: dual[1], longRange: `/${dual[2]}` };
   }
-  const simple = range.match(/^(\d+)\s*(?:ft\.?|feet)$/i);
+  const simple = range.match(/^(\d+)\s*(?:ft\.?|feet)(?:\s+(reach))?$/i);
   if (simple) {
-    return { primary: simple[1], unit: 'ft.' };
+    return simple[2] ? { primary: simple[1], unit: 'ft.', note: 'Reach' } : { primary: simple[1], unit: 'ft.' };
   }
   const withDetail = range.match(/^(Self|Touch)\s*\((.+)\)$/i);
   if (withDetail) {
@@ -59,13 +62,34 @@ type RangeDisplayProps = {
  * column instead, via `.ddbc-note-components`). See `SpellAreaTag` below for
  * where that detail actually goes now.
  */
+/** A parsed range in the player's units and words: feet become meters in Portuguese, Self and Touch are translated. */
+function localized(parsed: ParsedRange, terms: Dnd5eTerms): ParsedRange {
+  const numeric = /^\d+$/.test(parsed.primary);
+  const word = parsed.primary.toLowerCase();
+  const primary = numeric
+    ? terms.distanceValue(Number(parsed.primary))
+    : word === 'self'
+      ? terms.t('terms.labels.self')
+      : word === 'touch'
+        ? terms.t('terms.labels.touch')
+        : parsed.primary;
+  return {
+    ...parsed,
+    primary,
+    unit: parsed.unit ? terms.distanceUnit : undefined,
+    longRange: parsed.longRange ? `/${terms.distanceValue(Number(parsed.longRange.slice(1)))}` : undefined,
+    note: parsed.note ? terms.t('terms.labels.reach') : undefined,
+  };
+}
+
 export function RangeDisplay({ range }: RangeDisplayProps) {
-  const parsed = parseRange(range);
+  const parsed = localized(parseRange(range), useDnd5eTerms());
   return (
     <>
       <span className="range-display__primary">{parsed.primary}</span>
       {parsed.unit && <span className="range-display__suffix"> {parsed.unit}</span>}
       {parsed.longRange && <span className="range-display__suffix">{parsed.longRange}</span>}
+      {parsed.note && <span className="range-display__suffix range-display__note">{parsed.note}</span>}
     </>
   );
 }
@@ -100,6 +124,7 @@ const AOE_SHAPE_ICONS: Record<string, string> = {
  * with that shape exists.
  */
 export function SpellAreaTag({ range }: { range: string }) {
+  const terms = useDnd5eTerms();
   const { areaDetail } = parseRange(range);
   if (!areaDetail) {
     return null;
@@ -112,9 +137,11 @@ export function SpellAreaTag({ range }: { range: string }) {
   const icon = AOE_SHAPE_ICONS[shape.toLowerCase()];
   return (
     <span className="spell-area-tag">
-      <span className="spell-area-tag__distance">{distance}</span>
-      <span className="spell-area-tag__unit"> ft.</span>
-      {icon && <FrameIcon className="spell-area-tag__icon" svg={icon} title={shape} aria-hidden />}
+      <span className="spell-area-tag__distance">{terms.distanceValue(Number(distance))}</span>
+      <span className="spell-area-tag__unit"> {terms.distanceUnit}</span>
+      {icon && (
+        <FrameIcon className="spell-area-tag__icon" svg={icon} title={terms.t.dynamic(`terms.areas.${shape.toUpperCase()}`, shape)} aria-hidden />
+      )}
     </span>
   );
 }

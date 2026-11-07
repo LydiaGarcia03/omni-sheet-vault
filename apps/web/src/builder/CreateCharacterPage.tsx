@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link, Navigate, useParams } from 'react-router';
 import { supportedSystem } from '../characters/supportedSystems';
+import { useHomeText } from '../locales/platformMessages';
 import { AppFooter } from '../shell/AppFooter';
 import { AppHeader } from '../shell/AppHeader';
 import { AppPage } from '../theme/AppPage';
@@ -14,6 +15,7 @@ import '../home/home.css';
 export function CreateCharacterPage({ userName }: { userName: string }) {
   const { systemId } = useParams();
   const { create, error } = useCreateCharacter();
+  const t = useHomeText();
   /** Keeps StrictMode's second effect run from creating a second draft. */
   const started = useRef(false);
   const system = systemId ? supportedSystem(systemId) : undefined;
@@ -34,11 +36,11 @@ export function CreateCharacterPage({ userName }: { userName: string }) {
       <main className="app-wrap create-character">
         {error ? (
           <div className="home-error" role="alert">
-            Could not create the character: {error} <Link to="/">Back to your characters</Link>
+            {t('create.failed', { error })} <Link to="/">{t('create.back')}</Link>
           </div>
         ) : (
           <p className="app-muted" role="status">
-            Creating your {system.label} character…
+            {t('create.creating', { system: system.label })}
           </p>
         )}
       </main>

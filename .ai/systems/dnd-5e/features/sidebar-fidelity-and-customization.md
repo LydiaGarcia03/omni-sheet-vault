@@ -84,7 +84,7 @@ opened and closed without typing.
 - **Rules text** (`ddbc-html-content`) closes most panels: the PHB text for
   abilities, speed, initiative, AC, saves, senses and skills.
 
-### Shell measurements (slice 1, measured on 171527207, DDB Red)
+### Shell measurements (slice 1, measured on 171527207, DND Red)
 
 - **Position:** the sidebar is `position: absolute`, 340px wide. The control
   bar sits 8px below its top, is 23px tall, and has a 16px left margin; the
@@ -520,7 +520,7 @@ test resistance was removed afterwards):
      - **Deviations:** no "Reset Maximum HP" / "Automatically apply healing"
        checkboxes (healing is always applied; no temporary max HP changes
        exist), no 2024 "Long Rest Rules" radio (PHB 2014 only), no class art
-       beside the class rows, no dice-set preview in the log, and the log
+       beside the class rows (added 2026-10-11), no dice-set preview in the log, and the log
        isn't pinned to the pane bottom (our sidebar is taller than the
        window, so it opens scrolled to the newest instead). The old "Spend
        Hit Dice" control (`HitDice.tsx`) is gone: dice are spent through the

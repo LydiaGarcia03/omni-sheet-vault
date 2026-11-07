@@ -1,0 +1,55 @@
+{
+  "save": {
+    "saved": "Todas as alterações salvas",
+    "saving": "Salvando…",
+    "unsaved": "Alterações não salvas",
+    "error": "Não salvo"
+  },
+  "draft": "Rascunho",
+  "backToCharacters": "Voltar aos seus personagens",
+  "stepOf": "Etapa {step} de {total} · salvo automaticamente",
+  "checklist": {
+    "aria": "Etapas da criação",
+    "progress": "Progresso",
+    "count": "{done} de {total}",
+    "left": { "one": "falta {count}", "other": "faltam {count}" }
+  },
+  "summary": {
+    "aria": "Resumo do personagem",
+    "title": "Seu personagem",
+    "level": "Nível {level} · ",
+    "nothingYet": "Nada escolhido ainda",
+    "choicesLeft": { "one": "Falta {count} escolha", "other": "Faltam {count} escolhas" },
+    "empty": "Escolha uma classe e defina seus valores de atributo para ver pontos de vida, classe de armadura e ataques.",
+    "attacks": "Ataques"
+  },
+  "portrait": {
+    "label": "Retrato",
+    "current": "Retrato atual",
+    "upload": "Enviar imagem",
+    "pickDefault": "Escolher um retrato padrão",
+    "remove": "Remover",
+    "saving": "Salvando…",
+    "hint": "PNG ou JPEG, até 3 MB. A imagem é recortada em um quadrado a partir do centro.",
+    "fileAria": "Arquivo de imagem do retrato",
+    "defaults": "Retratos padrão",
+    "close": "Fechar",
+    "defaultNumber": "Retrato padrão {number}"
+  },
+  "select": {
+    "other": "Outros",
+    "filter": "Filtrar…",
+    "filterAria": "Filtrar {label}",
+    "chosen": "{count} de {max} escolhidos",
+    "full": " · remova um para escolher outro",
+    "clear": "Limpar",
+    "clearSelection": "Limpar seleção",
+    "noMatch": "Nada encontrado para “{query}”",
+    "choose": "— escolha —",
+    "chooseCount": "— escolha {count} —",
+    "chooseCountNote": " · escolha {count}"
+  },
+  "pending": "Falta escolher",
+  "rolled": "Resultado: {dice}",
+  "progression": "Progressão da classe · {name}"
+}

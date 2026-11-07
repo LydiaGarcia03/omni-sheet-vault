@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import type { BackgroundCatalogueEntryData } from '../../catalogue/api';
 import type { RollContextMenuHandler, RollHandler } from '../../dice/api';
-import type { BackgroundField, CharacterSheet, EntityDetailHandler, MutationHandler, TextFieldRequest } from '../../sheet/api';
+import type { BackgroundField, CharacterSheet, EntityDetailHandler, MutationHandler, PaneHandler, TextFieldRequest } from '../../sheet/api';
 import { TabBar } from '../../sheet/TabBar';
 import { ActionsTab } from './ActionsTab';
 import { BackgroundTab } from './BackgroundTab';
 import { ExtrasTab } from './ExtrasTab';
 import { FeaturesTab } from './FeaturesTab';
 import { FrameLayer } from './FrameLayer';
+import { useDnd5eText } from './locales/dnd5eMessages';
 import paperSvg from './frames/dnd_frame_actions.svg?raw';
 import inkSvg from './frames/dnd_frame_actions_ink.svg?raw';
 import { InventoryTab } from './InventoryTab';
@@ -21,14 +22,8 @@ import { SpellsTab } from './SpellsTab';
  * scope); "Background" alone still reads correctly for the combined tab.
  * "Spells" is the one entry left out here — it's conditional, see below.
  */
-const BASE_TABS = [
-  { id: 'actions', label: 'Actions' },
-  { id: 'inventory', label: 'Inventory' },
-  { id: 'features', label: 'Features' },
-  { id: 'background', label: 'Background' },
-  { id: 'extras', label: 'Extras' },
-];
-const SPELLS_TAB = { id: 'spells', label: 'Spells' };
+const BASE_TABS = ['actions', 'inventory', 'features', 'background', 'extras'] as const;
+const SPELLS_TAB = 'spells' as const;
 
 type Dnd5eTabbedSectionProps = {
   sheet: CharacterSheet;
@@ -36,6 +31,7 @@ type Dnd5eTabbedSectionProps = {
   onRollContextMenu: RollContextMenuHandler;
   onMutate: MutationHandler;
   onOpenDetail: EntityDetailHandler;
+  onOpenPane: PaneHandler;
   onOpenSpellManagement: () => void;
   onOpenManageCustomActions: () => void;
   onOpenManageInventory: () => void;
@@ -99,6 +95,7 @@ export function Dnd5eTabbedSection({
   onRollContextMenu,
   onMutate,
   onOpenDetail,
+  onOpenPane,
   onOpenSpellManagement,
   onOpenManageCustomActions,
   onOpenManageInventory,
@@ -107,11 +104,13 @@ export function Dnd5eTabbedSection({
   onUpdateBackgroundField,
   onOpenTextField,
 }: Dnd5eTabbedSectionProps) {
+  const t = useDnd5eText();
   const [activeTab, setActiveTab] = useState('actions');
   const hasSpellcasting = sheet.spellcasting.length > 0;
-  const tabs = hasSpellcasting
-    ? [BASE_TABS[0], SPELLS_TAB, ...BASE_TABS.slice(1)]
-    : BASE_TABS;
+  const tabs = (hasSpellcasting ? [BASE_TABS[0], SPELLS_TAB, ...BASE_TABS.slice(1)] : [...BASE_TABS]).map((id) => ({
+    id,
+    label: t(`terms.tabs.${id}`),
+  }));
   const effectiveTab = activeTab === 'spells' && !hasSpellcasting ? 'actions' : activeTab;
 
   return (
@@ -160,7 +159,7 @@ export function Dnd5eTabbedSection({
               onOpenTextField={onOpenTextField}
             />
           )}
-          {effectiveTab === 'extras' && <ExtrasTab sheet={sheet} onMutate={onMutate} onOpenDetail={onOpenDetail} />}
+          {effectiveTab === 'extras' && <ExtrasTab sheet={sheet} onMutate={onMutate} onOpenDetail={onOpenDetail} onOpenPane={onOpenPane} />}
         </div>
       </div>
     </div>

@@ -1,5 +1,7 @@
 package dev.omnisheetvault.api.character;
 
+import dev.omnisheetvault.api.storage.InvalidPortraitException;
+
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;

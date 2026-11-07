@@ -4,13 +4,14 @@ import type { CharacterSheet, MutationHandler } from '../../sheet/api';
 import { catalogueEntryLabel } from '../../sheet/CatalogueSourceLabel';
 import { SidebarHeader } from '../../sheet/sidebarParts';
 import { customizationsOf, type ProficiencyType, type StoredCustomProficiency } from './customizations';
+import { useDnd5eTerms } from './locales/dnd5eMessages';
 
-const TYPES: { key: ProficiencyType; label: string; plural: string }[] = [
-  { key: 'ARMOR', label: 'Armor', plural: 'Armor' },
-  { key: 'WEAPON', label: 'Weapon', plural: 'Weapons' },
-  { key: 'TOOL', label: 'Tool', plural: 'Tools' },
-  { key: 'LANGUAGE', label: 'Language', plural: 'Languages' },
-];
+const TYPES = [
+  { key: 'ARMOR', label: 'terms.proficiencyTypes.ARMOR', plural: 'terms.proficiencyGroups.ARMOR' },
+  { key: 'WEAPON', label: 'terms.proficiencyTypes.WEAPON', plural: 'terms.proficiencyGroups.WEAPON' },
+  { key: 'TOOL', label: 'terms.proficiencyTypes.TOOL', plural: 'terms.proficiencyGroups.TOOL' },
+  { key: 'LANGUAGE', label: 'terms.proficiencyTypes.LANGUAGE', plural: 'terms.proficiencyGroups.LANGUAGE' },
+] as const;
 
 /** D&D Beyond offers custom entries for tools and languages only. */
 const CUSTOM_TYPES: ProficiencyType[] = ['TOOL', 'LANGUAGE'];
@@ -102,6 +103,7 @@ function BlurField({ value, placeholder, label, className, onCommit }: {
 }
 
 function AddedProficiency({ proficiency, onMutate }: { proficiency: StoredCustomProficiency; onMutate: MutationHandler }) {
+  const { t } = useDnd5eTerms();
   const save = (changes: { name?: string; notes?: string | null }) =>
     onMutate({
       type: 'CUSTOMIZE',
@@ -109,15 +111,15 @@ function AddedProficiency({ proficiency, onMutate }: { proficiency: StoredCustom
       target: proficiency.key,
       value: { name: changes.name ?? proficiency.name, notes: changes.notes !== undefined ? changes.notes : proficiency.notes },
     });
-  const displayName = proficiency.name || 'custom proficiency';
+  const displayName = proficiency.name || t('proficiencies.customProficiency');
   return (
     <div className="proficiencies-pane__added">
       <div className="proficiencies-pane__added-row">
         {proficiency.custom ? (
           <BlurField
             className="proficiencies-pane__added-name-input"
-            placeholder="Enter Name"
-            label="Custom proficiency name"
+            placeholder={t('proficiencies.enterName')}
+            label={t('proficiencies.customNameLabel')}
             value={proficiency.name}
             onCommit={(name) => save({ name })}
           />
@@ -127,16 +129,16 @@ function AddedProficiency({ proficiency, onMutate }: { proficiency: StoredCustom
         <button
           type="button"
           className="sidebar-remove-button proficiencies-pane__remove"
-          aria-label={`Remove ${displayName}`}
+          aria-label={t('proficiencies.removeName', { name: displayName })}
           onClick={() => onMutate({ type: 'REMOVE_CUSTOMIZATION', group: 'proficiencies', target: proficiency.key })}
         >
-          Remove Proficiency
+          {t('proficiencies.removeProficiency')}
         </button>
       </div>
       <BlurField
         className="proficiencies-pane__added-notes"
-        placeholder="Enter Source Note..."
-        label={`${displayName} source note`}
+        placeholder={t('combat.sourceNote')}
+        label={t('combat.sourceNoteOf', { name: displayName })}
         value={proficiency.notes ?? ''}
         onCommit={(notes) => save({ notes: notes || null })}
       />
@@ -166,6 +168,7 @@ type Dnd5eProficienciesPaneProps = { sheet: CharacterSheet; onMutate: MutationHa
  * or language named afterwards); then every proficiency the character has.
  */
 export function Dnd5eProficienciesPane({ sheet, onMutate }: Dnd5eProficienciesPaneProps) {
+  const { t } = useDnd5eTerms();
   const added = customizationsOf(sheet).proficiencies;
   const { languages, items } = useProficiencyCatalogues();
   const [choice, setChoice] = useState('');
@@ -192,34 +195,34 @@ export function Dnd5eProficienciesPane({ sheet, onMutate }: Dnd5eProficienciesPa
 
   return (
     <div className="proficiencies-pane">
-      <SidebarHeader title="Proficiencies & Training" />
+      <SidebarHeader title={t('terms.labels.proficienciesAndTraining')} />
       {TYPES.map(({ key, plural }) => {
         const entries = added.filter((proficiency) => proficiency.type === key);
         return entries.length === 0 ? null : (
           <section key={key}>
-            <h2 className="sidebar-subheading">{plural}</h2>
+            <h2 className="sidebar-subheading">{t(plural)}</h2>
             {entries.map((proficiency) => (
               <AddedProficiency key={proficiency.key} proficiency={proficiency} onMutate={onMutate} />
             ))}
           </section>
         );
       })}
-      <h2 className="sidebar-subheading">Add New Proficiencies</h2>
+      <h2 className="sidebar-subheading">{t('proficiencies.addNew')}</h2>
       <label className="proficiencies-pane__field">
-        <span className="proficiencies-pane__field-label">Proficiency Type</span>
+        <span className="proficiencies-pane__field-label">{t('proficiencies.type')}</span>
         <select className="proficiencies-pane__select" value={choice} onChange={(event) => chooseType(event.target.value)}>
-          <option value="">-- Choose an Option --</option>
-          <optgroup label="Existing">
+          <option value="">{t('proficiencies.chooseOption')}</option>
+          <optgroup label={t('proficiencies.existing')}>
             {TYPES.map(({ key, label }) => (
               <option key={key} value={`existing:${key}`}>
-                {label}
+                {t(label)}
               </option>
             ))}
           </optgroup>
-          <optgroup label="Custom">
-            {TYPES.filter(({ key }) => CUSTOM_TYPES.includes(key)).map(({ key, label }) => (
+          <optgroup label={t('combat.custom')}>
+            {TYPES.filter(({ key }) => CUSTOM_TYPES.includes(key as ProficiencyType)).map(({ key, label }) => (
               <option key={key} value={`custom:${key}`}>
-                {label}
+                {t(label)}
               </option>
             ))}
           </optgroup>
@@ -227,9 +230,9 @@ export function Dnd5eProficienciesPane({ sheet, onMutate }: Dnd5eProficienciesPa
       </label>
       {kind === 'existing' && (
         <label className="proficiencies-pane__field proficiencies-pane__field--available">
-          <span className="proficiencies-pane__field-label">Available Proficiencies</span>
+          <span className="proficiencies-pane__field-label">{t('proficiencies.available')}</span>
           <select className="proficiencies-pane__select" value="" onChange={(event) => addExisting(event.target.value)}>
-            <option value="">-- Choose an Option --</option>
+            <option value="">{t('proficiencies.chooseOption')}</option>
             {proficiencyOptions(type, languages, items).map((group) => (
               <optgroup key={group.label} label={group.label}>
                 {group.options.map((option) => (
@@ -246,7 +249,7 @@ export function Dnd5eProficienciesPane({ sheet, onMutate }: Dnd5eProficienciesPa
         {TYPES.map(({ key, plural }) =>
           lists[key].length === 0 ? null : (
             <div key={key} className="proficiencies-pane__group">
-              <div className="proficiencies-pane__group-label">{plural}</div>
+              <div className="proficiencies-pane__group-label">{t(plural)}</div>
               <div className="proficiencies-pane__group-value">
                 {lists[key].map((name, index) => (
                   <span key={name}>

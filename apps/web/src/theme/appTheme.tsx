@@ -1,4 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { useOptionalAuth } from '../auth/AuthProvider';
+import { PREFERENCE_COOKIES, savePreferences, writePreferenceCookie } from '../auth/preferences';
 
 export type AppTheme = 'light' | 'dark';
 
@@ -15,7 +17,7 @@ const AppThemeContext = createContext<AppThemeState | null>(null);
 function storedTheme(): AppTheme | null {
   try {
     const value = window.localStorage.getItem(STORAGE_KEY);
-    return value === 'light' || value === 'dark' ? value : null;
+    return isAppTheme(value) ? value : null;
   } catch {
     return null;
   }
@@ -33,10 +35,31 @@ function systemTheme(): AppTheme {
   return typeof window.matchMedia === 'function' && window.matchMedia(DARK_QUERY).matches ? 'dark' : 'light';
 }
 
-/** The landing and home theme: the player's choice, kept in this browser, or the system's until they choose. */
+function isAppTheme(value: unknown): value is AppTheme {
+  return value === 'light' || value === 'dark';
+}
+
+/**
+ * The landing and home theme: the signed-in player's saved choice, else the one kept in this browser, else the
+ * system's until they choose. The choice is mirrored to a cookie so the login pages match.
+ */
 export function AppThemeProvider({ children }: { children: ReactNode }) {
+  const auth = useOptionalAuth();
+  const signedIn = auth?.status === 'signed-in';
+  const saved = auth?.user?.preferences?.theme;
   const [chosen, setChosen] = useState<AppTheme | null>(storedTheme);
   const [system, setSystem] = useState<AppTheme>(systemTheme);
+
+  useEffect(() => {
+    if (isAppTheme(saved)) {
+      storeTheme(saved);
+      setChosen(saved);
+    }
+  }, [saved]);
+
+  useEffect(() => {
+    writePreferenceCookie(PREFERENCE_COOKIES.theme, chosen ?? 'system');
+  }, [chosen]);
 
   useEffect(() => {
     if (typeof window.matchMedia !== 'function') {
@@ -48,10 +71,16 @@ export function AppThemeProvider({ children }: { children: ReactNode }) {
     return () => query.removeEventListener('change', follow);
   }, []);
 
-  const setTheme = useCallback((theme: AppTheme) => {
-    storeTheme(theme);
-    setChosen(theme);
-  }, []);
+  const setTheme = useCallback(
+    (theme: AppTheme) => {
+      storeTheme(theme);
+      setChosen(theme);
+      if (signedIn) {
+        void savePreferences({ theme });
+      }
+    },
+    [signedIn],
+  );
 
   const value = useMemo(() => ({ theme: chosen ?? system, setTheme }), [chosen, system, setTheme]);
   return <AppThemeContext.Provider value={value}>{children}</AppThemeContext.Provider>;

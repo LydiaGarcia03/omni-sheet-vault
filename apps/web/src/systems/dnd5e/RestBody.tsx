@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import type { CharacterSheet, HitDice, HitDiceBySize, HitDicePool } from '../../sheet/api';
 import { MarkBox } from '../../sheet/MarkBox';
+import { ENGLISH_TERMS, useDnd5eTerms, type Dnd5eText, type Dnd5eTerms } from './locales/dnd5eMessages';
 
 type RestKind = 'short' | 'long';
 
 /** The names of what a rest brings back, in D&D Beyond's RECOVER line order: dice and slots, then features. */
-export function restRecovery(sheet: CharacterSheet, kind: RestKind): string[] {
+export function restRecovery(sheet: CharacterSheet, kind: RestKind, { t }: Dnd5eTerms = ENGLISH_TERMS): string[] {
   const triggers = kind === 'short' ? ['SHORT_OR_LONG_REST'] : ['SHORT_OR_LONG_REST', 'LONG_REST'];
   const features = [...sheet.featureTraits, ...sheet.featureActions]
     .filter((feature) => feature.maxUses != null && triggers.includes(feature.rechargeTrigger ?? ''))
     .map((feature) => feature.name);
-  const pact = sheet.spellSlots.some((slot) => slot.pact) ? ['Pact Magic'] : [];
+  const pact = sheet.spellSlots.some((slot) => slot.pact) ? [t('terms.labels.pactMagic')] : [];
   if (kind === 'short') {
     return [...new Set([...pact, ...features])];
   }
@@ -18,8 +19,8 @@ export function restRecovery(sheet: CharacterSheet, kind: RestKind): string[] {
   const recoverable = Math.min(sheet.hitDice.longRestRecoveryMax, sheet.hitDice.max);
   return [
     ...new Set([
-      `Up to ${recoverable} Hit Dice`,
-      ...(slots > 0 ? [`${slots} Spell Slots`] : []),
+      t('rest.upToHitDice', { count: recoverable }),
+      ...(slots > 0 ? [t('rest.spellSlots', { count: slots })] : []),
       ...pact,
       ...features,
     ]),
@@ -27,12 +28,13 @@ export function restRecovery(sheet: CharacterSheet, kind: RestKind): string[] {
 }
 
 function Recover({ sources }: { sources: string[] }) {
+  const { t } = useDnd5eTerms();
   if (sources.length === 0) {
     return null;
   }
   return (
     <section className="rest-pane__recover">
-      <h2 className="rest-pane__section-heading">Recover</h2>
+      <h2 className="rest-pane__section-heading">{t('rest.recover')}</h2>
       <p className="rest-pane__recover-sources">{sources.join(', ')}</p>
     </section>
   );
@@ -49,12 +51,13 @@ type HitDieBoxesProps = {
   pool: HitDicePool;
   marked: number;
   firstOpen: number;
-  verb: string;
+  verb: 'spend' | 'recover';
   onSelect: (count: number) => void;
 };
 
 /** The pool's dice as D&D Beyond's slot boxes; boxes before `firstOpen` are locked, the rest toggle the selection. */
 function HitDieBoxes({ pool, marked, firstOpen, verb, onSelect }: HitDieBoxesProps) {
+  const { t } = useDnd5eTerms();
   return (
     <div className="rest-pane__hitdie-boxes">
       {Array.from({ length: pool.max }, (_, index) => {
@@ -66,7 +69,11 @@ function HitDieBoxes({ pool, marked, firstOpen, verb, onSelect }: HitDieBoxesPro
             type="button"
             className="mark-box-button"
             disabled={locked}
-            aria-label={locked ? `d${pool.dieSize} die ${index + 1}` : `${verb} ${selectedCount} d${pool.dieSize}`}
+            aria-label={
+              locked
+                ? t('rest.dieAria', { size: pool.dieSize, number: index + 1 })
+                : t(verb === 'spend' ? 'rest.spend' : 'rest.recoverDice', { count: selectedCount, size: pool.dieSize })
+            }
             onClick={() => onSelect(index < marked ? selectedCount - 1 : selectedCount)}
           >
             <MarkBox marked={index < marked} />
@@ -77,25 +84,25 @@ function HitDieBoxes({ pool, marked, firstOpen, verb, onSelect }: HitDieBoxesPro
   );
 }
 
-function poolHeading(pool: HitDicePool, conModifier: number) {
+function poolHeading(pool: HitDicePool, conModifier: number, t: Dnd5eText) {
   const name = pool.classNames && pool.classNames.length > 0 ? pool.classNames.join(' / ') : `d${pool.dieSize}`;
   return (
     <h3 className="rest-pane__hitdie-heading">
       <span className="rest-pane__hitdie-class">{name}</span>
-      (Hit Die: 1d{pool.dieSize}
-      {formatBonus(conModifier)} • Total: {pool.max})
+      {t('rest.poolHeading', { hitDie: t('terms.labels.hitDie'), size: pool.dieSize, bonus: formatBonus(conModifier), total: pool.max })}
     </h3>
   );
 }
 
 function RestActions({ label, onTake, onReset }: { label: string; onTake: () => void; onReset: () => void }) {
+  const { t } = useDnd5eTerms();
   return (
     <div className="rest-pane__actions">
       <button type="button" className="mutate rest-pane__button rest-pane__button--primary" onClick={onTake}>
         {label}
       </button>
       <button type="button" className="rest-pane__button" onClick={onReset}>
-        Reset
+        {t('rest.reset')}
       </button>
     </div>
   );
@@ -113,6 +120,7 @@ type ShortRestBodyProps = {
  * player marks the dice to spend (spent dice stay locked), then Take Short Rest / Reset.
  */
 export function ShortRestBody({ hitDice, conModifier, recover, onConfirm }: ShortRestBodyProps) {
+  const { t } = useDnd5eTerms();
   const [counts, setCounts] = useState<HitDiceBySize>({});
 
   return (
@@ -123,19 +131,19 @@ export function ShortRestBody({ hitDice, conModifier, recover, onConfirm }: Shor
           const selected = counts[pool.dieSize] ?? 0;
           return (
             <div key={pool.dieSize} className="rest-pane__hitdie">
-              {poolHeading(pool, conModifier)}
+              {poolHeading(pool, conModifier, t)}
               <HitDieBoxes
                 pool={pool}
                 marked={pool.used + selected}
                 firstOpen={pool.used}
-                verb="Spend"
+                verb="spend"
                 onSelect={(count) => setCounts({ ...counts, [pool.dieSize]: count })}
               />
             </div>
           );
         })}
       </section>
-      <RestActions label="Take Short Rest" onTake={() => onConfirm(counts)} onReset={() => setCounts({})} />
+      <RestActions label={t('rest.takeShortRest')} onTake={() => onConfirm(counts)} onReset={() => setCounts({})} />
     </>
   );
 }
@@ -170,6 +178,7 @@ function defaultRecovery(hitDice: HitDice): HitDiceBySize {
  * sizes exceed what the rest returns, the player marks which come back (owner decision, C2b), one box row per pool.
  */
 export function LongRestBody({ hitDice, conModifier, recover, onConfirm }: LongRestBodyProps) {
+  const { t } = useDnd5eTerms();
   const choosing = hasHitDiceRecoveryChoice(hitDice);
   const [recovered, setRecovered] = useState<HitDiceBySize>(() => defaultRecovery(hitDice));
   const chosen = Object.values(recovered).reduce((sum, amount) => sum + amount, 0);
@@ -186,18 +195,18 @@ export function LongRestBody({ hitDice, conModifier, recover, onConfirm }: LongR
       {choosing && (
         <section className="rest-pane__hitdice">
           <p className="rest-pane__hint">
-            Mark up to {hitDice.longRestRecoveryMax} spent hit dice to recover — {hitDice.longRestRecoveryMax - chosen} left
+            {t('rest.markUpTo', { max: hitDice.longRestRecoveryMax, left: hitDice.longRestRecoveryMax - chosen })}
           </p>
           {hitDice.pools
             .filter((pool) => pool.used > 0)
             .map((pool) => (
               <div key={pool.dieSize} className="rest-pane__hitdie">
-                {poolHeading(pool, conModifier)}
+                {poolHeading(pool, conModifier, t)}
                 <HitDieBoxes
                   pool={{ ...pool, max: pool.used }}
                   marked={recovered[pool.dieSize] ?? 0}
                   firstOpen={0}
-                  verb="Recover"
+                  verb="recover"
                   onSelect={(count) => setAmount(pool, count)}
                 />
               </div>
@@ -205,7 +214,7 @@ export function LongRestBody({ hitDice, conModifier, recover, onConfirm }: LongR
         </section>
       )}
       <RestActions
-        label="Take Long Rest"
+        label={t('rest.takeLongRest')}
         onTake={() => onConfirm(choosing ? recovered : undefined)}
         onReset={() => setRecovered(defaultRecovery(hitDice))}
       />

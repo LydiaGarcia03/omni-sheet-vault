@@ -1,6 +1,7 @@
 package dev.omnisheetvault.api.ruleset;
 
 import java.util.Map;
+import tools.jackson.databind.JsonNode;
 
 /**
  * The session-state mutations every system supports — see architecture.md's
@@ -146,6 +147,15 @@ public interface SheetMutator {
 
     /** Removing a key that is not present is a no-op, same treatment as {@link #removeItem}. */
     String removeExtra(String sheetJson, String extraKey);
+
+    /**
+     * Adds {@code quantity} extras built from a catalogue creature's {@code data}, under one of the system's own
+     * categories; an unknown category or quantity is rejected with {@link InvalidExtraException}.
+     */
+    String addCatalogueExtra(String sheetJson, String name, String source, String category, JsonNode creature, int quantity);
+
+    /** Renames an extra and sets its notes; an unknown key changes nothing. */
+    String updateExtra(String sheetJson, String extraKey, String name, String notes);
 
     /**
      * Spends one use of a limited-use feature action, capped at its own

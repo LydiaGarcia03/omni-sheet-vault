@@ -1,5 +1,6 @@
 package dev.omnisheetvault.api.ruleset;
 
+import java.util.List;
 import java.util.Optional;
 
 /** One game system's character creation: the ordered choices a build offers and the problems in its answers. */
@@ -38,5 +39,18 @@ public interface CharacterCreationFlow {
      */
     default LevelUp withLevelUp(String buildJson, String classSlug, CatalogueLookup catalogue) {
         throw new LevelUpNotAllowedException("This game system has no levels.");
+    }
+
+    /**
+     * Why the character built from {@code buildJson} can't take {@code feat} now, under the build's own
+     * rules; empty when it can, or in a system that has no feat requirements (the default).
+     */
+    default List<String> featProblems(String buildJson, CatalogueRecord feat, CatalogueLookup catalogue) {
+        return List.of();
+    }
+
+    /** Whether the character built from {@code buildJson} may pick this entry on its sheet (its books); true by default. */
+    default boolean offersCatalogueEntry(String buildJson, CatalogueRecord entry) {
+        return true;
     }
 }

@@ -2,6 +2,7 @@ import type { CharacterSheet, MutationHandler, PaneHandler } from '../../sheet/a
 import { Dnd5eSensesPane, PASSIVES } from './Dnd5eSensesPane';
 import { SENSES_RULES_TEXT } from './rulesText';
 import frameSvg from './frames/dnd_frame_senses.svg?raw';
+import { useDnd5eTerms } from './locales/dnd5eMessages';
 import { SectionPanel } from './SectionPanel';
 import { SenseRow } from './SenseRow';
 
@@ -16,6 +17,7 @@ type SensesPanelProps = {
  * gear on the title, opens D&D Beyond's Senses pane.
  */
 export function SensesPanel({ sheet, onMutate, onOpenPane }: SensesPanelProps) {
+  const { t } = useDnd5eTerms();
   const openSenses = () =>
     onOpenPane({
       kind: 'pane',
@@ -23,14 +25,14 @@ export function SensesPanel({ sheet, onMutate, onOpenPane }: SensesPanelProps) {
     });
 
   return (
-    <SectionPanel frameClass="senses-panel" svg={frameSvg} title="Senses" onSettings={openSenses}>
+    <SectionPanel frameClass="senses-panel" svg={frameSvg} title={t('terms.labels.senses')} onSettings={openSenses}>
       <div className="panel__rows">
         {PASSIVES.map(({ key, label }) => (
-          <SenseRow key={key} value={sheet.senses[key].value} label={label} />
+          <SenseRow key={key} value={sheet.senses[key].value} label={t(label)} />
         ))}
       </div>
       <button type="button" className="reveal senses-panel__trigger" onClick={openSenses}>
-        {sheet.specialSenses.length > 0 ? sheet.specialSenses.map((sense) => sense.label).join(', ') : 'Additional Sense Types'}
+        {sheet.specialSenses.length > 0 ? sheet.specialSenses.map((sense) => sense.label).join(', ') : t('senses.additionalTypes')}
       </button>
     </SectionPanel>
   );

@@ -8,10 +8,10 @@ import {
   type MutationHandler,
   type Spell,
 } from '../../sheet/api';
-import { ABILITIES, abilityAbbreviation } from './abilities';
-import { DAMAGE_TYPE_ICONS, damageTypeLabel } from './damageTypes';
+import { DAMAGE_TYPE_ICONS } from './damageTypes';
 import { FrameIcon } from './FrameIcon';
 import { RangeDisplay, SpellAreaTag } from './RangeDisplay';
+import { useDnd5eTerms } from './locales/dnd5eMessages';
 import { levelLabel } from './SpellCast';
 import { spellDamageLabel } from './spellCombat';
 import { buildSpellDetailRequest } from './spellDetail';
@@ -78,8 +78,11 @@ function formatSigned(amount: number): string {
  * inside a button (`.action-row__damage-value`/`__damage-type`) stay `<span>`.
  */
 export function SpellAttackRow({ spell, sheet, onRoll, onRollContextMenu, onMutate, onOpenDetail }: SpellAttackRowProps) {
+  const terms = useDnd5eTerms();
+  const { t } = terms;
   const spellcasting = sheet.spellcasting.find((info) => info.className === spell.className);
   const diceLabel = spellDamageLabel(spell);
+  const saveAbility = spell.saveAbility ?? spellcasting?.spellcastingAbility ?? '';
   const hasDice = diceLabel != null;
   const isSaveBasedDamage = !spell.attackRoll && hasDice;
   const saveDc = adjustedSpellSaveDc(spell, spellcasting ? spellcasting.spellSaveDc.value : spell.fixedSaveDc);
@@ -88,14 +91,14 @@ export function SpellAttackRow({ spell, sheet, onRoll, onRollContextMenu, onMuta
   return (
     <ListRow
       className="action-row reveal"
-      ariaLabel={`Open ${spell.name} details`}
-      onOpen={() => onOpenDetail(buildSpellDetailRequest(spell, sheet, onMutate, onRoll))}
+      ariaLabel={t('actionsTab.openDetails', { name: spell.name })}
+      onOpen={() => onOpenDetail(buildSpellDetailRequest(spell, sheet, onMutate, onRoll, terms))}
     >
       <FrameIcon className="action-row__icon" svg={SCHOOL_ICONS[spell.school]} aria-hidden />
       <div className="action-row__name-cell">
         <span className="reveal action-row__name action-row__name--spell">{spell.name}</span>
         <div className="action-row__category">
-          {levelLabel(spell.level)} • {spell.className}
+          {levelLabel(spell.level, terms)} • {spell.className}
         </div>
       </div>
       <div className="action-row__range">
@@ -106,7 +109,7 @@ export function SpellAttackRow({ spell, sheet, onRoll, onRollContextMenu, onMuta
           <button
             type="button"
             className="roll action-row__value action-row__value--prominent"
-            aria-label={`Roll ${spell.name} attack, ${formatSigned(attackBonus)}`}
+            aria-label={t('attack.rollHit', { name: spell.name, hit: formatSigned(attackBonus) })}
             onClick={(event) => {
               event.stopPropagation();
               onRoll('SPELL_ATTACK', spell.key);
@@ -122,11 +125,11 @@ export function SpellAttackRow({ spell, sheet, onRoll, onRollContextMenu, onMuta
         ) : isSaveBasedDamage && saveDc != null ? (
           <div
             className="action-row__value action-row__value--prominent action-row__value--static action-row__value--dc"
-            title={`Save DC, ${ABILITIES.find((ability) => ability.key === spell.saveAbility)?.label ?? spell.saveAbility ?? spellcasting?.spellcastingAbility}`}
+            title={t('attack.saveDcTitle', { ability: saveAbility ? terms.ability(saveAbility) : '' })}
           >
             <span className="action-row__dc-value">{saveDc}</span>
             <span className="action-row__dc-label">
-              {abilityAbbreviation(spell.saveAbility ?? spellcasting?.spellcastingAbility ?? '')}
+              {saveAbility ? terms.abilityAbbreviation(saveAbility) : ''}
             </span>
           </div>
         ) : (
@@ -138,7 +141,7 @@ export function SpellAttackRow({ spell, sheet, onRoll, onRollContextMenu, onMuta
           <button
             type="button"
             className="roll action-row__value action-row__value--damage"
-            aria-label={`Roll ${spell.name} damage, ${diceLabel} ${spell.damageType}`}
+            aria-label={t('attack.rollDamage', { name: spell.name, damage: diceLabel, type: spell.damageType ? terms.damageType(spell.damageType) : '' })}
             onClick={(event) => {
               event.stopPropagation();
               onRoll('SPELL_DAMAGE', spell.key);
@@ -149,7 +152,7 @@ export function SpellAttackRow({ spell, sheet, onRoll, onRollContextMenu, onMuta
               <FrameIcon
                 className="action-row__damage-type"
                 svg={DAMAGE_TYPE_ICONS[spell.damageType]}
-                title={damageTypeLabel(spell.damageType)}
+                title={terms.damageType(spell.damageType)}
                 aria-hidden
               />
             )}

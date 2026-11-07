@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import tools.jackson.core.JacksonException;
 import tools.jackson.databind.ObjectMapper;
@@ -35,10 +36,22 @@ public class Dnd5eCharacterCreationFlow implements CharacterCreationFlow {
 
     private final ObjectMapper objectMapper;
     private final Validator validator;
+    private final Dnd5eText text;
 
+    /** Words prompts and problems in English, for command-line tools and tests. */
     public Dnd5eCharacterCreationFlow(ObjectMapper objectMapper, Validator validator) {
+        this(objectMapper, validator, Dnd5eText.ENGLISH);
+    }
+
+    @Autowired
+    Dnd5eCharacterCreationFlow(ObjectMapper objectMapper, Validator validator, Dnd5eMessages messages) {
+        this(objectMapper, validator, (Dnd5eText) messages);
+    }
+
+    private Dnd5eCharacterCreationFlow(ObjectMapper objectMapper, Validator validator, Dnd5eText text) {
         this.objectMapper = Dnd5eSheetJsonMapper.lenient(objectMapper);
         this.validator = validator;
+        this.text = text;
     }
 
     @Override
@@ -55,21 +68,43 @@ public class Dnd5eCharacterCreationFlow implements CharacterCreationFlow {
 
     @Override
     public BuildPlan plan(String buildJson, CatalogueLookup catalogue) {
-        return new Dnd5eBuildPlanner(read(buildJson, Default.class), catalogue).plan();
+        return new Dnd5eBuildPlanner(read(buildJson, Default.class), catalogue, text).plan();
+    }
+
+    /** The build's books, playtest and partner switches, the same rule the builder applies. */
+    @Override
+    public boolean offersCatalogueEntry(String buildJson, CatalogueRecord entry) {
+        return read(buildJson, Default.class).preferences().allows(entry);
+    }
+
+    /** The feat's prerequisites against the planned character, when the build checks feat prerequisites at all. */
+    @Override
+    public List<String> featProblems(String buildJson, CatalogueRecord feat, CatalogueLookup catalogue) {
+        Dnd5eCharacterBuild build = read(buildJson, Default.class);
+        if (!Boolean.TRUE.equals(build.preferences().featPrerequisites())) {
+            return List.of();
+        }
+        Dnd5eBuildPlanner planner = new Dnd5eBuildPlanner(build, catalogue, text);
+        planner.plan();
+        if (Dnd5ePrerequisites.evaluate(feat.data().get("prerequisites"), planner.state()).met()) {
+            return List.of();
+        }
+        String requirement = feat.data().path("prerequisiteText").asString("");
+        return List.of(text.text("problem.requires", feat.name(), requirement.isBlank() ? text.text("problem.unmetPrerequisite") : requirement));
     }
 
     @Override
     public CreationPreview preview(String buildJson, CatalogueLookup catalogue) {
         Dnd5eCharacterBuild build = read(buildJson, Default.class);
-        Dnd5eBuildPlanner planner = new Dnd5eBuildPlanner(build, catalogue);
+        Dnd5eBuildPlanner planner = new Dnd5eBuildPlanner(build, catalogue, text);
         planner.plan();
         String sheetJson = null;
         if (!planner.outcome().classes().isEmpty() && build.hasEveryAbilityScore()) {
             Dnd5eSheet sheet = new Dnd5eBuildMaterializer(build, planner.state(), planner.outcome(), catalogue).materialize(null);
             sheetJson = objectMapper.writeValueAsString(sheet);
         }
-        return new CreationPreview(abilityScores(planner.state()), sheetJson, progressions(build, planner.outcome(), catalogue),
-                selections(build, planner, catalogue), startingEquipment(build, planner.outcome(), catalogue));
+        return new CreationPreview(abilityScores(planner.state()), sheetJson, progressions(build, planner.outcome(), catalogue, text),
+                selections(build, planner, catalogue, text), startingEquipment(build, planner.outcome(), catalogue));
     }
 
     /** The starting items as they go onto the sheet and as the Equipment step lists them, and the starting money in coins. */
@@ -99,8 +134,9 @@ public class Dnd5eCharacterCreationFlow implements CharacterCreationFlow {
     }
 
     /** The detail cards of the chosen species and background, by step. */
-    private static Map<String, SelectionDetail> selections(Dnd5eCharacterBuild build, Dnd5eBuildPlanner planner, CatalogueLookup catalogue) {
-        Dnd5eOptionSummaries summaries = new Dnd5eOptionSummaries(catalogue, !catalogue.redactsProse());
+    private static Map<String, SelectionDetail> selections(Dnd5eCharacterBuild build, Dnd5eBuildPlanner planner, CatalogueLookup catalogue,
+            Dnd5eText text) {
+        Dnd5eOptionSummaries summaries = new Dnd5eOptionSummaries(catalogue, !catalogue.redactsProse(), text);
         Map<String, SelectionDetail> selections = new LinkedHashMap<>();
         Dnd5eBuildOutcome outcome = planner.outcome();
         if (outcome.speciesMechanics() != null && build.speciesSlug() != null) {
@@ -114,7 +150,8 @@ public class Dnd5eCharacterCreationFlow implements CharacterCreationFlow {
     }
 
     /** One table per chosen class, with its subclass once one is chosen (even below the subclass level, as a preview). */
-    private static List<ProgressionTable> progressions(Dnd5eCharacterBuild build, Dnd5eBuildOutcome outcome, CatalogueLookup catalogue) {
+    private static List<ProgressionTable> progressions(Dnd5eCharacterBuild build, Dnd5eBuildOutcome outcome, CatalogueLookup catalogue,
+            Dnd5eText text) {
         return outcome.classes().stream().map(taken -> {
             CatalogueRecord subclass = taken.subclass();
             String subclassSlug = taken.buildClass().subclassSlug();
@@ -122,7 +159,7 @@ public class Dnd5eCharacterCreationFlow implements CharacterCreationFlow {
                 subclass = catalogue.find("SUBCLASS", subclassSlug).orElse(null);
             }
             return Dnd5eClassProgression.table(taken.playerClass(), subclass, taken.buildClass().level(),
-                    build.preferences().optionalClassFeatures());
+                    build.preferences().optionalClassFeatures(), text);
         }).toList();
     }
 
@@ -140,7 +177,7 @@ public class Dnd5eCharacterCreationFlow implements CharacterCreationFlow {
     @Override
     public MaterializedSheet materialize(String currentSheetJson, String buildJson, CatalogueLookup catalogue) {
         Dnd5eCharacterBuild build = read(buildJson, Default.class, Dnd5eCharacterBuild.Complete.class);
-        Dnd5eBuildPlanner planner = new Dnd5eBuildPlanner(build, catalogue);
+        Dnd5eBuildPlanner planner = new Dnd5eBuildPlanner(build, catalogue, text);
         BuildPlan plan = planner.plan();
         if (!plan.pending().isEmpty() || !plan.problems().isEmpty()) {
             return new MaterializedSheet(null, List.of(), 0, plan);
@@ -162,7 +199,7 @@ public class Dnd5eCharacterCreationFlow implements CharacterCreationFlow {
     public LevelUp withLevelUp(String buildJson, String classSlug, CatalogueLookup catalogue) {
         Dnd5eCharacterBuild build = read(buildJson, Default.class);
         if (build.characterLevel() >= Dnd5eExperience.MAX_LEVEL) {
-            throw new LevelUpNotAllowedException("The character is already level " + Dnd5eExperience.MAX_LEVEL + ".");
+            throw new LevelUpNotAllowedException(text.text("levelUp.maxLevel", Dnd5eExperience.MAX_LEVEL));
         }
         if (catalogue.find("CLASS", classSlug).isEmpty()) {
             throw new LevelUpNotAllowedException("Unknown class: " + classSlug);

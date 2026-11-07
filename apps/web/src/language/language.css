@@ -1,0 +1,36 @@
+/* Language button in the header: globe icon, current code, dropdown of languages */
+.app-language { position: relative; font-family: Roboto, Helvetica, sans-serif; }
+.app-language__button {
+  display: flex; align-items: center; gap: 6px; height: 38px; box-sizing: border-box; cursor: pointer;
+  background: transparent; color: inherit; border: 1px solid rgba(255, 255, 255, .18); border-radius: 999px;
+  padding: 0 12px 0 9px; font: 600 13px Roboto, Helvetica, sans-serif; letter-spacing: .04em;
+}
+.app-language__button:hover, .app-language__button[aria-expanded='true'] { border-color: rgba(255, 255, 255, .45); }
+.app-language__button:focus-visible { outline: 2px solid #D9A441; outline-offset: 2px; }
+.app-language__icon {
+  font-size: 20px; line-height: 1; color: #D9A441;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+}
+.app-language__caret { font-size: 11px; opacity: .7; }
+.app-language__menu {
+  position: absolute; right: 0; top: calc(100% + 6px); z-index: 30; min-width: 220px; padding: 6px;
+  background: var(--app-surface); color: var(--app-ink); border: 1px solid var(--app-line); border-radius: 6px; box-shadow: var(--app-shadow);
+  animation: app-language-drop 120ms ease-out;
+}
+.app-language__option {
+  display: grid; grid-template-columns: 52px 1fr 16px; align-items: center; gap: 8px; width: 100%;
+  padding: 9px 10px; border: 0; border-radius: 4px; background: none; color: inherit; cursor: pointer; text-align: left;
+  font: 14px Roboto, Helvetica, sans-serif;
+}
+.app-language__option:hover, .app-language__option:focus-visible { background: var(--app-surface-2); outline: none; }
+.app-language__option[aria-checked='true'] { background: var(--app-accent-soft); }
+.app-language__option-code {
+  justify-self: start; font: 700 11px 'Roboto Condensed', Roboto, sans-serif; letter-spacing: .08em;
+  padding: 3px 6px; border-radius: 3px; background: #1F2327; color: #FFFFFF;
+}
+.app-language__option[aria-checked='true'] .app-language__option-code { background: #D9A441; color: #1F2327; }
+.app-language__check { color: var(--app-accent-strong); font-weight: 700; }
+@keyframes app-language-drop {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: none; }
+}

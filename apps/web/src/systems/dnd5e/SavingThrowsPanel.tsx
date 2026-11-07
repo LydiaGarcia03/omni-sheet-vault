@@ -5,6 +5,7 @@ import { ABILITIES } from './abilities';
 import { SavingThrowPane, SavingThrowsPane } from './Dnd5eSavingThrowPanes';
 import frameSvg from './frames/dnd_frame_saving_throws.svg?raw';
 import { RollModeMarker } from './RollModeMarker';
+import { useDnd5eTerms, type Dnd5eTerms } from './locales/dnd5eMessages';
 import { SectionPanel } from './SectionPanel';
 import { SavingThrowRow } from './SavingThrowRow';
 
@@ -13,12 +14,13 @@ function formatSigned(amount: number): string {
 }
 
 /** The saving throws a roll note concerns: every save, or one ability's ("DEXTERITY_SAVING_THROWS"). */
-function noteAbility(target: string): string | null | undefined {
+function noteAbility(target: string, terms: Dnd5eTerms): string | null | undefined {
   if (target === 'SAVING_THROWS') {
     return null;
   }
   const match = /^([A-Z]+)_SAVING_THROWS$/.exec(target);
-  return match ? ABILITIES.find(({ key }) => key === match[1].toLowerCase())?.label : undefined;
+  const key = match ? ABILITIES.find((ability) => ability.key === match[1].toLowerCase())?.key : undefined;
+  return key ? terms.ability(key) : undefined;
 }
 
 /**
@@ -27,12 +29,15 @@ function noteAbility(target: string): string | null | undefined {
  * source is in the icon's tooltip, as on D&D Beyond), which is shown but never applied.
  */
 export function SavingThrowModifiers({ sheet, heading }: { sheet: CharacterSheet; heading?: ReactNode }) {
-  const forced = ABILITIES.flatMap(({ key, label }) => {
+  const terms = useDnd5eTerms();
+  const { t } = terms;
+  const forced = ABILITIES.flatMap(({ key }) => {
+    const label = terms.ability(key);
     const rollMode = sheet.rollModes[`SAVING_THROW:${key}`];
     return rollMode && rollMode.mode !== 'NORMAL' ? [{ key, label, rollMode }] : [];
   });
   const notes = (sheet.rollNotes ?? []).flatMap((note) => {
-    const ability = noteAbility(note.target);
+    const ability = noteAbility(note.target, terms);
     return ability === undefined ? [] : [{ note, ability }];
   });
   if (forced.length === 0 && notes.length === 0) {
@@ -45,7 +50,7 @@ export function SavingThrowModifiers({ sheet, heading }: { sheet: CharacterSheet
         {forced.map(({ key, label, rollMode }) => (
           <div key={key} className="saving-panel__modifier">
             <RollModeMarker rollMode={rollMode} className="saving-panel__modifier-icon" />
-            on <span className="saving-panel__modifier-ability">{label}</span>{' '}
+            {t('saves.on')} <span className="saving-panel__modifier-ability">{label}</span>{' '}
             ({(rollMode.mode === 'ADVANTAGE' ? rollMode.advantageSources : rollMode.disadvantageSources).join(', ')})
           </div>
         ))}
@@ -54,7 +59,7 @@ export function SavingThrowModifiers({ sheet, heading }: { sheet: CharacterSheet
             <RollModeMarker rollMode={noteAsRollMode(note)} className="saving-panel__modifier-icon" />
             {ability && (
               <>
-                on <span className="saving-panel__modifier-ability">{ability}</span>{' '}
+                {t('saves.on')} <span className="saving-panel__modifier-ability">{ability}</span>{' '}
               </>
             )}
             {note.restriction}
@@ -87,13 +92,14 @@ type SavingThrowsGridProps = {
  * `grid-auto-flow: column` fills column 1 with ABILITIES' first three entries.
  */
 export function SavingThrowsGrid({ sheet, onRoll, onRollContextMenu, onOpenSave }: SavingThrowsGridProps) {
+  const terms = useDnd5eTerms();
   return (
     <div className="saving-panel__grid">
-      {ABILITIES.map(({ key, abbreviation, label }) => (
+      {ABILITIES.map(({ key }) => (
         <SavingThrowRow
           key={key}
-          abbreviation={abbreviation}
-          fullName={label}
+          abbreviation={terms.abilityAbbreviation(key)}
+          fullName={terms.ability(key)}
           proficiency={sheet.savingThrowProficiencies[key] ?? 'NONE'}
           modifier={sheet.savingThrows[key].value}
           onRoll={() => onRoll('SAVING_THROW', key)}
@@ -115,6 +121,7 @@ type SavingThrowsPanelProps = {
 
 /** The sheet's saving throws box: the grid, the modifiers, and a gear opening D&D Beyond's Saving Throws pane. */
 export function SavingThrowsPanel({ sheet, onRoll, onRollContextMenu, onMutate, onOpenPane }: SavingThrowsPanelProps) {
+  const { t } = useDnd5eTerms();
   const openSavingThrows = () =>
     onOpenPane({
       kind: 'pane',
@@ -131,7 +138,7 @@ export function SavingThrowsPanel({ sheet, onRoll, onRollContextMenu, onMutate, 
     });
 
   return (
-    <SectionPanel frameClass="saving-panel" svg={frameSvg} title="Saving Throws" onSettings={openSavingThrows}>
+    <SectionPanel frameClass="saving-panel" svg={frameSvg} title={t('terms.labels.savingThrows')} onSettings={openSavingThrows}>
       <SavingThrowsGrid sheet={sheet} onRoll={onRoll} onRollContextMenu={onRollContextMenu} onOpenSave={openSave} />
       <SavingThrowModifiers sheet={sheet} />
     </SectionPanel>

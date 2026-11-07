@@ -87,11 +87,20 @@ class CharacterDraftService {
         return characterRepository.save(draft);
     }
 
+    /** What a build the player is only considering would plan and preview as; nothing is stored. */
+    DraftView hypothetical(Jwt jwt, UUID characterId, String buildJson) {
+        return view(characterService.getMineDraft(jwt, characterId), buildJson);
+    }
+
     private DraftView view(Character draft) {
+        return view(draft, draft.creationDraft());
+    }
+
+    private DraftView view(Character draft, String buildJson) {
         String systemId = draft.systemId();
-        CreationPreview preview = creationFlows.forSystem(systemId).preview(draft.creationDraft(), catalogueService.lookup(systemId));
+        CreationPreview preview = creationFlows.forSystem(systemId).preview(buildJson, catalogueService.lookup(systemId));
         VitalsZone vitals = preview.sheetJson() == null ? null : sheetCalculators.forSystem(systemId).calculateVitals(withStartingEquipment(systemId, preview));
-        return new DraftView(draft, plan(systemId, draft.creationDraft()), preview, vitals);
+        return new DraftView(draft, plan(systemId, buildJson), preview, vitals);
     }
 
     /** The preview sheet carrying its starting items, so the summary's armor class and attacks follow what starts equipped. */

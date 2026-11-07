@@ -70,6 +70,21 @@ public record CharacterSheetResponse(
     public record DefenseResponse(String key, String type, String name, String source, boolean custom, String notes) {
     }
 
+    /** The catalogue texts the sheet copied (features, traits, the background's feature) in another language. */
+    CharacterSheetResponse localized(SheetTextLocalizer localizer) {
+        return new CharacterSheetResponse(abilityScores, abilityModifiers, proficiencyBonus, armorClass, initiative, hitPoints, speed,
+                level, savingThrows, savingThrowProficiencies, senses, armorProficiencies, weaponProficiencies, toolProficiencies,
+                languages, skills, skillProficiencies, skillGoverningAbilities, damageResistances, damageImmunities,
+                damageVulnerabilities, conditionImmunities, activeConditions, exhaustionLevel, currentHitPoints, temporaryHitPoints,
+                calculatedMaxHitPoints, heroicInspiration, attacks,
+                featureActions.stream().map(action -> action.localized(localizer::text, localizer::name)).toList(),
+                spellcasting, spells, items, coins,
+                featureTraits.stream().map(trait -> trait.localized(localizer::text, localizer::name, localizer::summary)).toList(),
+                background == null ? null : background.localized(localizer::text, localizer::name),
+                extras, hitDice, spellSlots, specialSenses, customActions, encumbrance, attacksPerAction, rollModes, activeEffects,
+                provenance, rollNotes, deathSaves, experience, sheetTheme, customSkills, defenses);
+    }
+
     static CharacterSheetResponse from(VitalsZone vitals) {
         return new CharacterSheetResponse(
                 vitals.abilityScores(),

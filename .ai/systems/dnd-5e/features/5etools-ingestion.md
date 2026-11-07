@@ -45,6 +45,20 @@ table, not a new pipeline.
     and backgrounds;
   - `FiveEToolsStartingEquipment`;
   - `FiveEToolsSlugs`: slug disambiguation for every kind (see below).
+- **Creatures** (2026-10-11): `CreatureConverter`, `CREATURE` kind, written to
+  `content/dnd-5e/creatures/`. Reads only `bestiary/bestiary-mm.json` (the 2014
+  Monster Manual, 450 creatures; the other bestiaries are adventure and setting
+  books). `data` matches an extra's stat block on the sheet: `size`,
+  `creatureType`, `alignment` (5etools codes as words), `armorClass` plus
+  `armorClassText` ("19 (natural armor)"), `hitPoints`/`hitDice`, `speed` plus
+  `additionalSpeeds` ("Climb 40 ft., Fly 80 ft."), `abilityScores`
+  (`abilityKey`, `score`, `save`), `skills`, `senses`, `languages`,
+  `challengeRating`, the four defense texts, `traits`/`actions`/`reactions`/
+  `legendaryActions` as `{name, description}` (spellcasting blocks become a
+  trait, or an action when 5etools displays them as one), `familiar` and
+  `environments`. Tags: "familiar" and the environments. `_versions` and
+  side-box `variant` entries are not converted. Run with
+  `--args="--kind=creature"`, then import `content/dnd-5e/creatures`.
 - **Added with C1a** (2026-09-23):
   - **Languages:** `LanguageConverter`, `LANGUAGE` kind, with 5etools' own
     `type`: standard, exotic, rare or secret.
@@ -277,7 +291,9 @@ All resolved 2026-09-17 except the last, which stays deferred (see "Out of scope
      project already applies to `ruleset`.
    - One `main()` entry point selecting a converter by a `--kind=spells` argument (or
      running every registered one), orchestrating load → classify/filter → strip → map →
-     emit `content/dnd-5e/<kind>/<slug>.json`.
+     emit `content/dnd-5e/<kind>/<slug>.json` (since 2026-10-15, every entry goes to
+     one `content/dnd-5e/<kind>/<kind>.en.json` array instead; see
+     `features/localization.md`, "D2").
 5. **`entriesHigherLevel` ("At Higher Levels" scaling text) — resolved and built,
    2026-09-17.** New nullable `higherLevelsDescription` field threaded end to end:
    `SpellCatalogueData` → `Spell`/`Dnd5eSpell` → `SpellResponse` → frontend `Spell`

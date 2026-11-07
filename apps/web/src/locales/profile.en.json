@@ -1,0 +1,31 @@
+{
+  "title": "My profile",
+  "picture": {
+    "heading": "Profile picture",
+    "upload": "Upload a picture",
+    "replace": "Change picture",
+    "remove": "Remove picture",
+    "hint": "PNG or JPEG, up to 3 MB. It is cropped to a square.",
+    "wrongType": "Choose a PNG or JPEG image.",
+    "tooLarge": "The image is too large: a picture can be at most 3 MB.",
+    "failed": "The picture could not be saved. Try again."
+  },
+  "details": {
+    "heading": "Your details",
+    "displayName": "Display name",
+    "displayNameHint": "The name shown in the app. Leave it empty to use your username.",
+    "username": "Username",
+    "usernameHint": "Used to log in; it cannot be changed.",
+    "email": "Email",
+    "save": "Save",
+    "saving": "Saving…",
+    "saved": "Saved.",
+    "failed": "The name could not be saved. Try again."
+  },
+  "security": {
+    "heading": "Sign-in and security",
+    "intro": "Your password and email are kept by the login service, not by this app. These buttons open its own secure page and bring you back here.",
+    "changePassword": "Change password",
+    "changeEmail": "Change email"
+  }
+}

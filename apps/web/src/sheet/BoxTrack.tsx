@@ -1,3 +1,4 @@
+import { useSheetText } from '../locales/platformMessages';
 import { MarkBox } from './MarkBox';
 
 type BoxTrackProps = {
@@ -64,6 +65,7 @@ type BoxTrackProps = {
  * separate, since their aria semantics genuinely differ.
  */
 export function BoxTrack({ maxUses, usedCount, rechargeLabel, onUse, onRestore }: BoxTrackProps) {
+  const t = useSheetText();
   const boxes = Array.from({ length: maxUses }, (_, index) => index < usedCount);
   const interactive = onUse != null || onRestore != null;
 
@@ -76,7 +78,7 @@ export function BoxTrack({ maxUses, usedCount, rechargeLabel, onUse, onRestore }
               key={index}
               type="button"
               className="mutate mark-box-button"
-              aria-label={marked ? `Restore use ${index + 1}` : `Spend use ${index + 1}`}
+              aria-label={t(marked ? 'pool.restoreOne' : 'pool.spendOne', { number: index + 1 })}
               onClick={(event) => {
                 event.stopPropagation();
                 (marked ? onRestore : onUse)?.();

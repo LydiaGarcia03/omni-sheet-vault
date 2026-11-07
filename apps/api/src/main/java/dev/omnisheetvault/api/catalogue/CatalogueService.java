@@ -2,6 +2,7 @@ package dev.omnisheetvault.api.catalogue;
 
 import dev.omnisheetvault.api.ruleset.CatalogueLookup;
 import dev.omnisheetvault.api.ruleset.registry.GameSystemRegistry;
+import dev.omnisheetvault.api.shared.InterfaceLocale;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -21,16 +22,19 @@ public class CatalogueService {
     private final GameSystemRegistry gameSystemRegistry;
     private final ObjectMapper objectMapper;
     private final boolean redactionEnabled;
+    private final CatalogueRecordCache recordCache;
 
     public CatalogueService(
             CatalogueEntryRepository catalogueEntryRepository,
             GameSystemRegistry gameSystemRegistry,
             ObjectMapper objectMapper,
-            @Value("${app.catalogue.redaction-enabled}") boolean redactionEnabled) {
+            @Value("${app.catalogue.redaction-enabled}") boolean redactionEnabled,
+            CatalogueRecordCache recordCache) {
         this.catalogueEntryRepository = catalogueEntryRepository;
         this.gameSystemRegistry = gameSystemRegistry;
         this.objectMapper = objectMapper;
         this.redactionEnabled = redactionEnabled;
+        this.recordCache = recordCache;
     }
 
     public List<CatalogueEntryResponse> list(String systemId, CatalogueEntryKind kind) {
@@ -101,10 +105,10 @@ public class CatalogueService {
     /** The imported catalogue as the rules engine reads it, for materializing builds; never redacted. */
     public CatalogueLookup lookup(String systemId) {
         gameSystemRegistry.forSystem(systemId);
-        return new DatabaseCatalogueLookup(catalogueEntryRepository, systemId, objectMapper, redactionEnabled);
+        return new DatabaseCatalogueLookup(recordCache.snapshot(systemId), redactionEnabled);
     }
 
     private CatalogueEntryResponse toResponse(CatalogueEntry entry) {
-        return CatalogueEntryResponse.from(entry, redactionEnabled, objectMapper);
+        return CatalogueEntryResponse.from(entry, redactionEnabled, objectMapper, InterfaceLocale.current());
     }
 }

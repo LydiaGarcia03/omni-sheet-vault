@@ -44,6 +44,16 @@ describe('AttackRow', () => {
     expect(onRollDamage).toHaveBeenCalledOnce();
   });
 
+  it("draws a melee weapon's range like a spell's, with Reach on its own line", () => {
+    const { container } = render(
+      <AttackRow attack={SPEAR} onRollHit={vi.fn()} onRollHitContextMenu={vi.fn()} onRollDamage={vi.fn()} onRollVersatileDamage={vi.fn()} onOpenDetail={vi.fn()} />,
+    );
+
+    expect(container.querySelector('.range-display__primary')).toHaveTextContent('5');
+    expect([...container.querySelectorAll('.range-display__suffix')].map((part) => part.textContent?.trim())).toEqual(['ft.', 'Reach']);
+    expect(container.querySelector('.range-display__note')).toHaveTextContent('Reach');
+  });
+
   it('has no two-handed button without versatile dice', () => {
     renderRow({ ...SPEAR, versatileDiceCount: null, versatileDiceSides: null });
 

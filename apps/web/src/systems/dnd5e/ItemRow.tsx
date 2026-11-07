@@ -2,8 +2,11 @@ import { useEffect, useState } from 'react';
 import { ListRow } from '../../sheet/ListRow';
 import { MarkBox } from '../../sheet/MarkBox';
 import { MoveButton } from '../../sheet/MoveButton';
-import { STORAGE_LOCATIONS } from '../../sheet/ManageInventoryPanel';
-import type { CharacterSheet, EntityDetailHandler, EntityDetailRequest, Item, MutationHandler } from '../../sheet/api';
+import { storageLocations } from '../../sheet/ManageInventoryPanel';
+import { formatDecimal } from '../../language/format';
+import { useLanguage } from '../../language/language';
+import { useSheetText } from '../../locales/platformMessages';
+import { canToggleEquipped, type CharacterSheet, type EntityDetailHandler, type EntityDetailRequest, type Item, type MutationHandler } from '../../sheet/api';
 import { customizationsOf, EMPTY_ITEM_CUSTOMIZATION, type ItemCustomization } from './customizations';
 import { EntityCustomizeEditor, type CustomizeField } from './EntityCustomize';
 import { FrameIcon } from './FrameIcon';
@@ -12,6 +15,7 @@ import attunementSvg from './frames/dnd_icon_attunement.svg?raw';
 import minusIconSvg from './frames/dnd_icon_minus.svg?raw';
 import plusIconSvg from './frames/dnd_icon_plus.svg?raw';
 import { rarityClassSuffix } from './itemRarity';
+import { ENGLISH_TERMS, useDnd5eTerms, type Dnd5eTerms } from './locales/dnd5eMessages';
 
 type ItemRowProps = {
   item: Item;
@@ -22,6 +26,7 @@ type ItemRowProps = {
 
 // Item Entity Detail action bar: +/- and direct typing both commit an absolute SET_ITEM_QUANTITY.
 function ItemQuantityControl({ item, onMutate }: { item: Item; onMutate: MutationHandler }) {
+  const { t } = useDnd5eTerms();
   const [value, setValue] = useState(String(item.quantity));
 
   useEffect(() => {
@@ -39,12 +44,12 @@ function ItemQuantityControl({ item, onMutate }: { item: Item; onMutate: Mutatio
 
   return (
     <div className="item-quantity">
-      <div className="item-quantity__label">Quantity</div>
+      <div className="item-quantity__label">{t('item.quantity')}</div>
       <div className="item-quantity__controls">
         <button
           type="button"
           className="mutate item-quantity__button"
-          aria-label="Decrease quantity"
+          aria-label={t('item.decreaseQuantity')}
           onClick={() => onMutate({ type: 'SET_ITEM_QUANTITY', itemKey: item.key, quantity: Math.max(1, item.quantity - 1) })}
         >
           <FrameIcon svg={minusIconSvg} className="stepper-icon" aria-hidden />
@@ -61,12 +66,12 @@ function ItemQuantityControl({ item, onMutate }: { item: Item; onMutate: Mutatio
               (event.target as HTMLInputElement).blur();
             }
           }}
-          aria-label="Item quantity"
+          aria-label={t('item.itemQuantity')}
         />
         <button
           type="button"
           className="mutate item-quantity__button"
-          aria-label="Increase quantity"
+          aria-label={t('item.increaseQuantity')}
           onClick={() => onMutate({ type: 'SET_ITEM_QUANTITY', itemKey: item.key, quantity: item.quantity + 1 })}
         >
           <FrameIcon svg={plusIconSvg} className="stepper-icon" aria-hidden />
@@ -86,25 +91,28 @@ function ItemQuantityControl({ item, onMutate }: { item: Item; onMutate: Mutatio
  * mirrors `ManageInventoryPanel`'s own gating so Bag of Holding is only ever
  * offered as a destination once the character actually owns one.
  */
-function itemActionBar(item: Item, onMutate: MutationHandler, hasBagOfHolding: boolean) {
-  const moveTargets = STORAGE_LOCATIONS.filter((location) => location.id !== 'BAG_OF_HOLDING' || hasBagOfHolding);
+function ItemActionBar({ item, onMutate, hasBagOfHolding }: { item: Item; onMutate: MutationHandler; hasBagOfHolding: boolean }) {
+  const { t } = useDnd5eTerms();
+  const sheetText = useSheetText();
+  const moveTargets = storageLocations(sheetText).filter((location) => location.id !== 'BAG_OF_HOLDING' || hasBagOfHolding);
+  const equipButton = (
+    <button type="button" className="mutate sidebar-action-button" onClick={() => onMutate({ type: 'TOGGLE_ITEM_EQUIPPED', itemKey: item.key })}>
+      {item.equipped ? t('item.unequip') : t('item.equip')}
+    </button>
+  );
   return (
     <div className="item-action-bar">
       {item.requiresAttunement ? (
         <>
-          <button type="button" className="mutate sidebar-action-button" onClick={() => onMutate({ type: 'TOGGLE_ITEM_EQUIPPED', itemKey: item.key })}>
-            {item.equipped ? 'Unequip' : 'Equip'}
-          </button>
+          {canToggleEquipped(item) && equipButton}
           <button type="button" className="mutate sidebar-action-button" onClick={() => onMutate({ type: 'TOGGLE_ITEM_ATTUNED', itemKey: item.key })}>
-            {item.attuned ? 'Unattune' : 'Attune'}
+            {item.attuned ? t('item.unattune') : t('item.attune')}
           </button>
         </>
       ) : (
         <>
           <ItemQuantityControl item={item} onMutate={onMutate} />
-          <button type="button" className="mutate sidebar-action-button" onClick={() => onMutate({ type: 'TOGGLE_ITEM_EQUIPPED', itemKey: item.key })}>
-            {item.equipped ? 'Unequip' : 'Equip'}
-          </button>
+          {canToggleEquipped(item) && equipButton}
         </>
       )}
       <MoveButton
@@ -113,7 +121,7 @@ function itemActionBar(item: Item, onMutate: MutationHandler, hasBagOfHolding: b
         onMove={(storageLocation) => onMutate({ type: 'MOVE_ITEM', itemKey: item.key, storageLocation })}
       />
       <button type="button" className="mutate sidebar-action-button" onClick={() => onMutate({ type: 'REMOVE_ITEM', itemKey: item.key })}>
-        Delete
+        {t('combat.delete')}
       </button>
     </div>
   );
@@ -155,41 +163,46 @@ function itemActionBar(item: Item, onMutate: MutationHandler, hasBagOfHolding: b
  */
 const KG_PER_LB = 0.453592;
 
-const PRICE_AND_TEXT_FIELDS: CustomizeField[] = [
-  { key: 'costOverride', label: 'Cost Override', kind: 'number', decimal: true },
-  { key: 'weightOverride', label: 'Weight Override (kg)', kind: 'number', decimal: true, scale: KG_PER_LB },
-];
+function priceAndTextFields({ t }: Dnd5eTerms): CustomizeField[] {
+  return [
+    { key: 'costOverride', label: t('item.costOverride'), kind: 'number', decimal: true },
+    { key: 'weightOverride', label: t('item.weightOverride'), kind: 'number', decimal: true, scale: KG_PER_LB },
+  ];
+}
 
-const NAME_AND_NOTES_FIELDS: CustomizeField[] = [
-  { key: 'name', label: 'Name', kind: 'text', name: true },
-  { key: 'notes', label: 'Notes', kind: 'text' },
-];
+function nameAndNotesFields({ t }: Dnd5eTerms): CustomizeField[] {
+  return [
+    { key: 'name', label: t('item.name'), kind: 'text', name: true },
+    { key: 'notes', label: t('item.notes'), kind: 'text' },
+  ];
+}
 
 /** D&D Beyond's weapon Customize; any other item only has cost, weight, name and notes. */
-const WEAPON_FIELDS: CustomizeField[] = [
-  { key: 'toHitOverride', label: 'To Hit Override', kind: 'number' },
-  { key: 'toHitBonus', label: 'To Hit Bonus', kind: 'number' },
-  { key: 'damageBonus', label: 'Damage Bonus', kind: 'number' },
-  ...PRICE_AND_TEXT_FIELDS,
-  { key: 'silvered', label: 'Silvered', kind: 'checkbox' },
-  { key: 'adamantine', label: 'Adamantine', kind: 'checkbox' },
-  { key: 'displayAsAttack', label: 'Display As Attack', kind: 'checkbox' },
-  ...NAME_AND_NOTES_FIELDS,
-];
-
-const OTHER_ITEM_FIELDS: CustomizeField[] = [...PRICE_AND_TEXT_FIELDS, ...NAME_AND_NOTES_FIELDS];
+function weaponFields(terms: Dnd5eTerms): CustomizeField[] {
+  const { t } = terms;
+  return [
+    { key: 'toHitOverride', label: t('item.toHitOverride'), kind: 'number' },
+    { key: 'toHitBonus', label: t('item.toHitBonus'), kind: 'number' },
+    { key: 'damageBonus', label: t('item.damageBonus'), kind: 'number' },
+    ...priceAndTextFields(terms),
+    { key: 'silvered', label: t('item.silvered'), kind: 'checkbox' },
+    { key: 'adamantine', label: t('item.adamantine'), kind: 'checkbox' },
+    { key: 'displayAsAttack', label: t('item.displayAsAttack'), kind: 'checkbox' },
+    ...nameAndNotesFields(terms),
+  ];
+}
 
 export function hasBagOfHoldingIn(sheet: CharacterSheet): boolean {
   return sheet.items.some((candidate) => candidate.equipped && candidate.name === 'Bag of Holding');
 }
 
-function itemCustomize(item: Item, customization: ItemCustomization | undefined, onMutate: MutationHandler) {
+function itemCustomize(item: Item, customization: ItemCustomization | undefined, onMutate: MutationHandler, terms: Dnd5eTerms) {
   const values = customization ?? EMPTY_ITEM_CUSTOMIZATION;
   return {
     customized: customization != null,
     editor: (
       <EntityCustomizeEditor
-        fields={item.itemKind === 'WEAPON' ? WEAPON_FIELDS : OTHER_ITEM_FIELDS}
+        fields={item.itemKind === 'WEAPON' ? weaponFields(terms) : [...priceAndTextFields(terms), ...nameAndNotesFields(terms)]}
         values={values}
         customized={customization != null}
         onSave={(next) => onMutate({ type: 'CUSTOMIZE', group: 'items', target: item.key, value: next })}
@@ -205,7 +218,10 @@ export function buildItemDetailRequest(
   customization: ItemCustomization | undefined,
   onMutate: MutationHandler,
   hasBagOfHolding: boolean,
+  terms: Dnd5eTerms = ENGLISH_TERMS,
 ): EntityDetailRequest {
+  const { t } = terms;
+  const locale = terms.locale;
   return {
     kind: 'entityDetail',
     entityKey: `item:${item.key}`,
@@ -215,50 +231,57 @@ export function buildItemDetailRequest(
     // per-unit figure, same as D&D Beyond's own detail panel — the row list, not this
     // panel, is where a stack's quantity multiplies it out.
     metadata: [
-      ...(item.weightKg != null ? [{ label: 'Weight', value: `${item.weightKg.toFixed(1)} kg` }] : []),
-      ...(item.cost ? [{ label: 'Cost', value: item.cost }] : []),
-      ...(item.properties && item.properties.length > 0 ? [{ label: 'Properties', value: item.properties.join(', ') }] : []),
-      ...(item.source ? [{ label: 'Source', value: item.source }] : []),
+      ...(item.weightKg != null ? [{ label: t('item.weight'), value: `${formatDecimal(item.weightKg, 1, locale)} kg` }] : []),
+      ...(item.cost ? [{ label: t('item.cost'), value: item.cost }] : []),
+      ...(item.properties && item.properties.length > 0 ? [{ label: t('item.properties'), value: item.properties.join(', ') }] : []),
+      ...(item.source ? [{ label: t('item.source'), value: item.source }] : []),
     ],
     description: item.notes,
-    actionBar: itemActionBar(item, onMutate, hasBagOfHolding),
-    customize: itemCustomize(item, customization, onMutate),
+    actionBar: <ItemActionBar item={item} onMutate={onMutate} hasBagOfHolding={hasBagOfHolding} />,
+    customize: itemCustomize(item, customization, onMutate, terms),
     refresh: (sheet) => {
       const latest = sheet.items.find((candidate) => candidate.key === item.key);
       return latest
-        ? buildItemDetailRequest(latest, customizationsOf(sheet).items[item.key], onMutate, hasBagOfHoldingIn(sheet))
+        ? buildItemDetailRequest(latest, customizationsOf(sheet).items[item.key], onMutate, hasBagOfHoldingIn(sheet), terms)
         : null;
     },
   };
 }
 
 export function ItemRow({ item, onMutate, onOpenDetail, hasBagOfHolding }: ItemRowProps) {
-  const openDetail = () => onOpenDetail(buildItemDetailRequest(item, undefined, onMutate, hasBagOfHolding));
+  const terms = useDnd5eTerms();
+  const { t } = terms;
+  const { locale } = useLanguage();
+  const openDetail = () => onOpenDetail(buildItemDetailRequest(item, undefined, onMutate, hasBagOfHolding, terms));
   const raritySuffix = rarityClassSuffix(item.rarity);
   const weightKg = item.weightKg != null ? item.weightKg * item.quantity : null;
 
   return (
-    <ListRow className="item-row reveal" ariaLabel={`Open ${item.name} details`} onOpen={openDetail}>
-      <button
-        type="button"
-        className="mutate item-row__flag"
-        aria-pressed={item.equipped}
-        aria-label={`${item.name} equipped: ${item.equipped ? 'yes' : 'no'}`}
-        onClick={(event) => {
-          event.stopPropagation();
-          onMutate({ type: 'TOGGLE_ITEM_EQUIPPED', itemKey: item.key });
-        }}
-      >
-        <MarkBox marked={item.equipped} />
-      </button>
+    <ListRow className="item-row reveal" ariaLabel={t('item.openDetails', { name: item.name })} onOpen={openDetail}>
+      {canToggleEquipped(item) ? (
+        <button
+          type="button"
+          className="mutate item-row__flag"
+          aria-pressed={item.equipped}
+          aria-label={t(item.equipped ? 'item.equipped' : 'item.notEquipped', { name: item.name })}
+          onClick={(event) => {
+            event.stopPropagation();
+            onMutate({ type: 'TOGGLE_ITEM_EQUIPPED', itemKey: item.key });
+          }}
+        >
+          <MarkBox marked={item.equipped} />
+        </button>
+      ) : (
+        <span className="item-row__flag" aria-hidden="true" />
+      )}
       <span className={`reveal item-row__name${raritySuffix ? ` item-row__name--${raritySuffix}` : ''}`}>
         {item.name}
-        {item.attuned && <span className="item-row__attuned" aria-label="Attuned"> ✦</span>}
+        {item.attuned && <span className="item-row__attuned" aria-label={t('item.attuned')}> ✦</span>}
         {item.requiresAttunement && !item.attuned && (
-          <FrameIcon className="item-row__attunement-warning" svg={attunementSvg} aria-label="Requires attunement" />
+          <FrameIcon className="item-row__attunement-warning" svg={attunementSvg} aria-label={t('item.requiresAttunement')} />
         )}
       </span>
-      <div className="item-row__weight">{weightKg != null ? `${weightKg.toFixed(1)} kg` : '—'}</div>
+      <div className="item-row__weight">{weightKg != null ? `${formatDecimal(weightKg, 1, locale)} kg` : '—'}</div>
       <div className="item-row__quantity">×{item.quantity}</div>
       <div className="item-row__cost">{item.cost}</div>
       <div className="item-row__notes">{item.notes}</div>

@@ -2,14 +2,15 @@ import { useState } from 'react';
 import type { BackgroundCatalogueEntryData } from '../../catalogue/api';
 import type { BackgroundField, CharacterSheet, TextFieldRequest } from '../../sheet/api';
 import { FilterChips } from '../../sheet/FilterChips';
+import { useDnd5eTerms } from './locales/dnd5eMessages';
 
 const CHIPS = [
-  { id: 'all', label: 'All' },
-  { id: 'BACKGROUND', label: 'Background' },
-  { id: 'CHARACTERISTICS', label: 'Characteristics' },
-  { id: 'APPEARANCE', label: 'Appearance' },
-  { id: 'NOTES', label: 'Notes' },
-];
+  { id: 'all', label: 'actionsTab.all' },
+  { id: 'BACKGROUND', label: 'terms.labels.background' },
+  { id: 'CHARACTERISTICS', label: 'backgroundTab.characteristics' },
+  { id: 'APPEARANCE', label: 'backgroundTab.appearance' },
+  { id: 'NOTES', label: 'backgroundTab.notes' },
+] as const;
 
 const ALIGNMENTS = [
   'Chaotic Evil', 'Chaotic Good', 'Chaotic Neutral', 'Lawful Evil', 'Lawful Good', 'Lawful Neutral', 'Neutral', 'Neutral Evil', 'Neutral Good',
@@ -42,8 +43,9 @@ type ClickableFieldProps = Field & { onClick: () => void };
 
 /** Same `.reveal` affordance every other clickable field name on the sheet uses. */
 function ClickableFieldBlock({ label, value, onClick }: ClickableFieldProps) {
+  const { t } = useDnd5eTerms();
   return (
-    <button type="button" className="reveal background-tab__field" onClick={onClick} aria-label={`Edit ${label}`}>
+    <button type="button" className="reveal background-tab__field" onClick={onClick} aria-label={t('backgroundTab.edit', { label })}>
       <div className="background-tab__field-label">{label}</div>
       <p className="background-tab__field-value">{value || '—'}</p>
     </button>
@@ -87,6 +89,7 @@ function SectionHeading({ title }: { title: string }) {
  * "Class Features").
  */
 export function BackgroundTab({ sheet, suggestions, onUpdateField, onOpenTextField }: BackgroundTabProps) {
+  const { t } = useDnd5eTerms();
   const [activeSection, setActiveSection] = useState('all');
   const background = sheet.background;
   const showSection = (id: string) => activeSection === 'all' || activeSection === id;
@@ -110,37 +113,49 @@ export function BackgroundTab({ sheet, suggestions, onUpdateField, onOpenTextFie
   const openCharacteristics = () =>
     onOpenTextField({
       kind: 'textField',
-      title: 'Characteristics',
+      title: t('backgroundTab.characteristics'),
       fields: [
-        { label: 'Alignment', value: background.alignment, options: ALIGNMENTS, onSave: (v) => onUpdateField('ALIGNMENT', v) },
-        { label: 'Faith', value: background.faith, onSave: (v) => onUpdateField('FAITH', v) },
-        { label: 'Lifestyle', value: background.lifestyle, options: LIFESTYLES, onSave: (v) => onUpdateField('LIFESTYLE', v) },
+        {
+          label: t('terms.labels.alignment'),
+          value: background.alignment,
+          options: ALIGNMENTS,
+          optionLabel: (option) => t.dynamic(`terms.alignments.${option}`, option),
+          onSave: (v) => onUpdateField('ALIGNMENT', v),
+        },
+        { label: t('backgroundTab.faith'), value: background.faith, onSave: (v) => onUpdateField('FAITH', v) },
+        {
+          label: t('terms.labels.lifestyle'),
+          value: background.lifestyle,
+          options: LIFESTYLES,
+          optionLabel: (option) => t.dynamic(`terms.lifestyles.${option}`, option),
+          onSave: (v) => onUpdateField('LIFESTYLE', v),
+        },
       ],
     });
 
   const openAppearanceDetails = () =>
     onOpenTextField({
       kind: 'textField',
-      title: 'Appearance Details',
+      title: t('backgroundTab.appearanceDetails'),
       fields: [
-        { label: 'Hair', value: background.hair, onSave: (v) => onUpdateField('HAIR', v) },
-        { label: 'Skin', value: background.skin, onSave: (v) => onUpdateField('SKIN', v) },
-        { label: 'Eyes', value: background.eyes, onSave: (v) => onUpdateField('EYES', v) },
-        { label: 'Height', value: background.height, onSave: (v) => onUpdateField('HEIGHT', v) },
-        { label: 'Weight', value: background.weight, onSave: (v) => onUpdateField('WEIGHT', v) },
-        { label: 'Age', value: background.age, onSave: (v) => onUpdateField('AGE', v) },
-        { label: 'Gender', value: background.gender, onSave: (v) => onUpdateField('GENDER', v) },
-        { label: 'Size', value: background.size, onSave: (v) => onUpdateField('SIZE', v) },
+        { label: t('backgroundTab.hair'), value: background.hair, onSave: (v) => onUpdateField('HAIR', v) },
+        { label: t('backgroundTab.skin'), value: background.skin, onSave: (v) => onUpdateField('SKIN', v) },
+        { label: t('backgroundTab.eyes'), value: background.eyes, onSave: (v) => onUpdateField('EYES', v) },
+        { label: t('backgroundTab.height'), value: background.height, onSave: (v) => onUpdateField('HEIGHT', v) },
+        { label: t('backgroundTab.weight'), value: background.weight, onSave: (v) => onUpdateField('WEIGHT', v) },
+        { label: t('backgroundTab.age'), value: background.age, onSave: (v) => onUpdateField('AGE', v) },
+        { label: t('backgroundTab.gender'), value: background.gender, onSave: (v) => onUpdateField('GENDER', v) },
+        { label: t('terms.labels.size'), value: background.size, onSave: (v) => onUpdateField('SIZE', v) },
       ],
     });
 
   return (
     <div>
-      <FilterChips chips={CHIPS} activeChip={activeSection} onSelect={setActiveSection} />
+      <FilterChips chips={CHIPS.map(({ id, label }) => ({ id, label: t(label) }))} activeChip={activeSection} onSelect={setActiveSection} />
 
       {showSection('BACKGROUND') && (
         <section>
-          <SectionHeading title="Background" />
+          <SectionHeading title={t('terms.labels.background')} />
           <div className="background-tab__feature">
             <div className="features-tab__source-heading">{background.name}</div>
             {background.featureName && (
@@ -155,34 +170,34 @@ export function BackgroundTab({ sheet, suggestions, onUpdateField, onOpenTextFie
 
       {showSection('CHARACTERISTICS') && (
         <section>
-          <SectionHeading title="Characteristics" />
-          <button type="button" className="reveal background-tab__grid" onClick={openCharacteristics} aria-label="Edit characteristics">
-            <FieldBlock label="Alignment" value={background.alignment} />
-            <FieldBlock label="Faith" value={background.faith} />
+          <SectionHeading title={t('backgroundTab.characteristics')} />
+          <button type="button" className="reveal background-tab__grid" onClick={openCharacteristics} aria-label={t('backgroundTab.editCharacteristics')}>
+            <FieldBlock label={t('terms.labels.alignment')} value={background.alignment ? t.dynamic(`terms.alignments.${background.alignment}`, background.alignment) : ''} />
+            <FieldBlock label={t('backgroundTab.faith')} value={background.faith} />
           </button>
 
           <div className="background-tab__grid">
             <ClickableFieldBlock
-              label="Personality Traits"
+              label={t('terms.labels.personalityTraits')}
               value={background.personalityTraits}
               onClick={() =>
-                openSingleField('PERSONALITY_TRAITS', 'Personality Traits', background.personalityTraits, undefined, suggestions?.personalityTraits)
+                openSingleField('PERSONALITY_TRAITS', t('terms.labels.personalityTraits'), background.personalityTraits, undefined, suggestions?.personalityTraits)
               }
             />
             <ClickableFieldBlock
-              label="Ideals"
+              label={t('terms.labels.ideals')}
               value={background.ideals}
-              onClick={() => openSingleField('IDEALS', 'Ideals', background.ideals, undefined, suggestions?.ideals)}
+              onClick={() => openSingleField('IDEALS', t('terms.labels.ideals'), background.ideals, undefined, suggestions?.ideals)}
             />
             <ClickableFieldBlock
-              label="Bonds"
+              label={t('terms.labels.bonds')}
               value={background.bonds}
-              onClick={() => openSingleField('BONDS', 'Bonds', background.bonds, undefined, suggestions?.bonds)}
+              onClick={() => openSingleField('BONDS', t('terms.labels.bonds'), background.bonds, undefined, suggestions?.bonds)}
             />
             <ClickableFieldBlock
-              label="Flaws"
+              label={t('terms.labels.flaws')}
               value={background.flaws}
-              onClick={() => openSingleField('FLAWS', 'Flaws', background.flaws, undefined, suggestions?.flaws)}
+              onClick={() => openSingleField('FLAWS', t('terms.labels.flaws'), background.flaws, undefined, suggestions?.flaws)}
             />
           </div>
         </section>
@@ -190,22 +205,22 @@ export function BackgroundTab({ sheet, suggestions, onUpdateField, onOpenTextFie
 
       {showSection('APPEARANCE') && (
         <section>
-          <SectionHeading title="Appearance" />
-          <button type="button" className="reveal background-tab__grid" onClick={openAppearanceDetails} aria-label="Edit appearance details">
-            <FieldBlock label="Gender" value={background.gender} />
-            <FieldBlock label="Eyes" value={background.eyes} />
-            <FieldBlock label="Size" value={background.size} />
-            <FieldBlock label="Height" value={background.height} />
-            <FieldBlock label="Hair" value={background.hair} />
-            <FieldBlock label="Skin" value={background.skin} />
-            <FieldBlock label="Age" value={background.age} />
-            <FieldBlock label="Weight" value={background.weight} />
+          <SectionHeading title={t('backgroundTab.appearance')} />
+          <button type="button" className="reveal background-tab__grid" onClick={openAppearanceDetails} aria-label={t('backgroundTab.editAppearance')}>
+            <FieldBlock label={t('backgroundTab.gender')} value={background.gender} />
+            <FieldBlock label={t('backgroundTab.eyes')} value={background.eyes} />
+            <FieldBlock label={t('terms.labels.size')} value={background.size} />
+            <FieldBlock label={t('backgroundTab.height')} value={background.height} />
+            <FieldBlock label={t('backgroundTab.hair')} value={background.hair} />
+            <FieldBlock label={t('backgroundTab.skin')} value={background.skin} />
+            <FieldBlock label={t('backgroundTab.age')} value={background.age} />
+            <FieldBlock label={t('backgroundTab.weight')} value={background.weight} />
           </button>
           <ClickableFieldBlock
-            label="Appearance"
+            label={t('backgroundTab.appearance')}
             value={background.appearance}
             onClick={() =>
-              openSingleField('APPEARANCE', 'Appearance', background.appearance, 'Describe your character’s physical appearance.')
+              openSingleField('APPEARANCE', t('backgroundTab.appearance'), background.appearance, t('backgroundTab.appearancePrompt'))
             }
           />
         </section>
@@ -213,46 +228,46 @@ export function BackgroundTab({ sheet, suggestions, onUpdateField, onOpenTextFie
 
       {showSection('NOTES') && (
         <section>
-          <SectionHeading title="Notes" />
+          <SectionHeading title={t('backgroundTab.notes')} />
           <div className="background-tab__notes">
             <ClickableFieldBlock
-              label="Organizations"
+              label={t('backgroundTab.organizations')}
               value={background.organizations}
               onClick={() =>
                 openSingleField(
                   'ORGANIZATIONS',
-                  'Organizations',
+                  t('backgroundTab.organizations'),
                   background.organizations,
-                  'What organizations, factions, or groups is your character affiliated with?',
+                  t('backgroundTab.organizationsPrompt'),
                 )
               }
             />
             <ClickableFieldBlock
-              label="Allies"
+              label={t('backgroundTab.allies')}
               value={background.allies}
-              onClick={() => openSingleField('ALLIES', 'Allies', background.allies, "Who are your character's allies and companions?")}
+              onClick={() => openSingleField('ALLIES', t('backgroundTab.allies'), background.allies, t('backgroundTab.alliesPrompt'))}
             />
             <ClickableFieldBlock
-              label="Enemies"
+              label={t('backgroundTab.enemies')}
               value={background.enemies}
-              onClick={() => openSingleField('ENEMIES', 'Enemies', background.enemies, "Who are your character's enemies and rivals?")}
+              onClick={() => openSingleField('ENEMIES', t('backgroundTab.enemies'), background.enemies, t('backgroundTab.enemiesPrompt'))}
             />
             <ClickableFieldBlock
-              label="Backstory"
+              label={t('backgroundTab.backstory')}
               value={background.backstory}
               onClick={() =>
                 openSingleField(
                   'BACKSTORY',
-                  'Backstory',
+                  t('backgroundTab.backstory'),
                   background.backstory,
-                  'Talk about your character’s origins. Where are they from? How did they end up adventuring?',
+                  t('backgroundTab.backstoryPrompt'),
                 )
               }
             />
             <ClickableFieldBlock
-              label="Other"
+              label={t('backgroundTab.other')}
               value={background.other}
-              onClick={() => openSingleField('OTHER', 'Other', background.other, 'Anything else worth noting about your character.')}
+              onClick={() => openSingleField('OTHER', t('backgroundTab.other'), background.other, t('backgroundTab.otherPrompt'))}
             />
           </div>
         </section>

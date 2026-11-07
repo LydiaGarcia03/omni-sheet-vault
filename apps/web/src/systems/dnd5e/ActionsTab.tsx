@@ -20,21 +20,23 @@ import { buildItemDetailRequest, hasBagOfHoldingIn } from './ItemRow';
 import { FeatureActionRow } from './FeatureActionRow';
 import { customActionDetailRequest } from './customActionDetail';
 import { featureActionDetailRequest } from './featureDetail';
+import { useDnd5eTerms } from './locales/dnd5eMessages';
 import { levelAbbreviation } from './SpellCast';
 import { buildSpellDetailRequest } from './spellDetail';
 import { isCombatSpell, spellActionType } from './spellCombat';
 import { SpellAttackRow } from './SpellAttackRow';
 import { BONUS_ACTIONS, OTHER_ACTIONS, REACTIONS, STANDARD_ACTIONS, type StandardAction } from './standardActions';
+import type { Dnd5eText } from './locales/dnd5eMessages';
 
 const CHIPS = [
-  { id: 'all', label: 'All' },
-  { id: 'attack', label: 'Attack' },
-  { id: 'ACTION', label: 'Action' },
-  { id: 'BONUS_ACTION', label: 'Bonus Action' },
-  { id: 'REACTION', label: 'Reaction' },
-  { id: 'OTHER', label: 'Other' },
-  { id: 'limited-use', label: 'Limited Use' },
-];
+  { id: 'all', label: 'actionsTab.all' },
+  { id: 'attack', label: 'terms.actions.attack' },
+  { id: 'ACTION', label: 'terms.activations.ACTION' },
+  { id: 'BONUS_ACTION', label: 'terms.activations.BONUS_ACTION' },
+  { id: 'REACTION', label: 'terms.activations.REACTION' },
+  { id: 'OTHER', label: 'terms.labels.other' },
+  { id: 'limited-use', label: 'actionsTab.limitedUse' },
+] as const;
 
 type ActionsTabProps = {
   sheet: CharacterSheet;
@@ -56,8 +58,9 @@ function formatSigned(amount: number): string {
  * feature action, a custom action is not a limited-use resource.
  */
 function CustomActionRow({ action, onOpenDetail }: { action: CustomAction; onOpenDetail: () => void }) {
+  const { t } = useDnd5eTerms();
   return (
-    <ListRow className="action-feature reveal" ariaLabel={`Open ${action.name} details`} onOpen={onOpenDetail}>
+    <ListRow className="action-feature reveal" ariaLabel={t('actionsTab.openDetails', { name: action.name })} onOpen={onOpenDetail}>
       <div className="action-feature__body">
         <h3 className="reveal actions-tab__heading">{action.name}</h3>
         <p className="action-feature__description">{action.description}</p>
@@ -81,6 +84,7 @@ type SectionHeadingProps = {
  * "REACTIONS"/"OTHER" headings, which Aria's own build never renders.
  */
 function SectionHeading({ title, detail, onManageCustom }: SectionHeadingProps) {
+  const { t } = useDnd5eTerms();
   return (
     <div className="actions-tab__section-heading">
       <span>
@@ -88,7 +92,7 @@ function SectionHeading({ title, detail, onManageCustom }: SectionHeadingProps) 
         {detail && <span className="actions-tab__heading-detail"> • {detail}</span>}
       </span>
       <button type="button" className="actions-tab__manage-custom" onClick={onManageCustom}>
-        Manage Custom
+        {t('actionsTab.manageCustom')}
       </button>
     </div>
   );
@@ -120,6 +124,7 @@ type SpellSummaryListProps = {
  * one with a 1-minute casting time that's also castable as a ritual).
  */
 function SpellSummaryList({ title, spells, sheet, onMutate, onRoll, onOpenDetail }: SpellSummaryListProps) {
+  const terms = useDnd5eTerms();
   if (spells.length === 0) {
     return null;
   }
@@ -132,9 +137,9 @@ function SpellSummaryList({ title, spells, sheet, onMutate, onRoll, onOpenDetail
             <button
               type="button"
               className="reveal"
-              onClick={() => onOpenDetail(buildSpellDetailRequest(spell, sheet, onMutate, onRoll))}
+              onClick={() => onOpenDetail(buildSpellDetailRequest(spell, sheet, onMutate, onRoll, terms))}
             >
-              {spell.name} ({levelAbbreviation(spell.level)})
+              {spell.name} ({levelAbbreviation(spell.level, terms)})
             </button>
             {index < spells.length - 1 ? ', ' : ''}
           </span>
@@ -144,34 +149,36 @@ function SpellSummaryList({ title, spells, sheet, onMutate, onRoll, onOpenDetail
   );
 }
 
-const ATTACK_TABLE_COLUMNS = [
-  { key: 'icon', className: 'action-row__icon' },
-  { key: 'name', className: 'action-row__name grid-header-cell', content: 'Attack' },
-  { key: 'range', className: 'action-row__range grid-header-cell', content: 'Range' },
-  {
-    key: 'hit-dc',
-    className: 'action-row__value-cell action-row__value-cell--prominent',
-    content: <div className="action-row__value action-row__value--prominent grid-header-cell">Hit / DC</div>,
-  },
-  {
-    key: 'damage',
-    className: 'action-row__value-cell action-row__value-cell--damage',
-    content: <div className="action-row__value action-row__value--damage grid-header-cell">Damage</div>,
-  },
-  { key: 'notes', className: 'action-row__notes grid-header-cell', content: 'Notes' },
-];
+function attackTableColumns(t: Dnd5eText) {
+  return [
+    { key: 'icon', className: 'action-row__icon' },
+    { key: 'name', className: 'action-row__name grid-header-cell', content: t('actionsTab.attackColumn') },
+    { key: 'range', className: 'action-row__range grid-header-cell', content: t('terms.labels.range') },
+    {
+      key: 'hit-dc',
+      className: 'action-row__value-cell action-row__value-cell--prominent',
+      content: <div className="action-row__value action-row__value--prominent grid-header-cell">{t('actionsTab.hitDcColumn')}</div>,
+    },
+    {
+      key: 'damage',
+      className: 'action-row__value-cell action-row__value-cell--damage',
+      content: <div className="action-row__value action-row__value--damage grid-header-cell">{t('actionsTab.damageColumn')}</div>,
+    },
+    { key: 'notes', className: 'action-row__notes grid-header-cell', content: t('actionsTab.notesColumn') },
+  ];
+}
 
 type SectionConfig = {
   bucket: string;
-  title: string;
+  title: 'terms.labels.actions' | 'terms.labels.bonusActions' | 'terms.labels.reactions' | 'terms.labels.other';
   standardActions: StandardAction[];
 };
 
 const SECTIONS: SectionConfig[] = [
-  { bucket: 'ACTION', title: 'Actions', standardActions: STANDARD_ACTIONS },
-  { bucket: 'BONUS_ACTION', title: 'Bonus Actions', standardActions: BONUS_ACTIONS },
-  { bucket: 'REACTION', title: 'Reactions', standardActions: REACTIONS },
-  { bucket: 'OTHER', title: 'Other', standardActions: OTHER_ACTIONS },
+  { bucket: 'ACTION', title: 'terms.labels.actions', standardActions: STANDARD_ACTIONS },
+  { bucket: 'BONUS_ACTION', title: 'terms.labels.bonusActions', standardActions: BONUS_ACTIONS },
+  { bucket: 'REACTION', title: 'terms.labels.reactions', standardActions: REACTIONS },
+  { bucket: 'OTHER', title: 'terms.labels.other', standardActions: OTHER_ACTIONS },
 ];
 
 /**
@@ -218,6 +225,8 @@ function isUnarmed(key: string, attack: AttackRowData): boolean {
 
 export function ActionsTab({ sheet, onRoll, onRollContextMenu, onMutate, onOpenDetail, onOpenManageCustomActions }: ActionsTabProps) {
   const [activeChip, setActiveChip] = useState('all');
+  const terms = useDnd5eTerms();
+  const { t } = terms;
 
   const matchesChip = (category: string, hasTrack: boolean): boolean => {
     if (activeChip === 'all') {
@@ -277,15 +286,15 @@ export function ActionsTab({ sheet, onRoll, onRollContextMenu, onMutate, onOpenD
   const attackDetailRequest = (key: string, attack: AttackRowData): EntityDetailRequest => {
     const item = sheet.items.find((candidate) => candidate.key === key);
     if (item) {
-      return buildItemDetailRequest(item, customizationsOf(sheet).items[key], onMutate, hasBagOfHoldingIn(sheet));
+      return buildItemDetailRequest(item, customizationsOf(sheet).items[key], onMutate, hasBagOfHoldingIn(sheet), terms);
     }
     return {
       kind: 'entityDetail',
       name: attack.name,
       metadata: [
-        { label: 'Category', value: attack.category },
-        { label: 'Range', value: attack.range },
-        { label: 'Damage Type', value: attack.damageType },
+        { label: t('actionsTab.category'), value: attack.category },
+        { label: t('terms.labels.range'), value: attack.range },
+        { label: t('actionsTab.damageType'), value: terms.damageType(attack.damageType) },
       ],
       description: attack.notes,
     };
@@ -293,7 +302,7 @@ export function ActionsTab({ sheet, onRoll, onRollContextMenu, onMutate, onOpenD
 
   const renderAttackTable = (weaponEntries: [string, AttackRowData][], unarmedEntries: [string, AttackRowData][], spells: Spell[]) => (
     <>
-      <GridHeaderRow rowClassName="action-row" columns={ATTACK_TABLE_COLUMNS} />
+      <GridHeaderRow rowClassName="action-row" columns={attackTableColumns(t)} />
       <div className="action-list">
         {weaponEntries.map(renderAttackRow)}
         {spells.map((spell) => (
@@ -312,15 +321,15 @@ export function ActionsTab({ sheet, onRoll, onRollContextMenu, onMutate, onOpenD
     </>
   );
 
-  const featureDetailRequest = (feature: FeatureAction) => featureActionDetailRequest(feature, sheet, onMutate, onOpenDetail);
+  const featureDetailRequest = (feature: FeatureAction) => featureActionDetailRequest(feature, sheet, onMutate, onOpenDetail, terms);
 
   const openCustomAction = (action: CustomAction) =>
     onOpenDetail(
-      customActionDetailRequest(action, (actionKey, updated) => onMutate({ type: 'UPDATE_CUSTOM_ACTION', actionKey, action: updated })),
+      customActionDetailRequest(action, (actionKey, updated) => onMutate({ type: 'UPDATE_CUSTOM_ACTION', actionKey, action: updated }), terms),
     );
 
   const renderSection = ({ bucket, title, standardActions }: SectionConfig) => {
-    const detail = bucket === 'ACTION' ? `Attacks per Action: ${sheet.attacksPerAction}` : undefined;
+    const detail = bucket === 'ACTION' ? t('actionsTab.attacksPerAction', { count: sheet.attacksPerAction }) : undefined;
     const weaponEntries = weaponEntriesFor(bucket);
     const unarmedEntries = unarmedEntriesFor(bucket);
     const bucketCombatSpells = combatSpellsFor(bucket);
@@ -338,11 +347,11 @@ export function ActionsTab({ sheet, onRoll, onRollContextMenu, onMutate, onOpenD
 
     return (
       <section key={bucket}>
-        <SectionHeading title={title} detail={detail} onManageCustom={onOpenManageCustomActions} />
+        <SectionHeading title={t(title)} detail={detail} onManageCustom={onOpenManageCustomActions} />
         {showAttackTable && renderAttackTable(weaponEntries, unarmedEntries, bucketCombatSpells)}
         {showInCombat && <ActionsInCombatList actions={standardActions} onOpenDetail={onOpenDetail} />}
-        <SpellSummaryList title="Spells" spells={spellSummary} sheet={sheet} onMutate={onMutate} onRoll={onRoll} onOpenDetail={onOpenDetail} />
-        <SpellSummaryList title="Ritual Spells" spells={ritualSpellSummary} sheet={sheet} onMutate={onMutate} onRoll={onRoll} onOpenDetail={onOpenDetail} />
+        <SpellSummaryList title={t('actionsTab.spells')} spells={spellSummary} sheet={sheet} onMutate={onMutate} onRoll={onRoll} onOpenDetail={onOpenDetail} />
+        <SpellSummaryList title={t('actionsTab.ritualSpells')} spells={ritualSpellSummary} sheet={sheet} onMutate={onMutate} onRoll={onRoll} onOpenDetail={onOpenDetail} />
         {(bucketFeatures.length > 0 || bucketCustomActions.length > 0) && (
           <div className="action-list">
             {bucketFeatures.map((feature) => (
@@ -359,7 +368,7 @@ export function ActionsTab({ sheet, onRoll, onRollContextMenu, onMutate, onOpenD
 
   return (
     <div className="actions-tab">
-      <FilterChips chips={CHIPS} activeChip={activeChip} onSelect={setActiveChip} />
+      <FilterChips chips={CHIPS.map(({ id, label }) => ({ id, label: t(label) }))} activeChip={activeChip} onSelect={setActiveChip} />
 
       <GridScroll>{SECTIONS.map(renderSection)}</GridScroll>
     </div>

@@ -62,7 +62,7 @@ vi.mock('../../../levelup/levelUpApi', () => ({
   finishLevelUp: vi.fn(),
 }));
 vi.mock('../../../sheet/api', () => ({ getCharacterSheet: vi.fn(() => Promise.resolve({ experience: null })) }));
-vi.mock('../../../catalogue/api', () => ({ getCatalogue: vi.fn(() => Promise.resolve([])) }));
+vi.mock('../../../catalogue/api', () => ({ getCharacterCatalogue: vi.fn(() => Promise.resolve([])) }));
 vi.mock('../../../catalogue/SourceCodes', () => ({ SourceCodesProvider: ({ children }: { children: ReactNode }) => <>{children}</> }));
 vi.mock('../../../shell/AppHeader', () => ({ AppHeader: () => null }));
 vi.mock('../../../shell/AppFooter', () => ({ AppFooter: () => null }));
@@ -78,7 +78,7 @@ describe('Dnd5eLevelUpPage', () => {
   it("asks a rolled build only for the gained level's hit die, leaving earlier levels and other classes out", async () => {
     renderPage();
 
-    expect(await screen.findByLabelText('Hit points, Warlock lvl 3')).toHaveValue(null);
+    expect(await screen.findByLabelText('Hit points, Warlock lvl 3')).toHaveValue('');
     expect(screen.queryByLabelText('Hit points, Warlock lvl 2')).toBeNull();
     expect(screen.queryByLabelText('Hit points, Fighter lvl 1')).toBeNull();
     expect(screen.getByRole('button', { name: 'Finish leveling up' })).toBeDisabled();

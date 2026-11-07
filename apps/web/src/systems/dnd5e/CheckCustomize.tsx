@@ -2,13 +2,14 @@ import type { ProficiencyLevel } from '../../sheet/api';
 import { Customize, EditorBox, ValueEditorRow } from '../../sheet/sidebarParts';
 import { ABILITIES } from './abilities';
 import type { CheckCustomization } from './customizations';
+import { useDnd5eTerms } from './locales/dnd5eMessages';
 
-const PROFICIENCY_OPTIONS: [ProficiencyLevel, string][] = [
-  ['NONE', 'Not Proficient'],
-  ['HALF', 'Half Proficient'],
-  ['FULL', 'Proficient'],
-  ['EXPERT', 'Expertise'],
-];
+const PROFICIENCY_OPTIONS = [
+  ['NONE', 'terms.proficiencyLevels.none'],
+  ['HALF', 'terms.proficiencyLevels.half'],
+  ['FULL', 'terms.proficiencyLevels.full'],
+  ['EXPERT', 'terms.proficiencyLevels.expert'],
+] as const;
 
 type NumberField = 'override' | 'magicBonus' | 'miscBonus';
 
@@ -23,9 +24,11 @@ type CheckCustomizeProps = {
 
 /** D&D Beyond's Customize for a saving throw or a skill: override, magic and misc bonuses, proficiency level, stat. */
 export function CheckCustomize({ label, value, withStatOverride = false, onChange }: CheckCustomizeProps) {
-  const numberRow = (field: NumberField, name: string) => (
+  const terms = useDnd5eTerms();
+  const { t } = terms;
+  const numberRow = (field: NumberField, name: 'check.override' | 'check.magicBonus' | 'check.miscBonus') => (
     <ValueEditorRow
-      label={`${label} ${name}`}
+      label={t(name, { label })}
       value={value[field]}
       notes={value[`${field}Notes`] ?? ''}
       onCommit={(next, notes) => onChange({ ...value, [field]: next, [`${field}Notes`]: notes || null })}
@@ -35,25 +38,25 @@ export function CheckCustomize({ label, value, withStatOverride = false, onChang
   return (
     <Customize>
       <EditorBox>
-        {numberRow('override', 'Override')}
-        {numberRow('magicBonus', 'Magic Bonus')}
-        {numberRow('miscBonus', 'Misc Bonus')}
+        {numberRow('override', 'check.override')}
+        {numberRow('magicBonus', 'check.magicBonus')}
+        {numberRow('miscBonus', 'check.miscBonus')}
         <ValueEditorRow
-          label={`${label} Proficiency Level`}
+          label={t('check.proficiencyLevel', { label })}
           value={null}
           notes={value.proficiencyLevelNotes ?? ''}
           onCommit={(_, notes) => onChange({ ...value, proficiencyLevelNotes: notes || null })}
           control={
             <select
               className="sidebar-value-editor__input sidebar-value-editor__input--value"
-              aria-label={`${label} Proficiency Level`}
+              aria-label={t('check.proficiencyLevel', { label })}
               value={value.proficiencyLevel ?? ''}
               onChange={(event) => onChange({ ...value, proficiencyLevel: (event.target.value || null) as ProficiencyLevel | null })}
             >
               <option value="">--</option>
               {PROFICIENCY_OPTIONS.map(([level, name]) => (
                 <option key={level} value={level}>
-                  {name}
+                  {t(name)}
                 </option>
               ))}
             </select>
@@ -61,21 +64,21 @@ export function CheckCustomize({ label, value, withStatOverride = false, onChang
         />
         {withStatOverride && (
           <ValueEditorRow
-            label={`${label} Stat Override`}
+            label={t('check.statOverride', { label })}
             value={null}
             notes={value.statOverrideNotes ?? ''}
             onCommit={(_, notes) => onChange({ ...value, statOverrideNotes: notes || null })}
             control={
               <select
                 className="sidebar-value-editor__input sidebar-value-editor__input--value"
-                aria-label={`${label} Stat Override`}
+                aria-label={t('check.statOverride', { label })}
                 value={value.statOverride ?? ''}
                 onChange={(event) => onChange({ ...value, statOverride: event.target.value || null })}
               >
                 <option value="">--</option>
                 {ABILITIES.map((ability) => (
                   <option key={ability.key} value={ability.key}>
-                    {ability.label}
+                    {terms.ability(ability.key)}
                   </option>
                 ))}
               </select>

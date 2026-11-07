@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import { FrameLayer } from './FrameLayer';
 import { FrameIcon } from './FrameIcon';
+import { useDnd5eText } from './locales/dnd5eMessages';
 import settingsSvg from './frames/dnd_icon_gear.svg?raw';
 
 type SectionPanelProps = {
@@ -33,6 +34,7 @@ type SectionPanelProps = {
  * one flat color, which would print as a solid blob.
  */
 export function SectionPanel({ frameClass, svg, inkSvg, contentClassName, title, children, onSettings }: SectionPanelProps) {
+  const t = useDnd5eText();
   return (
     <div className={`frame-box ${frameClass}`}>
       <FrameLayer svg={svg} layer="paper" />
@@ -41,7 +43,7 @@ export function SectionPanel({ frameClass, svg, inkSvg, contentClassName, title,
         {children}
         {title &&
           (onSettings ? (
-            <button type="button" className="reveal panel__title panel__title--manage" aria-label={`Manage ${title}`} onClick={onSettings}>
+            <button type="button" className="reveal panel__title panel__title--manage" aria-label={t('panel.manage', { title })} onClick={onSettings}>
               {title}
               <FrameIcon className="panel__settings-icon" svg={settingsSvg} aria-hidden />
             </button>

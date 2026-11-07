@@ -1,27 +1,30 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
-import { getCatalogue, type CatalogueEntry } from '../../../catalogue/api';
+import { getCharacterCatalogue, type CatalogueEntry } from '../../../catalogue/api';
 import { SourceCodesProvider } from '../../../catalogue/SourceCodes';
 import type { ProgressionTable } from '../../../builder/draftApi';
 import { ProgressionPanel } from '../../../builder/ProgressionPanel';
 import { cancelLevelUp, finishLevelUp, getLevelUp, saveLevelUp, startLevelUp, type LevelUp } from '../../../levelup/levelUpApi';
 import { getCharacterSheet, type Experience } from '../../../sheet/api';
+import { useLanguage } from '../../../language/language';
+import { Spinner } from '../../../loading/Spinner';
 import { AppHeader } from '../../../shell/AppHeader';
 import { AppFooter } from '../../../shell/AppFooter';
 import { choiceRenderer } from '../builder/Dnd5eStepPage';
+import { useDnd5eText } from '../locales/dnd5eMessages';
 import { Dnd5eRolledHitPointsField } from '../builder/Dnd5eRolledHitPointsField';
-import { withSelection, type Dnd5eBuild } from '../builder/dnd5eBuild';
+import { PROGRESSION_FEATURES_COLUMN, withSelection, type Dnd5eBuild } from '../builder/dnd5eBuild';
 import '../themes.css';
 import '../../../builder/builder.css';
 
 const AUTOSAVE_DELAY_MS = 400;
-const ROLLED_HIT_POINTS = 'ROLLED_HIT_POINTS';
+const HIT_POINT_TYPES = new Set(['ROLLED_HIT_POINTS', 'FIXED_HIT_POINTS']);
 
 type Dnd5eLevelUpPageProps = { characterId: string; characterName: string; userName: string };
 
 /** The features a class's progression lists at `level`, or null. */
 function featuresAt(table: ProgressionTable | undefined, level: number): string | null {
-  const column = table?.columns.indexOf('Features') ?? -1;
+  const column = table ? PROGRESSION_FEATURES_COLUMN : -1;
   const cell = column >= 0 ? table?.rows[level - 1]?.[column] : undefined;
   return cell && cell !== '—' ? cell : null;
 }
@@ -31,6 +34,7 @@ function featuresAt(table: ProgressionTable | undefined, level: number): string 
  * level grants, make its choices, then finish to go back to the sheet with the new level.
  */
 export function Dnd5eLevelUpPage({ characterId, characterName, userName }: Dnd5eLevelUpPageProps) {
+  const t = useDnd5eText();
   const navigate = useNavigate();
   const [levelUp, setLevelUp] = useState<LevelUp | null | undefined>(undefined);
   const [experience, setExperience] = useState<Experience | null>(null);
@@ -38,16 +42,17 @@ export function Dnd5eLevelUpPage({ characterId, characterName, userName }: Dnd5e
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const saveTimer = useRef<number | undefined>(undefined);
+  const { locale } = useLanguage();
 
   useEffect(() => {
-    Promise.all([getLevelUp(characterId), getCharacterSheet(characterId), getCatalogue('dnd-5e', 'CLASS')])
+    Promise.all([getLevelUp(characterId), getCharacterSheet(characterId), getCharacterCatalogue(characterId, 'CLASS')])
       .then(([current, sheet, catalogueClasses]) => {
         setLevelUp(current);
         setExperience(sheet.experience ?? null);
         setClasses(catalogueClasses);
       })
       .catch((cause: Error) => setError(cause.message));
-  }, [characterId]);
+  }, [characterId, locale]);
 
   const backToSheet = useCallback(() => navigate(`/characters/${characterId}`), [navigate, characterId]);
 
@@ -96,15 +101,15 @@ export function Dnd5eLevelUpPage({ characterId, characterName, userName }: Dnd5e
       <AppHeader userName={userName} compact systemId="dnd-5e" />
       <main className="level-up">
         <div className="builder-step-head">
-          <h1>Level up · {characterName}</h1>
-          <p>Add a level to a class you have, or start a new one. Make the level's choices, then finish.</p>
+          <h1>{t('levelUp.title', { name: characterName })}</h1>
+          <p>{t('levelUp.lead')}</p>
         </div>
         {error && (
           <div className="builder-error" role="alert">
             {error}
           </div>
         )}
-        {levelUp === undefined && !error && <p className="builder-message">Loading…</p>}
+        {levelUp === undefined && !error && <Spinner className="is-centred" />}
         {levelUp === null && (
           <ClassPicker experience={experience} classes={classes} busy={busy} onPick={start} onCancel={backToSheet} />
         )}
@@ -122,7 +127,7 @@ export function Dnd5eLevelUpPage({ characterId, characterName, userName }: Dnd5e
           </SourceCodesProvider>
         )}
       </main>
-      <AppFooter />
+      <AppFooter rulesText />
     </div>
   );
 }
@@ -136,6 +141,7 @@ type ClassPickerProps = {
 };
 
 function ClassPicker({ experience, classes, busy, onPick, onCancel }: ClassPickerProps) {
+  const t = useDnd5eText();
   const [newClass, setNewClass] = useState('');
   const taken = experience?.classes ?? [];
   const slugOf = (name: string) => classes.find((entry) => entry.name === name)?.slug;
@@ -145,7 +151,7 @@ function ClassPicker({ experience, classes, busy, onPick, onCancel }: ClassPicke
     <>
       <section className="builder-frame">
         <div className="builder-frame__title">
-          <span>Add a level to a class you have</span>
+          <span>{t('levelUp.addToClass')}</span>
         </div>
         <div className="level-up__classes">
           {taken.map((classLevel) => {
@@ -166,11 +172,11 @@ function ClassPicker({ experience, classes, busy, onPick, onCancel }: ClassPicke
       </section>
       <section className="builder-frame">
         <div className="builder-frame__title">
-          <span>Or start a new class (multiclass)</span>
+          <span>{t('levelUp.newClass')}</span>
         </div>
         <div className="level-up__classes">
-          <select className="level-up__select" value={newClass} onChange={(event) => setNewClass(event.target.value)} aria-label="New class">
-            <option value="">Choose a class…</option>
+          <select className="level-up__select" value={newClass} onChange={(event) => setNewClass(event.target.value)} aria-label={t('levelUp.newClassAria')}>
+            <option value="">{t('levelUp.chooseClass')}</option>
             {others.map((entry) => (
               <option key={entry.slug} value={entry.slug}>
                 {entry.name}
@@ -179,13 +185,13 @@ function ClassPicker({ experience, classes, busy, onPick, onCancel }: ClassPicke
             ))}
           </select>
           <button type="button" className="builder-btn" disabled={busy || !newClass} onClick={() => onPick(newClass)}>
-            Start at level 1
+            {t('levelUp.startAtOne')}
           </button>
         </div>
       </section>
       <div className="level-up__actions">
         <button type="button" className="builder-btn" onClick={onCancel}>
-          Back to the sheet
+          {t('levelUp.backToSheet')}
         </button>
       </div>
     </>
@@ -203,6 +209,7 @@ type LevelUpEditorProps = {
 };
 
 function LevelUpEditor({ levelUp, classes, busy, onBuildChange, onFinish, onChangeClass, onCancel }: LevelUpEditorProps) {
+  const t = useDnd5eText();
   const build = levelUp.build as Dnd5eBuild;
   const className = classes.find((entry) => entry.slug === levelUp.classSlug)?.name ?? levelUp.classSlug;
   const progression = levelUp.preview.progressions?.find((table) => table.key === levelUp.classSlug);
@@ -227,32 +234,32 @@ function LevelUpEditor({ levelUp, classes, busy, onBuildChange, onFinish, onChan
             {className} {levelUp.classLevel}
           </span>
           {pending > 0 ? (
-            <span className="builder-badge builder-badge--pending">{pending} left</span>
+            <span className="builder-badge builder-badge--pending">{t('builder.left', { count: pending })}</span>
           ) : (
-            <span className="builder-badge builder-badge--done">done</span>
+            <span className="builder-badge builder-badge--done">{t('builder.done')}</span>
           )}
         </div>
         <p className="builder-level__gains">
-          <b>This level grants:</b> {features ?? 'no new features.'}
+          <b>{t('levelUp.grants')}</b> {features ?? t('levelUp.noFeatures')}
         </p>
         {gained !== null && (
           <p className="builder-level__gains">
-            <b>Hit points:</b> {levelUp.maxHitPointsBefore} → {levelUp.maxHitPointsAfter} ({gained >= 0 ? '+' : ''}
-            {gained}). Current hit points rise by the same amount.
+            <b>{t('levelUp.hitPoints')}</b> {levelUp.maxHitPointsBefore} → {levelUp.maxHitPointsAfter} ({gained >= 0 ? '+' : ''}
+            {gained}). {t('levelUp.hitPointsRise')}
           </p>
         )}
       </section>
       <section className="builder-frame">
         <div className="builder-frame__title">
-          <span>Choices</span>
+          <span>{t('builder.choices')}</span>
         </div>
         {choices.length === 0 ? (
-          <p className="builder-muted">Nothing to choose at this level.</p>
+          <p className="builder-muted">{t('builder.classLevels.nothingAtLevel')}</p>
         ) : (
           choices
             .filter((choice) => !isNested(choice))
             .map((choice) =>
-              choice.type === ROLLED_HIT_POINTS ? (
+              HIT_POINT_TYPES.has(choice.type) ? (
                 <Dnd5eRolledHitPointsField
                   key={choice.id}
                   characterId={levelUp.id}
@@ -261,6 +268,7 @@ function LevelUpEditor({ levelUp, classes, busy, onBuildChange, onFinish, onChan
                   onChange={onBuildChange}
                   group={levelUp.classSlug}
                   classLevel={levelUp.classLevel}
+                  showMethodHint={false}
                 />
               ) : (
                 renderChoice(choice)
@@ -273,10 +281,7 @@ function LevelUpEditor({ levelUp, classes, busy, onBuildChange, onFinish, onChan
           table={{ ...progression, currentLevel: levelUp.classLevel }}
           defaultOpen
           caption={
-            <>
-              After this level up: <b>{className} {levelUp.classLevel}</b>, character level{' '}
-              {build.classes.reduce((total, entry) => total + entry.level, 0)}.
-            </>
+            <>{t('levelUp.after', { class: `${className} ${levelUp.classLevel}`, level: build.classes.reduce((total, entry) => total + entry.level, 0) })}</>
           }
         />
       )}
@@ -287,13 +292,13 @@ function LevelUpEditor({ levelUp, classes, busy, onBuildChange, onFinish, onChan
       )}
       <div className="level-up__actions">
         <button type="button" className="builder-btn builder-btn--primary" disabled={!canFinish} onClick={onFinish}>
-          Finish leveling up
+          {t('levelUp.finish')}
         </button>
         <button type="button" className="builder-btn" disabled={busy} onClick={onChangeClass}>
-          Change class
+          {t('levelUp.changeClass')}
         </button>
         <button type="button" className="builder-btn" disabled={busy} onClick={onCancel}>
-          Cancel
+          {t('levelUp.cancel')}
         </button>
       </div>
     </>
