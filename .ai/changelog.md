@@ -6,6 +6,18 @@ Format: `## YYYY-MM-DD — short title`, then what changed, why, and anything
 deliberately left out.
 
 ---
+## 2026-11-07 — README tour as a slideshow
+
+- **Owner:** the animated tour showed a blank white page (the app loading) and
+  too many screens; show only the main page and the sheets, as a slideshow like
+  Tabi's.
+- **Tour:** `docs/screenshots/tour.webp` is now four stills (characters page,
+  D&D 5e, Vampire 5e and Daggerheart sheets), each held 3.2 s with a short
+  crossfade, built from the existing WebP screenshots (16 frames, about 620 KB).
+- **A closer look:** removed, since it repeated the tour's screens. The stills
+  are gone from `docs/screenshots/`, which now holds only `tour.webp`; new
+  screenshots are needed to rebuild it.
+
 ## 2026-11-07 — Names from the Brazilian books, merged; README
 
 - **Translations:**

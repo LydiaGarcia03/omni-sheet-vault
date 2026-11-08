@@ -18,7 +18,7 @@ its mechanics, and roll dice with a history nobody can fake. In English or Brazi
 
 <br>
 
-<img src="docs/screenshots/tour.webp" alt="Omni Sheet Vault in a loop: the character list grouped by system, a D&D 5e sheet with its stats, skills and attacks, an attack roll, the spell list, the interface switching to Brazilian Portuguese, then a Vampire: The Masquerade sheet and a Daggerheart sheet" width="900">
+<img src="docs/screenshots/tour.webp" alt="Omni Sheet Vault in a loop: the character list grouped by system, then a D&D 5e sheet, a Vampire: The Masquerade sheet and a Daggerheart sheet" width="900">
 
 </div>
 
@@ -67,49 +67,6 @@ Besides the server edition, a Windows desktop edition bundles everything (Java, 
 | **Vampire: The Masquerade 5e** | Builder with clans, predator types, disciplines and advantages; sheet with Hunger, Humanity, Willpower, Rouse Checks, frenzy and the coterie; Hunger dice |
 | **Daggerheart** (SRD 2.0, incl. Hope & Fear) | Builder, sheet with domain cards and loadout, Hope, Stress and armor slots, Duality dice rolled on the server, level up 1–10 |
 | Pathfinder 2e · Call of Cthulhu · Tormenta20 | Coming soon |
-
-## 📸 A closer look
-
-<div align="center">
-<table>
-<tr>
-<td align="center" valign="top" width="50%">
-<img src="docs/screenshots/characters.webp" alt="The character list: one card per character with portrait, class and level, grouped by system, and a strip to start a character in D&D 5e, Vampire 5e or Daggerheart" width="430">
-<br><sub><b>Your characters</b> — every system in one vault</sub>
-</td>
-<td align="center" valign="top" width="50%">
-<img src="docs/screenshots/dnd-builder.webp" alt="The D&D builder on the Classes step: progress on the left, a Bard 3 / Wizard 2 multiclass with each level's choices, and a live summary of the character on the right" width="430">
-<br><sub><b>The builder</b> — every choice explained, live summary</sub>
-</td>
-</tr>
-<tr>
-<td align="center" valign="top" width="50%">
-<img src="docs/screenshots/dnd-sheet.webp" alt="A D&D 5e sheet: abilities, saving throws, senses, skills, armor class, hit points and the actions tab with weapon attacks and cantrips" width="430">
-<br><sub><b>D&D 5e</b> — a sheet that knows its rules</sub>
-</td>
-<td align="center" valign="top" width="50%">
-<img src="docs/screenshots/dice-history.webp" alt="The same sheet after an Eldritch Blast attack roll, with the result in the corner and the roll history open on the right" width="430">
-<br><sub><b>Dice</b> — rolled on the server, kept in the history</sub>
-</td>
-</tr>
-<tr>
-<td align="center" valign="top" width="50%">
-<img src="docs/screenshots/vtm-sheet.webp" alt="A Vampire: The Masquerade sheet: attributes, Health, Willpower, Hunger and Humanity, the Blood, bane and compulsion, skills and disciplines with their powers and dice pools" width="430">
-<br><sub><b>Vampire 5e</b> — Hunger, Humanity and disciplines</sub>
-</td>
-<td align="center" valign="top" width="50%">
-<img src="docs/screenshots/daggerheart-sheet.webp" alt="A Daggerheart sheet: evasion, armor and traits, hit points and stress, active weapons, Hope and experiences, and the loadout of domain cards" width="430">
-<br><sub><b>Daggerheart</b> — Hope, Stress and domain cards</sub>
-</td>
-</tr>
-<tr>
-<td align="center" colspan="2">
-<img src="docs/screenshots/dnd-sheet-pt-br.webp" alt="The D&D sheet in Brazilian Portuguese: abilities, skills, speed in metres and the class features of a warlock, such as Magia de Pacto and Patrono Transcendental" width="600">
-<br><sub><b>Em português</b> — interface, rules and content, with metres instead of feet</sub>
-</td>
-</tr>
-</table>
-</div>
 
 ## 🛠️ Tech stack
 
