@@ -110,9 +110,13 @@ omni-sheet-vault/
 │   │   ├── README.md     # How to build, share, install and use the desktop edition
 │   │   └── src/
 │   └── web/              # React + Vite frontend — independent npm project
+├── content/              # Game catalogue: dnd-5e/ (from 5etools) and daggerheart/ (SRD 2.0), with pt-BR files
+├── docs/screenshots/     # Images used by README.md
 ├── infra/
 │   ├── keycloak/         # Exported realm, imported on container startup
 │   └── postgres/init/    # First-boot SQL scripts
+├── tools/                # Content importers and translation-worksheet scripts
+├── translation-worksheets/ # Owner's translation batches, local only (features/localization.md)
 ├── gradle/               # Gradle wrapper — the repository root owns the build
 ├── gradlew
 ├── gradlew.bat
@@ -122,7 +126,7 @@ omni-sheet-vault/
 ├── .env.example          # Template for .env — committed
 ├── .gitignore
 ├── CLAUDE.md
-└── README.md
+└── README.md             # Public face: features, screenshots, running locally, desktop build
 ```
 
 **The Gradle build is rooted at the repository, not at `apps/api`.** The backend is

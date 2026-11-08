@@ -1,326 +1,874 @@
 {
   "actor": {
-    "description": "Hábil em imitação e dramaturgia, você recebe os seguintes benefícios: Você tem vantagem em testes de Carisma (Enganação) e Carisma (Atuação) ao tentar se passar por outra pessoa. Você pode imitar a fala de outra pessoa ou os sons feitos por outras criaturas. Você precisa ter ouvido a pessoa falando, ou ouvido a criatura fazer o som, por pelo menos 1 minuto. Um teste bem-sucedido de Sabedoria (Intuição) resistido pelo seu teste de Carisma (Enganação) permite que um ouvinte perceba que o efeito é falso."
+    "description": "Hábil em imitação e dramaturgia, você recebe os seguintes benefícios: Você tem vantagem em testes de Carisma (Enganação) e Carisma (Atuação) ao tentar se passar por outra pessoa. Você pode imitar a fala de outra pessoa ou os sons feitos por outras criaturas. Você precisa ter ouvido a pessoa falando, ou ouvido a criatura fazer o som, por pelo menos 1 minuto. Um teste bem-sucedido de Sabedoria (Intuição) resistido pelo seu teste de Carisma (Enganação) permite que um ouvinte perceba que o efeito é falso.",
+    "name": "Ator"
   },
   "alert": {
-    "description": "Sempre atento ao perigo, você recebe os seguintes benefícios: Você recebe +5 de bônus na iniciativa. Você não pode ser surpreendido enquanto estiver consciente. Outras criaturas não recebem vantagem em jogadas de ataque contra você por estarem ocultas de você."
+    "description": "Sempre atento ao perigo, você recebe os seguintes benefícios: Você recebe +5 de bônus na iniciativa. Você não pode ser surpreendido enquanto estiver consciente. Outras criaturas não recebem vantagem em jogadas de ataque contra você por estarem ocultas de você.",
+    "name": "Alerta"
   },
   "athlete": {
-    "description": "Você passou por um treinamento físico intenso e recebe os seguintes benefícios: Quando você está caído, levantar-se usa apenas 1,5 metro do seu deslocamento. Escalar não custa deslocamento extra. Você pode fazer um salto em distância ou em altura com corrida depois de se mover apenas 1,5 metro a pé, em vez de 3 metros."
+    "description": "Você passou por um treinamento físico intenso e recebe os seguintes benefícios: Quando você está caído, levantar-se usa apenas 1,5 metro do seu deslocamento. Escalar não custa deslocamento extra. Você pode fazer um salto em distância ou em altura com corrida depois de se mover apenas 1,5 metro a pé, em vez de 3 metros.",
+    "name": "Atleta"
   },
   "charger": {
-    "description": "Quando você usa sua ação para Disparada, pode usar uma ação bônus para fazer um ataque corpo a corpo com arma ou para empurrar uma criatura. Se você se mover pelo menos 3 metros em linha reta imediatamente antes de usar essa ação bônus, você recebe +5 de bônus na jogada de dano do ataque (se escolheu fazer um ataque corpo a corpo e acertou) ou empurra o alvo até 3 metros para longe de você (se escolheu empurrar e teve sucesso)."
+    "description": "Quando você usa sua ação para Disparada, pode usar uma ação bônus para fazer um ataque corpo a corpo com arma ou para empurrar uma criatura. Se você se mover pelo menos 3 metros em linha reta imediatamente antes de usar essa ação bônus, você recebe +5 de bônus na jogada de dano do ataque (se escolheu fazer um ataque corpo a corpo e acertou) ou empurra o alvo até 3 metros para longe de você (se escolheu empurrar e teve sucesso).",
+    "name": "Investida Poderosa"
   },
   "crossbow-expert": {
-    "description": "Graças à prática intensa com a besta, você recebe os seguintes benefícios: Você ignora a propriedade recarga das bestas com as quais é proficiente. Estar a até 1,5 metro de uma criatura hostil não impõe desvantagem nas suas jogadas de ataque à distância. Quando você usa a ação de Ataque e ataca com uma arma de uma mão, pode usar uma ação bônus para atacar com uma besta de mão que esteja segurando."
+    "description": "Graças à prática intensa com a besta, você recebe os seguintes benefícios: Você ignora a propriedade recarga das bestas com as quais é proficiente. Estar a até 1,5 metro de uma criatura hostil não impõe desvantagem nas suas jogadas de ataque à distância. Quando você usa a ação de Ataque e ataca com uma arma de uma mão, pode usar uma ação bônus para atacar com uma besta de mão que esteja segurando.",
+    "name": "Especialista em Besta"
   },
   "defensive-duelist": {
-    "description": "Pré-requisito: Destreza 13 ou maior\n\nQuando você está empunhando uma arma de acuidade com a qual é proficiente e outra criatura o atinge com um ataque corpo a corpo, você pode usar sua reação para somar seu bônus de proficiência à sua CA contra esse ataque, possivelmente fazendo o ataque errar."
+    "description": "Pré-requisito: Destreza 13 ou maior\n\nQuando você está empunhando uma arma de acuidade com a qual é proficiente e outra criatura o atinge com um ataque corpo a corpo, você pode usar sua reação para somar seu bônus de proficiência à sua CA contra esse ataque, possivelmente fazendo o ataque errar.",
+    "name": "Duelista Defensivo"
   },
   "dual-wielder": {
-    "description": "Você domina o combate com duas armas e recebe os seguintes benefícios: Você recebe +1 de bônus na CA enquanto empunha uma arma corpo a corpo diferente em cada mão. Você pode usar o combate com duas armas mesmo quando as armas corpo a corpo de uma mão que empunha não são leves. Você pode sacar ou guardar duas armas de uma mão quando normalmente só poderia sacar ou guardar uma."
+    "description": "Você domina o combate com duas armas e recebe os seguintes benefícios: Você recebe +1 de bônus na CA enquanto empunha uma arma corpo a corpo diferente em cada mão. Você pode usar o combate com duas armas mesmo quando as armas corpo a corpo de uma mão que empunha não são leves. Você pode sacar ou guardar duas armas de uma mão quando normalmente só poderia sacar ou guardar uma.",
+    "name": "Ambidestro"
   },
   "dungeon-delver": {
-    "description": "Atento às armadilhas ocultas e portas secretas de muitas masmorras, você recebe os seguintes benefícios: Você tem vantagem em testes de Sabedoria (Percepção) e Inteligência (Investigação) feitos para detectar portas secretas. Você tem vantagem em testes de resistência feitos para evitar ou resistir a armadilhas. Você tem resistência ao dano causado por armadilhas. Viajar em ritmo rápido não impõe a penalidade normal de -5 no seu valor passivo de Sabedoria (Percepção)."
+    "description": "Atento às armadilhas ocultas e portas secretas de muitas masmorras, você recebe os seguintes benefícios: Você tem vantagem em testes de Sabedoria (Percepção) e Inteligência (Investigação) feitos para detectar portas secretas. Você tem vantagem em testes de resistência feitos para evitar ou resistir a armadilhas. Você tem resistência ao dano causado por armadilhas. Viajar em ritmo rápido não impõe a penalidade normal de -5 no seu valor passivo de Sabedoria (Percepção).",
+    "name": "Explorador de Cavernas"
   },
   "durable": {
-    "description": "Robusto e resistente, você recebe os seguintes benefícios: Quando você rola um Dado de Vida para recuperar pontos de vida, o mínimo de pontos de vida recuperados pela rolagem é o dobro do seu modificador de Constituição (no mínimo 2)."
+    "description": "Robusto e resistente, você recebe os seguintes benefícios: Quando você rola um Dado de Vida para recuperar pontos de vida, o mínimo de pontos de vida recuperados pela rolagem é o dobro do seu modificador de Constituição (no mínimo 2).",
+    "name": "Resistente"
   },
   "elemental-adept": {
-    "description": "Pré-requisito: a capacidade de conjurar pelo menos uma magia\n\nAo receber este talento, escolha um dos seguintes tipos de dano: ácido, frio, fogo, elétrico ou trovejante. As magias que você conjura ignoram resistência ao dano do tipo escolhido. Além disso, quando você rola o dano de uma magia que conjura e que causa dano desse tipo, pode tratar qualquer 1 em um dado de dano como 2. Você pode escolher este talento várias vezes. A cada vez, precisa escolher um tipo de dano diferente."
+    "description": "Pré-requisito: a capacidade de conjurar pelo menos uma magia\n\nAo receber este talento, escolha um dos seguintes tipos de dano: ácido, frio, fogo, elétrico ou trovejante. As magias que você conjura ignoram resistência ao dano do tipo escolhido. Além disso, quando você rola o dano de uma magia que conjura e que causa dano desse tipo, pode tratar qualquer 1 em um dado de dano como 2. Você pode escolher este talento várias vezes. A cada vez, precisa escolher um tipo de dano diferente.",
+    "name": "Adepto Elemental"
   },
   "grappler": {
-    "description": "Pré-requisito: Força 13 ou maior\n\nVocê desenvolveu as habilidades necessárias para se virar em agarrões a curta distância. Você recebe os seguintes benefícios: Você tem vantagem em jogadas de ataque contra uma criatura que esteja agarrando. Você pode usar sua ação para tentar imobilizar uma criatura agarrada por você. Para isso, faça outro teste de agarrar. Se tiver sucesso, você e a criatura ficam impedidos até o agarrão terminar."
+    "description": "Pré-requisito: Força 13 ou maior\n\nVocê desenvolveu as habilidades necessárias para se virar em agarrões a curta distância. Você recebe os seguintes benefícios: Você tem vantagem em jogadas de ataque contra uma criatura que esteja agarrando. Você pode usar sua ação para tentar imobilizar uma criatura agarrada por você. Para isso, faça outro teste de agarrar. Se tiver sucesso, você e a criatura ficam impedidos até o agarrão terminar.",
+    "name": "Imobilizador"
   },
   "great-weapon-master": {
-    "description": "Você aprendeu a usar o peso de uma arma a seu favor, deixando o impulso dela fortalecer seus golpes. Você recebe os seguintes benefícios: No seu turno, quando você obtém um acerto crítico com uma arma corpo a corpo ou reduz uma criatura a 0 pontos de vida com ela, pode fazer um ataque corpo a corpo com arma como ação bônus. Antes de fazer um ataque corpo a corpo com uma arma pesada com a qual é proficiente, você pode escolher sofrer uma penalidade de -5 na jogada de ataque. Se o ataque acertar, você soma +10 ao dano do ataque."
+    "description": "Você aprendeu a usar o peso de uma arma a seu favor, deixando o impulso dela fortalecer seus golpes. Você recebe os seguintes benefícios: No seu turno, quando você obtém um acerto crítico com uma arma corpo a corpo ou reduz uma criatura a 0 pontos de vida com ela, pode fazer um ataque corpo a corpo com arma como ação bônus. Antes de fazer um ataque corpo a corpo com uma arma pesada com a qual é proficiente, você pode escolher sofrer uma penalidade de -5 na jogada de ataque. Se o ataque acertar, você soma +10 ao dano do ataque.",
+    "name": "Mestre de Armas Grandes"
   },
   "healer": {
-    "description": "Você é um médico capaz, que fecha feridas depressa e devolve seus aliados à luta. Você recebe os seguintes benefícios: Quando você usa um kit de primeiros-socorros para estabilizar uma criatura morrendo, essa criatura também recupera 1 ponto de vida. Como uma ação, você pode gastar um uso de um kit de primeiros-socorros para cuidar de uma criatura e restaurar 1d6 + 4 pontos de vida a ela, mais pontos de vida adicionais iguais ao número máximo de Dados de Vida da criatura. A criatura não pode recuperar pontos de vida por este talento de novo até terminar um descanso curto ou longo."
+    "description": "Você é um médico capaz, que fecha feridas depressa e devolve seus aliados à luta. Você recebe os seguintes benefícios: Quando você usa um kit de primeiros-socorros para estabilizar uma criatura morrendo, essa criatura também recupera 1 ponto de vida. Como uma ação, você pode gastar um uso de um kit de primeiros-socorros para cuidar de uma criatura e restaurar 1d6 + 4 pontos de vida a ela, mais pontos de vida adicionais iguais ao número máximo de Dados de Vida da criatura. A criatura não pode recuperar pontos de vida por este talento de novo até terminar um descanso curto ou longo.",
+    "name": "Curandeiro"
   },
   "heavily-armored": {
-    "description": "Pré-requisito: proficiência com armadura média\n\nVocê treinou para dominar o uso de armadura pesada e recebe os seguintes benefícios: Você ganha proficiência com armadura pesada."
+    "description": "Pré-requisito: proficiência com armadura média\n\nVocê treinou para dominar o uso de armadura pesada e recebe os seguintes benefícios: Você ganha proficiência com armadura pesada.",
+    "name": "Proteção Pesada"
   },
   "heavy-armor-master": {
-    "description": "Pré-requisito: proficiência com armadura pesada\n\nVocê pode usar sua armadura para desviar golpes que matariam outras pessoas. Você recebe os seguintes benefícios: Enquanto estiver usando armadura pesada, o dano de concussão, perfurante e cortante que você sofre de ataques não mágicos é reduzido em 3."
+    "description": "Pré-requisito: proficiência com armadura pesada\n\nVocê pode usar sua armadura para desviar golpes que matariam outras pessoas. Você recebe os seguintes benefícios: Enquanto estiver usando armadura pesada, o dano de concussão, perfurante e cortante que você sofre de ataques não mágicos é reduzido em 3.",
+    "name": "Maestria em Armadura Pesada"
   },
   "inspiring-leader": {
-    "description": "Pré-requisito: Carisma 13 ou maior\n\nVocê pode passar 10 minutos inspirando seus companheiros, reforçando a determinação deles para a luta. Quando fizer isso, escolha até seis criaturas amigáveis (você pode estar entre elas) a até 9 metros de você que possam vê-lo ou ouvi-lo e que possam entendê-lo. Cada criatura pode ganhar pontos de vida temporários iguais ao seu nível + seu modificador de Carisma. Uma criatura não pode ganhar pontos de vida temporários por este talento de novo até terminar um descanso curto ou longo."
+    "description": "Pré-requisito: Carisma 13 ou maior\n\nVocê pode passar 10 minutos inspirando seus companheiros, reforçando a determinação deles para a luta. Quando fizer isso, escolha até seis criaturas amigáveis (você pode estar entre elas) a até 9 metros de você que possam vê-lo ou ouvi-lo e que possam entendê-lo. Cada criatura pode ganhar pontos de vida temporários iguais ao seu nível + seu modificador de Carisma. Uma criatura não pode ganhar pontos de vida temporários por este talento de novo até terminar um descanso curto ou longo.",
+    "name": "Líder Inspirador"
   },
   "keen-mind": {
-    "description": "Sua mente acompanha o tempo, a direção e os detalhes com uma precisão incomum. Você recebe os seguintes benefícios: Você sempre sabe para que lado fica o norte. Você sempre sabe quantas horas faltam para o próximo nascer ou pôr do sol. Você consegue lembrar com exatidão de qualquer coisa que tenha visto ou ouvido no último mês."
+    "description": "Sua mente acompanha o tempo, a direção e os detalhes com uma precisão incomum. Você recebe os seguintes benefícios: Você sempre sabe para que lado fica o norte. Você sempre sabe quantas horas faltam para o próximo nascer ou pôr do sol. Você consegue lembrar com exatidão de qualquer coisa que tenha visto ou ouvido no último mês.",
+    "name": "Mente Afiada"
   },
   "lightly-armored": {
-    "description": "Você treinou para dominar o uso de armadura leve e recebe os seguintes benefícios: Você ganha proficiência com armadura leve."
+    "description": "Você treinou para dominar o uso de armadura leve e recebe os seguintes benefícios: Você ganha proficiência com armadura leve.",
+    "name": "Proteção Leve"
   },
   "linguist": {
-    "description": "Você estudou idiomas e códigos e recebe os seguintes benefícios: Você aprende três idiomas à sua escolha. Você sabe criar cifras escritas com habilidade. Outras pessoas não conseguem decifrar um código que você criou, a menos que você as ensine, que tenham sucesso em um teste de Inteligência (CD igual ao seu valor de Inteligência + seu bônus de proficiência) ou que usem magia para decifrá-lo."
+    "description": "Você estudou idiomas e códigos e recebe os seguintes benefícios: Você aprende três idiomas à sua escolha. Você sabe criar cifras escritas com habilidade. Outras pessoas não conseguem decifrar um código que você criou, a menos que você as ensine, que tenham sucesso em um teste de Inteligência (CD igual ao seu valor de Inteligência + seu bônus de proficiência) ou que usem magia para decifrá-lo.",
+    "name": "Poliglota"
   },
   "lucky": {
-    "description": "Você tem uma sorte inexplicável que parece surgir no momento certo. Você tem 3 pontos de sorte. Sempre que fizer uma jogada de ataque, um teste de atributo ou um teste de resistência, pode gastar um ponto de sorte para rolar um d20 adicional. Você pode escolher gastar um ponto de sorte depois de rolar o dado, mas antes de o resultado ser determinado. Você escolhe qual dos d20 é usado na jogada de ataque, no teste de atributo ou no teste de resistência. Você também pode gastar um ponto de sorte quando uma jogada de ataque é feita contra você. Role um d20 e então escolha se o ataque usa a rolagem do atacante ou a sua. Se mais de uma criatura gastar um ponto de sorte para influenciar o resultado de uma rolagem, os pontos se anulam; nenhum dado adicional é rolado. Você recupera os pontos de sorte gastos ao terminar um descanso longo."
+    "description": "Você tem uma sorte inexplicável que parece surgir no momento certo. Você tem 3 pontos de sorte. Sempre que fizer uma jogada de ataque, um teste de atributo ou um teste de resistência, pode gastar um ponto de sorte para rolar um d20 adicional. Você pode escolher gastar um ponto de sorte depois de rolar o dado, mas antes de o resultado ser determinado. Você escolhe qual dos d20 é usado na jogada de ataque, no teste de atributo ou no teste de resistência. Você também pode gastar um ponto de sorte quando uma jogada de ataque é feita contra você. Role um d20 e então escolha se o ataque usa a rolagem do atacante ou a sua. Se mais de uma criatura gastar um ponto de sorte para influenciar o resultado de uma rolagem, os pontos se anulam; nenhum dado adicional é rolado. Você recupera os pontos de sorte gastos ao terminar um descanso longo.",
+    "name": "Sortudo"
   },
   "mage-slayer": {
-    "description": "Você praticou técnicas úteis no combate corpo a corpo contra conjuradores e recebe os seguintes benefícios: Quando uma criatura a até 1,5 metro de você conjura uma magia, você pode usar sua reação para fazer um ataque corpo a corpo com arma contra essa criatura. Quando você causa dano a uma criatura que está se concentrando em uma magia, essa criatura tem desvantagem no teste de resistência que faz para manter a concentração. Você tem vantagem em testes de resistência contra magias conjuradas por criaturas a até 1,5 metro de você."
+    "description": "Você praticou técnicas úteis no combate corpo a corpo contra conjuradores e recebe os seguintes benefícios: Quando uma criatura a até 1,5 metro de você conjura uma magia, você pode usar sua reação para fazer um ataque corpo a corpo com arma contra essa criatura. Quando você causa dano a uma criatura que está se concentrando em uma magia, essa criatura tem desvantagem no teste de resistência que faz para manter a concentração. Você tem vantagem em testes de resistência contra magias conjuradas por criaturas a até 1,5 metro de você.",
+    "name": "Matador de Conjuradores"
   },
   "magic-initiate": {
-    "description": "Escolha uma classe: bardo, clérigo, druida, feiticeiro, bruxo ou mago. Você aprende dois truques à sua escolha da lista de magias dessa classe. Além disso, escolha uma magia de 1º nível dessa mesma lista para aprender. Com este talento, você pode conjurar essa magia uma vez no nível mais baixo, e precisa terminar um descanso longo antes de poder conjurá-la dessa forma de novo. Sua habilidade de conjuração para essas magias depende da classe escolhida: Carisma para bardo, feiticeiro ou bruxo; Sabedoria para clérigo ou druida; ou Inteligência para mago."
+    "description": "Escolha uma classe: bardo, clérigo, druida, feiticeiro, bruxo ou mago. Você aprende dois truques à sua escolha da lista de magias dessa classe. Além disso, escolha uma magia de 1º nível dessa mesma lista para aprender. Com este talento, você pode conjurar essa magia uma vez no nível mais baixo, e precisa terminar um descanso longo antes de poder conjurá-la dessa forma de novo. Sua habilidade de conjuração para essas magias depende da classe escolhida: Carisma para bardo, feiticeiro ou bruxo; Sabedoria para clérigo ou druida; ou Inteligência para mago.",
+    "name": "Iniciado em Magia",
+    "data": {
+      "additionalSpells": {
+        "Bard Spells": {
+          "name": "Magias de Bardo"
+        },
+        "Cleric Spells": {
+          "name": "Magias de Clérigo"
+        },
+        "Druid Spells": {
+          "name": "Magias de Druida"
+        },
+        "Sorcerer Spells": {
+          "name": "Magias de Feiticeiro"
+        },
+        "Warlock Spells": {
+          "name": "Magias de Bruxo"
+        },
+        "Wizard Spells": {
+          "name": "Magias de Mago"
+        }
+      }
+    }
   },
   "martial-adept": {
-    "description": "Você tem um treinamento marcial que permite executar manobras especiais de combate. Você recebe os seguintes benefícios: Você aprende duas manobras à sua escolha entre as disponíveis para o arquétipo Mestre de Batalha da classe guerreiro. Se uma manobra que você usar exigir que o alvo faça um teste de resistência para resistir aos efeitos dela, a CD do teste é 8 + seu bônus de proficiência + seu modificador de Força ou Destreza (à sua escolha). Você ganha um dado de superioridade, que é um d6 (esse dado se soma a qualquer dado de superioridade que você tenha de outra fonte). Esse dado alimenta suas manobras. Um dado de superioridade é gasto quando você o usa. Você recupera os dados de superioridade gastos ao terminar um descanso curto ou longo."
+    "description": "Você tem um treinamento marcial que permite executar manobras especiais de combate. Você recebe os seguintes benefícios: Você aprende duas manobras à sua escolha entre as disponíveis para o arquétipo Mestre de Batalha da classe guerreiro. Se uma manobra que você usar exigir que o alvo faça um teste de resistência para resistir aos efeitos dela, a CD do teste é 8 + seu bônus de proficiência + seu modificador de Força ou Destreza (à sua escolha). Você ganha um dado de superioridade, que é um d6 (esse dado se soma a qualquer dado de superioridade que você tenha de outra fonte). Esse dado alimenta suas manobras. Um dado de superioridade é gasto quando você o usa. Você recupera os dados de superioridade gastos ao terminar um descanso curto ou longo.",
+    "data": {
+      "optionalFeatureProgressions": {
+        "Maneuvers": {
+          "name": "Manobras"
+        }
+      }
+    },
+    "name": "Adepto Marcial"
   },
   "medium-armor-master": {
-    "description": "Pré-requisito: proficiência com armadura média\n\nVocê praticou se mover com armadura média e recebe os seguintes benefícios: Usar armadura média não impõe desvantagem nos seus testes de Destreza (Furtividade). Quando você usa armadura média, pode somar 3, em vez de 2, à sua CA se tiver Destreza 16 ou maior."
+    "description": "Pré-requisito: proficiência com armadura média\n\nVocê praticou se mover com armadura média e recebe os seguintes benefícios: Usar armadura média não impõe desvantagem nos seus testes de Destreza (Furtividade). Quando você usa armadura média, pode somar 3, em vez de 2, à sua CA se tiver Destreza 16 ou maior.",
+    "name": "Maestria em Armadura Média"
   },
   "mobile": {
-    "description": "Você é excepcionalmente rápido e ágil. Você recebe os seguintes benefícios: Seu deslocamento aumenta em 3 metros. Quando você usa a ação Disparada, terreno difícil não custa deslocamento extra naquele turno. Quando você faz um ataque corpo a corpo contra uma criatura, não provoca ataques de oportunidade dessa criatura pelo resto do turno, acertando ou não."
+    "description": "Você é excepcionalmente rápido e ágil. Você recebe os seguintes benefícios: Seu deslocamento aumenta em 3 metros. Quando você usa a ação Disparada, terreno difícil não custa deslocamento extra naquele turno. Quando você faz um ataque corpo a corpo contra uma criatura, não provoca ataques de oportunidade dessa criatura pelo resto do turno, acertando ou não.",
+    "name": "Mobilidade"
   },
   "moderately-armored": {
-    "description": "Pré-requisito: proficiência com armadura leve\n\nVocê treinou para dominar o uso de armadura média e escudos e recebe os seguintes benefícios: Você ganha proficiência com armadura média e escudos."
+    "description": "Pré-requisito: proficiência com armadura leve\n\nVocê treinou para dominar o uso de armadura média e escudos e recebe os seguintes benefícios: Você ganha proficiência com armadura média e escudos.",
+    "name": "Proteção Moderada"
   },
   "mounted-combatant": {
-    "description": "Você é um inimigo perigoso quando está montado. Enquanto estiver montado e não estiver incapacitado, você recebe os seguintes benefícios: Você tem vantagem em jogadas de ataque corpo a corpo contra qualquer criatura desmontada menor que sua montaria. Você pode forçar um ataque que tenha sua montaria como alvo a ter você como alvo. Se sua montaria for submetida a um efeito que permita um teste de resistência de Destreza para sofrer apenas metade do dano, ela não sofre dano se tiver sucesso no teste, e sofre apenas metade do dano se falhar."
+    "description": "Você é um inimigo perigoso quando está montado. Enquanto estiver montado e não estiver incapacitado, você recebe os seguintes benefícios: Você tem vantagem em jogadas de ataque corpo a corpo contra qualquer criatura desmontada menor que sua montaria. Você pode forçar um ataque que tenha sua montaria como alvo a ter você como alvo. Se sua montaria for submetida a um efeito que permita um teste de resistência de Destreza para sofrer apenas metade do dano, ela não sofre dano se tiver sucesso no teste, e sofre apenas metade do dano se falhar.",
+    "name": "Combatente Montado"
   },
   "observant": {
-    "description": "Rápido em notar os detalhes do ambiente, você recebe os seguintes benefícios: Se você puder ver a boca de uma criatura enquanto ela fala um idioma que você entende, consegue interpretar o que ela diz lendo seus lábios. Você recebe +5 de bônus nos seus valores passivos de Sabedoria (Percepção) e Inteligência (Investigação)."
+    "description": "Rápido em notar os detalhes do ambiente, você recebe os seguintes benefícios: Se você puder ver a boca de uma criatura enquanto ela fala um idioma que você entende, consegue interpretar o que ela diz lendo seus lábios. Você recebe +5 de bônus nos seus valores passivos de Sabedoria (Percepção) e Inteligência (Investigação).",
+    "name": "Observador"
   },
   "polearm-master": {
-    "description": "Você consegue manter seus inimigos à distância com armas de alcance. Você recebe os seguintes benefícios: Quando você usa a ação de Ataque e ataca apenas com uma glaive, alabarda, bordão ou lança, pode usar uma ação bônus para fazer um ataque corpo a corpo com a extremidade oposta da arma; esse ataque usa o mesmo modificador de atributo do ataque principal. O dado de dano da arma para esse ataque é um d4, e o ataque causa dano de concussão. Enquanto você empunha uma glaive, alabarda, pique, bordão ou lança, outras criaturas provocam um ataque de oportunidade de você quando entram no alcance que você tem com essa arma."
+    "description": "Você consegue manter seus inimigos à distância com armas de alcance. Você recebe os seguintes benefícios: Quando você usa a ação de Ataque e ataca apenas com uma glaive, alabarda, bordão ou lança, pode usar uma ação bônus para fazer um ataque corpo a corpo com a extremidade oposta da arma; esse ataque usa o mesmo modificador de atributo do ataque principal. O dado de dano da arma para esse ataque é um d4, e o ataque causa dano de concussão. Enquanto você empunha uma glaive, alabarda, pique, bordão ou lança, outras criaturas provocam um ataque de oportunidade de você quando entram no alcance que você tem com essa arma.",
+    "name": "Maestria em Arma de Haste"
   },
   "resilient": {
-    "description": "Escolha um valor de atributo. Você recebe os seguintes benefícios: Você ganha proficiência em testes de resistência que usem o atributo escolhido."
+    "description": "Escolha um valor de atributo. Você recebe os seguintes benefícios: Você ganha proficiência em testes de resistência que usem o atributo escolhido.",
+    "name": "Resiliente"
   },
   "ritual-caster": {
-    "description": "Pré-requisito: Inteligência 13 ou maior ou Sabedoria 13 ou maior\n\nVocê aprendeu algumas magias que pode conjurar como rituais. Essas magias ficam escritas em um livro de rituais, que você precisa ter em mãos ao conjurar uma delas. Quando você escolhe este talento, adquire um livro de rituais com duas magias de 1º nível à sua escolha. Escolha uma das seguintes classes: bardo, clérigo, druida, feiticeiro, bruxo ou mago. Você precisa escolher suas magias da lista de magias dessa classe, e as magias escolhidas precisam ter a característica ritual. A classe escolhida também define sua habilidade de conjuração para essas magias: Carisma para bardo, feiticeiro ou bruxo; Sabedoria para clérigo ou druida; ou Inteligência para mago. Se você encontrar uma magia na forma escrita, como um pergaminho de magia ou o grimório de um mago, talvez consiga adicioná-la ao seu livro de rituais. A magia precisa estar na lista de magias da classe escolhida, o nível dela não pode ser maior que a metade do seu nível (arredondado para cima) e ela precisa ter a característica ritual. Copiar a magia para o seu livro de rituais leva 2 horas por nível da magia e custa 50 po por nível. O custo representa os componentes materiais que você gasta ao experimentar a magia até dominá-la, além das tintas finas necessárias para registrá-la."
+    "description": "Pré-requisito: Inteligência 13 ou maior ou Sabedoria 13 ou maior\n\nVocê aprendeu algumas magias que pode conjurar como rituais. Essas magias ficam escritas em um livro de rituais, que você precisa ter em mãos ao conjurar uma delas. Quando você escolhe este talento, adquire um livro de rituais com duas magias de 1º nível à sua escolha. Escolha uma das seguintes classes: bardo, clérigo, druida, feiticeiro, bruxo ou mago. Você precisa escolher suas magias da lista de magias dessa classe, e as magias escolhidas precisam ter a característica ritual. A classe escolhida também define sua habilidade de conjuração para essas magias: Carisma para bardo, feiticeiro ou bruxo; Sabedoria para clérigo ou druida; ou Inteligência para mago. Se você encontrar uma magia na forma escrita, como um pergaminho de magia ou o grimório de um mago, talvez consiga adicioná-la ao seu livro de rituais. A magia precisa estar na lista de magias da classe escolhida, o nível dela não pode ser maior que a metade do seu nível (arredondado para cima) e ela precisa ter a característica ritual. Copiar a magia para o seu livro de rituais leva 2 horas por nível da magia e custa 50 po por nível. O custo representa os componentes materiais que você gasta ao experimentar a magia até dominá-la, além das tintas finas necessárias para registrá-la.",
+    "data": {
+      "additionalSpells": {
+        "Bard Spells": {
+          "name": "Magias de Bardo"
+        },
+        "Cleric Spells": {
+          "name": "Magias de Clérigo"
+        },
+        "Druid Spells": {
+          "name": "Magias de Druida"
+        },
+        "Sorcerer Spells": {
+          "name": "Magias de Feiticeiro"
+        },
+        "Warlock Spells": {
+          "name": "Magias de Bruxo"
+        },
+        "Wizard Spells": {
+          "name": "Magias de Mago"
+        }
+      }
+    },
+    "name": "Conjurador de Ritual"
   },
   "savage-attacker": {
-    "description": "Uma vez por turno, quando você rola o dano de um ataque corpo a corpo com arma, pode rolar de novo os dados de dano da arma e usar qualquer um dos totais."
+    "description": "Uma vez por turno, quando você rola o dano de um ataque corpo a corpo com arma, pode rolar de novo os dados de dano da arma e usar qualquer um dos totais.",
+    "name": "Atacante Bestial"
   },
   "sentinel": {
-    "description": "Você domina técnicas para aproveitar cada brecha na guarda do inimigo e recebe os seguintes benefícios: Quando você atinge uma criatura com um ataque de oportunidade, o deslocamento dela se torna 0 pelo resto do turno. As criaturas provocam ataques de oportunidade de você mesmo que usem a ação Desengajar antes de sair do seu alcance. Quando uma criatura a até 1,5 metro de você faz um ataque contra um alvo que não seja você (e esse alvo não tem este talento), você pode usar sua reação para fazer um ataque corpo a corpo com arma contra a criatura atacante."
+    "description": "Você domina técnicas para aproveitar cada brecha na guarda do inimigo e recebe os seguintes benefícios: Quando você atinge uma criatura com um ataque de oportunidade, o deslocamento dela se torna 0 pelo resto do turno. As criaturas provocam ataques de oportunidade de você mesmo que usem a ação Desengajar antes de sair do seu alcance. Quando uma criatura a até 1,5 metro de você faz um ataque contra um alvo que não seja você (e esse alvo não tem este talento), você pode usar sua reação para fazer um ataque corpo a corpo com arma contra a criatura atacante.",
+    "name": "Sentinela"
   },
   "sharpshooter": {
-    "description": "Você domina as armas à distância e faz disparos que outros consideram impossíveis. Você recebe os seguintes benefícios: Atacar a longa distância não impõe desvantagem nas suas jogadas de ataque à distância com arma. Seus ataques à distância com arma ignoram meia cobertura e três-quartos de cobertura. Antes de fazer um ataque com uma arma à distância com a qual é proficiente, você pode escolher sofrer uma penalidade de -5 na jogada de ataque. Se o ataque acertar, você soma +10 ao dano do ataque."
+    "description": "Você domina as armas à distância e faz disparos que outros consideram impossíveis. Você recebe os seguintes benefícios: Atacar a longa distância não impõe desvantagem nas suas jogadas de ataque à distância com arma. Seus ataques à distância com arma ignoram meia cobertura e três-quartos de cobertura. Antes de fazer um ataque com uma arma à distância com a qual é proficiente, você pode escolher sofrer uma penalidade de -5 na jogada de ataque. Se o ataque acertar, você soma +10 ao dano do ataque.",
+    "name": "Atirador Aguçado"
   },
   "shield-master": {
-    "description": "Você usa escudos não só para se proteger, mas também para atacar. Você recebe os seguintes benefícios enquanto empunha um escudo: Se usar a ação de Ataque no seu turno, você pode usar uma ação bônus para tentar empurrar com o escudo uma criatura a até 1,5 metro de você. Se não estiver incapacitado, você pode somar o bônus de CA do escudo a qualquer teste de resistência de Destreza que fizer contra uma magia ou outro efeito nocivo que tenha só você como alvo. Se você for submetido a um efeito que permita um teste de resistência de Destreza para sofrer apenas metade do dano, pode usar sua reação para não sofrer dano se tiver sucesso no teste, interpondo o escudo entre você e a origem do efeito."
+    "description": "Você usa escudos não só para se proteger, mas também para atacar. Você recebe os seguintes benefícios enquanto empunha um escudo: Se usar a ação de Ataque no seu turno, você pode usar uma ação bônus para tentar empurrar com o escudo uma criatura a até 1,5 metro de você. Se não estiver incapacitado, você pode somar o bônus de CA do escudo a qualquer teste de resistência de Destreza que fizer contra uma magia ou outro efeito nocivo que tenha só você como alvo. Se você for submetido a um efeito que permita um teste de resistência de Destreza para sofrer apenas metade do dano, pode usar sua reação para não sofrer dano se tiver sucesso no teste, interpondo o escudo entre você e a origem do efeito.",
+    "name": "Mestre de Escudo"
   },
   "skilled": {
-    "description": "Você ganha proficiência em qualquer combinação de três perícias ou ferramentas à sua escolha."
+    "description": "Você ganha proficiência em qualquer combinação de três perícias ou ferramentas à sua escolha.",
+    "name": "Perito"
   },
   "skulker": {
-    "description": "Pré-requisito: Destreza 13 ou maior\n\nVocê é especialista em se esgueirar pelas sombras. Você recebe os seguintes benefícios: Você pode tentar se esconder quando estiver levemente obscurecido em relação à criatura da qual está se escondendo. Quando você está escondido de uma criatura e erra um ataque à distância com arma contra ela, o ataque não revela sua posição. Penumbra não impõe desvantagem nos seus testes de Sabedoria (Percepção) que dependem da visão."
+    "description": "Pré-requisito: Destreza 13 ou maior\n\nVocê é especialista em se esgueirar pelas sombras. Você recebe os seguintes benefícios: Você pode tentar se esconder quando estiver levemente obscurecido em relação à criatura da qual está se escondendo. Quando você está escondido de uma criatura e erra um ataque à distância com arma contra ela, o ataque não revela sua posição. Penumbra não impõe desvantagem nos seus testes de Sabedoria (Percepção) que dependem da visão.",
+    "name": "Sorrateiro"
   },
   "spell-sniper": {
-    "description": "Pré-requisito: a capacidade de conjurar pelo menos uma magia\n\nVocê aprendeu técnicas para fortalecer seus ataques com certos tipos de magia e recebe os seguintes benefícios: Quando você conjura uma magia que exige uma jogada de ataque, o alcance da magia dobra. Seus ataques mágicos à distância ignoram meia cobertura e três-quartos de cobertura. Você aprende um truque que exige uma jogada de ataque. Escolha o truque da lista de magias do bardo, clérigo, druida, feiticeiro, bruxo ou mago. Sua habilidade de conjuração para esse truque depende da lista escolhida: Carisma para bardo, feiticeiro ou bruxo; Sabedoria para clérigo ou druida; ou Inteligência para mago."
+    "description": "Pré-requisito: a capacidade de conjurar pelo menos uma magia\n\nVocê aprendeu técnicas para fortalecer seus ataques com certos tipos de magia e recebe os seguintes benefícios: Quando você conjura uma magia que exige uma jogada de ataque, o alcance da magia dobra. Seus ataques mágicos à distância ignoram meia cobertura e três-quartos de cobertura. Você aprende um truque que exige uma jogada de ataque. Escolha o truque da lista de magias do bardo, clérigo, druida, feiticeiro, bruxo ou mago. Sua habilidade de conjuração para esse truque depende da lista escolhida: Carisma para bardo, feiticeiro ou bruxo; Sabedoria para clérigo ou druida; ou Inteligência para mago.",
+    "data": {
+      "additionalSpells": {
+        "Bard Spells": {
+          "name": "Magias de Bardo"
+        },
+        "Cleric Spells": {
+          "name": "Magias de Clérigo"
+        },
+        "Druid Spells": {
+          "name": "Magias de Druida"
+        },
+        "Sorcerer Spells": {
+          "name": "Magias de Feiticeiro"
+        },
+        "Warlock Spells": {
+          "name": "Magias de Bruxo"
+        },
+        "Wizard Spells": {
+          "name": "Magias de Mago"
+        }
+      }
+    },
+    "name": "Atirador de Magia"
   },
   "tavern-brawler": {
-    "description": "Acostumado a brigas usando qualquer arma que estiver à mão, você recebe os seguintes benefícios: Você é proficiente com armas improvisadas. Seu ataque desarmado usa um d4 de dano. Quando você atinge uma criatura com um ataque desarmado ou uma arma improvisada no seu turno, pode usar uma ação bônus para tentar agarrar o alvo."
+    "description": "Acostumado a brigas usando qualquer arma que estiver à mão, você recebe os seguintes benefícios: Você é proficiente com armas improvisadas. Seu ataque desarmado usa um d4 de dano. Quando você atinge uma criatura com um ataque desarmado ou uma arma improvisada no seu turno, pode usar uma ação bônus para tentar agarrar o alvo.",
+    "name": "Especialista em Briga"
   },
   "tough": {
-    "description": "Seu máximo de pontos de vida aumenta em um valor igual ao dobro do seu nível quando você recebe este talento. Sempre que subir de nível depois disso, seu máximo de pontos de vida aumenta em mais 2 pontos de vida."
+    "description": "Seu máximo de pontos de vida aumenta em um valor igual ao dobro do seu nível quando você recebe este talento. Sempre que subir de nível depois disso, seu máximo de pontos de vida aumenta em mais 2 pontos de vida.",
+    "name": "Robusto"
   },
   "war-caster": {
-    "description": "Pré-requisito: a capacidade de conjurar pelo menos uma magia\n\nVocê praticou conjurar magias no meio do combate e aprendeu técnicas que concedem os seguintes benefícios: Você tem vantagem em testes de resistência de Constituição que faz para manter a concentração em uma magia quando sofre dano. Você pode executar os componentes somáticos das magias mesmo com armas ou um escudo em uma ou nas duas mãos. Quando o movimento de uma criatura hostil provoca um ataque de oportunidade de você, você pode usar sua reação para conjurar uma magia na criatura, em vez de fazer o ataque de oportunidade. A magia precisa ter tempo de conjuração de 1 ação e ter apenas essa criatura como alvo."
+    "description": "Pré-requisito: a capacidade de conjurar pelo menos uma magia\n\nVocê praticou conjurar magias no meio do combate e aprendeu técnicas que concedem os seguintes benefícios: Você tem vantagem em testes de resistência de Constituição que faz para manter a concentração em uma magia quando sofre dano. Você pode executar os componentes somáticos das magias mesmo com armas ou um escudo em uma ou nas duas mãos. Quando o movimento de uma criatura hostil provoca um ataque de oportunidade de você, você pode usar sua reação para conjurar uma magia na criatura, em vez de fazer o ataque de oportunidade. A magia precisa ter tempo de conjuração de 1 ação e ter apenas essa criatura como alvo.",
+    "name": "Conjurador de Guerra"
   },
   "weapon-master": {
-    "description": "Você praticou bastante com várias armas e recebe os seguintes benefícios: Você ganha proficiência com quatro armas à sua escolha. Cada uma precisa ser uma arma simples ou marcial."
+    "description": "Você praticou bastante com várias armas e recebe os seguintes benefícios: Você ganha proficiência com quatro armas à sua escolha. Cada uma precisa ser uma arma simples ou marcial.",
+    "name": "Mestre de Armas"
   },
   "artificer-initiate": {
-    "description": "Você aprendeu um pouco da inventividade de um artífice: aprende um truque à sua escolha da lista de magias de artífice e uma magia de 1º nível à sua escolha da mesma lista. Inteligência é sua habilidade de conjuração para essas magias. Você pode conjurar a magia de 1º nível deste talento sem um espaço de magia, e precisa terminar um descanso longo antes de poder conjurá-la dessa forma de novo. Você também pode conjurar a magia usando qualquer espaço de magia que tenha. Você ganha proficiência com um tipo de ferramentas de artesão à sua escolha e pode usar esse tipo de ferramenta como foco de conjuração para qualquer magia que conjurar que use Inteligência como habilidade de conjuração."
+    "description": "Você aprendeu um pouco da inventividade de um artífice: aprende um truque à sua escolha da lista de magias de artífice e uma magia de 1º nível à sua escolha da mesma lista. Inteligência é sua habilidade de conjuração para essas magias. Você pode conjurar a magia de 1º nível deste talento sem um espaço de magia, e precisa terminar um descanso longo antes de poder conjurá-la dessa forma de novo. Você também pode conjurar a magia usando qualquer espaço de magia que tenha. Você ganha proficiência com um tipo de ferramentas de artesão à sua escolha e pode usar esse tipo de ferramenta como foco de conjuração para qualquer magia que conjurar que use Inteligência como habilidade de conjuração.",
+    "name": "Iniciado Artífice"
   },
   "chef": {
-    "description": "O tempo dedicado a dominar as artes culinárias valeu a pena, concedendo a você os seguintes benefícios: Você ganha proficiência com utensílios de cozinheiro, se ainda não a tiver. Como parte de um descanso curto, você pode cozinhar uma comida especial, desde que tenha ingredientes e utensílios de cozinheiro à mão. Você pode preparar comida suficiente para um número de criaturas igual a 4 + seu bônus de proficiência. Ao fim do descanso curto, qualquer criatura que comer a comida e gastar um ou mais Dados de Vida para recuperar pontos de vida recupera 1d8 pontos de vida extras. Com uma hora de trabalho ou ao terminar um descanso longo, você pode cozinhar um número de petiscos igual ao seu bônus de proficiência. Esses petiscos especiais duram 8 horas depois de prontos. Uma criatura pode usar uma ação bônus para comer um desses petiscos e ganhar pontos de vida temporários iguais ao seu bônus de proficiência."
+    "description": "O tempo dedicado a dominar as artes culinárias valeu a pena, concedendo a você os seguintes benefícios: Você ganha proficiência com utensílios de cozinheiro, se ainda não a tiver. Como parte de um descanso curto, você pode cozinhar uma comida especial, desde que tenha ingredientes e utensílios de cozinheiro à mão. Você pode preparar comida suficiente para um número de criaturas igual a 4 + seu bônus de proficiência. Ao fim do descanso curto, qualquer criatura que comer a comida e gastar um ou mais Dados de Vida para recuperar pontos de vida recupera 1d8 pontos de vida extras. Com uma hora de trabalho ou ao terminar um descanso longo, você pode cozinhar um número de petiscos igual ao seu bônus de proficiência. Esses petiscos especiais duram 8 horas depois de prontos. Uma criatura pode usar uma ação bônus para comer um desses petiscos e ganhar pontos de vida temporários iguais ao seu bônus de proficiência.",
+    "name": "Chef"
   },
   "crusher": {
-    "description": "Você é treinado na arte de esmagar seus inimigos, o que concede os seguintes benefícios: Uma vez por turno, quando atingir uma criatura com um ataque que cause dano de concussão, você pode movê-la 1,5 metro para um espaço desocupado, desde que o alvo não seja mais de uma categoria de tamanho maior que você. Quando fizer um acerto crítico que cause dano de concussão a uma criatura, as jogadas de ataque contra essa criatura são feitas com vantagem até o início do seu próximo turno."
+    "description": "Você é treinado na arte de esmagar seus inimigos, o que concede os seguintes benefícios: Uma vez por turno, quando atingir uma criatura com um ataque que cause dano de concussão, você pode movê-la 1,5 metro para um espaço desocupado, desde que o alvo não seja mais de uma categoria de tamanho maior que você. Quando fizer um acerto crítico que cause dano de concussão a uma criatura, as jogadas de ataque contra essa criatura são feitas com vantagem até o início do seu próximo turno.",
+    "name": "Esmagador"
   },
   "eldritch-adept": {
-    "description": "Estudando saberes ocultos, você aprende uma opção de Invocação Mística à sua escolha da classe bruxo. Sua habilidade de conjuração para a invocação é Inteligência, Sabedoria ou Carisma (escolha ao selecionar este talento). Se a invocação tiver algum tipo de pré-requisito, você só pode escolhê-la se for um bruxo que atenda ao pré-requisito. Sempre que ganhar um nível, você pode trocar a invocação por outra da classe bruxo."
+    "description": "Estudando saberes ocultos, você aprende uma opção de Invocação Mística à sua escolha da classe bruxo. Sua habilidade de conjuração para a invocação é Inteligência, Sabedoria ou Carisma (escolha ao selecionar este talento). Se a invocação tiver algum tipo de pré-requisito, você só pode escolhê-la se for um bruxo que atenda ao pré-requisito. Sempre que ganhar um nível, você pode trocar a invocação por outra da classe bruxo.",
+    "data": {
+      "optionalFeatureProgressions": {
+        "Eldritch Invocations": {
+          "name": "Invocações Místicas"
+        }
+      }
+    },
+    "name": "Adepto Místico"
   },
   "fey-touched": {
-    "description": "O contato com a magia da Agrestia das Fadas mudou você, concedendo os seguintes benefícios: Você aprende a magia passo nebuloso e uma magia de 1º nível à sua escolha. A magia de 1º nível precisa ser da escola de adivinhação ou de encantamento. Você pode conjurar cada uma dessas magias sem gastar um espaço de magia. Depois de conjurar qualquer uma delas dessa forma, você não pode conjurar essa magia dessa forma de novo até terminar um descanso longo. Você também pode conjurar essas magias usando espaços de magia do nível apropriado que tenha. A habilidade de conjuração das magias é o atributo aumentado por este talento."
+    "description": "O contato com a magia da Agrestia das Fadas mudou você, concedendo os seguintes benefícios: Você aprende a magia passo nebuloso e uma magia de 1º nível à sua escolha. A magia de 1º nível precisa ser da escola de adivinhação ou de encantamento. Você pode conjurar cada uma dessas magias sem gastar um espaço de magia. Depois de conjurar qualquer uma delas dessa forma, você não pode conjurar essa magia dessa forma de novo até terminar um descanso longo. Você também pode conjurar essas magias usando espaços de magia do nível apropriado que tenha. A habilidade de conjuração das magias é o atributo aumentado por este talento.",
+    "name": "Tocado pelas Fadas"
   },
   "fighting-initiate": {
-    "description": "Pré-requisito: proficiência com arma marcial\n\nSeu treinamento marcial ajudou você a desenvolver um estilo de luta particular. Como resultado, você aprende uma opção de Estilo de Luta à sua escolha da classe guerreiro. Se já tiver um estilo, o que escolher precisa ser diferente. Sempre que atingir um nível que conceda a característica Aumento de Valor de Atributo, você pode trocar o estilo de luta deste talento por outro da classe guerreiro que você não tenha."
+    "description": "Pré-requisito: proficiência com arma marcial\n\nSeu treinamento marcial ajudou você a desenvolver um estilo de luta particular. Como resultado, você aprende uma opção de Estilo de Luta à sua escolha da classe guerreiro. Se já tiver um estilo, o que escolher precisa ser diferente. Sempre que atingir um nível que conceda a característica Aumento de Valor de Atributo, você pode trocar o estilo de luta deste talento por outro da classe guerreiro que você não tenha.",
+    "data": {
+      "optionalFeatureProgressions": {
+        "Fighting Style": {
+          "name": "Estilo de Luta"
+        }
+      }
+    },
+    "name": "Iniciado em Combate"
   },
   "gunner": {
-    "description": "Você tem mão rápida e olho afiado no uso de armas de fogo, o que concede os seguintes benefícios: Você ganha proficiência com armas de fogo (veja \"Armas de Fogo\" no Guia do Mestre). Você ignora a propriedade recarga das armas de fogo. Estar a até 1,5 metro de uma criatura hostil não impõe desvantagem às suas jogadas de ataque à distância."
+    "description": "Você tem mão rápida e olho afiado no uso de armas de fogo, o que concede os seguintes benefícios: Você ganha proficiência com armas de fogo (veja \"Armas de Fogo\" no Guia do Mestre). Você ignora a propriedade recarga das armas de fogo. Estar a até 1,5 metro de uma criatura hostil não impõe desvantagem às suas jogadas de ataque à distância.",
+    "name": "Atirador"
   },
   "metamagic-adept": {
-    "description": "Você aprendeu a impor sua vontade às suas magias para alterar o modo como funcionam: aprende duas opções de Metamagia à sua escolha da classe feiticeiro. Você só pode usar uma opção de Metamagia numa magia ao conjurá-la, a menos que a opção diga o contrário. Sempre que atingir um nível que conceda a característica Aumento de Valor de Atributo, você pode trocar uma dessas opções de Metamagia por outra da classe feiticeiro. Você ganha 2 pontos de feitiçaria para gastar em Metamagia (esses pontos se somam aos pontos de feitiçaria que você tiver de outra fonte, mas só podem ser usados em Metamagia). Você recupera todos os pontos de feitiçaria gastos ao terminar um descanso longo."
+    "description": "Você aprendeu a impor sua vontade às suas magias para alterar o modo como funcionam: aprende duas opções de Metamagia à sua escolha da classe feiticeiro. Você só pode usar uma opção de Metamagia numa magia ao conjurá-la, a menos que a opção diga o contrário. Sempre que atingir um nível que conceda a característica Aumento de Valor de Atributo, você pode trocar uma dessas opções de Metamagia por outra da classe feiticeiro. Você ganha 2 pontos de feitiçaria para gastar em Metamagia (esses pontos se somam aos pontos de feitiçaria que você tiver de outra fonte, mas só podem ser usados em Metamagia). Você recupera todos os pontos de feitiçaria gastos ao terminar um descanso longo.",
+    "data": {
+      "optionalFeatureProgressions": {
+        "Metamagic": {
+          "name": "Metamágica"
+        }
+      }
+    },
+    "name": "Adepto da Metamágica"
   },
   "piercer": {
-    "description": "Você alcançou uma precisão penetrante em combate, o que concede os seguintes benefícios: Uma vez por turno, quando atingir uma criatura com um ataque que cause dano perfurante, você pode rolar de novo um dos dados de dano do ataque, e precisa usar o novo resultado. Quando fizer um acerto crítico que cause dano perfurante a uma criatura, você pode rolar um dado de dano adicional ao determinar o dano perfurante extra que o alvo sofre."
+    "description": "Você alcançou uma precisão penetrante em combate, o que concede os seguintes benefícios: Uma vez por turno, quando atingir uma criatura com um ataque que cause dano perfurante, você pode rolar de novo um dos dados de dano do ataque, e precisa usar o novo resultado. Quando fizer um acerto crítico que cause dano perfurante a uma criatura, você pode rolar um dado de dano adicional ao determinar o dano perfurante extra que o alvo sofre.",
+    "name": "Perfurador"
   },
   "poisoner": {
-    "description": "Você sabe preparar e aplicar venenos mortais, o que concede os seguintes benefícios: Quando você faz uma jogada de dano que causa dano de veneno, ela ignora resistência a dano de veneno. Você pode aplicar veneno numa arma ou munição com uma ação bônus, em vez de uma ação. Você ganha proficiência com o kit de envenenador, se ainda não a tiver. Com uma hora de trabalho usando um kit de envenenador e gastando 50 po em materiais, você pode criar um número de doses de veneno potente igual ao seu bônus de proficiência. Depois de aplicado numa arma ou munição, o veneno mantém a potência por 1 minuto ou até você acertar com a arma ou a munição. Quando uma criatura sofre dano da arma ou munição envenenada, ela precisa ser bem-sucedida num teste de resistência de Constituição CD 14 ou sofre 2d8 de dano de veneno e fica envenenada até o fim do seu próximo turno."
+    "description": "Você sabe preparar e aplicar venenos mortais, o que concede os seguintes benefícios: Quando você faz uma jogada de dano que causa dano de veneno, ela ignora resistência a dano de veneno. Você pode aplicar veneno numa arma ou munição com uma ação bônus, em vez de uma ação. Você ganha proficiência com o kit de envenenador, se ainda não a tiver. Com uma hora de trabalho usando um kit de envenenador e gastando 50 po em materiais, você pode criar um número de doses de veneno potente igual ao seu bônus de proficiência. Depois de aplicado numa arma ou munição, o veneno mantém a potência por 1 minuto ou até você acertar com a arma ou a munição. Quando uma criatura sofre dano da arma ou munição envenenada, ela precisa ser bem-sucedida num teste de resistência de Constituição CD 14 ou sofre 2d8 de dano de veneno e fica envenenada até o fim do seu próximo turno.",
+    "name": "Envenenador"
   },
   "shadow-touched": {
-    "description": "O contato com a magia do Pendor das Sombras mudou você, concedendo os seguintes benefícios: Você aprende a magia invisibilidade e uma magia de 1º nível à sua escolha. A magia de 1º nível precisa ser da escola de ilusão ou de necromancia. Você pode conjurar cada uma dessas magias sem gastar um espaço de magia. Depois de conjurar qualquer uma delas dessa forma, você não pode conjurar essa magia dessa forma de novo até terminar um descanso longo. Você também pode conjurar essas magias usando espaços de magia do nível apropriado que tenha. A habilidade de conjuração das magias é o atributo aumentado por este talento."
+    "description": "O contato com a magia do Pendor das Sombras mudou você, concedendo os seguintes benefícios: Você aprende a magia invisibilidade e uma magia de 1º nível à sua escolha. A magia de 1º nível precisa ser da escola de ilusão ou de necromancia. Você pode conjurar cada uma dessas magias sem gastar um espaço de magia. Depois de conjurar qualquer uma delas dessa forma, você não pode conjurar essa magia dessa forma de novo até terminar um descanso longo. Você também pode conjurar essas magias usando espaços de magia do nível apropriado que tenha. A habilidade de conjuração das magias é o atributo aumentado por este talento.",
+    "name": "Tocado pelas Sombras"
   },
   "skill-expert": {
-    "description": "Você aprimorou sua proficiência com certas perícias, o que concede os seguintes benefícios: Você ganha proficiência em uma perícia à sua escolha. Escolha uma perícia na qual tenha proficiência. Você ganha especialização nessa perícia, o que significa que seu bônus de proficiência é dobrado em qualquer teste de habilidade que fizer com ela. A perícia escolhida não pode ser uma que já se beneficie de uma característica, como Especialização, que dobre seu bônus de proficiência."
+    "description": "Você aprimorou sua proficiência com certas perícias, o que concede os seguintes benefícios: Você ganha proficiência em uma perícia à sua escolha. Escolha uma perícia na qual tenha proficiência. Você ganha especialização nessa perícia, o que significa que seu bônus de proficiência é dobrado em qualquer teste de habilidade que fizer com ela. A perícia escolhida não pode ser uma que já se beneficie de uma característica, como Especialização, que dobre seu bônus de proficiência.",
+    "name": "Especialista em Perícia"
   },
   "slasher": {
-    "description": "Você aprendeu onde cortar para obter os melhores resultados, o que concede os seguintes benefícios: Uma vez por turno, quando atingir uma criatura com um ataque que cause dano cortante, você pode reduzir o deslocamento do alvo em 3 metros até o início do seu próximo turno. Quando fizer um acerto crítico que cause dano cortante a uma criatura, você a fere gravemente. Até o início do seu próximo turno, o alvo tem desvantagem em todas as jogadas de ataque."
+    "description": "Você aprendeu onde cortar para obter os melhores resultados, o que concede os seguintes benefícios: Uma vez por turno, quando atingir uma criatura com um ataque que cause dano cortante, você pode reduzir o deslocamento do alvo em 3 metros até o início do seu próximo turno. Quando fizer um acerto crítico que cause dano cortante a uma criatura, você a fere gravemente. Até o início do seu próximo turno, o alvo tem desvantagem em todas as jogadas de ataque.",
+    "name": "Retalhador"
   },
   "telekinetic": {
-    "description": "Você aprende a mover coisas com a mente, o que concede os seguintes benefícios: Você aprende o truque mão mágica. Você pode conjurá-lo sem componentes verbais ou somáticos e pode tornar a mão espectral invisível. Se já conhecer essa magia, o alcance dela aumenta em 9 metros quando você a conjura. A habilidade de conjuração dela é o atributo aumentado por este talento. Com uma ação bônus, você pode tentar empurrar telecineticamente uma criatura que possa ver a até 9 metros de você. Quando fizer isso, o alvo precisa ser bem-sucedido num teste de resistência de Força (CD 8 + seu bônus de proficiência + o modificador do atributo aumentado por este talento) ou é movido 1,5 metro na sua direção ou para longe de você. Uma criatura pode falhar nesse teste voluntariamente."
+    "description": "Você aprende a mover coisas com a mente, o que concede os seguintes benefícios: Você aprende o truque mão mágica. Você pode conjurá-lo sem componentes verbais ou somáticos e pode tornar a mão espectral invisível. Se já conhecer essa magia, o alcance dela aumenta em 9 metros quando você a conjura. A habilidade de conjuração dela é o atributo aumentado por este talento. Com uma ação bônus, você pode tentar empurrar telecineticamente uma criatura que possa ver a até 9 metros de você. Quando fizer isso, o alvo precisa ser bem-sucedido num teste de resistência de Força (CD 8 + seu bônus de proficiência + o modificador do atributo aumentado por este talento) ou é movido 1,5 metro na sua direção ou para longe de você. Uma criatura pode falhar nesse teste voluntariamente.",
+    "name": "Telecinético"
   },
   "telepathic": {
-    "description": "Você desperta a capacidade de se conectar mentalmente com os outros, o que concede os seguintes benefícios: Você pode falar telepaticamente com qualquer criatura que possa ver a até 18 metros de você. Suas mensagens telepáticas são num idioma que você conhece, e a criatura só entende você se conhecer esse idioma. Sua comunicação não dá à criatura a capacidade de responder telepaticamente. Você pode conjurar a magia detectar pensamentos sem precisar de espaço de magia nem de componentes, e precisa terminar um descanso longo antes de poder conjurá-la dessa forma de novo. Sua habilidade de conjuração para a magia é o atributo aumentado por este talento. Se tiver espaços de magia de 2º nível ou maior, você pode conjurar essa magia com eles."
+    "description": "Você desperta a capacidade de se conectar mentalmente com os outros, o que concede os seguintes benefícios: Você pode falar telepaticamente com qualquer criatura que possa ver a até 18 metros de você. Suas mensagens telepáticas são num idioma que você conhece, e a criatura só entende você se conhecer esse idioma. Sua comunicação não dá à criatura a capacidade de responder telepaticamente. Você pode conjurar a magia detectar pensamentos sem precisar de espaço de magia nem de componentes, e precisa terminar um descanso longo antes de poder conjurá-la dessa forma de novo. Sua habilidade de conjuração para a magia é o atributo aumentado por este talento. Se tiver espaços de magia de 2º nível ou maior, você pode conjurar essa magia com eles.",
+    "name": "Telepático"
   },
   "bountiful-luck": {
-    "description": "Pré-requisito: Halfling\n\nSeu povo tem uma sorte extraordinária, que você aprendeu a emprestar misticamente aos seus companheiros quando os vê vacilar. Você não sabe bem como faz isso; você simplesmente deseja, e acontece. Com certeza um sinal do favor da sorte! Quando um aliado que você possa ver a até 9 metros de você tirar 1 no d20 numa jogada de ataque, num teste de habilidade ou num teste de resistência, você pode usar sua reação para deixar o aliado rolar o dado de novo. O aliado precisa usar o novo resultado. Quando usar esta habilidade, você não pode usar seu traço racial Sortudo antes do fim do seu próximo turno."
+    "description": "Pré-requisito: Halfling\n\nSeu povo tem uma sorte extraordinária, que você aprendeu a emprestar misticamente aos seus companheiros quando os vê vacilar. Você não sabe bem como faz isso; você simplesmente deseja, e acontece. Com certeza um sinal do favor da sorte! Quando um aliado que você possa ver a até 9 metros de você tirar 1 no d20 numa jogada de ataque, num teste de habilidade ou num teste de resistência, você pode usar sua reação para deixar o aliado rolar o dado de novo. O aliado precisa usar o novo resultado. Quando usar esta habilidade, você não pode usar seu traço racial Sortudo antes do fim do seu próximo turno.",
+    "name": "Sorte Abundante",
+    "data": {
+      "prerequisites": {
+        "0": {
+          "race": {
+            "halfling": {
+              "name": "halfling"
+            }
+          }
+        }
+      }
+    }
   },
   "dragon-fear": {
-    "description": "Pré-requisito: Draconato\n\nQuando enfurecido, você irradia ameaça. Você ganha os seguintes benefícios: Em vez de exalar energia destrutiva, você pode gastar um uso do seu traço Arma de Sopro para rugir, forçando cada criatura à sua escolha a até 9 metros de você a fazer um teste de resistência de Sabedoria (CD 8 + seu bônus de proficiência + seu modificador de Carisma). Um alvo é automaticamente bem-sucedido no teste se não puder ouvir ou ver você. Se falhar no teste, o alvo fica amedrontado por você por 1 minuto. Se o alvo amedrontado sofrer qualquer dano, ele pode repetir o teste de resistência, encerrando o efeito sobre si em caso de sucesso."
+    "description": "Pré-requisito: Draconato\n\nQuando enfurecido, você irradia ameaça. Você ganha os seguintes benefícios: Em vez de exalar energia destrutiva, você pode gastar um uso do seu traço Arma de Sopro para rugir, forçando cada criatura à sua escolha a até 9 metros de você a fazer um teste de resistência de Sabedoria (CD 8 + seu bônus de proficiência + seu modificador de Carisma). Um alvo é automaticamente bem-sucedido no teste se não puder ouvir ou ver você. Se falhar no teste, o alvo fica amedrontado por você por 1 minuto. Se o alvo amedrontado sofrer qualquer dano, ele pode repetir o teste de resistência, encerrando o efeito sobre si em caso de sucesso.",
+    "name": "Temor Dracônico",
+    "data": {
+      "prerequisites": {
+        "0": {
+          "race": {
+            "dragonborn": {
+              "name": "draconato"
+            }
+          }
+        }
+      }
+    }
   },
   "dragon-hide": {
-    "description": "Pré-requisito: Draconato\n\nVocê manifesta escamas e garras que lembram seus ancestrais dracônicos. Você ganha os seguintes benefícios: Suas escamas endurecem. Enquanto não estiver usando armadura, você pode calcular sua CA como 13 + seu modificador de Destreza. Você pode usar um escudo e ainda assim receber este benefício. Garras retráteis crescem na ponta dos seus dedos. Estender ou recolher as garras não exige ação. As garras são armas naturais, que você pode usar para fazer ataques desarmados. Se acertar com elas, você causa dano cortante igual a 1d4 + seu modificador de Força, em vez do dano de concussão normal de um ataque desarmado."
+    "description": "Pré-requisito: Draconato\n\nVocê manifesta escamas e garras que lembram seus ancestrais dracônicos. Você ganha os seguintes benefícios: Suas escamas endurecem. Enquanto não estiver usando armadura, você pode calcular sua CA como 13 + seu modificador de Destreza. Você pode usar um escudo e ainda assim receber este benefício. Garras retráteis crescem na ponta dos seus dedos. Estender ou recolher as garras não exige ação. As garras são armas naturais, que você pode usar para fazer ataques desarmados. Se acertar com elas, você causa dano cortante igual a 1d4 + seu modificador de Força, em vez do dano de concussão normal de um ataque desarmado.",
+    "data": {
+      "prerequisites": {
+        "0": {
+          "race": {
+            "dragonborn": {
+              "name": "draconato"
+            }
+          }
+        }
+      }
+    },
+    "name": "Couro de Dragão"
   },
   "drow-high-magic": {
-    "description": "Pré-requisito: Elfo\n\nVocê aprende mais da magia típica dos elfos negros. Você aprende a magia detectar magia e pode conjurá-la à vontade, sem gastar um espaço de magia. Você também aprende levitação e dissipar magia, e pode conjurar cada uma delas uma vez sem gastar um espaço de magia. Você recupera a capacidade de conjurar essas duas magias dessa forma ao terminar um descanso longo. Carisma é sua habilidade de conjuração para as três magias."
+    "description": "Pré-requisito: Elfo\n\nVocê aprende mais da magia típica dos elfos negros. Você aprende a magia detectar magia e pode conjurá-la à vontade, sem gastar um espaço de magia. Você também aprende levitação e dissipar magia, e pode conjurar cada uma delas uma vez sem gastar um espaço de magia. Você recupera a capacidade de conjurar essas duas magias dessa forma ao terminar um descanso longo. Carisma é sua habilidade de conjuração para as três magias.",
+    "name": "Alta Magia Drow",
+    "data": {
+      "prerequisites": {
+        "0": {
+          "race": {
+            "elf": {
+              "name": "elfo"
+            }
+          }
+        }
+      }
+    }
   },
   "dwarven-fortitude": {
-    "description": "Pré-requisito: Anão\n\nO sangue dos heróis anões corre nas suas veias. Você ganha os seguintes benefícios: Sempre que realizar a ação Esquivar em combate, você pode gastar um Dado de Vida para se curar. Role o dado, some seu modificador de Constituição e recupere um número de pontos de vida igual ao total (no mínimo 1)."
+    "description": "Pré-requisito: Anão\n\nO sangue dos heróis anões corre nas suas veias. Você ganha os seguintes benefícios: Sempre que realizar a ação Esquivar em combate, você pode gastar um Dado de Vida para se curar. Role o dado, some seu modificador de Constituição e recupere um número de pontos de vida igual ao total (no mínimo 1).",
+    "name": "Fortitude Anã",
+    "data": {
+      "prerequisites": {
+        "0": {
+          "race": {
+            "dwarf": {
+              "name": "anão"
+            }
+          }
+        }
+      }
+    }
   },
   "elven-accuracy": {
-    "description": "Pré-requisito: Elfo ou Meio-Elfo\n\nA precisão dos elfos é lendária, especialmente a dos arqueiros e conjuradores élficos. Você tem uma mira assombrosa com ataques que dependem de precisão em vez de força bruta. Você ganha os seguintes benefícios: Sempre que tiver vantagem numa jogada de ataque usando Destreza, Inteligência, Sabedoria ou Carisma, você pode rolar de novo um dos dados uma vez."
+    "description": "Pré-requisito: Elfo ou Meio-Elfo\n\nA precisão dos elfos é lendária, especialmente a dos arqueiros e conjuradores élficos. Você tem uma mira assombrosa com ataques que dependem de precisão em vez de força bruta. Você ganha os seguintes benefícios: Sempre que tiver vantagem numa jogada de ataque usando Destreza, Inteligência, Sabedoria ou Carisma, você pode rolar de novo um dos dados uma vez.",
+    "data": {
+      "prerequisites": {
+        "0": {
+          "race": {
+            "elf": {
+              "name": "elfo"
+            },
+            "half-elf": {
+              "name": "meio-elfo"
+            }
+          }
+        }
+      }
+    },
+    "name": "Precisão Élfica"
   },
   "fade-away": {
-    "description": "Pré-requisito: Gnomo\n\nSeu povo é engenhoso, com um talento para a magia de ilusão. Você aprendeu um truque mágico para sumir quando sofre um ferimento. Você ganha os seguintes benefícios: Imediatamente depois de sofrer dano, você pode usar uma reação para ficar magicamente invisível até o fim do seu próximo turno ou até atacar, causar dano ou forçar alguém a fazer um teste de resistência. Depois de usar esta habilidade, você não pode usá-la de novo até terminar um descanso curto ou longo."
+    "description": "Pré-requisito: Gnomo\n\nSeu povo é engenhoso, com um talento para a magia de ilusão. Você aprendeu um truque mágico para sumir quando sofre um ferimento. Você ganha os seguintes benefícios: Imediatamente depois de sofrer dano, você pode usar uma reação para ficar magicamente invisível até o fim do seu próximo turno ou até atacar, causar dano ou forçar alguém a fazer um teste de resistência. Depois de usar esta habilidade, você não pode usá-la de novo até terminar um descanso curto ou longo.",
+    "name": "Desvanecer",
+    "data": {
+      "prerequisites": {
+        "0": {
+          "race": {
+            "gnome": {
+              "name": "gnomo"
+            }
+          }
+        }
+      }
+    }
   },
   "fey-teleportation": {
-    "description": "Pré-requisito: Elfo\n\nSeu estudo do saber dos altos elfos desbloqueou um poder feérico que poucos outros elfos possuem, exceto seus primos eladrins. Recorrendo à sua ancestralidade feérica, você pode atravessar por um instante a Agrestia das Fadas para encurtar seu caminho de um lugar a outro. Você ganha os seguintes benefícios: Você aprende a falar, ler e escrever Silvestre. Você aprende a magia passo nebuloso e pode conjurá-la uma vez sem gastar um espaço de magia. Você recupera a capacidade de conjurá-la dessa forma ao terminar um descanso curto ou longo. Inteligência é sua habilidade de conjuração para esta magia."
+    "description": "Pré-requisito: Elfo\n\nSeu estudo do saber dos altos elfos desbloqueou um poder feérico que poucos outros elfos possuem, exceto seus primos eladrins. Recorrendo à sua ancestralidade feérica, você pode atravessar por um instante a Agrestia das Fadas para encurtar seu caminho de um lugar a outro. Você ganha os seguintes benefícios: Você aprende a falar, ler e escrever Silvestre. Você aprende a magia passo nebuloso e pode conjurá-la uma vez sem gastar um espaço de magia. Você recupera a capacidade de conjurá-la dessa forma ao terminar um descanso curto ou longo. Inteligência é sua habilidade de conjuração para esta magia.",
+    "data": {
+      "prerequisites": {
+        "0": {
+          "race": {
+            "elf": {
+              "name": "elfo"
+            }
+          }
+        }
+      }
+    },
+    "name": "Teleporte das Fadas"
   },
   "flames-of-phlegethos": {
-    "description": "Pré-requisito: Tiefling\n\nVocê aprende a invocar o fogo infernal para servir aos seus comandos. Você ganha os seguintes benefícios: Quando rolar dano de fogo de uma magia que conjurar, você pode rolar de novo qualquer resultado 1 nos dados de dano de fogo, mas precisa usar o novo resultado, mesmo que seja outro 1. Sempre que conjurar uma magia que cause dano de fogo, você pode fazer chamas envolverem você até o fim do seu próximo turno. As chamas não ferem você nem seus pertences e emitem luz plena num raio de 9 metros e penumbra por mais 9 metros. Enquanto as chamas estiverem presentes, qualquer criatura a até 1,5 metro de você que atingir você com um ataque corpo a corpo sofre 1d4 de dano de fogo."
+    "description": "Pré-requisito: Tiefling\n\nVocê aprende a invocar o fogo infernal para servir aos seus comandos. Você ganha os seguintes benefícios: Quando rolar dano de fogo de uma magia que conjurar, você pode rolar de novo qualquer resultado 1 nos dados de dano de fogo, mas precisa usar o novo resultado, mesmo que seja outro 1. Sempre que conjurar uma magia que cause dano de fogo, você pode fazer chamas envolverem você até o fim do seu próximo turno. As chamas não ferem você nem seus pertences e emitem luz plena num raio de 9 metros e penumbra por mais 9 metros. Enquanto as chamas estiverem presentes, qualquer criatura a até 1,5 metro de você que atingir você com um ataque corpo a corpo sofre 1d4 de dano de fogo.",
+    "name": "Chamas de Phlegethos",
+    "data": {
+      "prerequisites": {
+        "0": {
+          "race": {
+            "tiefling": {
+              "name": "tiefling"
+            }
+          }
+        }
+      }
+    }
   },
   "infernal-constitution": {
-    "description": "Pré-requisito: Tiefling\n\nO sangue infernal corre forte em você, desbloqueando uma resiliência parecida com a de alguns corruptores. Você ganha os seguintes benefícios: Você tem resistência a dano de frio e de veneno. Você tem vantagem em testes de resistência contra ficar envenenado."
+    "description": "Pré-requisito: Tiefling\n\nO sangue infernal corre forte em você, desbloqueando uma resiliência parecida com a de alguns corruptores. Você ganha os seguintes benefícios: Você tem resistência a dano de frio e de veneno. Você tem vantagem em testes de resistência contra ficar envenenado.",
+    "data": {
+      "prerequisites": {
+        "0": {
+          "race": {
+            "tiefling": {
+              "name": "tiefling"
+            }
+          }
+        }
+      }
+    },
+    "name": "Constituição Infernal"
   },
   "orcish-fury": {
-    "description": "Pré-requisito: Meio-Orc\n\nSua fúria arde sem descanso. Você ganha os seguintes benefícios: Quando acertar um ataque usando uma arma simples ou marcial, você pode rolar um dos dados de dano da arma mais uma vez e somá-lo como dano extra do tipo de dano da arma. Depois de usar esta habilidade, você não pode usá-la de novo até terminar um descanso curto ou longo. Imediatamente depois de usar seu traço Resistência Implacável, você pode usar sua reação para fazer um ataque com arma."
+    "description": "Pré-requisito: Meio-Orc\n\nSua fúria arde sem descanso. Você ganha os seguintes benefícios: Quando acertar um ataque usando uma arma simples ou marcial, você pode rolar um dos dados de dano da arma mais uma vez e somá-lo como dano extra do tipo de dano da arma. Depois de usar esta habilidade, você não pode usá-la de novo até terminar um descanso curto ou longo. Imediatamente depois de usar seu traço Resistência Implacável, você pode usar sua reação para fazer um ataque com arma.",
+    "name": "Fúria Orc",
+    "data": {
+      "prerequisites": {
+        "0": {
+          "race": {
+            "half-orc": {
+              "name": "meio-orc"
+            }
+          }
+        }
+      }
+    }
   },
   "prodigy": {
-    "description": "Pré-requisito: Meio-Elfo, Meio-Orc ou Humano\n\nVocê tem facilidade para aprender coisas novas. Você ganha os seguintes benefícios: Você ganha proficiência em uma perícia à sua escolha, proficiência com uma ferramenta à sua escolha e fluência em um idioma à sua escolha. Escolha uma perícia na qual tenha proficiência. Você ganha especialização nessa perícia, o que significa que seu bônus de proficiência é dobrado em qualquer teste de habilidade que fizer com ela. A perícia escolhida não pode ser uma que já se beneficie de uma característica, como Especialização, que dobre seu bônus de proficiência."
+    "description": "Pré-requisito: Meio-Elfo, Meio-Orc ou Humano\n\nVocê tem facilidade para aprender coisas novas. Você ganha os seguintes benefícios: Você ganha proficiência em uma perícia à sua escolha, proficiência com uma ferramenta à sua escolha e fluência em um idioma à sua escolha. Escolha uma perícia na qual tenha proficiência. Você ganha especialização nessa perícia, o que significa que seu bônus de proficiência é dobrado em qualquer teste de habilidade que fizer com ela. A perícia escolhida não pode ser uma que já se beneficie de uma característica, como Especialização, que dobre seu bônus de proficiência.",
+    "data": {
+      "prerequisites": {
+        "0": {
+          "race": {
+            "half-elf": {
+              "name": "meio-elfo"
+            },
+            "half-orc": {
+              "name": "meio-orc"
+            },
+            "human": {
+              "name": "humano"
+            }
+          }
+        }
+      }
+    },
+    "name": "Prodígio"
   },
   "second-chance": {
-    "description": "Pré-requisito: Halfling\n\nA sorte favorece você quando alguém tenta golpeá-lo. Você ganha os seguintes benefícios: Quando uma criatura que você possa ver atingir você com uma jogada de ataque, você pode usar sua reação para forçar essa criatura a rolar de novo. Depois de usar esta habilidade, você não pode usá-la de novo até rolar iniciativa no início de um combate ou até terminar um descanso curto ou longo."
+    "description": "Pré-requisito: Halfling\n\nA sorte favorece você quando alguém tenta golpeá-lo. Você ganha os seguintes benefícios: Quando uma criatura que você possa ver atingir você com uma jogada de ataque, você pode usar sua reação para forçar essa criatura a rolar de novo. Depois de usar esta habilidade, você não pode usá-la de novo até rolar iniciativa no início de um combate ou até terminar um descanso curto ou longo.",
+    "data": {
+      "prerequisites": {
+        "0": {
+          "race": {
+            "halfling": {
+              "name": "halfling"
+            }
+          }
+        }
+      }
+    },
+    "name": "Segunda Chance"
   },
   "squat-nimbleness": {
-    "description": "Pré-requisito: Anão ou raça Pequena\n\nVocê é incomumente ágil para a sua raça. Você ganha os seguintes benefícios: Seu deslocamento de caminhada aumenta em 1,5 metro. Você ganha proficiência na perícia Acrobacia ou Atletismo (à sua escolha). Você tem vantagem em qualquer teste de Força (Atletismo) ou Destreza (Acrobacia) que fizer para escapar de uma agarrada."
+    "description": "Pré-requisito: Anão ou raça Pequena\n\nVocê é incomumente ágil para a sua raça. Você ganha os seguintes benefícios: Seu deslocamento de caminhada aumenta em 1,5 metro. Você ganha proficiência na perícia Acrobacia ou Atletismo (à sua escolha). Você tem vantagem em qualquer teste de Força (Atletismo) ou Destreza (Acrobacia) que fizer para escapar de uma agarrada.",
+    "data": {
+      "prerequisites": {
+        "0": {
+          "race": {
+            "dwarf": {
+              "name": "anão"
+            },
+            "small race": {
+              "name": "raça pequena"
+            }
+          }
+        }
+      }
+    },
+    "name": "Agachamento Ágil"
   },
   "wood-elf-magic": {
-    "description": "Pré-requisito: Elfo\n\nVocê aprende a magia das matas primitivas, reverenciadas e protegidas pelo seu povo. Você aprende um truque de druida à sua escolha. Você também aprende as magias passos largos e passos sem pegadas, e pode conjurar cada uma delas uma vez sem gastar um espaço de magia. Você recupera a capacidade de conjurar essas duas magias dessa forma ao terminar um descanso longo. Sabedoria é sua habilidade de conjuração para as três magias."
+    "description": "Pré-requisito: Elfo\n\nVocê aprende a magia das matas primitivas, reverenciadas e protegidas pelo seu povo. Você aprende um truque de druida à sua escolha. Você também aprende as magias passos largos e passos sem pegadas, e pode conjurar cada uma delas uma vez sem gastar um espaço de magia. Você recupera a capacidade de conjurar essas duas magias dessa forma ao terminar um descanso longo. Sabedoria é sua habilidade de conjuração para as três magias.",
+    "data": {
+      "prerequisites": {
+        "0": {
+          "race": {
+            "elf": {
+              "name": "elfo"
+            }
+          }
+        }
+      }
+    },
+    "name": "Magia do Elfo da Floresta"
   },
   "svirfneblin-magic": {
-    "description": "Pré-requisito: Gnomo\n\nVocê herdou a capacidade inata de conjuração dos seus ancestrais. Essa capacidade permite que você conjure indetectável em si mesmo à vontade, sem precisar de componente material. Você também pode conjurar cada uma das seguintes magias uma vez com esta capacidade: cegueira/surdez, nublar e disfarçar-se. Você recupera a capacidade de conjurar essas magias ao terminar um descanso longo. Inteligência é sua habilidade de conjuração para essas magias, e você as conjura no menor nível possível."
+    "description": "Pré-requisito: Gnomo\n\nVocê herdou a capacidade inata de conjuração dos seus ancestrais. Essa capacidade permite que você conjure indetectável em si mesmo à vontade, sem precisar de componente material. Você também pode conjurar cada uma das seguintes magias uma vez com esta capacidade: cegueira/surdez, nublar e disfarçar-se. Você recupera a capacidade de conjurar essas magias ao terminar um descanso longo. Inteligência é sua habilidade de conjuração para essas magias, e você as conjura no menor nível possível.",
+    "data": {
+      "prerequisites": {
+        "0": {
+          "race": {
+            "gnome": {
+              "name": "gnomo"
+            }
+          }
+        }
+      }
+    },
+    "name": "Magia Svirfneblin"
   },
   "gift-of-the-chromatic-dragon": {
-    "description": "Você manifestou parte do poder dos dragões cromáticos, o que concede os seguintes benefícios: Infusão Cromática. Com uma ação bônus, você pode tocar uma arma simples ou marcial e infundi-la com um dos seguintes tipos de dano: ácido, frio, fogo, elétrico ou veneno. Pelo próximo minuto, a arma causa 1d4 de dano extra do tipo escolhido ao acertar. Depois de usar esta ação bônus, você não pode fazer isso de novo até terminar um descanso longo. Resistência Reativa. Quando sofrer dano de ácido, frio, fogo, elétrico ou veneno, você pode usar sua reação para ganhar resistência a esse dano. Você pode usar esta reação um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos ao terminar um descanso longo."
+    "description": "Você manifestou parte do poder dos dragões cromáticos, o que concede os seguintes benefícios: Infusão Cromática. Com uma ação bônus, você pode tocar uma arma simples ou marcial e infundi-la com um dos seguintes tipos de dano: ácido, frio, fogo, elétrico ou veneno. Pelo próximo minuto, a arma causa 1d4 de dano extra do tipo escolhido ao acertar. Depois de usar esta ação bônus, você não pode fazer isso de novo até terminar um descanso longo. Resistência Reativa. Quando sofrer dano de ácido, frio, fogo, elétrico ou veneno, você pode usar sua reação para ganhar resistência a esse dano. Você pode usar esta reação um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos ao terminar um descanso longo.",
+    "name": "Dádiva do Dragão Cromático"
   },
   "gift-of-the-gem-dragon": {
-    "description": "Você manifestou parte do poder dos dragões de gema, o que concede os seguintes benefícios: Represália Telecinética. Quando sofrer dano de uma criatura a até 3 metros de você, você pode usar sua reação para emanar energia telecinética. A criatura que causou dano a você precisa fazer um teste de resistência de Força (CD igual a 8 + seu bônus de proficiência + o modificador do atributo aumentado por este talento). Se falhar, a criatura sofre 2d8 de dano de energia e é empurrada até 3 metros para longe de você. Se for bem-sucedida, a criatura sofre metade desse dano e não é empurrada. Você pode usar esta reação um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos ao terminar um descanso longo."
+    "description": "Você manifestou parte do poder dos dragões de gema, o que concede os seguintes benefícios: Represália Telecinética. Quando sofrer dano de uma criatura a até 3 metros de você, você pode usar sua reação para emanar energia telecinética. A criatura que causou dano a você precisa fazer um teste de resistência de Força (CD igual a 8 + seu bônus de proficiência + o modificador do atributo aumentado por este talento). Se falhar, a criatura sofre 2d8 de dano de energia e é empurrada até 3 metros para longe de você. Se for bem-sucedida, a criatura sofre metade desse dano e não é empurrada. Você pode usar esta reação um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos ao terminar um descanso longo.",
+    "name": "Dádiva do Dragão de Gema"
   },
   "gift-of-the-metallic-dragon": {
-    "description": "Você manifestou parte do poder dos dragões metálicos, o que concede os seguintes benefícios: Cura Dracônica. Você aprende a magia curar ferimentos. Você pode conjurar esta magia sem gastar um espaço de magia. Depois de conjurá-la dessa forma, você não pode fazer isso de novo até terminar um descanso longo. Você também pode conjurar esta magia usando os espaços de magia que tiver. A habilidade de conjuração da magia é Inteligência, Sabedoria ou Carisma quando você a conjura com este talento (escolha ao ganhar o talento). Asas Protetoras. Você pode manifestar asas protetoras capazes de proteger você ou outros. Quando você ou outra criatura que você possa ver a até 1,5 metro de você for atingido por uma jogada de ataque, você pode usar sua reação para manifestar por um momento asas espectrais nas suas costas. Você concede um bônus na CA do alvo igual ao seu bônus de proficiência contra essa jogada de ataque, possivelmente fazendo-a errar. Você pode usar esta reação um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos ao terminar um descanso longo."
+    "description": "Você manifestou parte do poder dos dragões metálicos, o que concede os seguintes benefícios: Cura Dracônica. Você aprende a magia curar ferimentos. Você pode conjurar esta magia sem gastar um espaço de magia. Depois de conjurá-la dessa forma, você não pode fazer isso de novo até terminar um descanso longo. Você também pode conjurar esta magia usando os espaços de magia que tiver. A habilidade de conjuração da magia é Inteligência, Sabedoria ou Carisma quando você a conjura com este talento (escolha ao ganhar o talento). Asas Protetoras. Você pode manifestar asas protetoras capazes de proteger você ou outros. Quando você ou outra criatura que você possa ver a até 1,5 metro de você for atingido por uma jogada de ataque, você pode usar sua reação para manifestar por um momento asas espectrais nas suas costas. Você concede um bônus na CA do alvo igual ao seu bônus de proficiência contra essa jogada de ataque, possivelmente fazendo-a errar. Você pode usar esta reação um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos ao terminar um descanso longo.",
+    "name": "Dádiva do Dragão Metálico"
   },
   "aberrant-dragonmark": {
-    "description": "Você manifestou uma marca do dragão aberrante. Determine a aparência dela e o defeito associado a ela. Você recebe os seguintes benefícios: Você aprende um truque à sua escolha da lista de magias de feiticeiro. Além disso, escolha uma magia de 1º nível da lista de magias de feiticeiro. Você aprende essa magia e pode conjurá-la através da sua marca. Depois de conjurá-la, você precisa terminar um descanso curto ou longo antes de poder conjurá-la de novo através da marca. Constituição é sua habilidade de conjuração para essas magias. Quando conjurar a magia de 1º nível através da sua marca, você pode gastar um dos seus Dados de Vida e rolá-lo. Se tirar um número par, você recebe pontos de vida temporários iguais ao número rolado. Se tirar um número ímpar, uma criatura aleatória a até 9 metros de você (sem incluir você) sofre dano de energia igual ao número rolado. Se não houver outras criaturas no alcance, você sofre o dano. Você também desenvolve um defeito aleatório da tabela Defeitos da Marca do Dragão Aberrante. Opção: Poderes Aberrantes Maiores. A critério do Mestre, um personagem com o talento Marca do Dragão Aberrante tem a chance de manifestar um poder maior. Ao chegar ao 10º nível, esse personagem tem 10% de chance de receber uma dádiva épica entre as opções do capítulo 7 do Guia do Mestre. Se não receber a dádiva, ele tem 10% de chance na próxima vez que subir de nível. Se o personagem receber uma dádiva, o Mestre a escolhe ou a determina aleatoriamente. O personagem também perde permanentemente um dos seus Dados de Vida, e seu máximo de pontos de vida é reduzido em um valor igual a uma rolagem desse dado mais seu modificador de Constituição (redução mínima de 1). Essa redução não pode ser revertida de nenhuma forma."
+    "description": "Você manifestou uma marca do dragão aberrante. Determine a aparência dela e o defeito associado a ela. Você recebe os seguintes benefícios: Você aprende um truque à sua escolha da lista de magias de feiticeiro. Além disso, escolha uma magia de 1º nível da lista de magias de feiticeiro. Você aprende essa magia e pode conjurá-la através da sua marca. Depois de conjurá-la, você precisa terminar um descanso curto ou longo antes de poder conjurá-la de novo através da marca. Constituição é sua habilidade de conjuração para essas magias. Quando conjurar a magia de 1º nível através da sua marca, você pode gastar um dos seus Dados de Vida e rolá-lo. Se tirar um número par, você recebe pontos de vida temporários iguais ao número rolado. Se tirar um número ímpar, uma criatura aleatória a até 9 metros de você (sem incluir você) sofre dano de energia igual ao número rolado. Se não houver outras criaturas no alcance, você sofre o dano. Você também desenvolve um defeito aleatório da tabela Defeitos da Marca do Dragão Aberrante. Opção: Poderes Aberrantes Maiores. A critério do Mestre, um personagem com o talento Marca do Dragão Aberrante tem a chance de manifestar um poder maior. Ao chegar ao 10º nível, esse personagem tem 10% de chance de receber uma dádiva épica entre as opções do capítulo 7 do Guia do Mestre. Se não receber a dádiva, ele tem 10% de chance na próxima vez que subir de nível. Se o personagem receber uma dádiva, o Mestre a escolhe ou a determina aleatoriamente. O personagem também perde permanentemente um dos seus Dados de Vida, e seu máximo de pontos de vida é reduzido em um valor igual a uma rolagem desse dado mais seu modificador de Constituição (redução mínima de 1). Essa redução não pode ser revertida de nenhuma forma.",
+    "name": "Marca do Dragão Aberrante"
   },
   "revenant-blade": {
-    "description": "Pré-requisito: Elfo\n\nVocê descende de um mestre da cimitarra de lâmina dupla, e parte dessa maestria passou para você. Você recebe os seguintes benefícios: Enquanto estiver segurando uma cimitarra de lâmina dupla com as duas mãos, você recebe +1 de bônus na Classe de Armadura. Uma cimitarra de lâmina dupla tem a propriedade acuidade quando você a empunha."
+    "description": "Pré-requisito: Elfo\n\nVocê descende de um mestre da cimitarra de lâmina dupla, e parte dessa maestria passou para você. Você recebe os seguintes benefícios: Enquanto estiver segurando uma cimitarra de lâmina dupla com as duas mãos, você recebe +1 de bônus na Classe de Armadura. Uma cimitarra de lâmina dupla tem a propriedade acuidade quando você a empunha.",
+    "data": {
+      "prerequisites": {
+        "0": {
+          "race": {
+            "elf": {
+              "name": "elfo"
+            }
+          }
+        }
+      }
+    },
+    "name": "Lâmina Retornada"
   },
   "strixhaven-initiate": {
-    "description": "Você estudou um pouco de teoria mágica e aprendeu algumas magias associadas à Universidade de Strixhaven. Escolha um dos colégios de Strixhaven: Lorehold, Prismari, Quandrix, Silverquill ou Witherbloom. Você aprende dois truques e uma magia de 1º nível com base no colégio escolhido, conforme especificado na tabela Magias de Strixhaven. Você pode conjurar a magia de 1º nível escolhida sem gastar um espaço de magia, e precisa terminar um descanso longo antes de poder conjurá-la dessa forma de novo. Você também pode conjurar a magia usando quaisquer espaços de magia que tenha. Sua habilidade de conjuração para as magias deste talento é Inteligência, Sabedoria ou Carisma (escolha quando selecionar este talento)."
+    "description": "Você estudou um pouco de teoria mágica e aprendeu algumas magias associadas à Universidade de Strixhaven. Escolha um dos colégios de Strixhaven: Lorehold, Prismari, Quandrix, Silverquill ou Witherbloom. Você aprende dois truques e uma magia de 1º nível com base no colégio escolhido, conforme especificado na tabela Magias de Strixhaven. Você pode conjurar a magia de 1º nível escolhida sem gastar um espaço de magia, e precisa terminar um descanso longo antes de poder conjurá-la dessa forma de novo. Você também pode conjurar a magia usando quaisquer espaços de magia que tenha. Sua habilidade de conjuração para as magias deste talento é Inteligência, Sabedoria ou Carisma (escolha quando selecionar este talento).",
+    "name": "Iniciado de Strixhaven",
+    "data": {
+      "additionalSpells": {
+        "Lorehold 1": {
+          "name": "Lorehold 1"
+        },
+        "Lorehold 2": {
+          "name": "Lorehold 2"
+        },
+        "Lorehold 3": {
+          "name": "Lorehold 3"
+        },
+        "Prismari 1": {
+          "name": "Prismari 1"
+        },
+        "Prismari 2": {
+          "name": "Prismari 2"
+        },
+        "Prismari 3": {
+          "name": "Prismari 3"
+        },
+        "Quandrix 1": {
+          "name": "Quandrix 1"
+        },
+        "Quandrix 2": {
+          "name": "Quandrix 2"
+        },
+        "Quandrix 3": {
+          "name": "Quandrix 3"
+        },
+        "Silverquill 1": {
+          "name": "Silverquill 1"
+        },
+        "Silverquill 2": {
+          "name": "Silverquill 2"
+        },
+        "Silverquill 3": {
+          "name": "Silverquill 3"
+        },
+        "Witherbloom 1": {
+          "name": "Witherbloom 1"
+        },
+        "Witherbloom 2": {
+          "name": "Witherbloom 2"
+        },
+        "Witherbloom 3": {
+          "name": "Witherbloom 3"
+        }
+      }
+    }
   },
   "strixhaven-mascot": {
-    "description": "Pré-requisito: nível 4+\n\nVocê aprendeu a invocar um mascote de Strixhaven para ajudá-lo, o que lhe concede estes benefícios: Você pode conjurar a magia convocar familiar como ritual. Seu familiar pode assumir a forma do mascote associado ao colégio que você escolheu no talento Iniciado de Strixhaven: um mascote estátua espiritual (Lorehold), um mascote elemental artístico (Prismari), um mascote fractal (Quandrix), um mascote tinteiro (Silverquill) ou um mascote praga (Witherbloom). Quando realizar a ação Atacar no seu turno, você pode abrir mão de um ataque para permitir que seu familiar mascote faça um ataque próprio com sua reação. Se seu familiar mascote estiver a até 18 metros de você, você pode se teletransportar com uma ação, trocando de lugar com o familiar. Se o espaço de destino for pequeno demais para você ocupar, o teletransporte falha e é desperdiçado. Depois de se teletransportar dessa forma, você não pode fazer isso de novo até terminar um descanso longo, a menos que gaste um espaço de magia de 2º nível ou superior para fazer isso de novo."
+    "description": "Pré-requisito: nível 4+\n\nVocê aprendeu a invocar um mascote de Strixhaven para ajudá-lo, o que lhe concede estes benefícios: Você pode conjurar a magia convocar familiar como ritual. Seu familiar pode assumir a forma do mascote associado ao colégio que você escolheu no talento Iniciado de Strixhaven: um mascote estátua espiritual (Lorehold), um mascote elemental artístico (Prismari), um mascote fractal (Quandrix), um mascote tinteiro (Silverquill) ou um mascote praga (Witherbloom). Quando realizar a ação Atacar no seu turno, você pode abrir mão de um ataque para permitir que seu familiar mascote faça um ataque próprio com sua reação. Se seu familiar mascote estiver a até 18 metros de você, você pode se teletransportar com uma ação, trocando de lugar com o familiar. Se o espaço de destino for pequeno demais para você ocupar, o teletransporte falha e é desperdiçado. Depois de se teletransportar dessa forma, você não pode fazer isso de novo até terminar um descanso longo, a menos que gaste um espaço de magia de 2º nível ou superior para fazer isso de novo.",
+    "name": "Mascote de Strixhaven"
   },
   "adept-of-the-black-robes": {
-    "description": "Pré-requisito: nível 4+\n\nVocê escolheu a lua Nuitari para influenciar sua magia, e sua ambição e lealdade à Ordem dos Mantos Negros foram reconhecidas, o que lhe concede estes benefícios: Magia Ambiciosa. Você aprende uma magia de 2º nível à sua escolha. A magia de 2º nível precisa ser da escola de encantamento ou necromancia. Você pode conjurar a magia de 2º nível deste talento sem gastar um espaço de magia, e precisa terminar um descanso longo antes de poder conjurá-la dessa forma de novo. Você também pode conjurar essa magia usando espaços de magia do nível adequado que tenha. A habilidade de conjuração da magia é a escolhida quando você recebeu o talento Iniciado da Alta Feitiçaria. Canal de Vida. Você pode canalizar sua força vital para o poder da sua magia. Quando uma criatura que você possa ver a até 18 metros de você falhar num teste de resistência contra uma magia que causa dano conjurada por você, você pode gastar um número de Dados de Vida igual ao nível da magia. Role os Dados de Vida gastos e some os resultados. O dano que a criatura sofre aumenta num valor igual a esse total."
+    "description": "Pré-requisito: nível 4+\n\nVocê escolheu a lua Nuitari para influenciar sua magia, e sua ambição e lealdade à Ordem dos Mantos Negros foram reconhecidas, o que lhe concede estes benefícios: Magia Ambiciosa. Você aprende uma magia de 2º nível à sua escolha. A magia de 2º nível precisa ser da escola de encantamento ou necromancia. Você pode conjurar a magia de 2º nível deste talento sem gastar um espaço de magia, e precisa terminar um descanso longo antes de poder conjurá-la dessa forma de novo. Você também pode conjurar essa magia usando espaços de magia do nível adequado que tenha. A habilidade de conjuração da magia é a escolhida quando você recebeu o talento Iniciado da Alta Feitiçaria. Canal de Vida. Você pode canalizar sua força vital para o poder da sua magia. Quando uma criatura que você possa ver a até 18 metros de você falhar num teste de resistência contra uma magia que causa dano conjurada por você, você pode gastar um número de Dados de Vida igual ao nível da magia. Role os Dados de Vida gastos e some os resultados. O dano que a criatura sofre aumenta num valor igual a esse total.",
+    "name": "Adepto dos Mantos Negros"
   },
   "adept-of-the-red-robes": {
-    "description": "Pré-requisito: nível 4+\n\nVocê escolheu a lua Lunitari para influenciar sua magia, e sua dedicação a manter o equilíbrio entre todas as coisas foi reconhecida pela Ordem dos Mantos Vermelhos, o que lhe concede estes benefícios: Magia Perspicaz. Você aprende uma magia de 2º nível à sua escolha. A magia de 2º nível precisa ser da escola de ilusão ou transmutação. Você pode conjurar a magia de 2º nível deste talento sem gastar um espaço de magia, e precisa terminar um descanso longo antes de poder conjurá-la dessa forma de novo. Você também pode conjurar essa magia usando espaços de magia do nível adequado que tenha. A habilidade de conjuração da magia é a escolhida quando você recebeu o talento Iniciado da Alta Feitiçaria. Equilíbrio Mágico. Quando fizer uma jogada de ataque ou um teste de habilidade e tirar 9 ou menos no d20, você pode equilibrar o destino e tratar a rolagem como 10. Você pode equilibrar o destino dessa forma um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos quando termina um descanso longo."
+    "description": "Pré-requisito: nível 4+\n\nVocê escolheu a lua Lunitari para influenciar sua magia, e sua dedicação a manter o equilíbrio entre todas as coisas foi reconhecida pela Ordem dos Mantos Vermelhos, o que lhe concede estes benefícios: Magia Perspicaz. Você aprende uma magia de 2º nível à sua escolha. A magia de 2º nível precisa ser da escola de ilusão ou transmutação. Você pode conjurar a magia de 2º nível deste talento sem gastar um espaço de magia, e precisa terminar um descanso longo antes de poder conjurá-la dessa forma de novo. Você também pode conjurar essa magia usando espaços de magia do nível adequado que tenha. A habilidade de conjuração da magia é a escolhida quando você recebeu o talento Iniciado da Alta Feitiçaria. Equilíbrio Mágico. Quando fizer uma jogada de ataque ou um teste de habilidade e tirar 9 ou menos no d20, você pode equilibrar o destino e tratar a rolagem como 10. Você pode equilibrar o destino dessa forma um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos quando termina um descanso longo.",
+    "name": "Adepto dos Mantos Vermelhos"
   },
   "adept-of-the-white-robes": {
-    "description": "Pré-requisito: nível 4+\n\nVocê escolheu a lua Solinari para influenciar sua magia, e seu juramento de usar a magia para tornar o mundo um lugar melhor foi reconhecido pela Ordem dos Mantos Brancos, o que lhe concede estes benefícios: Magia Protetora. Você aprende uma magia de 2º nível à sua escolha. A magia de 2º nível precisa ser da escola de abjuração ou adivinhação. Você pode conjurar a magia de 2º nível deste talento sem gastar um espaço de magia, e precisa terminar um descanso longo antes de poder conjurá-la dessa forma de novo. Você também pode conjurar essa magia usando espaços de magia do nível adequado que tenha. A habilidade de conjuração da magia é a escolhida quando você recebeu o talento Iniciado da Alta Feitiçaria. Proteção Mágica. Quando você ou uma criatura que você possa ver a até 9 metros de você sofrer dano, você pode usar sua reação para gastar um espaço de magia e tecer uma magia protetora ao redor do alvo. Role um número de d6 igual ao nível do espaço de magia gasto e reduza o dano que o alvo sofre no total rolado nesses dados + seu modificador de habilidade de conjuração."
+    "description": "Pré-requisito: nível 4+\n\nVocê escolheu a lua Solinari para influenciar sua magia, e seu juramento de usar a magia para tornar o mundo um lugar melhor foi reconhecido pela Ordem dos Mantos Brancos, o que lhe concede estes benefícios: Magia Protetora. Você aprende uma magia de 2º nível à sua escolha. A magia de 2º nível precisa ser da escola de abjuração ou adivinhação. Você pode conjurar a magia de 2º nível deste talento sem gastar um espaço de magia, e precisa terminar um descanso longo antes de poder conjurá-la dessa forma de novo. Você também pode conjurar essa magia usando espaços de magia do nível adequado que tenha. A habilidade de conjuração da magia é a escolhida quando você recebeu o talento Iniciado da Alta Feitiçaria. Proteção Mágica. Quando você ou uma criatura que você possa ver a até 9 metros de você sofrer dano, você pode usar sua reação para gastar um espaço de magia e tecer uma magia protetora ao redor do alvo. Role um número de d6 igual ao nível do espaço de magia gasto e reduza o dano que o alvo sofre no total rolado nesses dados + seu modificador de habilidade de conjuração.",
+    "name": "Adepto dos Mantos Brancos"
   },
   "divinely-favored": {
-    "description": "Pré-requisito: nível 4+\n\nUm deus escolheu você para carregar uma centelha do seu poder. Você aprende um truque à sua escolha da lista de magias de clérigo e uma magia de 1º nível com base na tendência do seu personagem, conforme especificado na tabela Magias por Tendência abaixo. Você também aprende a magia augúrio. Você pode conjurar a magia de 1º nível escolhida e a magia augúrio sem gastar um espaço de magia, e precisa terminar um descanso longo antes de poder conjurar qualquer uma delas dessa forma de novo. Você também pode conjurar essas magias usando espaços de magia do nível adequado que tenha. Sua habilidade de conjuração para as magias deste talento é Inteligência, Sabedoria ou Carisma (escolha quando selecionar este talento). Além disso, você pode usar um símbolo sagrado como foco de conjuração para qualquer magia que conjurar usando a habilidade de conjuração escolhida ao selecionar este talento."
+    "description": "Pré-requisito: nível 4+\n\nUm deus escolheu você para carregar uma centelha do seu poder. Você aprende um truque à sua escolha da lista de magias de clérigo e uma magia de 1º nível com base na tendência do seu personagem, conforme especificado na tabela Magias por Tendência abaixo. Você também aprende a magia augúrio. Você pode conjurar a magia de 1º nível escolhida e a magia augúrio sem gastar um espaço de magia, e precisa terminar um descanso longo antes de poder conjurar qualquer uma delas dessa forma de novo. Você também pode conjurar essas magias usando espaços de magia do nível adequado que tenha. Sua habilidade de conjuração para as magias deste talento é Inteligência, Sabedoria ou Carisma (escolha quando selecionar este talento). Além disso, você pode usar um símbolo sagrado como foco de conjuração para qualquer magia que conjurar usando a habilidade de conjuração escolhida ao selecionar este talento.",
+    "data": {
+      "additionalSpells": {
+        "Good": {
+          "name": "Bem"
+        },
+        "Evil": {
+          "name": "Mal"
+        },
+        "Neutral": {
+          "name": "Neutro"
+        }
+      }
+    },
+    "name": "Favorecido pelos Deuses"
   },
   "initiate-of-high-sorcery": {
-    "description": "Pré-requisito: nível 1+; nível 1+\n\nVocê recebeu treinamento de usuários de magia ligados aos Magos da Alta Feitiçaria. Escolha uma das três luas de Krynn para influenciar sua magia: a lua negra, Nuitari; a lua vermelha, Lunitari; ou a lua branca, Solinari. Você aprende um truque à sua escolha da lista de magias de mago e duas magias de 1º nível com base na lua escolhida, conforme especificado na tabela Magias Lunares. Você pode conjurar cada uma das magias de 1º nível escolhidas sem gastar um espaço de magia, e precisa terminar um descanso longo antes de poder conjurá-las dessa forma de novo. Você também pode conjurar as magias usando quaisquer espaços de magia que tenha. Sua habilidade de conjuração para as magias deste talento é Inteligência, Sabedoria ou Carisma (escolha quando selecionar este talento)."
+    "description": "Pré-requisito: nível 1+; nível 1+\n\nVocê recebeu treinamento de usuários de magia ligados aos Magos da Alta Feitiçaria. Escolha uma das três luas de Krynn para influenciar sua magia: a lua negra, Nuitari; a lua vermelha, Lunitari; ou a lua branca, Solinari. Você aprende um truque à sua escolha da lista de magias de mago e duas magias de 1º nível com base na lua escolhida, conforme especificado na tabela Magias Lunares. Você pode conjurar cada uma das magias de 1º nível escolhidas sem gastar um espaço de magia, e precisa terminar um descanso longo antes de poder conjurá-las dessa forma de novo. Você também pode conjurar as magias usando quaisquer espaços de magia que tenha. Sua habilidade de conjuração para as magias deste talento é Inteligência, Sabedoria ou Carisma (escolha quando selecionar este talento).",
+    "data": {
+      "prerequisites": {
+        "2": {
+          "background": {
+            "Mage of High Sorcery": {
+              "name": "Mago da Alta Feitiçaria"
+            }
+          }
+        }
+      },
+      "additionalSpells": {
+        "Nuitari": {
+          "name": "Nuitari"
+        },
+        "Lunitari": {
+          "name": "Lunitari"
+        },
+        "Solinari": {
+          "name": "Solinari"
+        }
+      }
+    },
+    "name": "Iniciado da Alta Feitiçaria"
   },
   "knight-of-the-crown": {
-    "description": "Pré-requisito: nível 4+\n\nVocê é um Cavaleiro de Solamnia ligado à Ordem da Coroa, um grupo que exalta as virtudes da cooperação, da lealdade e da obediência. Você se destaca no combate em grupo e recebe estes benefícios: Reunião de Comando. Com uma ação bônus, você pode comandar um aliado a até 9 metros de você para atacar. Se esse aliado puder vê-lo ou ouvi-lo, ele pode fazer imediatamente um ataque com arma como reação. Se o ataque acertar, o aliado pode rolar um d8 e somar o número rolado como bônus na jogada de dano do ataque. Você pode usar esta ação bônus um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos quando termina um descanso longo. Participação nas Ordens de Cavalaria. Os Cavaleiros de Solamnia só são membros de uma das ordens da organização por vez. Durante o treinamento, a maioria dos cavaleiros começa como membro dos Cavaleiros da Coroa e depois passa a outras ordens. Seja qual for o caminho que o personagem siga, ele mantém o que aprendeu como membro de uma ordem mesmo que entre em outra. Os personagens podem mudar de ordem de cavalaria, mas sempre têm acesso a quaisquer talentos de Cavaleiro de Solamnia que tenham adquirido."
+    "description": "Pré-requisito: nível 4+\n\nVocê é um Cavaleiro de Solamnia ligado à Ordem da Coroa, um grupo que exalta as virtudes da cooperação, da lealdade e da obediência. Você se destaca no combate em grupo e recebe estes benefícios: Reunião de Comando. Com uma ação bônus, você pode comandar um aliado a até 9 metros de você para atacar. Se esse aliado puder vê-lo ou ouvi-lo, ele pode fazer imediatamente um ataque com arma como reação. Se o ataque acertar, o aliado pode rolar um d8 e somar o número rolado como bônus na jogada de dano do ataque. Você pode usar esta ação bônus um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos quando termina um descanso longo. Participação nas Ordens de Cavalaria. Os Cavaleiros de Solamnia só são membros de uma das ordens da organização por vez. Durante o treinamento, a maioria dos cavaleiros começa como membro dos Cavaleiros da Coroa e depois passa a outras ordens. Seja qual for o caminho que o personagem siga, ele mantém o que aprendeu como membro de uma ordem mesmo que entre em outra. Os personagens podem mudar de ordem de cavalaria, mas sempre têm acesso a quaisquer talentos de Cavaleiro de Solamnia que tenham adquirido.",
+    "name": "Cavaleiro da Coroa"
   },
   "knight-of-the-rose": {
-    "description": "Pré-requisito: nível 4+\n\nVocê é um Cavaleiro de Solamnia ligado à Ordem da Rosa, um grupo conhecido pela liderança, pela justiça e pela sabedoria. Sua determinação lhe concede estes benefícios: Reunião Fortalecedora. Com uma ação bônus, você pode encorajar uma criatura que possa ver a até 9 metros de você (pode escolher a si mesmo). Se o alvo puder vê-lo ou ouvi-lo, ele recebe pontos de vida temporários iguais a 1d8 + seu bônus de proficiência + o modificador do valor de habilidade aumentado por este talento. Você pode usar esta ação bônus um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos quando termina um descanso longo. Participação nas Ordens de Cavalaria. Os Cavaleiros de Solamnia só são membros de uma das ordens da organização por vez. Durante o treinamento, a maioria dos cavaleiros começa como membro dos Cavaleiros da Coroa e depois passa a outras ordens. Seja qual for o caminho que o personagem siga, ele mantém o que aprendeu como membro de uma ordem mesmo que entre em outra. Os personagens podem mudar de ordem de cavalaria, mas sempre têm acesso a quaisquer talentos de Cavaleiro de Solamnia que tenham adquirido."
+    "description": "Pré-requisito: nível 4+\n\nVocê é um Cavaleiro de Solamnia ligado à Ordem da Rosa, um grupo conhecido pela liderança, pela justiça e pela sabedoria. Sua determinação lhe concede estes benefícios: Reunião Fortalecedora. Com uma ação bônus, você pode encorajar uma criatura que possa ver a até 9 metros de você (pode escolher a si mesmo). Se o alvo puder vê-lo ou ouvi-lo, ele recebe pontos de vida temporários iguais a 1d8 + seu bônus de proficiência + o modificador do valor de habilidade aumentado por este talento. Você pode usar esta ação bônus um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos quando termina um descanso longo. Participação nas Ordens de Cavalaria. Os Cavaleiros de Solamnia só são membros de uma das ordens da organização por vez. Durante o treinamento, a maioria dos cavaleiros começa como membro dos Cavaleiros da Coroa e depois passa a outras ordens. Seja qual for o caminho que o personagem siga, ele mantém o que aprendeu como membro de uma ordem mesmo que entre em outra. Os personagens podem mudar de ordem de cavalaria, mas sempre têm acesso a quaisquer talentos de Cavaleiro de Solamnia que tenham adquirido.",
+    "name": "Cavaleiro da Rosa"
   },
   "knight-of-the-sword": {
-    "description": "Pré-requisito: nível 4+\n\nVocê é um Cavaleiro de Solamnia ligado à Ordem da Espada, um grupo devotado ao heroísmo e à coragem. A bravura fortalece seu espírito, o que lhe concede estes benefícios: Golpe Desmoralizante. Uma vez por turno, quando atingir uma criatura com uma jogada de ataque com arma, você pode tentar amedrontar esse alvo. O alvo precisa fazer um teste de resistência de Sabedoria (CD igual a 8 + seu bônus de proficiência + o modificador do valor aumentado por este talento). Se falhar, o alvo fica amedrontado por você até o fim do seu próximo turno. Se for bem-sucedido, o alvo tem desvantagem na próxima jogada de ataque que fizer antes do fim do próximo turno dele. Você pode usar este benefício um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos quando termina um descanso longo. Participação nas Ordens de Cavalaria. Os Cavaleiros de Solamnia só são membros de uma das ordens da organização por vez. Durante o treinamento, a maioria dos cavaleiros começa como membro dos Cavaleiros da Coroa e depois passa a outras ordens. Seja qual for o caminho que o personagem siga, ele mantém o que aprendeu como membro de uma ordem mesmo que entre em outra. Os personagens podem mudar de ordem de cavalaria, mas sempre têm acesso a quaisquer talentos de Cavaleiro de Solamnia que tenham adquirido."
+    "description": "Pré-requisito: nível 4+\n\nVocê é um Cavaleiro de Solamnia ligado à Ordem da Espada, um grupo devotado ao heroísmo e à coragem. A bravura fortalece seu espírito, o que lhe concede estes benefícios: Golpe Desmoralizante. Uma vez por turno, quando atingir uma criatura com uma jogada de ataque com arma, você pode tentar amedrontar esse alvo. O alvo precisa fazer um teste de resistência de Sabedoria (CD igual a 8 + seu bônus de proficiência + o modificador do valor aumentado por este talento). Se falhar, o alvo fica amedrontado por você até o fim do seu próximo turno. Se for bem-sucedido, o alvo tem desvantagem na próxima jogada de ataque que fizer antes do fim do próximo turno dele. Você pode usar este benefício um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos quando termina um descanso longo. Participação nas Ordens de Cavalaria. Os Cavaleiros de Solamnia só são membros de uma das ordens da organização por vez. Durante o treinamento, a maioria dos cavaleiros começa como membro dos Cavaleiros da Coroa e depois passa a outras ordens. Seja qual for o caminho que o personagem siga, ele mantém o que aprendeu como membro de uma ordem mesmo que entre em outra. Os personagens podem mudar de ordem de cavalaria, mas sempre têm acesso a quaisquer talentos de Cavaleiro de Solamnia que tenham adquirido.",
+    "name": "Cavaleiro da Espada"
   },
   "squire-of-solamnia": {
-    "description": "Pré-requisito: nível 1+; nível 1+\n\nSeu treinamento nos costumes dos Cavaleiros de Solamnia lhe concede estes benefícios: Montar. Montar ou desmontar custa só 1,5 metro do seu movimento. Golpe Preciso. Uma vez por turno, quando fizer uma jogada de ataque com arma contra uma criatura, você pode fazer a jogada de ataque ter vantagem. Se o ataque acertar, você rola um d8 e soma o número rolado como bônus na jogada de dano do ataque. Você pode usar este benefício um número de vezes igual ao seu bônus de proficiência, mas um uso só é gasto se o ataque acertar. Você recupera todos os usos gastos quando termina um descanso longo. Participação nas Ordens de Cavalaria. Os Cavaleiros de Solamnia só são membros de uma das ordens da organização por vez. Durante o treinamento, a maioria dos cavaleiros começa como membro dos Cavaleiros da Coroa e depois passa a outras ordens. Seja qual for o caminho que o personagem siga, ele mantém o que aprendeu como membro de uma ordem mesmo que entre em outra. Os personagens podem mudar de ordem de cavalaria, mas sempre têm acesso a quaisquer talentos de Cavaleiro de Solamnia que tenham adquirido."
+    "description": "Pré-requisito: nível 1+; nível 1+\n\nSeu treinamento nos costumes dos Cavaleiros de Solamnia lhe concede estes benefícios: Montar. Montar ou desmontar custa só 1,5 metro do seu movimento. Golpe Preciso. Uma vez por turno, quando fizer uma jogada de ataque com arma contra uma criatura, você pode fazer a jogada de ataque ter vantagem. Se o ataque acertar, você rola um d8 e soma o número rolado como bônus na jogada de dano do ataque. Você pode usar este benefício um número de vezes igual ao seu bônus de proficiência, mas um uso só é gasto se o ataque acertar. Você recupera todos os usos gastos quando termina um descanso longo. Participação nas Ordens de Cavalaria. Os Cavaleiros de Solamnia só são membros de uma das ordens da organização por vez. Durante o treinamento, a maioria dos cavaleiros começa como membro dos Cavaleiros da Coroa e depois passa a outras ordens. Seja qual for o caminho que o personagem siga, ele mantém o que aprendeu como membro de uma ordem mesmo que entre em outra. Os personagens podem mudar de ordem de cavalaria, mas sempre têm acesso a quaisquer talentos de Cavaleiro de Solamnia que tenham adquirido.",
+    "data": {
+      "prerequisites": {
+        "2": {
+          "background": {
+            "Knight of Solamnia": {
+              "name": "Cavaleiro de Solamnia"
+            }
+          }
+        }
+      }
+    },
+    "name": "Escudeiro de Solamnia"
   },
   "ember-of-the-fire-giant": {
-    "description": "Pré-requisito: nível 4+\n\nVocê manifestou o combate flamejante característico dos gigantes do fogo, o que lhe concede os seguintes benefícios: Nascido da Chama. Você tem resistência a dano de fogo. Ignição Escaldante. Quando realizar a ação Atacar no seu turno, você pode substituir um único ataque por uma explosão mágica de chamas. Cada criatura à sua escolha numa esfera de 4,5 metros de raio centrada em você precisa fazer um teste de resistência de Destreza (CD igual a 8 + seu bônus de proficiência + o modificador da habilidade aumentada por este talento). Se falhar, a criatura sofre dano de fogo igual a 1d8 + seu bônus de proficiência e fica com a condição cego até o início do seu próximo turno. Se for bem-sucedida, a criatura sofre apenas metade desse dano. Você pode usar sua Ignição Escaldante um número de vezes igual ao seu bônus de proficiência (mas não mais de uma vez por turno) e recupera todos os usos gastos quando termina um descanso longo."
+    "description": "Pré-requisito: nível 4+\n\nVocê manifestou o combate flamejante característico dos gigantes do fogo, o que lhe concede os seguintes benefícios: Nascido da Chama. Você tem resistência a dano de fogo. Ignição Escaldante. Quando realizar a ação Atacar no seu turno, você pode substituir um único ataque por uma explosão mágica de chamas. Cada criatura à sua escolha numa esfera de 4,5 metros de raio centrada em você precisa fazer um teste de resistência de Destreza (CD igual a 8 + seu bônus de proficiência + o modificador da habilidade aumentada por este talento). Se falhar, a criatura sofre dano de fogo igual a 1d8 + seu bônus de proficiência e fica com a condição cego até o início do seu próximo turno. Se for bem-sucedida, a criatura sofre apenas metade desse dano. Você pode usar sua Ignição Escaldante um número de vezes igual ao seu bônus de proficiência (mas não mais de uma vez por turno) e recupera todos os usos gastos quando termina um descanso longo.",
+    "name": "Brasa do Gigante do Fogo"
   },
   "fury-of-the-frost-giant": {
-    "description": "Pré-requisito: nível 4+\n\nVocê manifestou o poder gélido característico dos gigantes do gelo, o que lhe concede os seguintes benefícios: Nascido do Gelo. Você tem resistência a dano de frio. Retaliação Glacial. Imediatamente depois que uma criatura que você possa ver a até 9 metros de você o atingir com uma jogada de ataque e causar dano, você pode usar sua reação para retaliar com uma rajada de gelo conjurada. A criatura precisa fazer um teste de resistência de Constituição (CD igual a 8 + seu bônus de proficiência + o modificador da habilidade aumentada por este talento). Se falhar, a criatura sofre dano de frio igual a 1d8 + seu bônus de proficiência e tem o deslocamento reduzido a 0 até o fim do próximo turno dela. Você pode usar esta reação um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos quando termina um descanso longo."
+    "description": "Pré-requisito: nível 4+\n\nVocê manifestou o poder gélido característico dos gigantes do gelo, o que lhe concede os seguintes benefícios: Nascido do Gelo. Você tem resistência a dano de frio. Retaliação Glacial. Imediatamente depois que uma criatura que você possa ver a até 9 metros de você o atingir com uma jogada de ataque e causar dano, você pode usar sua reação para retaliar com uma rajada de gelo conjurada. A criatura precisa fazer um teste de resistência de Constituição (CD igual a 8 + seu bônus de proficiência + o modificador da habilidade aumentada por este talento). Se falhar, a criatura sofre dano de frio igual a 1d8 + seu bônus de proficiência e tem o deslocamento reduzido a 0 até o fim do próximo turno dela. Você pode usar esta reação um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos quando termina um descanso longo.",
+    "name": "Fúria do Gigante do Gelo"
   },
   "guile-of-the-cloud-giant": {
-    "description": "Pré-requisito: nível 4+\n\nVocê manifestou a magia desconcertante característica dos gigantes das nuvens, o que lhe concede os seguintes benefícios: Fuga Nebulosa. Quando uma criatura que você possa ver o atingir com uma jogada de ataque, você pode usar sua reação para ganhar resistência ao dano desse ataque. Então você se teletransporta para um espaço desocupado que possa ver a até 9 metros de você. Você pode usar esta reação um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos quando termina um descanso longo."
+    "description": "Pré-requisito: nível 4+\n\nVocê manifestou a magia desconcertante característica dos gigantes das nuvens, o que lhe concede os seguintes benefícios: Fuga Nebulosa. Quando uma criatura que você possa ver o atingir com uma jogada de ataque, você pode usar sua reação para ganhar resistência ao dano desse ataque. Então você se teletransporta para um espaço desocupado que possa ver a até 9 metros de você. Você pode usar esta reação um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos quando termina um descanso longo.",
+    "name": "Astúcia do Gigante das Nuvens"
   },
   "keenness-of-the-stone-giant": {
-    "description": "Pré-requisito: nível 4+\n\nVocê manifestou os talentos físicos característicos dos gigantes de pedra, o que lhe concede os seguintes benefícios: Visão das Cavernas. Você ganha visão no escuro com alcance de 18 metros. Se já tiver visão no escuro de outra fonte, o alcance dela aumenta em 18 metros. Arremesso de Pedra. Com uma ação bônus, você pode pegar uma pedra e fazer um ataque mágico com ela. O ataque é um ataque de magia à distância com alcance de 18 metros que usa o valor de habilidade aumentado por este talento como habilidade de conjuração. Ao acertar, a pedra causa 1d10 de dano de energia, e o alvo precisa ser bem-sucedido num teste de resistência de Força (CD igual a 8 + seu bônus de proficiência + o modificador da habilidade de conjuração) ou fica com a condição caído. Você pode usar esta ação bônus um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos quando termina um descanso longo."
+    "description": "Pré-requisito: nível 4+\n\nVocê manifestou os talentos físicos característicos dos gigantes de pedra, o que lhe concede os seguintes benefícios: Visão das Cavernas. Você ganha visão no escuro com alcance de 18 metros. Se já tiver visão no escuro de outra fonte, o alcance dela aumenta em 18 metros. Arremesso de Pedra. Com uma ação bônus, você pode pegar uma pedra e fazer um ataque mágico com ela. O ataque é um ataque de magia à distância com alcance de 18 metros que usa o valor de habilidade aumentado por este talento como habilidade de conjuração. Ao acertar, a pedra causa 1d10 de dano de energia, e o alvo precisa ser bem-sucedido num teste de resistência de Força (CD igual a 8 + seu bônus de proficiência + o modificador da habilidade de conjuração) ou fica com a condição caído. Você pode usar esta ação bônus um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos quando termina um descanso longo.",
+    "name": "Perspicácia do Gigante de Pedra"
   },
   "rune-shaper": {
-    "description": "Você estudou a magia das runas gigantes, o que lhe concede os seguintes benefícios: Compreender Idiomas. Você aprende a magia compreender idiomas. Você pode conjurar essa magia sem gastar um espaço de magia, e precisa terminar um descanso longo antes de poder conjurá-la dessa forma de novo. Você também pode conjurar essa magia usando quaisquer espaços de magia que tenha. Magia Rúnica. Você conhece um número de runas igual à metade do seu bônus de proficiência (arredondado para baixo), escolhidas da tabela Magias Rúnicas. Sempre que terminar um descanso longo, você pode inscrever cada runa que conhece numa arma, armadura, peça de roupa ou outro objeto não mágico que tocar. Você aprende temporariamente as magias de 1º nível correspondentes às runas que inscreveu, conforme especificado na tabela Magias Rúnicas, e conhece essas magias até terminar um descanso longo, quando as runas se apagam. Enquanto estiver vestindo ou carregando qualquer objeto marcado com runa, você pode conjurar as magias associadas a essas runas usando quaisquer espaços de magia que tenha. Você também pode invocar uma runa inscrita num objeto que esteja vestindo ou carregando e conjurar a magia associada sem gastar um espaço de magia nem usar componentes materiais. Depois de conjurar a magia dessa forma, você não pode fazer isso de novo até terminar um descanso longo. Sua habilidade de conjuração para este talento é Inteligência, Sabedoria ou Carisma (escolha quando selecionar este talento). Sempre que subir de nível, você pode trocar uma das runas que conhece por outra da tabela Magias Rúnicas."
+    "description": "Você estudou a magia das runas gigantes, o que lhe concede os seguintes benefícios: Compreender Idiomas. Você aprende a magia compreender idiomas. Você pode conjurar essa magia sem gastar um espaço de magia, e precisa terminar um descanso longo antes de poder conjurá-la dessa forma de novo. Você também pode conjurar essa magia usando quaisquer espaços de magia que tenha. Magia Rúnica. Você conhece um número de runas igual à metade do seu bônus de proficiência (arredondado para baixo), escolhidas da tabela Magias Rúnicas. Sempre que terminar um descanso longo, você pode inscrever cada runa que conhece numa arma, armadura, peça de roupa ou outro objeto não mágico que tocar. Você aprende temporariamente as magias de 1º nível correspondentes às runas que inscreveu, conforme especificado na tabela Magias Rúnicas, e conhece essas magias até terminar um descanso longo, quando as runas se apagam. Enquanto estiver vestindo ou carregando qualquer objeto marcado com runa, você pode conjurar as magias associadas a essas runas usando quaisquer espaços de magia que tenha. Você também pode invocar uma runa inscrita num objeto que esteja vestindo ou carregando e conjurar a magia associada sem gastar um espaço de magia nem usar componentes materiais. Depois de conjurar a magia dessa forma, você não pode fazer isso de novo até terminar um descanso longo. Sua habilidade de conjuração para este talento é Inteligência, Sabedoria ou Carisma (escolha quando selecionar este talento). Sempre que subir de nível, você pode trocar uma das runas que conhece por outra da tabela Magias Rúnicas.",
+    "data": {
+      "prerequisites": {
+        "1": {
+          "background": {
+            "Rune Carver": {
+              "name": "Entalhador de Runas"
+            }
+          }
+        }
+      }
+    },
+    "name": "Moldador de Runas"
   },
   "soul-of-the-storm-giant": {
-    "description": "Pré-requisito: nível 4+\n\nVocê manifestou a magia tempestuosa característica dos gigantes da tempestade, o que lhe concede os seguintes benefícios: Aura do Turbilhão. Com uma ação bônus, você se cerca de uma aura de vento e relâmpagos mágicos que se estende por 3 metros a partir de você em todas as direções, mas não através de cobertura total. A aura dura até o início do seu próximo turno ou até você ficar incapacitado. Enquanto a aura estiver ativa, você tem resistência a dano elétrico e de trovão. Além disso, as jogadas de ataque contra você têm desvantagem, e sempre que outra criatura começar o turno dentro da aura, você pode forçá-la a fazer um teste de resistência de Força (CD igual a 8 + seu bônus de proficiência + o modificador da habilidade aumentada por este talento). Se falhar, o deslocamento da criatura é reduzido à metade até o início do próximo turno dela. Você pode usar esta ação bônus um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos quando termina um descanso longo."
+    "description": "Pré-requisito: nível 4+\n\nVocê manifestou a magia tempestuosa característica dos gigantes da tempestade, o que lhe concede os seguintes benefícios: Aura do Turbilhão. Com uma ação bônus, você se cerca de uma aura de vento e relâmpagos mágicos que se estende por 3 metros a partir de você em todas as direções, mas não através de cobertura total. A aura dura até o início do seu próximo turno ou até você ficar incapacitado. Enquanto a aura estiver ativa, você tem resistência a dano elétrico e de trovão. Além disso, as jogadas de ataque contra você têm desvantagem, e sempre que outra criatura começar o turno dentro da aura, você pode forçá-la a fazer um teste de resistência de Força (CD igual a 8 + seu bônus de proficiência + o modificador da habilidade aumentada por este talento). Se falhar, o deslocamento da criatura é reduzido à metade até o início do próximo turno dela. Você pode usar esta ação bônus um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos quando termina um descanso longo.",
+    "name": "Alma do Gigante da Tempestade"
   },
   "strike-of-the-giants": {
-    "description": "Pré-requisito: proficiência com armas marciais\n\nVocê absorveu uma magia primordial que lhe dá um eco do poder dos gigantes. Quando escolher este talento, escolha um dos benefícios listados abaixo. Uma vez por turno, quando atingir um alvo com um ataque com arma corpo a corpo ou um ataque com arma à distância usando uma arma de arremesso, você pode imbuir o ataque com um efeito adicional que depende do benefício escolhido: Golpe da Nuvem. O alvo sofre 1d4 de dano de trovão extra. Se o alvo for uma criatura, ele precisa ser bem-sucedido num teste de resistência de Sabedoria, ou você fica invisível para ele até o início do seu próximo turno ou até logo depois de fazer uma jogada de ataque ou conjurar uma magia. Golpe do Fogo. O alvo sofre 1d10 de dano de fogo extra. Golpe do Gelo. O alvo sofre 1d6 de dano de frio extra. Se o alvo for uma criatura, ele precisa ser bem-sucedido num teste de resistência de Constituição, ou seu deslocamento é reduzido a 0 até o início do seu próximo turno. Golpe da Colina. O alvo sofre 1d6 de dano extra do tipo da arma. Se o alvo for uma criatura, ele precisa ser bem-sucedido num teste de resistência de Força ou fica com a condição caído. Golpe da Pedra. O alvo sofre 1d6 de dano de energia extra. Se o alvo for uma criatura, ele precisa ser bem-sucedido num teste de resistência de Força ou é empurrado 3 metros para longe de você em linha reta. Golpe da Tempestade. O alvo sofre 1d6 de dano elétrico extra. Se o alvo for uma criatura, ele precisa ser bem-sucedido num teste de resistência de Constituição, ou terá desvantagem em jogadas de ataque até o início do seu próximo turno. A CD do teste de resistência desses efeitos é igual a 8 + seu bônus de proficiência + seu modificador de Força ou Constituição. Você pode usar este talento um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos quando termina um descanso longo."
+    "description": "Pré-requisito: proficiência com armas marciais\n\nVocê absorveu uma magia primordial que lhe dá um eco do poder dos gigantes. Quando escolher este talento, escolha um dos benefícios listados abaixo. Uma vez por turno, quando atingir um alvo com um ataque com arma corpo a corpo ou um ataque com arma à distância usando uma arma de arremesso, você pode imbuir o ataque com um efeito adicional que depende do benefício escolhido: Golpe da Nuvem. O alvo sofre 1d4 de dano de trovão extra. Se o alvo for uma criatura, ele precisa ser bem-sucedido num teste de resistência de Sabedoria, ou você fica invisível para ele até o início do seu próximo turno ou até logo depois de fazer uma jogada de ataque ou conjurar uma magia. Golpe do Fogo. O alvo sofre 1d10 de dano de fogo extra. Golpe do Gelo. O alvo sofre 1d6 de dano de frio extra. Se o alvo for uma criatura, ele precisa ser bem-sucedido num teste de resistência de Constituição, ou seu deslocamento é reduzido a 0 até o início do seu próximo turno. Golpe da Colina. O alvo sofre 1d6 de dano extra do tipo da arma. Se o alvo for uma criatura, ele precisa ser bem-sucedido num teste de resistência de Força ou fica com a condição caído. Golpe da Pedra. O alvo sofre 1d6 de dano de energia extra. Se o alvo for uma criatura, ele precisa ser bem-sucedido num teste de resistência de Força ou é empurrado 3 metros para longe de você em linha reta. Golpe da Tempestade. O alvo sofre 1d6 de dano elétrico extra. Se o alvo for uma criatura, ele precisa ser bem-sucedido num teste de resistência de Constituição, ou terá desvantagem em jogadas de ataque até o início do seu próximo turno. A CD do teste de resistência desses efeitos é igual a 8 + seu bônus de proficiência + seu modificador de Força ou Constituição. Você pode usar este talento um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos quando termina um descanso longo.",
+    "data": {
+      "prerequisites": {
+        "1": {
+          "background": {
+            "Giant Foundling": {
+              "name": "Enjeitado dos Gigantes"
+            }
+          }
+        }
+      }
+    },
+    "name": "Golpe dos Gigantes"
   },
   "vigor-of-the-hill-giant": {
-    "description": "Pré-requisito: nível 4+\n\nVocê manifestou a resiliência característica dos gigantes das colinas, o que lhe concede os seguintes benefícios: Baluarte. Quando for alvo de um efeito que o moveria pelo menos 1,5 metro ou lhe daria a condição caído, você pode usar sua reação para se firmar. Você não é movido e não fica com a condição caído. Estômago de Ferro. Sempre que comer como parte de um descanso curto e gastar um ou mais Dados de Vida para recuperar pontos de vida, você recupera pontos de vida adicionais iguais ao seu modificador de Constituição + seu bônus de proficiência."
+    "description": "Pré-requisito: nível 4+\n\nVocê manifestou a resiliência característica dos gigantes das colinas, o que lhe concede os seguintes benefícios: Baluarte. Quando for alvo de um efeito que o moveria pelo menos 1,5 metro ou lhe daria a condição caído, você pode usar sua reação para se firmar. Você não é movido e não fica com a condição caído. Estômago de Ferro. Sempre que comer como parte de um descanso curto e gastar um ou mais Dados de Vida para recuperar pontos de vida, você recupera pontos de vida adicionais iguais ao seu modificador de Constituição + seu bônus de proficiência.",
+    "name": "Vigor do Gigante da Colina"
   },
   "agent-of-order": {
-    "description": "Pré-requisito: nível 4+\n\nVocê consegue canalizar as forças cósmicas da ordem para receber estes benefícios: Golpe de Estase. Uma vez por turno, quando causar dano a uma criatura que possa ver a até 18 metros de você, você pode causar 1d8 de dano de energia extra ao alvo, e ele precisa fazer um teste de resistência de Sabedoria (CD igual a 8 + seu bônus de proficiência + o modificador da habilidade de conjuração que você escolheu no talento Descendente dos Planos Exteriores) enquanto amarras espectrais tentam prendê-lo. Se for bem-sucedido, o alvo escapa. Se falhar, o alvo fica com a condição contido até o início do seu próximo turno. Essas amarras se manifestam como correntes ou algum outro símbolo de estase. Você pode usar este benefício um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos quando termina um descanso longo."
+    "description": "Pré-requisito: nível 4+\n\nVocê consegue canalizar as forças cósmicas da ordem para receber estes benefícios: Golpe de Estase. Uma vez por turno, quando causar dano a uma criatura que possa ver a até 18 metros de você, você pode causar 1d8 de dano de energia extra ao alvo, e ele precisa fazer um teste de resistência de Sabedoria (CD igual a 8 + seu bônus de proficiência + o modificador da habilidade de conjuração que você escolheu no talento Descendente dos Planos Exteriores) enquanto amarras espectrais tentam prendê-lo. Se for bem-sucedido, o alvo escapa. Se falhar, o alvo fica com a condição contido até o início do seu próximo turno. Essas amarras se manifestam como correntes ou algum outro símbolo de estase. Você pode usar este benefício um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos quando termina um descanso longo.",
+    "name": "Agente da Ordem"
   },
   "baleful-scion": {
-    "description": "Pré-requisito: nível 4+\n\nVocê consegue canalizar as forças cósmicas do mal para receber estes benefícios: Garra da Avareza. Uma vez por turno, quando causar dano a uma criatura que possa ver a até 18 metros de você, você também pode causar dano necrótico a ela. O dano necrótico é igual a 1d6 + seu bônus de proficiência, e você recupera pontos de vida iguais a esse dano necrótico causado. Você pode usar este benefício um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos quando termina um descanso longo."
+    "description": "Pré-requisito: nível 4+\n\nVocê consegue canalizar as forças cósmicas do mal para receber estes benefícios: Garra da Avareza. Uma vez por turno, quando causar dano a uma criatura que possa ver a até 18 metros de você, você também pode causar dano necrótico a ela. O dano necrótico é igual a 1d6 + seu bônus de proficiência, e você recupera pontos de vida iguais a esse dano necrótico causado. Você pode usar este benefício um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos quando termina um descanso longo.",
+    "name": "Herdeiro Funesto"
   },
   "cohort-of-chaos": {
-    "description": "Pré-requisito: nível 4+\n\nVocê consegue canalizar as forças cósmicas do caos para receber estes benefícios: Surto Caótico. Quando tirar 1 ou 20 numa jogada de ataque ou num teste de resistência, a magia do caos flui através de você. Role um d4 e consulte a tabela Surtos Caóticos para determinar o que acontece. Um surto dura até o fim do seu próximo turno, e um novo surto não pode ocorrer até o primeiro terminar."
+    "description": "Pré-requisito: nível 4+\n\nVocê consegue canalizar as forças cósmicas do caos para receber estes benefícios: Surto Caótico. Quando tirar 1 ou 20 numa jogada de ataque ou num teste de resistência, a magia do caos flui através de você. Role um d4 e consulte a tabela Surtos Caóticos para determinar o que acontece. Um surto dura até o fim do seu próximo turno, e um novo surto não pode ocorrer até o primeiro terminar.",
+    "name": "Coorte do Caos"
   },
   "outlands-envoy": {
-    "description": "Pré-requisito: nível 4+\n\nVocê passou muito tempo em Sigil ou nas Terras Exteriores, a encruzilhada do multiverso. Estar impregnado de energias planares convergentes lhe concede estes benefícios: Emissário da Encruzilhada. Você aprende as magias passo nebuloso e idiomas. Você pode conjurar cada magia uma vez usando este talento sem gastar um espaço de magia, e precisa terminar um descanso longo antes de poder conjurar essa magia dessa forma de novo. Quando conjurar idiomas usando este talento, você não precisa de componentes materiais. Você também pode conjurar essas magias usando espaços de magia do nível adequado que tenha. A habilidade de conjuração das magias é a escolhida quando você recebeu o talento Descendente dos Planos Exteriores."
+    "description": "Pré-requisito: nível 4+\n\nVocê passou muito tempo em Sigil ou nas Terras Exteriores, a encruzilhada do multiverso. Estar impregnado de energias planares convergentes lhe concede estes benefícios: Emissário da Encruzilhada. Você aprende as magias passo nebuloso e idiomas. Você pode conjurar cada magia uma vez usando este talento sem gastar um espaço de magia, e precisa terminar um descanso longo antes de poder conjurar essa magia dessa forma de novo. Quando conjurar idiomas usando este talento, você não precisa de componentes materiais. Você também pode conjurar essas magias usando espaços de magia do nível adequado que tenha. A habilidade de conjuração das magias é a escolhida quando você recebeu o talento Descendente dos Planos Exteriores.",
+    "name": "Enviado das Terras Exteriores"
   },
   "planar-wanderer": {
-    "description": "Pré-requisito: nível 4+\n\nVocê consegue recorrer às forças do multiverso para sobreviver aos extremos cósmicos e atravessar seus reinos infinitos, o que lhe concede estes benefícios: Adaptação Planar. Quando terminar um descanso longo, você ganha resistência a dano ácido, de frio ou de fogo (à sua escolha) até terminar seu próximo descanso longo. Arrombador de Portais. Sua experiência com portais lhe permite abri-los sem uma chave de portal. Com uma ação, você pode se concentrar num portal que conheça a até 1,5 metro de você e fazer um teste de Inteligência (Arcanismo) CD 20. Se falhar, você sofre 3d8 de dano psíquico e não pode usar este benefício nesse portal de novo até terminar um descanso longo. Se for bem-sucedido, você pode forçar o portal a se abrir ou fechar por 1 hora. Durante esse tempo, o portal não responde à sua chave de portal, a menos que uma criatura que use a chave seja bem-sucedida num teste de Inteligência (Arcanismo) CD 20 com uma ação. Sentido de Portal. Você sabe a direção do último portal planar que usou enquanto você e o portal estiverem no mesmo plano de existência. Além disso, com uma ação, você pode detectar a localização de quaisquer portais a até 9 metros de você que não estejam atrás de cobertura total. Depois de detectar um portal com esta ação, você não pode usá-la de novo até terminar um descanso longo."
+    "description": "Pré-requisito: nível 4+\n\nVocê consegue recorrer às forças do multiverso para sobreviver aos extremos cósmicos e atravessar seus reinos infinitos, o que lhe concede estes benefícios: Adaptação Planar. Quando terminar um descanso longo, você ganha resistência a dano ácido, de frio ou de fogo (à sua escolha) até terminar seu próximo descanso longo. Arrombador de Portais. Sua experiência com portais lhe permite abri-los sem uma chave de portal. Com uma ação, você pode se concentrar num portal que conheça a até 1,5 metro de você e fazer um teste de Inteligência (Arcanismo) CD 20. Se falhar, você sofre 3d8 de dano psíquico e não pode usar este benefício nesse portal de novo até terminar um descanso longo. Se for bem-sucedido, você pode forçar o portal a se abrir ou fechar por 1 hora. Durante esse tempo, o portal não responde à sua chave de portal, a menos que uma criatura que use a chave seja bem-sucedida num teste de Inteligência (Arcanismo) CD 20 com uma ação. Sentido de Portal. Você sabe a direção do último portal planar que usou enquanto você e o portal estiverem no mesmo plano de existência. Além disso, com uma ação, você pode detectar a localização de quaisquer portais a até 9 metros de você que não estejam atrás de cobertura total. Depois de detectar um portal com esta ação, você não pode usá-la de novo até terminar um descanso longo.",
+    "name": "Andarilho Planar"
   },
   "righteous-heritor": {
-    "description": "Pré-requisito: nível 4+\n\nVocê consegue canalizar as forças cósmicas do bem para receber estes benefícios: Aliviar a Dor. Quando você ou uma criatura a até 9 metros de você sofrer dano, você pode usar sua reação para reduzir esse dano em 1d10 + seu bônus de proficiência. Você pode usar este benefício um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos quando termina um descanso longo."
+    "description": "Pré-requisito: nível 4+\n\nVocê consegue canalizar as forças cósmicas do bem para receber estes benefícios: Aliviar a Dor. Quando você ou uma criatura a até 9 metros de você sofrer dano, você pode usar sua reação para reduzir esse dano em 1d10 + seu bônus de proficiência. Você pode usar este benefício um número de vezes igual ao seu bônus de proficiência e recupera todos os usos gastos quando termina um descanso longo.",
+    "name": "Herdeiro Justo"
   },
   "scion-of-the-outer-planes": {
-    "description": "Sua ligação com um Plano Exterior o infunde com a energia de lá. Escolha um tipo de plano listado na tabela Infusão Planar. Sua escolha lhe dá resistência a um tipo de dano e a capacidade de conjurar um truque, conforme especificado na tabela. Você pode conjurar esse truque sem componentes materiais, e sua habilidade de conjuração para ele é Inteligência, Sabedoria ou Carisma (escolha quando selecionar este talento)."
+    "description": "Sua ligação com um Plano Exterior o infunde com a energia de lá. Escolha um tipo de plano listado na tabela Infusão Planar. Sua escolha lhe dá resistência a um tipo de dano e a capacidade de conjurar um truque, conforme especificado na tabela. Você pode conjurar esse truque sem componentes materiais, e sua habilidade de conjuração para ele é Inteligência, Sabedoria ou Carisma (escolha quando selecionar este talento).",
+    "name": "Herdeiro dos Planos Exteriores",
+    "data": {
+      "additionalSpells": {
+        "Chaotic Outer Plane": {
+          "name": "Plano Exterior Caótico"
+        },
+        "Evil Outer Plane": {
+          "name": "Plano Exterior Maligno"
+        },
+        "Good Outer Plane": {
+          "name": "Plano Exterior Bondoso"
+        },
+        "Lawful Outer Plane": {
+          "name": "Plano Exterior Leal"
+        },
+        "The Outlands": {
+          "name": "As Terras Exteriores"
+        }
+      }
+    }
   },
   "cartomancer": {
-    "description": "Pré-requisito: nível 4+\n\nVocê aprendeu a canalizar sua magia através de um baralho. Você pode usar um baralho como foco de conjuração e recebe os seguintes benefícios: Truques com Cartas. Você aprende o truque Prestidigitação e pode usá-lo para criar ilusões que reproduzem os efeitos de mágica de palco. Quando usar Prestidigitação dessa forma, você pode disfarçar os componentes verbais e somáticos da magia como conversa comum e manuseio de cartas. Ás na Manga. Quando terminar um descanso longo, você pode escolher uma magia da lista de magias da sua classe e imbuí-la numa carta. A magia escolhida precisa ter tempo de conjuração de 1 ação e precisa ser de um nível para o qual você tenha espaços de magia. A carta fica imbuída com essa magia por 8 horas. Enquanto a carta estiver imbuída com a magia, você pode usar uma ação bônus para exibir a carta com um floreio e conjurar a magia contida nela. A carta então perde a magia imediatamente."
+    "description": "Pré-requisito: nível 4+\n\nVocê aprendeu a canalizar sua magia através de um baralho. Você pode usar um baralho como foco de conjuração e recebe os seguintes benefícios: Truques com Cartas. Você aprende o truque Prestidigitação e pode usá-lo para criar ilusões que reproduzem os efeitos de mágica de palco. Quando usar Prestidigitação dessa forma, você pode disfarçar os componentes verbais e somáticos da magia como conversa comum e manuseio de cartas. Ás na Manga. Quando terminar um descanso longo, você pode escolher uma magia da lista de magias da sua classe e imbuí-la numa carta. A magia escolhida precisa ter tempo de conjuração de 1 ação e precisa ser de um nível para o qual você tenha espaços de magia. A carta fica imbuída com essa magia por 8 horas. Enquanto a carta estiver imbuída com a magia, você pode usar uma ação bônus para exibir a carta com um floreio e conjurar a magia contida nela. A carta então perde a magia imediatamente.",
+    "name": "Cartomante"
   },
   "vampiric-exultation": {
-    "description": "Pré-requisito: Vampiro (Ixalan)\n\nCom uma ação, você pode transformar a metade inferior do seu corpo num vapor negro como tinta, o que lhe permite flutuar pelo ar. Enquanto estiver transformado, você tem deslocamento de voo de 9 metros. Você pode manter essa forma por até 10 minutos. Depois de usar esta capacidade, você não pode usá-la de novo até terminar um descanso curto ou longo."
+    "description": "Pré-requisito: Vampiro (Ixalan)\n\nCom uma ação, você pode transformar a metade inferior do seu corpo num vapor negro como tinta, o que lhe permite flutuar pelo ar. Enquanto estiver transformado, você tem deslocamento de voo de 9 metros. Você pode manter essa forma por até 10 minutos. Depois de usar esta capacidade, você não pode usá-la de novo até terminar um descanso curto ou longo.",
+    "name": "Exultação Vampírica",
+    "data": {
+      "prerequisites": {
+        "0": {
+          "race": {
+            "Vampire (Ixalan)": {
+              "name": "Vampiro (Ixalan)"
+            }
+          }
+        }
+      }
+    }
   },
   "quicksmithing": {
-    "description": "Pré-requisito: Inteligência 13 ou maior\n\nVocê dominou a arte de inventar, aprimorar e improvisar na hora. Você pode usar seus talentos para criar efeitos mágicos imediatos e de curta duração parecidos com magias, desde que tenha tempo e um suprimento adequado de éter. Quando escolhe este talento, você domina dois efeitos mágicos, cada um reproduzindo o efeito de uma magia de 1º nível com a marcação ritual. Essas magias podem vir de qualquer lista de classe, mas Inteligência é sua habilidade de conjuração para elas. Se encontrar um esquema voltado à forja rápida ou estudar com outro forjador rápido, talvez você consiga acrescentar outra magia aos efeitos que domina. O nível da magia não pode ser maior que metade do seu nível (arredondado para cima), e ela precisa ter a marcação ritual. O processo de dominar a magia leva 2 horas por nível da magia e custa 50 po por nível. O custo representa o éter que você usa enquanto experimenta o efeito da magia para dominá-lo. Além disso, você tem proficiência com ferramentas de artesão (ferramentas de forjador rápido). Usando essas ferramentas, você pode gastar 1 hora e 10 po em materiais para construir um dispositivo mecânico Miúdo (CA 5, 1 PV). O dispositivo para de funcionar depois de 24 horas, a menos que você gaste 1 hora consertando-o para mantê-lo funcionando. Você pode usar sua ação para desmontar o dispositivo e então recuperar os materiais usados para criá-lo. Você pode ter até três desses dispositivos ativos ao mesmo tempo. Quando criar um dispositivo, escolha uma das seguintes opções: Brinquedo Mecânico. Esse brinquedo é um animal, monstro ou pessoa mecânico, como um sapo, um rato, um pássaro, um dragão ou um soldado. Quando colocado no chão, o brinquedo se move 1,5 metro pelo chão em cada um dos seus turnos numa direção aleatória. Ele faz sons adequados à criatura que representa. Acendedor. Esse dispositivo produz uma chama em miniatura, que você pode usar para acender uma vela, uma tocha ou uma fogueira. Usar o dispositivo exige sua ação. Caixa de Música. Quando aberta, essa caixa de música toca uma única canção num volume moderado. A caixa para de tocar quando a canção termina ou quando é fechada."
+    "description": "Pré-requisito: Inteligência 13 ou maior\n\nVocê dominou a arte de inventar, aprimorar e improvisar na hora. Você pode usar seus talentos para criar efeitos mágicos imediatos e de curta duração parecidos com magias, desde que tenha tempo e um suprimento adequado de éter. Quando escolhe este talento, você domina dois efeitos mágicos, cada um reproduzindo o efeito de uma magia de 1º nível com a marcação ritual. Essas magias podem vir de qualquer lista de classe, mas Inteligência é sua habilidade de conjuração para elas. Se encontrar um esquema voltado à forja rápida ou estudar com outro forjador rápido, talvez você consiga acrescentar outra magia aos efeitos que domina. O nível da magia não pode ser maior que metade do seu nível (arredondado para cima), e ela precisa ter a marcação ritual. O processo de dominar a magia leva 2 horas por nível da magia e custa 50 po por nível. O custo representa o éter que você usa enquanto experimenta o efeito da magia para dominá-lo. Além disso, você tem proficiência com ferramentas de artesão (ferramentas de forjador rápido). Usando essas ferramentas, você pode gastar 1 hora e 10 po em materiais para construir um dispositivo mecânico Miúdo (CA 5, 1 PV). O dispositivo para de funcionar depois de 24 horas, a menos que você gaste 1 hora consertando-o para mantê-lo funcionando. Você pode usar sua ação para desmontar o dispositivo e então recuperar os materiais usados para criá-lo. Você pode ter até três desses dispositivos ativos ao mesmo tempo. Quando criar um dispositivo, escolha uma das seguintes opções: Brinquedo Mecânico. Esse brinquedo é um animal, monstro ou pessoa mecânico, como um sapo, um rato, um pássaro, um dragão ou um soldado. Quando colocado no chão, o brinquedo se move 1,5 metro pelo chão em cada um dos seus turnos numa direção aleatória. Ele faz sons adequados à criatura que representa. Acendedor. Esse dispositivo produz uma chama em miniatura, que você pode usar para acender uma vela, uma tocha ou uma fogueira. Usar o dispositivo exige sua ação. Caixa de Música. Quando aberta, essa caixa de música toca uma única canção num volume moderado. A caixa para de tocar quando a canção termina ou quando é fechada.",
+    "name": "Forja Rápida"
   },
   "servo-crafting": {
-    "description": "Pré-requisito: Inteligência 13 ou maior\n\nVocê é hábil na criação de servos — constructos minúsculos que funcionam como assistentes pessoais. Você pode conjurar a magia convocar familiar como ritual, criando um servo para servir como seu familiar em vez de um animal. As estatísticas de um servo aparecem na seção \"Criaturas Artefato\" deste documento. Em todos os outros aspectos, um familiar servo funciona como descrito na magia convocar familiar. Você pode se comunicar telepaticamente com seu familiar servo e perceber pelos sentidos dele enquanto estiverem no mesmo plano de existência. Você pode falar através do seu servo com sua própria voz. Além disso, quando realizar a ação Atacar, você pode abrir mão de um dos seus ataques para permitir que seu familiar servo faça um ataque próprio."
+    "description": "Pré-requisito: Inteligência 13 ou maior\n\nVocê é hábil na criação de servos — constructos minúsculos que funcionam como assistentes pessoais. Você pode conjurar a magia convocar familiar como ritual, criando um servo para servir como seu familiar em vez de um animal. As estatísticas de um servo aparecem na seção \"Criaturas Artefato\" deste documento. Em todos os outros aspectos, um familiar servo funciona como descrito na magia convocar familiar. Você pode se comunicar telepaticamente com seu familiar servo e perceber pelos sentidos dele enquanto estiverem no mesmo plano de existência. Você pode falar através do seu servo com sua própria voz. Além disso, quando realizar a ação Atacar, você pode abrir mão de um dos seus ataques para permitir que seu familiar servo faça um ataque próprio.",
+    "name": "Fabricação de Servos"
   }
 }

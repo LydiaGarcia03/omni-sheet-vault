@@ -6,6 +6,27 @@ Format: `## YYYY-MM-DD — short title`, then what changed, why, and anything
 deliberately left out.
 
 ---
+## 2026-11-07 — Names from the Brazilian books, merged; README
+
+- **Translations:**
+  - The four owner worksheets were filled from the owner's PT-BR books and
+    merged:
+    - D&D sheet labels (139 terms) and option names (2,107);
+    - VtM content terms (515) and sheet labels (55).
+  - Method and choices are in `features/localization.md`, "Names from the
+    Brazilian books" (e.g. "Ki" kept over the PHB PDF's "Chi").
+  - The D&D kinds `classes`, `subclasses`, `species`, `backgrounds`, `feats`
+    and `optional_features` were reimported.
+- **README:**
+  - Written from scratch: features, game systems, screenshots and an animated
+    tour (`docs/screenshots/`), running it locally, building the desktop
+    edition.
+  - Licence notes, using the same notices as the app's footers.
+- **Left out:**
+  - D&D spells, conditions, mechanics, languages, items and creatures (D3–D5).
+  - Daggerheart translation (L5).
+  - The localization tests.
+
 ## 2026-11-07 — PR 13: Daggerheart reliability issues
 
 - **SonarCloud:** the gate failed on reliability (C) with four issues.

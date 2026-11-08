@@ -99,7 +99,8 @@ file per entry until L5; the readers take both (`CatalogueEntryFiles`).
 }
 ```
 
-- **Current worksheets:**
+- **Past worksheets** (all merged and removed on 2026-11-07; new batches
+  follow the same shape):
   - `translation-worksheets/vtm-v5/01-content-terms.pt-BR.json`, with 568
     VtM terms from `vtm5-content.en.json`: attributes, dot scale, skills,
     specialties, disciplines and powers, clans, banes and compulsions,
@@ -273,9 +274,32 @@ not the port.
     see "API language (L3)";
   - first owner worksheet: `translation-worksheets/vtm-v5/01-content-terms.pt-BR.json`.
 - **L4 done (2026-10-14), VtM:** see "VtM (L4)".
-- **Now: D&D (L6+)**, moved ahead of Daggerheart by the owner on 2026-10-14
-  while the VtM worksheets are being filled. Daggerheart (L5) follows it. See
-  "D&D (L6)".
+- **Now: D&D (L6+)**, moved ahead of Daggerheart by the owner on 2026-10-14.
+  Daggerheart (L5) follows it. See "D&D (L6)".
+- **Worksheets merged (2026-11-07):** all four (D&D 01 and 02, VtM 01 and 02)
+  were filled and merged, so `translation-worksheets/` is empty. See "Names
+  from the Brazilian books" below.
+
+### Names from the Brazilian books
+
+- **Sources:** the owner's PT-BR PDFs.
+  - D&D: Livro do Jogador, Guia do Mestre, Manual dos Monstros, Xanathar,
+    Volo, Costa da Espada, Compêndio Elemental.
+  - VtM: the V5 Livro Básico.
+- **Method:** each name was checked against the books' text; when missing,
+  the book's headings and tables gave the official one. 1,176 of the 2,110
+  D&D names come from those books. The rest (Tasha, Eberron, Ravnica,
+  Wildemount…) follow the same terminology.
+- **Choices:**
+  - The PHB PDF is a community translation: it says "Chi" and carries the UA
+    revised ranger. The app keeps "Ki", as the later books and the long texts
+    do, and "Arquétipo de Patrulheiro".
+  - Book typos are fixed ("Bênção", "Redenção", "Fênix").
+- **VtM:**
+  - Book terms used: Checagem de Sangue (Rouse Check), Pilar (Touchstone),
+    Qualidade (Merit), Ficha de Conhecimento (Loresheet).
+  - Clan bane names, specialties and supplement-only loresheets are not in
+    the core book and were translated in the same style.
 
 ### VtM (L4)
 
@@ -520,8 +544,12 @@ next:
   (and of `optional-features`) carries a translation. Checked in pt-BR:
   catalogue descriptions of Fairy, Tortle, Grung, Locathah, Echo Knight, the
   Mystic subclasses and the Strixhaven feats; on Vex's sheet, the Changeling
-  traits and the Shapechanger action. Names stay English until the owner's
-  worksheet 02 is merged.
+  traits and the Shapechanger action.
+- **Names merged (2026-11-07):** worksheets 01 and 02 were merged and the six
+  kinds reimported. Checked in pt-BR on Mez's sheet: abilities, skills, metres
+  and the warlock's features (Magia de Pacto, Patrono Transcendental).
+  Proficiency lists, languages, senses and damage types still show English;
+  they come with D4 and D5.
 - **Next:**
   - Spells (D3), then conditions, mechanics and languages (D4) and items
     (D5).
