@@ -130,9 +130,18 @@
     "disadvantage": "desvantagem",
     "now": "agora",
     "underAMinute": "há < 1 min",
-    "minutesAgo": { "one": "há {count} min", "other": "há {count} min" },
-    "hoursAgo": { "one": "há {count} hora", "other": "há {count} horas" },
-    "daysAgo": { "one": "há {count} dia", "other": "há {count} dias" }
+    "minutesAgo": {
+      "one": "há {count} min",
+      "other": "há {count} min"
+    },
+    "hoursAgo": {
+      "one": "há {count} hora",
+      "other": "há {count} horas"
+    },
+    "daysAgo": {
+      "one": "há {count} dia",
+      "other": "há {count} dias"
+    }
   },
   "customActions": {
     "title": "Gerenciar ações personalizadas",
@@ -187,5 +196,37 @@
     "spendOne": "Gastar o uso {number}",
     "restoreOne": "Recuperar o uso {number}",
     "remaining": "{remaining} de {max}"
+  },
+  "terms": {
+    "shortRest": "Descanso Curto",
+    "longRest": "Descanso Longo",
+    "conditions": "Condições",
+    "exhaustion": "Exaustão",
+    "concentration": "Concentração",
+    "spellSlots": "Espaços de Magia",
+    "knownSpells": "Magias Conhecidas",
+    "spellsKnown": "Magias Conhecidas",
+    "preparedSpells": "Magias Preparadas",
+    "cantrip": "Truque",
+    "cantrips": "Truques",
+    "alwaysPrepared": "Sempre Preparada",
+    "maxHitPoints": "Pontos de Vida Máximos",
+    "equipment": "Equipamento",
+    "backpack": "Mochila",
+    "bagOfHolding": "Mochila de Carga",
+    "otherPossessions": "Outros Pertences",
+    "armor": "Armadura",
+    "potion": "Poção",
+    "ring": "Anel",
+    "rod": "Bastão",
+    "scroll": "Pergaminho",
+    "staff": "Cajado",
+    "wand": "Varinha",
+    "weapon": "Arma",
+    "wondrous": "Item Maravilhoso",
+    "otherGear": "Outros Equipamentos",
+    "treasure": "Tesouro",
+    "spell": "Magia",
+    "requiresAttunement": "Requer Sintonização"
   }
 }
