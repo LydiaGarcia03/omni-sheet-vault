@@ -14,8 +14,9 @@ deliberately left out.
 - **Tour:** `docs/screenshots/tour.webp` is now four stills (characters page,
   D&D 5e, Vampire 5e and Daggerheart sheets), each held 3.2 s with a short
   crossfade, built from the existing WebP screenshots (16 frames, about 620 KB).
-- **A closer look:** a 2×2 grid of the same four screens. The builder, dice
-  history and PT-BR sheet screenshots were removed from `docs/screenshots/`.
+- **A closer look:** removed, since it repeated the tour's screens. The stills
+  are gone from `docs/screenshots/`, which now holds only `tour.webp`; new
+  screenshots are needed to rebuild it.
 
 ## 2026-11-07 — Names from the Brazilian books, merged; README
 

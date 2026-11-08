@@ -68,33 +68,6 @@ Besides the server edition, a Windows desktop edition bundles everything (Java, 
 | **Daggerheart** (SRD 2.0, incl. Hope & Fear) | Builder, sheet with domain cards and loadout, Hope, Stress and armor slots, Duality dice rolled on the server, level up 1–10 |
 | Pathfinder 2e · Call of Cthulhu · Tormenta20 | Coming soon |
 
-## 📸 A closer look
-
-<div align="center">
-<table>
-<tr>
-<td align="center" valign="top" width="50%">
-<img src="docs/screenshots/characters.webp" alt="The character list: one card per character with portrait, class and level, grouped by system, and a strip to start a character in D&D 5e, Vampire 5e or Daggerheart" width="430">
-<br><sub><b>Your characters</b> — every system in one vault</sub>
-</td>
-<td align="center" valign="top" width="50%">
-<img src="docs/screenshots/dnd-sheet.webp" alt="A D&D 5e sheet: abilities, saving throws, senses, skills, armor class, hit points and the actions tab with weapon attacks and cantrips" width="430">
-<br><sub><b>D&D 5e</b> — a sheet that knows its rules</sub>
-</td>
-</tr>
-<tr>
-<td align="center" valign="top" width="50%">
-<img src="docs/screenshots/vtm-sheet.webp" alt="A Vampire: The Masquerade sheet: attributes, Health, Willpower, Hunger and Humanity, the Blood, bane and compulsion, skills and disciplines with their powers and dice pools" width="430">
-<br><sub><b>Vampire 5e</b> — Hunger, Humanity and disciplines</sub>
-</td>
-<td align="center" valign="top" width="50%">
-<img src="docs/screenshots/daggerheart-sheet.webp" alt="A Daggerheart sheet: evasion, armor and traits, hit points and stress, active weapons, Hope and experiences, and the loadout of domain cards" width="430">
-<br><sub><b>Daggerheart</b> — Hope, Stress and domain cards</sub>
-</td>
-</tr>
-</table>
-</div>
-
 ## 🛠️ Tech stack
 
 | Layer | Tools |
